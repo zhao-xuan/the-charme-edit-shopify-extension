@@ -1,0 +1,28 @@
+{
+  "name": "charme-custom-picker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Charmé-style charm customizer for phone cases & canvas totes (React + Ant Design)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "assets": "node scripts/process-assets.mjs",
+    "tote": "node scripts/process-tote.mjs",
+    "patches": "node scripts/process-patches.mjs",
+    "build:shopify": "node shopify/scripts/copy-assets.mjs && vite build --config vite.shopify.config.js",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name charme-customizer"
+  },
+  "dependencies": {
+    "antd": "^5.21.6",
+    "@ant-design/icons": "^5.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "sharp": "^0.33.5",
+    "vite": "^5.4.10"
+  }
+}

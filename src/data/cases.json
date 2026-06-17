@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-06-16T00:07:18.976Z",
+  "source": "apple.com black silicone renders (Wayback Machine + live store); white = clean pure-white recolour of each black render",
+  "cases": {
+    "iphone-7": {
+      "aspect": 0.5016,
+      "images": {
+        "black": "/assets/cases/iphone-7-black.png",
+        "white": "/assets/cases/iphone-7-white.png"
+      }
+    },
+    "iphone-8": {
+      "aspect": 0.5016,
+      "images": {
+        "black": "/assets/cases/iphone-8-black.png",
+        "white": "/assets/cases/iphone-8-white.png"
+      }
+    },
+    "iphone-7-plus": {
+      "aspect": 0.5044,
+      "images": {
+        "black": "/assets/cases/iphone-7-plus-black.png",
+        "white": "/assets/cases/iphone-7-plus-white.png"
+      }
+    },
+    "iphone-8-plus": {
+      "aspect": 0.5044,
+      "images": {
+        "black": "/assets/cases/iphone-8-plus-black.png",
+        "white": "/assets/cases/iphone-8-plus-white.png"
+      }
+    },
+    "iphone-x": {
+      "aspect": 0.5098,
+      "images": {
+        "black": "/assets/cases/iphone-x-black.png",
+        "white": "/assets/cases/iphone-x-white.png"
+      }
+    },
+    "iphone-xs": {
+      "aspect": 0.5087,
+      "images": {
+        "black": "/assets/cases/iphone-xs-black.png",
+        "white": "/assets/cases/iphone-xs-white.png"
+      }
+    },
+    "iphone-xs-max": {
+      "aspect": 0.5044,
+      "images": {
+        "black": "/assets/cases/iphone-xs-max-black.png",
+        "white": "/assets/cases/iphone-xs-max-white.png"
+      }
+    },
+    "iphone-11": {
+      "aspect": 0.5148,
+      "images": {
+        "black": "/assets/cases/iphone-11-black.png",
+        "white": "/assets/cases/iphone-11-white.png"
+      }
+    },
+    "iphone-11-pro": {
+      "aspect": 0.5087,
+      "images": {
+        "black": "/assets/cases/iphone-11-pro-black.png",
+        "white": "/assets/cases/iphone-11-pro-white.png"
+      }
+    },
+    "iphone-11-pro-max": {
+      "aspect": 0.5052,
+      "images": {
+        "black": "/assets/cases/iphone-11-pro-max-black.png",
+        "white": "/assets/cases/iphone-11-pro-max-white.png"
+      }
+    },
+    "iphone-12-mini": {
+      "aspect": 0.5085,
+      "images": {
+        "black": "/assets/cases/iphone-12-mini-black.png",
+        "white": "/assets/cases/iphone-12-mini-white.png"
+      }
+    },
+    "iphone-12": {
+      "aspect": 0.5061,
+      "images": {
+        "black": "/assets/cases/iphone-12-black.png",
+        "white": "/assets/cases/iphone-12-white.png"
+      }
+    },
+    "iphone-12-pro": {
+      "aspect": 0.5061,
+      "images": {
+        "black": "/assets/cases/iphone-12-pro-black.png",
+        "white": "/assets/cases/iphone-12-pro-white.png"
+      }
+    },
+    "iphone-12-pro-max": {
+      "aspect": 0.5,
+      "images": {
+        "black": "/assets/cases/iphone-12-pro-max-black.png",
+        "white": "/assets/cases/iphone-12-pro-max-white.png"
+      }
+    },
+    "iphone-13-mini": {
+      "aspect": 0.5041,
+      "images": {
+        "black": "/assets/cases/iphone-13-mini-black.png",
+        "white": "/assets/cases/iphone-13-mini-white.png"
+      }
+    },
+    "iphone-13": {
+      "aspect": 0.5014,
+      "images": {
+        "black": "/assets/cases/iphone-13-black.png",
+        "white": "/assets/cases/iphone-13-white.png"
+      }
+    },
+    "iphone-13-pro": {
+      "aspect": 0.5019,
+      "images": {
+        "black": "/assets/cases/iphone-13-pro-black.png",
+        "white": "/assets/cases/iphone-13-pro-white.png"
+      }
+    },
+    "iphone-13-pro-max": {
+      "aspect": 0.4989,
+      "images": {
+        "black": "/assets/cases/iphone-13-pro-max-black.png",
+        "white": "/assets/cases/iphone-13-pro-max-white.png"
+      }
+    },
+    "iphone-14": {
+      "aspect": 0.5025,
+      "images": {
+        "black": "/assets/cases/iphone-14-black.png",
+        "white": "/assets/cases/iphone-14-white.png"
+      }
+    },
+    "iphone-14-plus": {
+      "aspect": 0.5,
+      "images": {
+        "black": "/assets/cases/iphone-14-plus-black.png",
+        "white": "/assets/cases/iphone-14-plus-white.png"
+      }
+    },
+    "iphone-14-pro": {
+      "aspect": 0.4997,
+      "images": {
+        "black": "/assets/cases/iphone-14-pro-black.png",
+        "white": "/assets/cases/iphone-14-pro-white.png"
+      }
+    },
+    "iphone-14-pro-max": {
+      "aspect": 0.4981,
+      "images": {
+        "black": "/assets/cases/iphone-14-pro-max-black.png",
+        "white": "/assets/cases/iphone-14-pro-max-white.png"
+      }
+    },
+    "iphone-15": {
+      "aspect": 0.5014,
+      "images": {
+        "black": "/assets/cases/iphone-15-black.png",
+        "white": "/assets/cases/iphone-15-white.png"
+      }
+    },
+    "iphone-15-plus": {
+      "aspect": 0.4981,
+      "images": {
+        "black": "/assets/cases/iphone-15-plus-black.png",
+        "white": "/assets/cases/iphone-15-plus-white.png"
+      }
+    },
+    "iphone-15-pro": {
+      "aspect": 0.4978,
+      "images": {
+        "black": "/assets/cases/iphone-15-pro-black.png",
+        "white": "/assets/cases/iphone-15-pro-white.png"
+      }
+    },
+    "iphone-15-pro-max": {
+      "aspect": 0.4945,
+      "images": {
+        "black": "/assets/cases/iphone-15-pro-max-black.png",
+        "white": "/assets/cases/iphone-15-pro-max-white.png"
+      }
+    },
+    "iphone-16-pro-max": {
+      "aspect": 0.4902,
+      "images": {
+        "black": "/assets/cases/iphone-16-pro-max-black.png",
+        "white": "/assets/cases/iphone-16-pro-max-white.png"
+      }
+    },
+    "iphone-17": {
+      "aspect": 0.4983,
+      "images": {
+        "black": "/assets/cases/iphone-17-black.png",
+        "white": "/assets/cases/iphone-17-white.png"
+      }
+    },
+    "iphone-17-pro": {
+      "aspect": 0.5003,
+      "images": {
+        "black": "/assets/cases/iphone-17-pro-black.png",
+        "white": "/assets/cases/iphone-17-pro-white.png"
+      }
+    },
+    "iphone-17-pro-max": {
+      "aspect": 0.4964,
+      "images": {
+        "black": "/assets/cases/iphone-17-pro-max-black.png",
+        "white": "/assets/cases/iphone-17-pro-max-white.png"
+      }
+    }
+  }
+}

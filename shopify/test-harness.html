@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Charmé Customizer — Shopify embed harness</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./extensions/charme-customizer/assets/charme-customizer.css" />
+    <style>
+      body { margin: 0; font-family: Jost, sans-serif; background: #efe6d8; }
+      .pdp { max-width: 1200px; margin: 0 auto; padding: 16px; }
+      .pdp h1 { font-family: 'Cormorant Garamond', serif; }
+    </style>
+  </head>
+  <body>
+    <div class="pdp">
+      <h1>Build your charm case — (Shopify embed harness)</h1>
+      <div id="charme-customizer-root" style="min-height: 86vh"></div>
+    </div>
+
+    <script>
+      // --- simulate the Shopify storefront environment ---
+      window.Shopify = { routes: { root: '/' }, shop: 'demo.myshopify.com' }
+
+      // inline config the app block would render
+      window.CharmeConfig = {
+        assetBase: './extensions/charme-customizer/assets/',
+        mountId: 'charme-customizer-root',
+        cartRedirect: 'none',
+        variantMap: {
+          products: { 'iphone-17-pro': 111, 'tote-standard': 112 },
+          charms: {
+            'spiral-shell-gold': 201, 'spiral-shell-silver': 202, 'cowgirl-boot': 203,
+            'pink-floral-tile': 204, 'cherub-rose-cameo': 205, 'cherub-angel': 206,
+            'cherub-pearl-blossom': 207, 'bloom-melted-pearl': 208, 'bloom-rosethorn': 209,
+            'sweet-grapes': 210, 'sweet-cocktail': 211, 'spring-petal-white': 212,
+            'spring-petal-green': 213, 'spring-petal-purple': 214, 'infinity-gold': 215,
+            'riviera-1': 216, 'riviera-2': 217, 'riviera-3': 218, 'riviera-4': 219,
+            'riviera-5': 220, 'riviera-6': 221, 'riviera-7': 222, 'riviera-8': 223,
+          },
+        },
+      }
+
+      // mock /cart/add.js so "Add to bag" works without a real store
+      const realFetch = window.fetch.bind(window)
+      window.__lastCartAdd = null
+      window.fetch = (url, opts) => {
+        if (typeof url === 'string' && url.indexOf('/cart/add.js') !== -1) {
+          window.__lastCartAdd = JSON.parse(opts.body)
+          console.log('[harness] /cart/add.js items:', window.__lastCartAdd.items)
+          return Promise.resolve(new Response(JSON.stringify({ items: window.__lastCartAdd.items }), {
+            status: 200, headers: { 'Content-Type': 'application/json' },
+          }))
+        }
+        return realFetch(url, opts)
+      }
+    </script>
+    <script src="./extensions/charme-customizer/assets/charme-customizer.js" defer></script>
+  </body>
+</html>

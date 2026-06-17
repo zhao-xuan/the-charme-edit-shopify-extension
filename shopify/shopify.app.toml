@@ -1,0 +1,20 @@
+# Charmé customizer Shopify app config (Shopify CLI).
+# Run `shopify app dev` from the repo root after `shopify app config link`.
+
+name = "charme-customizer"
+client_id = "REPLACE_WITH_YOUR_APP_CLIENT_ID"
+application_url = "https://REPLACE_WITH_YOUR_APP_URL"
+embedded = true
+
+[access_scopes]
+# write_files is needed by app/upload-proof.js to store design proofs on Shopify Files.
+scopes = "write_files"
+
+[webhooks]
+api_version = "2024-10"
+
+[build]
+automatically_update_urls_on_dev = true
+
+[[extension_directories]]
+path = "shopify/extensions/*"
