@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Button, Drawer, App, Segmented } from 'antd'
+import { Button, App, Segmented, Select } from 'antd'
 import {
   ZoomInOutlined,
   ZoomOutOutlined,
@@ -7,14 +7,14 @@ import {
   WarningFilled,
   CloseOutlined,
   DeleteOutlined,
-  DownOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons'
 import ProductStage from '../components/ProductStage'
 import ProductPicker from '../components/ProductPicker'
 import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
-import { PRODUCT_GROUPS, findProduct } from '../data/products'
+import { PRODUCT_GROUPS, BRAND_LABELS, findProduct } from '../data/products'
 import { trayGroups } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
@@ -79,7 +79,6 @@ export default function CustomizerPage({ onPlaceOrder }) {
   const [selectedUid, setSelectedUid] = useState(null)
   const [zoom, setZoom] = useState(1)
 
-  const [baseDrawer, setBaseDrawer] = useState(false)
   const [summaryOpen, setSummaryOpen] = useState(false)
   // Set true when the customer taps the order button while charms still overlap
   // or sit outside the craftable area — surfaces a prominent fix-it message next
@@ -112,6 +111,29 @@ export default function CustomizerPage({ onPlaceOrder }) {
     () => deriveColor(product, caseColourId, gelColourId),
     [product, caseColourId, gelColourId],
   )
+
+  // Inline Step 1 dropdowns (mobile header): model list for the active platform
+  // (Android sub-grouped by brand), plus case + gel colour lists.
+  const modelOptions = useMemo(() => {
+    const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
+    if (group.platform === 'android') {
+      const byBrand = new Map()
+      for (const p of group.products) {
+        if (!byBrand.has(p.brand)) byBrand.set(p.brand, [])
+        byBrand.get(p.brand).push(p)
+      }
+      return Array.from(byBrand, ([brand, items]) => ({
+        label: BRAND_LABELS[brand] || brand,
+        options: items.map((p) => ({ value: p.id, label: p.name })),
+      }))
+    }
+    return group.products.map((p) => ({ value: p.id, label: p.name }))
+  }, [groupKey])
+  const caseOptions = (product.caseColours || product.colors).map((c) => ({
+    value: c.id,
+    label: c.label,
+  }))
+  const gelOptions = product.gelColours?.map((g) => ({ value: g.id, label: g.label }))
   // Charm shape masks load lazily in the browser; bump this when one arrives so
   // the layout re-validates against the real cut-out shape (not just the OBB).
   const [maskVersion, setMaskVersion] = useState(0)
@@ -464,11 +486,9 @@ export default function CustomizerPage({ onPlaceOrder }) {
     </>
   )
 
-  // Shared order-CTA label (used by the nav-bar button on the standalone app and
-  // the bottom CTA on the Shopify embed).
+  // Order CTA total + noun (case vs. tote) for the Step 3 bar.
   const orderNoun = product.kind === 'tote' ? 'tote' : 'case'
   const orderTotal = (product.basePrice + placed.reduce((s, c) => s + c.price, 0)).toFixed(0)
-  const orderLabel = `Order my ${orderNoun} (£${orderTotal})`
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).
@@ -500,6 +520,57 @@ export default function CustomizerPage({ onPlaceOrder }) {
       {isMobile ? (
         <>
         <div className="mobile-shell" ref={mobileShellRef}>
+          <header className="mobile-head">
+            <div className="mobile-head__top">
+              <span className="mobile-head__step">Step 1: Select Model</span>
+              <Segmented
+                className="mobile-head__platform"
+                size="small"
+                value={groupKey}
+                onChange={handleGroup}
+                options={PRODUCT_GROUPS.map((g) => ({ label: g.label, value: g.key }))}
+              />
+            </div>
+            <div className="mobile-head__selects">
+              <label className="mobile-head__field mobile-head__field--model">
+                <span className="mobile-head__label">Model</span>
+                <Select
+                  className="mobile-head__sel"
+                  size="small"
+                  value={productId}
+                  onChange={handleProduct}
+                  options={modelOptions}
+                  popupMatchSelectWidth={false}
+                  showSearch
+                  optionFilterProp="label"
+                />
+              </label>
+              <label className="mobile-head__field">
+                <span className="mobile-head__label">Case</span>
+                <Select
+                  className="mobile-head__sel"
+                  size="small"
+                  value={caseColourId}
+                  onChange={setCaseColourId}
+                  options={caseOptions}
+                  popupMatchSelectWidth={false}
+                />
+              </label>
+              {gelOptions && (
+                <label className="mobile-head__field">
+                  <span className="mobile-head__label">Gel</span>
+                  <Select
+                    className="mobile-head__sel"
+                    size="small"
+                    value={gelColourId}
+                    onChange={setGelColourId}
+                    options={gelOptions}
+                    popupMatchSelectWidth={false}
+                  />
+                </label>
+              )}
+            </div>
+          </header>
           <div className="mobile-stage">
             {stageNode}
             {zoomDock}
@@ -521,14 +592,6 @@ export default function CustomizerPage({ onPlaceOrder }) {
                 title="Clear all"
               />
             </div>
-            <button
-              type="button"
-              className="mobile-step1"
-              onClick={() => setBaseDrawer(true)}
-            >
-              <span className="mobile-step1__label">Step 1:<br />Select model</span>
-              <span className="mobile-step1__model">{product.name}</span>
-            </button>
             <div
               className={
                 'mobile-step-overlay' +
@@ -565,8 +628,8 @@ export default function CustomizerPage({ onPlaceOrder }) {
                   aria-expanded={step2Expanded}
                   onClick={() => setStep2Open((o) => !o)}
                 >
-                  <span>Step 2 ·<br />Add charms</span>
-                  <DownOutlined className="mobile-step-overlay__chevron" />
+                  <span>Step 2: Add charms</span>
+                  <InfoCircleOutlined className="mobile-step-overlay__chevron" />
                 </button>
                 <div className="mobile-cat-bar">
                   <Segmented
@@ -601,22 +664,12 @@ export default function CustomizerPage({ onPlaceOrder }) {
 
           <button
             type="button"
-            className="mobile-order-fab"
+            className="mobile-order-bar"
             disabled={placed.length === 0}
             onClick={attemptOrder}
           >
-            {orderLabel}
+            Step 3: Order my {orderNoun} (£{orderTotal})
           </button>
-
-          <Drawer
-            title="Step 1 · Choose your case"
-            placement="left"
-            width="86%"
-            open={baseDrawer}
-            onClose={() => setBaseDrawer(false)}
-          >
-            {picker}
-          </Drawer>
         </div>
         </>
       ) : (

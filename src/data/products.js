@@ -15,6 +15,7 @@
  * parametric gel render in White (Glitter gel) / Black (Black gel).
  */
 import CASES_DATA from './cases.json'
+import { loadAdmin } from '../lib/adminStore'
 
 // A phone case is described by two finish axes:
 //   • Case colour — the silicone shell: White or Black. This drives the rendered
@@ -277,7 +278,7 @@ export const BRAND_LABELS = {
   huawei: 'Huawei',
 }
 
-export const PRODUCT_GROUPS = [
+const BASE_PRODUCT_GROUPS = [
   {
     key: 'apple',
     label: 'Apple',
@@ -328,6 +329,79 @@ export const PRODUCT_GROUPS = [
     ],
   },
 ]
+
+/**
+ * Turn a merchant's raw custom-product entry (name + uploaded body photo + real
+ * width/height in mm + price) into a render-ready product. The whole panel minus
+ * a small inset is craftable; charms place straight onto the uploaded artwork.
+ */
+function buildCustomProduct(raw) {
+  const widthMm = Number(raw.widthMm) || 75
+  const heightMm = Number(raw.heightMm) || 150
+  const radiusMm = Math.max(2, Math.round(widthMm * 0.12))
+  const inset = Math.max(4, Math.round(widthMm * 0.06))
+  const colour = {
+    id: 'default',
+    label: raw.colourLabel || 'Default',
+    shell: raw.shell || '#f2ece1',
+    edge: '#d9cfbe',
+    glitter: false,
+  }
+  return {
+    id: raw.id,
+    group: 'custom',
+    name: raw.name || 'Custom product',
+    kind: raw.kind === 'tote' ? 'tote' : 'phone',
+    custom: true,
+    basePrice: Number(raw.basePrice) || 0,
+    widthMm,
+    heightMm,
+    radiusMm,
+    colors: [colour],
+    caseColours: [colour],
+    blankImage: { default: raw.src },
+    printable: {
+      outer: {
+        xMm: inset,
+        yMm: inset,
+        wMm: +(widthMm - inset * 2).toFixed(1),
+        hMm: +(heightMm - inset * 2).toFixed(1),
+        rMm: Math.max(2, radiusMm - inset),
+      },
+      obstacles: [],
+    },
+  }
+}
+
+/**
+ * Fold the merchant overrides (lib/adminStore.js) into the catalogue: apply any
+ * per-model price overrides, then append a "Custom" group holding the merchant's
+ * own uploaded products. Runs once at module load, so the storefront reflects
+ * saved admin changes on its next load.
+ */
+function applyAdminOverrides(groups) {
+  const admin = loadAdmin()
+  const priced = groups.map((g) => ({
+    ...g,
+    products: g.products.map((p) => ({
+      ...p,
+      basePrice: admin.productPrices[p.id] ?? p.basePrice,
+    })),
+  }))
+  const custom = (admin.customProducts || []).map(buildCustomProduct)
+  if (custom.length) {
+    priced.push({
+      key: 'custom',
+      label: 'Custom',
+      platform: 'custom',
+      blurb: 'Your own uploaded products.',
+      products: custom,
+    })
+  }
+  return priced
+}
+
+export const PRODUCT_GROUPS = applyAdminOverrides(BASE_PRODUCT_GROUPS)
 
 export const ALL_PRODUCTS = PRODUCT_GROUPS.flatMap((g) => g.products)
 

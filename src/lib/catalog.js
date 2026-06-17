@@ -1,6 +1,7 @@
 import charmData from '../data/catalog.json'
 import patchData from '../data/patches.json'
 import { resolveAsset } from './assets'
+import { loadAdmin } from './adminStore'
 
 /**
  * The customizer carries two completely separate decoration worlds:
@@ -72,12 +73,31 @@ export function charmCategory(charm) {
   return 'colourful'
 }
 
-const CHARMS = charmData.charms.map((c) => ({
+// Merchant overrides (re-priced / hidden charms + uploaded custom charms) are
+// merged on top of the built-in catalogue at load time. See lib/adminStore.js.
+const ADMIN = loadAdmin()
+
+const BASE_CHARMS = charmData.charms
+  .filter((c) => !ADMIN.charmHidden[c.id])
+  .map((c) => ({
+    ...c,
+    kind: 'phone',
+    src: resolveAsset(c.src),
+    price: ADMIN.charmPrices[c.id] ?? c.price,
+    category: charmCategory(c),
+  }))
+
+const CUSTOM_CHARMS = (ADMIN.customCharms || []).map((c) => ({
+  minScale: 1,
+  maxScale: 1,
   ...c,
   kind: 'phone',
   src: resolveAsset(c.src),
-  category: charmCategory(c),
+  category: c.category || charmCategory(c),
 }))
+
+// Merchant charms surface first within each category so they're easy to find.
+const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS]
 const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
 
 const ITEMS_BY_KIND = {

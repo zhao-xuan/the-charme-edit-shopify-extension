@@ -551,10 +551,75 @@ h4,
     display: none;
   }
   .topbar {
-    padding: 8px 12px;
+    display: none;
   }
   .brand .mark {
     font-size: 18px;
+  }
+
+  /* Step 1 header — replaces the brand topbar on mobile. A top row with the
+     "Step 1: Select Model" label + the Apple/Android/Totes switcher, then a row
+     of labelled model / case / gel dropdowns. */
+  .mobile-head {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #fffdf9;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-head__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .mobile-head__step {
+    flex: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--rouge);
+    white-space: nowrap;
+  }
+  .mobile-head__selects {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    min-width: 0;
+  }
+  /* Apple / Android / Totes switcher sits on the "Select Model" line. */
+  .mobile-head__platform {
+    flex: none;
+  }
+  .mobile-head__platform .ant-segmented-item-label {
+    font-size: 11px;
+    padding: 0 8px;
+  }
+  /* a labelled dropdown column (label above the Select). */
+  .mobile-head__field {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mobile-head__field--model {
+    flex: 1.7 1 0;
+  }
+  .mobile-head__label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .mobile-head__sel {
+    width: 100%;
+    min-width: 0;
   }
 
   /* split: phone preview on top, charm tray below — resizable via the splitter.
@@ -631,54 +696,14 @@ h4,
     min-height: 26px;
     line-height: 26px;
   }
-  /* Step 1 · phone-model picker — a narrow box in the TOP-LEFT corner of the
-     preview ("Step 1: / Select model" over the chosen model). Uses the same
-     translucent, borderless frosted look as the Step 2 overlay. */
-  .mobile-step1 {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 6;
-    max-width: 50vw;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 253, 249, 0.6);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    color: var(--ink);
-    cursor: pointer;
-    font: inherit;
-    text-align: left;
-  }
-  .mobile-step1__label {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    color: var(--rouge);
-    white-space: nowrap;
-    line-height: 1.3;
-  }
-  .mobile-step1__model {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.3;
-  }
   /* Step 2 dock over the preview bottom — a transparent container holding the
-     collapsible hint body (floats above) and a bottom row with the Step 2 title
-     pill on the left + the category tabs filling the remaining width. */
+     collapsible hint body (floats above) and a full-width bottom strip with the
+     Step 2 title on the left + the category tabs filling the remaining width. */
   .mobile-step-overlay {
     position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 5;
     display: flex;
     flex-direction: column;
@@ -686,33 +711,39 @@ h4,
     gap: 0;
     pointer-events: none;
   }
-  /* title pill + category tabs share one row; tabs fill the space the title
-     leaves, so collapsing Step 2 doesn't waste the right-hand width. The tabs
-     vertically centre against the (two-line) title pill. */
+  /* Step 2 is one full-width frosted strip: the title toggle on the left + the
+     category tabs filling the rest. Collapsing Step 2 keeps the strip. */
   .mobile-step2-bar {
     align-self: stretch;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 0;
+    background: rgba(255, 253, 249, 0.6);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
   }
-  /* horizontal category tab bar — flex-fills the row beside the title pill. */
+  /* horizontal category tab bar — flex-fills the row beside the title. */
   .mobile-cat-bar {
     flex: 1 1 auto;
     min-width: 0;
     pointer-events: none;
   }
-  /* Step 2 title pill doubles as the expand/collapse toggle; content width. */
+  .mobile-cat-seg {
+    background: transparent;
+  }
+  /* Step 2 title doubles as the expand/collapse toggle; content width, one
+     line. The frosted background now lives on the whole bar. */
   .mobile-step-overlay__title {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 12px;
+    padding: 0;
     border: none;
-    border-radius: 6px;
-    background: rgba(255, 253, 249, 0.6);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    background: transparent;
     font: inherit;
     font-size: 12px;
     font-weight: 600;
@@ -726,19 +757,15 @@ h4,
   }
   .mobile-step-overlay__chevron {
     flex: none;
-    font-size: 10px;
-    color: var(--ink-soft);
-    transform: rotate(180deg);
-    transition: transform 0.28s ease;
-  }
-  .mobile-step-overlay.is-open .mobile-step-overlay__chevron {
-    transform: rotate(0deg);
+    font-size: 13px;
+    color: var(--rouge);
   }
   /* collapsible hint body — floats above the title/tab row; hidden when Step 2
      is collapsed to just the title. */
   .mobile-step-overlay__body {
     align-self: flex-start;
     max-width: 88%;
+    margin-left: 12px;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -796,27 +823,24 @@ h4,
       transform: scale(1);
     }
   }
-  /* floating order button — bottom-right corner of the shell, compact. */
-  .mobile-order-fab {
-    position: absolute;
-    right: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    z-index: 30;
-    padding: 8px 16px;
+  /* Step 3 order button — a full-width bar pinned at the bottom of the shell. */
+  .mobile-order-bar {
+    flex: none;
+    width: 100%;
+    padding: 9px 16px calc(9px + env(safe-area-inset-bottom));
     border: none;
-    border-radius: 999px;
     background: var(--rouge);
     color: #fff;
     font: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
+    letter-spacing: 0.3px;
+    text-align: center;
     white-space: nowrap;
-    box-shadow: 0 8px 22px -6px rgba(168, 82, 76, 0.6);
     cursor: pointer;
   }
-  .mobile-order-fab:disabled {
+  .mobile-order-bar:disabled {
     background: #cdbfae;
-    box-shadow: none;
     cursor: not-allowed;
   }
   .mobile-tray-body {
@@ -827,7 +851,7 @@ h4,
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
     overscroll-behavior: contain;
-    padding: 8px 12px calc(58px + env(safe-area-inset-bottom));
+    padding: 8px 12px 14px;
   }
   .mobile-tray-body .charm-collection:last-child {
     margin-bottom: 0;
@@ -906,3 +930,68 @@ h4,
   border: 1px solid var(--line);
   background: #fff;
 }
+
+/* ---------- Merchant Admin (/admin) ---------- */
+.admin-page {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 22px 20px 60px;
+}
+.admin-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.admin-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-sub {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+.admin-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.admin-grid label > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.admin-note {
+  margin-top: 22px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fbf6ee;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
