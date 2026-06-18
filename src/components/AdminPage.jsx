@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Alert,
   App,
@@ -22,6 +22,7 @@ import {
 } from 'antd'
 import {
   AppstoreAddOutlined,
+  CloudUploadOutlined,
   DeleteOutlined,
   InboxOutlined,
   PlusOutlined,
@@ -36,6 +37,16 @@ import { ALL_PRODUCTS } from '../data/products'
 import { charmCategory } from '../lib/catalog'
 import { clearAdmin, defaultAdmin, loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, loadImageData } from '../lib/segment'
+import {
+  addCharms,
+  addProduct,
+  deleteCharm,
+  deleteProduct,
+  fetchCatalog,
+  getToken,
+  patchCharm,
+  setToken,
+} from '../lib/adminApi'
 
 const slug = (s) =>
   (s || '')
@@ -811,10 +822,138 @@ function BatchExtractTab({ draft, set }) {
   )
 }
 
+// ---------------------------------------------------------------------------
+// Cloud (Cloudflare-backed catalogue): publish drafts + manage published items
+// ---------------------------------------------------------------------------
+function CloudTab({ draft, set }) {
+  const { message, modal } = App.useApp()
+  const [token, setTokenState] = useState(() => getToken())
+  const [loading, setLoading] = useState(false)
+  const [publishing, setPublishing] = useState(false)
+  const [data, setData] = useState({ products: [], charms: [] })
+
+  const refresh = async () => {
+    setLoading(true)
+    try {
+      const cat = await fetchCatalog()
+      setData({ products: cat.products || [], charms: cat.charms || [] })
+    } catch {
+      message.error('Could not load the published catalogue.')
+    } finally {
+      setLoading(false)
+    }
+  }
+  useEffect(() => { refresh() }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const saveToken = (t) => { setTokenState(t); setToken(t) }
+
+  const publish = async () => {
+    if (!getToken()) return message.warning('Enter the admin token first.')
+    const charms = draft.customCharms || []
+    const products = draft.customProducts || []
+    if (!charms.length && !products.length) return message.info('No local drafts to publish — add charms/products first.')
+    setPublishing(true)
+    try {
+      if (charms.length) await addCharms(charms)
+      for (const p of products) await addProduct(p)
+      set((d) => ({ ...d, customCharms: [], customProducts: [] }))
+      saveAdmin({ ...draft, customCharms: [], customProducts: [] })
+      message.success(`Published ${charms.length} charm(s) + ${products.length} product(s) to Cloudflare.`)
+      refresh()
+    } catch (e) {
+      message.error(`Publish failed: ${e.message}`)
+    } finally {
+      setPublishing(false)
+    }
+  }
+
+  const toggleHide = async (c) => {
+    try { await patchCharm(c.id, { hidden: !c.hidden }); refresh() }
+    catch (e) { message.error(e.message) }
+  }
+  const removeCharm = (c) => modal.confirm({
+    title: `Delete "${c.name}" from Cloudflare?`,
+    okText: 'Delete', okButtonProps: { danger: true },
+    onOk: async () => { try { await deleteCharm(c.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
+  })
+  const repriceCharm = async (c, price) => {
+    try { await patchCharm(c.id, { price }) }
+    catch (e) { message.error(e.message) }
+  }
+  const removeProduct = (p) => modal.confirm({
+    title: `Delete "${p.name}" from Cloudflare?`,
+    okText: 'Delete', okButtonProps: { danger: true },
+    onOk: async () => { try { await deleteProduct(p.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
+  })
+
+  const visible = data.charms.filter((c) => !c.hidden).length
+
+  return (
+    <Space direction="vertical" size={18} style={{ width: '100%' }}>
+      <Alert
+        type="success"
+        showIcon
+        message="Cloudflare-backed catalogue (D1 + KV)"
+        description="Products, charms, images and prices live in Cloudflare and load on the storefront automatically. Enter the admin token to publish or edit. Duplicates of existing gold charms were imported hidden — reveal them here if you want them shown."
+      />
+      <Card size="small" title="Admin token">
+        <Space wrap>
+          <Input.Password
+            value={token}
+            onChange={(e) => saveToken(e.target.value)}
+            placeholder="Paste the admin token"
+            style={{ width: 320 }}
+          />
+          <Button icon={<ReloadOutlined />} onClick={refresh} loading={loading}>Refresh</Button>
+          <Button type="primary" icon={<CloudUploadOutlined />} onClick={publish} loading={publishing}>
+            Publish local drafts
+          </Button>
+        </Space>
+        <p className="hint" style={{ marginTop: 8 }}>The token guards writes and is stored only in this browser.</p>
+      </Card>
+
+      <Card size="small" title={`Published products (${data.products.length})`}>
+        {data.products.length ? (
+          <Table
+            size="small" rowKey="id" pagination={false} dataSource={data.products}
+            columns={[
+              { title: 'Photo', dataIndex: 'src', width: 64, render: (s) => <Image src={s} width={40} height={40} style={{ objectFit: 'contain' }} /> },
+              { title: 'Name', dataIndex: 'name' },
+              { title: 'Type', dataIndex: 'kind', render: (k) => <Tag>{k === 'tote' ? 'Patches' : 'Charms'}</Tag> },
+              { title: 'Size', render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
+              { title: 'Price', dataIndex: 'basePrice', render: (p) => `£${p}` },
+              { title: '', width: 48, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => removeProduct(r)} /> },
+            ]}
+          />
+        ) : <Empty description="No published products" image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+      </Card>
+
+      <Card size="small" title={`Published charms (${data.charms.length} · ${visible} shown)`}>
+        <Table
+          size="small" rowKey="id" loading={loading}
+          pagination={{ pageSize: 12, size: 'small' }} dataSource={data.charms}
+          columns={[
+            { title: 'Art', dataIndex: 'src', width: 56, render: (s) => <Image src={s} width={38} height={38} style={{ objectFit: 'contain' }} /> },
+            { title: 'Name', dataIndex: 'name', ellipsis: true },
+            { title: 'Category', dataIndex: 'category', width: 96, render: (c) => <Tag>{c}</Tag> },
+            { title: 'Size', width: 110, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
+            { title: 'Price (£)', width: 110, render: (_, r) => <InputNumber size="small" min={0} defaultValue={r.price} onBlur={(e) => repriceCharm(r, Number(e.target.value))} style={{ width: 80 }} /> },
+            { title: 'Shown', width: 80, render: (_, r) => <Switch size="small" checked={!r.hidden} onChange={() => toggleHide(r)} /> },
+            { title: '', width: 44, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => removeCharm(r)} /> },
+          ]}
+        />
+        {data.charms.some((c) => c.dupOf) && (
+          <p className="hint" style={{ marginTop: 8 }}>Rows hidden by default are likely duplicates of an existing gold charm (advisory). Toggle “Shown” to reveal.</p>
+        )}
+      </Card>
+    </Space>
+  )
+}
+
 export default function AdminPage() {
   const { message, modal } = App.useApp()
   const [draft, setDraft] = useState(() => loadAdmin())
-  const [tab, setTab] = useState('products')
+  const [tab, setTab] = useState('cloud')
 
   // On the dedicated admin subdomain (admin.charme-customizer.pages.dev) the
   // storefront lives on the bare project domain (admin. stripped); elsewhere the
@@ -872,6 +1011,15 @@ export default function AdminPage() {
         activeKey={tab}
         onChange={setTab}
         items={[
+          {
+            key: 'cloud',
+            label: (
+              <span>
+                <CloudUploadOutlined /> Cloud
+              </span>
+            ),
+            children: <CloudTab draft={draft} set={set} />,
+          },
           { key: 'products', label: 'Products', children: <ProductsTab draft={draft} set={set} /> },
           { key: 'charms', label: 'Charms', children: <CharmsTab draft={draft} set={set} /> },
           {

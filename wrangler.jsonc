@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "charme-customizer",
+  "compatibility_date": "2025-06-01",
+  "pages_build_output_dir": "dist",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "charme-catalog",
+      "database_id": "11851034-e94c-4970-9b94-872429137400"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "IMAGES",
+      "id": "b4c301e68f82476e894f46dcf79c357e"
+    }
+  ]
+}

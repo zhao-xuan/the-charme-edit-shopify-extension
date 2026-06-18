@@ -2,6 +2,7 @@ import charmData from '../data/catalog.json'
 import patchData from '../data/patches.json'
 import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
+import { remoteCatalog } from './remoteCatalog'
 
 /**
  * The customizer carries two completely separate decoration worlds:
@@ -74,27 +75,39 @@ export function charmCategory(charm) {
 }
 
 // Merchant overrides (re-priced / hidden charms + uploaded custom charms) are
-// merged on top of the built-in catalogue at load time. See lib/adminStore.js.
+// merged on top of the built-in catalogue at load time. These come from the
+// Cloudflare API (remoteCatalog) and any local-only admin drafts.
 const ADMIN = loadAdmin()
+const REMOTE = remoteCatalog() || {}
+const REMOTE_OV = REMOTE.overrides || {}
+const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
+const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
 
 const BASE_CHARMS = charmData.charms
-  .filter((c) => !ADMIN.charmHidden[c.id])
+  .filter((c) => !charmHidden[c.id])
   .map((c) => ({
     ...c,
     kind: 'phone',
     src: resolveAsset(c.src),
-    price: ADMIN.charmPrices[c.id] ?? c.price,
+    price: charmPrices[c.id] ?? c.price,
     category: charmCategory(c),
   }))
 
-const CUSTOM_CHARMS = (ADMIN.customCharms || []).map((c) => ({
-  minScale: 1,
-  maxScale: 1,
-  ...c,
-  kind: 'phone',
-  src: resolveAsset(c.src),
-  category: c.category || charmCategory(c),
-}))
+// Remote (Cloudflare DB) charms first, then local-only drafts; skip hidden ones
+// and de-dup by id.
+const seenCharm = new Set()
+const mergeCustom = (list) =>
+  (list || [])
+    .filter((c) => !c.hidden && !seenCharm.has(c.id) && seenCharm.add(c.id))
+    .map((c) => ({
+      minScale: 1,
+      maxScale: 1,
+      ...c,
+      kind: 'phone',
+      src: resolveAsset(c.src),
+      category: c.category || charmCategory(c),
+    }))
+const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
 
 // Merchant charms surface first within each category so they're easy to find.
 const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS]

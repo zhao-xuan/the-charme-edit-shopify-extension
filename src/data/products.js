@@ -17,6 +17,7 @@
 import CASES_DATA from './cases.json'
 import CAMERA_KEEPOUTS from './camera-keepouts.json'
 import { loadAdmin } from '../lib/adminStore'
+import { remoteCatalog } from '../lib/remoteCatalog'
 
 // A phone case is described by two finish axes:
 //   • Case colour — the silicone shell: White or Black. This drives the rendered
@@ -384,21 +385,29 @@ function buildCustomProduct(raw) {
 }
 
 /**
- * Fold the merchant overrides (lib/adminStore.js) into the catalogue: apply any
- * per-model price overrides, then append a "Custom" group holding the merchant's
- * own uploaded products. Runs once at module load, so the storefront reflects
- * saved admin changes on its next load.
+ * Fold the merchant overrides into the catalogue: apply per-model price
+ * overrides (from the Cloudflare API + local admin), then append a "Custom"
+ * group holding the merchant's own uploaded products (remote DB first, then any
+ * local-only drafts). Runs once at module load.
  */
 function applyAdminOverrides(groups) {
   const admin = loadAdmin()
+  const remote = remoteCatalog() || {}
+  const remotePrices = (remote.overrides && remote.overrides.productPrices) || {}
+  const priceOf = (id, fallback) => admin.productPrices[id] ?? remotePrices[id] ?? fallback
   const priced = groups.map((g) => ({
     ...g,
     products: g.products.map((p) => ({
       ...p,
-      basePrice: admin.productPrices[p.id] ?? p.basePrice,
+      basePrice: priceOf(p.id, p.basePrice),
     })),
   }))
-  const custom = (admin.customProducts || []).map(buildCustomProduct)
+  // remote DB products first, then local-only drafts; de-dup by id
+  const seen = new Set()
+  const customRaw = []
+  for (const p of remote.products || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
+  for (const p of admin.customProducts || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
+  const custom = customRaw.map(buildCustomProduct)
   if (custom.length) {
     priced.push({
       key: 'custom',
