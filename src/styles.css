@@ -150,6 +150,13 @@ h4,
   user-select: none;
   -webkit-user-select: none;
   filter: drop-shadow(0 30px 40px rgba(46, 42, 38, 0.18));
+  /* Promote the case (and its drop-shadow) to its own cached GPU layer so the
+     shadow is composited, not re-rasterised, when an adjacent scroller (the
+     mobile charm tray) repaints. Without this the shadow flickers on physical
+     iOS/Android devices while swiping charms. */
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .stage-blank {
   position: absolute;
@@ -335,9 +342,10 @@ h4,
   font-size: 15px;
   color: var(--ink);
 }
-.charm-card--compact .meta--price,
-.charm-card--row .meta--price {
-  font-size: 12.5px;
+.charm-card--compact .meta.meta--price,
+.charm-card--row .meta.meta--price {
+  font-size: 15px;
+  font-weight: 600;
 }
 
 /* Unique-charm disclaimer box shown above a category in the tray */
@@ -418,7 +426,7 @@ h4,
 }
 .charm-card--row {
   flex: 0 0 auto;
-  width: 76px;
+  width: 60px;
   scroll-snap-align: start;
 }
 /* mobile cards never drag — allow scroll/tap (fixes zodiac & tall lists) */
@@ -436,7 +444,7 @@ h4,
 .charm-card--row .thumb {
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-height: 72px;
+  max-height: 52px;
   overflow: hidden;
 }
 .charm-card--compact .thumb img,
@@ -642,8 +650,8 @@ h4,
      Step 2 bar: a little top breathing room + just enough bottom space to clear
      the (collapsed) Step 2 / category bar. */
   .mobile-stage .stage-wrap {
-    padding-top: 8px;
-    padding-bottom: 58px;
+    padding-top: 6px;
+    padding-bottom: 46px;
   }
   /* draggable divider — floats over the seam taking no layout space (negative
      margins collapse its own height), so the preview/tray fill the screen. A
@@ -677,7 +685,7 @@ h4,
     transform: scaleX(1.12);
   }
   .mobile-tray {
-    flex: 0 0 42%;
+    flex: 0 0 28%;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -724,6 +732,9 @@ h4,
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     pointer-events: auto;
+    /* keep the frosted backdrop on its own stable layer to avoid re-sampling
+       flicker while the tray below scrolls. */
+    transform: translateZ(0);
   }
   /* horizontal category tab bar — flex-fills the row beside the title. */
   .mobile-cat-bar {
@@ -852,6 +863,9 @@ h4,
     touch-action: pan-y;
     overscroll-behavior: contain;
     padding: 8px 12px 14px;
+    /* Isolate the tray's scroll repaints so they don't invalidate (and flicker)
+       the case shadow in the preview above. */
+    contain: paint;
   }
   .mobile-tray-body .charm-collection:last-child {
     margin-bottom: 0;

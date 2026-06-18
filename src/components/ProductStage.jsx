@@ -16,7 +16,7 @@ import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
 
-const PAD = 36
+const PAD = 24
 
 // Reusable glitter-gel sparkle texture (masked to each case silhouette).
 const glitterTexture = resolveAsset('/assets/cases/glitter.png')

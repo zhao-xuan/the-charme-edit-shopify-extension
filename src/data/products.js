@@ -15,6 +15,7 @@
  * parametric gel render in White (Glitter gel) / Black (Black gel).
  */
 import CASES_DATA from './cases.json'
+import CAMERA_KEEPOUTS from './camera-keepouts.json'
 import { loadAdmin } from '../lib/adminStore'
 
 // A phone case is described by two finish axes:
@@ -159,7 +160,13 @@ function applyPhotoCase(p) {
     return { ...p, colors: CASE_COLOURS, caseColours: CASE_COLOURS, gelColours: GEL_COLOURS }
   }
 
-  const kf = CAMERA_KEEPOUT[p.camera.kind] || CAMERA_KEEPOUT.bar
+  // Per-model camera keep-out. Where we have a real case photo we use the camera
+  // region MEASURED straight from that photo (src/data/camera-keepouts.json —
+  // see scripts/measure-camera-keepouts.mjs), which captures each model's true
+  // lens layout (single / vertical-dual / square-dual / Pro triple island /
+  // 17-series plateau). Models without a measured value fall back to the coarse
+  // per-camera-kind fractions.
+  const kf = CAMERA_KEEPOUTS[p.id] || CAMERA_KEEPOUT[p.camera.kind] || CAMERA_KEEPOUT.bar
   const camera = {
     kind: p.camera.kind,
     xMm: +(p.widthMm * kf.x).toFixed(1),
@@ -232,7 +239,10 @@ const IPHONES = [
   ['iphone-17', 'iPhone 17', 74.5, 152.6, 'bar', 46],
   ['iphone-17-pro', 'iPhone 17 Pro', 76, 153, 'bar', 48],
   ['iphone-17-pro-max', 'iPhone 17 Pro Max', 80.6, 166, 'bar', 50],
-  ['iphone-air', 'iPhone Air', 74.7, 156.2, 'bar', 50],
+  // Case-outer footprint (bare 74.7×156.2 + ~3mm silicone wall) to match the
+  // case-outer basis used by the rest of the line, so charms stay the same real
+  // size across every model.
+  ['iphone-air', 'iPhone Air', 77.7, 159.2, 'bar', 50],
 ]
   .map((a) => makePhone(...a))
   .map(applyPhotoCase)

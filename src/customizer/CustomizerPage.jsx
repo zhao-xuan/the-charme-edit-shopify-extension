@@ -100,7 +100,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
   // trade preview space for browsing space and back.
-  const [trayPct, setTrayPct] = useState(42)
+  const [trayPct, setTrayPct] = useState(28)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
 
