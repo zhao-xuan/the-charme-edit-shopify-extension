@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T15:39:55.263Z",
+  "generatedAt": "2026-06-19T15:55:12.188Z",
   "threshold": 0.12,
   "total": 87,
   "duplicates": 12,
@@ -15,16 +15,16 @@
     {
       "id": "image-20260618161922-515-813-1-2",
       "status": "unique",
-      "similarity": 0.661,
-      "matchId": "golden-moon-grande-charm-golden-moon-2",
-      "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
+      "similarity": 0.59,
+      "matchId": "letter-h",
+      "matchName": "Initial H"
     },
     {
       "id": "image-20260618161922-515-813-1-3",
       "status": "unique",
-      "similarity": 0.672,
-      "matchId": "aurora-grande-midi-charm-gold-flower",
-      "matchName": "Aurora - Grande / Midi Charm · Gold flower"
+      "similarity": 0.746,
+      "matchId": "all-sense-grande-charm-1-lip-red-gold",
+      "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161922-515-813-10",
