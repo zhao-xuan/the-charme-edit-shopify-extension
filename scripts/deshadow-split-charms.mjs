@@ -254,6 +254,31 @@ for (const file of files) {
   }
   metal = keep
 
+  // FINAL COLOUR PASS — knock out any remaining NEUTRAL-GREY pixels by colour
+  // (the desaturated edge halo where gold meets the removed background, plus the
+  // cream case seen through a loop/oval that stayed connected to the gold). Gold
+  // and brass are warm (r noticeably > b); grey shadow / cream case is neutral.
+  // This is the "remove pixels whose colour is grey" pass requested directly.
+  const GREY_WARM = 18 // r - b below this is neutral
+  const GREY_SAT = 0.24
+  for (let p = 0; p < W * H; p++) {
+    if (!metal[p]) continue
+    const r = data[p * 4], g = data[p * 4 + 1], b = data[p * 4 + 2]
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
+    const sat = mx === 0 ? 0 : (mx - mn) / mx
+    if (r - b < GREY_WARM && sat < GREY_SAT) metal[p] = 0
+  }
+  // refill only TINY enclosed gaps this pass may have punched in solid gold
+  // (specular highlights), without re-filling the large open counters/centres.
+  {
+    const enc2 = fillHoles(metal, W, H)
+    const hm2 = new Uint8Array(W * H)
+    for (let p = 0; p < W * H; p++) if (enc2[p] && !metal[p]) hm2[p] = 1
+    const h2 = components(hm2, W, H, 1)
+    const tiny = Math.max(20, Math.round(W * H * 0.0006))
+    for (const c of h2.comps) if (c.area <= tiny) for (let y = c.bbox.miny; y <= c.bbox.maxy; y++) for (let x = c.bbox.minx; x <= c.bbox.maxx; x++) { const p = y * W + x; if (h2.labels[p] === c.label) metal[p] = 1 }
+  }
+
   const minArea = Math.max(120, Math.round((W * H) * 0.02))
   const naturally = components(metal, W, H, minArea)
   let labels = naturally.labels

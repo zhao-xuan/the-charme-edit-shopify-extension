@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T14:09:44.094Z",
+  "generatedAt": "2026-06-19T15:39:55.263Z",
   "threshold": 0.12,
   "total": 87,
   "duplicates": 12,
@@ -29,21 +29,21 @@
     {
       "id": "image-20260618161922-515-813-10",
       "status": "unique",
-      "similarity": 0.697,
+      "similarity": 0.699,
       "matchId": "golden-hour-mini-charm-3-dolphin",
       "matchName": "Golden hour - Mini Charm · #3 Dolphin"
     },
     {
       "id": "image-20260618161922-515-813-11",
       "status": "unique",
-      "similarity": 0.665,
+      "similarity": 0.666,
       "matchId": "zodiac-signs-aries-march-21-april-19-gold",
       "matchName": "Zodiac Signs · Aries: March 21 – April 19 / Gold"
     },
     {
       "id": "image-20260618161922-515-813-12",
       "status": "unique",
-      "similarity": 0.764,
+      "similarity": 0.761,
       "matchId": "number-8",
       "matchName": "Number 8"
     },
@@ -57,14 +57,14 @@
     {
       "id": "image-20260618161922-515-813-14",
       "status": "unique",
-      "similarity": 0.754,
+      "similarity": 0.753,
       "matchId": "letter-i",
       "matchName": "Initial I"
     },
     {
       "id": "image-20260618161922-515-813-15",
       "status": "unique",
-      "similarity": 0.672,
+      "similarity": 0.667,
       "matchId": "number-7",
       "matchName": "Number 7"
     },
@@ -99,7 +99,7 @@
     {
       "id": "image-20260618161922-515-813-4",
       "status": "duplicate",
-      "similarity": 0.966,
+      "similarity": 0.965,
       "matchId": "golden-moon-grande-charm-golden-moon-1",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
@@ -113,7 +113,7 @@
     {
       "id": "image-20260618161922-515-813-6",
       "status": "unique",
-      "similarity": 0.613,
+      "similarity": 0.615,
       "matchId": "number-7",
       "matchName": "Number 7"
     },
@@ -148,14 +148,14 @@
     {
       "id": "image-20260618161925-517-813-1",
       "status": "unique",
-      "similarity": 0.709,
+      "similarity": 0.704,
       "matchId": "number-7",
       "matchName": "Number 7"
     },
     {
       "id": "image-20260618161925-517-813-10",
       "status": "unique",
-      "similarity": 0.862,
+      "similarity": 0.857,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
@@ -169,7 +169,7 @@
     {
       "id": "image-20260618161925-517-813-12",
       "status": "unique",
-      "similarity": 0.718,
+      "similarity": 0.716,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
@@ -225,7 +225,7 @@
     {
       "id": "image-20260618161925-517-813-7",
       "status": "unique",
-      "similarity": 0.778,
+      "similarity": 0.776,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
@@ -246,7 +246,7 @@
     {
       "id": "image-20260618161926-519-813-1",
       "status": "unique",
-      "similarity": 0.697,
+      "similarity": 0.701,
       "matchId": "zodiac-signs-taurus-april-20-may-20-gold",
       "matchName": "Zodiac Signs · Taurus: April 20 – May 20 / Gold"
     },
@@ -260,28 +260,28 @@
     {
       "id": "image-20260618161926-519-813-11",
       "status": "duplicate",
-      "similarity": 0.9,
+      "similarity": 0.897,
       "matchId": "number-2",
       "matchName": "Number 2"
     },
     {
       "id": "image-20260618161926-519-813-12",
       "status": "duplicate",
-      "similarity": 0.915,
+      "similarity": 0.913,
       "matchId": "number-4",
       "matchName": "Number 4"
     },
     {
       "id": "image-20260618161926-519-813-13",
       "status": "unique",
-      "similarity": 0.813,
+      "similarity": 0.81,
       "matchId": "number-6",
       "matchName": "Number 6"
     },
     {
       "id": "image-20260618161926-519-813-14",
       "status": "unique",
-      "similarity": 0.665,
+      "similarity": 0.663,
       "matchId": "number-1",
       "matchName": "Number 1"
     },
@@ -309,7 +309,7 @@
     {
       "id": "image-20260618161926-519-813-18",
       "status": "unique",
-      "similarity": 0.718,
+      "similarity": 0.714,
       "matchId": "number-1",
       "matchName": "Number 1"
     },
@@ -337,28 +337,28 @@
     {
       "id": "image-20260618161926-519-813-5",
       "status": "duplicate",
-      "similarity": 0.953,
+      "similarity": 0.931,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-6",
       "status": "duplicate",
-      "similarity": 0.977,
+      "similarity": 0.974,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-8",
       "status": "unique",
-      "similarity": 0.692,
+      "similarity": 0.688,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-9",
       "status": "unique",
-      "similarity": 0.696,
+      "similarity": 0.688,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
@@ -435,7 +435,7 @@
     {
       "id": "image-20260618161927-520-813-2",
       "status": "unique",
-      "similarity": 0.874,
+      "similarity": 0.866,
       "matchId": "all-sense-grande-charm-2-eye-orange-gold",
       "matchName": "All sense - Grande Charm · #2 Eye - Orange Gold"
     },
