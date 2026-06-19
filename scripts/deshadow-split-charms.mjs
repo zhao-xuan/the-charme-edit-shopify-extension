@@ -29,15 +29,33 @@ const TMP = join(DIR, '_clean')
 
 const lumOf = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b
 
-/** Is this pixel part of the gold metal (vs the muted brown shadow)? Loose
- *  enough to keep matte / dim gold so charms don't fragment, strict enough to
- *  drop the soft mid-tone shadow halo. */
+// Gold metal is WARM (r noticeably > b) and/or a bright warm sheen. The cast
+// shadow on the white case is a neutral mid-grey that can be just as BRIGHT as
+// the gold (e.g. [157,148,139], lum 149) — so a brightness test keeps it. We
+// instead separate by warmth + saturation, which cleanly drops the grey shadow.
+const WARM_MIN = 26 // r - b
+const SAT_MIN = 0.16
+const HILITE_LUM = 205 // bright specular gold sheen
+const HILITE_WARM = 12
+
+/** Is this pixel gold metal (vs the neutral grey cast shadow)? */
 function isMetal(r, g, b) {
+  const warm = r - b
   const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
   const sat = mx === 0 ? 0 : (mx - mn) / mx
   const lum = lumOf(r, g, b)
-  if (lum > 128) return true // gold body + highlights (and dense contact shadow)
-  if (sat > 0.36 && r - b > 26) return true // saturated warm gold even when dim
+  if (warm >= WARM_MIN && sat >= SAT_MIN) return true // warm gold
+  if (lum > HILITE_LUM && warm >= HILITE_WARM) return true // bright warm sheen
+  return false
+}
+
+/** Legacy loose filter (kept for reference; unused). */
+function isMetalLoose(r, g, b) {
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
+  const sat = mx === 0 ? 0 : (mx - mn) / mx
+  const lum = lumOf(r, g, b)
+  if (lum > 128) return true
+  if (sat > 0.36 && r - b > 26) return true
   return false
 }
 
@@ -45,11 +63,12 @@ function isMetal(r, g, b) {
  *  to SEED the per-piece split. Shadow never qualifies, so distinct charms get
  *  distinct seeds even when their soft shadows bridge them. */
 function isCore(r, g, b) {
+  const warm = r - b
   const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
   const sat = mx === 0 ? 0 : (mx - mn) / mx
   const lum = lumOf(r, g, b)
-  if (lum > 152) return true
-  if (sat > 0.46 && r - b > 40) return true
+  if (lum > 138 && warm >= 22) return true
+  if (sat > 0.4 && warm >= 34) return true
   return false
 }
 
@@ -205,10 +224,18 @@ for (const file of files) {
     if (data[p * 4 + 3] < 40) continue
     if (isMetal(data[p * 4], data[p * 4 + 1], data[p * 4 + 2])) metal[p] = 1
   }
-  // Restore interior crevices (dark grooves enclosed by metal) without touching
-  // open loops (which stay connected to the border → remain transparent). No
-  // dilate/erode here: closing thin loops would wrongly fill them solid.
-  metal = fillHoles(metal, W, H)
+  // Restore interior detail enclosed by metal (dark gem / enamel centres that
+  // aren't "warm gold"), BUT only where the original cut-out was OPAQUE there.
+  // A hole that was transparent in the original is an open counter (the hole in
+  // a "9" / "Q", an open star centre) showing the case through it — keep it open
+  // rather than fill it black.
+  const enclosed = fillHoles(metal, W, H)
+  const keep = new Uint8Array(W * H)
+  for (let p = 0; p < W * H; p++) {
+    if (metal[p]) keep[p] = 1
+    else if (enclosed[p] && data[p * 4 + 3] > 60) keep[p] = 1 // dark detail, was solid
+  }
+  metal = keep
 
   const minArea = Math.max(120, Math.round((W * H) * 0.02))
   const naturally = components(metal, W, H, minArea)
@@ -299,11 +326,8 @@ for (const file of files) {
     }
   }
   const comps = compList
-  if (!comps.length) { // fallback: keep original if de-shadow nuked everything
-    const buf = await sharp(join(DIR, file)).png().toBuffer()
-    await writeFile(join(TMP, file), buf)
-    outCharms.push(meta)
-    totalOut++
+  if (!comps.length) { // no warm gold at all → this cut-out was pure shadow; drop it
+    totalIn--
     continue
   }
 
@@ -311,8 +335,8 @@ for (const file of files) {
   // drop thin-line slivers (a real charm fills a fair share of its own bbox; a
   // stray diagonal shadow line barely does, and is very thin on its short side)
   const notSliver = (c) =>
-    c.area / (c.bbox.w * c.bbox.h) >= 0.14 &&
-    Math.min(c.bbox.w, c.bbox.h) >= 0.18 * Math.max(c.bbox.w, c.bbox.h)
+    c.area / (c.bbox.w * c.bbox.h) >= 0.12 &&
+    Math.min(c.bbox.w, c.bbox.h) >= 0.12 * Math.max(c.bbox.w, c.bbox.h)
   const finalComps = comps.filter(notSliver)
   if (!finalComps.length) { // whole cut-out was a noise sliver → drop it
     totalIn-- // don't count it as an input we kept
@@ -321,17 +345,30 @@ for (const file of files) {
   const multi = finalComps.length > 1
   let idx = 0
   for (const c of finalComps) {
-    idx++
-    const { minx, miny, w, h } = c.bbox
+    // Keep only the LARGEST connected blob of this piece, dropping any stray bit
+    // of an ADJACENT charm that came along in the cut-out (e.g. a corner clasp).
+    const sub = new Uint8Array(W * H)
+    for (let p = 0; p < W * H; p++) if (labels[p] === c.label) sub[p] = 1
+    const cc = components(sub, W, H, 1)
+    if (!cc.comps.length) continue
+    cc.comps.sort((a, b) => b.area - a.area)
+    const main = cc.comps[0]
+    const { minx, miny, w, h } = main.bbox
     const out = Buffer.alloc(w * h * 4)
+    let warmPx = 0, opPx = 0
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       const sp = (miny + y) * W + (minx + x)
       const dp = (y * w + x) * 4
-      if (labels[sp] === c.label) {
+      if (cc.labels[sp] === main.label) {
         const so = sp * 4
         out[dp] = data[so]; out[dp + 1] = data[so + 1]; out[dp + 2] = data[so + 2]; out[dp + 3] = data[so + 3] || 255
+        opPx++
+        if (data[so] - data[so + 2] >= 26) warmPx++
       }
     }
+    // a real gold charm is mostly warm; a leftover grey shadow blob is ~0% warm.
+    if (opPx === 0 || warmPx / opPx < 0.25) continue
+    idx++
     const newId = multi ? `${id}-${idx}` : id
     await sharp(out, { raw: { width: w, height: h, channels: 4 } }).png({ compressionLevel: 9 }).toFile(join(TMP, `${newId}.png`))
     const widthMm = +(w * mmPerPx).toFixed(1)
