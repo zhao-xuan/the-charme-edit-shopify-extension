@@ -1,469 +1,469 @@
 {
-  "generatedAt": "2026-06-19T13:47:37.463Z",
+  "generatedAt": "2026-06-19T14:09:44.094Z",
   "threshold": 0.12,
   "total": 87,
-  "duplicates": 13,
-  "unique": 74,
+  "duplicates": 12,
+  "unique": 75,
   "report": [
     {
       "id": "image-20260618161922-515-813-1-1",
-      "status": "duplicate",
-      "similarity": 0.888,
+      "status": "unique",
+      "similarity": 0.868,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161922-515-813-1-2",
       "status": "unique",
-      "similarity": 0.646,
+      "similarity": 0.661,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161922-515-813-1-3",
       "status": "unique",
-      "similarity": 0.737,
-      "matchId": "all-sense-grande-charm-1-lip-red-gold",
-      "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
+      "similarity": 0.672,
+      "matchId": "aurora-grande-midi-charm-gold-flower",
+      "matchName": "Aurora - Grande / Midi Charm · Gold flower"
     },
     {
       "id": "image-20260618161922-515-813-10",
       "status": "unique",
-      "similarity": 0.705,
+      "similarity": 0.697,
       "matchId": "golden-hour-mini-charm-3-dolphin",
       "matchName": "Golden hour - Mini Charm · #3 Dolphin"
     },
     {
       "id": "image-20260618161922-515-813-11",
       "status": "unique",
-      "similarity": 0.666,
+      "similarity": 0.665,
       "matchId": "zodiac-signs-aries-march-21-april-19-gold",
       "matchName": "Zodiac Signs · Aries: March 21 – April 19 / Gold"
     },
     {
       "id": "image-20260618161922-515-813-12",
       "status": "unique",
-      "similarity": 0.77,
+      "similarity": 0.764,
       "matchId": "number-8",
       "matchName": "Number 8"
     },
     {
       "id": "image-20260618161922-515-813-13",
       "status": "unique",
-      "similarity": 0.618,
+      "similarity": 0.62,
       "matchId": "letter-i",
       "matchName": "Initial I"
     },
     {
       "id": "image-20260618161922-515-813-14",
       "status": "unique",
-      "similarity": 0.742,
+      "similarity": 0.754,
       "matchId": "letter-i",
       "matchName": "Initial I"
     },
     {
       "id": "image-20260618161922-515-813-15",
       "status": "unique",
-      "similarity": 0.686,
-      "matchId": "number-0",
-      "matchName": "Number 0"
+      "similarity": 0.672,
+      "matchId": "number-7",
+      "matchName": "Number 7"
     },
     {
       "id": "image-20260618161922-515-813-16",
       "status": "unique",
-      "similarity": 0.776,
+      "similarity": 0.765,
       "matchId": "golden-hour-mini-charm-1-sea-star",
       "matchName": "Golden hour - Mini Charm · #1 Sea star"
     },
     {
       "id": "image-20260618161922-515-813-17",
       "status": "unique",
-      "similarity": 0.595,
-      "matchId": "letter-i",
-      "matchName": "Initial I"
+      "similarity": 0.626,
+      "matchId": "golden-hour-mini-charm-3-dolphin",
+      "matchName": "Golden hour - Mini Charm · #3 Dolphin"
     },
     {
       "id": "image-20260618161922-515-813-2",
       "status": "duplicate",
-      "similarity": 0.967,
+      "similarity": 0.964,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161922-515-813-3",
       "status": "duplicate",
-      "similarity": 0.977,
+      "similarity": 0.974,
       "matchId": "golden-moon-grande-charm-golden-moon-1",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
     {
       "id": "image-20260618161922-515-813-4",
       "status": "duplicate",
-      "similarity": 0.977,
+      "similarity": 0.966,
       "matchId": "golden-moon-grande-charm-golden-moon-1",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
     {
       "id": "image-20260618161922-515-813-5",
       "status": "unique",
-      "similarity": 0.753,
+      "similarity": 0.764,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161922-515-813-6",
       "status": "unique",
-      "similarity": 0.623,
+      "similarity": 0.613,
       "matchId": "number-7",
       "matchName": "Number 7"
     },
     {
       "id": "image-20260618161922-515-813-7",
       "status": "duplicate",
-      "similarity": 0.947,
-      "matchId": "golden-moon-grande-charm-golden-moon-1",
-      "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
+      "similarity": 0.938,
+      "matchId": "golden-moon-grande-charm-golden-moon-3",
+      "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161922-515-813-8",
       "status": "unique",
-      "similarity": 0.76,
+      "similarity": 0.67,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161922-515-813-9",
       "status": "unique",
-      "similarity": 0.552,
+      "similarity": 0.564,
       "matchId": "number-9",
       "matchName": "Number 9"
     },
     {
       "id": "image-20260618161924-516-813-1",
       "status": "unique",
-      "similarity": 0.677,
+      "similarity": 0.681,
       "matchId": "number-1",
       "matchName": "Number 1"
     },
     {
       "id": "image-20260618161925-517-813-1",
       "status": "unique",
-      "similarity": 0.693,
+      "similarity": 0.709,
       "matchId": "number-7",
       "matchName": "Number 7"
     },
     {
       "id": "image-20260618161925-517-813-10",
       "status": "unique",
-      "similarity": 0.87,
+      "similarity": 0.862,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-11",
       "status": "unique",
-      "similarity": 0.7,
-      "matchId": "number-1",
-      "matchName": "Number 1"
+      "similarity": 0.698,
+      "matchId": "number-7",
+      "matchName": "Number 7"
     },
     {
       "id": "image-20260618161925-517-813-12",
       "status": "unique",
-      "similarity": 0.715,
+      "similarity": 0.718,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-13",
       "status": "unique",
-      "similarity": 0.712,
+      "similarity": 0.735,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-14",
       "status": "unique",
-      "similarity": 0.789,
+      "similarity": 0.799,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-2",
       "status": "unique",
-      "similarity": 0.671,
+      "similarity": 0.668,
       "matchId": "zodiac-signs-taurus-april-20-may-20-gold",
       "matchName": "Zodiac Signs · Taurus: April 20 – May 20 / Gold"
     },
     {
       "id": "image-20260618161925-517-813-3",
       "status": "unique",
-      "similarity": 0.626,
+      "similarity": 0.629,
       "matchId": "letter-p",
       "matchName": "Initial P"
     },
     {
       "id": "image-20260618161925-517-813-4",
       "status": "unique",
-      "similarity": 0.861,
+      "similarity": 0.862,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-5",
       "status": "unique",
-      "similarity": 0.75,
+      "similarity": 0.752,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-6",
       "status": "unique",
-      "similarity": 0.877,
+      "similarity": 0.88,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-7",
       "status": "unique",
-      "similarity": 0.811,
+      "similarity": 0.778,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-8",
-      "status": "unique",
-      "similarity": 0.877,
+      "status": "duplicate",
+      "similarity": 0.883,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161925-517-813-9",
       "status": "unique",
-      "similarity": 0.611,
+      "similarity": 0.624,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-1",
       "status": "unique",
-      "similarity": 0.701,
+      "similarity": 0.697,
       "matchId": "zodiac-signs-taurus-april-20-may-20-gold",
       "matchName": "Zodiac Signs · Taurus: April 20 – May 20 / Gold"
     },
     {
       "id": "image-20260618161926-519-813-10",
       "status": "unique",
-      "similarity": 0.778,
-      "matchId": "number-8",
-      "matchName": "Number 8"
+      "similarity": 0.753,
+      "matchId": "number-3",
+      "matchName": "Number 3"
     },
     {
       "id": "image-20260618161926-519-813-11",
       "status": "duplicate",
-      "similarity": 0.895,
+      "similarity": 0.9,
       "matchId": "number-2",
       "matchName": "Number 2"
     },
     {
       "id": "image-20260618161926-519-813-12",
       "status": "duplicate",
-      "similarity": 0.92,
+      "similarity": 0.915,
       "matchId": "number-4",
       "matchName": "Number 4"
     },
     {
       "id": "image-20260618161926-519-813-13",
       "status": "unique",
-      "similarity": 0.836,
+      "similarity": 0.813,
       "matchId": "number-6",
       "matchName": "Number 6"
     },
     {
       "id": "image-20260618161926-519-813-14",
       "status": "unique",
-      "similarity": 0.662,
+      "similarity": 0.665,
       "matchId": "number-1",
       "matchName": "Number 1"
     },
     {
       "id": "image-20260618161926-519-813-15",
       "status": "unique",
-      "similarity": 0.65,
+      "similarity": 0.637,
       "matchId": "letter-i",
       "matchName": "Initial I"
     },
     {
       "id": "image-20260618161926-519-813-16",
       "status": "unique",
-      "similarity": 0.822,
+      "similarity": 0.815,
       "matchId": "number-9",
       "matchName": "Number 9"
     },
     {
       "id": "image-20260618161926-519-813-17",
       "status": "unique",
-      "similarity": 0.749,
+      "similarity": 0.743,
       "matchId": "number-3",
       "matchName": "Number 3"
     },
     {
       "id": "image-20260618161926-519-813-18",
       "status": "unique",
-      "similarity": 0.762,
-      "matchId": "number-7",
-      "matchName": "Number 7"
+      "similarity": 0.718,
+      "matchId": "number-1",
+      "matchName": "Number 1"
     },
     {
       "id": "image-20260618161926-519-813-2",
       "status": "unique",
-      "similarity": 0.693,
-      "matchId": "aurora-grande-midi-charm-gold-flower",
-      "matchName": "Aurora - Grande / Midi Charm · Gold flower"
+      "similarity": 0.687,
+      "matchId": "all-sense-grande-charm-1-lip-red-gold",
+      "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161926-519-813-3",
       "status": "unique",
-      "similarity": 0.851,
+      "similarity": 0.856,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-4",
       "status": "unique",
-      "similarity": 0.671,
+      "similarity": 0.655,
       "matchId": "number-1",
       "matchName": "Number 1"
     },
     {
       "id": "image-20260618161926-519-813-5",
       "status": "duplicate",
-      "similarity": 0.979,
+      "similarity": 0.953,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-6",
       "status": "duplicate",
-      "similarity": 0.976,
+      "similarity": 0.977,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-8",
       "status": "unique",
-      "similarity": 0.69,
+      "similarity": 0.692,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161926-519-813-9",
       "status": "unique",
-      "similarity": 0.693,
+      "similarity": 0.696,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161927-520-813-1",
       "status": "unique",
-      "similarity": 0.836,
+      "similarity": 0.843,
       "matchId": "birds-of-the-feather-grande-midi-charm-3-gold-lead-resin-rose-gr",
       "matchName": "Birds of the Feather - Grande / Midi Charm · #3 Gold lead resin rose"
     },
     {
       "id": "image-20260618161927-520-813-10",
       "status": "unique",
-      "similarity": 0.708,
+      "similarity": 0.706,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161927-520-813-11",
       "status": "unique",
-      "similarity": 0.646,
+      "similarity": 0.683,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-12",
       "status": "unique",
-      "similarity": 0.678,
+      "similarity": 0.694,
       "matchId": "golden-moon-grande-charm-golden-moon-2",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 2"
     },
     {
       "id": "image-20260618161927-520-813-13",
       "status": "unique",
-      "similarity": 0.733,
+      "similarity": 0.721,
       "matchId": "zodiac-signs-aries-march-21-april-19-gold",
       "matchName": "Zodiac Signs · Aries: March 21 – April 19 / Gold"
     },
     {
       "id": "image-20260618161927-520-813-14",
       "status": "unique",
-      "similarity": 0.622,
+      "similarity": 0.638,
       "matchId": "all-sense-grande-charm-1-lip-red-gold",
       "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161927-520-813-15",
       "status": "unique",
-      "similarity": 0.713,
-      "matchId": "all-sense-grande-charm-1-lip-red-gold",
-      "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
+      "similarity": 0.736,
+      "matchId": "golden-moon-grande-charm-golden-moon-3",
+      "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161927-520-813-16",
       "status": "unique",
-      "similarity": 0.613,
+      "similarity": 0.612,
       "matchId": "letter-r",
       "matchName": "Initial R"
     },
     {
       "id": "image-20260618161927-520-813-18",
       "status": "unique",
-      "similarity": 0.756,
+      "similarity": 0.763,
       "matchId": "golden-moon-grande-charm-golden-moon-3",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161927-520-813-19",
       "status": "unique",
-      "similarity": 0.754,
+      "similarity": 0.786,
       "matchId": "golden-moon-grande-charm-golden-moon-3",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161927-520-813-2",
-      "status": "duplicate",
-      "similarity": 0.885,
+      "status": "unique",
+      "similarity": 0.874,
       "matchId": "all-sense-grande-charm-2-eye-orange-gold",
       "matchName": "All sense - Grande Charm · #2 Eye - Orange Gold"
     },
     {
       "id": "image-20260618161927-520-813-20",
       "status": "unique",
-      "similarity": 0.664,
+      "similarity": 0.686,
       "matchId": "all-sense-grande-charm-1-lip-red-gold",
       "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161927-520-813-21",
       "status": "unique",
-      "similarity": 0.709,
+      "similarity": 0.72,
       "matchId": "all-sense-grande-charm-1-lip-red-gold",
       "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161927-520-813-22",
       "status": "unique",
-      "similarity": 0.869,
+      "similarity": 0.832,
       "matchId": "golden-moon-grande-charm-golden-moon-1",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
     {
       "id": "image-20260618161927-520-813-23",
       "status": "duplicate",
-      "similarity": 0.899,
+      "similarity": 0.907,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
@@ -477,107 +477,107 @@
     {
       "id": "image-20260618161927-520-813-25",
       "status": "unique",
-      "similarity": 0.87,
+      "similarity": 0.875,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-26",
       "status": "unique",
-      "similarity": 0.82,
+      "similarity": 0.839,
       "matchId": "golden-moon-grande-charm-golden-moon-3",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161927-520-813-27",
       "status": "unique",
-      "similarity": 0.822,
+      "similarity": 0.825,
       "matchId": "golden-moon-grande-charm-golden-moon-3",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     },
     {
       "id": "image-20260618161927-520-813-28",
       "status": "duplicate",
-      "similarity": 0.906,
+      "similarity": 0.893,
       "matchId": "golden-moon-grande-charm-golden-moon-1",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
     {
       "id": "image-20260618161927-520-813-29",
       "status": "unique",
-      "similarity": 0.726,
+      "similarity": 0.748,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-3",
       "status": "unique",
-      "similarity": 0.854,
-      "matchId": "birds-of-the-feather-grande-midi-charm-3-gold-lead-resin-rose-gr",
-      "matchName": "Birds of the Feather - Grande / Midi Charm · #3 Gold lead resin rose"
+      "similarity": 0.847,
+      "matchId": "all-sense-grande-charm-1-lip-red-gold",
+      "matchName": "All sense - Grande Charm · #1 Lip - Red Gold"
     },
     {
       "id": "image-20260618161927-520-813-30",
       "status": "unique",
-      "similarity": 0.752,
+      "similarity": 0.735,
       "matchId": "letter-a",
       "matchName": "Initial A"
     },
     {
       "id": "image-20260618161927-520-813-31",
       "status": "unique",
-      "similarity": 0.719,
-      "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
-      "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
+      "similarity": 0.771,
+      "matchId": "golden-moon-grande-charm-golden-moon-1",
+      "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
     },
     {
       "id": "image-20260618161927-520-813-32",
       "status": "unique",
-      "similarity": 0.726,
+      "similarity": 0.748,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-33",
       "status": "unique",
-      "similarity": 0.837,
+      "similarity": 0.838,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-34",
       "status": "unique",
-      "similarity": 0.71,
+      "similarity": 0.704,
       "matchId": "letter-p",
       "matchName": "Initial P"
     },
     {
       "id": "image-20260618161927-520-813-35",
       "status": "unique",
-      "similarity": 0.691,
-      "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
-      "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
+      "similarity": 0.725,
+      "matchId": "letter-p",
+      "matchName": "Initial P"
     },
     {
       "id": "image-20260618161927-520-813-36",
       "status": "unique",
-      "similarity": 0.778,
+      "similarity": 0.757,
       "matchId": "letter-l",
       "matchName": "Initial L"
     },
     {
       "id": "image-20260618161927-520-813-37",
       "status": "unique",
-      "similarity": 0.594,
+      "similarity": 0.597,
       "matchId": "all-sense-grande-charm-3-tooth-blue-gold",
       "matchName": "All sense - Grande Charm · #3 Tooth - Blue Gold"
     },
     {
       "id": "image-20260618161927-520-813-4",
       "status": "unique",
-      "similarity": 0.673,
-      "matchId": "golden-moon-grande-charm-golden-moon-1",
-      "matchName": "Golden Moon - Grande Charm · Golden Moon 1"
+      "similarity": 0.68,
+      "matchId": "zodiac-signs-libra-september-23-october-22-gold",
+      "matchName": "Zodiac Signs · Libra: September 23 – October 22 / Gold"
     },
     {
       "id": "image-20260618161927-520-813-5",
@@ -589,28 +589,28 @@
     {
       "id": "image-20260618161927-520-813-6",
       "status": "unique",
-      "similarity": 0.676,
+      "similarity": 0.66,
       "matchId": "zodiac-signs-scorpio-october-23-november-21-gold",
       "matchName": "Zodiac Signs · Scorpio: October 23 – November 21 / Gold"
     },
     {
       "id": "image-20260618161927-520-813-7",
       "status": "unique",
-      "similarity": 0.707,
+      "similarity": 0.668,
       "matchId": "all-sense-grande-charm-2-eye-orange-gold",
       "matchName": "All sense - Grande Charm · #2 Eye - Orange Gold"
     },
     {
       "id": "image-20260618161927-520-813-8",
       "status": "unique",
-      "similarity": 0.659,
-      "matchId": "zodiac-signs-gemini-may-21-june-20-gold",
-      "matchName": "Zodiac Signs · Gemini: May 21 – June 20 / Gold"
+      "similarity": 0.683,
+      "matchId": "letter-f",
+      "matchName": "Initial F"
     },
     {
       "id": "image-20260618161927-520-813-9",
       "status": "unique",
-      "similarity": 0.693,
+      "similarity": 0.684,
       "matchId": "golden-moon-grande-charm-golden-moon-3",
       "matchName": "Golden Moon - Grande Charm · Golden Moon 3"
     }

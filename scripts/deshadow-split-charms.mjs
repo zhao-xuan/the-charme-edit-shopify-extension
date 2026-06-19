@@ -29,23 +29,21 @@ const TMP = join(DIR, '_clean')
 
 const lumOf = (r, g, b) => 0.299 * r + 0.587 * g + 0.114 * b
 
-// Gold metal is WARM (r noticeably > b) and/or a bright warm sheen. The cast
-// shadow on the white case is a neutral mid-grey that can be just as BRIGHT as
-// the gold (e.g. [157,148,139], lum 149) — so a brightness test keeps it. We
-// instead separate by warmth + saturation, which cleanly drops the grey shadow.
-const WARM_MIN = 26 // r - b
-const SAT_MIN = 0.16
-const HILITE_LUM = 205 // bright specular gold sheen
-const HILITE_WARM = 12
+// Gold metal is WARM: red noticeably exceeds blue. The cast shadow on the white
+// case AND the cream case seen through an open counter are both NEUTRAL (red ≈
+// blue) — even when bright — so a brightness test keeps them. We separate purely
+// by WARMTH, which drops grey shadow and cream case alike while keeping gold
+// (incl. dim gold edges). Bright specular highlights on the gold read neutral
+// too, but they sit INSIDE the gold and are recovered later as small holes.
+const WARM_MIN = 22 // r - b for plain gold
+const DEEP_WARM = 14 // dark warm gold (low light) needs less, gated by darkness
 
-/** Is this pixel gold metal (vs the neutral grey cast shadow)? */
+/** Is this pixel warm gold metal (vs neutral grey shadow / cream case)? */
 function isMetal(r, g, b) {
   const warm = r - b
-  const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
-  const sat = mx === 0 ? 0 : (mx - mn) / mx
-  const lum = lumOf(r, g, b)
-  if (warm >= WARM_MIN && sat >= SAT_MIN) return true // warm gold
-  if (lum > HILITE_LUM && warm >= HILITE_WARM) return true // bright warm sheen
+  if (warm >= WARM_MIN) return true
+  // deep/dim gold in shadow keeps a little warmth while going dark
+  if (warm >= DEEP_WARM && lumOf(r, g, b) < 120) return true
   return false
 }
 
@@ -224,16 +222,35 @@ for (const file of files) {
     if (data[p * 4 + 3] < 40) continue
     if (isMetal(data[p * 4], data[p * 4 + 1], data[p * 4 + 2])) metal[p] = 1
   }
-  // Restore interior detail enclosed by metal (dark gem / enamel centres that
-  // aren't "warm gold"), BUT only where the original cut-out was OPAQUE there.
-  // A hole that was transparent in the original is an open counter (the hole in
-  // a "9" / "Q", an open star centre) showing the case through it — keep it open
-  // rather than fill it black.
+  // Interior regions enclosed by the gold outline are one of three things:
+  //   • a small specular highlight / tiny gap in the metal  → fill (keep solid),
+  //   • a warm-gold sheen patch on the body                 → fill (keep),
+  //   • anything else (the cream/grey CASE through an OPEN COUNTER, a recessed
+  //     shadow, a dark centre) → leave TRANSPARENT so hollows read as empty.
+  // Letter/number counters (the holes in 9 / Q / O) and key-bow / clover / oval
+  // openings all fall in the last bucket and become see-through.
   const enclosed = fillHoles(metal, W, H)
+  const holeMask = new Uint8Array(W * H)
+  for (let p = 0; p < W * H; p++) if (enclosed[p] && !metal[p]) holeMask[p] = 1
+  const holes = components(holeMask, W, H, 1)
+  const pieceArea = W * H
+  const fillLabel = new Uint8Array(holes.comps.length + 1)
+  for (const c of holes.comps) {
+    let sw = 0, n = 0
+    for (let y = c.bbox.miny; y <= c.bbox.maxy; y++) for (let x = c.bbox.minx; x <= c.bbox.maxx; x++) {
+      const p = y * W + x
+      if (holes.labels[p] !== c.label) continue
+      sw += data[p * 4] - data[p * 4 + 2]
+      n++
+    }
+    const meanWarm = n ? sw / n : 0
+    const small = c.area < Math.max(36, pieceArea * 0.0012)
+    if (small || meanWarm >= 20) fillLabel[c.label] = 1
+  }
   const keep = new Uint8Array(W * H)
   for (let p = 0; p < W * H; p++) {
     if (metal[p]) keep[p] = 1
-    else if (enclosed[p] && data[p * 4 + 3] > 60) keep[p] = 1 // dark detail, was solid
+    else if (holeMask[p] && fillLabel[holes.labels[p]]) keep[p] = 1
   }
   metal = keep
 

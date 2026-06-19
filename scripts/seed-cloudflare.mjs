@@ -13,6 +13,7 @@
  * -------------------------------------------------------------------------
  */
 import { readFile, writeFile, readdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -35,7 +36,11 @@ let i = 0
 for (const c of manifest.charms) {
   const png = await readFile(join(DIR, c.src))
   const b64 = png.toString('base64')
-  const key = c.id
+  // Content-hash the image key so re-processed bytes get a NEW URL — the image
+  // endpoint serves with `immutable` caching, so reusing a key would otherwise
+  // keep serving the stale (shadowed) image from the CDN / browser cache.
+  const hash = createHash('sha1').update(png).digest('hex').slice(0, 10)
+  const key = `${c.id}-${hash}`
   kv.push({ key: `img:${key}`, value: b64, base64: true, metadata: { contentType: 'image/png' } })
   const d = dedupeById.get(c.id)
   const dupOf = d && d.status === 'duplicate' ? d.matchId : null
