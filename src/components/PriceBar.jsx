@@ -1,16 +1,20 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled, UndoOutlined } from '@ant-design/icons'
-
-const REC_MIN = 12
-const REC_MAX = 15
+import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../lib/catalog'
 
 export default function PriceBar({ product, placed, validation, onSubmit, onClear, canUndo, onUndo }) {
-  const charmTotal = placed.reduce((s, c) => s + c.price, 0)
+  const charmTotal = placedCharmsTotal(placed)
   const total = product.basePrice + charmTotal
   const n = placed.length
   const ok = validation.ok
   const problems = validation.problems
   const noun = product.kind === 'tote' ? 'tote' : 'case'
+
+  // Why the order isn't ready yet (count first, then geometry).
+  let warnLabel
+  if (validation.tooFew) warnLabel = `Add at least ${MIN_CHARMS} charms`
+  else if (validation.tooMany) warnLabel = `Use at most ${MAX_CHARMS} charms`
+  else warnLabel = `${problems} charm${problems > 1 ? 's' : ''} need attention`
 
   return (
     <div className="pricebar">
@@ -22,7 +26,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, onClea
         ) : (
           <span className="pill pill--warn">
             <WarningFilled />
-            {n === 0 ? 'Add at least one charm' : `${problems} charm${problems > 1 ? 's' : ''} need attention`}
+            {warnLabel}
           </span>
         )}
         <span className="hint">

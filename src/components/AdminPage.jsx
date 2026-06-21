@@ -34,7 +34,7 @@ import {
 } from '@ant-design/icons'
 import charmData from '../data/catalog.json'
 import { ALL_PRODUCTS } from '../data/products'
-import { charmCategory } from '../lib/catalog'
+import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { clearAdmin, defaultAdmin, loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, loadImageData } from '../lib/segment'
 import {
@@ -140,6 +140,8 @@ function CharmsTab({ draft, set }) {
     price: 2,
     widthMm: 16,
     image: null,
+    bundle: false,
+    bundleMax: 8,
   })
   const [query, setQuery] = useState('')
 
@@ -149,6 +151,7 @@ function CharmsTab({ draft, set }) {
     const tier = TIER_OPTS.find((t) => t.value === form.tier)
     const widthMm = Number(form.widthMm) || 16
     const heightMm = +(widthMm * (form.image.h / form.image.w)).toFixed(1)
+    const bundle = !!form.bundle
     const charm = {
       id: `custom-charm-${slug(form.name)}-${rid()}`,
       name: form.name.trim(),
@@ -164,9 +167,13 @@ function CharmsTab({ draft, set }) {
       heightMm,
       minScale: 1,
       maxScale: 1,
+      // Flat-price bundle: customers may pick up to `bundleMax` of this charm for
+      // the single `price` above (e.g. little stones). Off → priced per piece.
+      bundle,
+      bundleMax: bundle ? Math.max(1, Math.min(MAX_CHARMS, Number(form.bundleMax) || 1)) : null,
     }
     set((d) => ({ ...d, customCharms: [charm, ...(d.customCharms || [])] }))
-    setForm({ name: '', category: 'gold', tier: 'midi', price: 2, widthMm: 16, image: null })
+    setForm({ name: '', category: 'gold', tier: 'midi', price: 2, widthMm: 16, image: null, bundle: false, bundleMax: 8 })
     message.success('Charm added — Save changes to publish.')
   }
 
@@ -237,7 +244,32 @@ function CharmsTab({ draft, set }) {
             <span>Artwork (transparent cut-out)</span>
             <ImageDrop value={form.image} onChange={(image) => setForm((f) => ({ ...f, image }))} />
           </label>
+          <label className="admin-check" style={{ gridColumn: '1 / -1' }}>
+            <Checkbox
+              checked={form.bundle}
+              onChange={(e) => setForm((f) => ({ ...f, bundle: e.target.checked }))}
+            >
+              Flat price — customers can pick several of this charm for the same price (e.g. little stones)
+            </Checkbox>
+          </label>
+          {form.bundle && (
+            <label>
+              <span>Max picks for the price</span>
+              <InputNumber
+                min={1}
+                max={MAX_CHARMS}
+                value={form.bundleMax}
+                onChange={(v) => setForm((f) => ({ ...f, bundleMax: v }))}
+                style={{ width: '100%' }}
+              />
+            </label>
+          )}
         </div>
+        <p className="hint" style={{ margin: '10px 0 0' }}>
+          {form.bundle
+            ? `Customers pay £${Number(form.price) || 0} once and may add up to ${form.bundleMax || 1} of this charm.`
+            : 'Priced per piece — each one added is charged separately.'}
+        </p>
         <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
           Add charm
         </Button>
@@ -261,6 +293,12 @@ function CharmsTab({ draft, set }) {
               { title: 'Category', dataIndex: 'category', render: (c) => <Tag>{c}</Tag> },
               { title: 'Size', dataIndex: 'widthMm', render: (w, r) => `${w}×${r.heightMm} mm` },
               { title: 'Price', dataIndex: 'price', render: (p) => `£${p}` },
+              {
+                title: 'Multi-pick',
+                dataIndex: 'bundle',
+                render: (b, r) =>
+                  b ? <Tag color="geekblue">up to {r.bundleMax} · one price</Tag> : <span style={{ color: 'var(--ink-soft)' }}>—</span>,
+              },
               {
                 title: '',
                 width: 48,

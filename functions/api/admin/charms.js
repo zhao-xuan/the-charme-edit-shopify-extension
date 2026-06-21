@@ -21,14 +21,17 @@ export async function onRequestPost({ request, env }) {
     if (!c.src) return bad(`charm "${c.name}" has no image`)
     const id = c.id || makeId('charm', c.name || 'charm')
     const imageKey = await storeImage(env, id, c.src)
+    const bundle = c.bundle ? 1 : 0
+    const bundleMax = bundle ? Math.max(1, Number(c.bundleMax) || 1) : null
     await env.DB.prepare(
       `INSERT OR REPLACE INTO charms
-       (id,name,collection,category,tier,type,price,width_mm,height_mm,px_w,px_h,image_key,hidden,source,dup_of,dup_score)
-       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+       (id,name,collection,category,tier,type,price,width_mm,height_mm,px_w,px_h,image_key,hidden,source,dup_of,dup_score,bundle,bundle_max)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
     ).bind(
       id, c.name || 'Charm', c.collection || 'Custom', c.category || 'gold', c.tier || 'midi',
       c.type || 2, c.price ?? 2, c.widthMm || 16, c.heightMm || 16, c.pxW || null, c.pxH || null,
       imageKey, c.hidden ? 1 : 0, c.source || 'custom', c.dupOf || null, c.dupScore ?? null,
+      bundle, bundleMax,
     ).run()
     const row = await env.DB.prepare('SELECT * FROM charms WHERE id = ?').bind(id).first()
     created.push(rowToCharm(row))

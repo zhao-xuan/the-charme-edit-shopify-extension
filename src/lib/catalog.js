@@ -4,6 +4,34 @@ import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 
+// ---- Order limits & pricing ------------------------------------------------
+// A craftable order needs at least MIN_CHARMS pieces and no more than
+// MAX_CHARMS (beyond that, charms overcrowd the case and the layout maths gets
+// unreliable). REC_MIN..REC_MAX is the softer "looks balanced" guidance.
+export const MIN_CHARMS = 10
+export const MAX_CHARMS = 30
+export const REC_MIN = 12
+export const REC_MAX = 15
+
+/**
+ * Total chargeable charm price for a placed layout. "Bundle" charms — a flat
+ * price that lets the customer pick several of the same piece (e.g. little
+ * stones) — are billed once per charm id; every other charm is billed per
+ * placed piece.
+ */
+export function placedCharmsTotal(placed) {
+  let total = 0
+  const billed = new Set()
+  for (const c of placed || []) {
+    if (c.bundle) {
+      if (billed.has(c.charmId)) continue
+      billed.add(c.charmId)
+    }
+    total += c.price || 0
+  }
+  return total
+}
+
 /**
  * The customizer carries two completely separate decoration worlds:
  *   • phone cases → jewellery-style charms  (src/data/catalog.json)

@@ -15,7 +15,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { PRODUCT_GROUPS, BRAND_LABELS, findProduct } from '../data/products'
-import { trayGroups } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 
@@ -37,10 +37,6 @@ const uid = () =>
   (crypto.randomUUID && crypto.randomUUID()) || `c${Date.now()}${Math.random().toString(16).slice(2)}`
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
-
-// Suggested charm count for a nicely balanced design.
-const REC_MIN = 12
-const REC_MAX = 15
 
 /**
  * Fold the chosen case colour + gel colour into a single render-ready colour
@@ -104,6 +100,13 @@ export default function CustomizerPage({ onPlaceOrder }) {
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
 
+  // Desktop only: the charm tray column width (px). A draggable divider on its
+  // left edge lets the customer widen the tray (more, smaller charm cards per
+  // row) or reclaim the space for the preview.
+  const [trayWidth, setTrayWidth] = useState(384)
+  const studioRef = useRef(null)
+  const trayDrag = useRef(null)
+
   const stageApi = useRef(null)
 
   const product = findProduct(productId)
@@ -139,7 +142,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
   const [maskVersion, setMaskVersion] = useState(0)
   useEffect(() => onMaskReady(() => setMaskVersion((v) => v + 1)), [])
   const validation = useMemo(
-    () => validateLayout(placed, product),
+    () => validateLayout(placed, product, { minCharms: MIN_CHARMS, maxCharms: MAX_CHARMS }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [placed, product, maskVersion],
   )
@@ -212,6 +215,11 @@ export default function CustomizerPage({ onPlaceOrder }) {
     name: charm.name,
     src: charm.src,
     price: charm.price,
+    // Flat-price "bundle" charms (e.g. little stones) — pick several of the same
+    // piece for one price, up to `bundleMax`. Carried on the placed instance so
+    // pricing + the per-charm add cap work without a catalogue lookup.
+    bundle: !!charm.bundle,
+    bundleMax: charm.bundleMax,
     baseWmm: charm.widthMm,
     baseHmm: charm.heightMm,
     minScale: charm.minScale,
@@ -231,38 +239,78 @@ export default function CustomizerPage({ onPlaceOrder }) {
     [product],
   )
 
+  // Gate every add path on the overall cap and a bundle charm's per-piece limit.
+  const canAddMore = useCallback(
+    (charm) => {
+      if (placedRef.current.length >= MAX_CHARMS) {
+        message.warning(`You can add up to ${MAX_CHARMS} charms.`)
+        return false
+      }
+      if (charm.bundle && charm.bundleMax) {
+        const have = placedRef.current.filter((c) => c.charmId === charm.id).length
+        if (have >= charm.bundleMax) {
+          message.info(`Up to ${charm.bundleMax} “${charm.name}” are included for one price.`)
+          return false
+        }
+      }
+      return true
+    },
+    [message],
+  )
+
+  // Commit a built placed-charm, enforcing the hard caps inside the updater so
+  // the invariants hold even under rapid taps (before a re-render refreshes the
+  // ref `canAddMore` reads): never exceed MAX_CHARMS, never exceed a bundle
+  // charm's per-piece limit.
+  const commitPlaced = useCallback(
+    (pc) => {
+      pushHistory()
+      setPlaced((p) => {
+        if (p.length >= MAX_CHARMS) return p
+        if (
+          pc.bundle &&
+          pc.bundleMax &&
+          p.filter((c) => c.charmId === pc.charmId).length >= pc.bundleMax
+        ) {
+          return p
+        }
+        return [...p, pc]
+      })
+      setSelectedUid(pc.uid)
+    },
+    [pushHistory],
+  )
+
   const addAt = useCallback(
     (charm, mm) => {
+      if (!canAddMore(charm)) return
       const pc = clampToPrintable(
         makePlaced(charm, { cxMm: mm.xMm, cyMm: mm.yMm, rot: 0 }),
       )
-      pushHistory()
-      setPlaced((p) => [...p, pc])
-      setSelectedUid(pc.uid)
+      commitPlaced(pc)
     },
-    [clampToPrintable, makePlaced, pushHistory],
+    [canAddMore, clampToPrintable, makePlaced, commitPlaced],
   )
 
   const addAuto = useCallback(
     (charm, { scatterOnly = false } = {}) => {
+      if (!canAddMore(charm)) return
       const prev = placedRef.current
-      const spot = findScatterSpot(product, prev, charm)
-      if (!spot && scatterOnly) {
-        message.info('No clear gaps left — move or remove a charm to make room.')
+      // Only ever drop a charm where it fits without overlapping; fillers tumble,
+      // everything else lands upright. If there is no clear spot at all we refuse
+      // the add (rather than stacking an overlapping charm the customer must fix).
+      const spot = findScatterSpot(product, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 })
+      if (!spot) {
+        message.info(
+          scatterOnly
+            ? 'No clear gaps left — move or remove a charm to make room.'
+            : 'No room to add this charm without overlapping — move or remove a charm first.',
+        )
         return
       }
-      const pc = spot
-        ? makePlaced(charm, spot)
-        : makePlaced(charm, {
-            cxMm: product.widthMm / 2,
-            cyMm: product.heightMm * 0.6,
-            rot: 0,
-          })
-      pushHistory()
-      setPlaced((p) => [...p, pc])
-      setSelectedUid(pc.uid)
+      commitPlaced(makePlaced(charm, spot))
     },
-    [product, makePlaced, message, pushHistory],
+    [canAddMore, product, makePlaced, message, commitPlaced],
   )
 
   const activateCharm = useCallback(
@@ -423,10 +471,20 @@ export default function CustomizerPage({ onPlaceOrder }) {
     if (validation.ok) {
       setShowOverlapWarning(false)
       setSummaryOpen(true)
-    } else {
-      setShowOverlapWarning(true)
-      setWarnPulse((n) => n + 1)
+      return
     }
+    if (validation.tooFew) {
+      message.warning(
+        `Please add at least ${MIN_CHARMS} charms before ordering — you have ${placed.length}.`,
+      )
+      return
+    }
+    if (validation.tooMany) {
+      message.warning(`Please use at most ${MAX_CHARMS} charms.`)
+      return
+    }
+    setShowOverlapWarning(true)
+    setWarnPulse((n) => n + 1)
   }
 
   // ---- mobile splitter: drag to resize the preview vs. tray split ----
@@ -452,6 +510,30 @@ export default function CustomizerPage({ onPlaceOrder }) {
     const d = splitDrag.current
     if (!d || d.pointerId !== e.pointerId) return
     splitDrag.current = null
+  }, [])
+
+  // ---- desktop tray resizer: drag the divider to set the tray column width ----
+  const onTrayResizeDown = useCallback((e) => {
+    e.preventDefault()
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId)
+    } catch {
+      // Some browsers throw if the pointer is no longer active — safe to ignore.
+    }
+    trayDrag.current = { pointerId: e.pointerId }
+  }, [])
+  const onTrayResizeMove = useCallback((e) => {
+    const d = trayDrag.current
+    if (!d || d.pointerId !== e.pointerId) return
+    const studio = studioRef.current
+    if (!studio) return
+    const rect = studio.getBoundingClientRect()
+    setTrayWidth(clamp(Math.round(rect.right - e.clientX), 320, 620))
+  }, [])
+  const onTrayResizeUp = useCallback((e) => {
+    const d = trayDrag.current
+    if (!d || d.pointerId !== e.pointerId) return
+    trayDrag.current = null
   }, [])
 
   const picker = (
@@ -488,7 +570,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
 
   // Order CTA total + noun (case vs. tote) for the Step 3 bar.
   const orderNoun = product.kind === 'tote' ? 'tote' : 'case'
-  const orderTotal = (product.basePrice + placed.reduce((s, c) => s + c.price, 0)).toFixed(0)
+  const orderTotal = (product.basePrice + placedCharmsTotal(placed)).toFixed(0)
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).
@@ -673,7 +755,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
         </div>
         </>
       ) : (
-        <div className="studio">
+        <div className="studio" ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
           <div className="panel panel--left">
             {picker}
             <Tips />
@@ -684,6 +766,18 @@ export default function CustomizerPage({ onPlaceOrder }) {
             {overlapAlert}
           </div>
           <div className="panel--right">
+            <div
+              className="tray-resizer"
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="Drag to resize the charm tray"
+              onPointerDown={onTrayResizeDown}
+              onPointerMove={onTrayResizeMove}
+              onPointerUp={onTrayResizeUp}
+              onPointerCancel={onTrayResizeUp}
+            >
+              <span className="tray-resizer__grip" />
+            </div>
             <div className="tray-head">
               <p className="eyebrow" style={{ margin: 0 }}>Step 2 · Add your charms</p>
               <p className="hint" style={{ marginTop: 4 }}>{stepTwoHint}</p>

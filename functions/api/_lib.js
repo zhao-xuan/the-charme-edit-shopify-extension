@@ -39,6 +39,8 @@ export const rowToCharm = (r) => ({
   source: r.source,
   dupOf: r.dup_of,
   dupScore: r.dup_score,
+  bundle: !!r.bundle,
+  bundleMax: r.bundle_max ?? null,
   minScale: 1,
   maxScale: 1,
 })

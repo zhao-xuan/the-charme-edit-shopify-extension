@@ -32,8 +32,15 @@ CREATE TABLE IF NOT EXISTS charms (
   source      TEXT DEFAULT 'custom',           -- 'extracted' | 'custom'
   dup_of      TEXT,                            -- best gold-catalogue match id (advisory)
   dup_score   REAL,
+  bundle      INTEGER NOT NULL DEFAULT 0,      -- 1 = flat price, customer may pick several
+  bundle_max  INTEGER,                         -- max picks for the flat price (when bundle = 1)
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+-- Migration for databases created before the bundle columns existed (run once;
+-- safe to ignore "duplicate column" errors on databases that already have them):
+--   ALTER TABLE charms ADD COLUMN bundle INTEGER NOT NULL DEFAULT 0;
+--   ALTER TABLE charms ADD COLUMN bundle_max INTEGER;
 
 -- Price / hide overrides for the BUNDLED base catalogue (keyed by its built-in id).
 CREATE TABLE IF NOT EXISTS overrides (

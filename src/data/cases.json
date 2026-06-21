@@ -87,7 +87,7 @@
       }
     },
     "iphone-12-pro": {
-      "aspect": 0.5061,
+      "aspect": 0.4881,
       "images": {
         "black": "/assets/cases/iphone-12-pro-black.png",
         "white": "/assets/cases/iphone-12-pro-white.png"
@@ -184,6 +184,27 @@
         "white": "/assets/cases/iphone-15-pro-max-white.png"
       }
     },
+    "iphone-16": {
+      "aspect": 0.4818,
+      "images": {
+        "black": "/assets/cases/iphone-16-black.png",
+        "white": "/assets/cases/iphone-16-white.png"
+      }
+    },
+    "iphone-16-plus": {
+      "aspect": 0.4775,
+      "images": {
+        "black": "/assets/cases/iphone-16-plus-black.png",
+        "white": "/assets/cases/iphone-16-plus-white.png"
+      }
+    },
+    "iphone-16-pro": {
+      "aspect": 0.4692,
+      "images": {
+        "black": "/assets/cases/iphone-16-pro-black.png",
+        "white": "/assets/cases/iphone-16-pro-white.png"
+      }
+    },
     "iphone-16-pro-max": {
       "aspect": 0.4902,
       "images": {
@@ -210,6 +231,13 @@
       "images": {
         "black": "/assets/cases/iphone-17-pro-max-black.png",
         "white": "/assets/cases/iphone-17-pro-max-white.png"
+      }
+    },
+    "iphone-air": {
+      "aspect": 0.4892,
+      "images": {
+        "black": "/assets/cases/iphone-air-black.png",
+        "white": "/assets/cases/iphone-air-white.png"
       }
     }
   }

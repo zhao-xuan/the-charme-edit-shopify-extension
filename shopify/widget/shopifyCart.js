@@ -61,12 +61,19 @@ export function createCartHandler(cfg) {
 
     // merge charms of the same variant into quantities
     const charmCounts = {}
+    const bundleBilled = new Set()
     const unmapped = []
     for (const c of payload.charms) {
       const vid = (variantMap.charms || {})[c.charmId]
       if (!vid) {
         unmapped.push(c.name)
         continue
+      }
+      // Flat-price bundle charms (e.g. little stones) are charged once no matter
+      // how many copies the customer placed — add a single unit per charm id.
+      if (c.bundle) {
+        if (bundleBilled.has(c.charmId)) continue
+        bundleBilled.add(c.charmId)
       }
       charmCounts[vid] = (charmCounts[vid] || 0) + 1
     }

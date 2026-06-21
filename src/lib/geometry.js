@@ -252,9 +252,12 @@ export function charmShapeOverlap(a, b) {
 
 /**
  * Validate a whole layout.
- * Returns per-charm flags { inside, overlap } and an overall `ok`.
+ * Returns per-charm flags { inside, overlap }, geometry/count breakdown and an
+ * overall `ok`. `opts.minCharms` / `opts.maxCharms` gate the order on the piece
+ * count (too few to craft, or so many the layout overcrowds).
  */
-export function validateLayout(charms, product) {
+export function validateLayout(charms, product, opts = {}) {
+  const { minCharms = 1, maxCharms = Infinity } = opts
   const flags = {}
   for (const c of charms) flags[c.uid] = { inside: true, overlap: false }
 
@@ -270,15 +273,17 @@ export function validateLayout(charms, product) {
     }
   }
 
-  const ok =
-    charms.length > 0 &&
-    charms.every((c) => flags[c.uid].inside && !flags[c.uid].overlap)
+  const geometryOk = charms.every((c) => flags[c.uid].inside && !flags[c.uid].overlap)
+  const count = charms.length
+  const tooFew = count < minCharms
+  const tooMany = count > maxCharms
+  const ok = geometryOk && !tooFew && !tooMany
 
   const problems = charms.filter(
     (c) => !flags[c.uid].inside || flags[c.uid].overlap,
   ).length
 
-  return { flags, ok, problems }
+  return { flags, ok, problems, count, tooFew, tooMany, geometryOk }
 }
 
 /**
@@ -288,13 +293,16 @@ export function validateLayout(charms, product) {
 export function findScatterSpot(product, placedCharms, charm, opts = {}) {
   const gapMm = opts.gapMm ?? 1.2
   const tries = opts.tries ?? 600
+  // Max random rotation (deg) applied to the candidate spot. Scatter fillers
+  // tumble (±20°); fixed/size charms are dropped upright (0).
+  const rotMaxDeg = opts.rotMaxDeg ?? 20
   const { outer } = product.printable
   const placedBoxes = placedCharms.map(charmFootprint)
   const w = charm.widthMm
   const h = charm.heightMm
 
   for (let t = 0; t < tries; t++) {
-    const rot = (Math.random() * 40 - 20)
+    const rot = rotMaxDeg ? Math.random() * rotMaxDeg * 2 - rotMaxDeg : 0
     // bias toward later (looser) attempts using smaller rotation
     const cx = outer.xMm + Math.random() * outer.wMm
     const cy = outer.yMm + Math.random() * outer.hMm

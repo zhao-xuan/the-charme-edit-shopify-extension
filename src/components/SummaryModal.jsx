@@ -2,10 +2,33 @@ import { useEffect, useMemo, useState } from 'react'
 import { Modal, Button, Spin, Divider, App } from 'antd'
 import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
-import { PHONE_CATEGORIES } from '../lib/catalog'
+import { PHONE_CATEGORIES, placedCharmsTotal } from '../lib/catalog'
 
 const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
+
+/**
+ * Collapse a list of placed charms into priced summary rows. Bundle charms
+ * (flat price, pick-multiple) fold into a single "name × N" row charged once;
+ * every other charm gets its own row.
+ */
+function summaryRows(items) {
+  const rows = []
+  const bundleIdx = new Map()
+  for (const c of items) {
+    if (c.bundle) {
+      if (bundleIdx.has(c.charmId)) {
+        rows[bundleIdx.get(c.charmId)].count += 1
+        continue
+      }
+      bundleIdx.set(c.charmId, rows.length)
+      rows.push({ key: c.charmId, name: c.name, price: c.price, count: 1 })
+    } else {
+      rows.push({ key: c.uid, name: c.name, price: c.price, count: 1 })
+    }
+  }
+  return rows
+}
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -60,7 +83,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     }
   }, [open, product, color, placed, variableUids])
 
-  const charmTotal = placed.reduce((s, c) => s + c.price, 0)
+  const charmTotal = placedCharmsTotal(placed)
   const total = product.basePrice + charmTotal
   const noun = product.kind === 'tote' ? 'tote' : 'case'
 
@@ -96,6 +119,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         category: c.category,
         name: c.name,
         price: c.price,
+        bundle: !!c.bundle,
         xMm: +c.cxMm.toFixed(1),
         yMm: +c.cyMm.toFixed(1),
         scale: +(c.scale || 1).toFixed(2),
@@ -192,13 +216,13 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 <div className="eyebrow" style={{ marginBottom: 2 }}>
                   {g.label} × {g.items.length}
                 </div>
-                {g.items.map((c) => (
+                {summaryRows(g.items).map((r) => (
                   <div
-                    key={c.uid}
+                    key={r.key}
                     style={{ display: 'flex', justifyContent: 'space-between', gap: 10, fontSize: 12.5, color: 'var(--ink-soft)' }}
                   >
-                    <span>{c.name}</span>
-                    <span style={{ whiteSpace: 'nowrap' }}>£{c.price.toFixed(2)}</span>
+                    <span>{r.name}{r.count > 1 ? ` × ${r.count}` : ''}</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>£{r.price.toFixed(2)}</span>
                   </div>
                 ))}
               </div>

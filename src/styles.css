@@ -86,7 +86,7 @@ h4,
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 300px 1fr 320px;
+  grid-template-columns: 300px 1fr var(--tray-w, 384px);
   gap: 0;
 }
 .panel {
@@ -105,6 +105,33 @@ h4,
   flex-direction: column;
   overflow: hidden;
   padding: 0;
+  position: relative;
+}
+/* Draggable divider on the tray's left edge (desktop) — widen the tray for more
+   charms per row, or give the space back to the preview. */
+.tray-resizer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  touch-action: none;
+  z-index: 6;
+}
+.tray-resizer__grip {
+  width: 3px;
+  height: 46px;
+  border-radius: 3px;
+  background: var(--line);
+  transition: background 0.12s ease;
+}
+.tray-resizer:hover .tray-resizer__grip,
+.tray-resizer:active .tray-resizer__grip {
+  background: var(--rouge);
 }
 .tray-scroll {
   flex: 1;
@@ -289,17 +316,17 @@ h4,
 /* ---------- Tray ---------- */
 .tray-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
 }
 .charm-card {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
-  padding: 10px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   cursor: grab;
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s;
   touch-action: none;
@@ -324,7 +351,7 @@ h4,
   filter: drop-shadow(0 4px 6px rgba(46, 42, 38, 0.22));
 }
 .charm-card .name {
-  font-size: 12.5px;
+  font-size: 11.5px;
   line-height: 1.25;
   color: var(--ink);
 }
