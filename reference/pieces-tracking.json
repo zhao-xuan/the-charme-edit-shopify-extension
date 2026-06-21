@@ -1,0 +1,7407 @@
+{
+  "generatedAt": "2026-06-21T19:13:55.744Z",
+  "caseSizeMm": {
+    "w": 81.6,
+    "h": 167
+  },
+  "note": "Pieces detected directly on the case in 1-charms-real-image. ids are sequential; nearestCutout is a best-effort appearance link to 3-charms-each-piece (lower score = closer).",
+  "totalPieces": 348,
+  "totalSkippedDuplicates": 12,
+  "photos": [
+    {
+      "photo": "Image_20260618161922_515_813.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 213,
+        "miny": 116,
+        "maxx": 965,
+        "maxy": 1636,
+        "w": 753,
+        "h": 1521
+      },
+      "mmPerPx": 0.1084,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 17,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260618161924_516_813.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 299,
+        "miny": 123,
+        "maxx": 938,
+        "maxy": 1561,
+        "w": 640,
+        "h": 1439
+      },
+      "mmPerPx": 0.1275,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 16,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260618161925_517_813.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 204,
+        "miny": 61,
+        "maxx": 933,
+        "maxy": 1567,
+        "w": 730,
+        "h": 1507
+      },
+      "mmPerPx": 0.1118,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 13,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260618161926_519_813.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 203,
+        "miny": 104,
+        "maxx": 957,
+        "maxy": 1642,
+        "w": 755,
+        "h": 1539
+      },
+      "mmPerPx": 0.1081,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 18,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260618161927_520_813.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 160,
+        "miny": 210,
+        "maxx": 968,
+        "maxy": 1585,
+        "w": 809,
+        "h": 1376
+      },
+      "mmPerPx": 0.1009,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 39,
+      "skippedDuplicates": 1
+    },
+    {
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 214,
+        "miny": 67,
+        "maxx": 994,
+        "maxy": 1609,
+        "w": 781,
+        "h": 1543
+      },
+      "mmPerPx": 0.1045,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 14,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 213,
+        "miny": 14,
+        "maxx": 997,
+        "maxy": 1566,
+        "w": 785,
+        "h": 1553
+      },
+      "mmPerPx": 0.1039,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 14,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 225,
+        "miny": 115,
+        "maxx": 1003,
+        "maxy": 1697,
+        "w": 779,
+        "h": 1583
+      },
+      "mmPerPx": 0.1047,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 33,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 252,
+        "miny": 37,
+        "maxx": 1025,
+        "maxy": 1572,
+        "w": 774,
+        "h": 1536
+      },
+      "mmPerPx": 0.1054,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 37,
+      "skippedDuplicates": 2
+    },
+    {
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 245,
+        "miny": 60,
+        "maxx": 1055,
+        "maxy": 1672,
+        "w": 811,
+        "h": 1613
+      },
+      "mmPerPx": 0.1006,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 17,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 152,
+        "miny": 16,
+        "maxx": 982,
+        "maxy": 1664,
+        "w": 831,
+        "h": 1649
+      },
+      "mmPerPx": 0.0982,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 17,
+      "skippedDuplicates": 2
+    },
+    {
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 216,
+        "miny": 55,
+        "maxx": 1025,
+        "maxy": 1640,
+        "w": 810,
+        "h": 1586
+      },
+      "mmPerPx": 0.1007,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 18,
+      "skippedDuplicates": 2
+    },
+    {
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 218,
+        "miny": 51,
+        "maxx": 1029,
+        "maxy": 1644,
+        "w": 812,
+        "h": 1594
+      },
+      "mmPerPx": 0.1005,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 13,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 164,
+        "miny": 18,
+        "maxx": 1001,
+        "maxy": 1641,
+        "w": 838,
+        "h": 1624
+      },
+      "mmPerPx": 0.0974,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 26,
+      "skippedDuplicates": 4
+    },
+    {
+      "photo": "Image_20260619201121_366_2327.jpg",
+      "cased": false,
+      "reason": "desk too dark (78)"
+    },
+    {
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 211,
+        "miny": 55,
+        "maxx": 994,
+        "maxy": 1628,
+        "w": 784,
+        "h": 1574
+      },
+      "mmPerPx": 0.1041,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 4,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 229,
+        "miny": 31,
+        "maxx": 996,
+        "maxy": 1540,
+        "w": 768,
+        "h": 1510
+      },
+      "mmPerPx": 0.1062,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 12,
+      "skippedDuplicates": 0
+    },
+    {
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 297,
+        "miny": 37,
+        "maxx": 1094,
+        "maxy": 1576,
+        "w": 798,
+        "h": 1540
+      },
+      "mmPerPx": 0.1023,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 20,
+      "skippedDuplicates": 1
+    },
+    {
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "cased": true,
+      "caseBoxPx": {
+        "minx": 198,
+        "miny": 10,
+        "maxx": 997,
+        "maxy": 1589,
+        "w": 800,
+        "h": 1580
+      },
+      "mmPerPx": 0.102,
+      "topFramed": true,
+      "botFramed": true,
+      "taggedPieces": 20,
+      "skippedDuplicates": 0
+    }
+  ],
+  "pieces": [
+    {
+      "id": "P001",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 706,
+        "y": 224,
+        "w": 146,
+        "h": 146
+      },
+      "pctOfCaseW": 19.4,
+      "pctOfCaseH": 9.6,
+      "mmW": 15.8,
+      "mmH": 15.8,
+      "mmLong": 15.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 46.7
+      }
+    },
+    {
+      "id": "P002",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 673,
+        "y": 396,
+        "w": 143,
+        "h": 186
+      },
+      "pctOfCaseW": 19,
+      "pctOfCaseH": 12.2,
+      "mmW": 15.5,
+      "mmH": 20.2,
+      "mmLong": 20.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 45.3
+      }
+    },
+    {
+      "id": "P003",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 247,
+        "y": 561,
+        "w": 281,
+        "h": 349
+      },
+      "pctOfCaseW": 37.3,
+      "pctOfCaseH": 22.9,
+      "mmW": 30.5,
+      "mmH": 37.8,
+      "mmLong": 37.8,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 45.2
+      }
+    },
+    {
+      "id": "P004",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 526,
+        "y": 601,
+        "w": 81,
+        "h": 130
+      },
+      "pctOfCaseW": 10.8,
+      "pctOfCaseH": 8.5,
+      "mmW": 8.8,
+      "mmH": 14.1,
+      "mmLong": 14.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 50.3
+      }
+    },
+    {
+      "id": "P005",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 643,
+        "y": 618,
+        "w": 91,
+        "h": 258
+      },
+      "pctOfCaseW": 12.1,
+      "pctOfCaseH": 17,
+      "mmW": 9.9,
+      "mmH": 28,
+      "mmLong": 28,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 49.3
+      }
+    },
+    {
+      "id": "P006",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 762,
+        "y": 617,
+        "w": 91,
+        "h": 209
+      },
+      "pctOfCaseW": 12.1,
+      "pctOfCaseH": 13.7,
+      "mmW": 9.9,
+      "mmH": 22.6,
+      "mmLong": 22.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
+        "score": 51.5
+      }
+    },
+    {
+      "id": "P007",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 482,
+        "y": 769,
+        "w": 141,
+        "h": 181
+      },
+      "pctOfCaseW": 18.7,
+      "pctOfCaseH": 11.9,
+      "mmW": 15.3,
+      "mmH": 19.6,
+      "mmLong": 19.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
+        "score": 54
+      }
+    },
+    {
+      "id": "P008",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 745,
+        "y": 868,
+        "w": 115,
+        "h": 196
+      },
+      "pctOfCaseW": 15.3,
+      "pctOfCaseH": 12.9,
+      "mmW": 12.5,
+      "mmH": 21.2,
+      "mmLong": 21.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 49.7
+      }
+    },
+    {
+      "id": "P009",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 417,
+        "y": 937,
+        "w": 89,
+        "h": 146
+      },
+      "pctOfCaseW": 11.8,
+      "pctOfCaseH": 9.6,
+      "mmW": 9.6,
+      "mmH": 15.8,
+      "mmLong": 15.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
+        "score": 49.9
+      }
+    },
+    {
+      "id": "P010",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 603,
+        "y": 902,
+        "w": 118,
+        "h": 147
+      },
+      "pctOfCaseW": 15.7,
+      "pctOfCaseH": 9.7,
+      "mmW": 12.8,
+      "mmH": 15.9,
+      "mmLong": 15.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 45.1
+      }
+    },
+    {
+      "id": "P011",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 264,
+        "y": 950,
+        "w": 125,
+        "h": 351
+      },
+      "pctOfCaseW": 16.6,
+      "pctOfCaseH": 23.1,
+      "mmW": 13.5,
+      "mmH": 38,
+      "mmLong": 38,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
+        "score": 55.2
+      }
+    },
+    {
+      "id": "P012",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 386,
+        "y": 1123,
+        "w": 88,
+        "h": 202
+      },
+      "pctOfCaseW": 11.7,
+      "pctOfCaseH": 13.3,
+      "mmW": 9.5,
+      "mmH": 21.9,
+      "mmLong": 21.9,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 57.1
+      }
+    },
+    {
+      "id": "P013",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 497,
+        "y": 1089,
+        "w": 212,
+        "h": 213
+      },
+      "pctOfCaseW": 28.2,
+      "pctOfCaseH": 14,
+      "mmW": 23,
+      "mmH": 23.1,
+      "mmLong": 23.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 41.4
+      }
+    },
+    {
+      "id": "P014",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 731,
+        "y": 1105,
+        "w": 128,
+        "h": 163
+      },
+      "pctOfCaseW": 17,
+      "pctOfCaseH": 10.7,
+      "mmW": 13.9,
+      "mmH": 17.7,
+      "mmLong": 17.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png",
+        "score": 61.6
+      }
+    },
+    {
+      "id": "P015",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 639,
+        "y": 1294,
+        "w": 206,
+        "h": 252
+      },
+      "pctOfCaseW": 27.4,
+      "pctOfCaseH": 16.6,
+      "mmW": 22.3,
+      "mmH": 27.3,
+      "mmLong": 27.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-16.png",
+        "score": 32.4
+      }
+    },
+    {
+      "id": "P016",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 247,
+        "y": 1326,
+        "w": 180,
+        "h": 204
+      },
+      "pctOfCaseW": 23.9,
+      "pctOfCaseH": 13.4,
+      "mmW": 19.5,
+      "mmH": 22.1,
+      "mmLong": 22.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
+        "score": 41.9
+      }
+    },
+    {
+      "id": "P017",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 434,
+        "y": 1333,
+        "w": 199,
+        "h": 205
+      },
+      "pctOfCaseW": 26.4,
+      "pctOfCaseH": 13.5,
+      "mmW": 21.6,
+      "mmH": 22.2,
+      "mmLong": 22.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
+        "score": 30.6
+      }
+    },
+    {
+      "id": "P018",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 676,
+        "y": 232,
+        "w": 109,
+        "h": 105
+      },
+      "pctOfCaseW": 17,
+      "pctOfCaseH": 7.3,
+      "mmW": 13.9,
+      "mmH": 13.4,
+      "mmLong": 13.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 55
+      }
+    },
+    {
+      "id": "P019",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 603,
+        "y": 469,
+        "w": 142,
+        "h": 160
+      },
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 11.1,
+      "mmW": 18.1,
+      "mmH": 20.4,
+      "mmLong": 20.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
+        "score": 47.8
+      }
+    },
+    {
+      "id": "P020",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 328,
+        "y": 520,
+        "w": 200,
+        "h": 219
+      },
+      "pctOfCaseW": 31.3,
+      "pctOfCaseH": 15.2,
+      "mmW": 25.5,
+      "mmH": 27.9,
+      "mmLong": 27.9,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 52.9
+      }
+    },
+    {
+      "id": "P021",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 516,
+        "y": 614,
+        "w": 180,
+        "h": 177
+      },
+      "pctOfCaseW": 28.1,
+      "pctOfCaseH": 12.3,
+      "mmW": 22.9,
+      "mmH": 22.6,
+      "mmLong": 22.9,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 50
+      }
+    },
+    {
+      "id": "P022",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 710,
+        "y": 688,
+        "w": 150,
+        "h": 160
+      },
+      "pctOfCaseW": 23.4,
+      "pctOfCaseH": 11.1,
+      "mmW": 19.1,
+      "mmH": 20.4,
+      "mmLong": 20.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 43.1
+      }
+    },
+    {
+      "id": "P023",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 339,
+        "y": 761,
+        "w": 90,
+        "h": 111
+      },
+      "pctOfCaseW": 14.1,
+      "pctOfCaseH": 7.7,
+      "mmW": 11.5,
+      "mmH": 14.2,
+      "mmLong": 14.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 43.1
+      }
+    },
+    {
+      "id": "P024",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 386,
+        "y": 783,
+        "w": 107,
+        "h": 134
+      },
+      "pctOfCaseW": 16.7,
+      "pctOfCaseH": 9.3,
+      "mmW": 13.6,
+      "mmH": 17.1,
+      "mmLong": 17.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
+        "score": 45.8
+      }
+    },
+    {
+      "id": "P025",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 604,
+        "y": 790,
+        "w": 200,
+        "h": 218
+      },
+      "pctOfCaseW": 31.3,
+      "pctOfCaseH": 15.1,
+      "mmW": 25.5,
+      "mmH": 27.8,
+      "mmLong": 27.8,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 45.4
+      }
+    },
+    {
+      "id": "P026",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 498,
+        "y": 840,
+        "w": 97,
+        "h": 155
+      },
+      "pctOfCaseW": 15.2,
+      "pctOfCaseH": 10.8,
+      "mmW": 12.4,
+      "mmH": 19.8,
+      "mmLong": 19.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 27.7
+      }
+    },
+    {
+      "id": "P027",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 328,
+        "y": 935,
+        "w": 108,
+        "h": 174
+      },
+      "pctOfCaseW": 16.9,
+      "pctOfCaseH": 12.1,
+      "mmW": 13.8,
+      "mmH": 22.2,
+      "mmLong": 22.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 45.5
+      }
+    },
+    {
+      "id": "P028",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 635,
+        "y": 1005,
+        "w": 220,
+        "h": 340
+      },
+      "pctOfCaseW": 34.4,
+      "pctOfCaseH": 23.6,
+      "mmW": 28.1,
+      "mmH": 43.4,
+      "mmLong": 43.4,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-09.png",
+        "score": 42.6
+      }
+    },
+    {
+      "id": "P029",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 450,
+        "y": 1016,
+        "w": 96,
+        "h": 187
+      },
+      "pctOfCaseW": 15,
+      "pctOfCaseH": 13,
+      "mmW": 12.2,
+      "mmH": 23.8,
+      "mmLong": 23.8,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 51.1
+      }
+    },
+    {
+      "id": "P030",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 596,
+        "y": 1063,
+        "w": 93,
+        "h": 110
+      },
+      "pctOfCaseW": 14.5,
+      "pctOfCaseH": 7.6,
+      "mmW": 11.9,
+      "mmH": 14,
+      "mmLong": 14,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 49.7
+      }
+    },
+    {
+      "id": "P031",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 527,
+        "y": 1177,
+        "w": 111,
+        "h": 151
+      },
+      "pctOfCaseW": 17.3,
+      "pctOfCaseH": 10.5,
+      "mmW": 14.2,
+      "mmH": 19.3,
+      "mmLong": 19.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-32.png",
+        "score": 33.1
+      }
+    },
+    {
+      "id": "P032",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 328,
+        "y": 1202,
+        "w": 177,
+        "h": 117
+      },
+      "pctOfCaseW": 27.7,
+      "pctOfCaseH": 8.1,
+      "mmW": 22.6,
+      "mmH": 14.9,
+      "mmLong": 22.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 50.2
+      }
+    },
+    {
+      "id": "P033",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
+        "x": 328,
+        "y": 1309,
+        "w": 582,
+        "h": 217
+      },
+      "pctOfCaseW": 90.9,
+      "pctOfCaseH": 15.1,
+      "mmW": 74.2,
+      "mmH": 27.7,
+      "mmLong": 74.2,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
+        "score": 8.1
+      }
+    },
+    {
+      "id": "P034",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 497,
+        "y": 152,
+        "w": 327,
+        "h": 622
+      },
+      "pctOfCaseW": 44.8,
+      "pctOfCaseH": 41.3,
+      "mmW": 36.6,
+      "mmH": 69.5,
+      "mmLong": 69.5,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 44.2
+      }
+    },
+    {
+      "id": "P035",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 247,
+        "y": 584,
+        "w": 238,
+        "h": 229
+      },
+      "pctOfCaseW": 32.6,
+      "pctOfCaseH": 15.2,
+      "mmW": 26.6,
+      "mmH": 25.6,
+      "mmLong": 26.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
+        "score": 45.6
+      }
+    },
+    {
+      "id": "P036",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 407,
+        "y": 783,
+        "w": 161,
+        "h": 198
+      },
+      "pctOfCaseW": 22.1,
+      "pctOfCaseH": 13.1,
+      "mmW": 18,
+      "mmH": 22.1,
+      "mmLong": 22.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
+        "score": 47.5
+      }
+    },
+    {
+      "id": "P037",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 264,
+        "y": 831,
+        "w": 107,
+        "h": 133
+      },
+      "pctOfCaseW": 14.7,
+      "pctOfCaseH": 8.8,
+      "mmW": 12,
+      "mmH": 14.9,
+      "mmLong": 14.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 49.1
+      }
+    },
+    {
+      "id": "P038",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 584,
+        "y": 815,
+        "w": 80,
+        "h": 111
+      },
+      "pctOfCaseW": 11,
+      "pctOfCaseH": 7.4,
+      "mmW": 8.9,
+      "mmH": 12.4,
+      "mmLong": 12.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 52.8
+      }
+    },
+    {
+      "id": "P039",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 238,
+        "y": 976,
+        "w": 117,
+        "h": 147
+      },
+      "pctOfCaseW": 16,
+      "pctOfCaseH": 9.8,
+      "mmW": 13.1,
+      "mmH": 16.4,
+      "mmLong": 16.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 46.2
+      }
+    },
+    {
+      "id": "P040",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 369,
+        "y": 982,
+        "w": 129,
+        "h": 169
+      },
+      "pctOfCaseW": 17.7,
+      "pctOfCaseH": 11.2,
+      "mmW": 14.4,
+      "mmH": 18.9,
+      "mmLong": 18.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png",
+        "score": 46.9
+      }
+    },
+    {
+      "id": "P041",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 513,
+        "y": 976,
+        "w": 109,
+        "h": 134
+      },
+      "pctOfCaseW": 14.9,
+      "pctOfCaseH": 8.9,
+      "mmW": 12.2,
+      "mmH": 15,
+      "mmLong": 15,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-23.png",
+        "score": 47
+      }
+    },
+    {
+      "id": "P042",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 679,
+        "y": 1031,
+        "w": 171,
+        "h": 433
+      },
+      "pctOfCaseW": 23.4,
+      "pctOfCaseH": 28.7,
+      "mmW": 19.1,
+      "mmH": 48.4,
+      "mmLong": 48.4,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 21.9
+      }
+    },
+    {
+      "id": "P043",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 237,
+        "y": 1129,
+        "w": 246,
+        "h": 362
+      },
+      "pctOfCaseW": 33.7,
+      "pctOfCaseH": 24,
+      "mmW": 27.5,
+      "mmH": 40.5,
+      "mmLong": 40.5,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 36.7
+      }
+    },
+    {
+      "id": "P044",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 352,
+        "y": 1168,
+        "w": 94,
+        "h": 205
+      },
+      "pctOfCaseW": 12.9,
+      "pctOfCaseH": 13.6,
+      "mmW": 10.5,
+      "mmH": 22.9,
+      "mmLong": 22.9,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image2-07.png",
+        "score": 50.6
+      }
+    },
+    {
+      "id": "P045",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 499,
+        "y": 1125,
+        "w": 152,
+        "h": 182
+      },
+      "pctOfCaseW": 20.8,
+      "pctOfCaseH": 12.1,
+      "mmW": 17,
+      "mmH": 20.3,
+      "mmLong": 20.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
+        "score": 57.2
+      }
+    },
+    {
+      "id": "P046",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 481,
+        "y": 1338,
+        "w": 236,
+        "h": 162
+      },
+      "pctOfCaseW": 32.3,
+      "pctOfCaseH": 10.7,
+      "mmW": 26.4,
+      "mmH": 18.1,
+      "mmLong": 26.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 54.2
+      }
+    },
+    {
+      "id": "P047",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 329,
+        "y": 167,
+        "w": 60,
+        "h": 18
+      },
+      "pctOfCaseW": 7.9,
+      "pctOfCaseH": 1.2,
+      "mmW": 6.5,
+      "mmH": 1.9,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 34.6
+      }
+    },
+    {
+      "id": "P048",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 674,
+        "y": 220,
+        "w": 136,
+        "h": 223
+      },
+      "pctOfCaseW": 18,
+      "pctOfCaseH": 14.5,
+      "mmW": 14.7,
+      "mmH": 24.1,
+      "mmLong": 24.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 38.5
+      }
+    },
+    {
+      "id": "P049",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 674,
+        "y": 469,
+        "w": 163,
+        "h": 196
+      },
+      "pctOfCaseW": 21.6,
+      "pctOfCaseH": 12.7,
+      "mmW": 17.6,
+      "mmH": 21.2,
+      "mmLong": 21.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 42.9
+      }
+    },
+    {
+      "id": "P050",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 522,
+        "y": 569,
+        "w": 88,
+        "h": 163
+      },
+      "pctOfCaseW": 11.7,
+      "pctOfCaseH": 10.6,
+      "mmW": 9.5,
+      "mmH": 17.6,
+      "mmLong": 17.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 53.4
+      }
+    },
+    {
+      "id": "P051",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 272,
+        "y": 587,
+        "w": 90,
+        "h": 165
+      },
+      "pctOfCaseW": 11.9,
+      "pctOfCaseH": 10.7,
+      "mmW": 9.7,
+      "mmH": 17.8,
+      "mmLong": 17.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 49.7
+      }
+    },
+    {
+      "id": "P052",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 392,
+        "y": 595,
+        "w": 94,
+        "h": 146
+      },
+      "pctOfCaseW": 12.5,
+      "pctOfCaseH": 9.5,
+      "mmW": 10.2,
+      "mmH": 15.8,
+      "mmLong": 15.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 54.5
+      }
+    },
+    {
+      "id": "P053",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 697,
+        "y": 682,
+        "w": 141,
+        "h": 171
+      },
+      "pctOfCaseW": 18.7,
+      "pctOfCaseH": 11.1,
+      "mmW": 15.2,
+      "mmH": 18.5,
+      "mmLong": 18.5,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
+        "score": 49.2
+      }
+    },
+    {
+      "id": "P054",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 372,
+        "y": 768,
+        "w": 90,
+        "h": 158
+      },
+      "pctOfCaseW": 11.9,
+      "pctOfCaseH": 10.3,
+      "mmW": 9.7,
+      "mmH": 17.1,
+      "mmLong": 17.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 50.3
+      }
+    },
+    {
+      "id": "P055",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 496,
+        "y": 765,
+        "w": 87,
+        "h": 147
+      },
+      "pctOfCaseW": 11.5,
+      "pctOfCaseH": 9.6,
+      "mmW": 9.4,
+      "mmH": 15.9,
+      "mmLong": 15.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 43.8
+      }
+    },
+    {
+      "id": "P056",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 255,
+        "y": 774,
+        "w": 99,
+        "h": 161
+      },
+      "pctOfCaseW": 13.1,
+      "pctOfCaseH": 10.5,
+      "mmW": 10.7,
+      "mmH": 17.4,
+      "mmLong": 17.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 48.5
+      }
+    },
+    {
+      "id": "P057",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 741,
+        "y": 871,
+        "w": 104,
+        "h": 148
+      },
+      "pctOfCaseW": 13.8,
+      "pctOfCaseH": 9.6,
+      "mmW": 11.2,
+      "mmH": 16,
+      "mmLong": 16,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-22.png",
+        "score": 55.5
+      }
+    },
+    {
+      "id": "P058",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 380,
+        "y": 954,
+        "w": 75,
+        "h": 155
+      },
+      "pctOfCaseW": 9.9,
+      "pctOfCaseH": 10.1,
+      "mmW": 8.1,
+      "mmH": 16.8,
+      "mmLong": 16.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
+        "score": 40
+      }
+    },
+    {
+      "id": "P059",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 465,
+        "y": 944,
+        "w": 83,
+        "h": 166
+      },
+      "pctOfCaseW": 11,
+      "pctOfCaseH": 10.8,
+      "mmW": 9,
+      "mmH": 17.9,
+      "mmLong": 17.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 45.8
+      }
+    },
+    {
+      "id": "P060",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 582,
+        "y": 932,
+        "w": 69,
+        "h": 168
+      },
+      "pctOfCaseW": 9.1,
+      "pctOfCaseH": 10.9,
+      "mmW": 7.5,
+      "mmH": 18.2,
+      "mmLong": 18.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 42.1
+      }
+    },
+    {
+      "id": "P061",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 256,
+        "y": 955,
+        "w": 83,
+        "h": 166
+      },
+      "pctOfCaseW": 11,
+      "pctOfCaseH": 10.8,
+      "mmW": 9,
+      "mmH": 17.9,
+      "mmLong": 17.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 42.8
+      }
+    },
+    {
+      "id": "P062",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 753,
+        "y": 1042,
+        "w": 101,
+        "h": 143
+      },
+      "pctOfCaseW": 13.4,
+      "pctOfCaseH": 9.3,
+      "mmW": 10.9,
+      "mmH": 15.5,
+      "mmLong": 15.5,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-45.png",
+        "score": 56
+      }
+    },
+    {
+      "id": "P063",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 453,
+        "y": 1252,
+        "w": 261,
+        "h": 271
+      },
+      "pctOfCaseW": 34.6,
+      "pctOfCaseH": 17.6,
+      "mmW": 28.2,
+      "mmH": 29.3,
+      "mmLong": 29.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
+        "score": 47.4
+      }
+    },
+    {
+      "id": "P064",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 722,
+        "y": 1216,
+        "w": 140,
+        "h": 176
+      },
+      "pctOfCaseW": 18.5,
+      "pctOfCaseH": 11.4,
+      "mmW": 15.1,
+      "mmH": 19,
+      "mmLong": 19,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 49.9
+      }
+    },
+    {
+      "id": "P065",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 672,
+        "y": 321,
+        "w": 183,
+        "h": 68
+      },
+      "pctOfCaseW": 22.6,
+      "pctOfCaseH": 4.9,
+      "mmW": 18.5,
+      "mmH": 6.9,
+      "mmLong": 18.5,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 47.4
+      }
+    },
+    {
+      "id": "P066",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 652,
+        "y": 447,
+        "w": 251,
+        "h": 223
+      },
+      "pctOfCaseW": 31,
+      "pctOfCaseH": 16.2,
+      "mmW": 25.3,
+      "mmH": 22.5,
+      "mmLong": 25.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 49.8
+      }
+    },
+    {
+      "id": "P067",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 331,
+        "y": 628,
+        "w": 57,
+        "h": 52
+      },
+      "pctOfCaseW": 7,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.7,
+      "mmH": 5.2,
+      "mmLong": 5.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 50.2
+      }
+    },
+    {
+      "id": "P068",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 396,
+        "y": 628,
+        "w": 46,
+        "h": 53
+      },
+      "pctOfCaseW": 5.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.6,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 47.3
+      }
+    },
+    {
+      "id": "P069",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 470,
+        "y": 623,
+        "w": 46,
+        "h": 54
+      },
+      "pctOfCaseW": 5.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.6,
+      "mmH": 5.4,
+      "mmLong": 5.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
+        "score": 54.1
+      }
+    },
+    {
+      "id": "P070",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 527,
+        "y": 619,
+        "w": 52,
+        "h": 52
+      },
+      "pctOfCaseW": 6.4,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.2,
+      "mmH": 5.2,
+      "mmLong": 5.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 50.2
+      }
+    },
+    {
+      "id": "P071",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 585,
+        "y": 615,
+        "w": 47,
+        "h": 54
+      },
+      "pctOfCaseW": 5.8,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.7,
+      "mmH": 5.4,
+      "mmLong": 5.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 45.4
+      }
+    },
+    {
+      "id": "P072",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 462,
+        "y": 685,
+        "w": 53,
+        "h": 53
+      },
+      "pctOfCaseW": 6.6,
+      "pctOfCaseH": 3.9,
+      "mmW": 5.3,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
+        "score": 53.1
+      }
+    },
+    {
+      "id": "P073",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 536,
+        "y": 686,
+        "w": 28,
+        "h": 52
+      },
+      "pctOfCaseW": 3.5,
+      "pctOfCaseH": 3.8,
+      "mmW": 2.8,
+      "mmH": 5.2,
+      "mmLong": 5.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
+        "score": 57.6
+      }
+    },
+    {
+      "id": "P074",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 587,
+        "y": 686,
+        "w": 29,
+        "h": 50
+      },
+      "pctOfCaseW": 3.6,
+      "pctOfCaseH": 3.6,
+      "mmW": 2.9,
+      "mmH": 5,
+      "mmLong": 5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 57
+      }
+    },
+    {
+      "id": "P075",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 337,
+        "y": 692,
+        "w": 47,
+        "h": 53
+      },
+      "pctOfCaseW": 5.8,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.7,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
+        "score": 48
+      }
+    },
+    {
+      "id": "P076",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 399,
+        "y": 692,
+        "w": 47,
+        "h": 53
+      },
+      "pctOfCaseW": 5.8,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.7,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 47.3
+      }
+    },
+    {
+      "id": "P077",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 332,
+        "y": 770,
+        "w": 52,
+        "h": 53
+      },
+      "pctOfCaseW": 6.4,
+      "pctOfCaseH": 3.9,
+      "mmW": 5.2,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-16.png",
+        "score": 54.3
+      }
+    },
+    {
+      "id": "P078",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 400,
+        "y": 769,
+        "w": 50,
+        "h": 53
+      },
+      "pctOfCaseW": 6.2,
+      "pctOfCaseH": 3.9,
+      "mmW": 5,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-12.png",
+        "score": 50.2
+      }
+    },
+    {
+      "id": "P079",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 470,
+        "y": 766,
+        "w": 66,
+        "h": 54
+      },
+      "pctOfCaseW": 8.2,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.7,
+      "mmH": 5.4,
+      "mmLong": 6.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
+        "score": 46.3
+      }
+    },
+    {
+      "id": "P080",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 547,
+        "y": 762,
+        "w": 51,
+        "h": 51
+      },
+      "pctOfCaseW": 6.3,
+      "pctOfCaseH": 3.7,
+      "mmW": 5.1,
+      "mmH": 5.1,
+      "mmLong": 5.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 51.1
+      }
+    },
+    {
+      "id": "P081",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 612,
+        "y": 762,
+        "w": 55,
+        "h": 52
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.5,
+      "mmH": 5.2,
+      "mmLong": 5.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 49.5
+      }
+    },
+    {
+      "id": "P082",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 325,
+        "y": 843,
+        "w": 45,
+        "h": 55
+      },
+      "pctOfCaseW": 5.6,
+      "pctOfCaseH": 4,
+      "mmW": 4.5,
+      "mmH": 5.5,
+      "mmLong": 5.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
+        "score": 47.3
+      }
+    },
+    {
+      "id": "P083",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 451,
+        "y": 842,
+        "w": 54,
+        "h": 55
+      },
+      "pctOfCaseW": 6.7,
+      "pctOfCaseH": 4,
+      "mmW": 5.4,
+      "mmH": 5.5,
+      "mmLong": 5.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 52.1
+      }
+    },
+    {
+      "id": "P084",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 520,
+        "y": 837,
+        "w": 40,
+        "h": 53
+      },
+      "pctOfCaseW": 4.9,
+      "pctOfCaseH": 3.9,
+      "mmW": 4,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
+        "score": 50.5
+      }
+    },
+    {
+      "id": "P085",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 571,
+        "y": 845,
+        "w": 45,
+        "h": 52
+      },
+      "pctOfCaseW": 5.6,
+      "pctOfCaseH": 3.8,
+      "mmW": 4.5,
+      "mmH": 5.2,
+      "mmLong": 5.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image2-07.png",
+        "score": 57
+      }
+    },
+    {
+      "id": "P086",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 313,
+        "y": 932,
+        "w": 52,
+        "h": 53
+      },
+      "pctOfCaseW": 6.4,
+      "pctOfCaseH": 3.9,
+      "mmW": 5.2,
+      "mmH": 5.3,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
+        "score": 56.2
+      }
+    },
+    {
+      "id": "P087",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 393,
+        "y": 931,
+        "w": 56,
+        "h": 52
+      },
+      "pctOfCaseW": 6.9,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.6,
+      "mmH": 5.2,
+      "mmLong": 5.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32.png",
+        "score": 55.7
+      }
+    },
+    {
+      "id": "P088",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 459,
+        "y": 924,
+        "w": 70,
+        "h": 53
+      },
+      "pctOfCaseW": 8.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 7.1,
+      "mmH": 5.3,
+      "mmLong": 7.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image2-07.png",
+        "score": 59.4
+      }
+    },
+    {
+      "id": "P089",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 531,
+        "y": 933,
+        "w": 53,
+        "h": 55
+      },
+      "pctOfCaseW": 6.6,
+      "pctOfCaseH": 4,
+      "mmW": 5.3,
+      "mmH": 5.5,
+      "mmLong": 5.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 61
+      }
+    },
+    {
+      "id": "P090",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 590,
+        "y": 934,
+        "w": 47,
+        "h": 56
+      },
+      "pctOfCaseW": 5.8,
+      "pctOfCaseH": 4.1,
+      "mmW": 4.7,
+      "mmH": 5.6,
+      "mmLong": 5.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image2-07.png",
+        "score": 55.7
+      }
+    },
+    {
+      "id": "P091",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 647,
+        "y": 933,
+        "w": 46,
+        "h": 54
+      },
+      "pctOfCaseW": 5.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 4.6,
+      "mmH": 5.4,
+      "mmLong": 5.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
+        "score": 51.4
+      }
+    },
+    {
+      "id": "P092",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 294,
+        "y": 1033,
+        "w": 106,
+        "h": 120
+      },
+      "pctOfCaseW": 13.1,
+      "pctOfCaseH": 8.7,
+      "mmW": 10.7,
+      "mmH": 12.1,
+      "mmLong": 12.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 48.1
+      }
+    },
+    {
+      "id": "P093",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 467,
+        "y": 1022,
+        "w": 91,
+        "h": 118
+      },
+      "pctOfCaseW": 11.2,
+      "pctOfCaseH": 8.6,
+      "mmW": 9.2,
+      "mmH": 11.9,
+      "mmLong": 11.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
+        "score": 47.5
+      }
+    },
+    {
+      "id": "P094",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 607,
+        "y": 1036,
+        "w": 137,
+        "h": 88
+      },
+      "pctOfCaseW": 16.9,
+      "pctOfCaseH": 6.4,
+      "mmW": 13.8,
+      "mmH": 8.9,
+      "mmLong": 13.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 51.4
+      }
+    },
+    {
+      "id": "P095",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 748,
+        "y": 1042,
+        "w": 123,
+        "h": 108
+      },
+      "pctOfCaseW": 15.2,
+      "pctOfCaseH": 7.8,
+      "mmW": 12.4,
+      "mmH": 10.9,
+      "mmLong": 12.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 47.8
+      }
+    },
+    {
+      "id": "P096",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 467,
+        "y": 1164,
+        "w": 83,
+        "h": 115
+      },
+      "pctOfCaseW": 10.3,
+      "pctOfCaseH": 8.4,
+      "mmW": 8.4,
+      "mmH": 11.6,
+      "mmLong": 11.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 46.5
+      }
+    },
+    {
+      "id": "P097",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 599,
+        "y": 1182,
+        "w": 131,
+        "h": 97
+      },
+      "pctOfCaseW": 16.2,
+      "pctOfCaseH": 7,
+      "mmW": 13.2,
+      "mmH": 9.8,
+      "mmLong": 13.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 56.1
+      }
+    },
+    {
+      "id": "P098",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 296,
+        "y": 1189,
+        "w": 138,
+        "h": 99
+      },
+      "pctOfCaseW": 17.1,
+      "pctOfCaseH": 7.2,
+      "mmW": 13.9,
+      "mmH": 10,
+      "mmLong": 13.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
+        "score": 45.1
+      }
+    },
+    {
+      "id": "P099",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 749,
+        "y": 1198,
+        "w": 121,
+        "h": 79
+      },
+      "pctOfCaseW": 15,
+      "pctOfCaseH": 5.7,
+      "mmW": 12.2,
+      "mmH": 8,
+      "mmLong": 12.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 54.8
+      }
+    },
+    {
+      "id": "P100",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 271,
+        "y": 1333,
+        "w": 99,
+        "h": 105
+      },
+      "pctOfCaseW": 12.2,
+      "pctOfCaseH": 7.6,
+      "mmW": 10,
+      "mmH": 10.6,
+      "mmLong": 10.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 49.1
+      }
+    },
+    {
+      "id": "P101",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 397,
+        "y": 1325,
+        "w": 101,
+        "h": 113
+      },
+      "pctOfCaseW": 12.5,
+      "pctOfCaseH": 8.2,
+      "mmW": 10.2,
+      "mmH": 11.4,
+      "mmLong": 11.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 50.3
+      }
+    },
+    {
+      "id": "P102",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 552,
+        "y": 1354,
+        "w": 125,
+        "h": 92
+      },
+      "pctOfCaseW": 15.5,
+      "pctOfCaseH": 6.7,
+      "mmW": 12.6,
+      "mmH": 9.3,
+      "mmLong": 12.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 55.2
+      }
+    },
+    {
+      "id": "P103",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 734,
+        "y": 1371,
+        "w": 122,
+        "h": 100
+      },
+      "pctOfCaseW": 15.1,
+      "pctOfCaseH": 7.3,
+      "mmW": 12.3,
+      "mmH": 10.1,
+      "mmLong": 12.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
+        "score": 50.3
+      }
+    },
+    {
+      "id": "P104",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 681,
+        "y": 201,
+        "w": 183,
+        "h": 439
+      },
+      "pctOfCaseW": 23.4,
+      "pctOfCaseH": 28.5,
+      "mmW": 19.1,
+      "mmH": 45.9,
+      "mmLong": 45.9,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 39.5
+      }
+    },
+    {
+      "id": "P105",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 456,
+        "y": 568,
+        "w": 157,
+        "h": 159
+      },
+      "pctOfCaseW": 20.1,
+      "pctOfCaseH": 10.3,
+      "mmW": 16.4,
+      "mmH": 16.6,
+      "mmLong": 16.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 37.8
+      }
+    },
+    {
+      "id": "P106",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 271,
+        "y": 607,
+        "w": 132,
+        "h": 361
+      },
+      "pctOfCaseW": 16.9,
+      "pctOfCaseH": 23.4,
+      "mmW": 13.8,
+      "mmH": 37.7,
+      "mmLong": 37.7,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 35.2
+      }
+    },
+    {
+      "id": "P107",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 741,
+        "y": 670,
+        "w": 124,
+        "h": 142
+      },
+      "pctOfCaseW": 15.9,
+      "pctOfCaseH": 9.2,
+      "mmW": 13,
+      "mmH": 14.8,
+      "mmLong": 14.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 47.7
+      }
+    },
+    {
+      "id": "P108",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 591,
+        "y": 734,
+        "w": 114,
+        "h": 113
+      },
+      "pctOfCaseW": 14.6,
+      "pctOfCaseH": 7.3,
+      "mmW": 11.9,
+      "mmH": 11.8,
+      "mmLong": 11.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 34.5
+      }
+    },
+    {
+      "id": "P109",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 469,
+        "y": 815,
+        "w": 117,
+        "h": 192
+      },
+      "pctOfCaseW": 15,
+      "pctOfCaseH": 12.4,
+      "mmW": 12.2,
+      "mmH": 20.1,
+      "mmLong": 20.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 35.2
+      }
+    },
+    {
+      "id": "P110",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 668,
+        "y": 842,
+        "w": 151,
+        "h": 182
+      },
+      "pctOfCaseW": 19.3,
+      "pctOfCaseH": 11.8,
+      "mmW": 15.8,
+      "mmH": 19,
+      "mmLong": 19,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 51.3
+      }
+    },
+    {
+      "id": "P111",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 419,
+        "y": 1037,
+        "w": 221,
+        "h": 137
+      },
+      "pctOfCaseW": 28.3,
+      "pctOfCaseH": 8.9,
+      "mmW": 23.1,
+      "mmH": 14.3,
+      "mmLong": 23.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-10.png",
+        "score": 75.4
+      }
+    },
+    {
+      "id": "P112",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 790,
+        "y": 1054,
+        "w": 92,
+        "h": 193
+      },
+      "pctOfCaseW": 11.8,
+      "pctOfCaseH": 12.5,
+      "mmW": 9.6,
+      "mmH": 20.2,
+      "mmLong": 20.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 40.1
+      }
+    },
+    {
+      "id": "P113",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 254,
+        "y": 1087,
+        "w": 141,
+        "h": 436
+      },
+      "pctOfCaseW": 18.1,
+      "pctOfCaseH": 28.3,
+      "mmW": 14.7,
+      "mmH": 45.6,
+      "mmLong": 45.6,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 32.3
+      }
+    },
+    {
+      "id": "P114",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 689,
+        "y": 1139,
+        "w": 116,
+        "h": 170
+      },
+      "pctOfCaseW": 14.9,
+      "pctOfCaseH": 11,
+      "mmW": 12.1,
+      "mmH": 17.8,
+      "mmLong": 17.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 48.1
+      }
+    },
+    {
+      "id": "P115",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 410,
+        "y": 1232,
+        "w": 233,
+        "h": 152
+      },
+      "pctOfCaseW": 29.8,
+      "pctOfCaseH": 9.9,
+      "mmW": 24.3,
+      "mmH": 15.9,
+      "mmLong": 24.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 34.4
+      }
+    },
+    {
+      "id": "P116",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 646,
+        "y": 1379,
+        "w": 253,
+        "h": 182
+      },
+      "pctOfCaseW": 32.4,
+      "pctOfCaseH": 11.8,
+      "mmW": 26.4,
+      "mmH": 19,
+      "mmLong": 26.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 42.4
+      }
+    },
+    {
+      "id": "P117",
+      "photo": "Image_20260619201015_355_2327.jpg",
+      "pixelBox": {
+        "x": 433,
+        "y": 1437,
+        "w": 182,
+        "h": 127
+      },
+      "pctOfCaseW": 23.3,
+      "pctOfCaseH": 8.2,
+      "mmW": 19,
+      "mmH": 13.3,
+      "mmLong": 19,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 58.4
+      }
+    },
+    {
+      "id": "P118",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 653,
+        "y": 174,
+        "w": 221,
+        "h": 219
+      },
+      "pctOfCaseW": 28.2,
+      "pctOfCaseH": 14.1,
+      "mmW": 23,
+      "mmH": 22.8,
+      "mmLong": 23,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 34.9
+      }
+    },
+    {
+      "id": "P119",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 678,
+        "y": 464,
+        "w": 174,
+        "h": 182
+      },
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 11.7,
+      "mmW": 18.1,
+      "mmH": 18.9,
+      "mmLong": 18.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 32.5
+      }
+    },
+    {
+      "id": "P120",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 490,
+        "y": 522,
+        "w": 134,
+        "h": 134
+      },
+      "pctOfCaseW": 17.1,
+      "pctOfCaseH": 8.6,
+      "mmW": 13.9,
+      "mmH": 13.9,
+      "mmLong": 13.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 45.3
+      }
+    },
+    {
+      "id": "P121",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 258,
+        "y": 559,
+        "w": 169,
+        "h": 166
+      },
+      "pctOfCaseW": 21.5,
+      "pctOfCaseH": 10.7,
+      "mmW": 17.6,
+      "mmH": 17.3,
+      "mmLong": 17.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 39.7
+      }
+    },
+    {
+      "id": "P122",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 605,
+        "y": 632,
+        "w": 308,
+        "h": 211
+      },
+      "pctOfCaseW": 39.2,
+      "pctOfCaseH": 13.6,
+      "mmW": 32,
+      "mmH": 21.9,
+      "mmLong": 32,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 46.8
+      }
+    },
+    {
+      "id": "P123",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 260,
+        "y": 729,
+        "w": 177,
+        "h": 200
+      },
+      "pctOfCaseW": 22.5,
+      "pctOfCaseH": 12.9,
+      "mmW": 18.4,
+      "mmH": 20.8,
+      "mmLong": 20.8,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 36.9
+      }
+    },
+    {
+      "id": "P124",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 440,
+        "y": 715,
+        "w": 136,
+        "h": 123
+      },
+      "pctOfCaseW": 17.3,
+      "pctOfCaseH": 7.9,
+      "mmW": 14.1,
+      "mmH": 12.8,
+      "mmLong": 14.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 57.6
+      }
+    },
+    {
+      "id": "P125",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 477,
+        "y": 867,
+        "w": 146,
+        "h": 139
+      },
+      "pctOfCaseW": 18.6,
+      "pctOfCaseH": 9,
+      "mmW": 15.2,
+      "mmH": 14.4,
+      "mmLong": 15.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 37.5
+      }
+    },
+    {
+      "id": "P126",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 541,
+        "y": 887,
+        "w": 343,
+        "h": 603
+      },
+      "pctOfCaseW": 43.7,
+      "pctOfCaseH": 38.8,
+      "mmW": 35.7,
+      "mmH": 62.7,
+      "mmLong": 62.7,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 53.9
+      }
+    },
+    {
+      "id": "P127",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 250,
+        "y": 982,
+        "w": 141,
+        "h": 167
+      },
+      "pctOfCaseW": 18,
+      "pctOfCaseH": 10.8,
+      "mmW": 14.7,
+      "mmH": 17.4,
+      "mmLong": 17.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 36.4
+      }
+    },
+    {
+      "id": "P128",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 290,
+        "y": 1074,
+        "w": 25,
+        "h": 38
+      },
+      "pctOfCaseW": 3.2,
+      "pctOfCaseH": 2.4,
+      "mmW": 2.6,
+      "mmH": 4,
+      "mmLong": 4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 26.7
+      }
+    },
+    {
+      "id": "P129",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 330,
+        "y": 1060,
+        "w": 18,
+        "h": 27
+      },
+      "pctOfCaseW": 2.3,
+      "pctOfCaseH": 1.7,
+      "mmW": 1.9,
+      "mmH": 2.8,
+      "mmLong": 2.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
+        "score": 37.8
+      }
+    },
+    {
+      "id": "P130",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 257,
+        "y": 1210,
+        "w": 223,
+        "h": 270
+      },
+      "pctOfCaseW": 28.4,
+      "pctOfCaseH": 17.4,
+      "mmW": 23.2,
+      "mmH": 28.1,
+      "mmLong": 28.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 52.1
+      }
+    },
+    {
+      "id": "P131",
+      "photo": "Image_20260619201017_356_2327.jpg",
+      "pixelBox": {
+        "x": 506,
+        "y": 1283,
+        "w": 143,
+        "h": 187
+      },
+      "pctOfCaseW": 18.2,
+      "pctOfCaseH": 12,
+      "mmW": 14.9,
+      "mmH": 19.4,
+      "mmLong": 19.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-22.png",
+        "score": 45.2
+      }
+    },
+    {
+      "id": "P132",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 667,
+        "y": 315,
+        "w": 243,
+        "h": 232
+      },
+      "pctOfCaseW": 31.2,
+      "pctOfCaseH": 14.7,
+      "mmW": 25.5,
+      "mmH": 24.3,
+      "mmLong": 25.5,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 35.1
+      }
+    },
+    {
+      "id": "P133",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 637,
+        "y": 610,
+        "w": 66,
+        "h": 64
+      },
+      "pctOfCaseW": 8.5,
+      "pctOfCaseH": 4,
+      "mmW": 6.9,
+      "mmH": 6.7,
+      "mmLong": 6.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 44.8
+      }
+    },
+    {
+      "id": "P134",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 712,
+        "y": 609,
+        "w": 53,
+        "h": 63
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 4,
+      "mmW": 5.6,
+      "mmH": 6.6,
+      "mmLong": 6.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 36.9
+      }
+    },
+    {
+      "id": "P135",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 777,
+        "y": 609,
+        "w": 55,
+        "h": 65
+      },
+      "pctOfCaseW": 7.1,
+      "pctOfCaseH": 4.1,
+      "mmW": 5.8,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 51.4
+      }
+    },
+    {
+      "id": "P136",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 844,
+        "y": 606,
+        "w": 58,
+        "h": 62
+      },
+      "pctOfCaseW": 7.4,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.1,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 39.5
+      }
+    },
+    {
+      "id": "P137",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 300,
+        "y": 667,
+        "w": 194,
+        "h": 232
+      },
+      "pctOfCaseW": 24.9,
+      "pctOfCaseH": 14.7,
+      "mmW": 20.3,
+      "mmH": 24.3,
+      "mmLong": 24.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 50.2
+      }
+    },
+    {
+      "id": "P138",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 568,
+        "y": 708,
+        "w": 53,
+        "h": 65
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 4.1,
+      "mmW": 5.6,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 41.4
+      }
+    },
+    {
+      "id": "P139",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 648,
+        "y": 716,
+        "w": 54,
+        "h": 65
+      },
+      "pctOfCaseW": 6.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 5.7,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 45.6
+      }
+    },
+    {
+      "id": "P140",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 720,
+        "y": 715,
+        "w": 56,
+        "h": 65
+      },
+      "pctOfCaseW": 7.2,
+      "pctOfCaseH": 4.1,
+      "mmW": 5.9,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 39.3
+      }
+    },
+    {
+      "id": "P141",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 799,
+        "y": 705,
+        "w": 62,
+        "h": 65
+      },
+      "pctOfCaseW": 8,
+      "pctOfCaseH": 4.1,
+      "mmW": 6.5,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 47.2
+      }
+    },
+    {
+      "id": "P142",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 880,
+        "y": 705,
+        "w": 31,
+        "h": 62
+      },
+      "pctOfCaseW": 4,
+      "pctOfCaseH": 3.9,
+      "mmW": 3.2,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 57.3
+      }
+    },
+    {
+      "id": "P143",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 572,
+        "y": 812,
+        "w": 34,
+        "h": 58
+      },
+      "pctOfCaseW": 4.4,
+      "pctOfCaseH": 3.7,
+      "mmW": 3.6,
+      "mmH": 6.1,
+      "mmLong": 6.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 42.2
+      }
+    },
+    {
+      "id": "P144",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 638,
+        "y": 806,
+        "w": 60,
+        "h": 64
+      },
+      "pctOfCaseW": 7.7,
+      "pctOfCaseH": 4,
+      "mmW": 6.3,
+      "mmH": 6.7,
+      "mmLong": 6.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 43.8
+      }
+    },
+    {
+      "id": "P145",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 724,
+        "y": 807,
+        "w": 62,
+        "h": 63
+      },
+      "pctOfCaseW": 8,
+      "pctOfCaseH": 4,
+      "mmW": 6.5,
+      "mmH": 6.6,
+      "mmLong": 6.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 46
+      }
+    },
+    {
+      "id": "P146",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 808,
+        "y": 802,
+        "w": 75,
+        "h": 64
+      },
+      "pctOfCaseW": 9.6,
+      "pctOfCaseH": 4,
+      "mmW": 7.9,
+      "mmH": 6.7,
+      "mmLong": 7.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 42.5
+      }
+    },
+    {
+      "id": "P147",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 566,
+        "y": 894,
+        "w": 61,
+        "h": 66
+      },
+      "pctOfCaseW": 7.8,
+      "pctOfCaseH": 4.2,
+      "mmW": 6.4,
+      "mmH": 6.9,
+      "mmLong": 6.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 42.5
+      }
+    },
+    {
+      "id": "P148",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 642,
+        "y": 894,
+        "w": 62,
+        "h": 62
+      },
+      "pctOfCaseW": 8,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.5,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 44.4
+      }
+    },
+    {
+      "id": "P149",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 714,
+        "y": 899,
+        "w": 53,
+        "h": 63
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 4,
+      "mmW": 5.6,
+      "mmH": 6.6,
+      "mmLong": 6.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 47.2
+      }
+    },
+    {
+      "id": "P150",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 780,
+        "y": 904,
+        "w": 64,
+        "h": 62
+      },
+      "pctOfCaseW": 8.2,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.7,
+      "mmH": 6.5,
+      "mmLong": 6.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 46.3
+      }
+    },
+    {
+      "id": "P151",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 854,
+        "y": 898,
+        "w": 65,
+        "h": 66
+      },
+      "pctOfCaseW": 8.3,
+      "pctOfCaseH": 4.2,
+      "mmW": 6.8,
+      "mmH": 6.9,
+      "mmLong": 6.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 48.1
+      }
+    },
+    {
+      "id": "P152",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 260,
+        "y": 971,
+        "w": 250,
+        "h": 274
+      },
+      "pctOfCaseW": 32.1,
+      "pctOfCaseH": 17.3,
+      "mmW": 26.2,
+      "mmH": 28.7,
+      "mmLong": 28.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 49.7
+      }
+    },
+    {
+      "id": "P153",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 572,
+        "y": 993,
+        "w": 48,
+        "h": 64
+      },
+      "pctOfCaseW": 6.2,
+      "pctOfCaseH": 4,
+      "mmW": 5,
+      "mmH": 6.7,
+      "mmLong": 6.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 43.1
+      }
+    },
+    {
+      "id": "P154",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 646,
+        "y": 991,
+        "w": 52,
+        "h": 61
+      },
+      "pctOfCaseW": 6.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 5.4,
+      "mmH": 6.4,
+      "mmLong": 6.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 46.9
+      }
+    },
+    {
+      "id": "P155",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 707,
+        "y": 999,
+        "w": 60,
+        "h": 62
+      },
+      "pctOfCaseW": 7.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.3,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 44.6
+      }
+    },
+    {
+      "id": "P156",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 773,
+        "y": 1001,
+        "w": 61,
+        "h": 62
+      },
+      "pctOfCaseW": 7.8,
+      "pctOfCaseH": 3.9,
+      "mmW": 6.4,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 47.6
+      }
+    },
+    {
+      "id": "P157",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 549,
+        "y": 1095,
+        "w": 81,
+        "h": 65
+      },
+      "pctOfCaseW": 10.4,
+      "pctOfCaseH": 4.1,
+      "mmW": 8.5,
+      "mmH": 6.8,
+      "mmLong": 8.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 51.1
+      }
+    },
+    {
+      "id": "P158",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 644,
+        "y": 1097,
+        "w": 61,
+        "h": 65
+      },
+      "pctOfCaseW": 7.8,
+      "pctOfCaseH": 4.1,
+      "mmW": 6.4,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 56.5
+      }
+    },
+    {
+      "id": "P159",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 729,
+        "y": 1096,
+        "w": 53,
+        "h": 63
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 4,
+      "mmW": 5.6,
+      "mmH": 6.6,
+      "mmLong": 6.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 56.3
+      }
+    },
+    {
+      "id": "P160",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 818,
+        "y": 1093,
+        "w": 54,
+        "h": 65
+      },
+      "pctOfCaseW": 6.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 5.7,
+      "mmH": 6.8,
+      "mmLong": 6.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 52.6
+      }
+    },
+    {
+      "id": "P161",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 497,
+        "y": 1198,
+        "w": 235,
+        "h": 190
+      },
+      "pctOfCaseW": 30.2,
+      "pctOfCaseH": 12,
+      "mmW": 24.6,
+      "mmH": 19.9,
+      "mmLong": 24.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 36.1
+      }
+    },
+    {
+      "id": "P162",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 260,
+        "y": 1323,
+        "w": 251,
+        "h": 259
+      },
+      "pctOfCaseW": 32.2,
+      "pctOfCaseH": 16.4,
+      "mmW": 26.3,
+      "mmH": 27.1,
+      "mmLong": 27.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 38.9
+      }
+    },
+    {
+      "id": "P163",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 755,
+        "y": 1337,
+        "w": 131,
+        "h": 295
+      },
+      "pctOfCaseW": 16.8,
+      "pctOfCaseH": 18.6,
+      "mmW": 13.7,
+      "mmH": 30.9,
+      "mmLong": 30.9,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 53.8
+      }
+    },
+    {
+      "id": "P164",
+      "photo": "Image_20260619201019_357_2327.jpg",
+      "pixelBox": {
+        "x": 548,
+        "y": 1401,
+        "w": 155,
+        "h": 204
+      },
+      "pctOfCaseW": 19.9,
+      "pctOfCaseH": 12.9,
+      "mmW": 16.2,
+      "mmH": 21.4,
+      "mmLong": 21.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 32.7
+      }
+    },
+    {
+      "id": "P165",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 700,
+        "y": 206,
+        "w": 227,
+        "h": 237
+      },
+      "pctOfCaseW": 29.3,
+      "pctOfCaseH": 15.4,
+      "mmW": 23.9,
+      "mmH": 25,
+      "mmLong": 25,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 39.1
+      }
+    },
+    {
+      "id": "P166",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 698,
+        "y": 325,
+        "w": 37,
+        "h": 61
+      },
+      "pctOfCaseW": 4.8,
+      "pctOfCaseH": 4,
+      "mmW": 3.9,
+      "mmH": 6.4,
+      "mmLong": 6.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 34.7
+      }
+    },
+    {
+      "id": "P167",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 810,
+        "y": 477,
+        "w": 77,
+        "h": 63
+      },
+      "pctOfCaseW": 9.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 8.1,
+      "mmH": 6.6,
+      "mmLong": 8.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+        "score": 35.4
+      }
+    },
+    {
+      "id": "P168",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 330,
+        "y": 565,
+        "w": 167,
+        "h": 168
+      },
+      "pctOfCaseW": 21.6,
+      "pctOfCaseH": 10.9,
+      "mmW": 17.6,
+      "mmH": 17.7,
+      "mmLong": 17.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 35.2
+      }
+    },
+    {
+      "id": "P169",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 469,
+        "y": 568,
+        "w": 99,
+        "h": 82
+      },
+      "pctOfCaseW": 12.8,
+      "pctOfCaseH": 5.3,
+      "mmW": 10.4,
+      "mmH": 8.6,
+      "mmLong": 10.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 33.7
+      }
+    },
+    {
+      "id": "P170",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 484,
+        "y": 557,
+        "w": 50,
+        "h": 29
+      },
+      "pctOfCaseW": 6.5,
+      "pctOfCaseH": 1.9,
+      "mmW": 5.3,
+      "mmH": 3.1,
+      "mmLong": 5.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 32.3
+      }
+    },
+    {
+      "id": "P171",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 668,
+        "y": 565,
+        "w": 22,
+        "h": 26
+      },
+      "pctOfCaseW": 2.8,
+      "pctOfCaseH": 1.7,
+      "mmW": 2.3,
+      "mmH": 2.7,
+      "mmLong": 2.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 31.8
+      }
+    },
+    {
+      "id": "P172",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 766,
+        "y": 554,
+        "w": 23,
+        "h": 25
+      },
+      "pctOfCaseW": 3,
+      "pctOfCaseH": 1.6,
+      "mmW": 2.4,
+      "mmH": 2.6,
+      "mmLong": 2.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 36.6
+      }
+    },
+    {
+      "id": "P173",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 780,
+        "y": 533,
+        "w": 76,
+        "h": 40
+      },
+      "pctOfCaseW": 9.8,
+      "pctOfCaseH": 2.6,
+      "mmW": 8,
+      "mmH": 4.2,
+      "mmLong": 8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
+        "score": 36.1
+      }
+    },
+    {
+      "id": "P174",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 409,
+        "y": 632,
+        "w": 27,
+        "h": 34
+      },
+      "pctOfCaseW": 3.5,
+      "pctOfCaseH": 2.2,
+      "mmW": 2.8,
+      "mmH": 3.6,
+      "mmLong": 3.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 26.5
+      }
+    },
+    {
+      "id": "P175",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 521,
+        "y": 644,
+        "w": 22,
+        "h": 23
+      },
+      "pctOfCaseW": 2.8,
+      "pctOfCaseH": 1.5,
+      "mmW": 2.3,
+      "mmH": 2.4,
+      "mmLong": 2.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 33.8
+      }
+    },
+    {
+      "id": "P176",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 665,
+        "y": 591,
+        "w": 47,
+        "h": 19
+      },
+      "pctOfCaseW": 6.1,
+      "pctOfCaseH": 1.2,
+      "mmW": 5,
+      "mmH": 2,
+      "mmLong": 5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 38.9
+      }
+    },
+    {
+      "id": "P177",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 310,
+        "y": 647,
+        "w": 48,
+        "h": 43
+      },
+      "pctOfCaseW": 6.2,
+      "pctOfCaseH": 2.8,
+      "mmW": 5.1,
+      "mmH": 4.5,
+      "mmLong": 5.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 42.6
+      }
+    },
+    {
+      "id": "P178",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 560,
+        "y": 687,
+        "w": 39,
+        "h": 41
+      },
+      "pctOfCaseW": 5,
+      "pctOfCaseH": 2.7,
+      "mmW": 4.1,
+      "mmH": 4.3,
+      "mmLong": 4.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 44.6
+      }
+    },
+    {
+      "id": "P179",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 614,
+        "y": 652,
+        "w": 121,
+        "h": 173
+      },
+      "pctOfCaseW": 15.6,
+      "pctOfCaseH": 11.3,
+      "mmW": 12.8,
+      "mmH": 18.2,
+      "mmLong": 18.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 45.3
+      }
+    },
+    {
+      "id": "P180",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 783,
+        "y": 696,
+        "w": 65,
+        "h": 63
+      },
+      "pctOfCaseW": 8.4,
+      "pctOfCaseH": 4.1,
+      "mmW": 6.9,
+      "mmH": 6.6,
+      "mmLong": 6.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 15.4
+      }
+    },
+    {
+      "id": "P181",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 789,
+        "y": 665,
+        "w": 26,
+        "h": 18
+      },
+      "pctOfCaseW": 3.4,
+      "pctOfCaseH": 1.2,
+      "mmW": 2.7,
+      "mmH": 1.9,
+      "mmLong": 2.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
+        "score": 34.7
+      }
+    },
+    {
+      "id": "P182",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 821,
+        "y": 652,
+        "w": 105,
+        "h": 105
+      },
+      "pctOfCaseW": 13.6,
+      "pctOfCaseH": 6.8,
+      "mmW": 11.1,
+      "mmH": 11.1,
+      "mmLong": 11.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 32.8
+      }
+    },
+    {
+      "id": "P183",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 309,
+        "y": 730,
+        "w": 142,
+        "h": 96
+      },
+      "pctOfCaseW": 18.3,
+      "pctOfCaseH": 6.3,
+      "mmW": 15,
+      "mmH": 10.1,
+      "mmLong": 15,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 36.9
+      }
+    },
+    {
+      "id": "P184",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 582,
+        "y": 723,
+        "w": 23,
+        "h": 48
+      },
+      "pctOfCaseW": 3,
+      "pctOfCaseH": 3.1,
+      "mmW": 2.4,
+      "mmH": 5.1,
+      "mmLong": 5.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20.png",
+        "score": 33.9
+      }
+    },
+    {
+      "id": "P185",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 490,
+        "y": 786,
+        "w": 81,
+        "h": 350
+      },
+      "pctOfCaseW": 10.5,
+      "pctOfCaseH": 22.8,
+      "mmW": 8.5,
+      "mmH": 36.9,
+      "mmLong": 36.9,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 42.5
+      }
+    },
+    {
+      "id": "P186",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 778,
+        "y": 790,
+        "w": 41,
+        "h": 39
+      },
+      "pctOfCaseW": 5.3,
+      "pctOfCaseH": 2.5,
+      "mmW": 4.3,
+      "mmH": 4.1,
+      "mmLong": 4.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 12.6
+      }
+    },
+    {
+      "id": "P187",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 823,
+        "y": 786,
+        "w": 35,
+        "h": 25
+      },
+      "pctOfCaseW": 4.5,
+      "pctOfCaseH": 1.6,
+      "mmW": 3.7,
+      "mmH": 2.6,
+      "mmLong": 3.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 14.3
+      }
+    },
+    {
+      "id": "P188",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 850,
+        "y": 771,
+        "w": 65,
+        "h": 130
+      },
+      "pctOfCaseW": 8.4,
+      "pctOfCaseH": 8.5,
+      "mmW": 6.9,
+      "mmH": 13.7,
+      "mmLong": 13.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 43
+      }
+    },
+    {
+      "id": "P189",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 298,
+        "y": 843,
+        "w": 150,
+        "h": 151
+      },
+      "pctOfCaseW": 19.4,
+      "pctOfCaseH": 9.8,
+      "mmW": 15.8,
+      "mmH": 15.9,
+      "mmLong": 15.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 40.7
+      }
+    },
+    {
+      "id": "P190",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 493,
+        "y": 837,
+        "w": 33,
+        "h": 49
+      },
+      "pctOfCaseW": 4.3,
+      "pctOfCaseH": 3.2,
+      "mmW": 3.5,
+      "mmH": 5.2,
+      "mmLong": 5.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 10.5
+      }
+    },
+    {
+      "id": "P191",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 811,
+        "y": 835,
+        "w": 65,
+        "h": 72
+      },
+      "pctOfCaseW": 8.4,
+      "pctOfCaseH": 4.7,
+      "mmW": 6.9,
+      "mmH": 7.6,
+      "mmLong": 7.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 15.1
+      }
+    },
+    {
+      "id": "P192",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 729,
+        "y": 963,
+        "w": 202,
+        "h": 276
+      },
+      "pctOfCaseW": 26.1,
+      "pctOfCaseH": 18,
+      "mmW": 21.3,
+      "mmH": 29.1,
+      "mmLong": 29.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20.png",
+        "score": 45
+      }
+    },
+    {
+      "id": "P193",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 287,
+        "y": 1021,
+        "w": 183,
+        "h": 193
+      },
+      "pctOfCaseW": 23.6,
+      "pctOfCaseH": 12.6,
+      "mmW": 19.3,
+      "mmH": 20.3,
+      "mmLong": 20.3,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 52.2
+      }
+    },
+    {
+      "id": "P194",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 744,
+        "y": 1186,
+        "w": 59,
+        "h": 55
+      },
+      "pctOfCaseW": 7.6,
+      "pctOfCaseH": 3.6,
+      "mmW": 6.2,
+      "mmH": 5.8,
+      "mmLong": 6.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
+        "score": 32.2
+      }
+    },
+    {
+      "id": "P195",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 794,
+        "y": 1220,
+        "w": 24,
+        "h": 22
+      },
+      "pctOfCaseW": 3.1,
+      "pctOfCaseH": 1.4,
+      "mmW": 2.5,
+      "mmH": 2.3,
+      "mmLong": 2.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-21.png",
+        "score": 37.4
+      }
+    },
+    {
+      "id": "P196",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 327,
+        "y": 1266,
+        "w": 211,
+        "h": 219
+      },
+      "pctOfCaseW": 27.3,
+      "pctOfCaseH": 14.3,
+      "mmW": 22.2,
+      "mmH": 23.1,
+      "mmLong": 23.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 53.9
+      }
+    },
+    {
+      "id": "P197",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 744,
+        "y": 1264,
+        "w": 101,
+        "h": 85
+      },
+      "pctOfCaseW": 13,
+      "pctOfCaseH": 5.5,
+      "mmW": 10.6,
+      "mmH": 9,
+      "mmLong": 10.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+        "score": 40.7
+      }
+    },
+    {
+      "id": "P198",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 302,
+        "y": 1345,
+        "w": 21,
+        "h": 60
+      },
+      "pctOfCaseW": 2.7,
+      "pctOfCaseH": 3.9,
+      "mmW": 2.2,
+      "mmH": 6.3,
+      "mmLong": 6.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 34.1
+      }
+    },
+    {
+      "id": "P199",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 629,
+        "y": 1355,
+        "w": 70,
+        "h": 25
+      },
+      "pctOfCaseW": 9,
+      "pctOfCaseH": 1.6,
+      "mmW": 7.4,
+      "mmH": 2.6,
+      "mmLong": 7.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "score": 40.8
+      }
+    },
+    {
+      "id": "P200",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 718,
+        "y": 1441,
+        "w": 84,
+        "h": 64
+      },
+      "pctOfCaseW": 10.9,
+      "pctOfCaseH": 4.2,
+      "mmW": 8.9,
+      "mmH": 6.7,
+      "mmLong": 8.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 15
+      }
+    },
+    {
+      "id": "P201",
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "pixelBox": {
+        "x": 840,
+        "y": 1418,
+        "w": 15,
+        "h": 59
+      },
+      "pctOfCaseW": 1.9,
+      "pctOfCaseH": 3.8,
+      "mmW": 1.6,
+      "mmH": 6.2,
+      "mmLong": 6.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 43.6
+      }
+    },
+    {
+      "id": "P202",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 669,
+        "y": 221,
+        "w": 234,
+        "h": 301
+      },
+      "pctOfCaseW": 28.9,
+      "pctOfCaseH": 18.7,
+      "mmW": 23.5,
+      "mmH": 30.3,
+      "mmLong": 30.3,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
+        "score": 59.3
+      }
+    },
+    {
+      "id": "P203",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 284,
+        "y": 581,
+        "w": 693,
+        "h": 236
+      },
+      "pctOfCaseW": 85.5,
+      "pctOfCaseH": 14.6,
+      "mmW": 69.7,
+      "mmH": 23.7,
+      "mmLong": 69.7,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 65.8
+      }
+    },
+    {
+      "id": "P204",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 281,
+        "y": 831,
+        "w": 233,
+        "h": 233
+      },
+      "pctOfCaseW": 28.7,
+      "pctOfCaseH": 14.4,
+      "mmW": 23.4,
+      "mmH": 23.4,
+      "mmLong": 23.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 64.6
+      }
+    },
+    {
+      "id": "P205",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 551,
+        "y": 811,
+        "w": 135,
+        "h": 131
+      },
+      "pctOfCaseW": 16.6,
+      "pctOfCaseH": 8.1,
+      "mmW": 13.6,
+      "mmH": 13.2,
+      "mmLong": 13.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07.png",
+        "score": 73.4
+      }
+    },
+    {
+      "id": "P206",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 582,
+        "y": 860,
+        "w": 49,
+        "h": 50
+      },
+      "pctOfCaseW": 6,
+      "pctOfCaseH": 3.1,
+      "mmW": 4.9,
+      "mmH": 5,
+      "mmLong": 5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-39.png",
+        "score": 81.6
+      }
+    },
+    {
+      "id": "P207",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 735,
+        "y": 850,
+        "w": 234,
+        "h": 314
+      },
+      "pctOfCaseW": 28.9,
+      "pctOfCaseH": 19.5,
+      "mmW": 23.5,
+      "mmH": 31.6,
+      "mmLong": 31.6,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image2-19.png",
+        "score": 43.1
+      }
+    },
+    {
+      "id": "P208",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 582,
+        "y": 960,
+        "w": 118,
+        "h": 126
+      },
+      "pctOfCaseW": 14.5,
+      "pctOfCaseH": 7.8,
+      "mmW": 11.9,
+      "mmH": 12.7,
+      "mmLong": 12.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 68.5
+      }
+    },
+    {
+      "id": "P209",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 285,
+        "y": 1128,
+        "w": 141,
+        "h": 134
+      },
+      "pctOfCaseW": 17.4,
+      "pctOfCaseH": 8.3,
+      "mmW": 14.2,
+      "mmH": 13.5,
+      "mmLong": 14.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 57.8
+      }
+    },
+    {
+      "id": "P210",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 471,
+        "y": 1120,
+        "w": 97,
+        "h": 110
+      },
+      "pctOfCaseW": 12,
+      "pctOfCaseH": 6.8,
+      "mmW": 9.8,
+      "mmH": 11.1,
+      "mmLong": 11.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 28.7
+      }
+    },
+    {
+      "id": "P211",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 446,
+        "y": 1175,
+        "w": 69,
+        "h": 56
+      },
+      "pctOfCaseW": 8.5,
+      "pctOfCaseH": 3.5,
+      "mmW": 6.9,
+      "mmH": 5.6,
+      "mmLong": 6.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 45.2
+      }
+    },
+    {
+      "id": "P212",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 611,
+        "y": 1169,
+        "w": 58,
+        "h": 62
+      },
+      "pctOfCaseW": 7.2,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.8,
+      "mmH": 6.2,
+      "mmLong": 6.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 32.6
+      }
+    },
+    {
+      "id": "P213",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 714,
+        "y": 1153,
+        "w": 139,
+        "h": 128
+      },
+      "pctOfCaseW": 17.1,
+      "pctOfCaseH": 7.9,
+      "mmW": 14,
+      "mmH": 12.9,
+      "mmLong": 14,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 50.7
+      }
+    },
+    {
+      "id": "P214",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 481,
+        "y": 1233,
+        "w": 36,
+        "h": 23
+      },
+      "pctOfCaseW": 4.4,
+      "pctOfCaseH": 1.4,
+      "mmW": 3.6,
+      "mmH": 2.3,
+      "mmLong": 3.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "score": 39
+      }
+    },
+    {
+      "id": "P215",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 281,
+        "y": 1309,
+        "w": 223,
+        "h": 318
+      },
+      "pctOfCaseW": 27.5,
+      "pctOfCaseH": 19.7,
+      "mmW": 22.4,
+      "mmH": 32,
+      "mmLong": 32,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image2-19.png",
+        "score": 44.3
+      }
+    },
+    {
+      "id": "P216",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 524,
+        "y": 1306,
+        "w": 237,
+        "h": 319
+      },
+      "pctOfCaseW": 29.2,
+      "pctOfCaseH": 19.8,
+      "mmW": 23.8,
+      "mmH": 32.1,
+      "mmLong": 32.1,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "image2-29.png",
+        "score": 47.5
+      }
+    },
+    {
+      "id": "P217",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 768,
+        "y": 1310,
+        "w": 159,
+        "h": 106
+      },
+      "pctOfCaseW": 19.6,
+      "pctOfCaseH": 6.6,
+      "mmW": 16,
+      "mmH": 10.7,
+      "mmLong": 16,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-15.png",
+        "score": 67.7
+      }
+    },
+    {
+      "id": "P218",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 800,
+        "y": 1481,
+        "w": 115,
+        "h": 122
+      },
+      "pctOfCaseW": 14.2,
+      "pctOfCaseH": 7.6,
+      "mmW": 11.6,
+      "mmH": 12.3,
+      "mmLong": 12.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 67.9
+      }
+    },
+    {
+      "id": "P219",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 894,
+        "y": 82,
+        "w": 51,
+        "h": 59
+      },
+      "pctOfCaseW": 6.1,
+      "pctOfCaseH": 3.6,
+      "mmW": 5,
+      "mmH": 5.8,
+      "mmLong": 5.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 33.7
+      }
+    },
+    {
+      "id": "P220",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 717,
+        "y": 172,
+        "w": 104,
+        "h": 124
+      },
+      "pctOfCaseW": 12.5,
+      "pctOfCaseH": 7.5,
+      "mmW": 10.2,
+      "mmH": 12.2,
+      "mmLong": 12.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-16.png",
+        "score": 57.2
+      }
+    },
+    {
+      "id": "P221",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 711,
+        "y": 352,
+        "w": 120,
+        "h": 178
+      },
+      "pctOfCaseW": 14.4,
+      "pctOfCaseH": 10.8,
+      "mmW": 11.8,
+      "mmH": 17.5,
+      "mmLong": 17.5,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14.png",
+        "score": 58.9
+      }
+    },
+    {
+      "id": "P222",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 583,
+        "y": 550,
+        "w": 176,
+        "h": 184
+      },
+      "pctOfCaseW": 21.2,
+      "pctOfCaseH": 11.2,
+      "mmW": 17.3,
+      "mmH": 18.1,
+      "mmLong": 18.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
+        "score": 44.3
+      }
+    },
+    {
+      "id": "P223",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 780,
+        "y": 528,
+        "w": 83,
+        "h": 224
+      },
+      "pctOfCaseW": 10,
+      "pctOfCaseH": 13.6,
+      "mmW": 8.2,
+      "mmH": 22,
+      "mmLong": 22,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image2-07.png",
+        "score": 69.6
+      }
+    },
+    {
+      "id": "P224",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 213,
+        "y": 597,
+        "w": 158,
+        "h": 174
+      },
+      "pctOfCaseW": 19,
+      "pctOfCaseH": 10.6,
+      "mmW": 15.5,
+      "mmH": 17.1,
+      "mmLong": 17.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "score": 42.3
+      }
+    },
+    {
+      "id": "P225",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 409,
+        "y": 598,
+        "w": 167,
+        "h": 139
+      },
+      "pctOfCaseW": 20.1,
+      "pctOfCaseH": 8.4,
+      "mmW": 16.4,
+      "mmH": 13.6,
+      "mmLong": 16.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 37.1
+      }
+    },
+    {
+      "id": "P226",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 206,
+        "y": 784,
+        "w": 465,
+        "h": 509
+      },
+      "pctOfCaseW": 56,
+      "pctOfCaseH": 30.9,
+      "mmW": 45.7,
+      "mmH": 50,
+      "mmLong": 50,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-15.png",
+        "score": 67.2
+      }
+    },
+    {
+      "id": "P227",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 690,
+        "y": 781,
+        "w": 162,
+        "h": 243
+      },
+      "pctOfCaseW": 19.5,
+      "pctOfCaseH": 14.7,
+      "mmW": 15.9,
+      "mmH": 23.9,
+      "mmLong": 23.9,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 60.1
+      }
+    },
+    {
+      "id": "P228",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 544,
+        "y": 1076,
+        "w": 161,
+        "h": 303
+      },
+      "pctOfCaseW": 19.4,
+      "pctOfCaseH": 18.4,
+      "mmW": 15.8,
+      "mmH": 29.8,
+      "mmLong": 29.8,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 37.5
+      }
+    },
+    {
+      "id": "P229",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 706,
+        "y": 1060,
+        "w": 178,
+        "h": 169
+      },
+      "pctOfCaseW": 21.4,
+      "pctOfCaseH": 10.2,
+      "mmW": 17.5,
+      "mmH": 16.6,
+      "mmLong": 17.5,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 40.6
+      }
+    },
+    {
+      "id": "P230",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 360,
+        "y": 1182,
+        "w": 161,
+        "h": 144
+      },
+      "pctOfCaseW": 19.4,
+      "pctOfCaseH": 8.7,
+      "mmW": 15.8,
+      "mmH": 14.1,
+      "mmLong": 15.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 41
+      }
+    },
+    {
+      "id": "P231",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 416,
+        "y": 1407,
+        "w": 123,
+        "h": 132
+      },
+      "pctOfCaseW": 14.8,
+      "pctOfCaseH": 8,
+      "mmW": 12.1,
+      "mmH": 13,
+      "mmLong": 13,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 36.1
+      }
+    },
+    {
+      "id": "P232",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 738,
+        "y": 1415,
+        "w": 147,
+        "h": 135
+      },
+      "pctOfCaseW": 17.7,
+      "pctOfCaseH": 8.2,
+      "mmW": 14.4,
+      "mmH": 13.3,
+      "mmLong": 14.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 53.4
+      }
+    },
+    {
+      "id": "P233",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 210,
+        "y": 1429,
+        "w": 107,
+        "h": 67
+      },
+      "pctOfCaseW": 12.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 10.5,
+      "mmH": 6.6,
+      "mmLong": 10.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
+        "score": 47.5
+      }
+    },
+    {
+      "id": "P234",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 387,
+        "y": 1477,
+        "w": 66,
+        "h": 61
+      },
+      "pctOfCaseW": 7.9,
+      "pctOfCaseH": 3.7,
+      "mmW": 6.5,
+      "mmH": 6,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-20.png",
+        "score": 44
+      }
+    },
+    {
+      "id": "P235",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 569,
+        "y": 1443,
+        "w": 109,
+        "h": 80
+      },
+      "pctOfCaseW": 13.1,
+      "pctOfCaseH": 4.9,
+      "mmW": 10.7,
+      "mmH": 7.9,
+      "mmLong": 10.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 60.3
+      }
+    },
+    {
+      "id": "P236",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 767,
+        "y": 252,
+        "w": 63,
+        "h": 64
+      },
+      "pctOfCaseW": 7.8,
+      "pctOfCaseH": 4,
+      "mmW": 6.3,
+      "mmH": 6.4,
+      "mmLong": 6.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-28.png",
+        "score": 65.7
+      }
+    },
+    {
+      "id": "P237",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 728,
+        "y": 415,
+        "w": 155,
+        "h": 192
+      },
+      "pctOfCaseW": 19.1,
+      "pctOfCaseH": 12.1,
+      "mmW": 15.6,
+      "mmH": 19.3,
+      "mmLong": 19.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 41.2
+      }
+    },
+    {
+      "id": "P238",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 287,
+        "y": 557,
+        "w": 157,
+        "h": 239
+      },
+      "pctOfCaseW": 19.4,
+      "pctOfCaseH": 15.1,
+      "mmW": 15.8,
+      "mmH": 24.1,
+      "mmLong": 24.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-03.png",
+        "score": 63.6
+      }
+    },
+    {
+      "id": "P239",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 459,
+        "y": 550,
+        "w": 239,
+        "h": 200
+      },
+      "pctOfCaseW": 29.5,
+      "pctOfCaseH": 12.6,
+      "mmW": 24.1,
+      "mmH": 20.1,
+      "mmLong": 24.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15.png",
+        "score": 70.3
+      }
+    },
+    {
+      "id": "P240",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 702,
+        "y": 648,
+        "w": 193,
+        "h": 232
+      },
+      "pctOfCaseW": 23.8,
+      "pctOfCaseH": 14.6,
+      "mmW": 19.4,
+      "mmH": 23.4,
+      "mmLong": 23.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-15.png",
+        "score": 59.1
+      }
+    },
+    {
+      "id": "P241",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 481,
+        "y": 782,
+        "w": 226,
+        "h": 222
+      },
+      "pctOfCaseW": 27.9,
+      "pctOfCaseH": 14,
+      "mmW": 22.8,
+      "mmH": 22.4,
+      "mmLong": 22.8,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-14.png",
+        "score": 55.9
+      }
+    },
+    {
+      "id": "P242",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 260,
+        "y": 801,
+        "w": 153,
+        "h": 188
+      },
+      "pctOfCaseW": 18.9,
+      "pctOfCaseH": 11.9,
+      "mmW": 15.4,
+      "mmH": 18.9,
+      "mmLong": 18.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-19.png",
+        "score": 40.5
+      }
+    },
+    {
+      "id": "P243",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 297,
+        "y": 834,
+        "w": 66,
+        "h": 120
+      },
+      "pctOfCaseW": 8.1,
+      "pctOfCaseH": 7.6,
+      "mmW": 6.6,
+      "mmH": 12.1,
+      "mmLong": 12.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 45.2
+      }
+    },
+    {
+      "id": "P244",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 517,
+        "y": 809,
+        "w": 36,
+        "h": 25
+      },
+      "pctOfCaseW": 4.4,
+      "pctOfCaseH": 1.6,
+      "mmW": 3.6,
+      "mmH": 2.5,
+      "mmLong": 3.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 35.6
+      }
+    },
+    {
+      "id": "P245",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 725,
+        "y": 904,
+        "w": 200,
+        "h": 229
+      },
+      "pctOfCaseW": 24.7,
+      "pctOfCaseH": 14.4,
+      "mmW": 20.1,
+      "mmH": 23.1,
+      "mmLong": 23.1,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14.png",
+        "score": 52.6
+      }
+    },
+    {
+      "id": "P246",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 252,
+        "y": 1008,
+        "w": 154,
+        "h": 157
+      },
+      "pctOfCaseW": 19,
+      "pctOfCaseH": 9.9,
+      "mmW": 15.5,
+      "mmH": 15.8,
+      "mmLong": 15.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-21.png",
+        "score": 43.4
+      }
+    },
+    {
+      "id": "P247",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 288,
+        "y": 1034,
+        "w": 437,
+        "h": 341
+      },
+      "pctOfCaseW": 54,
+      "pctOfCaseH": 21.5,
+      "mmW": 44,
+      "mmH": 34.4,
+      "mmLong": 44,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 68
+      }
+    },
+    {
+      "id": "P248",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 963,
+        "y": 989,
+        "w": 17,
+        "h": 36
+      },
+      "pctOfCaseW": 2.1,
+      "pctOfCaseH": 2.3,
+      "mmW": 1.7,
+      "mmH": 3.6,
+      "mmLong": 3.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "score": 37.5
+      }
+    },
+    {
+      "id": "P249",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 719,
+        "y": 1182,
+        "w": 165,
+        "h": 199
+      },
+      "pctOfCaseW": 20.4,
+      "pctOfCaseH": 12.5,
+      "mmW": 16.6,
+      "mmH": 20,
+      "mmLong": 20,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07.png",
+        "score": 60.7
+      }
+    },
+    {
+      "id": "P250",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 259,
+        "y": 1374,
+        "w": 156,
+        "h": 148
+      },
+      "pctOfCaseW": 19.3,
+      "pctOfCaseH": 9.3,
+      "mmW": 15.7,
+      "mmH": 14.9,
+      "mmLong": 15.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
+        "score": 62.6
+      }
+    },
+    {
+      "id": "P251",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 413,
+        "y": 1380,
+        "w": 148,
+        "h": 122
+      },
+      "pctOfCaseW": 18.3,
+      "pctOfCaseH": 7.7,
+      "mmW": 14.9,
+      "mmH": 12.3,
+      "mmLong": 14.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 39.7
+      }
+    },
+    {
+      "id": "P252",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 565,
+        "y": 1389,
+        "w": 335,
+        "h": 195
+      },
+      "pctOfCaseW": 41.4,
+      "pctOfCaseH": 12.3,
+      "mmW": 33.7,
+      "mmH": 19.6,
+      "mmLong": 33.7,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02.png",
+        "score": 58.2
+      }
+    },
+    {
+      "id": "P253",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "pixelBox": {
+        "x": 435,
+        "y": 1493,
+        "w": 38,
+        "h": 21
+      },
+      "pctOfCaseW": 4.7,
+      "pctOfCaseH": 1.3,
+      "mmW": 3.8,
+      "mmH": 2.1,
+      "mmLong": 3.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
+        "score": 46.4
+      }
+    },
+    {
+      "id": "P254",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 730,
+        "y": 133,
+        "w": 185,
+        "h": 241
+      },
+      "pctOfCaseW": 22.8,
+      "pctOfCaseH": 15.1,
+      "mmW": 18.6,
+      "mmH": 24.2,
+      "mmLong": 24.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 45.9
+      }
+    },
+    {
+      "id": "P255",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 716,
+        "y": 376,
+        "w": 193,
+        "h": 239
+      },
+      "pctOfCaseW": 23.8,
+      "pctOfCaseH": 15,
+      "mmW": 19.4,
+      "mmH": 24,
+      "mmLong": 24,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
+        "score": 63.4
+      }
+    },
+    {
+      "id": "P256",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 275,
+        "y": 546,
+        "w": 397,
+        "h": 210
+      },
+      "pctOfCaseW": 48.9,
+      "pctOfCaseH": 13.2,
+      "mmW": 39.9,
+      "mmH": 21.1,
+      "mmLong": 39.9,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 62.4
+      }
+    },
+    {
+      "id": "P257",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 727,
+        "y": 660,
+        "w": 199,
+        "h": 229
+      },
+      "pctOfCaseW": 24.5,
+      "pctOfCaseH": 14.4,
+      "mmW": 20,
+      "mmH": 23,
+      "mmLong": 23,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image2-25.png",
+        "score": 82.5
+      }
+    },
+    {
+      "id": "P258",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 269,
+        "y": 789,
+        "w": 216,
+        "h": 235
+      },
+      "pctOfCaseW": 26.6,
+      "pctOfCaseH": 14.7,
+      "mmW": 21.7,
+      "mmH": 23.6,
+      "mmLong": 23.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 48.7
+      }
+    },
+    {
+      "id": "P259",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 498,
+        "y": 783,
+        "w": 205,
+        "h": 201
+      },
+      "pctOfCaseW": 25.2,
+      "pctOfCaseH": 12.6,
+      "mmW": 20.6,
+      "mmH": 20.2,
+      "mmLong": 20.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 51.8
+      }
+    },
+    {
+      "id": "P260",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 667,
+        "y": 910,
+        "w": 263,
+        "h": 271
+      },
+      "pctOfCaseW": 32.4,
+      "pctOfCaseH": 17,
+      "mmW": 26.4,
+      "mmH": 27.2,
+      "mmLong": 27.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 48.5
+      }
+    },
+    {
+      "id": "P261",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 458,
+        "y": 999,
+        "w": 90,
+        "h": 171
+      },
+      "pctOfCaseW": 11.1,
+      "pctOfCaseH": 10.7,
+      "mmW": 9,
+      "mmH": 17.2,
+      "mmLong": 17.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 51
+      }
+    },
+    {
+      "id": "P262",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 255,
+        "y": 1191,
+        "w": 159,
+        "h": 190
+      },
+      "pctOfCaseW": 19.6,
+      "pctOfCaseH": 11.9,
+      "mmW": 16,
+      "mmH": 19.1,
+      "mmLong": 19.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-19.png",
+        "score": 54
+      }
+    },
+    {
+      "id": "P263",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 451,
+        "y": 1189,
+        "w": 184,
+        "h": 191
+      },
+      "pctOfCaseW": 22.7,
+      "pctOfCaseH": 12,
+      "mmW": 18.5,
+      "mmH": 19.2,
+      "mmLong": 19.2,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
+        "score": 45.5
+      }
+    },
+    {
+      "id": "P264",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 680,
+        "y": 1221,
+        "w": 225,
+        "h": 191
+      },
+      "pctOfCaseW": 27.7,
+      "pctOfCaseH": 12,
+      "mmW": 22.6,
+      "mmH": 19.2,
+      "mmLong": 22.6,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-08.png",
+        "score": 44.7
+      }
+    },
+    {
+      "id": "P265",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 268,
+        "y": 1387,
+        "w": 408,
+        "h": 208
+      },
+      "pctOfCaseW": 50.2,
+      "pctOfCaseH": 13,
+      "mmW": 41,
+      "mmH": 20.9,
+      "mmLong": 41,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
+        "score": 51.4
+      }
+    },
+    {
+      "id": "P266",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 701,
+        "y": 1423,
+        "w": 166,
+        "h": 166
+      },
+      "pctOfCaseW": 20.4,
+      "pctOfCaseH": 10.4,
+      "mmW": 16.7,
+      "mmH": 16.7,
+      "mmLong": 16.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
+        "score": 42.1
+      }
+    },
+    {
+      "id": "P267",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 617,
+        "y": 104,
+        "w": 211,
+        "h": 159
+      },
+      "pctOfCaseW": 25.2,
+      "pctOfCaseH": 9.8,
+      "mmW": 20.5,
+      "mmH": 15.5,
+      "mmLong": 20.5,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 54.4
+      }
+    },
+    {
+      "id": "P268",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 607,
+        "y": 273,
+        "w": 207,
+        "h": 153
+      },
+      "pctOfCaseW": 24.7,
+      "pctOfCaseH": 9.4,
+      "mmW": 20.2,
+      "mmH": 14.9,
+      "mmLong": 20.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 35.9
+      }
+    },
+    {
+      "id": "P269",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 617,
+        "y": 380,
+        "w": 57,
+        "h": 54
+      },
+      "pctOfCaseW": 6.8,
+      "pctOfCaseH": 3.3,
+      "mmW": 5.6,
+      "mmH": 5.3,
+      "mmLong": 5.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-23.png",
+        "score": 31.3
+      }
+    },
+    {
+      "id": "P270",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 683,
+        "y": 482,
+        "w": 133,
+        "h": 198
+      },
+      "pctOfCaseW": 15.9,
+      "pctOfCaseH": 12.2,
+      "mmW": 13,
+      "mmH": 19.3,
+      "mmLong": 19.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15.png",
+        "score": 63.1
+      }
+    },
+    {
+      "id": "P271",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 221,
+        "y": 519,
+        "w": 124,
+        "h": 181
+      },
+      "pctOfCaseW": 14.8,
+      "pctOfCaseH": 11.1,
+      "mmW": 12.1,
+      "mmH": 17.6,
+      "mmLong": 17.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-09.png",
+        "score": 56.5
+      }
+    },
+    {
+      "id": "P272",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 411,
+        "y": 514,
+        "w": 251,
+        "h": 516
+      },
+      "pctOfCaseW": 30,
+      "pctOfCaseH": 31.8,
+      "mmW": 24.4,
+      "mmH": 50.2,
+      "mmLong": 50.2,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 58.1
+      }
+    },
+    {
+      "id": "P273",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 229,
+        "y": 711,
+        "w": 144,
+        "h": 181
+      },
+      "pctOfCaseW": 17.2,
+      "pctOfCaseH": 11.1,
+      "mmW": 14,
+      "mmH": 17.6,
+      "mmLong": 17.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 49.2
+      }
+    },
+    {
+      "id": "P274",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 651,
+        "y": 729,
+        "w": 213,
+        "h": 211
+      },
+      "pctOfCaseW": 25.4,
+      "pctOfCaseH": 13,
+      "mmW": 20.7,
+      "mmH": 20.5,
+      "mmLong": 20.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-17.png",
+        "score": 45.9
+      }
+    },
+    {
+      "id": "P275",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 710,
+        "y": 968,
+        "w": 158,
+        "h": 182
+      },
+      "pctOfCaseW": 18.9,
+      "pctOfCaseH": 11.2,
+      "mmW": 15.4,
+      "mmH": 17.7,
+      "mmLong": 17.7,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-25.png",
+        "score": 44.6
+      }
+    },
+    {
+      "id": "P276",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 282,
+        "y": 1070,
+        "w": 36,
+        "h": 27
+      },
+      "pctOfCaseW": 4.3,
+      "pctOfCaseH": 1.7,
+      "mmW": 3.5,
+      "mmH": 2.6,
+      "mmLong": 3.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-31.png",
+        "score": 14.7
+      }
+    },
+    {
+      "id": "P277",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 473,
+        "y": 1025,
+        "w": 16,
+        "h": 55
+      },
+      "pctOfCaseW": 1.9,
+      "pctOfCaseH": 3.4,
+      "mmW": 1.6,
+      "mmH": 5.4,
+      "mmLong": 5.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
+        "score": 32.9
+      }
+    },
+    {
+      "id": "P278",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 497,
+        "y": 1010,
+        "w": 22,
+        "h": 43
+      },
+      "pctOfCaseW": 2.6,
+      "pctOfCaseH": 2.6,
+      "mmW": 2.1,
+      "mmH": 4.2,
+      "mmLong": 4.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-40.png",
+        "score": 34.1
+      }
+    },
+    {
+      "id": "P279",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 531,
+        "y": 1058,
+        "w": 61,
+        "h": 37
+      },
+      "pctOfCaseW": 7.3,
+      "pctOfCaseH": 2.3,
+      "mmW": 5.9,
+      "mmH": 3.6,
+      "mmLong": 5.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 32.6
+      }
+    },
+    {
+      "id": "P280",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 602,
+        "y": 1014,
+        "w": 41,
+        "h": 86
+      },
+      "pctOfCaseW": 4.9,
+      "pctOfCaseH": 5.3,
+      "mmW": 4,
+      "mmH": 8.4,
+      "mmLong": 8.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 33.5
+      }
+    },
+    {
+      "id": "P281",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 482,
+        "y": 1075,
+        "w": 24,
+        "h": 28
+      },
+      "pctOfCaseW": 2.9,
+      "pctOfCaseH": 1.7,
+      "mmW": 2.3,
+      "mmH": 2.7,
+      "mmLong": 2.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
+        "score": 21.2
+      }
+    },
+    {
+      "id": "P282",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 345,
+        "y": 1171,
+        "w": 41,
+        "h": 170
+      },
+      "pctOfCaseW": 4.9,
+      "pctOfCaseH": 10.5,
+      "mmW": 4,
+      "mmH": 16.6,
+      "mmLong": 16.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 28.7
+      }
+    },
+    {
+      "id": "P283",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 451,
+        "y": 1245,
+        "w": 39,
+        "h": 78
+      },
+      "pctOfCaseW": 4.7,
+      "pctOfCaseH": 4.8,
+      "mmW": 3.8,
+      "mmH": 7.6,
+      "mmLong": 7.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
+        "score": 15
+      }
+    },
+    {
+      "id": "P284",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 514,
+        "y": 1217,
+        "w": 58,
+        "h": 60
+      },
+      "pctOfCaseW": 6.9,
+      "pctOfCaseH": 3.7,
+      "mmW": 5.6,
+      "mmH": 5.8,
+      "mmLong": 5.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
+        "score": 29.3
+      }
+    },
+    {
+      "id": "P285",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 631,
+        "y": 1213,
+        "w": 264,
+        "h": 355
+      },
+      "pctOfCaseW": 31.5,
+      "pctOfCaseH": 21.9,
+      "mmW": 25.7,
+      "mmH": 34.6,
+      "mmLong": 34.6,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-54.png",
+        "score": 56.6
+      }
+    },
+    {
+      "id": "P286",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 273,
+        "y": 1295,
+        "w": 29,
+        "h": 33
+      },
+      "pctOfCaseW": 3.5,
+      "pctOfCaseH": 2,
+      "mmW": 2.8,
+      "mmH": 3.2,
+      "mmLong": 3.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-31.png",
+        "score": 14.3
+      }
+    },
+    {
+      "id": "P287",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 462,
+        "y": 1394,
+        "w": 42,
+        "h": 42
+      },
+      "pctOfCaseW": 5,
+      "pctOfCaseH": 2.6,
+      "mmW": 4.1,
+      "mmH": 4.1,
+      "mmLong": 4.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
+        "score": 38.2
+      }
+    },
+    {
+      "id": "P288",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 311,
+        "y": 1439,
+        "w": 55,
+        "h": 138
+      },
+      "pctOfCaseW": 6.6,
+      "pctOfCaseH": 8.5,
+      "mmW": 5.4,
+      "mmH": 13.4,
+      "mmLong": 13.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 35.4
+      }
+    },
+    {
+      "id": "P289",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 422,
+        "y": 1435,
+        "w": 35,
+        "h": 15
+      },
+      "pctOfCaseW": 4.2,
+      "pctOfCaseH": 0.9,
+      "mmW": 3.4,
+      "mmH": 1.5,
+      "mmLong": 3.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 29.9
+      }
+    },
+    {
+      "id": "P290",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 238,
+        "y": 1526,
+        "w": 28,
+        "h": 44
+      },
+      "pctOfCaseW": 3.3,
+      "pctOfCaseH": 2.7,
+      "mmW": 2.7,
+      "mmH": 4.3,
+      "mmLong": 4.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
+        "score": 9.9
+      }
+    },
+    {
+      "id": "P291",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 411,
+        "y": 1476,
+        "w": 43,
+        "h": 94
+      },
+      "pctOfCaseW": 5.1,
+      "pctOfCaseH": 5.8,
+      "mmW": 4.2,
+      "mmH": 9.2,
+      "mmLong": 9.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
+        "score": 28.5
+      }
+    },
+    {
+      "id": "P292",
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "pixelBox": {
+        "x": 429,
+        "y": 1468,
+        "w": 29,
+        "h": 24
+      },
+      "pctOfCaseW": 3.5,
+      "pctOfCaseH": 1.5,
+      "mmW": 2.8,
+      "mmH": 2.3,
+      "mmLong": 2.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "score": 29.7
+      }
+    },
+    {
+      "id": "P293",
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "pixelBox": {
+        "x": 676,
+        "y": 368,
+        "w": 177,
+        "h": 429
+      },
+      "pctOfCaseW": 22.6,
+      "pctOfCaseH": 27.3,
+      "mmW": 18.4,
+      "mmH": 44.7,
+      "mmLong": 44.7,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 62.1
+      }
+    },
+    {
+      "id": "P294",
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "pixelBox": {
+        "x": 289,
+        "y": 594,
+        "w": 257,
+        "h": 264
+      },
+      "pctOfCaseW": 32.8,
+      "pctOfCaseH": 16.8,
+      "mmW": 26.7,
+      "mmH": 27.5,
+      "mmLong": 27.5,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-07.png",
+        "score": 44.7
+      }
+    },
+    {
+      "id": "P295",
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "pixelBox": {
+        "x": 254,
+        "y": 1018,
+        "w": 309,
+        "h": 462
+      },
+      "pctOfCaseW": 39.4,
+      "pctOfCaseH": 29.4,
+      "mmW": 32.2,
+      "mmH": 48.1,
+      "mmLong": 48.1,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 40.8
+      }
+    },
+    {
+      "id": "P296",
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "pixelBox": {
+        "x": 573,
+        "y": 1246,
+        "w": 232,
+        "h": 279
+      },
+      "pctOfCaseW": 29.6,
+      "pctOfCaseH": 17.7,
+      "mmW": 24.1,
+      "mmH": 29,
+      "mmLong": 29,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 51.1
+      }
+    },
+    {
+      "id": "P297",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 759,
+        "y": 139,
+        "w": 26,
+        "h": 29
+      },
+      "pctOfCaseW": 3.4,
+      "pctOfCaseH": 1.9,
+      "mmW": 2.8,
+      "mmH": 3.1,
+      "mmLong": 3.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 54.5
+      }
+    },
+    {
+      "id": "P298",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 699,
+        "y": 205,
+        "w": 26,
+        "h": 35
+      },
+      "pctOfCaseW": 3.4,
+      "pctOfCaseH": 2.3,
+      "mmW": 2.8,
+      "mmH": 3.7,
+      "mmLong": 3.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-23.png",
+        "score": 19.9
+      }
+    },
+    {
+      "id": "P299",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 706,
+        "y": 297,
+        "w": 122,
+        "h": 126
+      },
+      "pctOfCaseW": 15.9,
+      "pctOfCaseH": 8.3,
+      "mmW": 13,
+      "mmH": 13.4,
+      "mmLong": 13.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-09.png",
+        "score": 59.1
+      }
+    },
+    {
+      "id": "P300",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 307,
+        "y": 493,
+        "w": 163,
+        "h": 128
+      },
+      "pctOfCaseW": 21.2,
+      "pctOfCaseH": 8.5,
+      "mmW": 17.3,
+      "mmH": 13.6,
+      "mmLong": 17.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 44.2
+      }
+    },
+    {
+      "id": "P301",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 462,
+        "y": 477,
+        "w": 391,
+        "h": 331
+      },
+      "pctOfCaseW": 50.9,
+      "pctOfCaseH": 21.9,
+      "mmW": 41.5,
+      "mmH": 35.2,
+      "mmLong": 41.5,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
+        "score": 59
+      }
+    },
+    {
+      "id": "P302",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 269,
+        "y": 638,
+        "w": 204,
+        "h": 135
+      },
+      "pctOfCaseW": 26.6,
+      "pctOfCaseH": 8.9,
+      "mmW": 21.7,
+      "mmH": 14.3,
+      "mmLong": 21.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 44.7
+      }
+    },
+    {
+      "id": "P303",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 463,
+        "y": 676,
+        "w": 173,
+        "h": 242
+      },
+      "pctOfCaseW": 22.5,
+      "pctOfCaseH": 16,
+      "mmW": 18.4,
+      "mmH": 25.7,
+      "mmLong": 25.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
+        "score": 63
+      }
+    },
+    {
+      "id": "P304",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 273,
+        "y": 800,
+        "w": 153,
+        "h": 109
+      },
+      "pctOfCaseW": 19.9,
+      "pctOfCaseH": 7.2,
+      "mmW": 16.3,
+      "mmH": 11.6,
+      "mmLong": 16.3,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 46.4
+      }
+    },
+    {
+      "id": "P305",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 605,
+        "y": 850,
+        "w": 276,
+        "h": 310
+      },
+      "pctOfCaseW": 35.9,
+      "pctOfCaseH": 20.5,
+      "mmW": 29.3,
+      "mmH": 32.9,
+      "mmLong": 32.9,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-14.png",
+        "score": 41.7
+      }
+    },
+    {
+      "id": "P306",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 264,
+        "y": 916,
+        "w": 145,
+        "h": 111
+      },
+      "pctOfCaseW": 18.9,
+      "pctOfCaseH": 7.4,
+      "mmW": 15.4,
+      "mmH": 11.8,
+      "mmLong": 15.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
+        "score": 39.8
+      }
+    },
+    {
+      "id": "P307",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 450,
+        "y": 925,
+        "w": 154,
+        "h": 164
+      },
+      "pctOfCaseW": 20.1,
+      "pctOfCaseH": 10.9,
+      "mmW": 16.4,
+      "mmH": 17.4,
+      "mmLong": 17.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 46.4
+      }
+    },
+    {
+      "id": "P308",
+      "photo": "Image_20260619214422_369_2327.jpg",
+      "pixelBox": {
+        "x": 264,
+        "y": 1049,
+        "w": 402,
+        "h": 395
+      },
+      "pctOfCaseW": 52.3,
+      "pctOfCaseH": 26.2,
+      "mmW": 42.7,
+      "mmH": 42,
+      "mmLong": 42.7,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-12.png",
+        "score": 55
+      }
+    },
+    {
+      "id": "P309",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 834,
+        "y": 162,
+        "w": 43,
+        "h": 45
+      },
+      "pctOfCaseW": 5.4,
+      "pctOfCaseH": 2.9,
+      "mmW": 4.4,
+      "mmH": 4.6,
+      "mmLong": 4.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 39.3
+      }
+    },
+    {
+      "id": "P310",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 836,
+        "y": 197,
+        "w": 42,
+        "h": 28
+      },
+      "pctOfCaseW": 5.3,
+      "pctOfCaseH": 1.8,
+      "mmW": 4.3,
+      "mmH": 2.9,
+      "mmLong": 4.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 31.4
+      }
+    },
+    {
+      "id": "P311",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 791,
+        "y": 325,
+        "w": 126,
+        "h": 131
+      },
+      "pctOfCaseW": 15.8,
+      "pctOfCaseH": 8.5,
+      "mmW": 12.9,
+      "mmH": 13.4,
+      "mmLong": 13.4,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-22.png",
+        "score": 76
+      }
+    },
+    {
+      "id": "P312",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 695,
+        "y": 458,
+        "w": 200,
+        "h": 197
+      },
+      "pctOfCaseW": 25.1,
+      "pctOfCaseH": 12.8,
+      "mmW": 20.5,
+      "mmH": 20.1,
+      "mmLong": 20.5,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 45.7
+      }
+    },
+    {
+      "id": "P313",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 378,
+        "y": 574,
+        "w": 117,
+        "h": 64
+      },
+      "pctOfCaseW": 14.7,
+      "pctOfCaseH": 4.2,
+      "mmW": 12,
+      "mmH": 6.5,
+      "mmLong": 12,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-21.png",
+        "score": 51.7
+      }
+    },
+    {
+      "id": "P314",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 530,
+        "y": 589,
+        "w": 87,
+        "h": 54
+      },
+      "pctOfCaseW": 10.9,
+      "pctOfCaseH": 3.5,
+      "mmW": 8.9,
+      "mmH": 5.5,
+      "mmLong": 8.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 32
+      }
+    },
+    {
+      "id": "P315",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 358,
+        "y": 672,
+        "w": 75,
+        "h": 71
+      },
+      "pctOfCaseW": 9.4,
+      "pctOfCaseH": 4.6,
+      "mmW": 7.7,
+      "mmH": 7.3,
+      "mmLong": 7.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 50.8
+      }
+    },
+    {
+      "id": "P316",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 529,
+        "y": 703,
+        "w": 31,
+        "h": 47
+      },
+      "pctOfCaseW": 3.9,
+      "pctOfCaseH": 3.1,
+      "mmW": 3.2,
+      "mmH": 4.8,
+      "mmLong": 4.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
+        "score": 29.6
+      }
+    },
+    {
+      "id": "P317",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 548,
+        "y": 690,
+        "w": 86,
+        "h": 36
+      },
+      "pctOfCaseW": 10.8,
+      "pctOfCaseH": 2.3,
+      "mmW": 8.8,
+      "mmH": 3.7,
+      "mmLong": 8.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-25.png",
+        "score": 38.4
+      }
+    },
+    {
+      "id": "P318",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 508,
+        "y": 717,
+        "w": 321,
+        "h": 630
+      },
+      "pctOfCaseW": 40.2,
+      "pctOfCaseH": 40.9,
+      "mmW": 32.8,
+      "mmH": 64.4,
+      "mmLong": 64.4,
+      "tier": "XL",
+      "nearestCutout": {
+        "file": "silver-15.png",
+        "score": 50
+      }
+    },
+    {
+      "id": "P319",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 373,
+        "y": 773,
+        "w": 90,
+        "h": 87
+      },
+      "pctOfCaseW": 11.3,
+      "pctOfCaseH": 5.6,
+      "mmW": 9.2,
+      "mmH": 8.9,
+      "mmLong": 9.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-11.png",
+        "score": 51.3
+      }
+    },
+    {
+      "id": "P320",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 514,
+        "y": 811,
+        "w": 100,
+        "h": 66
+      },
+      "pctOfCaseW": 12.5,
+      "pctOfCaseH": 4.3,
+      "mmW": 10.2,
+      "mmH": 6.7,
+      "mmLong": 10.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 47.7
+      }
+    },
+    {
+      "id": "P321",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 915,
+        "y": 794,
+        "w": 18,
+        "h": 26
+      },
+      "pctOfCaseW": 2.3,
+      "pctOfCaseH": 1.7,
+      "mmW": 1.8,
+      "mmH": 2.7,
+      "mmLong": 2.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 38.2
+      }
+    },
+    {
+      "id": "P322",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 367,
+        "y": 868,
+        "w": 108,
+        "h": 112
+      },
+      "pctOfCaseW": 13.5,
+      "pctOfCaseH": 7.3,
+      "mmW": 11,
+      "mmH": 11.5,
+      "mmLong": 11.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 77.6
+      }
+    },
+    {
+      "id": "P323",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 370,
+        "y": 998,
+        "w": 103,
+        "h": 73
+      },
+      "pctOfCaseW": 12.9,
+      "pctOfCaseH": 4.7,
+      "mmW": 10.5,
+      "mmH": 7.5,
+      "mmLong": 10.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 35.7
+      }
+    },
+    {
+      "id": "P324",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 373,
+        "y": 1132,
+        "w": 58,
+        "h": 58
+      },
+      "pctOfCaseW": 7.3,
+      "pctOfCaseH": 3.8,
+      "mmW": 5.9,
+      "mmH": 5.9,
+      "mmLong": 5.9,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 44.8
+      }
+    },
+    {
+      "id": "P325",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 333,
+        "y": 1242,
+        "w": 71,
+        "h": 63
+      },
+      "pctOfCaseW": 8.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 7.3,
+      "mmH": 6.4,
+      "mmLong": 7.3,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 52.3
+      }
+    },
+    {
+      "id": "P326",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 336,
+        "y": 1336,
+        "w": 75,
+        "h": 103
+      },
+      "pctOfCaseW": 9.4,
+      "pctOfCaseH": 6.7,
+      "mmW": 7.7,
+      "mmH": 10.5,
+      "mmLong": 10.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 54.8
+      }
+    },
+    {
+      "id": "P327",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 438,
+        "y": 1365,
+        "w": 251,
+        "h": 173
+      },
+      "pctOfCaseW": 31.5,
+      "pctOfCaseH": 11.2,
+      "mmW": 25.7,
+      "mmH": 17.7,
+      "mmLong": 25.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 73.2
+      }
+    },
+    {
+      "id": "P328",
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "pixelBox": {
+        "x": 333,
+        "y": 1464,
+        "w": 92,
+        "h": 65
+      },
+      "pctOfCaseW": 11.5,
+      "pctOfCaseH": 4.2,
+      "mmW": 9.4,
+      "mmH": 6.6,
+      "mmLong": 9.4,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-21.png",
+        "score": 60.4
+      }
+    },
+    {
+      "id": "P329",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 685,
+        "y": 104,
+        "w": 148,
+        "h": 201
+      },
+      "pctOfCaseW": 18.5,
+      "pctOfCaseH": 12.7,
+      "mmW": 15.1,
+      "mmH": 20.5,
+      "mmLong": 20.5,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 46.1
+      }
+    },
+    {
+      "id": "P330",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 652,
+        "y": 307,
+        "w": 108,
+        "h": 136
+      },
+      "pctOfCaseW": 13.5,
+      "pctOfCaseH": 8.6,
+      "mmW": 11,
+      "mmH": 13.9,
+      "mmLong": 13.9,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 45.7
+      }
+    },
+    {
+      "id": "P331",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 787,
+        "y": 303,
+        "w": 118,
+        "h": 102
+      },
+      "pctOfCaseW": 14.8,
+      "pctOfCaseH": 6.5,
+      "mmW": 12,
+      "mmH": 10.4,
+      "mmLong": 12,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
+        "score": 48.4
+      }
+    },
+    {
+      "id": "P332",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 623,
+        "y": 493,
+        "w": 137,
+        "h": 98
+      },
+      "pctOfCaseW": 17.1,
+      "pctOfCaseH": 6.2,
+      "mmW": 14,
+      "mmH": 10,
+      "mmLong": 14,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 43.6
+      }
+    },
+    {
+      "id": "P333",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 273,
+        "y": 553,
+        "w": 59,
+        "h": 59
+      },
+      "pctOfCaseW": 7.4,
+      "pctOfCaseH": 3.7,
+      "mmW": 6,
+      "mmH": 6,
+      "mmLong": 6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
+        "score": 35
+      }
+    },
+    {
+      "id": "P334",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 375,
+        "y": 565,
+        "w": 183,
+        "h": 275
+      },
+      "pctOfCaseW": 22.9,
+      "pctOfCaseH": 17.4,
+      "mmW": 18.7,
+      "mmH": 28,
+      "mmLong": 28,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05.png",
+        "score": 32.5
+      }
+    },
+    {
+      "id": "P335",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 760,
+        "y": 555,
+        "w": 119,
+        "h": 86
+      },
+      "pctOfCaseW": 14.9,
+      "pctOfCaseH": 5.4,
+      "mmW": 12.1,
+      "mmH": 8.8,
+      "mmLong": 12.1,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "score": 41.4
+      }
+    },
+    {
+      "id": "P336",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 235,
+        "y": 646,
+        "w": 71,
+        "h": 65
+      },
+      "pctOfCaseW": 8.9,
+      "pctOfCaseH": 4.1,
+      "mmW": 7.2,
+      "mmH": 6.6,
+      "mmLong": 7.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-01.png",
+        "score": 42.1
+      }
+    },
+    {
+      "id": "P337",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 624,
+        "y": 656,
+        "w": 257,
+        "h": 196
+      },
+      "pctOfCaseW": 32.1,
+      "pctOfCaseH": 12.4,
+      "mmW": 26.2,
+      "mmH": 20,
+      "mmLong": 26.2,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
+        "score": 47.9
+      }
+    },
+    {
+      "id": "P338",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 256,
+        "y": 757,
+        "w": 64,
+        "h": 64
+      },
+      "pctOfCaseW": 8,
+      "pctOfCaseH": 4.1,
+      "mmW": 6.5,
+      "mmH": 6.5,
+      "mmLong": 6.5,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 58.4
+      }
+    },
+    {
+      "id": "P339",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 270,
+        "y": 876,
+        "w": 49,
+        "h": 56
+      },
+      "pctOfCaseW": 6.1,
+      "pctOfCaseH": 3.5,
+      "mmW": 5,
+      "mmH": 5.7,
+      "mmLong": 5.7,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-03.png",
+        "score": 44.1
+      }
+    },
+    {
+      "id": "P340",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 375,
+        "y": 869,
+        "w": 195,
+        "h": 288
+      },
+      "pctOfCaseW": 24.4,
+      "pctOfCaseH": 18.2,
+      "mmW": 19.9,
+      "mmH": 29.4,
+      "mmLong": 29.4,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
+        "score": 48.7
+      }
+    },
+    {
+      "id": "P341",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 234,
+        "y": 972,
+        "w": 60,
+        "h": 54
+      },
+      "pctOfCaseW": 7.5,
+      "pctOfCaseH": 3.4,
+      "mmW": 6.1,
+      "mmH": 5.5,
+      "mmLong": 6.1,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+        "score": 38.3
+      }
+    },
+    {
+      "id": "P342",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 239,
+        "y": 1091,
+        "w": 69,
+        "h": 75
+      },
+      "pctOfCaseW": 8.6,
+      "pctOfCaseH": 4.7,
+      "mmW": 7,
+      "mmH": 7.6,
+      "mmLong": 7.6,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
+        "score": 44
+      }
+    },
+    {
+      "id": "P343",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 800,
+        "y": 1139,
+        "w": 27,
+        "h": 96
+      },
+      "pctOfCaseW": 3.4,
+      "pctOfCaseH": 6.1,
+      "mmW": 2.8,
+      "mmH": 9.8,
+      "mmLong": 9.8,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "silver-02.png",
+        "score": 31.6
+      }
+    },
+    {
+      "id": "P344",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 239,
+        "y": 1219,
+        "w": 100,
+        "h": 92
+      },
+      "pctOfCaseW": 12.5,
+      "pctOfCaseH": 5.8,
+      "mmW": 10.2,
+      "mmH": 9.4,
+      "mmLong": 10.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-01.png",
+        "score": 37.6
+      }
+    },
+    {
+      "id": "P345",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 396,
+        "y": 1219,
+        "w": 270,
+        "h": 311
+      },
+      "pctOfCaseW": 33.8,
+      "pctOfCaseH": 19.7,
+      "mmW": 27.5,
+      "mmH": 31.7,
+      "mmLong": 31.7,
+      "tier": "L",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-08.png",
+        "score": 38
+      }
+    },
+    {
+      "id": "P346",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 792,
+        "y": 1248,
+        "w": 44,
+        "h": 71
+      },
+      "pctOfCaseW": 5.5,
+      "pctOfCaseH": 4.5,
+      "mmW": 4.5,
+      "mmH": 7.2,
+      "mmLong": 7.2,
+      "tier": "XS",
+      "nearestCutout": {
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
+        "score": 31.9
+      }
+    },
+    {
+      "id": "P347",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 234,
+        "y": 1387,
+        "w": 145,
+        "h": 157
+      },
+      "pctOfCaseW": 18.1,
+      "pctOfCaseH": 9.9,
+      "mmW": 14.8,
+      "mmH": 16,
+      "mmLong": 16,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 46
+      }
+    },
+    {
+      "id": "P348",
+      "photo": "Image_20260619214426_371_2327.jpg",
+      "pixelBox": {
+        "x": 683,
+        "y": 1366,
+        "w": 129,
+        "h": 184
+      },
+      "pctOfCaseW": 16.1,
+      "pctOfCaseH": 11.6,
+      "mmW": 13.2,
+      "mmH": 18.8,
+      "mmLong": 18.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
+        "score": 36.6
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "photo": "Image_20260618161927_520_813.jpg",
+      "duplicateOf": "P081",
+      "pixelBox": {
+        "x": 381,
+        "y": 843,
+        "w": 53,
+        "h": 58
+      }
+    },
+    {
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "duplicateOf": "P167",
+      "pixelBox": {
+        "x": 654,
+        "y": 531,
+        "w": 77,
+        "h": 50
+      }
+    },
+    {
+      "photo": "Image_20260619201020_358_2327.jpg",
+      "duplicateOf": "P180",
+      "pixelBox": {
+        "x": 708,
+        "y": 1342,
+        "w": 49,
+        "h": 59
+      }
+    },
+    {
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "duplicateOf": "P108",
+      "pixelBox": {
+        "x": 248,
+        "y": 1381,
+        "w": 114,
+        "h": 127
+      }
+    },
+    {
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "duplicateOf": "P108",
+      "pixelBox": {
+        "x": 605,
+        "y": 1408,
+        "w": 123,
+        "h": 125
+      }
+    },
+    {
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "duplicateOf": "P022",
+      "pixelBox": {
+        "x": 721,
+        "y": 185,
+        "w": 140,
+        "h": 175
+      }
+    },
+    {
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "duplicateOf": "P244",
+      "pixelBox": {
+        "x": 443,
+        "y": 1396,
+        "w": 36,
+        "h": 27
+      }
+    },
+    {
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "duplicateOf": "P214",
+      "pixelBox": {
+        "x": 480,
+        "y": 952,
+        "w": 41,
+        "h": 23
+      }
+    },
+    {
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "duplicateOf": "P280",
+      "pixelBox": {
+        "x": 589,
+        "y": 1234,
+        "w": 32,
+        "h": 87
+      }
+    },
+    {
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "duplicateOf": "P170",
+      "pixelBox": {
+        "x": 296,
+        "y": 1401,
+        "w": 60,
+        "h": 36
+      }
+    },
+    {
+      "photo": "Image_20260619201028_363_2327.jpg",
+      "duplicateOf": "P170",
+      "pixelBox": {
+        "x": 491,
+        "y": 1529,
+        "w": 57,
+        "h": 40
+      }
+    },
+    {
+      "photo": "Image_20260619214424_370_2327.jpg",
+      "duplicateOf": "P298",
+      "pixelBox": {
+        "x": 856,
+        "y": 784,
+        "w": 31,
+        "h": 44
+      }
+    }
+  ]
+}
