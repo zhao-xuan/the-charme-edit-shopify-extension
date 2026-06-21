@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-21T19:13:55.744Z",
+  "generatedAt": "2026-06-21T21:32:18.878Z",
   "caseSizeMm": {
     "w": 81.6,
     "h": 167
   },
-  "note": "Pieces detected directly on the case in 1-charms-real-image. ids are sequential; nearestCutout is a best-effort appearance link to 3-charms-each-piece (lower score = closer).",
-  "totalPieces": 348,
-  "totalSkippedDuplicates": 12,
+  "note": "Pieces detected directly on the case in 1-charms-real-image. ids are sequential; nearestCutout is a best-effort appearance link to 3-charms-each-piece (lower score = closer). P003 was manually split into P003/P003B/P003C (3 charms merged in one box).",
+  "totalPieces": 335,
+  "totalSkippedDuplicates": 3,
   "photos": [
     {
       "photo": "Image_20260618161922_515_813.jpg",
@@ -22,7 +22,7 @@
       "mmPerPx": 0.1084,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 17,
+      "taggedPieces": 19,
       "skippedDuplicates": 0
     },
     {
@@ -56,7 +56,7 @@
       "mmPerPx": 0.1118,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 13,
+      "taggedPieces": 18,
       "skippedDuplicates": 0
     },
     {
@@ -90,7 +90,7 @@
       "mmPerPx": 0.1009,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 39,
+      "taggedPieces": 40,
       "skippedDuplicates": 1
     },
     {
@@ -148,18 +148,18 @@
       "photo": "Image_20260619201020_358_2327.jpg",
       "cased": true,
       "caseBoxPx": {
-        "minx": 252,
-        "miny": 37,
-        "maxx": 1025,
-        "maxy": 1572,
-        "w": 774,
-        "h": 1536
+        "minx": 247,
+        "miny": 103,
+        "maxx": 970,
+        "maxy": 1575,
+        "w": 724,
+        "h": 1473
       },
-      "mmPerPx": 0.1054,
+      "mmPerPx": 0.1127,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 37,
-      "skippedDuplicates": 2
+      "taggedPieces": 14,
+      "skippedDuplicates": 0
     },
     {
       "photo": "Image_20260619201022_359_2327.jpg",
@@ -175,7 +175,7 @@
       "mmPerPx": 0.1006,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 17,
+      "taggedPieces": 16,
       "skippedDuplicates": 0
     },
     {
@@ -192,8 +192,8 @@
       "mmPerPx": 0.0982,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 17,
-      "skippedDuplicates": 2
+      "taggedPieces": 19,
+      "skippedDuplicates": 0
     },
     {
       "photo": "Image_20260619201025_361_2327.jpg",
@@ -209,8 +209,8 @@
       "mmPerPx": 0.1007,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 18,
-      "skippedDuplicates": 2
+      "taggedPieces": 16,
+      "skippedDuplicates": 0
     },
     {
       "photo": "Image_20260619201026_362_2327.jpg",
@@ -226,7 +226,7 @@
       "mmPerPx": 0.1005,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 13,
+      "taggedPieces": 15,
       "skippedDuplicates": 0
     },
     {
@@ -265,7 +265,7 @@
       "mmPerPx": 0.1041,
       "topFramed": true,
       "botFramed": true,
-      "taggedPieces": 4,
+      "taggedPieces": 5,
       "skippedDuplicates": 0
     },
     {
@@ -365,21 +365,52 @@
       "id": "P003",
       "photo": "Image_20260618161922_515_813.jpg",
       "pixelBox": {
-        "x": 247,
-        "y": 561,
-        "w": 281,
-        "h": 349
+        "x": 246,
+        "y": 582,
+        "w": 171,
+        "h": 199
       },
-      "pctOfCaseW": 37.3,
-      "pctOfCaseH": 22.9,
-      "mmW": 30.5,
-      "mmH": 37.8,
-      "mmLong": 37.8,
-      "tier": "L",
-      "nearestCutout": {
-        "file": "image3-07.png",
-        "score": 45.2
-      }
+      "pctOfCaseW": 22.7,
+      "pctOfCaseH": 13.1,
+      "mmW": 18.5,
+      "mmH": 21.6,
+      "mmLong": 21.6,
+      "tier": "M",
+      "nearestCutout": null
+    },
+    {
+      "id": "P003B",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 408,
+        "y": 611,
+        "w": 114,
+        "h": 111
+      },
+      "pctOfCaseW": 15.1,
+      "pctOfCaseH": 7.3,
+      "mmW": 12.4,
+      "mmH": 12,
+      "mmLong": 12.4,
+      "tier": "S",
+      "nearestCutout": null
+    },
+    {
+      "id": "P003C",
+      "photo": "Image_20260618161922_515_813.jpg",
+      "pixelBox": {
+        "x": 254,
+        "y": 777,
+        "w": 161,
+        "h": 132
+      },
+      "pctOfCaseW": 21.4,
+      "pctOfCaseH": 8.7,
+      "mmW": 17.5,
+      "mmH": 14.3,
+      "mmLong": 17.5,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P004",
@@ -685,6 +716,23 @@
       "id": "P019",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
+        "x": 712,
+        "y": 334,
+        "w": 137,
+        "h": 284
+      },
+      "pctOfCaseW": 21.4,
+      "pctOfCaseH": 19.7,
+      "mmW": 17.5,
+      "mmH": 36.2,
+      "mmLong": 36.2,
+      "tier": "L",
+      "nearestCutout": null
+    },
+    {
+      "id": "P020",
+      "photo": "Image_20260618161924_516_813.jpg",
+      "pixelBox": {
         "x": 603,
         "y": 469,
         "w": 142,
@@ -702,7 +750,7 @@
       }
     },
     {
-      "id": "P020",
+      "id": "P021",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 328,
@@ -722,7 +770,7 @@
       }
     },
     {
-      "id": "P021",
+      "id": "P022",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 516,
@@ -742,7 +790,7 @@
       }
     },
     {
-      "id": "P022",
+      "id": "P023",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 710,
@@ -762,7 +810,7 @@
       }
     },
     {
-      "id": "P023",
+      "id": "P024",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 339,
@@ -782,7 +830,7 @@
       }
     },
     {
-      "id": "P024",
+      "id": "P025",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 386,
@@ -802,7 +850,7 @@
       }
     },
     {
-      "id": "P025",
+      "id": "P026",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 604,
@@ -822,7 +870,7 @@
       }
     },
     {
-      "id": "P026",
+      "id": "P027",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 498,
@@ -842,7 +890,7 @@
       }
     },
     {
-      "id": "P027",
+      "id": "P028",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 328,
@@ -862,7 +910,7 @@
       }
     },
     {
-      "id": "P028",
+      "id": "P029",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 635,
@@ -882,7 +930,7 @@
       }
     },
     {
-      "id": "P029",
+      "id": "P030",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 450,
@@ -902,7 +950,7 @@
       }
     },
     {
-      "id": "P030",
+      "id": "P031",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 596,
@@ -922,7 +970,7 @@
       }
     },
     {
-      "id": "P031",
+      "id": "P032",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 527,
@@ -942,7 +990,7 @@
       }
     },
     {
-      "id": "P032",
+      "id": "P033",
       "photo": "Image_20260618161924_516_813.jpg",
       "pixelBox": {
         "x": 328,
@@ -962,44 +1010,55 @@
       }
     },
     {
-      "id": "P033",
-      "photo": "Image_20260618161924_516_813.jpg",
-      "pixelBox": {
-        "x": 328,
-        "y": 1309,
-        "w": 582,
-        "h": 217
-      },
-      "pctOfCaseW": 90.9,
-      "pctOfCaseH": 15.1,
-      "mmW": 74.2,
-      "mmH": 27.7,
-      "mmLong": 74.2,
-      "tier": "XL",
-      "nearestCutout": {
-        "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
-        "score": 8.1
-      }
-    },
-    {
       "id": "P034",
       "photo": "Image_20260618161925_517_813.jpg",
       "pixelBox": {
-        "x": 497,
-        "y": 152,
-        "w": 327,
-        "h": 622
+        "x": 591,
+        "y": 176,
+        "w": 162,
+        "h": 209
       },
-      "pctOfCaseW": 44.8,
-      "pctOfCaseH": 41.3,
-      "mmW": 36.6,
-      "mmH": 69.5,
-      "mmLong": 69.5,
-      "tier": "XL",
-      "nearestCutout": {
-        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
-        "score": 44.2
-      }
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 13.9,
+      "mmW": 18.1,
+      "mmH": 23.4,
+      "mmLong": 23.4,
+      "tier": "M",
+      "nearestCutout": null
+    },
+    {
+      "id": "P034C",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 551,
+        "y": 398,
+        "w": 162,
+        "h": 306
+      },
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 20.3,
+      "mmW": 18.1,
+      "mmH": 34.2,
+      "mmLong": 34.2,
+      "tier": "L",
+      "nearestCutout": null
+    },
+    {
+      "id": "P034B",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 700,
+        "y": 396,
+        "w": 116,
+        "h": 185
+      },
+      "pctOfCaseW": 15.9,
+      "pctOfCaseH": 12.3,
+      "mmW": 13,
+      "mmH": 20.7,
+      "mmLong": 20.7,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P035",
@@ -1020,6 +1079,40 @@
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
         "score": 45.6
       }
+    },
+    {
+      "id": "P034D",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 481,
+        "y": 632,
+        "w": 130,
+        "h": 155
+      },
+      "pctOfCaseW": 17.8,
+      "pctOfCaseH": 10.3,
+      "mmW": 14.5,
+      "mmH": 17.3,
+      "mmLong": 17.3,
+      "tier": "S",
+      "nearestCutout": null
+    },
+    {
+      "id": "P038B",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 663,
+        "y": 605,
+        "w": 178,
+        "h": 392
+      },
+      "pctOfCaseW": 24.4,
+      "pctOfCaseH": 26,
+      "mmW": 19.9,
+      "mmH": 43.8,
+      "mmLong": 43.8,
+      "tier": "XL",
+      "nearestCutout": null
     },
     {
       "id": "P036",
@@ -1225,44 +1318,38 @@
       "id": "P046",
       "photo": "Image_20260618161925_517_813.jpg",
       "pixelBox": {
-        "x": 481,
-        "y": 1338,
-        "w": 236,
-        "h": 162
+        "x": 579,
+        "y": 1343,
+        "w": 136,
+        "h": 155
       },
-      "pctOfCaseW": 32.3,
-      "pctOfCaseH": 10.7,
-      "mmW": 26.4,
-      "mmH": 18.1,
-      "mmLong": 26.4,
-      "tier": "M",
-      "nearestCutout": {
-        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
-        "score": 54.2
-      }
+      "pctOfCaseW": 18.6,
+      "pctOfCaseH": 10.3,
+      "mmW": 15.2,
+      "mmH": 17.3,
+      "mmLong": 17.3,
+      "tier": "S",
+      "nearestCutout": null
+    },
+    {
+      "id": "P046B",
+      "photo": "Image_20260618161925_517_813.jpg",
+      "pixelBox": {
+        "x": 478,
+        "y": 1370,
+        "w": 102,
+        "h": 129
+      },
+      "pctOfCaseW": 14,
+      "pctOfCaseH": 8.6,
+      "mmW": 11.4,
+      "mmH": 14.4,
+      "mmLong": 14.4,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P047",
-      "photo": "Image_20260618161926_519_813.jpg",
-      "pixelBox": {
-        "x": 329,
-        "y": 167,
-        "w": 60,
-        "h": 18
-      },
-      "pctOfCaseW": 7.9,
-      "pctOfCaseH": 1.2,
-      "mmW": 6.5,
-      "mmH": 1.9,
-      "mmLong": 6.5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 34.6
-      }
-    },
-    {
-      "id": "P048",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 674,
@@ -1282,7 +1369,7 @@
       }
     },
     {
-      "id": "P049",
+      "id": "P048",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 674,
@@ -1302,7 +1389,7 @@
       }
     },
     {
-      "id": "P050",
+      "id": "P049",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 522,
@@ -1322,7 +1409,7 @@
       }
     },
     {
-      "id": "P051",
+      "id": "P050",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 272,
@@ -1342,7 +1429,7 @@
       }
     },
     {
-      "id": "P052",
+      "id": "P051",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 392,
@@ -1362,7 +1449,7 @@
       }
     },
     {
-      "id": "P053",
+      "id": "P052",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 697,
@@ -1382,7 +1469,7 @@
       }
     },
     {
-      "id": "P054",
+      "id": "P053",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 372,
@@ -1402,7 +1489,7 @@
       }
     },
     {
-      "id": "P055",
+      "id": "P054",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 496,
@@ -1422,7 +1509,7 @@
       }
     },
     {
-      "id": "P056",
+      "id": "P055",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 255,
@@ -1442,7 +1529,7 @@
       }
     },
     {
-      "id": "P057",
+      "id": "P056",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 741,
@@ -1462,7 +1549,7 @@
       }
     },
     {
-      "id": "P058",
+      "id": "P057",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 380,
@@ -1482,7 +1569,7 @@
       }
     },
     {
-      "id": "P059",
+      "id": "P058",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 465,
@@ -1502,7 +1589,7 @@
       }
     },
     {
-      "id": "P060",
+      "id": "P059",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 582,
@@ -1522,7 +1609,7 @@
       }
     },
     {
-      "id": "P061",
+      "id": "P060",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 256,
@@ -1542,7 +1629,7 @@
       }
     },
     {
-      "id": "P062",
+      "id": "P061",
       "photo": "Image_20260618161926_519_813.jpg",
       "pixelBox": {
         "x": 753,
@@ -1560,6 +1647,23 @@
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-45.png",
         "score": 56
       }
+    },
+    {
+      "id": "P062",
+      "photo": "Image_20260618161926_519_813.jpg",
+      "pixelBox": {
+        "x": 256,
+        "y": 1133,
+        "w": 306,
+        "h": 385
+      },
+      "pctOfCaseW": 40.5,
+      "pctOfCaseH": 25,
+      "mmW": 33.1,
+      "mmH": 41.6,
+      "mmLong": 41.6,
+      "tier": "L",
+      "nearestCutout": null
     },
     {
       "id": "P063",
@@ -1960,6 +2064,23 @@
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
         "score": 47.3
       }
+    },
+    {
+      "id": "P082B",
+      "photo": "Image_20260618161927_520_813.jpg",
+      "pixelBox": {
+        "x": 382,
+        "y": 845,
+        "w": 50,
+        "h": 55
+      },
+      "pctOfCaseW": 6.2,
+      "pctOfCaseH": 4,
+      "mmW": 5,
+      "mmH": 5.5,
+      "mmLong": 5.5,
+      "tier": "XS",
+      "nearestCutout": null
     },
     {
       "id": "P083",
@@ -3605,744 +3726,242 @@
       "id": "P165",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 700,
-        "y": 206,
-        "w": 227,
-        "h": 237
+        "x": 694,
+        "y": 231,
+        "w": 193,
+        "h": 214
       },
-      "pctOfCaseW": 29.3,
-      "pctOfCaseH": 15.4,
-      "mmW": 23.9,
-      "mmH": 25,
-      "mmLong": 25,
+      "pctOfCaseW": 26.7,
+      "pctOfCaseH": 14.5,
+      "mmW": 21.8,
+      "mmH": 24.1,
+      "mmLong": 24.1,
       "tier": "M",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 39.1
-      }
+      "nearestCutout": null
     },
     {
       "id": "P166",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 698,
-        "y": 325,
-        "w": 37,
-        "h": 61
+        "x": 762,
+        "y": 491,
+        "w": 110,
+        "h": 100
       },
-      "pctOfCaseW": 4.8,
-      "pctOfCaseH": 4,
-      "mmW": 3.9,
-      "mmH": 6.4,
-      "mmLong": 6.4,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 34.7
-      }
+      "pctOfCaseW": 15.2,
+      "pctOfCaseH": 6.8,
+      "mmW": 12.4,
+      "mmH": 11.3,
+      "mmLong": 12.4,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P167",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 810,
-        "y": 477,
-        "w": 77,
-        "h": 63
+        "x": 311,
+        "y": 559,
+        "w": 260,
+        "h": 175
       },
-      "pctOfCaseW": 9.9,
-      "pctOfCaseH": 4.1,
-      "mmW": 8.1,
-      "mmH": 6.6,
-      "mmLong": 8.1,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
-        "score": 35.4
-      }
+      "pctOfCaseW": 35.9,
+      "pctOfCaseH": 11.9,
+      "mmW": 29.3,
+      "mmH": 19.7,
+      "mmLong": 29.3,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P168",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 330,
-        "y": 565,
-        "w": 167,
-        "h": 168
+        "x": 648,
+        "y": 542,
+        "w": 74,
+        "h": 73
       },
-      "pctOfCaseW": 21.6,
-      "pctOfCaseH": 10.9,
-      "mmW": 17.6,
-      "mmH": 17.7,
-      "mmLong": 17.7,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
-        "score": 35.2
-      }
+      "pctOfCaseW": 10.2,
+      "pctOfCaseH": 5,
+      "mmW": 8.3,
+      "mmH": 8.2,
+      "mmLong": 8.3,
+      "tier": "XS",
+      "nearestCutout": null
     },
     {
       "id": "P169",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 469,
-        "y": 568,
-        "w": 99,
-        "h": 82
+        "x": 557,
+        "y": 670,
+        "w": 161,
+        "h": 160
       },
-      "pctOfCaseW": 12.8,
-      "pctOfCaseH": 5.3,
-      "mmW": 10.4,
-      "mmH": 8.6,
-      "mmLong": 10.4,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 33.7
-      }
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 10.9,
+      "mmW": 18.1,
+      "mmH": 18,
+      "mmLong": 18.1,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P170",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 484,
-        "y": 557,
-        "w": 50,
-        "h": 29
+        "x": 754,
+        "y": 671,
+        "w": 161,
+        "h": 235
       },
-      "pctOfCaseW": 6.5,
-      "pctOfCaseH": 1.9,
-      "mmW": 5.3,
-      "mmH": 3.1,
-      "mmLong": 5.3,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 32.3
-      }
+      "pctOfCaseW": 22.2,
+      "pctOfCaseH": 16,
+      "mmW": 18.1,
+      "mmH": 26.5,
+      "mmLong": 26.5,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P171",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 668,
-        "y": 565,
-        "w": 22,
-        "h": 26
+        "x": 312,
+        "y": 741,
+        "w": 126,
+        "h": 82
       },
-      "pctOfCaseW": 2.8,
-      "pctOfCaseH": 1.7,
-      "mmW": 2.3,
-      "mmH": 2.7,
-      "mmLong": 2.7,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 31.8
-      }
+      "pctOfCaseW": 17.4,
+      "pctOfCaseH": 5.6,
+      "mmW": 14.2,
+      "mmH": 9.2,
+      "mmLong": 14.2,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P172",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 766,
-        "y": 554,
-        "w": 23,
-        "h": 25
+        "x": 463,
+        "y": 826,
+        "w": 88,
+        "h": 319
       },
-      "pctOfCaseW": 3,
-      "pctOfCaseH": 1.6,
-      "mmW": 2.4,
-      "mmH": 2.6,
-      "mmLong": 2.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 36.6
-      }
+      "pctOfCaseW": 12.2,
+      "pctOfCaseH": 21.7,
+      "mmW": 9.9,
+      "mmH": 36,
+      "mmLong": 36,
+      "tier": "L",
+      "nearestCutout": null
     },
     {
       "id": "P173",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 780,
-        "y": 533,
-        "w": 76,
-        "h": 40
+        "x": 299,
+        "y": 874,
+        "w": 133,
+        "h": 115
       },
-      "pctOfCaseW": 9.8,
-      "pctOfCaseH": 2.6,
-      "mmW": 8,
-      "mmH": 4.2,
-      "mmLong": 8,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
-        "score": 36.1
-      }
+      "pctOfCaseW": 18.4,
+      "pctOfCaseH": 7.8,
+      "mmW": 15,
+      "mmH": 13,
+      "mmLong": 15,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
       "id": "P174",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 409,
-        "y": 632,
-        "w": 27,
-        "h": 34
+        "x": 547,
+        "y": 930,
+        "w": 127,
+        "h": 401
       },
-      "pctOfCaseW": 3.5,
-      "pctOfCaseH": 2.2,
-      "mmW": 2.8,
-      "mmH": 3.6,
-      "mmLong": 3.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 26.5
-      }
+      "pctOfCaseW": 17.5,
+      "pctOfCaseH": 27.2,
+      "mmW": 14.3,
+      "mmH": 45.2,
+      "mmLong": 45.2,
+      "tier": "XL",
+      "nearestCutout": null
     },
     {
       "id": "P175",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 521,
-        "y": 644,
-        "w": 22,
-        "h": 23
+        "x": 651,
+        "y": 980,
+        "w": 264,
+        "h": 265
       },
-      "pctOfCaseW": 2.8,
-      "pctOfCaseH": 1.5,
-      "mmW": 2.3,
-      "mmH": 2.4,
-      "mmLong": 2.4,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
-        "score": 33.8
-      }
+      "pctOfCaseW": 36.5,
+      "pctOfCaseH": 18,
+      "mmW": 29.8,
+      "mmH": 29.9,
+      "mmLong": 29.9,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P176",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 665,
-        "y": 591,
-        "w": 47,
-        "h": 19
+        "x": 285,
+        "y": 1033,
+        "w": 167,
+        "h": 181
       },
-      "pctOfCaseW": 6.1,
-      "pctOfCaseH": 1.2,
-      "mmW": 5,
-      "mmH": 2,
-      "mmLong": 5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
-        "score": 38.9
-      }
+      "pctOfCaseW": 23.1,
+      "pctOfCaseH": 12.3,
+      "mmW": 18.8,
+      "mmH": 20.4,
+      "mmLong": 20.4,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P177",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 310,
-        "y": 647,
-        "w": 48,
-        "h": 43
+        "x": 306,
+        "y": 1300,
+        "w": 205,
+        "h": 192
       },
-      "pctOfCaseW": 6.2,
-      "pctOfCaseH": 2.8,
-      "mmW": 5.1,
-      "mmH": 4.5,
-      "mmLong": 5.1,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 42.6
-      }
+      "pctOfCaseW": 28.3,
+      "pctOfCaseH": 13,
+      "mmW": 23.1,
+      "mmH": 21.6,
+      "mmLong": 23.1,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
       "id": "P178",
       "photo": "Image_20260619201020_358_2327.jpg",
       "pixelBox": {
-        "x": 560,
-        "y": 687,
-        "w": 39,
-        "h": 41
+        "x": 617,
+        "y": 1288,
+        "w": 268,
+        "h": 226
       },
-      "pctOfCaseW": 5,
-      "pctOfCaseH": 2.7,
-      "mmW": 4.1,
-      "mmH": 4.3,
-      "mmLong": 4.3,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 44.6
-      }
+      "pctOfCaseW": 37,
+      "pctOfCaseH": 15.3,
+      "mmW": 30.2,
+      "mmH": 25.5,
+      "mmLong": 30.2,
+      "tier": "L",
+      "nearestCutout": null
     },
     {
       "id": "P179",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 614,
-        "y": 652,
-        "w": 121,
-        "h": 173
-      },
-      "pctOfCaseW": 15.6,
-      "pctOfCaseH": 11.3,
-      "mmW": 12.8,
-      "mmH": 18.2,
-      "mmLong": 18.2,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
-        "score": 45.3
-      }
-    },
-    {
-      "id": "P180",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 783,
-        "y": 696,
-        "w": 65,
-        "h": 63
-      },
-      "pctOfCaseW": 8.4,
-      "pctOfCaseH": 4.1,
-      "mmW": 6.9,
-      "mmH": 6.6,
-      "mmLong": 6.9,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 15.4
-      }
-    },
-    {
-      "id": "P181",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 789,
-        "y": 665,
-        "w": 26,
-        "h": 18
-      },
-      "pctOfCaseW": 3.4,
-      "pctOfCaseH": 1.2,
-      "mmW": 2.7,
-      "mmH": 1.9,
-      "mmLong": 2.7,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
-        "score": 34.7
-      }
-    },
-    {
-      "id": "P182",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 821,
-        "y": 652,
-        "w": 105,
-        "h": 105
-      },
-      "pctOfCaseW": 13.6,
-      "pctOfCaseH": 6.8,
-      "mmW": 11.1,
-      "mmH": 11.1,
-      "mmLong": 11.1,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 32.8
-      }
-    },
-    {
-      "id": "P183",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 309,
-        "y": 730,
-        "w": 142,
-        "h": 96
-      },
-      "pctOfCaseW": 18.3,
-      "pctOfCaseH": 6.3,
-      "mmW": 15,
-      "mmH": 10.1,
-      "mmLong": 15,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 36.9
-      }
-    },
-    {
-      "id": "P184",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 582,
-        "y": 723,
-        "w": 23,
-        "h": 48
-      },
-      "pctOfCaseW": 3,
-      "pctOfCaseH": 3.1,
-      "mmW": 2.4,
-      "mmH": 5.1,
-      "mmLong": 5.1,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20.png",
-        "score": 33.9
-      }
-    },
-    {
-      "id": "P185",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 490,
-        "y": 786,
-        "w": 81,
-        "h": 350
-      },
-      "pctOfCaseW": 10.5,
-      "pctOfCaseH": 22.8,
-      "mmW": 8.5,
-      "mmH": 36.9,
-      "mmLong": 36.9,
-      "tier": "L",
-      "nearestCutout": {
-        "file": "image3-07.png",
-        "score": 42.5
-      }
-    },
-    {
-      "id": "P186",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 778,
-        "y": 790,
-        "w": 41,
-        "h": 39
-      },
-      "pctOfCaseW": 5.3,
-      "pctOfCaseH": 2.5,
-      "mmW": 4.3,
-      "mmH": 4.1,
-      "mmLong": 4.3,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 12.6
-      }
-    },
-    {
-      "id": "P187",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 823,
-        "y": 786,
-        "w": 35,
-        "h": 25
-      },
-      "pctOfCaseW": 4.5,
-      "pctOfCaseH": 1.6,
-      "mmW": 3.7,
-      "mmH": 2.6,
-      "mmLong": 3.7,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 14.3
-      }
-    },
-    {
-      "id": "P188",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 850,
-        "y": 771,
-        "w": 65,
-        "h": 130
-      },
-      "pctOfCaseW": 8.4,
-      "pctOfCaseH": 8.5,
-      "mmW": 6.9,
-      "mmH": 13.7,
-      "mmLong": 13.7,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 43
-      }
-    },
-    {
-      "id": "P189",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 298,
-        "y": 843,
-        "w": 150,
-        "h": 151
-      },
-      "pctOfCaseW": 19.4,
-      "pctOfCaseH": 9.8,
-      "mmW": 15.8,
-      "mmH": 15.9,
-      "mmLong": 15.9,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "image3-07.png",
-        "score": 40.7
-      }
-    },
-    {
-      "id": "P190",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 493,
-        "y": 837,
-        "w": 33,
-        "h": 49
-      },
-      "pctOfCaseW": 4.3,
-      "pctOfCaseH": 3.2,
-      "mmW": 3.5,
-      "mmH": 5.2,
-      "mmLong": 5.2,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 10.5
-      }
-    },
-    {
-      "id": "P191",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 811,
-        "y": 835,
-        "w": 65,
-        "h": 72
-      },
-      "pctOfCaseW": 8.4,
-      "pctOfCaseH": 4.7,
-      "mmW": 6.9,
-      "mmH": 7.6,
-      "mmLong": 7.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 15.1
-      }
-    },
-    {
-      "id": "P192",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 729,
-        "y": 963,
-        "w": 202,
-        "h": 276
-      },
-      "pctOfCaseW": 26.1,
-      "pctOfCaseH": 18,
-      "mmW": 21.3,
-      "mmH": 29.1,
-      "mmLong": 29.1,
-      "tier": "M",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20.png",
-        "score": 45
-      }
-    },
-    {
-      "id": "P193",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 287,
-        "y": 1021,
-        "w": 183,
-        "h": 193
-      },
-      "pctOfCaseW": 23.6,
-      "pctOfCaseH": 12.6,
-      "mmW": 19.3,
-      "mmH": 20.3,
-      "mmLong": 20.3,
-      "tier": "M",
-      "nearestCutout": {
-        "file": "silver-07.png",
-        "score": 52.2
-      }
-    },
-    {
-      "id": "P194",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 744,
-        "y": 1186,
-        "w": 59,
-        "h": 55
-      },
-      "pctOfCaseW": 7.6,
-      "pctOfCaseH": 3.6,
-      "mmW": 6.2,
-      "mmH": 5.8,
-      "mmLong": 6.2,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
-        "score": 32.2
-      }
-    },
-    {
-      "id": "P195",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 794,
-        "y": 1220,
-        "w": 24,
-        "h": 22
-      },
-      "pctOfCaseW": 3.1,
-      "pctOfCaseH": 1.4,
-      "mmW": 2.5,
-      "mmH": 2.3,
-      "mmLong": 2.5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-21.png",
-        "score": 37.4
-      }
-    },
-    {
-      "id": "P196",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 327,
-        "y": 1266,
-        "w": 211,
-        "h": 219
-      },
-      "pctOfCaseW": 27.3,
-      "pctOfCaseH": 14.3,
-      "mmW": 22.2,
-      "mmH": 23.1,
-      "mmLong": 23.1,
-      "tier": "M",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
-        "score": 53.9
-      }
-    },
-    {
-      "id": "P197",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 744,
-        "y": 1264,
-        "w": 101,
-        "h": 85
-      },
-      "pctOfCaseW": 13,
-      "pctOfCaseH": 5.5,
-      "mmW": 10.6,
-      "mmH": 9,
-      "mmLong": 10.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
-        "score": 40.7
-      }
-    },
-    {
-      "id": "P198",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 302,
-        "y": 1345,
-        "w": 21,
-        "h": 60
-      },
-      "pctOfCaseW": 2.7,
-      "pctOfCaseH": 3.9,
-      "mmW": 2.2,
-      "mmH": 6.3,
-      "mmLong": 6.3,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 34.1
-      }
-    },
-    {
-      "id": "P199",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 629,
-        "y": 1355,
-        "w": 70,
-        "h": 25
-      },
-      "pctOfCaseW": 9,
-      "pctOfCaseH": 1.6,
-      "mmW": 7.4,
-      "mmH": 2.6,
-      "mmLong": 7.4,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
-        "score": 40.8
-      }
-    },
-    {
-      "id": "P200",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 718,
-        "y": 1441,
-        "w": 84,
-        "h": 64
-      },
-      "pctOfCaseW": 10.9,
-      "pctOfCaseH": 4.2,
-      "mmW": 8.9,
-      "mmH": 6.7,
-      "mmLong": 8.9,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
-        "score": 15
-      }
-    },
-    {
-      "id": "P201",
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "pixelBox": {
-        "x": 840,
-        "y": 1418,
-        "w": 15,
-        "h": 59
-      },
-      "pctOfCaseW": 1.9,
-      "pctOfCaseH": 3.8,
-      "mmW": 1.6,
-      "mmH": 6.2,
-      "mmLong": 6.2,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 43.6
-      }
-    },
-    {
-      "id": "P202",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 669,
@@ -4362,27 +3981,58 @@
       }
     },
     {
-      "id": "P203",
+      "id": "P180",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 284,
-        "y": 581,
-        "w": 693,
-        "h": 236
+        "y": 588,
+        "w": 235,
+        "h": 229
       },
-      "pctOfCaseW": 85.5,
-      "pctOfCaseH": 14.6,
-      "mmW": 69.7,
-      "mmH": 23.7,
-      "mmLong": 69.7,
-      "tier": "XL",
-      "nearestCutout": {
-        "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
-        "score": 65.8
-      }
+      "pctOfCaseW": 29,
+      "pctOfCaseH": 14.2,
+      "mmW": 23.6,
+      "mmH": 23,
+      "mmLong": 23.6,
+      "tier": "M",
+      "nearestCutout": null
     },
     {
-      "id": "P204",
+      "id": "P181",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 519,
+        "y": 581,
+        "w": 225,
+        "h": 238
+      },
+      "pctOfCaseW": 27.7,
+      "pctOfCaseH": 14.8,
+      "mmW": 22.6,
+      "mmH": 23.9,
+      "mmLong": 23.9,
+      "tier": "M",
+      "nearestCutout": null
+    },
+    {
+      "id": "P182",
+      "photo": "Image_20260619201022_359_2327.jpg",
+      "pixelBox": {
+        "x": 744,
+        "y": 581,
+        "w": 233,
+        "h": 236
+      },
+      "pctOfCaseW": 28.7,
+      "pctOfCaseH": 14.6,
+      "mmW": 23.4,
+      "mmH": 23.7,
+      "mmLong": 23.7,
+      "tier": "M",
+      "nearestCutout": null
+    },
+    {
+      "id": "P183",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 281,
@@ -4402,7 +4052,7 @@
       }
     },
     {
-      "id": "P205",
+      "id": "P184",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 551,
@@ -4422,27 +4072,7 @@
       }
     },
     {
-      "id": "P206",
-      "photo": "Image_20260619201022_359_2327.jpg",
-      "pixelBox": {
-        "x": 582,
-        "y": 860,
-        "w": 49,
-        "h": 50
-      },
-      "pctOfCaseW": 6,
-      "pctOfCaseH": 3.1,
-      "mmW": 4.9,
-      "mmH": 5,
-      "mmLong": 5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-39.png",
-        "score": 81.6
-      }
-    },
-    {
-      "id": "P207",
+      "id": "P185",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 735,
@@ -4462,7 +4092,7 @@
       }
     },
     {
-      "id": "P208",
+      "id": "P186",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 582,
@@ -4482,7 +4112,7 @@
       }
     },
     {
-      "id": "P209",
+      "id": "P187",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 285,
@@ -4502,67 +4132,41 @@
       }
     },
     {
-      "id": "P210",
+      "id": "P188",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
-        "x": 471,
+        "x": 432,
         "y": 1120,
-        "w": 97,
-        "h": 110
+        "w": 136,
+        "h": 136
       },
-      "pctOfCaseW": 12,
-      "pctOfCaseH": 6.8,
-      "mmW": 9.8,
-      "mmH": 11.1,
-      "mmLong": 11.1,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-07.png",
-        "score": 28.7
-      }
+      "pctOfCaseW": 16.8,
+      "pctOfCaseH": 8.4,
+      "mmW": 13.7,
+      "mmH": 13.7,
+      "mmLong": 13.7,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
-      "id": "P211",
+      "id": "P189",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
-        "x": 446,
-        "y": 1175,
-        "w": 69,
-        "h": 56
+        "x": 585,
+        "y": 1130,
+        "w": 129,
+        "h": 121
       },
-      "pctOfCaseW": 8.5,
-      "pctOfCaseH": 3.5,
-      "mmW": 6.9,
-      "mmH": 5.6,
-      "mmLong": 6.9,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
-        "score": 45.2
-      }
+      "pctOfCaseW": 15.9,
+      "pctOfCaseH": 7.5,
+      "mmW": 13,
+      "mmH": 12.2,
+      "mmLong": 13,
+      "tier": "S",
+      "nearestCutout": null
     },
     {
-      "id": "P212",
-      "photo": "Image_20260619201022_359_2327.jpg",
-      "pixelBox": {
-        "x": 611,
-        "y": 1169,
-        "w": 58,
-        "h": 62
-      },
-      "pctOfCaseW": 7.2,
-      "pctOfCaseH": 3.8,
-      "mmW": 5.8,
-      "mmH": 6.2,
-      "mmLong": 6.2,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
-        "score": 32.6
-      }
-    },
-    {
-      "id": "P213",
+      "id": "P190",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 714,
@@ -4582,27 +4186,7 @@
       }
     },
     {
-      "id": "P214",
-      "photo": "Image_20260619201022_359_2327.jpg",
-      "pixelBox": {
-        "x": 481,
-        "y": 1233,
-        "w": 36,
-        "h": 23
-      },
-      "pctOfCaseW": 4.4,
-      "pctOfCaseH": 1.4,
-      "mmW": 3.6,
-      "mmH": 2.3,
-      "mmLong": 3.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
-        "score": 39
-      }
-    },
-    {
-      "id": "P215",
+      "id": "P191",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 281,
@@ -4622,7 +4206,7 @@
       }
     },
     {
-      "id": "P216",
+      "id": "P192",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 524,
@@ -4642,7 +4226,7 @@
       }
     },
     {
-      "id": "P217",
+      "id": "P193",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 768,
@@ -4662,7 +4246,7 @@
       }
     },
     {
-      "id": "P218",
+      "id": "P194",
       "photo": "Image_20260619201022_359_2327.jpg",
       "pixelBox": {
         "x": 800,
@@ -4682,27 +4266,7 @@
       }
     },
     {
-      "id": "P219",
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "pixelBox": {
-        "x": 894,
-        "y": 82,
-        "w": 51,
-        "h": 59
-      },
-      "pctOfCaseW": 6.1,
-      "pctOfCaseH": 3.6,
-      "mmW": 5,
-      "mmH": 5.8,
-      "mmLong": 5.8,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 33.7
-      }
-    },
-    {
-      "id": "P220",
+      "id": "P195",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 717,
@@ -4722,7 +4286,7 @@
       }
     },
     {
-      "id": "P221",
+      "id": "P196",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 711,
@@ -4742,7 +4306,7 @@
       }
     },
     {
-      "id": "P222",
+      "id": "P197",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 583,
@@ -4762,7 +4326,7 @@
       }
     },
     {
-      "id": "P223",
+      "id": "P198",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 780,
@@ -4782,7 +4346,7 @@
       }
     },
     {
-      "id": "P224",
+      "id": "P199",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 213,
@@ -4802,7 +4366,7 @@
       }
     },
     {
-      "id": "P225",
+      "id": "P200",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 409,
@@ -4822,27 +4386,58 @@
       }
     },
     {
-      "id": "P226",
+      "id": "P201",
       "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
       "pixelBox": {
-        "x": 206,
-        "y": 784,
-        "w": 465,
-        "h": 509
+        "x": 222,
+        "y": 800,
+        "w": 144,
+        "h": 178
       },
-      "pctOfCaseW": 56,
-      "pctOfCaseH": 30.9,
-      "mmW": 45.7,
-      "mmH": 50,
-      "mmLong": 50,
-      "tier": "XL",
-      "nearestCutout": {
-        "file": "e540ac60-3ca6-447f-833a-9234eec3b235-15.png",
-        "score": 67.2
-      }
+      "pctOfCaseW": 17.3,
+      "pctOfCaseH": 10.8,
+      "mmW": 14.1,
+      "mmH": 17.5,
+      "mmLong": 17.5,
+      "tier": "S"
     },
     {
-      "id": "P227",
+      "id": "P202",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 378,
+        "y": 802,
+        "w": 105,
+        "h": 105
+      },
+      "pctOfCaseW": 12.6,
+      "pctOfCaseH": 6.4,
+      "mmW": 10.3,
+      "mmH": 10.3,
+      "mmLong": 10.3,
+      "tier": "XS"
+    },
+    {
+      "id": "P203",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 484,
+        "y": 788,
+        "w": 160,
+        "h": 287
+      },
+      "pctOfCaseW": 19.3,
+      "pctOfCaseH": 17.4,
+      "mmW": 15.7,
+      "mmH": 28.2,
+      "mmLong": 28.2,
+      "tier": "M"
+    },
+    {
+      "id": "P204",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 690,
@@ -4862,7 +4457,41 @@
       }
     },
     {
-      "id": "P228",
+      "id": "P205",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 335,
+        "y": 979,
+        "w": 166,
+        "h": 168
+      },
+      "pctOfCaseW": 20,
+      "pctOfCaseH": 10.2,
+      "mmW": 16.3,
+      "mmH": 16.5,
+      "mmLong": 16.5,
+      "tier": "S"
+    },
+    {
+      "id": "P206",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 203,
+        "y": 1050,
+        "w": 95,
+        "h": 235
+      },
+      "pctOfCaseW": 11.4,
+      "pctOfCaseH": 14.3,
+      "mmW": 9.3,
+      "mmH": 23.1,
+      "mmLong": 23.1,
+      "tier": "M"
+    },
+    {
+      "id": "P207",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 544,
@@ -4882,7 +4511,7 @@
       }
     },
     {
-      "id": "P229",
+      "id": "P208",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 706,
@@ -4902,7 +4531,7 @@
       }
     },
     {
-      "id": "P230",
+      "id": "P209",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 360,
@@ -4922,27 +4551,64 @@
       }
     },
     {
-      "id": "P231",
+      "id": "P210",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
-        "x": 416,
-        "y": 1407,
-        "w": 123,
-        "h": 132
+        "x": 209,
+        "y": 1396,
+        "w": 124,
+        "h": 134
       },
-      "pctOfCaseW": 14.8,
-      "pctOfCaseH": 8,
-      "mmW": 12.1,
-      "mmH": 13,
-      "mmLong": 13,
+      "pctOfCaseW": 14.9,
+      "pctOfCaseH": 8.1,
+      "mmW": 12.2,
+      "mmH": 13.2,
+      "mmLong": 13.2,
       "tier": "S",
       "nearestCutout": {
-        "file": "image3-07.png",
-        "score": 36.1
+        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
+        "score": 47.5
       }
     },
     {
-      "id": "P232",
+      "id": "P211",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 376,
+        "y": 1400,
+        "w": 173,
+        "h": 157
+      },
+      "pctOfCaseW": 20.8,
+      "pctOfCaseH": 9.5,
+      "mmW": 17,
+      "mmH": 15.4,
+      "mmLong": 17,
+      "tier": "S"
+    },
+    {
+      "id": "P212",
+      "photo": "Image_20260619201023_360_2327.jpg",
+      "pixelBox": {
+        "x": 568,
+        "y": 1400,
+        "w": 131,
+        "h": 149
+      },
+      "pctOfCaseW": 15.8,
+      "pctOfCaseH": 9,
+      "mmW": 12.9,
+      "mmH": 14.6,
+      "mmLong": 14.6,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "image3-07.png",
+        "score": 60.3
+      }
+    },
+    {
+      "id": "P213",
       "photo": "Image_20260619201023_360_2327.jpg",
       "pixelBox": {
         "x": 738,
@@ -4962,87 +4628,27 @@
       }
     },
     {
-      "id": "P233",
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "pixelBox": {
-        "x": 210,
-        "y": 1429,
-        "w": 107,
-        "h": 67
-      },
-      "pctOfCaseW": 12.9,
-      "pctOfCaseH": 4.1,
-      "mmW": 10.5,
-      "mmH": 6.6,
-      "mmLong": 10.5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
-        "score": 47.5
-      }
-    },
-    {
-      "id": "P234",
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "pixelBox": {
-        "x": 387,
-        "y": 1477,
-        "w": 66,
-        "h": 61
-      },
-      "pctOfCaseW": 7.9,
-      "pctOfCaseH": 3.7,
-      "mmW": 6.5,
-      "mmH": 6,
-      "mmLong": 6.5,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-20.png",
-        "score": 44
-      }
-    },
-    {
-      "id": "P235",
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "pixelBox": {
-        "x": 569,
-        "y": 1443,
-        "w": 109,
-        "h": 80
-      },
-      "pctOfCaseW": 13.1,
-      "pctOfCaseH": 4.9,
-      "mmW": 10.7,
-      "mmH": 7.9,
-      "mmLong": 10.7,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "image3-07.png",
-        "score": 60.3
-      }
-    },
-    {
-      "id": "P236",
+      "id": "P214",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
-        "x": 767,
-        "y": 252,
-        "w": 63,
-        "h": 64
+        "x": 721,
+        "y": 184,
+        "w": 142,
+        "h": 177
       },
-      "pctOfCaseW": 7.8,
-      "pctOfCaseH": 4,
-      "mmW": 6.3,
-      "mmH": 6.4,
-      "mmLong": 6.4,
-      "tier": "XS",
+      "pctOfCaseW": 17.5,
+      "pctOfCaseH": 11.2,
+      "mmW": 14.3,
+      "mmH": 17.8,
+      "mmLong": 17.8,
+      "tier": "S",
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-28.png",
         "score": 65.7
       }
     },
     {
-      "id": "P237",
+      "id": "P215",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 728,
@@ -5062,7 +4668,7 @@
       }
     },
     {
-      "id": "P238",
+      "id": "P216",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 287,
@@ -5082,7 +4688,7 @@
       }
     },
     {
-      "id": "P239",
+      "id": "P217",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 459,
@@ -5102,7 +4708,7 @@
       }
     },
     {
-      "id": "P240",
+      "id": "P218",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 702,
@@ -5122,7 +4728,7 @@
       }
     },
     {
-      "id": "P241",
+      "id": "P219",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 481,
@@ -5142,7 +4748,7 @@
       }
     },
     {
-      "id": "P242",
+      "id": "P220",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 260,
@@ -5162,47 +4768,7 @@
       }
     },
     {
-      "id": "P243",
-      "photo": "Image_20260619201025_361_2327.jpg",
-      "pixelBox": {
-        "x": 297,
-        "y": 834,
-        "w": 66,
-        "h": 120
-      },
-      "pctOfCaseW": 8.1,
-      "pctOfCaseH": 7.6,
-      "mmW": 6.6,
-      "mmH": 12.1,
-      "mmLong": 12.1,
-      "tier": "S",
-      "nearestCutout": {
-        "file": "silver-02.png",
-        "score": 45.2
-      }
-    },
-    {
-      "id": "P244",
-      "photo": "Image_20260619201025_361_2327.jpg",
-      "pixelBox": {
-        "x": 517,
-        "y": 809,
-        "w": 36,
-        "h": 25
-      },
-      "pctOfCaseW": 4.4,
-      "pctOfCaseH": 1.6,
-      "mmW": 3.6,
-      "mmH": 2.5,
-      "mmLong": 3.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
-        "score": 35.6
-      }
-    },
-    {
-      "id": "P245",
+      "id": "P221",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 725,
@@ -5222,7 +4788,7 @@
       }
     },
     {
-      "id": "P246",
+      "id": "P222",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 252,
@@ -5242,47 +4808,58 @@
       }
     },
     {
-      "id": "P247",
+      "id": "P223",
       "photo": "Image_20260619201025_361_2327.jpg",
+      "nearestCutout": null,
       "pixelBox": {
-        "x": 288,
-        "y": 1034,
-        "w": 437,
-        "h": 341
+        "x": 569,
+        "y": 1036,
+        "w": 137,
+        "h": 342
       },
-      "pctOfCaseW": 54,
-      "pctOfCaseH": 21.5,
-      "mmW": 44,
+      "pctOfCaseW": 16.9,
+      "pctOfCaseH": 21.6,
+      "mmW": 13.8,
       "mmH": 34.4,
-      "mmLong": 44,
-      "tier": "XL",
-      "nearestCutout": {
-        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
-        "score": 68
-      }
+      "mmLong": 34.4,
+      "tier": "L"
     },
     {
-      "id": "P248",
+      "id": "P224",
       "photo": "Image_20260619201025_361_2327.jpg",
+      "nearestCutout": null,
       "pixelBox": {
-        "x": 963,
-        "y": 989,
-        "w": 17,
-        "h": 36
+        "x": 419,
+        "y": 1090,
+        "w": 145,
+        "h": 198
       },
-      "pctOfCaseW": 2.1,
-      "pctOfCaseH": 2.3,
-      "mmW": 1.7,
-      "mmH": 3.6,
-      "mmLong": 3.6,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
-        "score": 37.5
-      }
+      "pctOfCaseW": 17.9,
+      "pctOfCaseH": 12.5,
+      "mmW": 14.6,
+      "mmH": 19.9,
+      "mmLong": 19.9,
+      "tier": "S"
     },
     {
-      "id": "P249",
+      "id": "P225",
+      "photo": "Image_20260619201025_361_2327.jpg",
+      "nearestCutout": null,
+      "pixelBox": {
+        "x": 293,
+        "y": 1185,
+        "w": 107,
+        "h": 177
+      },
+      "pctOfCaseW": 13.2,
+      "pctOfCaseH": 11.2,
+      "mmW": 10.8,
+      "mmH": 17.8,
+      "mmLong": 17.8,
+      "tier": "S"
+    },
+    {
+      "id": "P226",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 719,
@@ -5302,7 +4879,7 @@
       }
     },
     {
-      "id": "P250",
+      "id": "P227",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 259,
@@ -5322,7 +4899,7 @@
       }
     },
     {
-      "id": "P251",
+      "id": "P228",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 413,
@@ -5342,7 +4919,7 @@
       }
     },
     {
-      "id": "P252",
+      "id": "P229",
       "photo": "Image_20260619201025_361_2327.jpg",
       "pixelBox": {
         "x": 565,
@@ -5362,27 +4939,7 @@
       }
     },
     {
-      "id": "P253",
-      "photo": "Image_20260619201025_361_2327.jpg",
-      "pixelBox": {
-        "x": 435,
-        "y": 1493,
-        "w": 38,
-        "h": 21
-      },
-      "pctOfCaseW": 4.7,
-      "pctOfCaseH": 1.3,
-      "mmW": 3.8,
-      "mmH": 2.1,
-      "mmLong": 3.8,
-      "tier": "XS",
-      "nearestCutout": {
-        "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
-        "score": 46.4
-      }
-    },
-    {
-      "id": "P254",
+      "id": "P230",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 730,
@@ -5402,7 +4959,7 @@
       }
     },
     {
-      "id": "P255",
+      "id": "P231",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 716,
@@ -5422,27 +4979,47 @@
       }
     },
     {
-      "id": "P256",
+      "id": "P232",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
-        "x": 275,
-        "y": 546,
-        "w": 397,
-        "h": 210
+        "x": 277,
+        "y": 552,
+        "w": 176,
+        "h": 198
       },
-      "pctOfCaseW": 48.9,
-      "pctOfCaseH": 13.2,
-      "mmW": 39.9,
-      "mmH": 21.1,
-      "mmLong": 39.9,
-      "tier": "L",
+      "pctOfCaseW": 21.7,
+      "pctOfCaseH": 12.4,
+      "mmW": 17.7,
+      "mmH": 19.9,
+      "mmLong": 19.9,
+      "tier": "S",
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 62.4
       }
     },
     {
-      "id": "P257",
+      "id": "P233",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 461,
+        "y": 548,
+        "w": 186,
+        "h": 197
+      },
+      "pctOfCaseW": 22.9,
+      "pctOfCaseH": 12.4,
+      "mmW": 18.7,
+      "mmH": 19.8,
+      "mmLong": 19.8,
+      "tier": "S",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
+        "score": 62.4
+      }
+    },
+    {
+      "id": "P234",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 727,
@@ -5462,7 +5039,7 @@
       }
     },
     {
-      "id": "P258",
+      "id": "P235",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 269,
@@ -5482,7 +5059,7 @@
       }
     },
     {
-      "id": "P259",
+      "id": "P236",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 498,
@@ -5502,7 +5079,7 @@
       }
     },
     {
-      "id": "P260",
+      "id": "P237",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 667,
@@ -5522,7 +5099,7 @@
       }
     },
     {
-      "id": "P261",
+      "id": "P238",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 458,
@@ -5542,7 +5119,7 @@
       }
     },
     {
-      "id": "P262",
+      "id": "P239",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 255,
@@ -5562,7 +5139,7 @@
       }
     },
     {
-      "id": "P263",
+      "id": "P240",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 451,
@@ -5582,7 +5159,7 @@
       }
     },
     {
-      "id": "P264",
+      "id": "P241",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 680,
@@ -5602,27 +5179,47 @@
       }
     },
     {
-      "id": "P265",
+      "id": "P242",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 268,
-        "y": 1387,
-        "w": 408,
-        "h": 208
+        "y": 1397,
+        "w": 199,
+        "h": 198
       },
-      "pctOfCaseW": 50.2,
-      "pctOfCaseH": 13,
-      "mmW": 41,
-      "mmH": 20.9,
-      "mmLong": 41,
-      "tier": "L",
+      "pctOfCaseW": 24.5,
+      "pctOfCaseH": 12.4,
+      "mmW": 20,
+      "mmH": 19.9,
+      "mmLong": 20,
+      "tier": "M",
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
         "score": 51.4
       }
     },
     {
-      "id": "P266",
+      "id": "P243",
+      "photo": "Image_20260619201026_362_2327.jpg",
+      "pixelBox": {
+        "x": 470,
+        "y": 1387,
+        "w": 206,
+        "h": 199
+      },
+      "pctOfCaseW": 25.4,
+      "pctOfCaseH": 12.5,
+      "mmW": 20.7,
+      "mmH": 20,
+      "mmLong": 20.7,
+      "tier": "M",
+      "nearestCutout": {
+        "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
+        "score": 51.4
+      }
+    },
+    {
+      "id": "P244",
       "photo": "Image_20260619201026_362_2327.jpg",
       "pixelBox": {
         "x": 701,
@@ -5642,7 +5239,7 @@
       }
     },
     {
-      "id": "P267",
+      "id": "P245",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 617,
@@ -5662,7 +5259,7 @@
       }
     },
     {
-      "id": "P268",
+      "id": "P246",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 607,
@@ -5682,7 +5279,7 @@
       }
     },
     {
-      "id": "P269",
+      "id": "P247",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 617,
@@ -5702,7 +5299,7 @@
       }
     },
     {
-      "id": "P270",
+      "id": "P248",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 683,
@@ -5722,7 +5319,7 @@
       }
     },
     {
-      "id": "P271",
+      "id": "P249",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 221,
@@ -5742,7 +5339,7 @@
       }
     },
     {
-      "id": "P272",
+      "id": "P250",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 411,
@@ -5762,7 +5359,7 @@
       }
     },
     {
-      "id": "P273",
+      "id": "P251",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 229,
@@ -5782,7 +5379,7 @@
       }
     },
     {
-      "id": "P274",
+      "id": "P252",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 651,
@@ -5802,7 +5399,7 @@
       }
     },
     {
-      "id": "P275",
+      "id": "P253",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 710,
@@ -5822,7 +5419,7 @@
       }
     },
     {
-      "id": "P276",
+      "id": "P254",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 282,
@@ -5842,7 +5439,7 @@
       }
     },
     {
-      "id": "P277",
+      "id": "P255",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 473,
@@ -5862,7 +5459,7 @@
       }
     },
     {
-      "id": "P278",
+      "id": "P256",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 497,
@@ -5882,7 +5479,7 @@
       }
     },
     {
-      "id": "P279",
+      "id": "P257",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 531,
@@ -5902,7 +5499,7 @@
       }
     },
     {
-      "id": "P280",
+      "id": "P258",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 602,
@@ -5922,7 +5519,7 @@
       }
     },
     {
-      "id": "P281",
+      "id": "P259",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 482,
@@ -5942,7 +5539,7 @@
       }
     },
     {
-      "id": "P282",
+      "id": "P260",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 345,
@@ -5962,7 +5559,7 @@
       }
     },
     {
-      "id": "P283",
+      "id": "P261",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 451,
@@ -5982,7 +5579,7 @@
       }
     },
     {
-      "id": "P284",
+      "id": "P262",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 514,
@@ -6002,7 +5599,7 @@
       }
     },
     {
-      "id": "P285",
+      "id": "P263",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 631,
@@ -6022,7 +5619,7 @@
       }
     },
     {
-      "id": "P286",
+      "id": "P264",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 273,
@@ -6042,7 +5639,7 @@
       }
     },
     {
-      "id": "P287",
+      "id": "P265",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 462,
@@ -6062,7 +5659,7 @@
       }
     },
     {
-      "id": "P288",
+      "id": "P266",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 311,
@@ -6082,7 +5679,7 @@
       }
     },
     {
-      "id": "P289",
+      "id": "P267",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 422,
@@ -6102,7 +5699,7 @@
       }
     },
     {
-      "id": "P290",
+      "id": "P268",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 238,
@@ -6122,7 +5719,7 @@
       }
     },
     {
-      "id": "P291",
+      "id": "P269",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 411,
@@ -6142,7 +5739,7 @@
       }
     },
     {
-      "id": "P292",
+      "id": "P270",
       "photo": "Image_20260619201028_363_2327.jpg",
       "pixelBox": {
         "x": 429,
@@ -6162,7 +5759,7 @@
       }
     },
     {
-      "id": "P293",
+      "id": "P271",
       "photo": "Image_20260619201443_367_2327.jpg",
       "pixelBox": {
         "x": 676,
@@ -6182,7 +5779,7 @@
       }
     },
     {
-      "id": "P294",
+      "id": "P272",
       "photo": "Image_20260619201443_367_2327.jpg",
       "pixelBox": {
         "x": 289,
@@ -6202,7 +5799,24 @@
       }
     },
     {
-      "id": "P295",
+      "id": "P273",
+      "photo": "Image_20260619201443_367_2327.jpg",
+      "pixelBox": {
+        "x": 535,
+        "y": 793,
+        "w": 324,
+        "h": 431
+      },
+      "pctOfCaseW": 41.3,
+      "pctOfCaseH": 27.4,
+      "mmW": 33.7,
+      "mmH": 44.9,
+      "mmLong": 44.9,
+      "tier": "XL",
+      "nearestCutout": null
+    },
+    {
+      "id": "P274",
       "photo": "Image_20260619201443_367_2327.jpg",
       "pixelBox": {
         "x": 254,
@@ -6222,7 +5836,7 @@
       }
     },
     {
-      "id": "P296",
+      "id": "P275",
       "photo": "Image_20260619201443_367_2327.jpg",
       "pixelBox": {
         "x": 573,
@@ -6242,7 +5856,7 @@
       }
     },
     {
-      "id": "P297",
+      "id": "P276",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 759,
@@ -6262,7 +5876,7 @@
       }
     },
     {
-      "id": "P298",
+      "id": "P277",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 699,
@@ -6282,7 +5896,7 @@
       }
     },
     {
-      "id": "P299",
+      "id": "P278",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 706,
@@ -6302,7 +5916,7 @@
       }
     },
     {
-      "id": "P300",
+      "id": "P279",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 307,
@@ -6322,7 +5936,7 @@
       }
     },
     {
-      "id": "P301",
+      "id": "P280",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 462,
@@ -6342,7 +5956,7 @@
       }
     },
     {
-      "id": "P302",
+      "id": "P281",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 269,
@@ -6362,7 +5976,7 @@
       }
     },
     {
-      "id": "P303",
+      "id": "P282",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 463,
@@ -6382,7 +5996,7 @@
       }
     },
     {
-      "id": "P304",
+      "id": "P283",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 273,
@@ -6402,7 +6016,7 @@
       }
     },
     {
-      "id": "P305",
+      "id": "P284",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 605,
@@ -6422,7 +6036,7 @@
       }
     },
     {
-      "id": "P306",
+      "id": "P285",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 264,
@@ -6442,7 +6056,7 @@
       }
     },
     {
-      "id": "P307",
+      "id": "P286",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 450,
@@ -6462,7 +6076,7 @@
       }
     },
     {
-      "id": "P308",
+      "id": "P287",
       "photo": "Image_20260619214422_369_2327.jpg",
       "pixelBox": {
         "x": 264,
@@ -6482,7 +6096,7 @@
       }
     },
     {
-      "id": "P309",
+      "id": "P288",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 834,
@@ -6502,7 +6116,7 @@
       }
     },
     {
-      "id": "P310",
+      "id": "P289",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 836,
@@ -6522,7 +6136,7 @@
       }
     },
     {
-      "id": "P311",
+      "id": "P290",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 791,
@@ -6542,7 +6156,7 @@
       }
     },
     {
-      "id": "P312",
+      "id": "P291",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 695,
@@ -6562,7 +6176,7 @@
       }
     },
     {
-      "id": "P313",
+      "id": "P292",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 378,
@@ -6582,7 +6196,7 @@
       }
     },
     {
-      "id": "P314",
+      "id": "P293",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 530,
@@ -6602,7 +6216,7 @@
       }
     },
     {
-      "id": "P315",
+      "id": "P294",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 358,
@@ -6622,7 +6236,7 @@
       }
     },
     {
-      "id": "P316",
+      "id": "P295",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 529,
@@ -6642,7 +6256,7 @@
       }
     },
     {
-      "id": "P317",
+      "id": "P296",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 548,
@@ -6662,7 +6276,7 @@
       }
     },
     {
-      "id": "P318",
+      "id": "P297",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 508,
@@ -6682,7 +6296,7 @@
       }
     },
     {
-      "id": "P319",
+      "id": "P298",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 373,
@@ -6702,7 +6316,7 @@
       }
     },
     {
-      "id": "P320",
+      "id": "P299",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 514,
@@ -6722,7 +6336,7 @@
       }
     },
     {
-      "id": "P321",
+      "id": "P300",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 915,
@@ -6742,7 +6356,7 @@
       }
     },
     {
-      "id": "P322",
+      "id": "P301",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 367,
@@ -6762,7 +6376,7 @@
       }
     },
     {
-      "id": "P323",
+      "id": "P302",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 370,
@@ -6782,7 +6396,7 @@
       }
     },
     {
-      "id": "P324",
+      "id": "P303",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 373,
@@ -6802,7 +6416,7 @@
       }
     },
     {
-      "id": "P325",
+      "id": "P304",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 333,
@@ -6822,7 +6436,7 @@
       }
     },
     {
-      "id": "P326",
+      "id": "P305",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 336,
@@ -6842,7 +6456,7 @@
       }
     },
     {
-      "id": "P327",
+      "id": "P306",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 438,
@@ -6862,7 +6476,7 @@
       }
     },
     {
-      "id": "P328",
+      "id": "P307",
       "photo": "Image_20260619214424_370_2327.jpg",
       "pixelBox": {
         "x": 333,
@@ -6882,7 +6496,7 @@
       }
     },
     {
-      "id": "P329",
+      "id": "P308",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 685,
@@ -6902,7 +6516,7 @@
       }
     },
     {
-      "id": "P330",
+      "id": "P309",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 652,
@@ -6922,7 +6536,7 @@
       }
     },
     {
-      "id": "P331",
+      "id": "P310",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 787,
@@ -6942,7 +6556,7 @@
       }
     },
     {
-      "id": "P332",
+      "id": "P311",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 623,
@@ -6962,7 +6576,7 @@
       }
     },
     {
-      "id": "P333",
+      "id": "P312",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 273,
@@ -6982,7 +6596,7 @@
       }
     },
     {
-      "id": "P334",
+      "id": "P313",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 375,
@@ -7002,7 +6616,7 @@
       }
     },
     {
-      "id": "P335",
+      "id": "P314",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 760,
@@ -7022,7 +6636,7 @@
       }
     },
     {
-      "id": "P336",
+      "id": "P315",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 235,
@@ -7042,7 +6656,7 @@
       }
     },
     {
-      "id": "P337",
+      "id": "P316",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 624,
@@ -7062,7 +6676,7 @@
       }
     },
     {
-      "id": "P338",
+      "id": "P317",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 256,
@@ -7082,7 +6696,7 @@
       }
     },
     {
-      "id": "P339",
+      "id": "P318",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 270,
@@ -7102,7 +6716,7 @@
       }
     },
     {
-      "id": "P340",
+      "id": "P319",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 375,
@@ -7122,7 +6736,7 @@
       }
     },
     {
-      "id": "P341",
+      "id": "P320",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 234,
@@ -7142,7 +6756,7 @@
       }
     },
     {
-      "id": "P342",
+      "id": "P321",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 239,
@@ -7162,7 +6776,7 @@
       }
     },
     {
-      "id": "P343",
+      "id": "P322",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 800,
@@ -7182,7 +6796,7 @@
       }
     },
     {
-      "id": "P344",
+      "id": "P323",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 239,
@@ -7202,7 +6816,7 @@
       }
     },
     {
-      "id": "P345",
+      "id": "P324",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 396,
@@ -7222,7 +6836,7 @@
       }
     },
     {
-      "id": "P346",
+      "id": "P325",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 792,
@@ -7242,7 +6856,7 @@
       }
     },
     {
-      "id": "P347",
+      "id": "P326",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 234,
@@ -7262,7 +6876,7 @@
       }
     },
     {
-      "id": "P348",
+      "id": "P327",
       "photo": "Image_20260619214426_371_2327.jpg",
       "pixelBox": {
         "x": 683,
@@ -7294,78 +6908,8 @@
       }
     },
     {
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "duplicateOf": "P167",
-      "pixelBox": {
-        "x": 654,
-        "y": 531,
-        "w": 77,
-        "h": 50
-      }
-    },
-    {
-      "photo": "Image_20260619201020_358_2327.jpg",
-      "duplicateOf": "P180",
-      "pixelBox": {
-        "x": 708,
-        "y": 1342,
-        "w": 49,
-        "h": 59
-      }
-    },
-    {
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "duplicateOf": "P108",
-      "pixelBox": {
-        "x": 248,
-        "y": 1381,
-        "w": 114,
-        "h": 127
-      }
-    },
-    {
-      "photo": "Image_20260619201023_360_2327.jpg",
-      "duplicateOf": "P108",
-      "pixelBox": {
-        "x": 605,
-        "y": 1408,
-        "w": 123,
-        "h": 125
-      }
-    },
-    {
-      "photo": "Image_20260619201025_361_2327.jpg",
-      "duplicateOf": "P022",
-      "pixelBox": {
-        "x": 721,
-        "y": 185,
-        "w": 140,
-        "h": 175
-      }
-    },
-    {
-      "photo": "Image_20260619201025_361_2327.jpg",
-      "duplicateOf": "P244",
-      "pixelBox": {
-        "x": 443,
-        "y": 1396,
-        "w": 36,
-        "h": 27
-      }
-    },
-    {
       "photo": "Image_20260619201028_363_2327.jpg",
-      "duplicateOf": "P214",
-      "pixelBox": {
-        "x": 480,
-        "y": 952,
-        "w": 41,
-        "h": 23
-      }
-    },
-    {
-      "photo": "Image_20260619201028_363_2327.jpg",
-      "duplicateOf": "P280",
+      "duplicateOf": "P258",
       "pixelBox": {
         "x": 589,
         "y": 1234,
@@ -7374,28 +6918,8 @@
       }
     },
     {
-      "photo": "Image_20260619201028_363_2327.jpg",
-      "duplicateOf": "P170",
-      "pixelBox": {
-        "x": 296,
-        "y": 1401,
-        "w": 60,
-        "h": 36
-      }
-    },
-    {
-      "photo": "Image_20260619201028_363_2327.jpg",
-      "duplicateOf": "P170",
-      "pixelBox": {
-        "x": 491,
-        "y": 1529,
-        "w": 57,
-        "h": 40
-      }
-    },
-    {
       "photo": "Image_20260619214424_370_2327.jpg",
-      "duplicateOf": "P298",
+      "duplicateOf": "P277",
       "pixelBox": {
         "x": 856,
         "y": 784,
