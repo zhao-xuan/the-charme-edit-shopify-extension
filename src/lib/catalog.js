@@ -141,7 +141,11 @@ const mergeCustom = (list) =>
 const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
 
 // Merchant charms surface first within each category so they're easy to find.
-const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS]
+// Drop any bundled charm whose id was already supplied by the remote/admin
+// (merchant) layer: the reference set lives in BOTH the bundled catalogue and
+// the Cloudflare DB, so without this de-dup every reference charm is listed
+// twice in the tray.
+const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS.filter((c) => !seenCharm.has(c.id))]
 const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
 
 const ITEMS_BY_KIND = {
