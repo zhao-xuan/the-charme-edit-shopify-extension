@@ -38,30 +38,6 @@ function loadImage(src) {
   return p
 }
 
-// Reusable glitter-gel sparkle texture (masked to the case silhouette below).
-const GLITTER_SRC = resolveAsset('/assets/cases/glitter.png')
-
-/**
- * Composite the glitter-gel sparkle over a real case photo, clipped to the
- * case silhouette using the photo's own alpha (offscreen destination-in), so
- * the on-screen "Glitter" finish is reproduced in the downloaded proof.
- */
-async function drawGlitter(ctx, photoImg, W, H) {
-  const tex = await loadImage(GLITTER_SRC).catch(() => null)
-  if (!tex) return
-  const off = document.createElement('canvas')
-  off.width = Math.round(W)
-  off.height = Math.round(H)
-  const octx = off.getContext('2d')
-  octx.drawImage(tex, 0, 0, off.width, off.height)
-  octx.globalCompositeOperation = 'destination-in'
-  octx.drawImage(photoImg, 0, 0, off.width, off.height)
-  ctx.save()
-  ctx.globalAlpha = 0.9
-  ctx.drawImage(off, 0, 0, W, H)
-  ctx.restore()
-}
-
 async function drawProduct(ctx, product, color, S) {
   const W = product.widthMm * S
   const H = product.heightMm * S
@@ -75,10 +51,14 @@ async function drawProduct(ctx, product, color, S) {
     const img = await loadImage(photoSrc).catch(() => null)
     if (img) {
       ctx.drawImage(img, 0, 0, W, H)
-      // Glitter-gel finish: sparkle texture masked to the case silhouette.
-      if (color.glitter) await drawGlitter(ctx, img, W, H)
       return
     }
+  }
+
+  // photo frame moulding (drawn from the printable rects, matching FrameShell)
+  if (product.kind === 'frame') {
+    drawFrame(ctx, product, color, S)
+    return
   }
 
   // rim
@@ -111,6 +91,52 @@ async function drawProduct(ctx, product, color, S) {
   if (product.kind === 'phone' && product.camera) {
     drawCamera(ctx, product.camera, color, S)
   }
+}
+
+/** Draw the photo-frame moulding + recessed opening (matches FrameShell). */
+function drawFrame(ctx, product, color, S) {
+  const { outer, opening } = product.printable
+  const ox = outer.xMm * S
+  const oy = outer.yMm * S
+  const ow = outer.wMm * S
+  const oh = outer.hMm * S
+  const orr = (outer.rMm || 3) * S
+  const ix = opening.xMm * S
+  const iy = opening.yMm * S
+  const iw = opening.wMm * S
+  const ih = opening.hMm * S
+  const irr = (opening.rMm || 2) * S
+  const dark = color.id === 'black'
+
+  // outer moulding plate
+  roundRect(ctx, ox, oy, ow, oh, orr)
+  ctx.fillStyle = color.shell
+  ctx.fill()
+
+  // mitred corner lines, clipped to the moulding ring (outer minus opening)
+  ctx.save()
+  ctx.beginPath()
+  ctx.rect(ox, oy, ow, oh)
+  ctx.rect(ix, iy, iw, ih)
+  ctx.clip('evenodd')
+  ctx.strokeStyle = dark ? 'rgba(255,255,255,0.16)' : 'rgba(60,52,40,0.22)'
+  ctx.lineWidth = Math.max(1, S * 0.5)
+  ctx.beginPath()
+  ctx.moveTo(ox, oy); ctx.lineTo(ix, iy)
+  ctx.moveTo(ox + ow, oy); ctx.lineTo(ix + iw, iy)
+  ctx.moveTo(ox + ow, oy + oh); ctx.lineTo(ix + iw, iy + ih)
+  ctx.moveTo(ox, oy + oh); ctx.lineTo(ix, iy + ih)
+  ctx.stroke()
+  ctx.restore()
+
+  // recessed photo opening
+  roundRect(ctx, ix, iy, iw, ih, irr)
+  ctx.fillStyle = '#f4f3ef'
+  ctx.fill()
+  roundRect(ctx, ix, iy, iw, ih, irr)
+  ctx.strokeStyle = dark ? 'rgba(0,0,0,0.5)' : 'rgba(120,110,90,0.4)'
+  ctx.lineWidth = Math.max(1, S * 0.9)
+  ctx.stroke()
 }
 
 /** Draw a representative camera island for the model's camera kind (gel proof). */

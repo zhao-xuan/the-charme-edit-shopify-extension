@@ -114,7 +114,7 @@ export default function CharmTray({
   // Phone category labels drop the trailing " charms" so all four fit the tab bar.
   const items = groups.map((g) => ({
     key: g.key,
-    label: kind === 'phone' ? g.label.replace(/ charms$/i, '') : g.label,
+    label: kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label,
     children: (
       <GroupPanel
         group={g}

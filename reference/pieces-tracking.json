@@ -339,7 +339,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 46.7
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P002",
@@ -359,7 +362,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 45.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P003",
@@ -376,7 +382,9 @@
       "mmH": 21.6,
       "mmLong": 21.6,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P003B",
@@ -393,7 +401,9 @@
       "mmH": 12,
       "mmLong": 12.4,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P003C",
@@ -410,7 +420,9 @@
       "mmH": 14.3,
       "mmLong": 17.5,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P004",
@@ -430,7 +442,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 50.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P005",
@@ -450,7 +465,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 49.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P006",
@@ -470,7 +488,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
         "score": 51.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Coin"
     },
     {
       "id": "P007",
@@ -490,7 +511,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
         "score": 54
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P008",
@@ -510,7 +534,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 49.7
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P009",
@@ -530,7 +557,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
         "score": 49.9
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Medallion"
     },
     {
       "id": "P010",
@@ -550,7 +580,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 45.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P011",
@@ -570,7 +603,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
         "score": 55.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Scales"
     },
     {
       "id": "P012",
@@ -590,7 +626,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 57.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P013",
@@ -610,7 +649,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 41.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P014",
@@ -630,7 +672,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png",
         "score": 61.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "gem",
+      "categoryName": "Gold Pearl"
     },
     {
       "id": "P015",
@@ -650,7 +695,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-16.png",
         "score": 32.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Moon"
     },
     {
       "id": "P016",
@@ -670,7 +718,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
         "score": 41.9
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Medallion"
     },
     {
       "id": "P017",
@@ -690,7 +741,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
         "score": 30.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Coin"
     },
     {
       "id": "P018",
@@ -710,7 +764,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 55
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P019",
@@ -727,7 +784,9 @@
       "mmH": 36.2,
       "mmLong": 36.2,
       "tier": "L",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P020",
@@ -747,7 +806,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
         "score": 47.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Scales"
     },
     {
       "id": "P021",
@@ -767,7 +829,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 52.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P022",
@@ -787,7 +852,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 50
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P023",
@@ -807,7 +875,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 43.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P024",
@@ -827,7 +898,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 43.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P025",
@@ -847,7 +921,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png",
         "score": 45.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Coin"
     },
     {
       "id": "P026",
@@ -867,7 +944,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 45.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P027",
@@ -887,7 +967,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 27.7
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P028",
@@ -907,7 +990,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 45.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P029",
@@ -927,7 +1013,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-09.png",
         "score": 42.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "bow",
+      "categoryName": "Gold Bow"
     },
     {
       "id": "P030",
@@ -947,7 +1036,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 51.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P031",
@@ -967,7 +1059,10 @@
       "nearestCutout": {
         "file": "silver-25.png",
         "score": 49.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "animal",
+      "categoryName": "Silver Leopard"
     },
     {
       "id": "P032",
@@ -987,7 +1082,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-32.png",
         "score": 33.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Grapes"
     },
     {
       "id": "P033",
@@ -1007,7 +1105,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 50.2
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P034",
@@ -1024,7 +1125,9 @@
       "mmH": 23.4,
       "mmLong": 23.4,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P034C",
@@ -1041,7 +1144,9 @@
       "mmH": 34.2,
       "mmLong": 34.2,
       "tier": "L",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P034B",
@@ -1058,7 +1163,9 @@
       "mmH": 20.7,
       "mmLong": 20.7,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P035",
@@ -1078,7 +1185,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
         "score": 45.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P034D",
@@ -1095,7 +1205,9 @@
       "mmH": 17.3,
       "mmLong": 17.3,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P038B",
@@ -1112,7 +1224,9 @@
       "mmH": 43.8,
       "mmLong": 43.8,
       "tier": "XL",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P036",
@@ -1132,7 +1246,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
         "score": 47.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P037",
@@ -1152,7 +1269,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 49.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P038",
@@ -1172,7 +1292,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 52.8
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P039",
@@ -1192,7 +1315,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 46.2
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P040",
@@ -1212,7 +1338,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png",
         "score": 46.9
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Cross"
     },
     {
       "id": "P041",
@@ -1232,7 +1361,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-23.png",
         "score": 47
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P042",
@@ -1252,7 +1384,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 21.9
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P043",
@@ -1272,7 +1407,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 36.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P044",
@@ -1292,7 +1430,10 @@
       "nearestCutout": {
         "file": "image2-07.png",
         "score": 50.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "flower",
+      "categoryName": "Colourful Rose"
     },
     {
       "id": "P045",
@@ -1312,7 +1453,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
         "score": 57.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Medallion"
     },
     {
       "id": "P046",
@@ -1329,7 +1473,9 @@
       "mmH": 17.3,
       "mmLong": 17.3,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P046B",
@@ -1346,7 +1492,9 @@
       "mmH": 14.4,
       "mmLong": 14.4,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P047",
@@ -1366,7 +1514,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 38.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P048",
@@ -1386,7 +1537,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 42.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P049",
@@ -1406,7 +1560,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 53.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P050",
@@ -1426,7 +1583,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 49.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P051",
@@ -1446,7 +1606,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 54.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P052",
@@ -1466,7 +1629,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
         "score": 49.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Scales"
     },
     {
       "id": "P053",
@@ -1486,7 +1652,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 50.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P054",
@@ -1506,7 +1675,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 43.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P055",
@@ -1526,7 +1698,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 48.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P056",
@@ -1546,7 +1721,10 @@
       "nearestCutout": {
         "file": "silver-22.png",
         "score": 55.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "gem",
+      "categoryName": "Silver Gemstone"
     },
     {
       "id": "P057",
@@ -1566,7 +1744,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
         "score": 40
-      }
+      },
+      "category": "silver",
+      "subcategory": "flower",
+      "categoryName": "Silver Rose"
     },
     {
       "id": "P058",
@@ -1586,7 +1767,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 45.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P059",
@@ -1606,7 +1790,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 42.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P060",
@@ -1626,7 +1813,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 42.8
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P061",
@@ -1646,7 +1836,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-45.png",
         "score": 56
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Moon"
     },
     {
       "id": "P062",
@@ -1663,7 +1856,9 @@
       "mmH": 41.6,
       "mmLong": 41.6,
       "tier": "L",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P063",
@@ -1683,7 +1878,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
         "score": 47.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P064",
@@ -1703,7 +1901,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 49.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P065",
@@ -1723,7 +1924,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 47.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P066",
@@ -1743,7 +1947,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 49.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P067",
@@ -1763,7 +1970,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 50.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P068",
@@ -1783,7 +1993,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 47.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P069",
@@ -1803,7 +2016,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
         "score": 54.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P070",
@@ -1823,7 +2039,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 50.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P071",
@@ -1843,7 +2062,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 45.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P072",
@@ -1863,7 +2085,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
         "score": 53.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P073",
@@ -1883,7 +2108,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
         "score": 57.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Medallion"
     },
     {
       "id": "P074",
@@ -1903,7 +2131,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 57
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P075",
@@ -1923,7 +2154,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
         "score": 48
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P076",
@@ -1943,7 +2177,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 47.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P077",
@@ -1963,7 +2200,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-16.png",
         "score": 54.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Moon"
     },
     {
       "id": "P078",
@@ -1983,7 +2223,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-12.png",
         "score": 50.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "angel",
+      "categoryName": "Gold Angel"
     },
     {
       "id": "P079",
@@ -2003,7 +2246,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
         "score": 46.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P080",
@@ -2023,7 +2269,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 51.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P081",
@@ -2043,7 +2292,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 49.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P082",
@@ -2063,7 +2315,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
         "score": 47.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P082B",
@@ -2080,7 +2335,9 @@
       "mmH": 5.5,
       "mmLong": 5.5,
       "tier": "XS",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P083",
@@ -2100,7 +2357,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 52.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P084",
@@ -2120,7 +2380,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26.png",
         "score": 50.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P085",
@@ -2140,7 +2403,10 @@
       "nearestCutout": {
         "file": "image2-07.png",
         "score": 57
-      }
+      },
+      "category": "colourful",
+      "subcategory": "flower",
+      "categoryName": "Colourful Rose"
     },
     {
       "id": "P086",
@@ -2160,7 +2426,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png",
         "score": 56.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P087",
@@ -2180,7 +2449,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32.png",
         "score": 55.7
-      }
+      },
+      "category": "gold",
+      "subcategory": "heart",
+      "categoryName": "Gold Heart"
     },
     {
       "id": "P088",
@@ -2200,7 +2472,10 @@
       "nearestCutout": {
         "file": "image2-07.png",
         "score": 59.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "flower",
+      "categoryName": "Colourful Rose"
     },
     {
       "id": "P089",
@@ -2220,7 +2495,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 61
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P090",
@@ -2240,7 +2518,10 @@
       "nearestCutout": {
         "file": "image2-07.png",
         "score": 55.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "flower",
+      "categoryName": "Colourful Rose"
     },
     {
       "id": "P091",
@@ -2260,7 +2541,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png",
         "score": 51.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Medallion"
     },
     {
       "id": "P092",
@@ -2280,7 +2564,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 48.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P093",
@@ -2300,7 +2587,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
         "score": 47.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "flower",
+      "categoryName": "Silver Rose"
     },
     {
       "id": "P094",
@@ -2320,7 +2610,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 51.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P095",
@@ -2340,7 +2633,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 47.8
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P096",
@@ -2360,7 +2656,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 46.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P097",
@@ -2380,7 +2679,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 56.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P098",
@@ -2400,7 +2702,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
         "score": 45.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "flower",
+      "categoryName": "Silver Rose"
     },
     {
       "id": "P099",
@@ -2420,7 +2725,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 54.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P100",
@@ -2440,7 +2748,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 49.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P101",
@@ -2460,7 +2771,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 50.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P102",
@@ -2480,7 +2794,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 55.2
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P103",
@@ -2500,7 +2817,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13.png",
         "score": 50.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P104",
@@ -2520,7 +2840,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 39.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P105",
@@ -2540,7 +2863,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 37.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P106",
@@ -2560,7 +2886,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 35.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P107",
@@ -2580,7 +2909,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 47.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P108",
@@ -2600,7 +2932,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 34.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P109",
@@ -2620,7 +2955,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 35.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P110",
@@ -2640,7 +2978,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 51.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P111",
@@ -2660,7 +3001,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-10.png",
         "score": 75.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P112",
@@ -2680,7 +3024,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 40.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P113",
@@ -2700,7 +3047,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 32.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P114",
@@ -2720,7 +3070,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 48.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P115",
@@ -2740,7 +3093,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 34.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P116",
@@ -2760,7 +3116,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 42.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P117",
@@ -2780,7 +3139,10 @@
       "nearestCutout": {
         "file": "silver-25.png",
         "score": 58.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "animal",
+      "categoryName": "Silver Leopard"
     },
     {
       "id": "P118",
@@ -2800,7 +3162,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 34.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P119",
@@ -2820,7 +3185,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 32.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P120",
@@ -2840,7 +3208,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 45.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P121",
@@ -2860,7 +3231,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 39.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P122",
@@ -2880,7 +3254,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 46.8
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P123",
@@ -2900,7 +3277,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 36.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P124",
@@ -2920,7 +3300,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 57.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P125",
@@ -2940,7 +3323,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 37.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P126",
@@ -2960,7 +3346,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 53.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P127",
@@ -2980,7 +3369,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 36.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P128",
@@ -3000,7 +3392,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
         "score": 26.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Vial"
     },
     {
       "id": "P129",
@@ -3020,7 +3415,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
         "score": 37.8
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Cloud"
     },
     {
       "id": "P130",
@@ -3040,7 +3438,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 52.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P131",
@@ -3060,7 +3461,10 @@
       "nearestCutout": {
         "file": "silver-22.png",
         "score": 45.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "gem",
+      "categoryName": "Silver Gemstone"
     },
     {
       "id": "P132",
@@ -3080,7 +3484,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 35.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P133",
@@ -3100,7 +3507,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 44.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P134",
@@ -3120,7 +3530,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 36.9
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P135",
@@ -3140,7 +3553,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 51.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P136",
@@ -3160,7 +3576,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 39.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P137",
@@ -3180,7 +3599,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 50.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P138",
@@ -3200,7 +3622,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 41.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P139",
@@ -3220,7 +3645,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 45.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P140",
@@ -3240,7 +3668,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 39.3
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P141",
@@ -3260,7 +3691,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 47.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P142",
@@ -3280,7 +3714,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 57.3
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P143",
@@ -3300,7 +3737,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 42.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P144",
@@ -3320,7 +3760,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 43.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P145",
@@ -3340,7 +3783,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 46
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P146",
@@ -3360,7 +3806,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 42.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P147",
@@ -3380,7 +3829,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 42.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P148",
@@ -3400,7 +3852,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 44.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P149",
@@ -3420,7 +3875,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 47.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P150",
@@ -3440,7 +3898,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 46.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P151",
@@ -3460,7 +3921,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 48.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P152",
@@ -3480,7 +3944,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 49.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P153",
@@ -3500,7 +3967,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 43.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P154",
@@ -3520,7 +3990,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 46.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P155",
@@ -3540,7 +4013,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 44.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P156",
@@ -3560,7 +4036,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 47.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P157",
@@ -3580,7 +4059,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 51.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P158",
@@ -3600,7 +4082,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 56.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P159",
@@ -3620,7 +4105,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 56.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P160",
@@ -3640,7 +4128,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 52.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P161",
@@ -3660,7 +4151,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 36.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P162",
@@ -3680,7 +4174,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 38.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P163",
@@ -3700,7 +4197,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 53.8
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P164",
@@ -3720,7 +4220,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 32.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P165",
@@ -3737,7 +4240,9 @@
       "mmH": 24.1,
       "mmLong": 24.1,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P166",
@@ -3754,7 +4259,9 @@
       "mmH": 11.3,
       "mmLong": 12.4,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P167",
@@ -3771,7 +4278,9 @@
       "mmH": 19.7,
       "mmLong": 29.3,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P168",
@@ -3788,7 +4297,9 @@
       "mmH": 8.2,
       "mmLong": 8.3,
       "tier": "XS",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P169",
@@ -3805,7 +4316,9 @@
       "mmH": 18,
       "mmLong": 18.1,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P170",
@@ -3822,7 +4335,9 @@
       "mmH": 26.5,
       "mmLong": 26.5,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P171",
@@ -3839,7 +4354,9 @@
       "mmH": 9.2,
       "mmLong": 14.2,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P172",
@@ -3856,7 +4373,9 @@
       "mmH": 36,
       "mmLong": 36,
       "tier": "L",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P173",
@@ -3873,7 +4392,9 @@
       "mmH": 13,
       "mmLong": 15,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P174",
@@ -3890,7 +4411,9 @@
       "mmH": 45.2,
       "mmLong": 45.2,
       "tier": "XL",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P175",
@@ -3907,7 +4430,9 @@
       "mmH": 29.9,
       "mmLong": 29.9,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P176",
@@ -3924,7 +4449,9 @@
       "mmH": 20.4,
       "mmLong": 20.4,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P177",
@@ -3941,7 +4468,9 @@
       "mmH": 21.6,
       "mmLong": 23.1,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P178",
@@ -3958,7 +4487,9 @@
       "mmH": 25.5,
       "mmLong": 30.2,
       "tier": "L",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P179",
@@ -3978,7 +4509,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
         "score": 59.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Scales"
     },
     {
       "id": "P180",
@@ -3995,7 +4529,9 @@
       "mmH": 23,
       "mmLong": 23.6,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P181",
@@ -4012,7 +4548,9 @@
       "mmH": 23.9,
       "mmLong": 23.9,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P182",
@@ -4029,7 +4567,9 @@
       "mmH": 23.7,
       "mmLong": 23.7,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P183",
@@ -4049,7 +4589,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 64.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P184",
@@ -4069,7 +4612,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07.png",
         "score": 73.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P185",
@@ -4089,7 +4635,10 @@
       "nearestCutout": {
         "file": "image2-19.png",
         "score": 43.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "heart",
+      "categoryName": "Silver Heart"
     },
     {
       "id": "P186",
@@ -4109,7 +4658,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 68.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P187",
@@ -4129,7 +4681,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 57.8
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P188",
@@ -4146,7 +4701,9 @@
       "mmH": 13.7,
       "mmLong": 13.7,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P189",
@@ -4163,7 +4720,9 @@
       "mmH": 12.2,
       "mmLong": 13,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P190",
@@ -4183,7 +4742,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 50.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P191",
@@ -4203,7 +4765,10 @@
       "nearestCutout": {
         "file": "image2-19.png",
         "score": 44.3
-      }
+      },
+      "category": "silver",
+      "subcategory": "heart",
+      "categoryName": "Silver Heart"
     },
     {
       "id": "P192",
@@ -4223,7 +4788,10 @@
       "nearestCutout": {
         "file": "image2-29.png",
         "score": 47.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "heart",
+      "categoryName": "Colourful Heart"
     },
     {
       "id": "P193",
@@ -4243,7 +4811,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-15.png",
         "score": 67.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P194",
@@ -4263,7 +4834,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 67.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P195",
@@ -4283,7 +4857,10 @@
       "nearestCutout": {
         "file": "image3-16.png",
         "score": 57.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "fruit",
+      "categoryName": "Colourful Pomegranate"
     },
     {
       "id": "P196",
@@ -4303,7 +4880,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14.png",
         "score": 58.9
-      }
+      },
+      "category": "colourful",
+      "subcategory": "fruit",
+      "categoryName": "Colourful Pomegranate"
     },
     {
       "id": "P197",
@@ -4323,7 +4903,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
         "score": 44.3
-      }
+      },
+      "category": "silver",
+      "subcategory": "celestial",
+      "categoryName": "Silver Moon"
     },
     {
       "id": "P198",
@@ -4343,7 +4926,10 @@
       "nearestCutout": {
         "file": "image2-07.png",
         "score": 69.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "flower",
+      "categoryName": "Colourful Rose"
     },
     {
       "id": "P199",
@@ -4363,7 +4949,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
         "score": 42.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "pearl",
+      "categoryName": "Natural Abalone Pearl"
     },
     {
       "id": "P200",
@@ -4383,7 +4972,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
         "score": 37.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P201",
@@ -4400,7 +4992,9 @@
       "mmW": 14.1,
       "mmH": 17.5,
       "mmLong": 17.5,
-      "tier": "S"
+      "tier": "S",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P202",
@@ -4417,7 +5011,9 @@
       "mmW": 10.3,
       "mmH": 10.3,
       "mmLong": 10.3,
-      "tier": "XS"
+      "tier": "XS",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P203",
@@ -4434,7 +5030,9 @@
       "mmW": 15.7,
       "mmH": 28.2,
       "mmLong": 28.2,
-      "tier": "M"
+      "tier": "M",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P204",
@@ -4454,7 +5052,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 60.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P205",
@@ -4471,7 +5072,9 @@
       "mmW": 16.3,
       "mmH": 16.5,
       "mmLong": 16.5,
-      "tier": "S"
+      "tier": "S",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P206",
@@ -4488,7 +5091,9 @@
       "mmW": 9.3,
       "mmH": 23.1,
       "mmLong": 23.1,
-      "tier": "M"
+      "tier": "M",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P207",
@@ -4508,7 +5113,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 37.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P208",
@@ -4528,7 +5136,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 40.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P209",
@@ -4548,7 +5159,10 @@
       "nearestCutout": {
         "file": "silver-25.png",
         "score": 41
-      }
+      },
+      "category": "silver",
+      "subcategory": "animal",
+      "categoryName": "Silver Leopard"
     },
     {
       "id": "P210",
@@ -4568,7 +5182,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16.png",
         "score": 47.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "pearl",
+      "categoryName": "Natural Pearl"
     },
     {
       "id": "P211",
@@ -4585,7 +5202,9 @@
       "mmW": 17,
       "mmH": 15.4,
       "mmLong": 17,
-      "tier": "S"
+      "tier": "S",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P212",
@@ -4605,7 +5224,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 60.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P213",
@@ -4625,7 +5247,10 @@
       "nearestCutout": {
         "file": "silver-25.png",
         "score": 53.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "animal",
+      "categoryName": "Silver Leopard"
     },
     {
       "id": "P214",
@@ -4645,7 +5270,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-28.png",
         "score": 65.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P215",
@@ -4665,7 +5293,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 41.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P216",
@@ -4685,7 +5316,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-03.png",
         "score": 63.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Diamond"
     },
     {
       "id": "P217",
@@ -4705,7 +5339,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15.png",
         "score": 70.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Compass"
     },
     {
       "id": "P218",
@@ -4725,7 +5362,10 @@
       "nearestCutout": {
         "file": "image3-15.png",
         "score": 59.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Tooth"
     },
     {
       "id": "P219",
@@ -4745,7 +5385,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-14.png",
         "score": 55.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Sea Glass"
     },
     {
       "id": "P220",
@@ -4765,7 +5408,10 @@
       "nearestCutout": {
         "file": "silver-19.png",
         "score": 40.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Boot"
     },
     {
       "id": "P221",
@@ -4785,7 +5431,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14.png",
         "score": 52.6
-      }
+      },
+      "category": "colourful",
+      "subcategory": "fruit",
+      "categoryName": "Colourful Pomegranate"
     },
     {
       "id": "P222",
@@ -4805,7 +5454,10 @@
       "nearestCutout": {
         "file": "image3-21.png",
         "score": 43.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Tortoiseshell"
     },
     {
       "id": "P223",
@@ -4822,7 +5474,9 @@
       "mmW": 13.8,
       "mmH": 34.4,
       "mmLong": 34.4,
-      "tier": "L"
+      "tier": "L",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P224",
@@ -4839,7 +5493,9 @@
       "mmW": 14.6,
       "mmH": 19.9,
       "mmLong": 19.9,
-      "tier": "S"
+      "tier": "S",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P225",
@@ -4856,7 +5512,9 @@
       "mmW": 10.8,
       "mmH": 17.8,
       "mmLong": 17.8,
-      "tier": "S"
+      "tier": "S",
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P226",
@@ -4876,7 +5534,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07.png",
         "score": 60.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P227",
@@ -4896,7 +5557,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png",
         "score": 62.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Key"
     },
     {
       "id": "P228",
@@ -4916,7 +5580,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 39.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P229",
@@ -4936,7 +5603,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02.png",
         "score": 58.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P230",
@@ -4956,7 +5626,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 45.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P231",
@@ -4976,7 +5649,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png",
         "score": 63.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Scales"
     },
     {
       "id": "P232",
@@ -4996,7 +5672,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 62.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P233",
@@ -5016,7 +5695,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 62.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P234",
@@ -5036,7 +5718,10 @@
       "nearestCutout": {
         "file": "image2-25.png",
         "score": 82.5
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Ornament"
     },
     {
       "id": "P235",
@@ -5056,7 +5741,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 48.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P236",
@@ -5076,7 +5764,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 51.8
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P237",
@@ -5096,7 +5787,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 48.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P238",
@@ -5116,7 +5810,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 51
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P239",
@@ -5136,7 +5833,10 @@
       "nearestCutout": {
         "file": "image3-19.png",
         "score": 54
-      }
+      },
+      "category": "colourful",
+      "subcategory": "heart",
+      "categoryName": "Colourful Heart"
     },
     {
       "id": "P240",
@@ -5156,7 +5856,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
         "score": 45.5
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P241",
@@ -5176,7 +5879,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-08.png",
         "score": 44.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P242",
@@ -5196,7 +5902,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
         "score": 51.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P243",
@@ -5216,7 +5925,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11.png",
         "score": 51.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P244",
@@ -5236,7 +5948,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png",
         "score": 42.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P245",
@@ -5256,7 +5971,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 54.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P246",
@@ -5276,7 +5994,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 35.9
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P247",
@@ -5296,7 +6017,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-23.png",
         "score": 31.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P248",
@@ -5316,7 +6040,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15.png",
         "score": 63.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Compass"
     },
     {
       "id": "P249",
@@ -5336,7 +6063,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-09.png",
         "score": 56.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "moon",
+      "categoryName": "Natural Moon"
     },
     {
       "id": "P250",
@@ -5356,7 +6086,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 58.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P251",
@@ -5376,7 +6109,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 49.2
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P252",
@@ -5396,7 +6132,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-17.png",
         "score": 45.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "star",
+      "categoryName": "Natural Star"
     },
     {
       "id": "P253",
@@ -5416,7 +6155,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-25.png",
         "score": 44.6
-      }
+      },
+      "category": "natural",
+      "subcategory": "moon",
+      "categoryName": "Natural Moon"
     },
     {
       "id": "P254",
@@ -5436,7 +6178,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-31.png",
         "score": 14.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Pin"
     },
     {
       "id": "P255",
@@ -5456,7 +6201,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
         "score": 32.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P256",
@@ -5476,7 +6224,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-40.png",
         "score": 34.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "pearl",
+      "categoryName": "Natural Pearl"
     },
     {
       "id": "P257",
@@ -5496,7 +6247,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
         "score": 32.6
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P258",
@@ -5516,7 +6270,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 33.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P259",
@@ -5536,7 +6293,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
         "score": 21.2
-      }
+      },
+      "category": "natural",
+      "subcategory": "animal",
+      "categoryName": "Natural Dog"
     },
     {
       "id": "P260",
@@ -5556,7 +6316,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
         "score": 28.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P261",
@@ -5576,7 +6339,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
         "score": 15
-      }
+      },
+      "category": "natural",
+      "subcategory": "animal",
+      "categoryName": "Natural Dog"
     },
     {
       "id": "P262",
@@ -5596,7 +6362,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18.png",
         "score": 29.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P263",
@@ -5616,7 +6385,10 @@
       "nearestCutout": {
         "file": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-54.png",
         "score": 56.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "celestial",
+      "categoryName": "Gold Sun"
     },
     {
       "id": "P264",
@@ -5636,7 +6408,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-31.png",
         "score": 14.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Pin"
     },
     {
       "id": "P265",
@@ -5656,7 +6431,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48.png",
         "score": 38.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "bow",
+      "categoryName": "Silver Bow"
     },
     {
       "id": "P266",
@@ -5676,7 +6454,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 35.4
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P267",
@@ -5696,7 +6477,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04.png",
         "score": 29.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P268",
@@ -5716,7 +6500,10 @@
       "nearestCutout": {
         "file": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png",
         "score": 9.9
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Cloud"
     },
     {
       "id": "P269",
@@ -5736,7 +6523,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png",
         "score": 28.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "other",
+      "categoryName": "Natural Vial"
     },
     {
       "id": "P270",
@@ -5756,7 +6546,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
         "score": 29.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "pearl",
+      "categoryName": "Natural Abalone Pearl"
     },
     {
       "id": "P271",
@@ -5776,7 +6569,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 62.1
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P272",
@@ -5796,7 +6592,10 @@
       "nearestCutout": {
         "file": "silver-07.png",
         "score": 44.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Scales"
     },
     {
       "id": "P273",
@@ -5813,7 +6612,9 @@
       "mmH": 44.9,
       "mmLong": 44.9,
       "tier": "XL",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P274",
@@ -5833,7 +6634,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 40.8
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P275",
@@ -5853,7 +6657,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 51.1
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P276",
@@ -5873,7 +6680,10 @@
       "nearestCutout": {
         "file": "silver-25.png",
         "score": 54.5
-      }
+      },
+      "category": "silver",
+      "subcategory": "animal",
+      "categoryName": "Silver Leopard"
     },
     {
       "id": "P277",
@@ -5893,7 +6703,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-09.png",
         "score": 59.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P278",
@@ -5913,7 +6726,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
         "score": 59
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P279",
@@ -5933,7 +6749,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
         "score": 59
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P280",
@@ -5953,7 +6772,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 44.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P281",
@@ -5973,7 +6795,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 44.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P282",
@@ -5993,7 +6818,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 63
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P283",
@@ -6013,7 +6841,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06.png",
         "score": 59
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P284",
@@ -6033,7 +6864,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 46.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P285",
@@ -6053,7 +6887,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png",
         "score": 63
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Racket"
     },
     {
       "id": "P286",
@@ -6073,7 +6910,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-14.png",
         "score": 41.7
-      }
+      },
+      "category": "gold",
+      "subcategory": "animal",
+      "categoryName": "Gold Starfish"
     },
     {
       "id": "P287",
@@ -6093,7 +6933,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
         "score": 39.8
-      }
+      },
+      "category": "silver",
+      "subcategory": "celestial",
+      "categoryName": "Silver Moon"
     },
     {
       "id": "P288",
@@ -6113,7 +6956,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 46.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P289",
@@ -6130,7 +6976,9 @@
       "mmH": 17.2,
       "mmLong": 17.2,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P290",
@@ -6150,7 +6998,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-12.png",
         "score": 55
-      }
+      },
+      "category": "gold",
+      "subcategory": "angel",
+      "categoryName": "Gold Angel"
     },
     {
       "id": "P291",
@@ -6167,7 +7018,9 @@
       "mmH": 17,
       "mmLong": 17,
       "tier": "S",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P292",
@@ -6184,7 +7037,9 @@
       "mmH": 26.6,
       "mmLong": 26.6,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P293",
@@ -6204,7 +7059,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 31.4
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P294",
@@ -6224,7 +7082,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-22.png",
         "score": 76
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P295",
@@ -6244,7 +7105,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 45.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P296",
@@ -6264,7 +7128,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-21.png",
         "score": 51.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P297",
@@ -6284,7 +7151,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 32
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P298",
@@ -6304,7 +7174,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 50.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P299",
@@ -6324,7 +7197,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47.png",
         "score": 29.6
-      }
+      },
+      "category": "silver",
+      "subcategory": "flower",
+      "categoryName": "Silver Rose"
     },
     {
       "id": "P300",
@@ -6344,7 +7220,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 38.2
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P301",
@@ -6364,7 +7243,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 47.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P302",
@@ -6384,7 +7266,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-11.png",
         "score": 51.3
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P303",
@@ -6404,7 +7289,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 47.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P304",
@@ -6424,7 +7312,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 77.6
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P305",
@@ -6444,7 +7335,10 @@
       "nearestCutout": {
         "file": "silver-15.png",
         "score": 50
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Coin"
     },
     {
       "id": "P306",
@@ -6464,7 +7358,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 35.7
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P307",
@@ -6481,7 +7378,9 @@
       "mmH": 21.7,
       "mmLong": 21.7,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P308",
@@ -6501,7 +7400,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 44.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P309",
@@ -6518,7 +7420,9 @@
       "mmH": 20.1,
       "mmLong": 20.1,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P310",
@@ -6538,7 +7442,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 52.3
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P311",
@@ -6555,7 +7462,9 @@
       "mmH": 26.3,
       "mmLong": 26.3,
       "tier": "M",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P312",
@@ -6575,7 +7484,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 54.8
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P313",
@@ -6595,7 +7507,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png",
         "score": 73.2
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Card Ace"
     },
     {
       "id": "P314",
@@ -6615,7 +7530,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-21.png",
         "score": 60.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P315",
@@ -6635,7 +7553,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 46.1
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P316",
@@ -6655,7 +7576,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 45.7
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P317",
@@ -6675,7 +7599,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-30.png",
         "score": 48.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "stone",
+      "categoryName": "Natural Stone"
     },
     {
       "id": "P318",
@@ -6692,7 +7619,9 @@
       "mmH": 6.1,
       "mmLong": 11.9,
       "tier": "XS",
-      "nearestCutout": null
+      "nearestCutout": null,
+      "category": null,
+      "subcategory": null
     },
     {
       "id": "P319",
@@ -6712,7 +7641,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 43.6
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P320",
@@ -6732,7 +7664,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-29.png",
         "score": 35
-      }
+      },
+      "category": "natural",
+      "subcategory": "gem",
+      "categoryName": "Natural Amethyst"
     },
     {
       "id": "P321",
@@ -6752,7 +7687,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05.png",
         "score": 32.5
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Abalone Shell"
     },
     {
       "id": "P322",
@@ -6772,7 +7710,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
         "score": 41.4
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P323",
@@ -6792,7 +7733,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-01.png",
         "score": 42.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell Cameo"
     },
     {
       "id": "P324",
@@ -6812,7 +7756,10 @@
       "nearestCutout": {
         "file": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
         "score": 47.9
-      }
+      },
+      "category": "gold",
+      "subcategory": "symbol",
+      "categoryName": "Gold Bow Arrow"
     },
     {
       "id": "P325",
@@ -6832,7 +7779,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 58.4
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P326",
@@ -6852,7 +7802,10 @@
       "nearestCutout": {
         "file": "e540ac60-3ca6-447f-833a-9234eec3b235-03.png",
         "score": 44.1
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P327",
@@ -6872,7 +7825,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
         "score": 48.7
-      }
+      },
+      "category": "silver",
+      "subcategory": "celestial",
+      "categoryName": "Silver Moon"
     },
     {
       "id": "P328",
@@ -6892,7 +7848,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 31.6
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P329",
@@ -6912,7 +7871,10 @@
       "nearestCutout": {
         "file": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
         "score": 38.3
-      }
+      },
+      "category": "gold",
+      "subcategory": "flower",
+      "categoryName": "Gold Leaf"
     },
     {
       "id": "P330",
@@ -6932,7 +7894,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
         "score": 44
-      }
+      },
+      "category": "silver",
+      "subcategory": "celestial",
+      "categoryName": "Silver Moon"
     },
     {
       "id": "P331",
@@ -6952,7 +7917,10 @@
       "nearestCutout": {
         "file": "silver-02.png",
         "score": 31.6
-      }
+      },
+      "category": "silver",
+      "subcategory": "symbol",
+      "categoryName": "Silver Key"
     },
     {
       "id": "P332",
@@ -6972,7 +7940,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-01.png",
         "score": 37.6
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell Cameo"
     },
     {
       "id": "P333",
@@ -6992,7 +7963,10 @@
       "nearestCutout": {
         "file": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-08.png",
         "score": 38
-      }
+      },
+      "category": "natural",
+      "subcategory": "shell",
+      "categoryName": "Natural Shell"
     },
     {
       "id": "P334",
@@ -7012,7 +7986,10 @@
       "nearestCutout": {
         "file": "image3-07.png",
         "score": 46
-      }
+      },
+      "category": "colourful",
+      "subcategory": "symbol",
+      "categoryName": "Colourful Card Sun"
     },
     {
       "id": "P335",
@@ -7032,7 +8009,10 @@
       "nearestCutout": {
         "file": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png",
         "score": 36.6
-      }
+      },
+      "category": "silver",
+      "subcategory": "celestial",
+      "categoryName": "Silver Moon"
     }
   ],
   "skipped": [
@@ -7056,5 +8036,2376 @@
         "h": 87
       }
     }
-  ]
+  ],
+  "taxonomy": {
+    "generatedAt": "2026-06-24T18:12:08.299Z",
+    "majors": [
+      {
+        "key": "gold",
+        "label": "Gold",
+        "count": 117,
+        "subs": [
+          {
+            "key": "letter",
+            "label": "Letters",
+            "count": 26
+          },
+          {
+            "key": "symbol",
+            "label": "Symbols & icons",
+            "count": 22
+          },
+          {
+            "key": "celestial",
+            "label": "Celestial",
+            "count": 15
+          },
+          {
+            "key": "zodiac",
+            "label": "Zodiac signs",
+            "count": 12
+          },
+          {
+            "key": "number",
+            "label": "Numbers",
+            "count": 10
+          },
+          {
+            "key": "flower",
+            "label": "Flowers",
+            "count": 7
+          },
+          {
+            "key": "shell",
+            "label": "Shells",
+            "count": 5
+          },
+          {
+            "key": "angel",
+            "label": "Angels & cherubs",
+            "count": 4
+          },
+          {
+            "key": "star",
+            "label": "Stars",
+            "count": 4
+          },
+          {
+            "key": "gem",
+            "label": "Crystals & gems",
+            "count": 4
+          },
+          {
+            "key": "bow",
+            "label": "Bows",
+            "count": 3
+          },
+          {
+            "key": "animal",
+            "label": "Animals",
+            "count": 2
+          },
+          {
+            "key": "heart",
+            "label": "Hearts",
+            "count": 2
+          },
+          {
+            "key": "other",
+            "label": "One of a kind",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "key": "silver",
+        "label": "Silver",
+        "count": 66,
+        "subs": [
+          {
+            "key": "letter",
+            "label": "Letters",
+            "count": 26
+          },
+          {
+            "key": "symbol",
+            "label": "Symbols & icons",
+            "count": 18
+          },
+          {
+            "key": "celestial",
+            "label": "Celestial",
+            "count": 4
+          },
+          {
+            "key": "heart",
+            "label": "Hearts",
+            "count": 4
+          },
+          {
+            "key": "gem",
+            "label": "Crystals & gems",
+            "count": 4
+          },
+          {
+            "key": "bow",
+            "label": "Bows",
+            "count": 3
+          },
+          {
+            "key": "shell",
+            "label": "Shells",
+            "count": 2
+          },
+          {
+            "key": "flower",
+            "label": "Flowers",
+            "count": 2
+          },
+          {
+            "key": "angel",
+            "label": "Angels & cherubs",
+            "count": 1
+          },
+          {
+            "key": "star",
+            "label": "Stars",
+            "count": 1
+          },
+          {
+            "key": "animal",
+            "label": "Animals",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "key": "natural",
+        "label": "Natural",
+        "count": 103,
+        "subs": [
+          {
+            "key": "stone",
+            "label": "Stones",
+            "count": 37
+          },
+          {
+            "key": "shell",
+            "label": "Shells",
+            "count": 24
+          },
+          {
+            "key": "pearl",
+            "label": "Pearls",
+            "count": 7
+          },
+          {
+            "key": "pottery",
+            "label": "Sea pottery",
+            "count": 6
+          },
+          {
+            "key": "moon",
+            "label": "Moons",
+            "count": 5
+          },
+          {
+            "key": "star",
+            "label": "Stars",
+            "count": 5
+          },
+          {
+            "key": "ceramic",
+            "label": "Ceramic",
+            "count": 4
+          },
+          {
+            "key": "flower",
+            "label": "Flowers",
+            "count": 3
+          },
+          {
+            "key": "animal",
+            "label": "Animals",
+            "count": 3
+          },
+          {
+            "key": "other",
+            "label": "One of a kind",
+            "count": 3
+          },
+          {
+            "key": "coral",
+            "label": "Coral",
+            "count": 3
+          },
+          {
+            "key": "bow",
+            "label": "Bows",
+            "count": 1
+          },
+          {
+            "key": "angel",
+            "label": "Angels & cherubs",
+            "count": 1
+          },
+          {
+            "key": "gem",
+            "label": "Crystals & gems",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "key": "colourful",
+        "label": "Colourful",
+        "count": 65,
+        "subs": [
+          {
+            "key": "flower",
+            "label": "Flowers",
+            "count": 21
+          },
+          {
+            "key": "symbol",
+            "label": "Symbols & icons",
+            "count": 19
+          },
+          {
+            "key": "heart",
+            "label": "Hearts",
+            "count": 12
+          },
+          {
+            "key": "fruit",
+            "label": "Fruit",
+            "count": 5
+          },
+          {
+            "key": "bow",
+            "label": "Bows",
+            "count": 5
+          },
+          {
+            "key": "shell",
+            "label": "Shells",
+            "count": 2
+          },
+          {
+            "key": "gem",
+            "label": "Crystals & gems",
+            "count": 1
+          }
+        ]
+      }
+    ]
+  },
+  "cutoutCategories": {
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-01": {
+      "major": "gold",
+      "sub": "other",
+      "label": "seahorse",
+      "name": "Gold Seahorse"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03": {
+      "major": "gold",
+      "sub": "angel",
+      "label": null,
+      "name": "Gold Angel"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-04": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "C",
+      "name": "Gold Letter C"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-05": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "A",
+      "name": "Gold Letter A"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-06": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "B",
+      "name": "Gold Letter B"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-07": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "D",
+      "name": "Gold Letter D"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-08": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "E",
+      "name": "Gold Letter E"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-09": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "infinity",
+      "name": "Gold Infinity"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-10": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "G",
+      "name": "Gold Letter G"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-11": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "H",
+      "name": "Gold Letter H"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-12": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "I",
+      "name": "Gold Letter I"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-13": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "J",
+      "name": "Gold Letter J"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-14": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "F",
+      "name": "Gold Letter F"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "compass",
+      "name": "Gold Compass"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-16": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "K",
+      "name": "Gold Letter K"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-17": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "L",
+      "name": "Gold Letter L"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-18": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "M",
+      "name": "Gold Letter M"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-19": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "N",
+      "name": "Gold Letter N"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-20": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "O",
+      "name": "Gold Letter O"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-21": {
+      "major": "gold",
+      "sub": "number",
+      "label": "2",
+      "name": "Gold Number 2"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-22": {
+      "major": "gold",
+      "sub": "number",
+      "label": "1",
+      "name": "Gold Number 1"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-23": {
+      "major": "gold",
+      "sub": "number",
+      "label": "0",
+      "name": "Gold Number 0"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-24": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "P",
+      "name": "Gold Letter P"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-25": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "Q",
+      "name": "Gold Letter Q"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-26": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "R",
+      "name": "Gold Letter R"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-27": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "S",
+      "name": "Gold Letter S"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-28": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "T",
+      "name": "Gold Letter T"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-29": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "U",
+      "name": "Gold Letter U"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-30": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "V",
+      "name": "Gold Letter V"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-31": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "W",
+      "name": "Gold Letter W"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-32": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "X",
+      "name": "Gold Letter X"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-33": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "Y",
+      "name": "Gold Letter Y"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-34": {
+      "major": "gold",
+      "sub": "letter",
+      "label": "Z",
+      "name": "Gold Letter Z"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-35": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-36": {
+      "major": "gold",
+      "sub": "number",
+      "label": "5",
+      "name": "Gold Number 5"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-37": {
+      "major": "gold",
+      "sub": "number",
+      "label": "3",
+      "name": "Gold Number 3"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-38": {
+      "major": "gold",
+      "sub": "number",
+      "label": "4",
+      "name": "Gold Number 4"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-39": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Leo",
+      "name": "Gold Zodiac · Leo"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-40": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Cancer",
+      "name": "Gold Zodiac · Cancer"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-41": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Taurus",
+      "name": "Gold Zodiac · Taurus"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-42": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Aries",
+      "name": "Gold Zodiac · Aries"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-43": {
+      "major": "gold",
+      "sub": "number",
+      "label": "9",
+      "name": "Gold Number 9"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-44": {
+      "major": "gold",
+      "sub": "number",
+      "label": "8",
+      "name": "Gold Number 8"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-45": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-46": {
+      "major": "gold",
+      "sub": "number",
+      "label": "7",
+      "name": "Gold Number 7"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-47": {
+      "major": "gold",
+      "sub": "number",
+      "label": "6",
+      "name": "Gold Number 6"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-48": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Pisces",
+      "name": "Gold Zodiac · Pisces"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-49": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Libra",
+      "name": "Gold Zodiac · Libra"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-50": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Scorpio",
+      "name": "Gold Zodiac · Scorpio"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-51": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Aquarius",
+      "name": "Gold Zodiac · Aquarius"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-52": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "branch",
+      "name": "Gold Branch"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-53": {
+      "major": "gold",
+      "sub": "angel",
+      "label": null,
+      "name": "Gold Angel"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-54": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-55": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Capricorn",
+      "name": "Gold Zodiac · Capricorn"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-56": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Gemini",
+      "name": "Gold Zodiac · Gemini"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-57": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Sagittarius",
+      "name": "Gold Zodiac · Sagittarius"
+    },
+    "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-58": {
+      "major": "gold",
+      "sub": "zodiac",
+      "label": "Virgo",
+      "name": "Gold Zodiac · Virgo"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01": {
+      "major": "silver",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Silver Sun"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-02": {
+      "major": "natural",
+      "sub": "flower",
+      "label": null,
+      "name": "Natural Flower"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-03": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "fan",
+      "name": "Silver Fan"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04": {
+      "major": "silver",
+      "sub": "shell",
+      "label": null,
+      "name": "Silver Shell"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-05": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": "flower",
+      "name": "Natural Pearl Flower"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-06": {
+      "major": "silver",
+      "sub": "bow",
+      "label": null,
+      "name": "Silver Bow"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-07": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "A",
+      "name": "Silver Letter A"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-08": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "B",
+      "name": "Silver Letter B"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-09": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "C",
+      "name": "Silver Letter C"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-10": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "D",
+      "name": "Silver Letter D"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11": {
+      "major": "natural",
+      "sub": "animal",
+      "label": "dog",
+      "name": "Natural Dog"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-12": {
+      "major": "silver",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Silver Rose"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-13": {
+      "major": "silver",
+      "sub": "shell",
+      "label": "nautilus",
+      "name": "Silver Nautilus Shell"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-14": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "pin-heart",
+      "name": "Silver Pin Heart"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-15": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "E",
+      "name": "Silver Letter E"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-16": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "H",
+      "name": "Silver Letter H"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-17": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "F",
+      "name": "Silver Letter F"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-18": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "G",
+      "name": "Silver Letter G"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-19": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "I",
+      "name": "Silver Letter I"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20": {
+      "major": "natural",
+      "sub": "animal",
+      "label": "rabbit",
+      "name": "Natural Rabbit"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-21": {
+      "major": "natural",
+      "sub": "bow",
+      "label": "pearl",
+      "name": "Natural Pearl Bow"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-22": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "K",
+      "name": "Silver Letter K"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-23": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "L",
+      "name": "Silver Letter L"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-24": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "M",
+      "name": "Silver Letter M"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-25": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "J",
+      "name": "Silver Letter J"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-26": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "O",
+      "name": "Silver Letter O"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-27": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "N",
+      "name": "Silver Letter N"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-28": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "P",
+      "name": "Silver Letter P"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-29": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "Q",
+      "name": "Silver Letter Q"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-30": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "R",
+      "name": "Silver Letter R"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-31": {
+      "major": "natural",
+      "sub": "other",
+      "label": "pin",
+      "name": "Natural Pin"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32": {
+      "major": "natural",
+      "sub": "other",
+      "label": "vial",
+      "name": "Natural Vial"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-33": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "amber",
+      "name": "Natural Amber"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-34": {
+      "major": "silver",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Silver Moon"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-35": {
+      "major": "natural",
+      "sub": "animal",
+      "label": "butterfly",
+      "name": "Natural Butterfly"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-36": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "S",
+      "name": "Silver Letter S"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-37": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "T",
+      "name": "Silver Letter T"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-38": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "U",
+      "name": "Silver Letter U"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-39": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "V",
+      "name": "Silver Letter V"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-40": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": null,
+      "name": "Natural Pearl"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-41": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "Y",
+      "name": "Silver Letter Y"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-42": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "W",
+      "name": "Silver Letter W"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-43": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "X",
+      "name": "Silver Letter X"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-44": {
+      "major": "silver",
+      "sub": "letter",
+      "label": "Z",
+      "name": "Silver Letter Z"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": "baroque",
+      "name": "Natural Baroque Pearl"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "pin-heart",
+      "name": "Silver Pin Heart"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47": {
+      "major": "silver",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Silver Rose"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-48": {
+      "major": "silver",
+      "sub": "bow",
+      "label": null,
+      "name": "Silver Bow"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-49": {
+      "major": "natural",
+      "sub": "flower",
+      "label": null,
+      "name": "Natural Flower"
+    },
+    "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50": {
+      "major": "natural",
+      "sub": "angel",
+      "label": null,
+      "name": "Natural Angel"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-01": {
+      "major": "gold",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Gold Rose"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-02": {
+      "major": "gold",
+      "sub": "shell",
+      "label": null,
+      "name": "Gold Shell"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-03": {
+      "major": "gold",
+      "sub": "shell",
+      "label": "nautilus",
+      "name": "Gold Nautilus Shell"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-04": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "music",
+      "name": "Gold Music"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-05": {
+      "major": "gold",
+      "sub": "star",
+      "label": null,
+      "name": "Gold Star"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-06": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "guitar",
+      "name": "Gold Guitar"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-07": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "music-clef",
+      "name": "Gold Music Clef"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-08": {
+      "major": "gold",
+      "sub": "animal",
+      "label": "dolphin",
+      "name": "Gold Dolphin"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-09": {
+      "major": "gold",
+      "sub": "shell",
+      "label": "cowrie",
+      "name": "Gold Cowrie Shell"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-10": {
+      "major": "gold",
+      "sub": "bow",
+      "label": null,
+      "name": "Gold Bow"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "key",
+      "name": "Gold Key"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-12": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "violin",
+      "name": "Gold Violin"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-13": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "key",
+      "name": "Gold Key"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-14": {
+      "major": "gold",
+      "sub": "animal",
+      "label": "starfish",
+      "name": "Gold Starfish"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15": {
+      "major": "gold",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Gold Pearl"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-16": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-17": {
+      "major": "gold",
+      "sub": "shell",
+      "label": "cowrie",
+      "name": "Gold Cowrie Shell"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-18": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "medallion",
+      "name": "Gold Medallion"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-19": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "coin",
+      "name": "Gold Coin"
+    },
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "bow-arrow",
+      "name": "Gold Bow Arrow"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-01": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "cameo",
+      "name": "Natural Shell Cameo"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-02": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-04": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "abalone",
+      "name": "Natural Abalone Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-07": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-08": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-09": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-10": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": null,
+      "name": "Natural Pearl"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-11": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "scallop",
+      "name": "Natural Scallop Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-12": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-13": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "abalone",
+      "name": "Natural Abalone Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-14": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "seaglass",
+      "name": "Natural Sea Glass"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-15": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "scallop",
+      "name": "Natural Scallop Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": null,
+      "name": "Natural Pearl"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-17": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": null,
+      "name": "Natural Pearl"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-19": {
+      "major": "natural",
+      "sub": "shell",
+      "label": "scallop",
+      "name": "Natural Scallop Shell"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-20": {
+      "major": "natural",
+      "sub": "coral",
+      "label": null,
+      "name": "Natural Coral"
+    },
+    "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21": {
+      "major": "natural",
+      "sub": "pearl",
+      "label": "abalone",
+      "name": "Natural Abalone Pearl"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "cross",
+      "name": "Gold Cross"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-03": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "ring",
+      "name": "Gold Ring"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-04": {
+      "major": "gold",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Gold Pearl"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "scales",
+      "name": "Gold Scales"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-06": {
+      "major": "gold",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Gold Rose"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-07": {
+      "major": "gold",
+      "sub": "flower",
+      "label": "cameo-rose",
+      "name": "Gold Cameo Rose"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08": {
+      "major": "gold",
+      "sub": "heart",
+      "label": null,
+      "name": "Gold Heart"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-09": {
+      "major": "gold",
+      "sub": "bow",
+      "label": null,
+      "name": "Gold Bow"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-10": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-11": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-12": {
+      "major": "gold",
+      "sub": "angel",
+      "label": null,
+      "name": "Gold Angel"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-13": {
+      "major": "gold",
+      "sub": "flower",
+      "label": null,
+      "name": "Gold Flower"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-14": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "boot",
+      "name": "Gold Boot"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15": {
+      "major": "gold",
+      "sub": "gem",
+      "label": "stone",
+      "name": "Gold Gemstone"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "card-ace",
+      "name": "Gold Card Ace"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-17": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "goblet",
+      "name": "Gold Goblet"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-18": {
+      "major": "gold",
+      "sub": "star",
+      "label": null,
+      "name": "Gold Star"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-19": {
+      "major": "gold",
+      "sub": "flower",
+      "label": null,
+      "name": "Gold Flower"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-21": {
+      "major": "gold",
+      "sub": "angel",
+      "label": null,
+      "name": "Gold Angel"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-22": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-23": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-24": {
+      "major": "gold",
+      "sub": "shell",
+      "label": null,
+      "name": "Gold Shell"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-26": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "sun",
+      "name": "Gold Sun"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "racket",
+      "name": "Gold Racket"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28": {
+      "major": "gold",
+      "sub": "flower",
+      "label": "leaf",
+      "name": "Gold Leaf"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-29": {
+      "major": "gold",
+      "sub": "star",
+      "label": null,
+      "name": "Gold Star"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-30": {
+      "major": "gold",
+      "sub": "bow",
+      "label": null,
+      "name": "Gold Bow"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31": {
+      "major": "gold",
+      "sub": "star",
+      "label": null,
+      "name": "Gold Star"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-32": {
+      "major": "gold",
+      "sub": "flower",
+      "label": "grapes",
+      "name": "Gold Grapes"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-33": {
+      "major": "gold",
+      "sub": "celestial",
+      "label": "moon",
+      "name": "Gold Moon"
+    },
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34": {
+      "major": "gold",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Gold Pearl"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-01": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-02": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-03": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-04": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-05": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-06": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-07": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-08": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-09": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-10": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-11": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-12": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "seaglass",
+      "name": "Natural Sea Glass"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-13": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-14": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-15": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-16": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-17": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-18": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-19": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "seaglass",
+      "name": "Natural Sea Glass"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-20": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "seaglass",
+      "name": "Natural Sea Glass"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-21": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-22": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-23": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-24": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-25": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-26": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-27": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-28": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-29": {
+      "major": "natural",
+      "sub": "gem",
+      "label": "amethyst",
+      "name": "Natural Amethyst"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-30": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-31": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-32": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-33": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-34": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-35": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "seaglass",
+      "name": "Natural Sea Glass"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-36": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-37": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-38": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-39": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e540ac60-3ca6-447f-833a-9234eec3b235-40": {
+      "major": "natural",
+      "sub": "pottery",
+      "label": null,
+      "name": "Natural Sea Pottery"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-01": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "boot",
+      "name": "Colourful Boot"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-02": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-03": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "diamond",
+      "name": "Colourful Diamond"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-04": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-05": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "lips",
+      "name": "Colourful Lips"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-06": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-ace",
+      "name": "Colourful Card Ace"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-sun",
+      "name": "Colourful Card Sun"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-08": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "cross",
+      "name": "Gold Cross"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-09": {
+      "major": "natural",
+      "sub": "moon",
+      "label": null,
+      "name": "Natural Moon"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-10": {
+      "major": "natural",
+      "sub": "star",
+      "label": null,
+      "name": "Natural Star"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11": {
+      "major": "natural",
+      "sub": "other",
+      "label": "cloud",
+      "name": "Natural Cloud"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-12": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "tooth",
+      "name": "Colourful Tooth"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-13": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-flower",
+      "name": "Colourful Card Flower"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14": {
+      "major": "colourful",
+      "sub": "fruit",
+      "label": "pomegranate",
+      "name": "Colourful Pomegranate"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-15": {
+      "major": "natural",
+      "sub": "flower",
+      "label": null,
+      "name": "Natural Flower"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-16": {
+      "major": "natural",
+      "sub": "star",
+      "label": null,
+      "name": "Natural Star"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-17": {
+      "major": "natural",
+      "sub": "star",
+      "label": null,
+      "name": "Natural Star"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-18": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "mirror",
+      "name": "Silver Mirror"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-19": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "cloisonne",
+      "name": "Colourful Cloisonne"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-20": {
+      "major": "natural",
+      "sub": "coral",
+      "label": null,
+      "name": "Natural Coral"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-21": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "tortoise",
+      "name": "Natural Tortoiseshell"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-22": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-flower",
+      "name": "Colourful Card Flower"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-23": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "amber",
+      "name": "Natural Amber"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-24": {
+      "major": "natural",
+      "sub": "moon",
+      "label": null,
+      "name": "Natural Moon"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-25": {
+      "major": "natural",
+      "sub": "moon",
+      "label": null,
+      "name": "Natural Moon"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-26": {
+      "major": "natural",
+      "sub": "star",
+      "label": null,
+      "name": "Natural Star"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27": {
+      "major": "natural",
+      "sub": "star",
+      "label": null,
+      "name": "Natural Star"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-28": {
+      "major": "natural",
+      "sub": "moon",
+      "label": null,
+      "name": "Natural Moon"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29": {
+      "major": "natural",
+      "sub": "moon",
+      "label": null,
+      "name": "Natural Moon"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30": {
+      "major": "natural",
+      "sub": "coral",
+      "label": null,
+      "name": "Natural Coral"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "cameo",
+      "name": "Colourful Flower"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32": {
+      "major": "gold",
+      "sub": "heart",
+      "label": null,
+      "name": "Gold Heart"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-33": {
+      "major": "natural",
+      "sub": "stone",
+      "label": null,
+      "name": "Natural Stone"
+    },
+    "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "eye",
+      "name": "Colourful Eye"
+    },
+    "image2-01": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "boot",
+      "name": "Colourful Boot"
+    },
+    "image2-02": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": null,
+      "name": "Colourful Heart"
+    },
+    "image2-03": {
+      "major": "colourful",
+      "sub": "fruit",
+      "label": "strawberry",
+      "name": "Colourful Strawberry"
+    },
+    "image2-04": {
+      "major": "colourful",
+      "sub": "fruit",
+      "label": "chili",
+      "name": "Colourful Chili"
+    },
+    "image2-05": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image2-06": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image2-07": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image2-08": {
+      "major": "natural",
+      "sub": "shell",
+      "label": null,
+      "name": "Natural Shell"
+    },
+    "image2-09": {
+      "major": "colourful",
+      "sub": "shell",
+      "label": null,
+      "name": "Colourful Shell"
+    },
+    "image2-10": {
+      "major": "colourful",
+      "sub": "shell",
+      "label": null,
+      "name": "Colourful Shell"
+    },
+    "image2-11": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": null,
+      "name": "Colourful Heart"
+    },
+    "image2-12": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image2-13": {
+      "major": "colourful",
+      "sub": "fruit",
+      "label": "cherry",
+      "name": "Colourful Cherry"
+    },
+    "image2-14": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "eye",
+      "name": "Colourful Eye"
+    },
+    "image2-15": {
+      "major": "colourful",
+      "sub": "gem",
+      "label": null,
+      "name": "Colourful Gem"
+    },
+    "image2-16": {
+      "major": "colourful",
+      "sub": "bow",
+      "label": null,
+      "name": "Colourful Bow"
+    },
+    "image2-17": {
+      "major": "colourful",
+      "sub": "bow",
+      "label": null,
+      "name": "Colourful Bow"
+    },
+    "image2-18": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "daisy",
+      "name": "Colourful Daisy"
+    },
+    "image2-19": {
+      "major": "silver",
+      "sub": "heart",
+      "label": null,
+      "name": "Silver Heart"
+    },
+    "image2-20": {
+      "major": "natural",
+      "sub": "ceramic",
+      "label": null,
+      "name": "Natural Ceramic"
+    },
+    "image2-21": {
+      "major": "natural",
+      "sub": "ceramic",
+      "label": null,
+      "name": "Natural Ceramic"
+    },
+    "image2-22": {
+      "major": "natural",
+      "sub": "ceramic",
+      "label": null,
+      "name": "Natural Ceramic"
+    },
+    "image2-23": {
+      "major": "natural",
+      "sub": "ceramic",
+      "label": null,
+      "name": "Natural Ceramic"
+    },
+    "image2-24": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "porcelain",
+      "name": "Colourful Flower"
+    },
+    "image2-25": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "ornament",
+      "name": "Colourful Ornament"
+    },
+    "image2-26": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "filigree",
+      "name": "Gold Filigree"
+    },
+    "image2-27": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "coil",
+      "name": "Gold Coil"
+    },
+    "image2-28": {
+      "major": "gold",
+      "sub": "symbol",
+      "label": "spiral",
+      "name": "Gold Spiral"
+    },
+    "image2-29": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": null,
+      "name": "Colourful Heart"
+    },
+    "image2-30": {
+      "major": "colourful",
+      "sub": "bow",
+      "label": null,
+      "name": "Colourful Bow"
+    },
+    "image2-31": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image2-32": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image2-33": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image2-34": {
+      "major": "colourful",
+      "sub": "bow",
+      "label": null,
+      "name": "Colourful Bow"
+    },
+    "image2-35": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image3-01": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "boot",
+      "name": "Colourful Boot"
+    },
+    "image3-02": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "resin",
+      "name": "Colourful Flower"
+    },
+    "image3-03": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "resin",
+      "name": "Colourful Flower"
+    },
+    "image3-04": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "resin",
+      "name": "Colourful Flower"
+    },
+    "image3-05": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-ace",
+      "name": "Colourful Card Ace"
+    },
+    "image3-06": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-suit",
+      "name": "Colourful Card Suit"
+    },
+    "image3-07": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "card-sun",
+      "name": "Colourful Card Sun"
+    },
+    "image3-08": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "lips",
+      "name": "Colourful Lips"
+    },
+    "image3-09": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "plumeria",
+      "name": "Colourful Plumeria"
+    },
+    "image3-10": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "marble",
+      "name": "Natural Marble"
+    },
+    "image3-11": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "marble",
+      "name": "Natural Marble"
+    },
+    "image3-12": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "tulip",
+      "name": "Colourful Tulip"
+    },
+    "image3-13": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "lily",
+      "name": "Colourful Lily"
+    },
+    "image3-14": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image3-15": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "tooth",
+      "name": "Colourful Tooth"
+    },
+    "image3-16": {
+      "major": "colourful",
+      "sub": "fruit",
+      "label": "pomegranate",
+      "name": "Colourful Pomegranate"
+    },
+    "image3-17": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "mirror",
+      "name": "Silver Mirror"
+    },
+    "image3-18": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "amber",
+      "name": "Natural Amber"
+    },
+    "image3-19": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": null,
+      "name": "Colourful Heart"
+    },
+    "image3-20": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": null,
+      "name": "Colourful Heart"
+    },
+    "image3-21": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "tortoise",
+      "name": "Natural Tortoiseshell"
+    },
+    "image3-22": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image3-23": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "cloisonne",
+      "name": "Colourful Cloisonne"
+    },
+    "image3-24": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image3-25": {
+      "major": "natural",
+      "sub": "stone",
+      "label": "amber",
+      "name": "Natural Amber"
+    },
+    "image3-26": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "plumeria",
+      "name": "Colourful Plumeria"
+    },
+    "image3-27": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "plumeria",
+      "name": "Colourful Plumeria"
+    },
+    "image3-28": {
+      "major": "colourful",
+      "sub": "flower",
+      "label": "rose",
+      "name": "Colourful Rose"
+    },
+    "image3-29": {
+      "major": "colourful",
+      "sub": "bow",
+      "label": null,
+      "name": "Colourful Bow"
+    },
+    "image3-30": {
+      "major": "colourful",
+      "sub": "symbol",
+      "label": "eye",
+      "name": "Colourful Eye"
+    },
+    "image3-31": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image3-32": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "image3-33": {
+      "major": "colourful",
+      "sub": "heart",
+      "label": "porcelain",
+      "name": "Colourful Porcelain Heart"
+    },
+    "silver-01": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "racket",
+      "name": "Silver Racket"
+    },
+    "silver-02": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "key",
+      "name": "Silver Key"
+    },
+    "silver-03": {
+      "major": "silver",
+      "sub": "heart",
+      "label": null,
+      "name": "Silver Heart"
+    },
+    "silver-04": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "bow-arrow",
+      "name": "Silver Bow Arrow"
+    },
+    "silver-05": {
+      "major": "silver",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Silver Pearl"
+    },
+    "silver-06": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "dress",
+      "name": "Silver Dress"
+    },
+    "silver-07": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "scales",
+      "name": "Silver Scales"
+    },
+    "silver-08": {
+      "major": "silver",
+      "sub": "bow",
+      "label": null,
+      "name": "Silver Bow"
+    },
+    "silver-09": {
+      "major": "silver",
+      "sub": "heart",
+      "label": null,
+      "name": "Silver Heart"
+    },
+    "silver-10": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "ballerina",
+      "name": "Silver Ballerina"
+    },
+    "silver-11": {
+      "major": "silver",
+      "sub": "angel",
+      "label": null,
+      "name": "Silver Angel"
+    },
+    "silver-12": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "ballet-shoes",
+      "name": "Silver Ballet Shoes"
+    },
+    "silver-13": {
+      "major": "silver",
+      "sub": "star",
+      "label": null,
+      "name": "Silver Star"
+    },
+    "silver-14": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "key",
+      "name": "Silver Key"
+    },
+    "silver-15": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "coin",
+      "name": "Silver Coin"
+    },
+    "silver-16": {
+      "major": "silver",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Silver Pearl"
+    },
+    "silver-17": {
+      "major": "silver",
+      "sub": "gem",
+      "label": "pearl",
+      "name": "Silver Pearl"
+    },
+    "silver-18": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "key",
+      "name": "Silver Key"
+    },
+    "silver-19": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "boot",
+      "name": "Silver Boot"
+    },
+    "silver-20": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "branch",
+      "name": "Silver Branch"
+    },
+    "silver-21": {
+      "major": "silver",
+      "sub": "heart",
+      "label": null,
+      "name": "Silver Heart"
+    },
+    "silver-22": {
+      "major": "silver",
+      "sub": "gem",
+      "label": "stone",
+      "name": "Silver Gemstone"
+    },
+    "silver-23": {
+      "major": "silver",
+      "sub": "celestial",
+      "label": "planet",
+      "name": "Silver Planet"
+    },
+    "silver-24": {
+      "major": "silver",
+      "sub": "symbol",
+      "label": "cards",
+      "name": "Silver Cards"
+    },
+    "silver-25": {
+      "major": "silver",
+      "sub": "animal",
+      "label": "leopard",
+      "name": "Silver Leopard"
+    },
+    "silver-26": {
+      "major": "silver",
+      "sub": "celestial",
+      "label": "planet",
+      "name": "Silver Planet"
+    }
+  }
 }

@@ -20,3 +20,10 @@ shopify/extensions/charme-customizer/assets/charm-catalog.json
 .vscode/
 .env
 .env.*
+
+# scratch / dev-only artifacts (regenerable; not shipped)
+/public/_demo/
+/reference/_compare/
+/reference/_montage/
+/reference/_catalog.scraped.backup.json
+/public/assets/cases-gel/

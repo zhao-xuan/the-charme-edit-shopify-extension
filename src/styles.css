@@ -193,21 +193,6 @@ h4,
   -webkit-user-drag: none;
   user-select: none;
 }
-/* Glitter-gel sparkle layer over a real case photo, masked to the silicone via
-   the photo's own alpha (set inline). Sits above the photo, below the charms. */
-.stage-glitter {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.9;
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
 .charm {
   position: absolute;
   touch-action: none;

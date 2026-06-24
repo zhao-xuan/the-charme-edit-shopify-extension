@@ -18,9 +18,6 @@ import { clampCenter } from '../lib/geometry'
 
 const PAD = 24
 
-// Reusable glitter-gel sparkle texture (masked to each case silhouette).
-const glitterTexture = resolveAsset('/assets/cases/glitter.png')
-
 /**
  * Interactive design surface. Renders the blank product + placed charms and
  * owns all pointer gestures (move / select). Charm coordinates live in product
@@ -173,30 +170,11 @@ const ProductStage = forwardRef(function ProductStage(
             <ProductCanvas product={product} color={color} scale={scale} />
           )}
 
-          {/* Glitter-gel finish over a real case PHOTO: a sparkle texture masked
-              to the case silhouette (using the photo's own alpha) so the sparkle
-              only lands on the silicone. The SVG gel render handles its own
-              glitter, so this is only for the photo branch. */}
-          {blankPhoto && color.glitter && (
-            <div
-              className="stage-glitter"
-              style={{
-                width: wPx,
-                height: hPx,
-                backgroundImage: `url(${glitterTexture})`,
-                backgroundSize: `${wPx}px ${hPx}px`,
-                WebkitMaskImage: `url(${blankPhoto})`,
-                maskImage: `url(${blankPhoto})`,
-                WebkitMaskSize: `${wPx}px ${hPx}px`,
-                maskSize: `${wPx}px ${hPx}px`,
-              }}
-            />
-          )}
-
-          {/* faint safe-area guide — only for products without a real photo
-              (e.g. the tote's logo keep-out). Phone cases use real Apple photos
-              where the camera is already visible, so no dashed overlay. */}
-          {product.kind !== 'phone' && (
+          {/* faint safe-area guide — only for the tote (its logo keep-out).
+              Phone cases use real Apple photos where the camera is already
+              visible, and the photo frame draws its own moulding, so neither
+              needs a dashed overlay. */}
+          {product.kind === 'tote' && (
           <svg
             width={wPx}
             height={hPx}

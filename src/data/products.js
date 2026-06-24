@@ -289,6 +289,61 @@ export const BRAND_LABELS = {
   huawei: 'Huawei',
 }
 
+// ---- Photo frames ----------------------------------------------------------
+// A tabletop photo frame, decorated on its moulding (the border ring between the
+// outer edge and the photo opening). Unlike cases/totes, charms may OVERHANG the
+// frame — the boundary rule only needs ≥ `minCoverage` (60%) of each charm to
+// stay on the moulding (see geometry.js charmShapeInside frame branch). The
+// canvas carries a `margin` of clear space around the frame so an overhanging
+// charm still renders inside the artwork (and the export PNG).
+const FRAME_COLOURS = [
+  { id: 'black', label: 'Black', shell: '#1c1c1c', edge: '#050505', glitter: false },
+  { id: 'white', label: 'White', shell: '#fbfbf9', edge: '#e7e4dd', glitter: false },
+]
+const FRAME_BASE_PRICE = 24
+
+/**
+ * Build the photo-frame product. Real-ish 5×7" tabletop frame: a 152×216mm
+ * outer moulding with a 22mm border around a 108×172mm photo opening, sat on a
+ * 16mm margin so overhanging charms have room to render.
+ */
+function makeFrame() {
+  const margin = 16
+  const outerW = 152
+  const outerH = 216
+  const border = 22
+  const widthMm = outerW + margin * 2
+  const heightMm = outerH + margin * 2
+  const outer = { xMm: margin, yMm: margin, wMm: outerW, hMm: outerH, rMm: 4 }
+  const opening = {
+    xMm: margin + border,
+    yMm: margin + border,
+    wMm: outerW - border * 2,
+    hMm: outerH - border * 2,
+    rMm: 3,
+  }
+  return {
+    id: 'frame-5x7',
+    group: 'frame',
+    name: 'Photo Frame · 5×7”',
+    kind: 'frame',
+    basePrice: FRAME_BASE_PRICE,
+    widthMm,
+    heightMm,
+    radiusMm: 4,
+    colors: FRAME_COLOURS,
+    caseColours: FRAME_COLOURS,
+    // Border-ring placement: charms sit on the moulding and may overhang as long
+    // as ≥60% of each stays on it.
+    printable: {
+      kind: 'frame',
+      minCoverage: 0.6,
+      outer,
+      opening,
+    },
+  }
+}
+
 const BASE_PRODUCT_GROUPS = [
   {
     key: 'apple',
@@ -338,6 +393,13 @@ const BASE_PRODUCT_GROUPS = [
         },
       },
     ],
+  },
+  {
+    key: 'frame',
+    label: 'Frames',
+    platform: 'frame',
+    blurb: 'A classic tabletop photo frame in black or white — trim the moulding with charms.',
+    products: [makeFrame()],
   },
 ]
 

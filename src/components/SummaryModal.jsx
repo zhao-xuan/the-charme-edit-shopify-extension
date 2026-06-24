@@ -85,11 +85,11 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
 
   const charmTotal = placedCharmsTotal(placed)
   const total = product.basePrice + charmTotal
-  const noun = product.kind === 'tote' ? 'tote' : 'case'
+  const noun = product.kind === 'tote' ? 'tote' : product.kind === 'frame' ? 'frame' : 'case'
 
   // Group charms by browsing category (phone) or interaction type (tote).
   const grouped = useMemo(() => {
-    if (product.kind === 'phone') {
+    if (product.kind !== 'tote') {
       return PHONE_CATEGORIES.map((c) => ({
         key: c.key,
         label: c.label,

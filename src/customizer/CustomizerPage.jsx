@@ -115,6 +115,45 @@ export default function CustomizerPage({ onPlaceOrder }) {
     [product, caseColourId, gelColourId],
   )
 
+  // Dev-only layout seeding hook. Lets tooling reproduce an exact arrangement
+  // (e.g. a real reference photo) on the live site for screenshot comparison:
+  //   window.__charmeSeedLayout({ productId, caseColourId, gelColourId, charms:
+  //     [{ src, name, category, cxMm, cyMm, wMm, hMm, rot }] })
+  // Stripped from production builds (import.meta.env.DEV gate).
+  useEffect(() => {
+    if (!import.meta.env.DEV || typeof window === 'undefined') return
+    window.__charmeSeedLayout = (layout = {}) => {
+      if (layout.productId) setProductId(layout.productId)
+      if (layout.caseColourId) setCaseColourId(layout.caseColourId)
+      if (layout.gelColourId) setGelColourId(layout.gelColourId)
+      setPlaced(
+        (layout.charms || []).map((it) => ({
+          uid: uid(),
+          charmId: it.charmId || 'demo',
+          type: it.type || 2,
+          category: it.category || 'gold',
+          name: it.name || 'demo',
+          src: it.src,
+          price: it.price || 0,
+          bundle: false,
+          bundleMax: undefined,
+          baseWmm: it.wMm,
+          baseHmm: it.hMm,
+          minScale: 0.05,
+          maxScale: 20,
+          scale: 1,
+          rot: it.rot || 0,
+          cxMm: it.cxMm,
+          cyMm: it.cyMm,
+        })),
+      )
+      setSelectedUid(null)
+    }
+    return () => {
+      delete window.__charmeSeedLayout
+    }
+  }, [])
+
   // Inline Step 1 dropdowns (mobile header): model list for the active platform
   // (Android sub-grouped by brand), plus case + gel colour lists.
   const modelOptions = useMemo(() => {
@@ -451,7 +490,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
   // four phone categories fit one row; tote group labels are already short).
   const categoryOptions = groups.map((g) => ({
     value: g.key,
-    label: product.kind === 'phone' ? g.label.replace(/ charms$/i, '') : g.label,
+    label: product.kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label,
   }))
   const mobileTray = (
     <CharmTray
@@ -568,8 +607,8 @@ export default function CustomizerPage({ onPlaceOrder }) {
     </>
   )
 
-  // Order CTA total + noun (case vs. tote) for the Step 3 bar.
-  const orderNoun = product.kind === 'tote' ? 'tote' : 'case'
+  // Order CTA total + noun (case / tote / frame) for the Step 3 bar.
+  const orderNoun = product.kind === 'tote' ? 'tote' : product.kind === 'frame' ? 'frame' : 'case'
   const orderTotal = (product.basePrice + placedCharmsTotal(placed)).toFixed(0)
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while

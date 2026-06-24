@@ -197,9 +197,71 @@ function cellSize(box, mask) {
   return Math.max(box.w / mask.w, box.h / mask.h)
 }
 
+/* ---- photo-frame border coverage ----------------------------------------- */
+
+/**
+ * A photo frame is decorated on its moulding (the border ring between the outer
+ * edge and the inner photo opening). A point sits "on the border" when it is
+ * inside the outer rectangle but NOT inside the opening. Charms may overhang the
+ * frame, so instead of "fully inside" we measure how much of the charm's body
+ * lands on the border and require at least `printable.minCoverage` (60%).
+ */
+export function pointOnFrameBorder(printable, x, y) {
+  const { outer, opening } = printable
+  if (!roundedRectContains(outer.xMm, outer.yMm, outer.wMm, outer.hMm, outer.rMm || 0, x, y)) {
+    return false
+  }
+  if (
+    opening &&
+    roundedRectContains(opening.xMm, opening.yMm, opening.wMm, opening.hMm, opening.rMm || 0, x, y)
+  ) {
+    return false
+  }
+  return true
+}
+
+/** Fraction of an OBB's area that lands on the frame border (grid sampling). */
+function obbFrameCoverage(box, printable) {
+  const N = 7
+  let on = 0
+  let total = 0
+  for (let i = 0; i < N; i++) {
+    for (let j = 0; j < N; j++) {
+      const u = (i + 0.5) / N - 0.5
+      const v = (j + 0.5) / N - 0.5
+      const w = localToWorld(u, v, box)
+      total++
+      if (pointOnFrameBorder(printable, w.x, w.y)) on++
+    }
+  }
+  return total ? on / total : 0
+}
+
+/** Fraction of a charm's real cut-out shape that lands on the frame border. */
+export function frameCoverage(charm, printable) {
+  const box = charmFootprint(charm)
+  const mask = getCharmMask(charm.src)
+  if (!mask || !mask.pts.length) return obbFrameCoverage(box, printable)
+  let on = 0
+  const total = mask.pts.length / 2
+  for (let k = 0; k < mask.pts.length; k += 2) {
+    const w = localToWorld(mask.pts[k], mask.pts[k + 1], box)
+    if (pointOnFrameBorder(printable, w.x, w.y)) on++
+  }
+  return total ? on / total : 0
+}
+
+/** Is the charm "inside" the frame border, i.e. ≥ minCoverage of it on the ring? */
+function charmFrameInside(charm, printable) {
+  const minCov = printable.minCoverage ?? 0.6
+  return frameCoverage(charm, printable) >= minCov
+}
+
 /** Is the charm's real cut-out shape fully inside the printable area and clear
- *  of keep-outs? Falls back to the OBB test until the mask has loaded. */
+ *  of keep-outs? Falls back to the OBB test until the mask has loaded.
+ *  Photo frames use a softer rule: ≥ minCoverage of the shape on the border. */
 export function charmShapeInside(charm, printable) {
+  if (printable.kind === 'frame') return charmFrameInside(charm, printable)
   const box = charmFootprint(charm)
   const mask = getCharmMask(charm.src)
   if (!mask) return boxFullyInside(box, printable)
@@ -291,6 +353,9 @@ export function validateLayout(charms, product, opts = {}) {
  * Returns { cxMm, cyMm, rot } or null when the area is too full.
  */
 export function findScatterSpot(product, placedCharms, charm, opts = {}) {
+  if (product.printable.kind === 'frame') {
+    return findFrameSpot(product, placedCharms, charm, opts)
+  }
   const gapMm = opts.gapMm ?? 1.2
   const tries = opts.tries ?? 600
   // Max random rotation (deg) applied to the candidate spot. Scatter fillers
@@ -320,8 +385,60 @@ export function findScatterSpot(product, placedCharms, charm, opts = {}) {
   return null
 }
 
+/**
+ * Frame variant of the scatter packer: drops a charm onto the moulding (the
+ * border ring) so most of it sits on the frame. Candidate centres are sampled
+ * inside the outer rect but outside the photo opening; a clean spot needs ≥85%
+ * of the charm on the border (relaxed toward `minCoverage` on later tries so
+ * large charms still land), and no overlap with existing charms.
+ */
+function findFrameSpot(product, placedCharms, charm, opts = {}) {
+  const gapMm = opts.gapMm ?? 1.2
+  const tries = opts.tries ?? 1000
+  const rotMaxDeg = opts.rotMaxDeg ?? 0
+  const printable = product.printable
+  const { outer, opening, minCoverage = 0.6 } = printable
+  const placedBoxes = placedCharms.map(charmFootprint)
+  const w = charm.widthMm
+  const h = charm.heightMm
+
+  for (let t = 0; t < tries; t++) {
+    const rot = rotMaxDeg ? Math.random() * rotMaxDeg * 2 - rotMaxDeg : 0
+    const cx = outer.xMm + Math.random() * outer.wMm
+    const cy = outer.yMm + Math.random() * outer.hMm
+    // keep the centre off the photo opening so charms hug the moulding
+    if (
+      opening &&
+      roundedRectContains(opening.xMm, opening.yMm, opening.wMm, opening.hMm, opening.rMm || 0, cx, cy)
+    ) {
+      continue
+    }
+    const box = { cx, cy, w, h, rot }
+    const need = t < tries * 0.6 ? 0.85 : minCoverage
+    if (obbFrameCoverage(box, printable) < need) continue
+    let clash = false
+    for (const pb of placedBoxes) {
+      if (obbOverlap(box, pb, gapMm)) {
+        clash = true
+        break
+      }
+    }
+    if (!clash) return { cxMm: +cx.toFixed(2), cyMm: +cy.toFixed(2), rot: +rot.toFixed(1) }
+  }
+  return null
+}
+
 /** Clamp a charm centre so its footprint stays inside the printable outer rect. */
 export function clampCenter(box, printable) {
+  // Frames let charms overhang the moulding, so we only keep the CENTRE inside
+  // the outer rect (the ≥60% coverage rule, enforced in validation, governs how
+  // far they may hang off). Phones / totes keep the whole footprint inside.
+  if (printable.kind === 'frame') {
+    const { outer } = printable
+    const cx = Math.max(outer.xMm, Math.min(outer.xMm + outer.wMm, box.cx))
+    const cy = Math.max(outer.yMm, Math.min(outer.yMm + outer.hMm, box.cy))
+    return { cx, cy }
+  }
   const { outer } = printable
   // half-extent of the rotated box on each axis
   const corners = obbCorners(box)

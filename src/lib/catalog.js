@@ -118,7 +118,10 @@ const BASE_CHARMS = charmData.charms
     kind: 'phone',
     src: resolveAsset(c.src),
     price: charmPrices[c.id] ?? c.price,
-    category: charmCategory(c),
+    // Catalogue rows now carry an explicit material category (gold | silver |
+    // colourful | unique) from the reference categorisation; only fall back to
+    // the keyword classifier for legacy rows that lack one.
+    category: c.category || charmCategory(c),
   }))
 
 // Remote (Cloudflare DB) charms first, then local-only drafts; skip hidden ones

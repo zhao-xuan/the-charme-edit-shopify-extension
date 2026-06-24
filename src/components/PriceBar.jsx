@@ -8,7 +8,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, onClea
   const n = placed.length
   const ok = validation.ok
   const problems = validation.problems
-  const noun = product.kind === 'tote' ? 'tote' : 'case'
+  const noun = product.kind === 'tote' ? 'tote' : product.kind === 'frame' ? 'frame' : 'case'
 
   // Why the order isn't ready yet (count first, then geometry).
   let warnLabel

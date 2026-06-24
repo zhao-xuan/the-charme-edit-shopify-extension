@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-
 /* ---- colour helpers: mix a hex toward white (lighten) / black (darken) ---- */
 const clampByte = (v) => Math.max(0, Math.min(255, Math.round(v)))
 function parseHex(hex) {
@@ -33,24 +31,6 @@ export default function ProductCanvas({ product, color, scale }) {
   const mm = (v) => v * scale
   const uid = `${product.id}-${color.id}`
   const isDark = color.id === 'black'
-
-  const glitterDots = useMemo(() => {
-    if (!color.glitter) return []
-    const dots = []
-    for (let i = 0; i < 240; i++) {
-      const big = Math.random() < 0.1
-      dots.push({
-        x: Math.random() * product.widthMm,
-        y: Math.random() * product.heightMm,
-        r: big ? 0.45 + Math.random() * 0.5 : 0.1 + Math.random() * 0.2,
-        o: big ? 0.55 + Math.random() * 0.45 : 0.16 + Math.random() * 0.4,
-        big,
-      })
-    }
-    return dots
-    // regenerate only when product/colour changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [product.id, color.id])
 
   // Optional real photo for the chosen colour (or a default blank image).
   const photo =
@@ -145,25 +125,12 @@ export default function ProductCanvas({ product, color, scale }) {
         <image href={photo} x="0" y="0" width={wPx} height={hPx} preserveAspectRatio="xMidYMid meet" />
       ) : product.kind === 'phone' ? (
         <PhoneShell product={product} color={color} scale={scale} uid={uid} isDark={isDark} />
+      ) : product.kind === 'frame' ? (
+        <FrameShell product={product} color={color} scale={scale} uid={uid} isDark={isDark} />
       ) : (
         <ToteShell product={product} color={color} scale={scale} uid={uid} isDark={isDark} />
       )}
 
-      {/* glitter speckle, clipped to the body */}
-      {!photo && glitterDots.length > 0 && (
-        <g clipPath={`url(#shellclip-${uid})`}>
-          {glitterDots.map((d, i) =>
-            d.big ? (
-              <g key={i} opacity={d.o}>
-                <circle cx={mm(d.x)} cy={mm(d.y)} r={mm(d.r) * 2.6} fill="#fff" opacity={0.16} />
-                <circle cx={mm(d.x)} cy={mm(d.y)} r={mm(d.r)} fill="#fff" />
-              </g>
-            ) : (
-              <circle key={i} cx={mm(d.x)} cy={mm(d.y)} r={mm(d.r)} fill="#fff" opacity={d.o} />
-            ),
-          )}
-        </g>
-      )}
     </svg>
   )
 }
@@ -377,6 +344,98 @@ function ToteShell({ product, color, scale, uid, isDark }) {
           strokeWidth={Math.max(0.5, scale * 0.4)}
         />
       ))}
+    </g>
+  )
+}
+
+/**
+ * Tabletop photo frame. A flat rectangular moulding (black or white) with mitred
+ * corners, a soft outer bevel and a recessed photo opening. Charms are placed on
+ * the moulding (and may overhang it). Drawn from the product's printable.outer /
+ * printable.opening rectangles so the render and the boundary maths align.
+ */
+function FrameShell({ product, color, scale, uid, isDark }) {
+  const { outer, opening } = product.printable
+  const ox = outer.xMm * scale
+  const oy = outer.yMm * scale
+  const ow = outer.wMm * scale
+  const oh = outer.hMm * scale
+  const or = (outer.rMm || 3) * scale
+  const ix = opening.xMm * scale
+  const iy = opening.yMm * scale
+  const iw = opening.wMm * scale
+  const ih = opening.hMm * scale
+  const ir = (opening.rMm || 2) * scale
+
+  const moulding = color.shell
+  const bevelLight = lighten(moulding, isDark ? 0.22 : 0.5)
+  const bevelDark = darken(moulding, isDark ? 0.5 : 0.12)
+  const lineW = Math.max(0.5, scale * 0.5)
+
+  return (
+    <g>
+      <defs>
+        {/* moulding face: a gentle diagonal sheen across the frame */}
+        <linearGradient id={`frame-face-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={lighten(moulding, isDark ? 0.14 : 0.18)} />
+          <stop offset="50%" stopColor={moulding} />
+          <stop offset="100%" stopColor={darken(moulding, isDark ? 0.3 : 0.08)} />
+        </linearGradient>
+        {/* clip to the moulding ring (outer minus opening) for the mitre lines */}
+        <clipPath id={`frame-ring-${uid}`}>
+          <path
+            d={`M${ox} ${oy} h${ow} v${oh} h${-ow} Z M${ix} ${iy} h${iw} v${ih} h${-iw} Z`}
+            fillRule="evenodd"
+          />
+        </clipPath>
+      </defs>
+
+      {/* drop the moulding outer plate */}
+      <rect x={ox} y={oy} width={ow} height={oh} rx={or} ry={or} fill={`url(#frame-face-${uid})`} />
+      {/* outer bevel: light top-left, dark bottom-right */}
+      <rect
+        x={ox}
+        y={oy}
+        width={ow}
+        height={oh}
+        rx={or}
+        ry={or}
+        fill="none"
+        stroke={bevelLight}
+        strokeWidth={lineW}
+        opacity={0.9}
+      />
+
+      {/* mitred corner lines (classic picture-frame join) */}
+      <g clipPath={`url(#frame-ring-${uid})`} stroke={isDark ? 'rgba(255,255,255,0.16)' : 'rgba(60,52,40,0.22)'} strokeWidth={lineW}>
+        <line x1={ox} y1={oy} x2={ix} y2={iy} />
+        <line x1={ox + ow} y1={oy} x2={ix + iw} y2={iy} />
+        <line x1={ox + ow} y1={oy + oh} x2={ix + iw} y2={iy + ih} />
+        <line x1={ox} y1={oy + oh} x2={ix} y2={iy + ih} />
+      </g>
+
+      {/* photo opening: a recessed light panel with an inner-edge shadow */}
+      <rect x={ix} y={iy} width={iw} height={ih} rx={ir} ry={ir} fill={isDark ? '#f6f5f2' : '#f4f3ef'} />
+      <rect
+        x={ix}
+        y={iy}
+        width={iw}
+        height={ih}
+        rx={ir}
+        ry={ir}
+        fill="none"
+        stroke={bevelDark}
+        strokeWidth={Math.max(0.75, scale * 0.9)}
+        opacity={0.55}
+      />
+      {/* inner mat highlight on the bottom-right edge for depth */}
+      <path
+        d={`M${ix + iw} ${iy} v${ih} h${-iw}`}
+        fill="none"
+        stroke={bevelLight}
+        strokeWidth={lineW}
+        opacity={0.5}
+      />
     </g>
   )
 }
