@@ -806,8 +806,8 @@ export default function CustomizerPage({ onPlaceOrder }) {
       ) : (
         <div className="studio" ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
           <div className="panel panel--left">
-            {picker}
             <Tips />
+            <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
             {stageNode}
@@ -857,7 +857,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
 
 function Tips() {
   return (
-    <div style={{ marginTop: 22 }}>
+    <div>
       <p className="eyebrow">How it works</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
         <li>Browse charms by <strong>Gold</strong>, <strong>Silver</strong>, <strong>Colourful</strong> &amp; <strong>Natural</strong>.</li>
