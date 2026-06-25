@@ -51,6 +51,10 @@ const ProductStage = forwardRef(function ProductStage(
       setSize({ w: r.width, h: r.height })
     })
     ro.observe(el)
+    // Seed an initial measurement so the stage paints even when the observer's
+    // first callback is delayed or throttled (e.g. background/embedded browsers).
+    const r = el.getBoundingClientRect()
+    if (r.width && r.height) setSize({ w: r.width, h: r.height })
     return () => ro.disconnect()
   }, [])
 
