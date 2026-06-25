@@ -95,8 +95,9 @@ export default function CustomizerPage({ onPlaceOrder }) {
 
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
-  // trade preview space for browsing space and back.
-  const [trayPct, setTrayPct] = useState(28)
+  // trade preview space for browsing space and back. Defaults small so the case
+  // preview fills ~60% of the screen; drag the splitter up for more browsing.
+  const [trayPct, setTrayPct] = useState(16)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
 
@@ -331,34 +332,43 @@ export default function CustomizerPage({ onPlaceOrder }) {
     [canAddMore, clampToPrintable, makePlaced, commitPlaced],
   )
 
-  const addAuto = useCallback(
-    (charm, { scatterOnly = false } = {}) => {
-      if (!canAddMore(charm)) return
-      const prev = placedRef.current
-      // Only ever drop a charm where it fits without overlapping; fillers tumble,
-      // everything else lands upright. If there is no clear spot at all we refuse
-      // the add (rather than stacking an overlapping charm the customer must fix).
-      const spot = findScatterSpot(product, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 })
-      if (!spot) {
-        message.info(
-          scatterOnly
-            ? 'No clear gaps left — move or remove a charm to make room.'
-            : 'No room to add this charm without overlapping — move or remove a charm first.',
-        )
-        return
+  // A relaxed "drop it anywhere" position for when the case is already busy:
+  // stagger around the centre of the printable area so repeated taps don't
+  // perfectly stack, then let clampToPrintable pull the whole footprint inside.
+  // Lets the customer pile on every charm they like now and thin it out later.
+  const fallbackSpot = useCallback(
+    (prev, charm) => {
+      const { outer } = product.printable
+      const i = prev.length
+      const radius = 4 + (i % 6) * 6
+      const angle = i * 1.1
+      return {
+        cxMm: outer.xMm + outer.wMm / 2 + Math.cos(angle) * radius,
+        cyMm: outer.yMm + outer.hMm / 2 + Math.sin(angle) * radius,
+        rot: charm.type === 3 ? Math.round(Math.random() * 30 - 15) : 0,
       }
-      commitPlaced(makePlaced(charm, spot))
     },
-    [canAddMore, product, makePlaced, message, commitPlaced],
+    [product],
   )
 
-  const activateCharm = useCallback(
+  const addAuto = useCallback(
     (charm) => {
-      if (charm.type === 3) addAuto(charm, { scatterOnly: true })
-      else addAuto(charm)
+      if (!canAddMore(charm)) return
+      const prev = placedRef.current
+      // Prefer a clear, non-overlapping spot — fillers tumble, everything else
+      // lands upright. If the case is busy and nothing is clear we still add the
+      // charm (lightly staggered, overlap allowed) rather than refusing, so the
+      // customer is never blocked from choosing the charms they want. Overlaps
+      // are simply flagged for them to tidy before ordering.
+      const spot =
+        findScatterSpot(product, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 }) ||
+        fallbackSpot(prev, charm)
+      commitPlaced(clampToPrintable(makePlaced(charm, spot)))
     },
-    [addAuto],
+    [canAddMore, product, makePlaced, commitPlaced, clampToPrintable, fallbackSpot],
   )
+
+  const activateCharm = useCallback((charm) => addAuto(charm), [addAuto])
 
   const moveCharm = useCallback(
     (id, patch) => {
@@ -543,7 +553,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
     if (!shell) return
     const rect = shell.getBoundingClientRect()
     const pct = ((rect.bottom - e.clientY) / rect.height) * 100
-    setTrayPct(clamp(+pct.toFixed(1), 28, 78))
+    setTrayPct(clamp(+pct.toFixed(1), 12, 78))
   }, [])
   const onSplitUp = useCallback((e) => {
     const d = splitDrag.current
@@ -622,8 +632,8 @@ export default function CustomizerPage({ onPlaceOrder }) {
       <div className="overlap-alert" role="alert">
         <WarningFilled className="overlap-alert__icon" />
         <p className="overlap-alert__text">
-          Some charms are overlapping or placed outside the craftable area. Please adjust the
-          highlighted charms until the red outline disappears.
+          Some charms are overlapping or placed outside the craftable area. Please nudge the
+          highlighted charms apart until the outline clears.
         </p>
         <button
           type="button"
@@ -730,7 +740,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
                     <WarningFilled className="mobile-step-overlay__warnicon" />
                     <span>
                       {validation.problems} charm{validation.problems > 1 ? 's' : ''} need attention —
-                      nudge the highlighted charms until the red outline disappears.
+                      nudge the highlighted charms apart until the outline clears.
                     </span>
                   </span>
                 ) : (
@@ -854,7 +864,7 @@ function Tips() {
         <li>Drag a charm onto your case — or tap to drop it in automatically.</li>
         <li>Select a charm to rotate or remove it.</li>
         <li>Changed your mind? <strong>Undo</strong> brings back a cleared or deleted charm.</li>
-        <li>Reds mean overlap or off-edge — nudge until all clear.</li>
+        <li>A highlighted charm is overlapping or off-edge — nudge until all clear before ordering.</li>
       </ol>
     </div>
   )

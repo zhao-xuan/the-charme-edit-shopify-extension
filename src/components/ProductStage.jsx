@@ -16,7 +16,7 @@ import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
 
-const PAD = 24
+const PAD = 18
 
 /**
  * Interactive design surface. Renders the blank product + placed charms and
@@ -136,11 +136,18 @@ const ProductStage = forwardRef(function ProductStage(
     [scale, product, onMove, onCheckpoint],
   )
 
-  const endDrag = useCallback((e) => {
-    const d = drag.current
-    if (!d || d.pointerId !== e.pointerId) return
-    drag.current = null
-  }, [])
+  const endDrag = useCallback(
+    (e) => {
+      const d = drag.current
+      if (!d || d.pointerId !== e.pointerId) return
+      drag.current = null
+      // Once a charm has actually been moved, dismiss its rotate/remove toolbar
+      // automatically. A plain tap (no real drag) leaves it selected so the
+      // controls stay available until the customer taps the charm again.
+      if (d.checkpointed) onSelect(null)
+    },
+    [onSelect],
+  )
 
   const selected = placed.find((c) => c.uid === selectedUid)
 
