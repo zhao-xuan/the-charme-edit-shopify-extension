@@ -1,0 +1,4 @@
+{
+  "_doc": "Hand overrides for case-rects.json (DET_H=1800 space). Each entry { minx, miny, maxx, maxy } replaces the auto-detected case rectangle for that photo base name. Used by scripts/build-case-rects.mjs.",
+  "Image_20260619201443_367_2327": { "minx": 195, "miny": 202, "maxx": 918, "maxy": 1691 }
+}

@@ -116,13 +116,17 @@ export default function CustomizerPage({ onPlaceOrder }) {
     [product, caseColourId, gelColourId],
   )
 
-  // Dev-only layout seeding hook. Lets tooling reproduce an exact arrangement
+  // Dev/QA layout seeding hook. Lets tooling reproduce an exact arrangement
   // (e.g. a real reference photo) on the live site for screenshot comparison:
   //   window.__charmeSeedLayout({ productId, caseColourId, gelColourId, charms:
   //     [{ src, name, category, cxMm, cyMm, wMm, hMm, rot }] })
-  // Stripped from production builds (import.meta.env.DEV gate).
+  // Available in dev, and in production ONLY when the page URL carries a `?seed`
+  // flag (so normal visitors never expose it); otherwise it is inert.
   useEffect(() => {
-    if (!import.meta.env.DEV || typeof window === 'undefined') return
+    const seedEnabled =
+      import.meta.env.DEV ||
+      (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('seed'))
+    if (!seedEnabled || typeof window === 'undefined') return
     window.__charmeSeedLayout = (layout = {}) => {
       if (layout.productId) setProductId(layout.productId)
       if (layout.caseColourId) setCaseColourId(layout.caseColourId)
