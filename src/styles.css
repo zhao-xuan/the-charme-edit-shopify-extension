@@ -591,6 +591,26 @@ h4,
   object-fit: contain;
 }
 
+/* Desktop: collections are horizontal strips too (swipe sideways), but with
+   full-size, draggable, named cards rather than the tiny mobile chips. */
+@media (min-width: 761px) {
+  .charm-row {
+    gap: 10px;
+    padding: 2px 0 10px;
+  }
+  .charm-card--row {
+    width: 104px;
+    cursor: grab;
+    touch-action: none;
+  }
+  .charm-card--row:hover {
+    transform: translateY(-2px);
+  }
+  .charm-card--row .thumb {
+    max-height: none;
+  }
+}
+
 .ghost-drag {
   position: fixed;
   z-index: 4000;

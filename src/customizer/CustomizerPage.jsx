@@ -496,6 +496,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
       key={product.kind}
       kind={product.kind}
       compact={isMobile}
+      rows
       activeKey={catKey}
       onActivate={onTrayActivate}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}
