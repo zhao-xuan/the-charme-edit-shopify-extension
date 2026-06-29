@@ -194,10 +194,10 @@ export default function CustomizerPage({ onPlaceOrder }) {
   // Tray groups for the active product kind (4 categories for phones, 3 types
   // for totes) + the mobile category dropdown selection.
   const groups = useMemo(() => trayGroups(product.kind), [product.kind])
-  const [mobileGroupKey, setMobileGroupKey] = useState(() => trayGroups('phone')[0].key)
+  const [catKey, setCatKey] = useState(() => trayGroups('phone')[0].key)
   useEffect(() => {
-    if (!groups.some((g) => g.key === mobileGroupKey)) setMobileGroupKey(groups[0].key)
-  }, [groups, mobileGroupKey])
+    if (!groups.some((g) => g.key === catKey)) setCatKey(groups[0].key)
+  }, [groups, catKey])
 
   // keep the case/gel selection valid when switching products
   useEffect(() => {
@@ -496,6 +496,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
       key={product.kind}
       kind={product.kind}
       compact={isMobile}
+      activeKey={catKey}
       onActivate={onTrayActivate}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}
     />
@@ -508,11 +509,11 @@ export default function CustomizerPage({ onPlaceOrder }) {
   }))
   const mobileTray = (
     <CharmTray
-      key={`${product.kind}-${mobileGroupKey}`}
+      key={`${product.kind}-${catKey}`}
       kind={product.kind}
       compact
       rows
-      activeKey={mobileGroupKey}
+      activeKey={catKey}
       onActivate={onTrayActivate}
     />
   )
@@ -771,8 +772,8 @@ export default function CustomizerPage({ onPlaceOrder }) {
                     block
                     size="small"
                     className="mobile-cat-seg"
-                    value={mobileGroupKey}
-                    onChange={setMobileGroupKey}
+                    value={catKey}
+                    onChange={setCatKey}
                     options={categoryOptions}
                   />
                 </div>
@@ -833,7 +834,29 @@ export default function CustomizerPage({ onPlaceOrder }) {
             </div>
             <div className="tray-head">
               <p className="eyebrow" style={{ margin: 0 }}>Step 2 · Add your charms</p>
-              <p className="hint" style={{ marginTop: 4 }}>{stepTwoHint}</p>
+              <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
+                We recommend {REC_MIN}–{REC_MAX} charms for a balanced look. Minimum {MIN_CHARMS}{' '}
+                charms required.
+              </p>
+              <div className="charms-bar">
+                <span className="charms-bar__title">Charms</span>
+                <span className="charms-bar__count">{placed.length} selected</span>
+              </div>
+              <div className="cat-swatches">
+                {groups.map((g) => (
+                  <button
+                    key={g.key}
+                    type="button"
+                    className={`cat-swatch${g.key === catKey ? ' is-active' : ''}`}
+                    onClick={() => setCatKey(g.key)}
+                  >
+                    <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} />
+                    <span className="cat-swatch__label">
+                      {product.kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="tray-scroll">{tray}</div>
             <div className="pricebox">{priceBar}</div>
@@ -862,7 +885,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
 function Tips() {
   return (
     <div>
-      <p className="eyebrow">How it works</p>
+      <p className="eyebrow">How this works</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
         <li>Browse charms by <strong>Gold</strong>, <strong>Silver</strong>, <strong>Colourful</strong> &amp; <strong>Natural</strong>.</li>
         <li>Drag a charm onto your case — or tap to drop it in automatically.</li>

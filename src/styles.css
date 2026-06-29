@@ -1,6 +1,7 @@
 :root {
   --cream: #f7f1e8;
   --cream-deep: #efe6d8;
+  --panel: #f4edda;
   --paper: #ffffff;
   --ink: #2e2a26;
   --ink-soft: #6f665c;
@@ -54,8 +55,7 @@ h4,
   justify-content: center;
   gap: 16px;
   padding: 12px 22px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(10px);
+  background: var(--panel);
   border-bottom: 1px solid var(--line);
   flex: none;
 }
@@ -96,11 +96,11 @@ h4,
 }
 .panel--left {
   border-right: 1px solid var(--line);
-  background: #fffdf9;
+  background: var(--panel);
 }
 .panel--right {
   border-left: 1px solid var(--line);
-  background: #fffdf9;
+  background: var(--panel);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -142,7 +142,7 @@ h4,
 .pricebox {
   flex: none;
   padding: 4px 18px 16px;
-  background: #fffdf9;
+  background: var(--panel);
 }
 .stage-wrap {
   min-height: 0;
@@ -154,7 +154,7 @@ h4,
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(120% 90% at 50% 0%, #fffdf9 0%, var(--cream) 60%, var(--cream-deep) 100%);
+    radial-gradient(120% 90% at 50% 0%, #ffffff 0%, #fdfaf3 65%, #f9f3e8 100%);
   overflow: hidden;
 }
 
@@ -168,6 +168,50 @@ h4,
 .section-title {
   font-size: 21px;
   margin: 0 0 14px;
+}
+
+/* ---------- Base selector cards (Step 1) ---------- */
+.base-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.base-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 8px;
+  border-radius: 14px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease,
+    color 0.12s ease;
+}
+.base-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.base-card__icon {
+  font-size: 26px;
+  line-height: 1;
+  color: var(--ink);
+}
+.base-card__label {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+.base-card.is-active {
+  border-color: var(--rouge);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px var(--rouge);
+}
+.base-card.is-active .base-card__icon {
+  color: var(--rouge);
 }
 
 /* ---------- Stage / charms ---------- */
@@ -382,9 +426,88 @@ h4,
 /* Step 2 header above the charm tray (desktop right panel) */
 .tray-head {
   flex: none;
-  padding: 16px 18px 10px;
+  padding: 16px 18px 12px;
   border-bottom: 1px solid var(--line);
-  background: #fffdf9;
+  background: var(--panel);
+}
+
+/* "CHARMS" label + live "N selected" badge (desktop right-panel head) */
+.charms-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.charms-bar__title {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+.charms-bar__count {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+/* Round category swatches (Gold / Silver / Colourful / Natural) */
+.cat-swatches {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.cat-swatch {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px 2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.cat-swatch__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(46, 42, 38, 0.18);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  background: radial-gradient(circle at 34% 28%, #efe6d3, #c9bda3 72%);
+}
+.cat-swatch__dot--gold {
+  background: radial-gradient(circle at 34% 28%, #f6e7b4 0%, #d8b25e 55%, #b6883a 100%);
+}
+.cat-swatch__dot--silver {
+  background: radial-gradient(circle at 34% 28%, #fdfdfd 0%, #cdd1d6 55%, #9aa0a7 100%);
+}
+.cat-swatch__dot--colourful {
+  background: radial-gradient(circle at 34% 28%, #f7dcee 0%, #d9b4e6 50%, #a9c0ec 100%);
+}
+.cat-swatch__dot--unique {
+  background: radial-gradient(circle at 34% 28%, #f6ddb6 0%, #dca36a 55%, #b9743f 100%);
+}
+.cat-swatch__label {
+  font-size: 11px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.cat-swatch:hover .cat-swatch__dot {
+  transform: translateY(-1px);
+}
+.cat-swatch.is-active .cat-swatch__dot {
+  border-color: var(--rouge);
+}
+.cat-swatch.is-active .cat-swatch__label {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 /* compact charm cards (mobile fixed tray) — 4–5 per row, tap to add */
@@ -664,6 +787,10 @@ h4,
   .mobile-stage .stage-wrap {
     padding-top: 6px;
     padding-bottom: 34px;
+    /* Keep the mobile preview on the original warm cream (the desktop stage uses
+       a whiter background to match the Figma; mobile is unchanged). */
+    background:
+      radial-gradient(120% 90% at 50% 0%, #fffdf9 0%, var(--cream) 60%, var(--cream-deep) 100%);
   }
   /* draggable divider — floats over the seam taking no layout space (negative
      margins collapse its own height), so the preview/tray fill the screen. A

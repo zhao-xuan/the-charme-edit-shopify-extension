@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-06-21T17:57:40.774Z",
-  "count": 351,
+  "count": 360,
   "pieces": [
     {
       "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-01",
@@ -2458,6 +2458,78 @@
       "fromPhoto": "silver.png",
       "pxW": 159,
       "pxH": 123
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-01",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-01.png",
+      "fromPhoto": "Image_20260619214422_369_2327.jpg",
+      "pid": "P278",
+      "pxW": 119,
+      "pxH": 95
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-02",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-02.png",
+      "fromPhoto": "Image_20260619214422_369_2327.jpg",
+      "pid": "P284",
+      "pxW": 115,
+      "pxH": 75
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-03",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "fromPhoto": "Image_20260619214422_369_2327.jpg",
+      "pid": "P291",
+      "pxW": 127,
+      "pxH": 147
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-04",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-04.png",
+      "fromPhoto": "Image_20260619214422_369_2327.jpg",
+      "pid": "P286",
+      "pxW": 254,
+      "pxH": 288
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-05",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-05.png",
+      "fromPhoto": "Image_20260619214426_371_2327.jpg",
+      "pid": "P321",
+      "pxW": 105,
+      "pxH": 209
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-06",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-06.png",
+      "fromPhoto": "Image_20260619214426_371_2327.jpg",
+      "pid": "P327",
+      "pxW": 121,
+      "pxH": 214
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-07",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-07.png",
+      "fromPhoto": "Image_20260619214426_371_2327.jpg",
+      "pid": "P331",
+      "pxW": 101,
+      "pxH": 154
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-08",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-08.png",
+      "fromPhoto": "Image_20260619214426_371_2327.jpg",
+      "pid": "P324",
+      "pxW": 195,
+      "pxH": 136
+    },
+    {
+      "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-09",
+      "src": "f1552077-9a1d-4e7c-bf0a-000000000abc-09.png",
+      "fromPhoto": "Image_20260619214426_371_2327.jpg",
+      "pid": "P333",
+      "pxW": 289,
+      "pxH": 287
     }
   ]
 }

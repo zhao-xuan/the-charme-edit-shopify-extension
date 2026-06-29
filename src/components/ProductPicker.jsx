@@ -1,5 +1,14 @@
-import { Segmented, Select, Space } from 'antd'
+import { Select, Space } from 'antd'
+import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
 import { PRODUCT_GROUPS, BRAND_LABELS } from '../data/products'
+
+// Representative icon per base platform, shown on the Step 1 selector cards.
+const BASE_ICONS = {
+  apple: <AppleFilled />,
+  android: <AndroidFilled />,
+  tote: <ShoppingOutlined />,
+  frame: <PictureOutlined />,
+}
 
 const swatch = (c) => ({
   width: 18,
@@ -91,14 +100,20 @@ export default function ProductPicker({
 
   return (
     <div>
-      <p className="eyebrow">Step 1 · Choose your case</p>
-      <Segmented
-        block
-        value={groupKey}
-        onChange={onGroupChange}
-        options={PRODUCT_GROUPS.map((g) => ({ label: g.label, value: g.key }))}
-        style={{ marginBottom: 14 }}
-      />
+      <p className="eyebrow">Step 1 · Choose your base</p>
+      <div className="base-grid">
+        {PRODUCT_GROUPS.map((g) => (
+          <button
+            key={g.key}
+            type="button"
+            className={`base-card${g.key === groupKey ? ' is-active' : ''}`}
+            onClick={() => onGroupChange(g.key)}
+          >
+            <span className="base-card__icon">{BASE_ICONS[g.key] || <ShoppingOutlined />}</span>
+            <span className="base-card__label">{g.label}</span>
+          </button>
+        ))}
+      </div>
 
       <Select
         value={productId}
