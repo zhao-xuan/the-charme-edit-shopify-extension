@@ -28,22 +28,25 @@ const ASSETS = join(ROOT, 'public', 'assets', 'charms', 'ref')
 const PRODUCT_W = 80.6, DET_H = 1800, PAD = 0.13
 
 // one UUID for the whole missing-art set; arts get -01, -02, …
-const SET = 'f1552077-9a1d-4e7c-bf0a-000000000abc'
+const SET = 'f1553077-9a1d-4e7c-bf0a-000000000abc'
 
 // photo base -> [{ pid, name, category }]. category: gold/silver/colourful/unique.
 const TARGETS = {
-  '369_2327': [
-    { pid: 'P278', name: 'Natural Amber', category: 'unique' },
-    { pid: 'P284', name: 'Natural Amber', category: 'unique' },
-    { pid: 'P291', name: 'Natural Amber', category: 'unique' },
-    { pid: 'P286', name: 'Natural Scallop Shell', category: 'unique' },
+  '362_2327': [
+    { pid: 'P231', name: 'Colourful Gem', category: 'colourful' },
+    { pid: 'P234', name: 'Colourful Gem', category: 'colourful' },
   ],
-  '371_2327': [
-    { pid: 'P321', name: 'Natural Abalone Shell', category: 'unique' },
-    { pid: 'P327', name: 'Natural Abalone Shell', category: 'unique' },
-    { pid: 'P331', name: 'Natural Abalone Shell', category: 'unique' },
-    { pid: 'P324', name: 'Natural Scallop Shell', category: 'unique' },
-    { pid: 'P333', name: 'Natural Scallop Shell', category: 'unique' },
+  '359_2327': [
+    { pid: 'P187', name: 'Natural Ceramic', category: 'unique' },
+    { pid: 'P185', name: 'Colourful Heart', category: 'colourful' },
+    { pid: 'P192', name: 'Colourful Heart', category: 'colourful' },
+  ],
+  '363_2327': [
+    { pid: 'P252', name: 'Natural Star', category: 'unique' },
+    { pid: 'P248', name: 'Natural Moon', category: 'unique' },
+    { pid: 'P249', name: 'Natural Moon', category: 'unique' },
+    { pid: 'P251', name: 'Natural Moon', category: 'unique' },
+    { pid: 'P253', name: 'Natural Moon', category: 'unique' },
   ],
 }
 
