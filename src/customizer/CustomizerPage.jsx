@@ -50,6 +50,12 @@ function deriveColor(product, caseColourId, gelColourId) {
   const base = caseList.find((c) => c.id === caseColourId) || caseList[0]
   const gels = product.gelColours
   const gel = gels ? gels.find((g) => g.id === gelColourId) || gels[0] : null
+  // Poured-gel overlay src for the chosen gel colour (Glitter reuses the White
+  // gel render); null for products without gel art (Androids, totes, frames).
+  let gelSrc = null
+  if (gel && product.gelImages) {
+    gelSrc = product.gelImages[gel.id === 'black' ? 'black' : 'white'] || null
+  }
   return {
     id: base.id,
     label: gel ? `${base.label} case · ${gel.label} gel` : base.label,
@@ -60,6 +66,7 @@ function deriveColor(product, caseColourId, gelColourId) {
     caseLabel: base.label,
     gelId: gel ? gel.id : null,
     gelLabel: gel ? gel.label : null,
+    gelSrc,
   }
 }
 
@@ -496,7 +503,6 @@ export default function CustomizerPage({ onPlaceOrder }) {
       key={product.kind}
       kind={product.kind}
       compact={isMobile}
-      rows
       activeKey={catKey}
       onActivate={onTrayActivate}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}

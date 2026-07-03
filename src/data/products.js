@@ -35,6 +35,22 @@ const GEL_COLOURS = [
   { id: 'black', label: 'Black', shell: '#1a1614', edge: '#000000', glitter: false },
 ]
 
+// The poured gel is a real translucent-liquid-glass overlay laid on top of the
+// case photo. Each iPhone maps to a representative gel shape that fits its camera
+// layout + footprint (built by scripts/build-gels.mjs from reference/gels-source).
+// Every 11–16 iPhone shares the top-left "17" gel; older single/dual-camera models
+// and the wide-bar 17 Pro / Pro Max / Air each have their own.
+const GEL_REP = {
+  'iphone-7': '8', 'iphone-8': '8',
+  'iphone-7-plus': '8plus', 'iphone-8-plus': '8plus',
+  'iphone-x': 'xs', 'iphone-xs': 'xs', 'iphone-xs-max': 'xs',
+  'iphone-17-pro': '17pro', 'iphone-17-pro-max': '17promax', 'iphone-air': 'air',
+}
+function gelOverlaySrc(id) {
+  const rep = GEL_REP[id] || '17'
+  return { white: `/assets/cases/gel-${rep}-white.png`, black: `/assets/cases/gel-${rep}-black.png` }
+}
+
 // Single flat base price for every phone case (charms priced on top).
 const PHONE_BASE_PRICE = 26
 
@@ -121,6 +137,8 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
     colors: CASE_COLOURS,
     caseColours: CASE_COLOURS,
     gelColours: GEL_COLOURS,
+    // Poured-gel overlay images (only Apple models have real gel renders).
+    gelImages: brand === 'apple' ? gelOverlaySrc(id) : null,
     printable: {
       outer,
       obstacles: [cameraObstacle(camera)],

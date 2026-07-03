@@ -51,10 +51,6 @@ const ProductStage = forwardRef(function ProductStage(
       setSize({ w: r.width, h: r.height })
     })
     ro.observe(el)
-    // Seed an initial measurement so the stage paints even when the observer's
-    // first callback is delayed or throttled (e.g. background/embedded browsers).
-    const r = el.getBoundingClientRect()
-    if (r.width && r.height) setSize({ w: r.width, h: r.height })
     return () => ro.disconnect()
   }, [])
 
@@ -179,6 +175,18 @@ const ProductStage = forwardRef(function ProductStage(
             />
           ) : (
             <ProductCanvas product={product} color={color} scale={scale} />
+          )}
+
+          {/* Poured-gel overlay for the chosen gel colour, drawn in register on
+              top of the case photo (built by scripts/build-gels.mjs). */}
+          {color.gelSrc && (
+            <img
+              className="stage-gel"
+              src={resolveAsset(color.gelSrc)}
+              alt=""
+              draggable={false}
+              style={{ width: wPx, height: hPx }}
+            />
           )}
 
           {/* faint safe-area guide — only for the tote (its logo keep-out).

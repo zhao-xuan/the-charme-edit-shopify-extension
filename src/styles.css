@@ -237,6 +237,15 @@ h4,
   -webkit-user-drag: none;
   user-select: none;
 }
+/* Poured-gel overlay: sits in register on top of the case photo, below charms. */
+.stage-gel {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
 .charm {
   position: absolute;
   touch-action: none;
@@ -589,26 +598,6 @@ h4,
   width: auto;
   height: auto;
   object-fit: contain;
-}
-
-/* Desktop: collections are horizontal strips too (swipe sideways), but with
-   full-size, draggable, named cards rather than the tiny mobile chips. */
-@media (min-width: 761px) {
-  .charm-row {
-    gap: 10px;
-    padding: 2px 0 10px;
-  }
-  .charm-card--row {
-    width: 104px;
-    cursor: grab;
-    touch-action: none;
-  }
-  .charm-card--row:hover {
-    transform: translateY(-2px);
-  }
-  .charm-card--row .thumb {
-    max-height: none;
-  }
 }
 
 .ghost-drag {
