@@ -149,12 +149,17 @@ export default function ProductPicker({
 
       {gelColours ? (
         <>
-          <ColourGroup
-            title="Case colour"
-            colours={caseColours}
-            value={caseColourId}
-            onChange={onCaseColourChange}
-          />
+          {/* Integrated-gel models bake the gel onto the case, so the gel colour
+              alone drives the finish — the separate case-colour control would be
+              redundant and is hidden for them. */}
+          {!product.gelRender && (
+            <ColourGroup
+              title="Case colour"
+              colours={caseColours}
+              value={caseColourId}
+              onChange={onCaseColourChange}
+            />
+          )}
           <ColourGroup
             title="Gel colour"
             colours={gelColours}

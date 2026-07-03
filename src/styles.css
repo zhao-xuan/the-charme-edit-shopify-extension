@@ -513,6 +513,8 @@ h4,
 }
 .cat-swatch.is-active .cat-swatch__dot {
   border-color: var(--rouge);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(46, 42, 38, 0.18),
+    0 0 0 2px var(--panel), 0 0 0 4px var(--rouge);
 }
 .cat-swatch.is-active .cat-swatch__label {
   color: var(--ink);

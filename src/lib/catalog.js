@@ -112,7 +112,7 @@ const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
 const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
 
 const BASE_CHARMS = charmData.charms
-  .filter((c) => !charmHidden[c.id])
+  .filter((c) => !charmHidden[c.id] && !c.hidden)
   .map((c) => ({
     ...c,
     kind: 'phone',

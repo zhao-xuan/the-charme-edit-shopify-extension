@@ -16,6 +16,7 @@
  */
 import CASES_DATA from './cases.json'
 import CAMERA_KEEPOUTS from './camera-keepouts.json'
+import INTEGRATED_MODELS from './integrated-models.json'
 import { loadAdmin } from '../lib/adminStore'
 import { remoteCatalog } from '../lib/remoteCatalog'
 
@@ -49,6 +50,29 @@ const GEL_REP = {
 function gelOverlaySrc(id) {
   const rep = GEL_REP[id] || '17'
   return { white: `/assets/cases/gel-${rep}-white.png`, black: `/assets/cases/gel-${rep}-black.png` }
+}
+
+// The models with bespoke "integrated gel" renders — a single cohesive product
+// photo per finish with the poured gel already fused onto the case
+// (public/assets/cases/integrated-<id>-<white|black>.png, produced by
+// scripts/crop-integrated-renders.mjs from GPT renders). The list is generated
+// by that script (src/data/integrated-models.json) so it stays in sync as more
+// models are rendered. For these models the gel colour drives the whole render —
+// White/Glitter gel sits on a White case, Black gel on a Black case — so we swap
+// the render in as the case photo and mark the product `gelRender` so the
+// customizer derives the case finish from the gel and skips the gel overlay.
+const INTEGRATED_GEL_MODELS = new Set(INTEGRATED_MODELS)
+function applyIntegratedGel(p) {
+  if (!INTEGRATED_GEL_MODELS.has(p.id)) return p
+  return {
+    ...p,
+    gelRender: true,
+    gelImages: null, // the gel is baked into the render — no separate overlay
+    blankImage: {
+      white: `/assets/cases/integrated-${p.id}-white.png`,
+      black: `/assets/cases/integrated-${p.id}-black.png`,
+    },
+  }
 }
 
 // Single flat base price for every phone case (charms priced on top).
@@ -265,6 +289,7 @@ const IPHONES = [
 ]
   .map((a) => makePhone(...a))
   .map(applyPhotoCase)
+  .map(applyIntegratedGel)
   // Every phone case shares one base price; charms are added on top.
   .map((p) => ({ ...p, basePrice: PHONE_BASE_PRICE, brand: 'apple' }))
 
@@ -297,6 +322,11 @@ const ANDROIDS = [
   ['huawei-p60-pro', 'Huawei P60 Pro', 74.5, 161.0, 'circle', 26, 'huawei'],
 ]
   .map((a) => makePhone(...a))
+  .map(applyIntegratedGel)
+  // Only surface Android models that already have a generated integrated-gel
+  // render. Models still awaiting a render are hidden for now; each reappears
+  // automatically once its render lands in integrated-models.json.
+  .filter((p) => INTEGRATED_GEL_MODELS.has(p.id))
   .map((p) => ({ ...p, basePrice: PHONE_BASE_PRICE }))
 
 /** Sub-brand display labels (used to group the Android model dropdown). */

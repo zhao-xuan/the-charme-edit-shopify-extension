@@ -47,13 +47,20 @@ const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
  */
 function deriveColor(product, caseColourId, gelColourId) {
   const caseList = product.caseColours || product.colors
-  const base = caseList.find((c) => c.id === caseColourId) || caseList[0]
   const gels = product.gelColours
   const gel = gels ? gels.find((g) => g.id === gelColourId) || gels[0] : null
+  // Integrated-gel models (the 2025 line) bake the poured gel into a single
+  // render, so the gel colour drives the case finish: White/Glitter gel sits on
+  // a White case, Black gel on a Black case. Other models keep the customer's
+  // explicit case-colour choice and layer a translucent gel overlay on top.
+  const effectiveCaseId =
+    product.gelRender && gel ? (gel.id === 'black' ? 'black' : 'white') : caseColourId
+  const base = caseList.find((c) => c.id === effectiveCaseId) || caseList[0]
   // Poured-gel overlay src for the chosen gel colour (Glitter reuses the White
-  // gel render); null for products without gel art (Androids, totes, frames).
+  // gel render); null for products without gel art (Androids, totes, frames) and
+  // for integrated-gel models whose render already contains the gel.
   let gelSrc = null
-  if (gel && product.gelImages) {
+  if (gel && product.gelImages && !product.gelRender) {
     gelSrc = product.gelImages[gel.id === 'black' ? 'black' : 'white'] || null
   }
   return {
@@ -214,6 +221,15 @@ export default function CustomizerPage({ onPlaceOrder }) {
       setGelColourId(product.gelColours[0].id)
     }
   }, [product, caseColourId, gelColourId])
+
+  // Integrated-gel models hide the case-colour control and let the gel colour
+  // drive the finish; keep the (now hidden) case-colour state in sync so the
+  // recorded order + any downstream consumer still reflect the right case.
+  useEffect(() => {
+    if (!product.gelRender) return
+    const want = gelColourId === 'black' ? 'black' : 'white'
+    if (caseColourId !== want) setCaseColourId(want)
+  }, [product.gelRender, gelColourId, caseColourId])
 
   // ---- undo / recall history ------------------------------------------------
   // A bounded stack of `placed` snapshots. We checkpoint before every discrete
@@ -688,17 +704,19 @@ export default function CustomizerPage({ onPlaceOrder }) {
                   optionFilterProp="label"
                 />
               </label>
-              <label className="mobile-head__field">
-                <span className="mobile-head__label">Case</span>
-                <Select
-                  className="mobile-head__sel"
-                  size="small"
-                  value={caseColourId}
-                  onChange={setCaseColourId}
-                  options={caseOptions}
-                  popupMatchSelectWidth={false}
-                />
-              </label>
+              {!product.gelRender && (
+                <label className="mobile-head__field">
+                  <span className="mobile-head__label">Case</span>
+                  <Select
+                    className="mobile-head__sel"
+                    size="small"
+                    value={caseColourId}
+                    onChange={setCaseColourId}
+                    options={caseOptions}
+                    popupMatchSelectWidth={false}
+                  />
+                </label>
+              )}
               {gelOptions && (
                 <label className="mobile-head__field">
                   <span className="mobile-head__label">Gel</span>
