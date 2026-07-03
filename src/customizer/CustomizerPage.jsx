@@ -77,12 +77,27 @@ function deriveColor(product, caseColourId, gelColourId) {
   }
 }
 
-export default function CustomizerPage({ onPlaceOrder }) {
+export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialProductId, initialLayout }) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
 
-  const [groupKey, setGroupKey] = useState('apple')
-  const [productId, setProductId] = useState('iphone-17-pro')
+  // Optional starting model/category (set per placement by the Shopify section,
+  // so the same widget can open on a different product on each product page). A
+  // valid model wins and drives its own category; otherwise fall back to the
+  // chosen category, then the default.
+  const startProduct = (initialProductId && findProduct(initialProductId) && initialProductId) || null
+  const startGroup =
+    (startProduct &&
+      PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === startProduct))?.key) ||
+    initialGroupKey ||
+    'apple'
+  const resolvedProduct =
+    startProduct ||
+    (PRODUCT_GROUPS.find((g) => g.key === startGroup) || PRODUCT_GROUPS[0]).products[0]?.id ||
+    'iphone-17-pro'
+
+  const [groupKey, setGroupKey] = useState(startGroup)
+  const [productId, setProductId] = useState(resolvedProduct)
   const [caseColourId, setCaseColourId] = useState('white')
   const [gelColourId, setGelColourId] = useState('glitter')
   const [placed, setPlaced] = useState([])
@@ -130,6 +145,46 @@ export default function CustomizerPage({ onPlaceOrder }) {
     [product, caseColourId, gelColourId],
   )
 
+  // Apply a full saved arrangement (product + case/gel finish + placed charms).
+  // Shared by the dev/QA seed hook and the production preset auto-loader.
+  const applyLayout = useCallback((layout = {}) => {
+    if (layout.productId) setProductId(layout.productId)
+    if (layout.caseColourId) setCaseColourId(layout.caseColourId)
+    if (layout.gelColourId) setGelColourId(layout.gelColourId)
+    setPlaced(
+      (layout.charms || []).map((it) => ({
+        uid: uid(),
+        charmId: it.charmId || 'demo',
+        type: it.type || 2,
+        category: it.category || 'gold',
+        name: it.name || 'demo',
+        src: it.src,
+        price: it.price || 0,
+        bundle: false,
+        bundleMax: undefined,
+        baseWmm: it.wMm,
+        baseHmm: it.hMm,
+        minScale: 0.05,
+        maxScale: 20,
+        scale: 1,
+        rot: it.rot || 0,
+        cxMm: it.cxMm,
+        cyMm: it.cyMm,
+      })),
+    )
+    setSelectedUid(null)
+  }, [])
+
+  // Production preset auto-load: when the Shopify placement supplies a digitised
+  // design (fetched by product handle before the widget mounted), seed it once so
+  // the customer opens onto that design and can refine it. Runs a single time.
+  const seededPreset = useRef(false)
+  useEffect(() => {
+    if (seededPreset.current || !initialLayout || !(initialLayout.charms || []).length) return
+    seededPreset.current = true
+    applyLayout(initialLayout)
+  }, [initialLayout, applyLayout])
+
   // Dev/QA layout seeding hook. Lets tooling reproduce an exact arrangement
   // (e.g. a real reference photo) on the live site for screenshot comparison:
   //   window.__charmeSeedLayout({ productId, caseColourId, gelColourId, charms:
@@ -141,37 +196,11 @@ export default function CustomizerPage({ onPlaceOrder }) {
       import.meta.env.DEV ||
       (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('seed'))
     if (!seedEnabled || typeof window === 'undefined') return
-    window.__charmeSeedLayout = (layout = {}) => {
-      if (layout.productId) setProductId(layout.productId)
-      if (layout.caseColourId) setCaseColourId(layout.caseColourId)
-      if (layout.gelColourId) setGelColourId(layout.gelColourId)
-      setPlaced(
-        (layout.charms || []).map((it) => ({
-          uid: uid(),
-          charmId: it.charmId || 'demo',
-          type: it.type || 2,
-          category: it.category || 'gold',
-          name: it.name || 'demo',
-          src: it.src,
-          price: it.price || 0,
-          bundle: false,
-          bundleMax: undefined,
-          baseWmm: it.wMm,
-          baseHmm: it.hMm,
-          minScale: 0.05,
-          maxScale: 20,
-          scale: 1,
-          rot: it.rot || 0,
-          cxMm: it.cxMm,
-          cyMm: it.cyMm,
-        })),
-      )
-      setSelectedUid(null)
-    }
+    window.__charmeSeedLayout = (layout = {}) => applyLayout(layout)
     return () => {
       delete window.__charmeSeedLayout
     }
-  }, [])
+  }, [applyLayout])
 
   // Inline Step 1 dropdowns (mobile header): model list for the active platform
   // (Android sub-grouped by brand), plus case + gel colour lists.
@@ -514,6 +543,29 @@ export default function CustomizerPage({ onPlaceOrder }) {
     </div>
   )
 
+  // Undo / clear-all controls floating over the preview. Shared by the mobile
+  // and desktop stages so both surfaces get the same quick edit dock.
+  const editDock = (
+    <div className="edit-dock">
+      <Button
+        size="small"
+        shape="circle"
+        icon={<UndoOutlined />}
+        disabled={!canUndo}
+        onClick={undo}
+        title="Undo"
+      />
+      <Button
+        size="small"
+        shape="circle"
+        icon={<DeleteOutlined />}
+        disabled={placed.length === 0}
+        onClick={clearAll}
+        title="Clear all"
+      />
+    </div>
+  )
+
   const tray = (
     <CharmTray
       key={product.kind}
@@ -735,24 +787,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
           <div className="mobile-stage">
             {stageNode}
             {zoomDock}
-            <div className="edit-dock">
-              <Button
-                size="small"
-                shape="circle"
-                icon={<UndoOutlined />}
-                disabled={!canUndo}
-                onClick={undo}
-                title="Undo"
-              />
-              <Button
-                size="small"
-                shape="circle"
-                icon={<DeleteOutlined />}
-                disabled={placed.length === 0}
-                onClick={clearAll}
-                title="Clear all"
-              />
-            </div>
+            {editDock}
             <div
               className={
                 'mobile-step-overlay' +
@@ -842,6 +877,7 @@ export default function CustomizerPage({ onPlaceOrder }) {
           <div style={{ position: 'relative', minHeight: 0 }}>
             {stageNode}
             {zoomDock}
+            {editDock}
             {overlapAlert}
           </div>
           <div className="panel--right">

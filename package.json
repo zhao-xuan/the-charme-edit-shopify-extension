@@ -12,7 +12,7 @@
     "calibrate": "node scripts/calibrate-charm-sizes.mjs",
     "tote": "node scripts/process-tote.mjs",
     "patches": "node scripts/process-patches.mjs",
-    "build:shopify": "node shopify/scripts/copy-assets.mjs && vite build --config vite.shopify.config.js",
+    "build:shopify": "vite build --config vite.shopify.config.js",
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name charme-customizer"
   },
   "dependencies": {

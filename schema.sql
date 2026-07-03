@@ -53,3 +53,23 @@ CREATE TABLE IF NOT EXISTS overrides (
 
 CREATE INDEX IF NOT EXISTS idx_charms_category ON charms (category);
 CREATE INDEX IF NOT EXISTS idx_charms_source ON charms (source);
+
+-- Digitised design PRESETS. Each row is one storefront "custom phone case"
+-- design, keyed by its Shopify product handle. `layout` is the full seedable
+-- customizer arrangement as JSON — { productId, caseColourId, gelColourId,
+-- charms:[{charmId,src,name,category,type,price,cxMm,cyMm,wMm,hMm,rot}] } — so
+-- opening the widget from that design's product page auto-loads it for further
+-- editing. The charm `src` values point at bundled catalogue art (served via the
+-- Pages CDN), so no image bytes are stored here.
+CREATE TABLE IF NOT EXISTS presets (
+  handle      TEXT PRIMARY KEY,                -- Shopify product handle of the design
+  title       TEXT,
+  product_id  TEXT NOT NULL DEFAULT 'iphone-16-pro-max',
+  case_colour TEXT NOT NULL DEFAULT 'white',   -- white | black
+  gel_colour  TEXT NOT NULL DEFAULT 'glitter', -- glitter | white | black
+  layout      TEXT NOT NULL,                   -- full layout JSON (see above)
+  active      INTEGER NOT NULL DEFAULT 1,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_presets_active ON presets (active);

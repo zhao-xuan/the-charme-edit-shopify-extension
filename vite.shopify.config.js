@@ -7,21 +7,24 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
  * Library build that bundles the customizer into a single self-executing script
- * (+ one CSS file) for the Shopify theme app extension. React and Ant Design are
- * bundled in so the script is drop-in on any storefront.
+ * (+ one CSS file) for the Shopify drop-in section. React and Ant Design are
+ * bundled in so the script is drop-in on any storefront. It is emitted into
+ * `public/widget/` so the standalone `vite build` copies it into `dist/widget/`
+ * and Cloudflare Pages serves it from the CDN:
  *
  *   npm run build:shopify
- *   → shopify/extensions/charme-customizer/assets/charme-customizer.js
- *   → shopify/extensions/charme-customizer/assets/charme-customizer.css
+ *   → public/widget/charme-customizer.js
+ *   → public/widget/charme-customizer.css
+ *   (then `npm run deploy` publishes them to
+ *    https://charme-customizer.pages.dev/widget/charme-customizer.js)
  */
 export default defineConfig({
   plugins: [react()],
   define: { 'process.env.NODE_ENV': '"production"' },
-  // Don't copy the standalone app's public/ dir into the extension assets;
-  // copy-assets.mjs places the charm PNGs + catalogue there explicitly.
+  // Library build only — don't recurse into the app's public/ dir.
   publicDir: false,
   build: {
-    outDir: resolve(__dirname, 'shopify/extensions/charme-customizer/assets'),
+    outDir: resolve(__dirname, 'public/widget'),
     emptyOutDir: false,
     cssCodeSplit: false,
     lib: {

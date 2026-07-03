@@ -1,0 +1,136 @@
+{% comment %}
+  Charmé Customizer — SNIPPET version (place the button ANYWHERE inside a section).
+
+  The section file (sections/charme-customizer.liquid) can only be added as its
+  own full-width block. This snippet renders the same button + popup but can sit
+  INSIDE existing sections — next to the Add to cart button, inside the product
+  info column, in the cart, etc.
+
+  TWO WAYS TO PLACE IT
+  A) No code — "Custom Liquid" block:
+     1. Save this file as snippets/charme-customizer.liquid (Edit code → Snippets
+        → Add a new snippet → name it `charme-customizer`).
+     2. In the theme editor, add a **Custom Liquid** block where you want it
+        (e.g. the product page's product-information section, or the cart), and
+        put just:  {% render 'charme-customizer' %}
+  B) In theme code — render it at an exact spot, e.g. right after the buy button
+     in sections/main-product.liquid or the cart template:
+        {% render 'charme-customizer' %}
+
+  OPTIONAL OVERRIDES (per placement):
+     {% render 'charme-customizer',
+         button_label: 'Design your own',
+         default_product: 'iphone-16-pro',
+         id: 'pdp' %}
+
+  EDIT THE CONFIG DEFAULTS BELOW (especially the variant map) to match your store.
+{% endcomment %}
+
+{%- assign cfg_api_base    = api_base       | default: 'https://charme-customizer.pages.dev' -%}
+{%- assign cfg_btn_label   = button_label   | default: 'Design your own' -%}
+{%- assign cfg_btn_align   = button_align   | default: 'center' -%}
+{%- assign cfg_order_mode  = order_mode     | default: 'cart' -%}
+{%- assign cfg_cart_redir  = cart_redirect  | default: 'drawer' -%}
+{%- assign cfg_def_group   = default_group  | default: 'apple' -%}
+{%- assign cfg_def_product = default_product | default: '' -%}
+{%- assign cfg_preset      = preset_handle  | default: product.handle -%}
+{%- assign uid             = id             | default: 'charme' -%}
+
+{%- comment %} Variant map: pass a `variant_map` string, or edit this default. {%- endcomment -%}
+{%- capture cfg_variant_map -%}
+{%- if variant_map -%}{{ variant_map }}{%- else -%}
+{
+  "products": { "iphone-16-pro:white": 0, "iphone-16-pro:black": 0 },
+  "charmByPrice": { "2": 0, "3": 0, "5": 0 }
+}
+{%- endif -%}
+{%- endcapture -%}
+
+<div id="charme-root-{{ uid }}" class="charme-trigger-wrap--{{ cfg_btn_align }}">
+  <button type="button" class="charme-trigger" data-charme-open aria-haspopup="dialog">{{ cfg_btn_label | escape }}</button>
+  <div class="charme-modal" data-charme-modal hidden role="dialog" aria-modal="true" aria-label="Charmé Customizer">
+    <div class="charme-modal__panel">
+      <div class="charme-modal__topbar">
+        <button type="button" class="charme-back" data-charme-close aria-label="Back to product">
+          <span class="charme-back__arrow" aria-hidden="true">&#8592;</span>
+          <span>{{ back_label | default: 'Back' | escape }}</span>
+        </button>
+      </div>
+      <div id="charme-customizer-{{ uid }}" class="charme-customizer"></div>
+    </div>
+  </div>
+</div>
+<style>
+  .charme-trigger-wrap--left{display:flex;justify-content:flex-start}
+  .charme-trigger-wrap--center{display:flex;justify-content:center}
+  .charme-trigger-wrap--right{display:flex;justify-content:flex-end}
+  .charme-trigger{font:inherit;cursor:pointer;border:0;border-radius:0;padding:14px 30px;background:#AEC6D5;color:#1a1614;font-size:16px;letter-spacing:.02em}
+  .charme-trigger:hover{opacity:.9}
+  .charme-modal{position:fixed;inset:0;z-index:2147483000}
+  .charme-modal[hidden]{display:none}
+  .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column}
+  .charme-modal__topbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid #eceae7;background:#fff}
+  .charme-back{display:inline-flex;align-items:center;gap:8px;font:inherit;cursor:pointer;border:0;border-radius:0;background:transparent;color:#1a1614;font-size:15px;padding:8px 10px}
+  .charme-back:hover{opacity:.65}
+  .charme-back__arrow{font-size:18px;line-height:1}
+  .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
+  body.charme-modal-open{overflow:hidden}
+</style>
+
+<script>
+  (function () {
+    var variantMap = { products: {}, charms: {} };
+    try {
+      variantMap = JSON.parse({{ cfg_variant_map | json }} || '{}');
+    } catch (e) {
+      console.error('[Charmé] Variant map is not valid JSON —', e);
+    }
+    window.CharmeConfig = {
+      apiBase: {{ cfg_api_base | json }},
+      orderMode: {{ cfg_order_mode | json }},
+      variantMap: variantMap,
+      cartRedirect: {{ cfg_cart_redir | json }},
+      defaultGroup: {{ cfg_def_group | json }},
+      defaultProductId: {{ cfg_def_product | strip | json }},
+      presetHandle: {{ cfg_preset | strip | json }},
+      height: "100%",
+      mountId: "charme-customizer-{{ uid }}",
+      lazy: true,
+      shop: {{ shop.permanent_domain | json }}
+    };
+  })();
+</script>
+
+<link rel="stylesheet" href="{{ cfg_api_base }}/widget/charme-customizer.css">
+<script src="{{ cfg_api_base }}/widget/charme-customizer.js" defer></script>
+
+<script>
+  (function () {
+    var root = document.getElementById('charme-root-{{ uid }}');
+    if (!root) return;
+    var modal = root.querySelector('[data-charme-modal]');
+    function ensureMounted(tries) {
+      if (window.CharmeCustomizer && window.CharmeCustomizer.mount) {
+        window.CharmeCustomizer.mount();
+        window.dispatchEvent(new Event('resize'));
+        return;
+      }
+      if (tries > 0) setTimeout(function () { ensureMounted(tries - 1); }, 80);
+    }
+    function open() {
+      modal.hidden = false;
+      document.body.classList.add('charme-modal-open');
+      ensureMounted(80);
+      [0, 60, 200, 500].forEach(function (t) {
+        setTimeout(function () { window.dispatchEvent(new Event('resize')); }, t);
+      });
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.classList.remove('charme-modal-open');
+    }
+    root.querySelectorAll('[data-charme-open]').forEach(function (b) { b.addEventListener('click', open); });
+    root.querySelectorAll('[data-charme-close]').forEach(function (b) { b.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+  })();
+</script>
