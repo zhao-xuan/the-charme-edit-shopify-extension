@@ -458,3 +458,68 @@ export function clampCenter(box, printable) {
   const cy = Math.max(outer.yMm + halfH, Math.min(outer.yMm + outer.hMm - halfH, box.cy))
   return { cx, cy }
 }
+
+const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v)
+
+/** Centre (mm) of a printable-area obstacle (camera keep-out). */
+function obstacleCenter(ob) {
+  if (ob.type === 'circle') return { x: ob.cxMm, y: ob.cyMm }
+  return { x: ob.xMm + ob.wMm / 2, y: ob.yMm + ob.hMm / 2 }
+}
+
+/**
+ * Re-fit placed charms from one product's coordinate space to another — e.g.
+ * loading a design authored on the iPhone 16 Pro Max onto a smaller phone, or
+ * one whose camera sits elsewhere (17-series bar, Samsung lens column, …).
+ *
+ *   1. remap each charm centre PROPORTIONALLY within the printable outer rect so
+ *      nothing spills off the new (possibly smaller) footprint;
+ *   2. push any charm that lands on the new camera keep-out radially clear of it;
+ *   3. clamp the whole footprint back inside the printable area.
+ *
+ * Physical charm sizes/rotations are preserved (a charm is the same real object
+ * on any phone). Returns a NEW array; inputs are untouched. Falls back to the
+ * original list when either product lacks a printable outer rect.
+ */
+export function adaptLayoutToProduct(placed, fromProduct, toProduct) {
+  if (!placed || !placed.length || !fromProduct || !toProduct || fromProduct === toProduct) {
+    return placed
+  }
+  const src = fromProduct.printable
+  const dst = toProduct.printable
+  if (!src || !dst || !src.outer || !dst.outer) return placed
+  const so = src.outer
+  const doo = dst.outer
+  const obstacles = dst.obstacles || []
+
+  return placed.map((c) => {
+    // 1. proportional remap of the centre within the printable outer rect
+    const fx = so.wMm ? (c.cxMm - so.xMm) / so.wMm : 0.5
+    const fy = so.hMm ? (c.cyMm - so.yMm) / so.hMm : 0.5
+    let cx = doo.xMm + clamp01(fx) * doo.wMm
+    let cy = doo.yMm + clamp01(fy) * doo.hMm
+
+    let box = { cx, cy, w: c.baseWmm * (c.scale || 1), h: c.baseHmm * (c.scale || 1), rot: c.rot || 0 }
+    // 2. keep the whole footprint inside the new outer rect
+    ;({ cx, cy } = clampCenter(box, dst))
+    // 3. push off the new camera / keep-outs (radially away from the obstacle),
+    //    re-clamping each step so it stays on the case
+    for (let iter = 0; iter < 80 && obstacles.length; iter++) {
+      box = { ...box, cx, cy }
+      const hit = obstacles.find((ob) => hitsObstacle(box, ob))
+      if (!hit) break
+      const oc = obstacleCenter(hit)
+      let dx = cx - oc.x
+      let dy = cy - oc.y
+      if (Math.abs(dx) < 1e-3 && Math.abs(dy) < 1e-3) {
+        dx = 0
+        dy = 1
+      } // charm centred on the keep-out → push straight down
+      const len = Math.hypot(dx, dy) || 1
+      cx += (dx / len) * 1.5
+      cy += (dy / len) * 1.5
+      ;({ cx, cy } = clampCenter({ ...box, cx, cy }, dst))
+    }
+    return { ...c, cxMm: +cx.toFixed(2), cyMm: +cy.toFixed(2) }
+  })
+}

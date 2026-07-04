@@ -12,7 +12,7 @@ CDN only serves code + art; it never touches money or orders.
 
 ```
 shopify/
-  theme-section/charme-customizer.liquid   ← the drop-in section (paste this)
+  snippets/charme-customizer.liquid        ← the drop-in snippet (paste this)
   widget/
     entry.jsx                 mounts the customizer, loads the live catalogue, wires the cart
     shopifyCart.js            /cart/add.js integration + variant map
@@ -56,13 +56,13 @@ npx wrangler pages deploy dist --project-name charme-customizer --branch product
 This serves the bundle at
 `https://charme-customizer.pages.dev/widget/charme-customizer.js` (+ `.css`).
 
-## 2. Add the section to your theme
+## 2. Add the snippet to your theme
 
 1. **Online Store → Themes → ⋯ → Edit code**.
-2. Under **Sections**, *Add a new section* → name it `charme-customizer` → paste
-   all of [`theme-section/charme-customizer.liquid`](theme-section/charme-customizer.liquid) → **Save**.
-3. Open the page/template where you want it (e.g. a dedicated “Build your own
-   case” page) in the **theme editor** → **Add section → “Charmé Customizer”**.
+2. Under **Snippets**, *Add a new snippet* → name it `charme-customizer` → paste
+   all of [`snippets/charme-customizer.liquid`](snippets/charme-customizer.liquid) → **Save**.
+3. In the **theme editor**, add a **Custom Liquid** block where you want it and
+   put `{% render 'charme-customizer' %}` (e.g. on a “Build your own case” page).
 
 ## 3. Connect orders + payment
 

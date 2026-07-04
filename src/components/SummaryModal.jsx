@@ -157,6 +157,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       onCancel={onClose}
       width={isMobile ? '100%' : 720}
       centered={!isMobile}
+      zIndex={2147483600}
       style={isMobile ? { top: 8, maxWidth: 'calc(100vw - 16px)', paddingBottom: 0 } : undefined}
       styles={isMobile ? { body: { maxHeight: 'calc(100dvh - 150px)', overflowY: 'auto' } } : undefined}
       footer={null}
@@ -185,7 +186,14 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 src={previewUrl}
                 alt="Your design preview"
                 className="proof-img"
-                style={{ filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))' }}
+                style={{
+                  width: 'auto',
+                  height: 'auto',
+                  maxHeight: 300,
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))',
+                }}
               />
             </div>
             {(hasFiller || hasUnique) && (
@@ -241,7 +249,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               style={{ marginTop: 12 }}
               onClick={placeOrder}
             >
-              Order my custom {noun} (£{total.toFixed(0)})
+              Add my custom {noun} to cart (£{total.toFixed(0)})
             </Button>
           </div>
         </div>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Charmé preset — loading…</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../public/widget/charme-customizer.css" />
+    <style>
+      body { margin: 0; font-family: Jost, sans-serif; background: #efe6d8; }
+      .pdp { max-width: 1200px; margin: 0 auto; padding: 12px 16px; }
+      .pdp h1 { font-family: 'Cormorant Garamond', serif; margin: 6px 0 10px; font-size: 22px; }
+      .pdp h1 small { color: #8a7f6c; font-family: Jost, sans-serif; font-weight: 400; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <div class="pdp">
+      <h1 id="title">Charmé preset <small id="sub"></small></h1>
+      <div id="charme-customizer-root" style="min-height: 88vh"></div>
+    </div>
+
+    <script>
+      // Simulate a Shopify design product page: the design's product handle is
+      // read from ?handle=… so the widget auto-loads that digitised preset.
+      var params = new URLSearchParams(location.search)
+      var handle = params.get('handle') || ''
+      var product = params.get('product') || 'iphone-16-pro-max'
+      var caseId = params.get('case') || ''
+      var gelId = params.get('gel') || ''
+      document.getElementById('sub').textContent = handle ? '— ' + handle : ''
+      document.title = 'Charmé — ' + (handle || 'preset')
+
+      window.Shopify = { routes: { root: '/' }, shop: 'demo.myshopify.com' }
+      window.CharmeConfig = {
+        apiBase: 'https://charme-customizer.pages.dev',
+        mountId: 'charme-customizer-root',
+        presetHandle: handle,
+        defaultGroup: 'apple',
+        defaultProductId: product,
+        caseColourId: caseId || undefined,
+        gelColourId: gelId || undefined,
+        orderMode: 'cart',
+        cartRedirect: 'none',
+        variantMap: { products: {}, charmByPrice: { '2': 201, '3': 202, '5': 203 }, charms: {} },
+        lazy: false,
+      }
+    </script>
+    <script src="../public/widget/charme-customizer.js?v=5" defer></script>
+  </body>
+</html>

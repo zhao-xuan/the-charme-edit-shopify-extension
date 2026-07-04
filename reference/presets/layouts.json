@@ -11,11 +11,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 53.3,
-        "cyMm": 14.04,
-        "wMm": 8.62,
-        "hMm": 4,
-        "rot": -45.4
+        "cxMm": 53.73,
+        "cyMm": 14.92,
+        "wMm": 8.8,
+        "hMm": 7.2,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29",
@@ -24,10 +24,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 36.09,
-        "cyMm": 65.14,
-        "wMm": 13.72,
-        "hMm": 12.65,
+        "cxMm": 35.92,
+        "cyMm": 64.69,
+        "wMm": 12.9,
+        "hMm": 15.3,
         "rot": 0
       },
       {
@@ -37,10 +37,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 16.57,
-        "cyMm": 74.71,
-        "wMm": 19.35,
-        "hMm": 23.16,
+        "cxMm": 16.53,
+        "cyMm": 74,
+        "wMm": 22.4,
+        "hMm": 23.4,
         "rot": 0
       },
       {
@@ -50,10 +50,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 62.84,
-        "cyMm": 86.91,
-        "wMm": 15.7,
-        "hMm": 18.9,
+        "cxMm": 63.62,
+        "cyMm": 86.15,
+        "wMm": 14.6,
+        "hMm": 18.3,
         "rot": 0
       },
       {
@@ -63,10 +63,10 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 38.4,
-        "cyMm": 91.29,
-        "wMm": 32.46,
-        "hMm": 27.58,
+        "cxMm": 37.96,
+        "cyMm": 90.23,
+        "wMm": 17.7,
+        "hMm": 32.3,
         "rot": 0
       },
       {
@@ -76,11 +76,11 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 14.22,
-        "cyMm": 100.72,
-        "wMm": 21.07,
-        "hMm": 12.87,
-        "rot": 73.2
+        "cxMm": 13.89,
+        "cyMm": 101.15,
+        "wMm": 18.9,
+        "hMm": 21.1,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07",
@@ -89,10 +89,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 62.51,
-        "cyMm": 106.71,
-        "wMm": 13.56,
-        "hMm": 12.19,
+        "cxMm": 61.96,
+        "cyMm": 106.77,
+        "wMm": 11.9,
+        "hMm": 15.9,
         "rot": 0
       },
       {
@@ -102,10 +102,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 38.7,
-        "cyMm": 117.42,
-        "wMm": 16.92,
-        "hMm": 13.11,
+        "cxMm": 38.26,
+        "cyMm": 117.69,
+        "wMm": 17,
+        "hMm": 16.4,
         "rot": 0
       },
       {
@@ -115,10 +115,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 15.6,
-        "cyMm": 124.99,
-        "wMm": 18.9,
-        "hMm": 19.05,
+        "cxMm": 16.3,
+        "cyMm": 125.46,
+        "wMm": 16.9,
+        "hMm": 20.2,
         "rot": 0
       },
       {
@@ -128,10 +128,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 39.93,
-        "cyMm": 138.21,
-        "wMm": 14.17,
-        "hMm": 13.26,
+        "cxMm": 39.47,
+        "cyMm": 138.23,
+        "wMm": 13.2,
+        "hMm": 14.5,
         "rot": 0
       },
       {
@@ -141,11 +141,11 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 58.05,
-        "cyMm": 138.84,
-        "wMm": 46,
-        "hMm": 20.86,
-        "rot": -56.8
+        "cxMm": 56.07,
+        "cyMm": 138.23,
+        "wMm": 15.4,
+        "hMm": 43.4,
+        "rot": 33.2
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-20",
@@ -154,11 +154,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 76.98,
-        "cyMm": 150.79,
-        "wMm": 27.59,
-        "hMm": 4,
-        "rot": -86.7
+        "cxMm": 75.92,
+        "cyMm": 146.31,
+        "wMm": 27.6,
+        "hMm": 23.3,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-06",
@@ -167,10 +167,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 17.05,
-        "cyMm": 151.38,
-        "wMm": 20.73,
-        "hMm": 14.17,
+        "cxMm": 17.51,
+        "cyMm": 151.31,
+        "wMm": 20.7,
+        "hMm": 20.5,
         "rot": 0
       }
     ]
@@ -187,11 +187,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 51.04,
-        "cyMm": 19.55,
-        "wMm": 12.83,
-        "hMm": 6.28,
-        "rot": -46.7
+        "cxMm": 51.78,
+        "cyMm": 19.23,
+        "wMm": 12.4,
+        "hMm": 12.8,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34",
@@ -200,24 +200,11 @@
         "category": "colourful",
         "type": 1,
         "price": 5,
-        "cxMm": 63.86,
-        "cyMm": 29.91,
-        "wMm": 21.45,
-        "hMm": 28.34,
+        "cxMm": 63.94,
+        "cyMm": 29.93,
+        "wMm": 28.5,
+        "hMm": 16.7,
         "rot": 0
-      },
-      {
-        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-13",
-        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-13.png",
-        "name": "Natural Abalone Shell",
-        "category": "unique",
-        "type": 1,
-        "price": 5,
-        "cxMm": 18.67,
-        "cyMm": 57.57,
-        "wMm": 38.47,
-        "hMm": 10.2,
-        "rot": -7.6
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
@@ -226,11 +213,24 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 61.47,
-        "cyMm": 58.35,
-        "wMm": 21.88,
-        "hMm": 13.9,
-        "rot": -62.9
+        "cxMm": 60.86,
+        "cyMm": 57.52,
+        "wMm": 17.2,
+        "hMm": 22.8,
+        "rot": 27.1
+      },
+      {
+        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-13",
+        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-13.png",
+        "name": "Natural Abalone Shell",
+        "category": "unique",
+        "type": 1,
+        "price": 5,
+        "cxMm": 20.94,
+        "cyMm": 60.88,
+        "wMm": 24.2,
+        "hMm": 38.6,
+        "rot": 82.4
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-15",
@@ -239,10 +239,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 37.6,
-        "cyMm": 67.87,
-        "wMm": 14.25,
-        "hMm": 15.63,
+        "cxMm": 36.7,
+        "cyMm": 67.53,
+        "wMm": 15.5,
+        "hMm": 11.6,
         "rot": 0
       },
       {
@@ -252,11 +252,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 65.17,
-        "cyMm": 68.65,
-        "wMm": 13.44,
-        "hMm": 4,
-        "rot": -42.9
+        "cxMm": 64.69,
+        "cyMm": 67.84,
+        "wMm": 13.2,
+        "hMm": 13.4,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32",
@@ -265,10 +265,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 16.51,
-        "cyMm": 75.72,
-        "wMm": 16.7,
-        "hMm": 20.07,
+        "cxMm": 16.89,
+        "cyMm": 74.79,
+        "wMm": 18.9,
+        "hMm": 21.1,
         "rot": 0
       },
       {
@@ -278,10 +278,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 38.63,
-        "cyMm": 93.85,
-        "wMm": 28.8,
-        "hMm": 34.16,
+        "cxMm": 39.17,
+        "cyMm": 94.33,
+        "wMm": 23.8,
+        "hMm": 32.1,
         "rot": 0
       },
       {
@@ -291,11 +291,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.04,
-        "cyMm": 94.39,
-        "wMm": 46,
-        "hMm": 15.64,
-        "rot": -88.1
+        "cxMm": 63.34,
+        "cyMm": 96.76,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 1.9
+      },
+      {
+        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-05.png",
+        "name": "Natural Column",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 29.12,
+        "cyMm": 113.56,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
@@ -304,11 +317,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 71.62,
-        "cyMm": 114.57,
-        "wMm": 11.37,
-        "hMm": 6.89,
-        "rot": -59.6
+        "cxMm": 71.89,
+        "cyMm": 114.18,
+        "wMm": 10,
+        "hMm": 11.3,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-23",
@@ -317,23 +330,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 26.02,
-        "cyMm": 115.63,
-        "wMm": 11.95,
-        "hMm": 13.33,
-        "rot": 0
-      },
-      {
-        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
-        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-05.png",
-        "name": "Natural Column",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 22.22,
-        "cyMm": 116.11,
-        "wMm": 46,
-        "hMm": 46,
+        "cxMm": 26.57,
+        "cyMm": 115.9,
+        "wMm": 9.5,
+        "hMm": 13.5,
         "rot": 0
       },
       {
@@ -343,11 +343,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 58.52,
-        "cyMm": 128.05,
-        "wMm": 21.59,
-        "hMm": 9.17,
-        "rot": -18.2
+        "cxMm": 56.36,
+        "cyMm": 127.24,
+        "wMm": 21.9,
+        "hMm": 17.2,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -356,11 +356,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 75.42,
-        "cyMm": 135.49,
-        "wMm": 46,
-        "hMm": 8.89,
-        "rot": 88.5
+        "cxMm": 73.7,
+        "cyMm": 132.47,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": -1.5
       },
       {
         "charmId": "image3-29",
@@ -369,11 +369,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 60.45,
-        "cyMm": 145.53,
-        "wMm": 21.5,
-        "hMm": 13.88,
-        "rot": -66.2
+        "cxMm": 60.71,
+        "cyMm": 146.38,
+        "wMm": 20.8,
+        "hMm": 18,
+        "rot": 0
       },
       {
         "charmId": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-37",
@@ -382,10 +382,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 38.37,
-        "cyMm": 147.14,
-        "wMm": 15.32,
-        "hMm": 16.09,
+        "cxMm": 38.57,
+        "cyMm": 147.01,
+        "wMm": 11.9,
+        "hMm": 17.5,
         "rot": 0
       },
       {
@@ -395,24 +395,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 69,
-        "cyMm": 148.2,
-        "wMm": 11.29,
-        "hMm": 4,
-        "rot": -64.6
-      },
-      {
-        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45",
-        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-45.png",
-        "name": "Natural Baroque Pearl",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 4.75,
-        "cyMm": 148.38,
-        "wMm": 20.65,
-        "hMm": 7.71,
-        "rot": 88.3
+        "cxMm": 68.52,
+        "cyMm": 148.18,
+        "wMm": 10,
+        "hMm": 11.3,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
@@ -421,11 +408,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 71.36,
-        "cyMm": 149.9,
-        "wMm": 21.74,
-        "hMm": 4.53,
-        "rot": -72.1
+        "cxMm": 69.87,
+        "cyMm": 148.96,
+        "wMm": 21.9,
+        "hMm": 17.2,
+        "rot": 0
+      },
+      {
+        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45",
+        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-45.png",
+        "name": "Natural Baroque Pearl",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 6.38,
+        "cyMm": 149.59,
+        "wMm": 18.6,
+        "hMm": 20.6,
+        "rot": 0
       },
       {
         "charmId": "image3-13",
@@ -434,10 +434,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 16.45,
-        "cyMm": 150.22,
-        "wMm": 15.47,
-        "hMm": 15.63,
+        "cxMm": 16.59,
+        "cyMm": 150.37,
+        "wMm": 12.9,
+        "hMm": 16.4,
         "rot": 0
       }
     ]
@@ -448,30 +448,30 @@
     "gelColourId": "glitter",
     "charms": [
       {
-        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
-        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
-        "name": "Colourful Heart",
-        "category": "colourful",
-        "type": 2,
-        "price": 3,
-        "cxMm": 48.32,
-        "cyMm": 21.29,
-        "wMm": 36.02,
-        "hMm": 4.49,
-        "rot": -86.1
-      },
-      {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
         "src": "/assets/charms/ref/e540ac60-3ca6-447f-833a-9234eec3b235-40.png",
         "name": "Natural Sea Pottery",
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 67.35,
-        "cyMm": 22.72,
+        "cxMm": 64.91,
+        "cyMm": 21.47,
         "wMm": 21.9,
-        "hMm": 12.39,
-        "rot": -69.6
+        "hMm": 17.2,
+        "rot": 0
+      },
+      {
+        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
+        "name": "Colourful Heart",
+        "category": "colourful",
+        "type": 2,
+        "price": 3,
+        "cxMm": 49.37,
+        "cyMm": 23.82,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 3.9
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -480,11 +480,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 76.4,
-        "cyMm": 24.68,
-        "wMm": 46,
-        "hMm": 8.41,
-        "rot": 86.4
+        "cxMm": 73.61,
+        "cyMm": 33.53,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": -3.6
       },
       {
         "charmId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
@@ -493,11 +493,11 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 63.37,
-        "cyMm": 48.98,
-        "wMm": 44.8,
-        "hMm": 20.4,
-        "rot": 71.1
+        "cxMm": 63.5,
+        "cyMm": 55.76,
+        "wMm": 15.4,
+        "hMm": 43.4,
+        "rot": -18.9
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
@@ -506,10 +506,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 40.24,
-        "cyMm": 66.37,
-        "wMm": 20.28,
-        "hMm": 21.63,
+        "cxMm": 40.52,
+        "cyMm": 65.85,
+        "wMm": 17.2,
+        "hMm": 22.8,
         "rot": 0
       },
       {
@@ -519,10 +519,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 62.68,
-        "cyMm": 68.69,
-        "wMm": 16.07,
-        "hMm": 16.52,
+        "cxMm": 62.83,
+        "cyMm": 68.43,
+        "wMm": 16.7,
+        "hMm": 16.9,
         "rot": 0
       },
       {
@@ -532,10 +532,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 17.41,
-        "cyMm": 69.46,
-        "wMm": 24.49,
-        "hMm": 30.8,
+        "cxMm": 17.47,
+        "cyMm": 71.54,
+        "wMm": 33.9,
+        "hMm": 24.8,
         "rot": 0
       },
       {
@@ -545,11 +545,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 16.66,
-        "cyMm": 90.57,
-        "wMm": 20.42,
-        "hMm": 10.71,
-        "rot": 35
+        "cxMm": 16.13,
+        "cyMm": 91.35,
+        "wMm": 8,
+        "hMm": 20.4,
+        "rot": -55
       },
       {
         "charmId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-01",
@@ -558,11 +558,11 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 63.13,
-        "cyMm": 91.31,
-        "wMm": 22.95,
-        "hMm": 10.81,
-        "rot": -58
+        "cxMm": 62.98,
+        "cyMm": 91.95,
+        "wMm": 17.6,
+        "hMm": 22.9,
+        "rot": 32
       },
       {
         "charmId": "silver-14",
@@ -571,10 +571,10 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 40.33,
-        "cyMm": 94.69,
-        "wMm": 28.84,
-        "hMm": 28.39,
+        "cxMm": 40.45,
+        "cyMm": 94.3,
+        "wMm": 13.1,
+        "hMm": 32.6,
         "rot": 0
       },
       {
@@ -584,11 +584,37 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 14.39,
-        "cyMm": 103.45,
-        "wMm": 13.22,
-        "hMm": 12.17,
+        "cxMm": 14.42,
+        "cyMm": 103.26,
+        "wMm": 11.8,
+        "hMm": 14.1,
         "rot": 0
+      },
+      {
+        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
+        "name": "Colourful Heart",
+        "category": "colourful",
+        "type": 2,
+        "price": 3,
+        "cxMm": 15.09,
+        "cyMm": 116.69,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": -10.4
+      },
+      {
+        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+        "name": "Silver Handle",
+        "category": "silver",
+        "type": 2,
+        "price": 3,
+        "cxMm": 73.46,
+        "cyMm": 116.99,
+        "wMm": 14.9,
+        "hMm": 45.6,
+        "rot": 1.1
       },
       {
         "charmId": "image3-19",
@@ -597,10 +623,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 62.46,
-        "cyMm": 117.89,
-        "wMm": 16.52,
-        "hMm": 19.68,
+        "cxMm": 61.71,
+        "cyMm": 117.67,
+        "wMm": 17.1,
+        "hMm": 19.6,
         "rot": 0
       },
       {
@@ -610,10 +636,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 15.54,
-        "cyMm": 119.63,
-        "wMm": 18.33,
-        "hMm": 17.13,
+        "cxMm": 15.47,
+        "cyMm": 120.33,
+        "wMm": 16.9,
+        "hMm": 18.8,
         "rot": 0
       },
       {
@@ -623,10 +649,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 32.34,
-        "cyMm": 121.13,
-        "wMm": 14.12,
-        "hMm": 13.97,
+        "cxMm": 32.12,
+        "cyMm": 121.47,
+        "wMm": 11.9,
+        "hMm": 15.9,
         "rot": 0
       },
       {
@@ -636,24 +662,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 44.59,
-        "cyMm": 121.78,
-        "wMm": 17.18,
-        "hMm": 7.27,
-        "rot": -68.9
-      },
-      {
-        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
-        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
-        "name": "Silver Handle",
-        "category": "silver",
-        "type": 2,
-        "price": 3,
-        "cxMm": 76.24,
-        "cyMm": 122.13,
-        "wMm": 46,
-        "hMm": 8.72,
-        "rot": -88.9
+        "cxMm": 44.69,
+        "cyMm": 122.22,
+        "wMm": 13.6,
+        "hMm": 17.2,
+        "rot": 0
       },
       {
         "charmId": "image3-13",
@@ -662,37 +675,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 47.89,
-        "cyMm": 125.15,
-        "wMm": 16.39,
-        "hMm": 4,
-        "rot": -59.4
-      },
-      {
-        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
-        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
-        "name": "Colourful Heart",
-        "category": "colourful",
-        "type": 2,
-        "price": 3,
-        "cxMm": 10.2,
-        "cyMm": 133.37,
-        "wMm": 46,
-        "hMm": 27.37,
-        "rot": 79.6
-      },
-      {
-        "charmId": "image3-33",
-        "src": "/assets/charms/ref/image3-33.png",
-        "name": "Colourful Porcelain Heart",
-        "category": "colourful",
-        "type": 2,
-        "price": 3,
-        "cxMm": 40.33,
-        "cyMm": 143.86,
-        "wMm": 12.99,
-        "hMm": 9.06,
-        "rot": 22.2
+        "cxMm": 47.29,
+        "cyMm": 124.27,
+        "wMm": 12.9,
+        "hMm": 16.4,
+        "rot": 0
       },
       {
         "charmId": "image2-17",
@@ -701,10 +688,23 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 59.26,
-        "cyMm": 144.05,
-        "wMm": 21.93,
-        "hMm": 24.94,
+        "cxMm": 59.19,
+        "cyMm": 143.54,
+        "wMm": 17.5,
+        "hMm": 26.2,
+        "rot": 0
+      },
+      {
+        "charmId": "image3-33",
+        "src": "/assets/charms/ref/image3-33.png",
+        "name": "Colourful Porcelain Heart",
+        "category": "colourful",
+        "type": 2,
+        "price": 3,
+        "cxMm": 39.33,
+        "cyMm": 144.68,
+        "wMm": 12.5,
+        "hMm": 12.8,
         "rot": 0
       }
     ]
@@ -721,10 +721,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 62.69,
-        "cyMm": 14.86,
-        "wMm": 18.08,
-        "hMm": 18.38,
+        "cxMm": 62.79,
+        "cyMm": 15.04,
+        "wMm": 15.1,
+        "hMm": 21.2,
         "rot": 0
       },
       {
@@ -734,11 +734,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 49.77,
-        "cyMm": 24.84,
-        "wMm": 41.72,
-        "hMm": 6.5,
-        "rot": -88
+        "cxMm": 50.52,
+        "cyMm": 26.76,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 2
       },
       {
         "charmId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-10",
@@ -747,10 +747,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 61.11,
-        "cyMm": 36.65,
-        "wMm": 15.12,
-        "hMm": 19.71,
+        "cxMm": 61.18,
+        "cyMm": 36.61,
+        "wMm": 19.9,
+        "hMm": 17,
         "rot": 0
       },
       {
@@ -760,11 +760,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 62.3,
-        "cyMm": 54.72,
-        "wMm": 26.76,
-        "hMm": 10.41,
-        "rot": -21.2
+        "cxMm": 61.98,
+        "cyMm": 54.06,
+        "wMm": 17.5,
+        "hMm": 26.2,
+        "rot": 68.8
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18",
@@ -773,10 +773,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 40.61,
-        "cyMm": 62.89,
-        "wMm": 13.63,
-        "hMm": 12,
+        "cxMm": 40.45,
+        "cyMm": 63.38,
+        "wMm": 13.7,
+        "hMm": 12.8,
         "rot": 0
       },
       {
@@ -786,10 +786,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 16.63,
-        "cyMm": 62.94,
-        "wMm": 18.97,
-        "hMm": 17.04,
+        "cxMm": 16.65,
+        "cyMm": 63.53,
+        "wMm": 13,
+        "hMm": 19.3,
         "rot": 0
       },
       {
@@ -799,10 +799,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 39.73,
-        "cyMm": 85.61,
-        "wMm": 32.6,
-        "hMm": 30.68,
+        "cxMm": 42.2,
+        "cyMm": 84.88,
+        "wMm": 29.4,
+        "hMm": 32.7,
         "rot": 0
       },
       {
@@ -812,11 +812,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 70.69,
-        "cyMm": 99.16,
-        "wMm": 27.17,
-        "hMm": 7.63,
-        "rot": -87.7
+        "cxMm": 70.23,
+        "cyMm": 102.02,
+        "wMm": 16.8,
+        "hMm": 27,
+        "rot": 2.3
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-12",
@@ -825,10 +825,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 47.97,
-        "cyMm": 109.11,
-        "wMm": 19.71,
-        "hMm": 18.52,
+        "cxMm": 48.4,
+        "cyMm": 110.29,
+        "wMm": 19.5,
+        "hMm": 18.9,
         "rot": 0
       },
       {
@@ -838,10 +838,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 14.58,
-        "cyMm": 114.91,
-        "wMm": 26.56,
-        "hMm": 10.36,
+        "cxMm": 14.6,
+        "cyMm": 114.65,
+        "wMm": 26.5,
+        "hMm": 19.6,
         "rot": 89.1
       },
       {
@@ -851,11 +851,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 30.18,
-        "cyMm": 119.13,
-        "wMm": 35.57,
-        "hMm": 18.49,
-        "rot": -89.8
+        "cxMm": 30.44,
+        "cyMm": 119.84,
+        "wMm": 9.9,
+        "hMm": 36,
+        "rot": 0.2
       },
       {
         "charmId": "f1552077-9a1d-4e7c-bf0a-000000000abc-09",
@@ -864,11 +864,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 64.92,
-        "cyMm": 120.25,
-        "wMm": 31.37,
-        "hMm": 16.09,
-        "rot": 87.3
+        "cxMm": 64.61,
+        "cyMm": 119.91,
+        "wMm": 27.4,
+        "hMm": 30.8,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-19",
@@ -877,11 +877,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 44.72,
-        "cyMm": 138.78,
-        "wMm": 41.74,
-        "hMm": 22.77,
-        "rot": -72.4
+        "cxMm": 43.44,
+        "cyMm": 138.71,
+        "wMm": 38.2,
+        "hMm": 40.5,
+        "rot": 0
       },
       {
         "charmId": "silver-10",
@@ -890,10 +890,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 15.2,
-        "cyMm": 144.75,
-        "wMm": 15.26,
-        "hMm": 20.6,
+        "cxMm": 15.11,
+        "cyMm": 144.87,
+        "wMm": 12.4,
+        "hMm": 21.2,
         "rot": 0
       },
       {
@@ -903,11 +903,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 65.13,
-        "cyMm": 148.22,
-        "wMm": 18.67,
-        "hMm": 11.08,
-        "rot": 89.2
+        "cxMm": 65.05,
+        "cyMm": 149.91,
+        "wMm": 18.6,
+        "hMm": 17.6,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
@@ -916,11 +916,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 55.94,
-        "cyMm": 158.15,
-        "wMm": 11.29,
-        "hMm": 6.54,
-        "rot": 13.9
+        "cxMm": 57.38,
+        "cyMm": 157.2,
+        "wMm": 10,
+        "hMm": 11.3,
+        "rot": 0
       }
     ]
   },
@@ -936,10 +936,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 71.57,
-        "cyMm": 24.93,
-        "wMm": 10.76,
-        "hMm": 4,
+        "cxMm": 71.26,
+        "cyMm": 24.25,
+        "wMm": 10.8,
+        "hMm": 8.3,
         "rot": -75.8
       },
       {
@@ -949,11 +949,11 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 49.1,
-        "cyMm": 33.55,
-        "wMm": 35.13,
-        "hMm": 4.65,
-        "rot": -87.9
+        "cxMm": 49.18,
+        "cyMm": 33.49,
+        "wMm": 13.1,
+        "hMm": 32.6,
+        "rot": 2.1
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -962,11 +962,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 47.79,
-        "cyMm": 95.91,
-        "wMm": 46,
-        "hMm": 28.42,
-        "rot": -23.9
+        "cxMm": 45.84,
+        "cyMm": 95.24,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 66.1
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-37",
@@ -975,10 +975,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 15.27,
-        "cyMm": 117.84,
-        "wMm": 24.77,
-        "hMm": 24.31,
+        "cxMm": 15.03,
+        "cyMm": 117.57,
+        "wMm": 26.8,
+        "hMm": 26.8,
         "rot": 0
       },
       {
@@ -988,11 +988,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 76.84,
-        "cyMm": 119.37,
-        "wMm": 11.62,
-        "hMm": 4,
-        "rot": -89.3
+        "cxMm": 76.81,
+        "cyMm": 120.11,
+        "wMm": 10.5,
+        "hMm": 10.7,
+        "rot": 0
       },
       {
         "charmId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
@@ -1001,11 +1001,11 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 50.05,
-        "cyMm": 123.95,
-        "wMm": 46,
-        "hMm": 31.97,
-        "rot": -17.6
+        "cxMm": 49.1,
+        "cyMm": 122.65,
+        "wMm": 15.4,
+        "hMm": 43.4,
+        "rot": 72.4
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-20",
@@ -1014,11 +1014,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 16.83,
-        "cyMm": 147.23,
-        "wMm": 33.96,
-        "hMm": 22.36,
-        "rot": 44.3
+        "cxMm": 17.46,
+        "cyMm": 146.67,
+        "wMm": 23.6,
+        "hMm": 34,
+        "rot": -45.7
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-04",
@@ -1027,11 +1027,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 52.66,
-        "cyMm": 149.75,
-        "wMm": 35.64,
-        "hMm": 23.59,
-        "rot": -3.3
+        "cxMm": 52.22,
+        "cyMm": 147.83,
+        "wMm": 9.9,
+        "hMm": 36,
+        "rot": 86.7
       }
     ]
   },
@@ -1047,11 +1047,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 60.33,
-        "cyMm": 20.63,
-        "wMm": 26.97,
-        "hMm": 16.84,
-        "rot": 58.4
+        "cxMm": 60,
+        "cyMm": 18.44,
+        "wMm": 17.5,
+        "hMm": 26.2,
+        "rot": -31.6
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
@@ -1060,11 +1060,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 17.27,
-        "cyMm": 110.4,
-        "wMm": 25.69,
-        "hMm": 17.66,
-        "rot": -69.1
+        "cxMm": 17.6,
+        "cyMm": 111.54,
+        "wMm": 23.3,
+        "hMm": 25.7,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06",
@@ -1073,10 +1073,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 36.31,
-        "cyMm": 113.34,
-        "wMm": 16.72,
-        "hMm": 15.66,
+        "cxMm": 35.81,
+        "cyMm": 113.16,
+        "wMm": 17.1,
+        "hMm": 10.3,
         "rot": 0
       },
       {
@@ -1086,11 +1086,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 55.96,
-        "cyMm": 124.46,
-        "wMm": 29.85,
-        "hMm": 22.03,
-        "rot": 11
+        "cxMm": 56.78,
+        "cyMm": 123.96,
+        "wMm": 27.9,
+        "hMm": 29.4,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -1099,11 +1099,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 39,
-        "cyMm": 141.94,
-        "wMm": 46,
-        "hMm": 37.02,
-        "rot": 10.8
+        "cxMm": 40.82,
+        "cyMm": 140.78,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": -79.2
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05",
@@ -1112,11 +1112,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 11.77,
-        "cyMm": 152.37,
-        "wMm": 37.27,
-        "hMm": 16.76,
-        "rot": 50.1
+        "cxMm": 17.23,
+        "cyMm": 146.72,
+        "wMm": 25.2,
+        "hMm": 37,
+        "rot": -39.9
       }
     ]
   },
@@ -1132,11 +1132,11 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 61.44,
-        "cyMm": 24.34,
-        "wMm": 26.48,
-        "hMm": 15.14,
-        "rot": -58.5
+        "cxMm": 61.72,
+        "cyMm": 24.91,
+        "wMm": 26.3,
+        "hMm": 26.6,
+        "rot": 0
       },
       {
         "charmId": "image3-15",
@@ -1145,11 +1145,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 60.17,
-        "cyMm": 56.44,
-        "wMm": 18.16,
-        "hMm": 11.79,
-        "rot": 55.4
+        "cxMm": 59.85,
+        "cyMm": 56.18,
+        "wMm": 15.8,
+        "hMm": 18.2,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
@@ -1158,10 +1158,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 38.35,
-        "cyMm": 65.52,
-        "wMm": 19.25,
-        "hMm": 15.46,
+        "cxMm": 38.58,
+        "cyMm": 64.84,
+        "wMm": 17.2,
+        "hMm": 22.8,
         "rot": 0
       },
       {
@@ -1171,10 +1171,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 68.04,
-        "cyMm": 69.15,
-        "wMm": 7.73,
-        "hMm": 8.79,
+        "cxMm": 68.09,
+        "cyMm": 69.28,
+        "wMm": 8,
+        "hMm": 9.1,
         "rot": 0
       },
       {
@@ -1184,10 +1184,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 53.01,
-        "cyMm": 70.89,
-        "wMm": 7.27,
-        "hMm": 7.27,
+        "cxMm": 52.88,
+        "cyMm": 70.66,
+        "wMm": 10.4,
+        "hMm": 10.5,
         "rot": 0
       },
       {
@@ -1197,11 +1197,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 17.35,
-        "cyMm": 73.41,
-        "wMm": 7.66,
-        "hMm": 4,
-        "rot": -41
+        "cxMm": 17.83,
+        "cyMm": 73.57,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -1210,11 +1210,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 23.38,
-        "cyMm": 77.37,
-        "wMm": 42.73,
-        "hMm": 27.32,
-        "rot": 74.4
+        "cxMm": 22.55,
+        "cyMm": 80.39,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": -15.6
       },
       {
         "charmId": "image2-18",
@@ -1223,11 +1223,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 58.59,
-        "cyMm": 81.99,
-        "wMm": 6.65,
-        "hMm": 4.16,
-        "rot": 34.2
+        "cxMm": 58.65,
+        "cyMm": 81.7,
+        "wMm": 10.4,
+        "hMm": 10.5,
+        "rot": 0
       },
       {
         "charmId": "image2-24",
@@ -1236,11 +1236,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 36.18,
-        "cyMm": 88.03,
-        "wMm": 20.57,
-        "hMm": 8.85,
-        "rot": 81.9
+        "cxMm": 35.13,
+        "cyMm": 88.82,
+        "wMm": 18.1,
+        "hMm": 20.6,
+        "rot": 0
       },
       {
         "charmId": "image2-16",
@@ -1249,11 +1249,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 47.04,
-        "cyMm": 88.99,
-        "wMm": 23.56,
-        "hMm": 14.53,
-        "rot": 67.7
+        "cxMm": 47.49,
+        "cyMm": 89.97,
+        "wMm": 16,
+        "hMm": 23.8,
+        "rot": -22.3
       },
       {
         "charmId": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-04",
@@ -1262,10 +1262,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 62.64,
-        "cyMm": 101.21,
-        "wMm": 6.36,
-        "hMm": 8.18,
+        "cxMm": 63.07,
+        "cyMm": 100.86,
+        "wMm": 7.5,
+        "hMm": 8.3,
         "rot": 0
       },
       {
@@ -1275,10 +1275,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 14.44,
-        "cyMm": 105.78,
-        "wMm": 17.58,
-        "hMm": 15.31,
+        "cxMm": 15.13,
+        "cyMm": 106.6,
+        "wMm": 14.5,
+        "hMm": 19.3,
         "rot": 0
       },
       {
@@ -1288,24 +1288,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 67.81,
-        "cyMm": 114.18,
-        "wMm": 11.32,
-        "hMm": 7.32,
-        "rot": -26.5
-      },
-      {
-        "charmId": "image2-35",
-        "src": "/assets/charms/ref/image2-35.png",
-        "name": "Colourful Porcelain Heart",
-        "category": "colourful",
-        "type": 2,
-        "price": 3,
-        "cxMm": 12.6,
-        "cyMm": 119.85,
-        "wMm": 15.37,
-        "hMm": 5.79,
-        "rot": -41.3
+        "cxMm": 67.79,
+        "cyMm": 114.19,
+        "wMm": 10,
+        "hMm": 11.3,
+        "rot": 0
       },
       {
         "charmId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
@@ -1314,11 +1301,24 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 38.71,
-        "cyMm": 121.27,
-        "wMm": 46,
-        "hMm": 26.9,
-        "rot": -19.5
+        "cxMm": 36.18,
+        "cyMm": 119.79,
+        "wMm": 15.4,
+        "hMm": 43.4,
+        "rot": 70.5
+      },
+      {
+        "charmId": "image2-35",
+        "src": "/assets/charms/ref/image2-35.png",
+        "name": "Colourful Porcelain Heart",
+        "category": "colourful",
+        "type": 2,
+        "price": 3,
+        "cxMm": 12.88,
+        "cyMm": 121.63,
+        "wMm": 14.6,
+        "hMm": 15.3,
+        "rot": 0
       },
       {
         "charmId": "silver-01",
@@ -1327,10 +1327,10 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 61.6,
-        "cyMm": 141.65,
-        "wMm": 24.7,
-        "hMm": 30.46,
+        "cxMm": 61.35,
+        "cyMm": 139.1,
+        "wMm": 14.8,
+        "hMm": 32.2,
         "rot": 0
       },
       {
@@ -1340,10 +1340,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 39.87,
-        "cyMm": 147.02,
-        "wMm": 11.82,
-        "hMm": 15.61,
+        "cxMm": 39.85,
+        "cyMm": 147.84,
+        "wMm": 12.7,
+        "hMm": 15.7,
         "rot": 0
       },
       {
@@ -1353,10 +1353,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 17.55,
-        "cyMm": 148.79,
-        "wMm": 23.19,
-        "hMm": 22.28,
+        "cxMm": 17.3,
+        "cyMm": 148.6,
+        "wMm": 18.4,
+        "hMm": 23.7,
         "rot": 0
       },
       {
@@ -1366,11 +1366,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 64.45,
-        "cyMm": 157.1,
-        "wMm": 11.24,
-        "hMm": 4.19,
-        "rot": -24.4
+        "cxMm": 64.87,
+        "cyMm": 157.34,
+        "wMm": 10.4,
+        "hMm": 10.5,
+        "rot": 0
       }
     ]
   },
@@ -1386,11 +1386,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 62.3,
-        "cyMm": 21.49,
-        "wMm": 34.32,
-        "hMm": 20.72,
-        "rot": 56.2
+        "cxMm": 62.05,
+        "cyMm": 20.17,
+        "wMm": 23.6,
+        "hMm": 34,
+        "rot": -33.8
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-49",
@@ -1399,11 +1399,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 61.85,
-        "cyMm": 50.18,
-        "wMm": 23.93,
-        "hMm": 16.62,
-        "rot": -83.2
+        "cxMm": 61.82,
+        "cyMm": 49.68,
+        "wMm": 23.9,
+        "hMm": 22.2,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
@@ -1412,11 +1412,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 4.75,
-        "cyMm": 56.73,
-        "wMm": 7.33,
-        "hMm": 4,
-        "rot": -40.8
+        "cxMm": 5.55,
+        "cyMm": 57.15,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-38",
@@ -1425,10 +1425,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 15.43,
-        "cyMm": 101.65,
-        "wMm": 25.24,
-        "hMm": 23.55,
+        "cxMm": 16.42,
+        "cyMm": 101.45,
+        "wMm": 27.7,
+        "hMm": 26.5,
         "rot": 0
       },
       {
@@ -1438,11 +1438,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 35.94,
-        "cyMm": 103.08,
-        "wMm": 46,
-        "hMm": 16.37,
-        "rot": 67.6
+        "cxMm": 36.88,
+        "cyMm": 103.79,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": -22.4
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50",
@@ -1451,10 +1451,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 62.63,
-        "cyMm": 105.62,
-        "wMm": 25.55,
-        "hMm": 29.24,
+        "cxMm": 62.35,
+        "cyMm": 105.42,
+        "wMm": 28.6,
+        "hMm": 23.7,
         "rot": 0
       },
       {
@@ -1464,11 +1464,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 6.25,
-        "cyMm": 115.93,
+        "cxMm": 7,
+        "cyMm": 115.31,
         "wMm": 10,
-        "hMm": 4,
-        "rot": 30
+        "hMm": 8.4,
+        "rot": 0
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-03",
@@ -1477,11 +1477,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 21.11,
-        "cyMm": 122.25,
-        "wMm": 25.01,
-        "hMm": 17.49,
-        "rot": -8.2
+        "cxMm": 20.38,
+        "cyMm": 123.02,
+        "wMm": 25.3,
+        "hMm": 20.1,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-12",
@@ -1490,11 +1490,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 8.31,
-        "cyMm": 134.3,
-        "wMm": 9,
-        "hMm": 5.05,
-        "rot": 77.9
+        "cxMm": 8.44,
+        "cyMm": 133.77,
+        "wMm": 8.1,
+        "hMm": 9,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -1503,23 +1503,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 55.23,
-        "cyMm": 141.18,
-        "wMm": 40.32,
-        "hMm": 42.48,
-        "rot": 0
-      },
-      {
-        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21",
-        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
-        "name": "Natural Abalone Pearl",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 17.31,
-        "cyMm": 147.52,
-        "wMm": 27.39,
-        "hMm": 23.55,
+        "cxMm": 57.79,
+        "cyMm": 138.28,
+        "wMm": 14.9,
+        "hMm": 45.2,
         "rot": 0
       },
       {
@@ -1529,11 +1516,24 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 74.18,
-        "cyMm": 147.76,
-        "wMm": 29.01,
-        "hMm": 4.24,
-        "rot": -71.5
+        "cxMm": 73,
+        "cyMm": 146.22,
+        "wMm": 27.9,
+        "hMm": 29.4,
+        "rot": 0
+      },
+      {
+        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21",
+        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png",
+        "name": "Natural Abalone Pearl",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 16.27,
+        "cyMm": 148.17,
+        "wMm": 16.8,
+        "hMm": 27,
+        "rot": 0
       },
       {
         "charmId": "silver-13",
@@ -1542,11 +1542,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 75.98,
-        "cyMm": 156.81,
-        "wMm": 11.61,
-        "hMm": 5.13,
-        "rot": -68
+        "cxMm": 74.82,
+        "cyMm": 154.94,
+        "wMm": 10.5,
+        "hMm": 10.7,
+        "rot": 0
       }
     ]
   },
@@ -1563,9 +1563,9 @@
         "type": 2,
         "price": 3,
         "cxMm": 58.15,
-        "cyMm": 26.33,
-        "wMm": 18.58,
-        "hMm": 25.38,
+        "cyMm": 29.1,
+        "wMm": 26.5,
+        "hMm": 19.6,
         "rot": 0
       },
       {
@@ -1575,24 +1575,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 16.19,
-        "cyMm": 60.31,
-        "wMm": 22.29,
-        "hMm": 13.26,
-        "rot": -10
-      },
-      {
-        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
-        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-05.png",
-        "name": "Natural Column",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 42.93,
-        "cyMm": 76.69,
-        "wMm": 46,
-        "hMm": 46,
-        "rot": -44.2
+        "cxMm": 16.52,
+        "cyMm": 60.83,
+        "wMm": 21.9,
+        "hMm": 17.2,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
@@ -1601,11 +1588,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 37.37,
-        "cyMm": 86.33,
-        "wMm": 24.32,
-        "hMm": 25.23,
+        "cxMm": 37.26,
+        "cyMm": 86.16,
+        "wMm": 23.3,
+        "hMm": 25.7,
         "rot": 0
+      },
+      {
+        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-05.png",
+        "name": "Natural Column",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 41.56,
+        "cyMm": 88.16,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 45.8
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-19",
@@ -1614,11 +1614,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 73.68,
-        "cyMm": 101.36,
-        "wMm": 11.03,
-        "hMm": 4.39,
-        "rot": -70.6
+        "cxMm": 73.78,
+        "cyMm": 101.94,
+        "wMm": 10.4,
+        "hMm": 11,
+        "rot": 0
       },
       {
         "charmId": "image2-18",
@@ -1627,10 +1627,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 60.48,
-        "cyMm": 104.15,
-        "wMm": 10.42,
-        "hMm": 9.22,
+        "cxMm": 60.23,
+        "cyMm": 104.64,
+        "wMm": 10.4,
+        "hMm": 10.5,
         "rot": 0
       },
       {
@@ -1640,10 +1640,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 30.84,
-        "cyMm": 105.09,
-        "wMm": 7.55,
-        "hMm": 8.76,
+        "cxMm": 30.52,
+        "cyMm": 105.33,
+        "wMm": 8.7,
+        "hMm": 8.3,
         "rot": 0
       },
       {
@@ -1653,11 +1653,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 67.14,
-        "cyMm": 113.13,
-        "wMm": 7.22,
-        "hMm": 4.2,
-        "rot": -26
+        "cxMm": 66.97,
+        "cyMm": 112.72,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-03",
@@ -1666,11 +1666,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 73.51,
-        "cyMm": 116.86,
-        "wMm": 14.22,
-        "hMm": 4,
-        "rot": 86.5
+        "cxMm": 73.86,
+        "cyMm": 115.49,
+        "wMm": 14.2,
+        "hMm": 13.5,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-05",
@@ -1679,10 +1679,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 3.74,
-        "cyMm": 117.86,
-        "wMm": 11.76,
-        "hMm": 4,
+        "cxMm": 4.22,
+        "cyMm": 116.57,
+        "wMm": 11.9,
+        "hMm": 7.8,
         "rot": 82.6
       },
       {
@@ -1692,11 +1692,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 39.61,
-        "cyMm": 119.63,
-        "wMm": 35.75,
-        "hMm": 26.18,
-        "rot": -59.1
+        "cxMm": 39.26,
+        "cyMm": 118.65,
+        "wMm": 9.9,
+        "hMm": 36,
+        "rot": 30.9
       },
       {
         "charmId": "image2-13",
@@ -1705,10 +1705,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 61.11,
-        "cyMm": 124.61,
-        "wMm": 14.35,
-        "hMm": 13.9,
+        "cxMm": 60.82,
+        "cyMm": 125.35,
+        "wMm": 13.4,
+        "hMm": 14.2,
         "rot": 0
       },
       {
@@ -1718,11 +1718,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 50.64,
-        "cyMm": 131.21,
-        "wMm": 8.29,
-        "hMm": 6.94,
-        "rot": 68.5
+        "cxMm": 50.89,
+        "cyMm": 130.81,
+        "wMm": 8.5,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
@@ -1731,11 +1731,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 27.64,
-        "cyMm": 137.91,
-        "wMm": 8.42,
-        "hMm": 5.82,
-        "rot": 78.3
+        "cxMm": 27.48,
+        "cyMm": 137.9,
+        "wMm": 8.5,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-13",
@@ -1744,11 +1744,11 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 14.67,
-        "cyMm": 140.27,
-        "wMm": 24,
-        "hMm": 17.24,
-        "rot": -78.4
+        "cxMm": 14.08,
+        "cyMm": 141.13,
+        "wMm": 24.1,
+        "hMm": 23.6,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -1757,11 +1757,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 58.47,
-        "cyMm": 145.52,
-        "wMm": 46,
-        "hMm": 32.07,
-        "rot": -14
+        "cxMm": 54.52,
+        "cyMm": 142.36,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 76
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
@@ -1770,10 +1770,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 25.26,
-        "cyMm": 148.74,
-        "wMm": 6.8,
-        "hMm": 6.95,
+        "cxMm": 24.97,
+        "cyMm": 148.75,
+        "wMm": 8.5,
+        "hMm": 6.8,
         "rot": 0
       }
     ]
@@ -1790,11 +1790,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 48.9,
-        "cyMm": 11.36,
-        "wMm": 12.73,
-        "hMm": 4,
-        "rot": -71.8
+        "cxMm": 49.53,
+        "cyMm": 11.68,
+        "wMm": 12.4,
+        "hMm": 12.7,
+        "rot": 0
       },
       {
         "charmId": "image3-17",
@@ -1803,10 +1803,10 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 63.21,
-        "cyMm": 25.35,
-        "wMm": 22.67,
-        "hMm": 28.64,
+        "cxMm": 63.45,
+        "cyMm": 26.86,
+        "wMm": 13.8,
+        "hMm": 29.1,
         "rot": 0
       },
       {
@@ -1816,11 +1816,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 47.84,
-        "cyMm": 30.83,
-        "wMm": 20.58,
-        "hMm": 4,
-        "rot": 87.5
+        "cxMm": 48.73,
+        "cyMm": 28.98,
+        "wMm": 18.6,
+        "hMm": 20.6,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-17",
@@ -1829,11 +1829,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 62.2,
-        "cyMm": 48.55,
-        "wMm": 22.51,
-        "hMm": 14.32,
-        "rot": 30.9
+        "cxMm": 62.28,
+        "cyMm": 48.02,
+        "wMm": 18.5,
+        "hMm": 22.8,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
@@ -1842,10 +1842,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 67.22,
-        "cyMm": 64.67,
-        "wMm": 8.95,
-        "hMm": 12.23,
+        "cxMm": 66.53,
+        "cyMm": 65.85,
+        "wMm": 12.4,
+        "hMm": 12.8,
         "rot": 0
       },
       {
@@ -1855,11 +1855,11 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 57.88,
-        "cyMm": 65.96,
-        "wMm": 36.69,
-        "hMm": 8.99,
-        "rot": 61.1
+        "cxMm": 58.47,
+        "cyMm": 66.16,
+        "wMm": 13.1,
+        "hMm": 32.6,
+        "rot": -28.9
       },
       {
         "charmId": "silver-10",
@@ -1868,10 +1868,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 19.15,
-        "cyMm": 67.47,
-        "wMm": 19.39,
-        "hMm": 21.03,
+        "cxMm": 18.76,
+        "cyMm": 68.05,
+        "wMm": 12.4,
+        "hMm": 21.2,
         "rot": 0
       },
       {
@@ -1881,11 +1881,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 40.31,
-        "cyMm": 68.63,
-        "wMm": 22.44,
-        "hMm": 13.18,
-        "rot": 56.6
+        "cxMm": 40.01,
+        "cyMm": 68.43,
+        "wMm": 21.1,
+        "hMm": 22.4,
+        "rot": 0
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-42",
@@ -1894,10 +1894,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 36.38,
-        "cyMm": 84.31,
-        "wMm": 9.55,
-        "hMm": 7.16,
+        "cxMm": 35.9,
+        "cyMm": 84.37,
+        "wMm": 8.8,
+        "hMm": 7.2,
         "rot": 0
       },
       {
@@ -1907,11 +1907,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 54.66,
-        "cyMm": 84.69,
-        "wMm": 13.03,
-        "hMm": 8.34,
-        "rot": 56.8
+        "cxMm": 54.22,
+        "cyMm": 85.12,
+        "wMm": 12.4,
+        "hMm": 12.8,
+        "rot": 0
       },
       {
         "charmId": "silver-10",
@@ -1920,24 +1920,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 13.09,
+        "cxMm": 12.68,
         "cyMm": 91.04,
-        "wMm": 21.43,
-        "hMm": 9.1,
-        "rot": -73.3
-      },
-      {
-        "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
-        "src": "/assets/charms/ref/e540ac60-3ca6-447f-833a-9234eec3b235-39.png",
-        "name": "Natural Stone",
-        "category": "unique",
-        "type": 3,
-        "price": 2,
-        "cxMm": 68.81,
-        "cyMm": 94.42,
-        "wMm": 10.2,
-        "hMm": 4,
-        "rot": 63.6
+        "wMm": 12.4,
+        "hMm": 21.2,
+        "rot": 16.7
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46",
@@ -1946,11 +1933,24 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 37.16,
-        "cyMm": 96.9,
-        "wMm": 29.88,
-        "hMm": 23.99,
-        "rot": 13.2
+        "cxMm": 35.39,
+        "cyMm": 95.75,
+        "wMm": 13.8,
+        "hMm": 29.9,
+        "rot": -76.8
+      },
+      {
+        "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "src": "/assets/charms/ref/e540ac60-3ca6-447f-833a-9234eec3b235-39.png",
+        "name": "Natural Stone",
+        "category": "unique",
+        "type": 3,
+        "price": 2,
+        "cxMm": 68.51,
+        "cyMm": 95.75,
+        "wMm": 10,
+        "hMm": 8.4,
+        "rot": 0
       },
       {
         "charmId": "silver-09",
@@ -1959,10 +1959,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 61.56,
-        "cyMm": 99.18,
-        "wMm": 12.23,
-        "hMm": 13.57,
+        "cxMm": 61.55,
+        "cyMm": 99.31,
+        "wMm": 15,
+        "hMm": 13.4,
         "rot": 0
       },
       {
@@ -1972,23 +1972,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 14.03,
-        "cyMm": 108.02,
-        "wMm": 15.96,
-        "hMm": 12.34,
-        "rot": -0.2
-      },
-      {
-        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-03",
-        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-03.png",
-        "name": "Natural Ceramic",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 49.71,
-        "cyMm": 113.93,
-        "wMm": 13.57,
-        "hMm": 14.76,
+        "cxMm": 14.43,
+        "cyMm": 107.81,
+        "wMm": 14.5,
+        "hMm": 15.4,
         "rot": 0
       },
       {
@@ -1998,11 +1985,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 25.23,
-        "cyMm": 116.85,
-        "wMm": 26.01,
-        "hMm": 20.88,
-        "rot": -36.9
+        "cxMm": 23.52,
+        "cyMm": 113.12,
+        "wMm": 23.3,
+        "hMm": 25.7,
+        "rot": 0
+      },
+      {
+        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-03",
+        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-03.png",
+        "name": "Natural Ceramic",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 48.87,
+        "cyMm": 113.42,
+        "wMm": 14.2,
+        "hMm": 13.5,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-01",
@@ -2011,10 +2011,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.01,
-        "cyMm": 120.33,
-        "wMm": 12.08,
-        "hMm": 14.32,
+        "cxMm": 62.65,
+        "cyMm": 120.02,
+        "wMm": 13.2,
+        "hMm": 14.5,
         "rot": 0
       },
       {
@@ -2024,10 +2024,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 41.24,
-        "cyMm": 127.26,
-        "wMm": 12.08,
-        "hMm": 14.47,
+        "cxMm": 42.28,
+        "cyMm": 126.47,
+        "wMm": 11.3,
+        "hMm": 14.7,
         "rot": 0
       },
       {
@@ -2037,11 +2037,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 3.22,
-        "cyMm": 128.83,
-        "wMm": 23.72,
-        "hMm": 4,
-        "rot": 89.6
+        "cxMm": 3.52,
+        "cyMm": 128.45,
+        "wMm": 23.9,
+        "hMm": 22.2,
+        "rot": 0
       },
       {
         "charmId": "silver-13",
@@ -2050,10 +2050,23 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 15.02,
-        "cyMm": 131.25,
-        "wMm": 10.29,
-        "hMm": 11.19,
+        "cxMm": 15.17,
+        "cyMm": 131.33,
+        "wMm": 10.5,
+        "hMm": 10.7,
+        "rot": 0
+      },
+      {
+        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46",
+        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-46.png",
+        "name": "Silver Pin Heart",
+        "category": "silver",
+        "type": 1,
+        "price": 5,
+        "cxMm": 20.37,
+        "cyMm": 143.24,
+        "wMm": 13.8,
+        "hMm": 29.9,
         "rot": 0
       },
       {
@@ -2063,23 +2076,10 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 58.57,
-        "cyMm": 143.87,
-        "wMm": 31.17,
-        "hMm": 20.18,
-        "rot": -35.9
-      },
-      {
-        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46",
-        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-46.png",
-        "name": "Silver Pin Heart",
-        "category": "silver",
-        "type": 1,
-        "price": 5,
-        "cxMm": 22.3,
-        "cyMm": 144.38,
-        "wMm": 29.23,
-        "hMm": 28.93,
+        "cxMm": 59.57,
+        "cyMm": 144.53,
+        "wMm": 23.7,
+        "hMm": 30.2,
         "rot": 0
       },
       {
@@ -2089,11 +2089,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 41.22,
-        "cyMm": 145.68,
-        "wMm": 17.42,
-        "hMm": 8.05,
-        "rot": 86.7
+        "cxMm": 41.4,
+        "cyMm": 145.82,
+        "wMm": 14,
+        "hMm": 17.3,
+        "rot": 0
       },
       {
         "charmId": "f1552077-9a1d-4e7c-bf0a-000000000abc-08",
@@ -2102,10 +2102,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 73.41,
-        "cyMm": 150.65,
-        "wMm": 24.27,
-        "hMm": 4.77,
+        "cxMm": 71.95,
+        "cyMm": 148.32,
+        "wMm": 24.2,
+        "hMm": 17,
         "rot": -72.8
       },
       {
@@ -2115,11 +2115,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 68.97,
-        "cyMm": 150.94,
-        "wMm": 15.68,
-        "hMm": 4,
-        "rot": -63.2
+        "cxMm": 68.36,
+        "cyMm": 150.9,
+        "wMm": 15.8,
+        "hMm": 14.9,
+        "rot": 0
       }
     ]
   },
@@ -2135,11 +2135,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 58.05,
-        "cyMm": 7.95,
-        "wMm": 15.28,
-        "hMm": 4,
-        "rot": -10.2
+        "cxMm": 58.16,
+        "cyMm": 8.29,
+        "wMm": 14.6,
+        "hMm": 15.3,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-05",
@@ -2148,10 +2148,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 58.07,
-        "cyMm": 16.66,
-        "wMm": 11.24,
-        "hMm": 10.94,
+        "cxMm": 57.94,
+        "cyMm": 16.81,
+        "wMm": 11.9,
+        "hMm": 7.8,
         "rot": 0
       },
       {
@@ -2161,24 +2161,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 49.52,
-        "cyMm": 22.17,
-        "wMm": 15.69,
-        "hMm": 4,
-        "rot": -80.9
-      },
-      {
-        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
-        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
-        "name": "Silver Handle",
-        "category": "silver",
-        "type": 2,
-        "price": 3,
-        "cxMm": 74.98,
-        "cyMm": 41.3,
-        "wMm": 46,
-        "hMm": 5.82,
-        "rot": 89.3
+        "cxMm": 49.82,
+        "cyMm": 21.3,
+        "wMm": 14.5,
+        "hMm": 15.4,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -2187,11 +2174,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 59.89,
-        "cyMm": 44.12,
-        "wMm": 46,
-        "hMm": 21.34,
-        "rot": -81.4
+        "cxMm": 58.83,
+        "cyMm": 41.77,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 8.6
+      },
+      {
+        "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+        "src": "/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+        "name": "Silver Handle",
+        "category": "silver",
+        "type": 2,
+        "price": 3,
+        "cxMm": 74.7,
+        "cyMm": 42.83,
+        "wMm": 14.9,
+        "hMm": 45.6,
+        "rot": -0.7
       },
       {
         "charmId": "image2-32",
@@ -2200,11 +2200,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 18.36,
-        "cyMm": 57.73,
-        "wMm": 14.66,
-        "hMm": 4,
-        "rot": -5.5
+        "cxMm": 18.23,
+        "cyMm": 58.05,
+        "wMm": 14.2,
+        "hMm": 14.7,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
@@ -2213,10 +2213,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 47.2,
-        "cyMm": 71.82,
-        "wMm": 10.04,
-        "hMm": 10.34,
+        "cxMm": 46.87,
+        "cyMm": 71.13,
+        "wMm": 10,
+        "hMm": 8.4,
         "rot": 0
       },
       {
@@ -2226,11 +2226,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.47,
-        "cyMm": 79.57,
-        "wMm": 20.58,
-        "hMm": 12.74,
-        "rot": 44.4
+        "cxMm": 63.55,
+        "cyMm": 79.58,
+        "wMm": 18.6,
+        "hMm": 20.6,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-35",
@@ -2239,11 +2239,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 39.93,
-        "cyMm": 79.92,
-        "wMm": 9.45,
-        "hMm": 5.89,
-        "rot": 9.9
+        "cxMm": 39.86,
+        "cyMm": 80.41,
+        "wMm": 9.1,
+        "hMm": 9.4,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -2252,11 +2252,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 22.48,
-        "cyMm": 81.76,
-        "wMm": 46,
-        "hMm": 28.78,
-        "rot": -61.5
+        "cxMm": 25.46,
+        "cyMm": 81.78,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 28.5
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
@@ -2265,10 +2265,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 42.61,
-        "cyMm": 95.11,
-        "wMm": 28.48,
-        "hMm": 23.53,
+        "cxMm": 43.55,
+        "cyMm": 96.09,
+        "wMm": 27.9,
+        "hMm": 29.4,
         "rot": 0
       },
       {
@@ -2278,10 +2278,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.71,
-        "cyMm": 100.49,
-        "wMm": 15.44,
-        "hMm": 18.74,
+        "cxMm": 63.4,
+        "cyMm": 100.8,
+        "wMm": 13,
+        "hMm": 19.3,
         "rot": 0
       },
       {
@@ -2291,23 +2291,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 47.44,
-        "cyMm": 111.4,
-        "wMm": 7.79,
-        "hMm": 8.09,
-        "rot": 0
-      },
-      {
-        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11",
-        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
-        "name": "Natural Dog",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 17.78,
-        "cyMm": 121.48,
-        "wMm": 16.04,
-        "hMm": 19.93,
+        "cxMm": 47.24,
+        "cyMm": 111.53,
+        "wMm": 8.5,
+        "hMm": 6.8,
         "rot": 0
       },
       {
@@ -2317,10 +2304,23 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 35.96,
-        "cyMm": 121.55,
-        "wMm": 8.99,
-        "hMm": 9.14,
+        "cxMm": 35.72,
+        "cyMm": 121.34,
+        "wMm": 10.8,
+        "hMm": 8.3,
+        "rot": 0
+      },
+      {
+        "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11",
+        "src": "/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
+        "name": "Natural Dog",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 17.94,
+        "cyMm": 122.26,
+        "wMm": 19.9,
+        "hMm": 18.7,
         "rot": 0
       },
       {
@@ -2330,10 +2330,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 59.08,
-        "cyMm": 123.36,
-        "wMm": 21.28,
-        "hMm": 15.89,
+        "cxMm": 58.46,
+        "cyMm": 123.4,
+        "wMm": 16.8,
+        "hMm": 21.3,
         "rot": 0
       },
       {
@@ -2343,11 +2343,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 39.93,
-        "cyMm": 141.11,
-        "wMm": 22.48,
-        "hMm": 13.1,
-        "rot": -46.1
+        "cxMm": 40.23,
+        "cyMm": 141.66,
+        "wMm": 17.2,
+        "hMm": 22.8,
+        "rot": 43.9
       },
       {
         "charmId": "image3-27",
@@ -2356,10 +2356,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 58.19,
-        "cyMm": 145.39,
-        "wMm": 17.99,
-        "hMm": 16.79,
+        "cxMm": 58.16,
+        "cyMm": 145.46,
+        "wMm": 17.8,
+        "hMm": 18.9,
         "rot": 0
       },
       {
@@ -2369,10 +2369,10 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 19.88,
-        "cyMm": 146.37,
-        "wMm": 14.24,
-        "hMm": 13.79,
+        "cxMm": 19.12,
+        "cyMm": 147.44,
+        "wMm": 13.2,
+        "hMm": 14.8,
         "rot": 0
       }
     ]
@@ -2389,11 +2389,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 58.88,
-        "cyMm": 28.8,
-        "wMm": 45.39,
-        "hMm": 24.98,
-        "rot": -88.3
+        "cxMm": 58.83,
+        "cyMm": 28.82,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 1.7
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
@@ -2402,23 +2402,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 5.32,
-        "cyMm": 58.7,
-        "wMm": 12.8,
-        "hMm": 4.28,
-        "rot": -59.2
-      },
-      {
-        "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
-        "src": "/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30.png",
-        "name": "Natural Coral",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 59.96,
-        "cyMm": 63.97,
-        "wMm": 23.47,
-        "hMm": 22.72,
+        "cxMm": 6.27,
+        "cyMm": 60.31,
+        "wMm": 12.4,
+        "hMm": 12.8,
         "rot": 0
       },
       {
@@ -2428,11 +2415,24 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 17.12,
-        "cyMm": 98.37,
-        "wMm": 25.19,
-        "hMm": 17.14,
-        "rot": 44.5
+        "cxMm": 59.34,
+        "cyMm": 63.69,
+        "wMm": 23.3,
+        "hMm": 25.7,
+        "rot": 0
+      },
+      {
+        "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "src": "/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30.png",
+        "name": "Natural Coral",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 18.16,
+        "cyMm": 99.48,
+        "wMm": 23.3,
+        "hMm": 25.7,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-12",
@@ -2441,10 +2441,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 66.63,
-        "cyMm": 103.86,
-        "wMm": 9.18,
-        "hMm": 8.43,
+        "cxMm": 66.65,
+        "cyMm": 103.92,
+        "wMm": 10.7,
+        "hMm": 7.9,
         "rot": 0
       },
       {
@@ -2454,11 +2454,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 16.66,
-        "cyMm": 113.81,
-        "wMm": 12.01,
-        "hMm": 8.61,
-        "rot": 32.4
+        "cxMm": 16.46,
+        "cyMm": 113.73,
+        "wMm": 10.1,
+        "hMm": 12.1,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34",
@@ -2467,10 +2467,10 @@
         "category": "colourful",
         "type": 1,
         "price": 5,
-        "cxMm": 57.1,
-        "cyMm": 114.56,
-        "wMm": 28.4,
-        "hMm": 15.29,
+        "cxMm": 57.57,
+        "cyMm": 115.57,
+        "wMm": 28.5,
+        "hMm": 16.7,
         "rot": -1.9
       },
       {
@@ -2480,10 +2480,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 31.62,
-        "cyMm": 119.37,
-        "wMm": 26.41,
-        "hMm": 15.59,
+        "cxMm": 30.63,
+        "cyMm": 119.63,
+        "wMm": 26.5,
+        "hMm": 19.6,
         "rot": -48.3
       },
       {
@@ -2493,11 +2493,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 74.22,
-        "cyMm": 121.6,
-        "wMm": 12.47,
-        "hMm": 5.38,
-        "rot": -66.5
+        "cxMm": 73.22,
+        "cyMm": 120.63,
+        "wMm": 12.4,
+        "hMm": 12.7,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -2506,11 +2506,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 3.82,
-        "cyMm": 134.4,
-        "wMm": 46,
-        "hMm": 4.71,
-        "rot": -89.3
+        "cxMm": 5.09,
+        "cyMm": 133.73,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": 0.7
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
@@ -2519,10 +2519,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 34.79,
-        "cyMm": 134.86,
-        "wMm": 8.43,
-        "hMm": 9.48,
+        "cxMm": 34.54,
+        "cyMm": 134.5,
+        "wMm": 10,
+        "hMm": 8.4,
         "rot": 0
       },
       {
@@ -2532,10 +2532,10 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 57.62,
-        "cyMm": 140.53,
-        "wMm": 28.13,
-        "hMm": 29.34,
+        "cxMm": 57.94,
+        "cyMm": 140.94,
+        "wMm": 17.7,
+        "hMm": 32.3,
         "rot": 0
       },
       {
@@ -2545,10 +2545,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 17.75,
-        "cyMm": 144.52,
-        "wMm": 23.32,
-        "hMm": 22.72,
+        "cxMm": 17.49,
+        "cyMm": 144.16,
+        "wMm": 24.4,
+        "hMm": 17.5,
         "rot": 0
       },
       {
@@ -2558,11 +2558,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 71.26,
-        "cyMm": 149.67,
-        "wMm": 32.19,
-        "hMm": 13.01,
-        "rot": -61.9
+        "cxMm": 67.83,
+        "cyMm": 144.31,
+        "wMm": 29.4,
+        "hMm": 32.7,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-24",
@@ -2571,11 +2571,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 38.79,
-        "cyMm": 149.78,
-        "wMm": 12.15,
-        "hMm": 10.08,
-        "rot": -30.2
+        "cxMm": 38.38,
+        "cyMm": 149.45,
+        "wMm": 10.1,
+        "hMm": 12.1,
+        "rot": 0
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-14",
@@ -2584,10 +2584,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 10.19,
-        "cyMm": 156.54,
-        "wMm": 9.03,
-        "hMm": 7.07,
+        "cxMm": 10.33,
+        "cyMm": 156.11,
+        "wMm": 9.2,
+        "hMm": 8.7,
         "rot": 0
       }
     ]
@@ -2604,11 +2604,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 60.11,
-        "cyMm": 28.85,
-        "wMm": 36.67,
-        "hMm": 17.46,
-        "rot": -78.4
+        "cxMm": 59.3,
+        "cyMm": 28.04,
+        "wMm": 25.2,
+        "hMm": 37,
+        "rot": 11.6
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-08",
@@ -2617,10 +2617,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 64.95,
-        "cyMm": 51.84,
-        "wMm": 6.88,
-        "hMm": 5.83,
+        "cxMm": 65.37,
+        "cyMm": 52.23,
+        "wMm": 7,
+        "hMm": 7.4,
         "rot": 0
       },
       {
@@ -2630,11 +2630,11 @@
         "category": "gold",
         "type": 2,
         "price": 3,
-        "cxMm": 60.86,
-        "cyMm": 58.14,
-        "wMm": 15.22,
-        "hMm": 6.63,
-        "rot": 21.7
+        "cxMm": 60.63,
+        "cyMm": 58.43,
+        "wMm": 15.3,
+        "hMm": 12.1,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -2643,11 +2643,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 28.53,
-        "cyMm": 66.89,
-        "wMm": 46,
-        "hMm": 28.77,
-        "rot": -5.3
+        "cxMm": 28.47,
+        "cyMm": 65.24,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 84.7
       },
       {
         "charmId": "f1552077-9a1d-4e7c-bf0a-000000000abc-08",
@@ -2656,10 +2656,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 59.49,
-        "cyMm": 73.68,
-        "wMm": 18.24,
-        "hMm": 19.89,
+        "cxMm": 60.19,
+        "cyMm": 74.91,
+        "wMm": 24.2,
+        "hMm": 17,
         "rot": 0
       },
       {
@@ -2669,11 +2669,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 15.31,
-        "cyMm": 83.04,
-        "wMm": 19,
-        "hMm": 8.53,
-        "rot": -9.5
+        "cxMm": 15.23,
+        "cyMm": 82.47,
+        "wMm": 13,
+        "hMm": 19.3,
+        "rot": 80.5
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-40",
@@ -2682,10 +2682,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 68.11,
-        "cyMm": 85.25,
-        "wMm": 5.68,
-        "hMm": 5.38,
+        "cxMm": 67.88,
+        "cyMm": 85.27,
+        "wMm": 4.2,
+        "hMm": 5.8,
         "rot": 0
       },
       {
@@ -2695,11 +2695,11 @@
         "category": "gold",
         "type": 1,
         "price": 5,
-        "cxMm": 42.86,
-        "cyMm": 94.38,
-        "wMm": 46,
-        "hMm": 26.17,
-        "rot": 7.1
+        "cxMm": 45.92,
+        "cyMm": 93.89,
+        "wMm": 15.4,
+        "hMm": 43.4,
+        "rot": -82.9
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-11",
@@ -2708,10 +2708,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 15.53,
-        "cyMm": 106.99,
-        "wMm": 33.7,
-        "hMm": 12.35,
+        "cxMm": 15.38,
+        "cyMm": 106.28,
+        "wMm": 33.9,
+        "hMm": 24.8,
         "rot": 86.5
       },
       {
@@ -2721,10 +2721,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 46.58,
-        "cyMm": 119.04,
-        "wMm": 46,
-        "hMm": 32.75,
+        "cxMm": 44.96,
+        "cyMm": 120.87,
+        "wMm": 14.9,
+        "hMm": 45.2,
         "rot": 0
       },
       {
@@ -2734,10 +2734,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 65.23,
-        "cyMm": 129.14,
-        "wMm": 12.26,
-        "hMm": 11.51,
+        "cxMm": 64.92,
+        "cyMm": 129.19,
+        "wMm": 10.1,
+        "hMm": 12.1,
         "rot": 0
       },
       {
@@ -2747,11 +2747,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 30.97,
-        "cyMm": 134.54,
-        "wMm": 7.66,
-        "hMm": 4.72,
-        "rot": -38.8
+        "cxMm": 30.91,
+        "cyMm": 133.72,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32",
@@ -2760,10 +2760,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 25.45,
-        "cyMm": 143.34,
-        "wMm": 37.53,
-        "hMm": 31.1,
+        "cxMm": 26.69,
+        "cyMm": 141.51,
+        "wMm": 13,
+        "hMm": 38.1,
         "rot": 0
       },
       {
@@ -2773,10 +2773,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 59.97,
-        "cyMm": 147.35,
-        "wMm": 23.78,
-        "hMm": 21.53,
+        "cxMm": 58.64,
+        "cyMm": 147.56,
+        "wMm": 23.3,
+        "hMm": 25.7,
         "rot": 0
       }
     ]
@@ -2793,24 +2793,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 47.89,
-        "cyMm": 60.96,
-        "wMm": 10.64,
-        "hMm": 9.89,
+        "cxMm": 47.84,
+        "cyMm": 61.05,
+        "wMm": 11.9,
+        "hMm": 7.8,
         "rot": 0
-      },
-      {
-        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
-        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
-        "name": "Colourful Heart",
-        "category": "colourful",
-        "type": 2,
-        "price": 3,
-        "cxMm": 19.68,
-        "cyMm": 73.13,
-        "wMm": 46,
-        "hMm": 28.27,
-        "rot": -71.9
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-20",
@@ -2819,11 +2806,24 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 69.75,
-        "cyMm": 76.79,
-        "wMm": 10.81,
-        "hMm": 6.78,
+        "cxMm": 70.45,
+        "cyMm": 77.06,
+        "wMm": 10.8,
+        "hMm": 8.3,
         "rot": -16.8
+      },
+      {
+        "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "src": "/assets/charms/ref/f1553077-9a1d-4e7c-bf0a-000000000abc-05.png",
+        "name": "Colourful Heart",
+        "category": "colourful",
+        "type": 2,
+        "price": 3,
+        "cxMm": 20.82,
+        "cyMm": 77.59,
+        "wMm": 23.8,
+        "hMm": 32.1,
+        "rot": 18.1
       },
       {
         "charmId": "image2-01",
@@ -2832,10 +2832,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 38.95,
-        "cyMm": 82.76,
-        "wMm": 23.07,
-        "hMm": 22.17,
+        "cxMm": 39.7,
+        "cyMm": 82.55,
+        "wMm": 20.6,
+        "hMm": 25.2,
         "rot": 0
       },
       {
@@ -2845,10 +2845,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 7.92,
-        "cyMm": 90.01,
-        "wMm": 9.59,
-        "hMm": 8.24,
+        "cxMm": 7.61,
+        "cyMm": 88.94,
+        "wMm": 9.3,
+        "hMm": 6.3,
         "rot": 0
       },
       {
@@ -2858,11 +2858,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 54.19,
-        "cyMm": 103.98,
-        "wMm": 8.31,
-        "hMm": 5.48,
-        "rot": -34
+        "cxMm": 53.73,
+        "cyMm": 103.37,
+        "wMm": 8.5,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "f1552077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -2871,11 +2871,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 39.09,
-        "cyMm": 110.69,
-        "wMm": 27.44,
-        "hMm": 16.44,
-        "rot": -47.6
+        "cxMm": 37.99,
+        "cyMm": 108.79,
+        "wMm": 18.3,
+        "hMm": 27.4,
+        "rot": 42.4
       },
       {
         "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-09",
@@ -2884,10 +2884,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.75,
-        "cyMm": 111.9,
-        "wMm": 14.53,
-        "hMm": 12.58,
+        "cxMm": 64.26,
+        "cyMm": 112.32,
+        "wMm": 14.9,
+        "hMm": 9.4,
         "rot": 0
       },
       {
@@ -2897,10 +2897,10 @@
         "category": "colourful",
         "type": 1,
         "price": 5,
-        "cxMm": 13.55,
-        "cyMm": 114.71,
-        "wMm": 23.22,
-        "hMm": 27.42,
+        "cxMm": 14.25,
+        "cyMm": 114.2,
+        "wMm": 28.5,
+        "hMm": 16.7,
         "rot": 0
       },
       {
@@ -2910,11 +2910,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 49.9,
-        "cyMm": 116.8,
-        "wMm": 6.69,
-        "hMm": 4.34,
-        "rot": 75.3
+        "cxMm": 49.7,
+        "cyMm": 116.68,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
@@ -2923,10 +2923,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 38.19,
-        "cyMm": 128.64,
-        "wMm": 10.04,
-        "hMm": 7.49,
+        "cxMm": 37.84,
+        "cyMm": 127.96,
+        "wMm": 10,
+        "hMm": 8.4,
         "rot": 0
       },
       {
@@ -2936,10 +2936,10 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 57.68,
-        "cyMm": 139.94,
-        "wMm": 29.66,
-        "hMm": 38.5,
+        "cxMm": 57.61,
+        "cyMm": 140.06,
+        "wMm": 38.2,
+        "hMm": 40.5,
         "rot": 0
       },
       {
@@ -2949,11 +2949,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 31.14,
-        "cyMm": 141.89,
-        "wMm": 18.4,
-        "hMm": 7.6,
-        "rot": 80.1
+        "cxMm": 31.12,
+        "cyMm": 140.36,
+        "wMm": 16.2,
+        "hMm": 18.3,
+        "rot": 0
       },
       {
         "charmId": "image2-11",
@@ -2962,10 +2962,10 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 14.66,
-        "cyMm": 146.41,
-        "wMm": 19.78,
-        "hMm": 25.32,
+        "cxMm": 14.03,
+        "cyMm": 144.87,
+        "wMm": 19.8,
+        "hMm": 25.7,
         "rot": 0
       },
       {
@@ -2975,11 +2975,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 34.6,
-        "cyMm": 152.21,
-        "wMm": 9.69,
-        "hMm": 4.85,
-        "rot": -11.2
+        "cxMm": 35,
+        "cyMm": 152.47,
+        "wMm": 9.7,
+        "hMm": 9.7,
+        "rot": 0
       }
     ]
   },
@@ -2995,11 +2995,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 56.6,
-        "cyMm": 8.78,
-        "wMm": 19.92,
-        "hMm": 6.85,
-        "rot": -28
+        "cxMm": 58.31,
+        "cyMm": 11.37,
+        "wMm": 15.5,
+        "hMm": 19.9,
+        "rot": 0
       },
       {
         "charmId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-33",
@@ -3008,11 +3008,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 66.98,
-        "cyMm": 30.35,
+        "cxMm": 67.02,
+        "cyMm": 30.44,
         "wMm": 17.3,
-        "hMm": 5.79,
-        "rot": -66.6
+        "hMm": 17.1,
+        "rot": 0
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
@@ -3021,11 +3021,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 58.87,
-        "cyMm": 34.03,
-        "wMm": 45.87,
-        "hMm": 17.35,
-        "rot": 84.1
+        "cxMm": 59.2,
+        "cyMm": 34.63,
+        "wMm": 14.9,
+        "hMm": 45.2,
+        "rot": -5.9
       },
       {
         "charmId": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
@@ -3034,11 +3034,11 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 74.61,
-        "cyMm": 38.93,
-        "wMm": 46,
-        "hMm": 10.97,
-        "rot": 88.7
+        "cxMm": 72.26,
+        "cyMm": 48.9,
+        "wMm": 14.9,
+        "hMm": 45.6,
+        "rot": -1.3
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04",
@@ -3047,10 +3047,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 35.73,
-        "cyMm": 65.48,
-        "wMm": 12.91,
-        "hMm": 12.46,
+        "cxMm": 36.02,
+        "cyMm": 66.14,
+        "wMm": 12.7,
+        "hMm": 12.2,
         "rot": 0
       },
       {
@@ -3060,24 +3060,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 48.6,
-        "cyMm": 71.13,
-        "wMm": 12.97,
-        "hMm": 7.14,
-        "rot": -23.2
-      },
-      {
-        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03",
-        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
-        "name": "Natural Shell",
-        "category": "unique",
-        "type": 2,
-        "price": 3,
-        "cxMm": 64.14,
-        "cyMm": 73.53,
-        "wMm": 17.89,
-        "hMm": 12.88,
-        "rot": 65.5
+        "cxMm": 47.61,
+        "cyMm": 70.57,
+        "wMm": 12.4,
+        "hMm": 12.8,
+        "rot": 0
       },
       {
         "charmId": "image2-32",
@@ -3086,11 +3073,24 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 14.78,
-        "cyMm": 73.88,
-        "wMm": 10.21,
-        "hMm": 14.26,
+        "cxMm": 14.61,
+        "cyMm": 73.16,
+        "wMm": 14.2,
+        "hMm": 14.7,
         "rot": 0
+      },
+      {
+        "charmId": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03",
+        "src": "/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png",
+        "name": "Natural Shell",
+        "category": "unique",
+        "type": 2,
+        "price": 3,
+        "cxMm": 64.51,
+        "cyMm": 73.54,
+        "wMm": 13.6,
+        "hMm": 17.8,
+        "rot": -24.5
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-37",
@@ -3099,11 +3099,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 36.84,
-        "cyMm": 93.6,
-        "wMm": 26.87,
-        "hMm": 14.11,
-        "rot": 18.5
+        "cxMm": 37.42,
+        "cyMm": 92.99,
+        "wMm": 26.8,
+        "hMm": 26.8,
+        "rot": 0
       },
       {
         "charmId": "f1553077-9a1d-4e7c-bf0a-000000000abc-07",
@@ -3113,9 +3113,9 @@
         "type": 2,
         "price": 3,
         "cxMm": 15.87,
-        "cyMm": 93.86,
-        "wMm": 16.96,
-        "hMm": 16.66,
+        "cyMm": 93.76,
+        "wMm": 13,
+        "hMm": 19.3,
         "rot": 0
       },
       {
@@ -3125,10 +3125,10 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 63.8,
-        "cyMm": 95.54,
-        "wMm": 14.26,
-        "hMm": 12.31,
+        "cxMm": 63.55,
+        "cyMm": 95.97,
+        "wMm": 14.4,
+        "hMm": 12,
         "rot": 0
       },
       {
@@ -3138,11 +3138,11 @@
         "category": "colourful",
         "type": 2,
         "price": 3,
-        "cxMm": 40.6,
-        "cyMm": 104.02,
-        "wMm": 7.21,
-        "hMm": 4.36,
-        "rot": -0.5
+        "cxMm": 40.89,
+        "cyMm": 103.98,
+        "wMm": 10.4,
+        "hMm": 10.5,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
@@ -3151,11 +3151,11 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 52.02,
-        "cyMm": 105.9,
-        "wMm": 6.73,
-        "hMm": 4,
-        "rot": -39.6
+        "cxMm": 51.67,
+        "cyMm": 105.81,
+        "wMm": 7.1,
+        "hMm": 6.8,
+        "rot": 0
       },
       {
         "charmId": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47",
@@ -3164,10 +3164,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 21.04,
-        "cyMm": 116.36,
-        "wMm": 20.56,
-        "hMm": 20.26,
+        "cxMm": 20.74,
+        "cyMm": 117.1,
+        "wMm": 16.7,
+        "hMm": 22.9,
         "rot": 0
       },
       {
@@ -3177,10 +3177,10 @@
         "category": "silver",
         "type": 1,
         "price": 5,
-        "cxMm": 59.12,
-        "cyMm": 119.3,
-        "wMm": 28.82,
-        "hMm": 24.32,
+        "cxMm": 58.46,
+        "cyMm": 120.08,
+        "wMm": 14.8,
+        "hMm": 32.2,
         "rot": 0
       },
       {
@@ -3190,11 +3190,11 @@
         "category": "unique",
         "type": 2,
         "price": 3,
-        "cxMm": 37.83,
-        "cyMm": 121.11,
-        "wMm": 16.09,
-        "hMm": 9.78,
-        "rot": -58.8
+        "cxMm": 37.13,
+        "cyMm": 120.15,
+        "wMm": 16.1,
+        "hMm": 16,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
@@ -3203,11 +3203,11 @@
         "category": "unique",
         "type": 1,
         "price": 5,
-        "cxMm": 20.41,
-        "cyMm": 143.9,
-        "wMm": 29.95,
-        "hMm": 20.09,
-        "rot": 52.1
+        "cxMm": 21.63,
+        "cyMm": 143.72,
+        "wMm": 27.9,
+        "hMm": 29.4,
+        "rot": 0
       },
       {
         "charmId": "e540ac60-3ca6-447f-833a-9234eec3b235-12",
@@ -3216,10 +3216,10 @@
         "category": "unique",
         "type": 3,
         "price": 2,
-        "cxMm": 37.16,
-        "cyMm": 144.67,
-        "wMm": 10.42,
-        "hMm": 6.56,
+        "cxMm": 37.42,
+        "cyMm": 144.56,
+        "wMm": 10.7,
+        "hMm": 7.9,
         "rot": 1.7
       },
       {
@@ -3229,10 +3229,10 @@
         "category": "silver",
         "type": 2,
         "price": 3,
-        "cxMm": 59.63,
-        "cyMm": 145.49,
-        "wMm": 19.96,
-        "hMm": 15.61,
+        "cxMm": 58.68,
+        "cyMm": 146.62,
+        "wMm": 12.4,
+        "hMm": 21.2,
         "rot": 0
       }
     ]

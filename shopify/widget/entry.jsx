@@ -7,9 +7,9 @@
  * Shopify Cart AJAX API so checkout, payment and orders stay 100% native
  * Shopify (the widget runs on the storefront page, not an iframe).
  *
- * Configuration is read from `window.CharmeConfig`, which the drop-in section
+ * Configuration is read from `window.CharmeConfig`, which the drop-in snippet
  * renders as an inline <script> BEFORE this bundle (see
- * shopify/theme-section/charme-customizer.liquid):
+ * shopify/snippets/charme-customizer.liquid):
  *
  *   window.CharmeConfig = {
  *     apiBase:    "https://charme-customizer.pages.dev", // catalogue + art CDN
@@ -57,17 +57,22 @@ export async function mount() {
   // Digitised design preset: if this placement maps to a saved design (by Shopify
   // product handle), load it so the customer opens onto that arrangement and can
   // refine it. Best-effort — any failure just opens the empty customizer.
-  const initialLayout = await loadPreset(cfg)
+  // TEMPORARILY DISABLED (commented out, not removed) — presets are hidden for
+  // now. Re-enable by restoring the loadPreset() call below.
+  // const initialLayout = await loadPreset(cfg)
+  const initialLayout = null
 
   createRoot(el).render(
     <React.StrictMode>
       <ConfigProvider theme={theme}>
-        <AntApp>
+        <AntApp className="charme-embed-app" style={{ height: '100%', minHeight: 0 }}>
           <div className="app-shell" style={{ height: cfg.height || '88vh' }}>
             <CustomizerPage
               onPlaceOrder={onPlaceOrder}
               initialGroupKey={cfg.defaultGroup || undefined}
               initialProductId={cfg.defaultProductId || undefined}
+              initialCaseColourId={cfg.caseColourId || undefined}
+              initialGelColourId={cfg.gelColourId || undefined}
               initialLayout={initialLayout || undefined}
             />
           </div>

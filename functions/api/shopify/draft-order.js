@@ -43,14 +43,49 @@ const json = (data, status = 200) =>
 
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
+// Cache the client_credentials access token per isolate (best-effort — worst
+// case we just re-exchange). Shopify tokens carry an expires_in.
+let cachedToken = null // { token, exp }
+
+/**
+ * Resolve an Admin API access token. New Shopify "dev dashboard" custom apps no
+ * longer hand out a static shpat_ token — instead they expose a Client ID +
+ * Secret and you exchange them for a short-lived access token via the
+ * client_credentials grant. We prefer that (SHOPIFY_CLIENT_ID +
+ * SHOPIFY_CLIENT_SECRET); fall back to a static SHOPIFY_ADMIN_TOKEN if provided.
+ */
+async function getAccessToken(env) {
+  if (env.SHOPIFY_CLIENT_ID && env.SHOPIFY_CLIENT_SECRET) {
+    const now = Date.now()
+    if (cachedToken && cachedToken.exp > now + 60_000) return cachedToken.token
+    const res = await fetch(`https://${env.SHOPIFY_STORE}/admin/oauth/access_token`, {
+      method: 'POST',
+      body: new URLSearchParams({
+        client_id: env.SHOPIFY_CLIENT_ID,
+        client_secret: env.SHOPIFY_CLIENT_SECRET,
+        grant_type: 'client_credentials',
+      }),
+    })
+    const data = await res.json().catch(() => ({}))
+    if (!res.ok || !data.access_token) {
+      throw new Error(`token exchange failed: ${JSON.stringify(data).slice(0, 200)}`)
+    }
+    cachedToken = { token: data.access_token, exp: now + (Number(data.expires_in) || 3600) * 1000 }
+    return cachedToken.token
+  }
+  if (env.SHOPIFY_ADMIN_TOKEN) return env.SHOPIFY_ADMIN_TOKEN
+  throw new Error('no Shopify auth configured')
+}
+
 async function admin(env, query, variables) {
+  const token = await getAccessToken(env)
   const res = await fetch(
     `https://${env.SHOPIFY_STORE}/admin/api/${API_VERSION}/graphql.json`,
     {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'x-shopify-access-token': env.SHOPIFY_ADMIN_TOKEN,
+        'x-shopify-access-token': token,
       },
       body: JSON.stringify({ query, variables }),
     },
@@ -84,9 +119,14 @@ async function storeProof(env, origin, token, dataUrl) {
 }
 
 export async function onRequestPost({ request, env }) {
-  if (!env.SHOPIFY_STORE || !env.SHOPIFY_ADMIN_TOKEN) {
+  const hasAuth =
+    (env.SHOPIFY_CLIENT_ID && env.SHOPIFY_CLIENT_SECRET) || env.SHOPIFY_ADMIN_TOKEN
+  if (!env.SHOPIFY_STORE || !hasAuth) {
     return json(
-      { error: 'Shopify backend not configured (set SHOPIFY_STORE and SHOPIFY_ADMIN_TOKEN).' },
+      {
+        error:
+          'Shopify backend not configured (set SHOPIFY_STORE + SHOPIFY_CLIENT_ID/SHOPIFY_CLIENT_SECRET, or SHOPIFY_ADMIN_TOKEN).',
+      },
       503,
     )
   }
@@ -149,13 +189,29 @@ export async function onRequestPost({ request, env }) {
   const kind = BASE_PRICE[product.kind] != null ? product.kind : 'phone'
   const basePrice = BASE_PRICE[kind]
 
-  // Line 1: the case/tote/frame base, carrying the design metadata.
-  const baseAttributes = [
-    { key: '_design_token', value: token },
-    { key: 'Finish', value: String(finish) },
-    { key: 'Charms', value: String([...counts.values()].reduce((n, c) => n + c.qty, 0)) },
-  ]
+  // Merged, priced charm list (billed quantities) to itemise BENEATH the case.
+  const charmEntries = [...counts.values()] // { qty, price, name }
+  const charmsTotal = charmEntries.reduce((n, c) => n + c.price * c.qty, 0)
+  const casePrice = basePrice + charmsTotal
+
+  // ONE line item = the finished custom case, priced base + charms. The chosen
+  // charms + their prices ride along as VISIBLE custom attributes, so Shopify
+  // lists them UNDER the item in the cart / checkout and on the Admin order.
+  const baseAttributes = []
+  baseAttributes.push({ key: 'Model', value: String(product.name || product.id || '') })
+  if (finish) baseAttributes.push({ key: 'Case & Gel', value: String(finish) })
+  baseAttributes.push({ key: 'Base case', value: `£${money(basePrice)}` })
+  charmEntries.forEach((c, i) => {
+    const qtyPart = c.qty > 1 ? ` ×${c.qty}` : ''
+    baseAttributes.push({
+      key: `Charm ${i + 1}`,
+      value: `${c.name}${qtyPart} · £${money(c.price * c.qty)}`,
+    })
+  })
+  baseAttributes.push({ key: 'Charms subtotal', value: `£${money(charmsTotal)}` })
   if (proofUrl) baseAttributes.push({ key: 'Proof', value: proofUrl })
+  // Internal props (underscore = hidden from storefront/checkout, kept on order).
+  baseAttributes.push({ key: '_design_token', value: token })
   baseAttributes.push({
     key: '_layout',
     value: JSON.stringify({ product, charms, proof: proofUrl }).slice(0, 4000),
@@ -164,26 +220,15 @@ export async function onRequestPost({ request, env }) {
   const lineItems = [
     {
       title: `${product.name}${finish ? ` — ${finish}` : ''}`,
-      originalUnitPrice: money(basePrice),
+      originalUnitPrice: money(casePrice),
       quantity: 1,
       requiresShipping: true,
       taxable: true,
       customAttributes: baseAttributes,
     },
-    ...[...counts.entries()].map(([charmId, c]) => ({
-      title: c.name,
-      originalUnitPrice: money(c.price),
-      quantity: c.qty,
-      requiresShipping: true,
-      taxable: true,
-      customAttributes: [
-        { key: '_design_token', value: token },
-        { key: '_role', value: 'charm' },
-      ],
-    })),
   ]
 
-  const total = lineItems.reduce((n, li) => n + Number(li.originalUnitPrice) * li.quantity, 0)
+  const total = casePrice
 
   const input = {
     lineItems,

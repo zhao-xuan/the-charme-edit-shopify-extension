@@ -47,7 +47,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, onClea
       </div>
 
       <Button block type="primary" size="large" disabled={n === 0} onClick={onSubmit}>
-        Order my custom {noun} (£{total.toFixed(0)})
+        Add my custom {noun} to cart (£{total.toFixed(0)})
       </Button>
       <div style={{ display: 'flex', gap: 10, marginTop: 10 }}>
         <Button block icon={<UndoOutlined />} disabled={!canUndo} onClick={onUndo}>

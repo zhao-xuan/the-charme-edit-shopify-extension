@@ -1,0 +1,16 @@
+api_version = "2025-01"
+
+[[extensions]]
+name = "Charmé bundle"
+handle = "charme-bundle"
+type = "function"
+description = "Merges a Charmé custom case (base case + charms sharing a _design_token) into one cart line."
+
+  [[extensions.targeting]]
+  target = "cart.transform.run"
+  input_query = "src/cart_transform_run.graphql"
+  export = "cartTransformRun"
+
+  [extensions.build]
+  command = ""
+  watch = ["src/**"]

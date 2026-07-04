@@ -16,8 +16,9 @@ import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { PRODUCT_GROUPS, BRAND_LABELS, findProduct } from '../data/products'
 import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX } from '../lib/catalog'
-import { validateLayout, findScatterSpot, charmFootprint, clampCenter } from '../lib/geometry'
+import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
+import { resolveAsset } from '../lib/assets'
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -77,7 +78,14 @@ function deriveColor(product, caseColourId, gelColourId) {
   }
 }
 
-export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialProductId, initialLayout }) {
+export default function CustomizerPage({
+  onPlaceOrder,
+  initialGroupKey,
+  initialProductId,
+  initialLayout,
+  initialCaseColourId,
+  initialGelColourId,
+}) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
 
@@ -93,13 +101,22 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
     'apple'
   const resolvedProduct =
     startProduct ||
+    // Default to the iPhone 16 Pro Max when the Apple group is active (rather than
+    // the group's first entry, which is an old model).
+    (startGroup === 'apple' && findProduct('iphone-16-pro-max') ? 'iphone-16-pro-max' : null) ||
     (PRODUCT_GROUPS.find((g) => g.key === startGroup) || PRODUCT_GROUPS[0]).products[0]?.id ||
     'iphone-17-pro'
 
   const [groupKey, setGroupKey] = useState(startGroup)
   const [productId, setProductId] = useState(resolvedProduct)
-  const [caseColourId, setCaseColourId] = useState('white')
-  const [gelColourId, setGelColourId] = useState('glitter')
+  // The Shopify product page's variant selection (iPhone model + case/gel colour)
+  // seeds the opening finish so the customizer matches what the customer picked.
+  const [caseColourId, setCaseColourId] = useState(
+    () => (initialCaseColourId === 'black' || initialCaseColourId === 'white' ? initialCaseColourId : 'white'),
+  )
+  const [gelColourId, setGelColourId] = useState(
+    () => (['glitter', 'white', 'black'].includes(initialGelColourId) ? initialGelColourId : 'glitter'),
+  )
   const [placed, setPlaced] = useState([])
   const [selectedUid, setSelectedUid] = useState(null)
   const [zoom, setZoom] = useState(1)
@@ -126,7 +143,7 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
   // A draggable splitter between the preview and the tray lets the customer
   // trade preview space for browsing space and back. Defaults small so the case
   // preview fills ~60% of the screen; drag the splitter up for more browsing.
-  const [trayPct, setTrayPct] = useState(16)
+  const [trayPct, setTrayPct] = useState(14)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
 
@@ -146,32 +163,42 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
   )
 
   // Apply a full saved arrangement (product + case/gel finish + placed charms).
-  // Shared by the dev/QA seed hook and the production preset auto-loader.
-  const applyLayout = useCallback((layout = {}) => {
-    if (layout.productId) setProductId(layout.productId)
-    if (layout.caseColourId) setCaseColourId(layout.caseColourId)
-    if (layout.gelColourId) setGelColourId(layout.gelColourId)
-    setPlaced(
-      (layout.charms || []).map((it) => ({
-        uid: uid(),
-        charmId: it.charmId || 'demo',
-        type: it.type || 2,
-        category: it.category || 'gold',
-        name: it.name || 'demo',
-        src: it.src,
-        price: it.price || 0,
-        bundle: false,
-        bundleMax: undefined,
-        baseWmm: it.wMm,
-        baseHmm: it.hMm,
-        minScale: 0.05,
-        maxScale: 20,
-        scale: 1,
-        rot: it.rot || 0,
-        cxMm: it.cxMm,
-        cyMm: it.cyMm,
-      })),
-    )
+  // Shared by the dev/QA seed hook and the production preset auto-loader. `opts`
+  // lets the caller override the target phone / finish (e.g. the customer's chosen
+  // model on the Shopify page); charms are re-fitted to that phone when it differs
+  // from the one the design was authored on.
+  const applyLayout = useCallback((layout = {}, opts = {}) => {
+    const wantPid = opts.productId && findProduct(opts.productId) ? opts.productId : layout.productId
+    if (wantPid) setProductId(wantPid)
+    const caseId = opts.caseColourId || layout.caseColourId
+    const gelId = opts.gelColourId || layout.gelColourId
+    if (caseId) setCaseColourId(caseId)
+    if (gelId) setGelColourId(gelId)
+    let placed = (layout.charms || []).map((it) => ({
+      uid: uid(),
+      charmId: it.charmId || 'demo',
+      type: it.type || 2,
+      category: it.category || 'gold',
+      name: it.name || 'demo',
+      src: resolveAsset(it.src),
+      price: it.price || 0,
+      bundle: false,
+      bundleMax: undefined,
+      baseWmm: it.wMm,
+      baseHmm: it.hMm,
+      minScale: 0.05,
+      maxScale: 20,
+      scale: 1,
+      rot: it.rot || 0,
+      cxMm: it.cxMm,
+      cyMm: it.cyMm,
+    }))
+    const fromP = findProduct(layout.productId)
+    const toP = findProduct(wantPid)
+    if (fromP && toP && fromP !== toP && fromP.kind === 'phone' && toP.kind === 'phone') {
+      placed = adaptLayoutToProduct(placed, fromP, toP)
+    }
+    setPlaced(placed)
     setSelectedUid(null)
   }, [])
 
@@ -182,8 +209,12 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
   useEffect(() => {
     if (seededPreset.current || !initialLayout || !(initialLayout.charms || []).length) return
     seededPreset.current = true
-    applyLayout(initialLayout)
-  }, [initialLayout, applyLayout])
+    applyLayout(initialLayout, {
+      productId: initialProductId,
+      caseColourId: initialCaseColourId,
+      gelColourId: initialGelColourId,
+    })
+  }, [initialLayout, initialProductId, initialCaseColourId, initialGelColourId, applyLayout])
 
   // Dev/QA layout seeding hook. Lets tooling reproduce an exact arrangement
   // (e.g. a real reference photo) on the live site for screenshot comparison:
@@ -289,16 +320,29 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
   const canUndo = histLen > 0
 
   const handleGroup = (g) => {
+    const from = product
     setGroupKey(g)
-    const first = PRODUCT_GROUPS.find((x) => x.key === g).products[0]
-    setProductId(first.id)
-    setPlaced([])
+    const group = PRODUCT_GROUPS.find((x) => x.key === g)
+    // Apple defaults to the iPhone 16 Pro Max rather than the group's oldest model.
+    const firstId =
+      g === 'apple' && findProduct('iphone-16-pro-max') ? 'iphone-16-pro-max' : group.products[0].id
+    const to = findProduct(firstId)
+    setProductId(firstId)
+    // Carry a design across to the new phone (re-fitted to its footprint + camera)
+    // when both sides are phones; otherwise start the new product type fresh.
+    setPlaced((prev) =>
+      from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
+    )
     setSelectedUid(null)
     resetHistory()
   }
   const handleProduct = (id) => {
+    const from = product
+    const to = findProduct(id)
     setProductId(id)
-    setPlaced([])
+    setPlaced((prev) =>
+      from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
+    )
     setSelectedUid(null)
     resetHistory()
   }
@@ -523,6 +567,7 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
       onRemove={removeCharm}
       onCheckpoint={pushHistory}
       zoom={zoom}
+      onZoomChange={setZoom}
     />
   )
 
@@ -739,7 +784,7 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
                 size="small"
                 value={groupKey}
                 onChange={handleGroup}
-                options={PRODUCT_GROUPS.map((g) => ({ label: g.label, value: g.key }))}
+                options={PRODUCT_GROUPS.filter((g) => g.key !== 'tote').map((g) => ({ label: g.label, value: g.key }))}
               />
             </div>
             <div className="mobile-head__selects">
@@ -788,34 +833,22 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
             {stageNode}
             {zoomDock}
             {editDock}
+            {validation.problems > 0 && (
+              <div className="stage-attention" role="alert">
+                <WarningFilled className="stage-attention__icon" />
+                <span>
+                  {validation.problems} charm{validation.problems > 1 ? 's' : ''} need attention
+                </span>
+              </div>
+            )}
             <div
-              className={
-                'mobile-step-overlay' +
-                (validation.problems > 0 ? ' mobile-step-overlay--warn' : '') +
-                (step2Expanded ? ' is-open' : '')
-              }
-              role={validation.problems > 0 ? 'alert' : undefined}
+              className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
             >
               <div className="mobile-step-overlay__body">
-                {validation.problems > 0 ? (
-                  <span
-                    key={`warn-${validation.problems}-${warnPulse}`}
-                    className="mobile-step-overlay__hint mobile-step-overlay__hint--warn"
-                  >
-                    <WarningFilled className="mobile-step-overlay__warnicon" />
-                    <span>
-                      {validation.problems} charm{validation.problems > 1 ? 's' : ''} need attention —
-                      nudge the highlighted charms apart until the outline clears.
-                    </span>
-                  </span>
-                ) : (
-                  <>
-                    <span className="mobile-step-overlay__hint">{stepTwoHint}</span>
-                    <span className="mobile-step-overlay__hint">
-                      Tap to add charms. Once added, you can move the charms around the case and rotate them.
-                    </span>
-                  </>
-                )}
+                <span className="mobile-step-overlay__hint">{stepTwoHint}</span>
+                <span className="mobile-step-overlay__hint">
+                  Tap to add charms. Once added, you can move the charms around the case and rotate them.
+                </span>
               </div>
               <div className="mobile-step2-bar">
                 <button
@@ -864,7 +897,7 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
             disabled={placed.length === 0}
             onClick={attemptOrder}
           >
-            Step 3: Order my {orderNoun} (£{orderTotal})
+            Add my custom {orderNoun} to cart (£{orderTotal})
           </button>
         </div>
         </>
@@ -877,7 +910,6 @@ export default function CustomizerPage({ onPlaceOrder, initialGroupKey, initialP
           <div style={{ position: 'relative', minHeight: 0 }}>
             {stageNode}
             {zoomDock}
-            {editDock}
             {overlapAlert}
           </div>
           <div className="panel--right">

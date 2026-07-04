@@ -2,13 +2,15 @@
 # Run `shopify app dev` from the repo root after `shopify app config link`.
 
 name = "charme-customizer"
-client_id = "REPLACE_WITH_YOUR_APP_CLIENT_ID"
+client_id = "93d071d516310e58e5eaeaf778d77e37"
 application_url = "https://REPLACE_WITH_YOUR_APP_URL"
 embedded = true
 
 [access_scopes]
-# write_files is needed by app/upload-proof.js to store design proofs on Shopify Files.
-scopes = "write_files"
+# write_files: app/upload-proof.js stores design proofs on Shopify Files.
+# write_cart_transforms: needed to activate the charme-bundle cart transform
+# (cartTransformCreate) so the custom case shows as one merged line in the cart.
+scopes = "write_files,write_cart_transforms"
 
 [webhooks]
 api_version = "2024-10"

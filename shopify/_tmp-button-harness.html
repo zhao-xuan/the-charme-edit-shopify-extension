@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charmé button-mode harness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+    <style>
+      body { margin: 0; font-family: sans-serif; background: #efe6d8; }
+      .pdp { max-width: 520px; margin: 0 auto; padding: 40px 16px; }
+      /* Mirror of the snippet's button + full-screen modal CSS (the structure
+         that reproduced the 0-height render bug). */
+      .charme-trigger{font:inherit;cursor:pointer;border:0;border-radius:0;padding:14px 30px;background:#AEC6D5;color:#1a1614;font-size:16px;width:100%}
+      .charme-modal{position:fixed;inset:0;z-index:2147483000}
+      .charme-modal[hidden]{display:none}
+      .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column}
+      .charme-modal__topbar{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;padding:8px 16px;border-bottom:1px solid #eceae7;background:#fff}
+      .charme-back{display:inline-flex;align-items:center;gap:8px;font:inherit;cursor:pointer;border:0;background:transparent;color:#1a1614;font-size:15px;padding:8px 10px;z-index:1}
+      .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:#1a1614;white-space:nowrap;pointer-events:none}
+      .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
+      body.charme-modal-open{overflow:hidden}
+    </style>
+  </head>
+  <body>
+    <div class="pdp">
+      <h2>Custom phone case — made to order (harness)</h2>
+      <button type="button" class="charme-trigger" data-charme-open>Design your own</button>
+    </div>
+
+    <div class="charme-modal" data-charme-modal hidden role="dialog" aria-modal="true">
+      <div class="charme-modal__panel">
+        <div class="charme-modal__topbar">
+          <button type="button" class="charme-back" data-charme-close>&#8592; Back</button>
+          <span class="charme-logo">The Charmé Edit</span>
+        </div>
+        <div id="charme-customizer-root" class="charme-customizer"></div>
+      </div>
+    </div>
+
+    <script>
+      var params = new URLSearchParams(location.search)
+      window.Shopify = { routes: { root: '/' }, shop: 'demo.myshopify.com' }
+      window.CharmeConfig = {
+        apiBase: 'https://charme-customizer.pages.dev',
+        mountId: 'charme-customizer-root',
+        presetHandle: params.get('handle') || '',
+        defaultGroup: 'apple',
+        defaultProductId: params.get('product') || 'iphone-16-pro-max',
+        caseColourId: params.get('case') || undefined,
+        gelColourId: params.get('gel') || undefined,
+        orderMode: 'cart',
+        cartRedirect: 'none',
+        variantMap: { products: {}, charmByPrice: { '2': 201, '3': 202, '5': 203 }, charms: {} },
+        height: '100%',
+        lazy: true,
+      }
+    </script>
+    <link rel="stylesheet" href="../public/widget/charme-customizer.css?v=7" />
+    <script src="../public/widget/charme-customizer.js?v=7" defer></script>
+    <script>
+      (function () {
+        var modal = document.querySelector('[data-charme-modal]')
+        function ensureMounted(t) {
+          if (window.CharmeCustomizer && window.CharmeCustomizer.mount) {
+            window.CharmeCustomizer.mount(); window.dispatchEvent(new Event('resize')); return
+          }
+          if (t > 0) setTimeout(function () { ensureMounted(t - 1) }, 80)
+        }
+        function open() { if (modal.parentNode !== document.body) document.body.appendChild(modal); modal.hidden = false; document.body.classList.add('charme-modal-open'); ensureMounted(80) }
+        function close() { modal.hidden = true; document.body.classList.remove('charme-modal-open') }
+        document.querySelectorAll('[data-charme-open]').forEach(function (b) { b.addEventListener('click', open) })
+        document.querySelectorAll('[data-charme-close]').forEach(function (b) { b.addEventListener('click', close) })
+      })()
+    </script>
+  </body>
+</html>

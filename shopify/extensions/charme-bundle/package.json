@@ -1,0 +1,10 @@
+{
+  "name": "charme-bundle",
+  "version": "1.0.0",
+  "description": "Charmé cart transform function (merge custom case into one bundle line).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typegen": "shopify app function typegen"
+  }
+}

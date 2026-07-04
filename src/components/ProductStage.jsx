@@ -1,22 +1,23 @@
 import {
   forwardRef,
   useCallback,
+  useEffect,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
   useState,
 } from 'react'
-import { Button, Tooltip } from 'antd'
-import {
-  DeleteOutlined,
-  RotateLeftOutlined,
-  RotateRightOutlined,
-} from '@ant-design/icons'
+import { DeleteOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
 
 const PAD = 18
+const MIN_ZOOM = 0.6
+const MAX_ZOOM = 3
+// Minimum touch target (px) for a placed charm — tiny charms get an invisible
+// padded hit area so they are still easy to grab on a phone.
+const MIN_HIT = 44
 
 /**
  * Interactive design surface. Renders the blank product + placed charms and
@@ -36,22 +37,43 @@ const ProductStage = forwardRef(function ProductStage(
     onRemove,
     onCheckpoint,
     zoom = 1,
+    onZoomChange,
   },
   ref,
 ) {
   const wrapRef = useRef(null)
   const stageRef = useRef(null)
   const [size, setSize] = useState({ w: 0, h: 0 })
+  // Pan offset (px) for pinch-to-move on touch devices; reset when zoomed out.
+  const [pan, setPan] = useState({ x: 0, y: 0 })
+  const gesture = useRef({ pointers: new Map(), mode: null, startDist: 0, startZoom: 1, startPan: { x: 0, y: 0 }, startMid: { x: 0, y: 0 }, startSingle: { x: 0, y: 0 }, moved: false })
+  useEffect(() => {
+    if (zoom <= 1 && (pan.x !== 0 || pan.y !== 0)) setPan({ x: 0, y: 0 })
+  }, [zoom]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useLayoutEffect(() => {
     const el = wrapRef.current
     if (!el) return
-    const ro = new ResizeObserver((entries) => {
-      const r = entries[0].contentRect
-      setSize({ w: r.width, h: r.height })
-    })
+    const measure = () => {
+      const r = el.getBoundingClientRect()
+      setSize((s) => (s.w === r.width && s.h === r.height ? s : { w: r.width, h: r.height }))
+    }
+    const ro = new ResizeObserver(measure)
     ro.observe(el)
-    return () => ro.disconnect()
+    measure()
+    // Safety net for when the widget mounts into a container that only gets its
+    // real size a frame or two later (e.g. a modal that just became visible, or
+    // a resize nudge from the Shopify drop-in) — otherwise the initial observe
+    // can catch 0 and nothing renders until the next reflow.
+    const raf1 = requestAnimationFrame(measure)
+    const raf2 = requestAnimationFrame(() => requestAnimationFrame(measure))
+    window.addEventListener('resize', measure)
+    return () => {
+      ro.disconnect()
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+      window.removeEventListener('resize', measure)
+    }
   }, [])
 
   const fitScale =
@@ -149,6 +171,81 @@ const ProductStage = forwardRef(function ProductStage(
     [onSelect],
   )
 
+  // ---- pinch-to-zoom + pan (touch) / tap-empty to deselect ----
+  // Handlers live on the stage wrap. Charms stop propagation on their own
+  // pointerdown, so a gesture only starts on empty case / background.
+  const onStagePointerDown = useCallback(
+    (e) => {
+      const g = gesture.current
+      g.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId)
+      } catch {
+        // ignore — pointer may already be gone
+      }
+      g.moved = false
+      if (g.pointers.size === 2) {
+        const pts = [...g.pointers.values()]
+        g.mode = 'pinch'
+        g.startDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y) || 1
+        g.startZoom = zoom
+        g.startPan = { ...pan }
+        g.startMid = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      } else if (g.pointers.size === 1) {
+        g.mode = 'maybe'
+        g.startPan = { ...pan }
+        g.startSingle = { x: e.clientX, y: e.clientY }
+      }
+    },
+    [zoom, pan],
+  )
+  const onStagePointerMove = useCallback(
+    (e) => {
+      const g = gesture.current
+      if (!g.pointers.has(e.pointerId)) return
+      g.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+      if (g.mode === 'pinch' && g.pointers.size >= 2) {
+        const pts = [...g.pointers.values()]
+        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y)
+        const mid = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+        const nz = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, g.startZoom * (dist / g.startDist)))
+        onZoomChange?.(+nz.toFixed(3))
+        setPan({ x: g.startPan.x + (mid.x - g.startMid.x), y: g.startPan.y + (mid.y - g.startMid.y) })
+        g.moved = true
+      } else if ((g.mode === 'maybe' || g.mode === 'pan') && g.pointers.size === 1) {
+        const dx = e.clientX - g.startSingle.x
+        const dy = e.clientY - g.startSingle.y
+        if (g.mode === 'maybe' && Math.hypot(dx, dy) > 4 && zoom > 1) g.mode = 'pan'
+        if (g.mode === 'pan') {
+          setPan({ x: g.startPan.x + dx, y: g.startPan.y + dy })
+          g.moved = true
+        }
+      }
+    },
+    [onZoomChange, zoom],
+  )
+  const onStagePointerUp = useCallback(
+    (e) => {
+      const g = gesture.current
+      // Only act on pointers this gesture actually started tracking (empty-area
+      // gestures). Charm taps stop propagation on down but their up still bubbles
+      // here — ignore those so tapping a charm doesn't immediately deselect it.
+      if (!g.pointers.has(e.pointerId)) return
+      g.pointers.delete(e.pointerId)
+      if (g.pointers.size === 0) {
+        const tapped = !g.moved && g.mode !== 'pan' && g.mode !== 'pinch'
+        g.mode = null
+        if (tapped) onSelect(null)
+      } else if (g.pointers.size === 1) {
+        const pt = [...g.pointers.values()][0]
+        g.mode = 'pan'
+        g.startPan = { ...pan }
+        g.startSingle = { x: pt.x, y: pt.y }
+      }
+    },
+    [onSelect, pan],
+  )
+
   const selected = placed.find((c) => c.uid === selectedUid)
 
   // Real product photo (e.g. the Apple iPhone case render) for the chosen finish.
@@ -157,13 +254,23 @@ const ProductStage = forwardRef(function ProductStage(
   )
 
   return (
-    <div className="stage-wrap" ref={wrapRef} onPointerDown={() => onSelect(null)}>
+    <div
+      className="stage-wrap"
+      ref={wrapRef}
+      onPointerDown={onStagePointerDown}
+      onPointerMove={onStagePointerMove}
+      onPointerUp={onStagePointerUp}
+      onPointerCancel={onStagePointerUp}
+    >
       {fitScale > 0 && (
         <div
           className="stage"
           ref={stageRef}
-          style={{ width: wPx, height: hPx }}
-          onPointerDown={(e) => e.stopPropagation()}
+          style={{
+            width: wPx,
+            height: hPx,
+            transform: `translate3d(${pan.x}px, ${pan.y}px, 0)`,
+          }}
         >
           {blankPhoto ? (
             <img
@@ -251,6 +358,9 @@ const ProductStage = forwardRef(function ProductStage(
             const left = charm.cxMm * scale - w / 2
             const top = charm.cyMm * scale - h / 2
             const isSel = charm.uid === selectedUid
+            // Expand tiny charms' touch target to at least MIN_HIT via a padded
+            // transparent ::before (keeps the visual size, easier to grab).
+            const hitPad = Math.max(0, (MIN_HIT - Math.min(w, h)) / 2)
             return (
               <div
                 key={charm.uid}
@@ -262,6 +372,7 @@ const ProductStage = forwardRef(function ProductStage(
                   height: h,
                   transform: `rotate(${charm.rot || 0}deg)`,
                   zIndex: isSel ? 40 : 10,
+                  '--hit-pad': `${hitPad}px`,
                 }}
                 onPointerDown={(e) => onCharmPointerDown(e, charm)}
                 onPointerMove={onCharmPointerMove}
@@ -273,9 +384,9 @@ const ProductStage = forwardRef(function ProductStage(
             )
           })}
 
-          {/* selection toolbar */}
+          {/* curved rotation dial + remove control for the selected charm */}
           {selected && (
-            <SelectionToolbar
+            <RotationDial
               charm={selected}
               scale={scale}
               onTransform={onTransform}
@@ -289,49 +400,84 @@ const ProductStage = forwardRef(function ProductStage(
   )
 })
 
-function SelectionToolbar({ charm, scale, onTransform, onRemove, onCheckpoint }) {
+function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
+  const w = charm.baseWmm * (charm.scale || 1) * scale
   const h = charm.baseHmm * (charm.scale || 1) * scale
-  const left = charm.cxMm * scale
-  const top = charm.cyMm * scale - h / 2 - 14
-  const rotate = (deg) => {
-    onCheckpoint?.()
-    onTransform(charm.uid, { rot: (charm.rot || 0) + deg })
+  const cx = charm.cxMm * scale
+  const cy = charm.cyMm * scale
+  const rot = charm.rot || 0
+  const R = Math.max(w, h) / 2 + 20
+  const size = R * 2 + 30
+  const c = size / 2
+  const svgRef = useRef(null)
+  const dragging = useRef(false)
+
+  // Free-degree rotation: the angle from the ring centre to the pointer sets the
+  // charm's rotation (0 = upright, i.e. the thumb straight up).
+  const angleFrom = (clientX, clientY) => {
+    const el = svgRef.current
+    if (!el) return rot
+    const r = el.getBoundingClientRect()
+    const a =
+      (Math.atan2(clientY - (r.top + r.height / 2), clientX - (r.left + r.width / 2)) * 180) /
+        Math.PI +
+      90
+    let n = ((a % 360) + 360) % 360
+    if (n > 180) n -= 360
+    return Math.round(n)
   }
+  const start = (e) => {
+    e.stopPropagation()
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId)
+    } catch {
+      // ignore
+    }
+    onCheckpoint?.()
+    dragging.current = true
+    onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
+  }
+  const move = (e) => {
+    if (dragging.current) onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
+  }
+  const end = () => {
+    dragging.current = false
+  }
+
+  const ta = ((rot - 90) * Math.PI) / 180
+  const tx = c + R * Math.cos(ta)
+  const ty = c + R * Math.sin(ta)
   return (
     <div
-      className="charm-tools"
-      style={{
-        left,
-        top,
-        transform: 'translate(-50%, -100%)',
-      }}
+      className="charm-dial"
+      style={{ left: cx, top: cy, width: size, height: size }}
       onPointerDown={(e) => e.stopPropagation()}
     >
-      <Tooltip title="Rotate left">
-        <Button
-          size="small"
-          shape="circle"
-          icon={<RotateLeftOutlined />}
-          onClick={() => rotate(-15)}
-        />
-      </Tooltip>
-      <Tooltip title="Rotate right">
-        <Button
-          size="small"
-          shape="circle"
-          icon={<RotateRightOutlined />}
-          onClick={() => rotate(15)}
-        />
-      </Tooltip>
-      <Tooltip title="Remove">
-        <Button
-          size="small"
-          shape="circle"
-          danger
-          icon={<DeleteOutlined />}
-          onClick={() => onRemove(charm.uid)}
-        />
-      </Tooltip>
+      <svg
+        ref={svgRef}
+        className="charm-dial__svg"
+        width={size}
+        height={size}
+        onPointerDown={start}
+        onPointerMove={move}
+        onPointerUp={end}
+        onPointerCancel={end}
+      >
+        <circle className="charm-dial__track" cx={c} cy={c} r={R} />
+        <circle className="charm-dial__hit" cx={c} cy={c} r={R} />
+        <line className="charm-dial__spoke" x1={c} y1={c} x2={tx} y2={ty} />
+        <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
+      </svg>
+      <span className="charm-dial__deg">{Math.round(rot)}°</span>
+      <button
+        type="button"
+        className="charm-dial__remove"
+        aria-label="Remove"
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={() => onRemove(charm.uid)}
+      >
+        <DeleteOutlined />
+      </button>
     </div>
   )
 }

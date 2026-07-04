@@ -277,22 +277,32 @@ async function processDesign(handle, catalog) {
     const category = categoryOf(dom[0], dom[1], dom[2])
 
     const longMm = ob.long * mmPerPx
-    const shortMm = ob.short * mmPerPx
     const elongated = ob.elong > 1.5 && longMm > 6
+    // Pick a catalogue charm whose real long-edge is closest to the detected one,
+    // then use its DOCUMENTED physical size (from the brand size guide) verbatim so
+    // proportions are never distorted — never stretch art to the detected blob.
     const art = nearestArt(category, longMm)
+    const wMm = +art.widthMm.toFixed(2)
+    const hMm = +art.heightMm.toFixed(2)
 
-    const fracX = (ob.cx - box.minx) / box.w
-    const fracY = (ob.cy - box.miny) / box.h
-    let rot = 0, wMm, hMm
-    if (elongated) {
-      rot = +ob.thetaDeg.toFixed(1)
-      wMm = +longMm.toFixed(2); hMm = +shortMm.toFixed(2)
-    } else {
-      wMm = +((comp.maxx - comp.minx) * mmPerPx).toFixed(2)
-      hMm = +((comp.maxy - comp.miny) * mmPerPx).toFixed(2)
+    // Position is the charm's tight bounding-box CENTRE (not the pixel centroid,
+    // which asymmetric shapes/shadows bias) so the documented-size art sits where
+    // the real piece sits, as a fraction of the CASE bounding box.
+    const bcx = (comp.minx + comp.maxx) / 2
+    const bcy = (comp.miny + comp.maxy) / 2
+    const fracX = (bcx - box.minx) / box.w
+    const fracY = (bcy - box.miny) / box.h
+    // Orient an elongated charm along its detected major axis, correcting for
+    // whether the chosen art is naturally landscape or portrait. Round / near-
+    // square art (and low-confidence blobs) stay upright.
+    let rot = 0
+    const artElong = Math.max(art.widthMm, art.heightMm) / Math.max(Math.min(art.widthMm, art.heightMm), 0.01)
+    if (elongated && artElong > 1.3) {
+      const artAngle0 = art.widthMm >= art.heightMm ? 0 : 90
+      let r = ob.thetaDeg - artAngle0
+      r = (((r + 90) % 180) + 180) % 180 - 90 // normalise to (-90, 90]
+      rot = +r.toFixed(1)
     }
-    // keep sane physical bounds
-    wMm = clamp(wMm, 4, 46); hMm = clamp(hMm, 4, 46)
 
     charms.push({
       charmId: art.id,
@@ -304,7 +314,13 @@ async function processDesign(handle, catalog) {
       cxMm: +(clamp(fracX, 0.02, 0.98) * PRODUCT_W).toFixed(2),
       cyMm: +(clamp(fracY, 0.02, 0.98) * PRODUCT_H).toFixed(2),
       wMm, hMm, rot,
-      _px: { cx: ob.cx, cy: ob.cy, long: ob.long, short: ob.short, theta: ob.thetaDeg, elong: ob.elong, box: [comp.minx, comp.miny, comp.maxx, comp.maxy] },
+      _px: {
+        box: [comp.minx, comp.miny, comp.maxx, comp.maxy],
+        cx: bcx, cy: bcy,
+        theta: ob.thetaDeg, elong: ob.elong,
+        longMm: +longMm.toFixed(2), shortMm: +(ob.short * mmPerPx).toFixed(2),
+        art: { id: art.id, name: art.name, widthMm: art.widthMm, heightMm: art.heightMm },
+      },
     })
   }
   charms.sort((a, b) => a.cyMm - b.cyMm || a.cxMm - b.cxMm)
@@ -318,49 +334,81 @@ async function processDesign(handle, catalog) {
   return { handle, isWhite, box, W, H, bg, layout, charms }
 }
 
-// ---- debug overlay --------------------------------------------------------
+// ---- bordered overlay (saved intermediate) --------------------------------
+const BORDERED = join(PRESETS, 'bordered')
 async function overlay(res) {
   const { handle, box, W, H, charms } = res
-  const ow = 560, k = ow / W, oh = Math.round(H * k)
+  const ow = 900, k = ow / W, oh = Math.round(H * k)
   const r2 = (v) => Math.round(v * k)
-  const svgParts = [`<rect x="${r2(box.minx)}" y="${r2(box.miny)}" width="${r2(box.w)}" height="${r2(box.h)}" fill="none" stroke="lime" stroke-width="2"/>`]
+  const parts = [`<rect x="${r2(box.minx)}" y="${r2(box.miny)}" width="${r2(box.w)}" height="${r2(box.h)}" fill="none" stroke="lime" stroke-width="3"/>`]
   charms.forEach((c, i) => {
     const [x0, y0, x1, y1] = c._px.box
-    svgParts.push(`<rect x="${r2(x0)}" y="${r2(y0)}" width="${r2(x1 - x0)}" height="${r2(y1 - y0)}" fill="none" stroke="red" stroke-width="1.5"/>`)
-    svgParts.push(`<text x="${r2(c._px.cx)}" y="${r2(c._px.cy)}" fill="cyan" font-size="13" font-family="sans-serif">${i}</text>`)
+    parts.push(`<rect x="${r2(x0)}" y="${r2(y0)}" width="${r2(x1 - x0)}" height="${r2(y1 - y0)}" fill="none" stroke="red" stroke-width="2"/>`)
+    // major-axis line through the box centre (shows the detected rotation)
+    const a = (c._px.theta * Math.PI) / 180
+    const len = Math.max(x1 - x0, y1 - y0) / 2
+    parts.push(`<line x1="${r2(c._px.cx - Math.cos(a) * len)}" y1="${r2(c._px.cy - Math.sin(a) * len)}" x2="${r2(c._px.cx + Math.cos(a) * len)}" y2="${r2(c._px.cy + Math.sin(a) * len)}" stroke="yellow" stroke-width="1.5"/>`)
+    parts.push(`<text x="${r2(x0) + 2}" y="${r2(y0) + 14}" fill="cyan" font-size="14" font-family="sans-serif" font-weight="bold">${i}</text>`)
   })
-  const svg = `<svg width="${ow}" height="${oh}" xmlns="http://www.w3.org/2000/svg">${svgParts.join('')}</svg>`
+  const svg = `<svg width="${ow}" height="${oh}" xmlns="http://www.w3.org/2000/svg">${parts.join('')}</svg>`
   const base = await sharp(join(PRESETS, `${handle}.png`)).rotate().resize(ow, oh, { fit: 'fill' }).toBuffer()
-  const out = join('/tmp', 'preset-overlays', `${handle}.jpg`)
-  await mkdir(dirname(out), { recursive: true })
-  await sharp(base).composite([{ input: Buffer.from(svg), top: 0, left: 0 }]).jpeg({ quality: 74 }).toFile(out)
+  await mkdir(BORDERED, { recursive: true })
+  const out = join(BORDERED, `${handle}.jpg`)
+  await sharp(base).composite([{ input: Buffer.from(svg), top: 0, left: 0 }]).jpeg({ quality: 82 }).toFile(out)
   return out
 }
 
 async function main() {
   const catalog = JSON.parse(await readFile(join(ROOT, 'src', 'data', 'catalog.json'), 'utf8'))
   const layouts = {}
+  const caseRects = {}
+  const pieces = {}
   const overlays = []
   for (const [handle] of DESIGNS) {
     const res = await processDesign(handle, catalog)
     if (!res) { console.error(`SKIP ${handle} (no render)`); continue } // eslint-disable-line
     layouts[handle] = res.layout
+    // intermediate 1 — the CASE bounding box (detection-space px @ WORK_H height)
+    caseRects[handle] = {
+      isWhite: res.isWhite, detW: res.W, detH: res.H,
+      minx: res.box.minx, miny: res.box.miny, maxx: res.box.maxx, maxy: res.box.maxy,
+      w: res.box.w, h: res.box.h,
+    }
+    // intermediate 2 — each CHARM's bounding box + relative location/rotation
+    pieces[handle] = res.charms.map((c, i) => ({
+      i,
+      name: c.name,
+      category: c.category,
+      pixelBox: { x: c._px.box[0], y: c._px.box[1], w: c._px.box[2] - c._px.box[0], h: c._px.box[3] - c._px.box[1] },
+      centerPx: { x: +c._px.cx.toFixed(1), y: +c._px.cy.toFixed(1) },
+      angleDeg: +c._px.theta.toFixed(1),
+      elong: +c._px.elong.toFixed(2),
+      detectedLongMm: c._px.longMm,
+      detectedShortMm: c._px.shortMm,
+      art: c._px.art,
+      fracX: +(c.cxMm / PRODUCT_W).toFixed(4),
+      fracY: +(c.cyMm / PRODUCT_H).toFixed(4),
+      cxMm: c.cxMm, cyMm: c.cyMm, wMm: c.wMm, hMm: c.hMm, rot: c.rot,
+    }))
     console.log(`${handle.padEnd(42)} ${res.isWhite ? 'white' : 'black'}  ${res.layout.charms.length} charms`) // eslint-disable-line
-    if (DEBUG) overlays.push(await overlay(res))
+    overlays.push(await overlay(res))
   }
   await writeFile(join(PRESETS, 'layouts.json'), JSON.stringify(layouts, null, 2))
-  console.log(`\nwrote reference/presets/layouts.json (${Object.keys(layouts).length} designs)`) // eslint-disable-line
+  await writeFile(join(PRESETS, 'case-rects.json'), JSON.stringify(caseRects, null, 2))
+  await writeFile(join(PRESETS, 'pieces.json'), JSON.stringify(pieces, null, 2))
+  console.log(`\nwrote reference/presets/{layouts,case-rects,pieces}.json + bordered/*.jpg (${Object.keys(layouts).length} designs)`) // eslint-disable-line
 
-  if (DEBUG && overlays.length) {
-    const cell = 560, cols = 5, rows = Math.ceil(overlays.length / cols), pad = 6
+  // contact sheet of all bordered images → reference/presets/_bordered-montage.jpg
+  if (overlays.length) {
+    const cell = 600, cols = 5, rows = Math.ceil(overlays.length / cols), pad = 6
     const Wm = cols * (cell + pad) + pad, Hm = rows * (cell + pad) + pad
     const comps = []
     for (let i = 0; i < overlays.length; i++) {
       const buf = await sharp(overlays[i]).resize(cell, cell, { fit: 'contain', background: { r: 40, g: 40, b: 40 } }).toBuffer()
       comps.push({ input: buf, left: pad + (i % cols) * (cell + pad), top: pad + ((i / cols) | 0) * (cell + pad) })
     }
-    await sharp({ create: { width: Wm, height: Hm, channels: 3, background: { r: 90, g: 90, b: 90 } } }).composite(comps).jpeg({ quality: 68 }).toFile('/tmp/preset-extract-montage.jpg')
-    console.log('wrote /tmp/preset-extract-montage.jpg') // eslint-disable-line
+    await sharp({ create: { width: Wm, height: Hm, channels: 3, background: { r: 90, g: 90, b: 90 } } }).composite(comps).jpeg({ quality: 70 }).toFile(join(PRESETS, '_bordered-montage.jpg'))
+    console.log('wrote reference/presets/_bordered-montage.jpg') // eslint-disable-line
   }
 }
 

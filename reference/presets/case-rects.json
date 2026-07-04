@@ -1,0 +1,167 @@
+{
+  "eros-light": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 495,
+    "miny": 252,
+    "maxx": 1029,
+    "maxy": 1331,
+    "w": 534,
+    "h": 1079
+  },
+  "burning-heart": {
+    "isWhite": false,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 476,
+    "miny": 229,
+    "maxx": 1013,
+    "maxy": 1291,
+    "w": 537,
+    "h": 1062
+  },
+  "amalfi-rouge": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 467,
+    "miny": 178,
+    "maxx": 1009,
+    "maxy": 1272,
+    "w": 542,
+    "h": 1094
+  },
+  "antique-garden": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 463,
+    "miny": 177,
+    "maxx": 1015,
+    "maxy": 1281,
+    "w": 552,
+    "h": 1104
+  },
+  "celeste-key-gold-custom-charm-phone-case": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 483,
+    "miny": 230,
+    "maxx": 1014,
+    "maxy": 1308,
+    "w": 531,
+    "h": 1078
+  },
+  "the-cosmos": {
+    "isWhite": false,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 478,
+    "miny": 226,
+    "maxx": 1016,
+    "maxy": 1302,
+    "w": 538,
+    "h": 1076
+  },
+  "sea-treasures-custom-charm-phone-case": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 487,
+    "miny": 237,
+    "maxx": 1025,
+    "maxy": 1320,
+    "w": 538,
+    "h": 1083
+  },
+  "exhibit-a-custom-phone-case": {
+    "isWhite": false,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 493,
+    "miny": 257,
+    "maxx": 1023,
+    "maxy": 1323,
+    "w": 530,
+    "h": 1066
+  },
+  "cupid-blush-custom-charm-phone-case": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 476,
+    "miny": 223,
+    "maxx": 1020,
+    "maxy": 1301,
+    "w": 544,
+    "h": 1078
+  },
+  "shoreline-glow-copy": {
+    "isWhite": false,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 474,
+    "miny": 230,
+    "maxx": 1024,
+    "maxy": 1324,
+    "w": 550,
+    "h": 1094
+  },
+  "coral-dreams": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 481,
+    "miny": 231,
+    "maxx": 1027,
+    "maxy": 1322,
+    "w": 546,
+    "h": 1091
+  },
+  "the-oracle": {
+    "isWhite": false,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 473,
+    "miny": 226,
+    "maxx": 1019,
+    "maxy": 1309,
+    "w": 546,
+    "h": 1083
+  },
+  "sea-of-light": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 480,
+    "miny": 228,
+    "maxx": 1025,
+    "maxy": 1326,
+    "w": 545,
+    "h": 1098
+  },
+  "amour-rosa-custom-charm-phone-case": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 488,
+    "miny": 217,
+    "maxx": 1028,
+    "maxy": 1321,
+    "w": 540,
+    "h": 1104
+  },
+  "celeste-key": {
+    "isWhite": true,
+    "detW": 1500,
+    "detH": 1500,
+    "minx": 482,
+    "miny": 242,
+    "maxx": 1028,
+    "maxy": 1330,
+    "w": 546,
+    "h": 1088
+  }
+}

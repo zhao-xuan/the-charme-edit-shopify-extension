@@ -1,0 +1,7744 @@
+{
+  "eros-light": [
+    {
+      "i": 0,
+      "name": "Silver Letter W",
+      "category": "silver",
+      "pixelBox": {
+        "x": 832,
+        "y": 328,
+        "w": 38,
+        "h": 42
+      },
+      "centerPx": {
+        "x": 851,
+        "y": 349
+      },
+      "angleDeg": -45.4,
+      "elong": 2.32,
+      "detectedLongMm": 8.62,
+      "detectedShortMm": 3.78,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-42",
+        "name": "Silver Letter W",
+        "widthMm": 8.8,
+        "heightMm": 7.2
+      },
+      "fracX": 0.6666,
+      "fracY": 0.0899,
+      "cxMm": 53.73,
+      "cyMm": 14.92,
+      "wMm": 8.8,
+      "hMm": 7.2,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 688,
+        "y": 631,
+        "w": 90,
+        "h": 83
+      },
+      "centerPx": {
+        "x": 733,
+        "y": 672.5
+      },
+      "angleDeg": 23.8,
+      "elong": 1.12,
+      "detectedLongMm": 15.34,
+      "detectedShortMm": 13.07,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29",
+        "name": "Natural Moon",
+        "widthMm": 12.9,
+        "heightMm": 15.3
+      },
+      "fracX": 0.4457,
+      "fracY": 0.3897,
+      "cxMm": 35.92,
+      "cyMm": 64.69,
+      "wMm": 12.9,
+      "hMm": 15.3,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Gold Sun",
+      "category": "gold",
+      "pixelBox": {
+        "x": 541,
+        "y": 657,
+        "w": 127,
+        "h": 152
+      },
+      "centerPx": {
+        "x": 604.5,
+        "y": 733
+      },
+      "angleDeg": -86.4,
+      "elong": 1.1,
+      "detectedLongMm": 23.2,
+      "detectedShortMm": 19.49,
+      "art": {
+        "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-10",
+        "name": "Gold Sun",
+        "widthMm": 22.4,
+        "heightMm": 23.4
+      },
+      "fracX": 0.2051,
+      "fracY": 0.4458,
+      "cxMm": 16.53,
+      "cyMm": 74,
+      "wMm": 22.4,
+      "hMm": 23.4,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Silver Angel",
+      "category": "silver",
+      "pixelBox": {
+        "x": 865,
+        "y": 750,
+        "w": 103,
+        "h": 124
+      },
+      "centerPx": {
+        "x": 916.5,
+        "y": 812
+      },
+      "angleDeg": 64.8,
+      "elong": 1.35,
+      "detectedLongMm": 17.84,
+      "detectedShortMm": 13.14,
+      "art": {
+        "id": "silver-11",
+        "name": "Silver Angel",
+        "widthMm": 14.6,
+        "heightMm": 18.3
+      },
+      "fracX": 0.7893,
+      "fracY": 0.519,
+      "cxMm": 63.62,
+      "cyMm": 86.15,
+      "wMm": 14.6,
+      "hMm": 18.3,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Gold Flower",
+      "category": "gold",
+      "pixelBox": {
+        "x": 640,
+        "y": 748,
+        "w": 213,
+        "h": 181
+      },
+      "centerPx": {
+        "x": 746.5,
+        "y": 838.5
+      },
+      "angleDeg": 8.4,
+      "elong": 1.14,
+      "detectedLongMm": 32.42,
+      "detectedShortMm": 28.52,
+      "art": {
+        "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-19",
+        "name": "Gold Flower",
+        "widthMm": 17.7,
+        "heightMm": 32.3
+      },
+      "fracX": 0.471,
+      "fracY": 0.5436,
+      "cxMm": 37.96,
+      "cyMm": 90.23,
+      "wMm": 17.7,
+      "hMm": 32.3,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Gold Heart",
+      "category": "gold",
+      "pixelBox": {
+        "x": 543,
+        "y": 845,
+        "w": 88,
+        "h": 129
+      },
+      "centerPx": {
+        "x": 587,
+        "y": 909.5
+      },
+      "angleDeg": 73.2,
+      "elong": 1.67,
+      "detectedLongMm": 21.07,
+      "detectedShortMm": 12.87,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32",
+        "name": "Gold Heart",
+        "widthMm": 18.9,
+        "heightMm": 21.1
+      },
+      "fracX": 0.1723,
+      "fracY": 0.6093,
+      "cxMm": 13.89,
+      "cyMm": 101.15,
+      "wMm": 18.9,
+      "hMm": 21.1,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Colourful Card Sun",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 861,
+        "y": 906,
+        "w": 89,
+        "h": 80
+      },
+      "centerPx": {
+        "x": 905.5,
+        "y": 946
+      },
+      "angleDeg": 28.9,
+      "elong": 1.16,
+      "detectedLongMm": 15.88,
+      "detectedShortMm": 12.36,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07",
+        "name": "Colourful Card Sun",
+        "widthMm": 11.9,
+        "heightMm": 15.9
+      },
+      "fracX": 0.7687,
+      "fracY": 0.6432,
+      "cxMm": 61.96,
+      "cyMm": 106.77,
+      "wMm": 11.9,
+      "hMm": 15.9,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Natural Star",
+      "category": "unique",
+      "pixelBox": {
+        "x": 693,
+        "y": 974,
+        "w": 111,
+        "h": 86
+      },
+      "centerPx": {
+        "x": 748.5,
+        "y": 1017
+      },
+      "angleDeg": 3.5,
+      "elong": 1.23,
+      "detectedLongMm": 16.99,
+      "detectedShortMm": 13.2,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-17",
+        "name": "Natural Star",
+        "widthMm": 17,
+        "heightMm": 16.4
+      },
+      "fracX": 0.4747,
+      "fracY": 0.709,
+      "cxMm": 38.26,
+      "cyMm": 117.69,
+      "wMm": 17,
+      "hMm": 16.4,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Gold Compass",
+      "category": "gold",
+      "pixelBox": {
+        "x": 541,
+        "y": 1005,
+        "w": 124,
+        "h": 125
+      },
+      "centerPx": {
+        "x": 603,
+        "y": 1067.5
+      },
+      "angleDeg": 63.7,
+      "elong": 1.35,
+      "detectedLongMm": 20.18,
+      "detectedShortMm": 16.77,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15",
+        "name": "Gold Compass",
+        "widthMm": 16.9,
+        "heightMm": 20.2
+      },
+      "fracX": 0.2022,
+      "fracY": 0.7558,
+      "cxMm": 16.3,
+      "cyMm": 125.46,
+      "wMm": 16.9,
+      "hMm": 20.2,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 710,
+        "y": 1107,
+        "w": 93,
+        "h": 87
+      },
+      "centerPx": {
+        "x": 756.5,
+        "y": 1150.5
+      },
+      "angleDeg": -13.3,
+      "elong": 1.12,
+      "detectedLongMm": 14.58,
+      "detectedShortMm": 13.4,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-01",
+        "name": "Natural Shell",
+        "widthMm": 13.2,
+        "heightMm": 14.5
+      },
+      "fracX": 0.4897,
+      "fracY": 0.8327,
+      "cxMm": 39.47,
+      "cyMm": 138.23,
+      "wMm": 13.2,
+      "hMm": 14.5,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Gold Key",
+      "category": "gold",
+      "pixelBox": {
+        "x": 746,
+        "y": 1015,
+        "w": 241,
+        "h": 271
+      },
+      "centerPx": {
+        "x": 866.5,
+        "y": 1150.5
+      },
+      "angleDeg": -56.8,
+      "elong": 2.45,
+      "detectedLongMm": 48.88,
+      "detectedShortMm": 20.86,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
+        "name": "Gold Key",
+        "widthMm": 15.4,
+        "heightMm": 43.4
+      },
+      "fracX": 0.6957,
+      "fracY": 0.8327,
+      "cxMm": 56.07,
+      "cyMm": 138.23,
+      "wMm": 15.4,
+      "hMm": 43.4,
+      "rot": 33.2
+    },
+    {
+      "i": 11,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 986,
+        "y": 1113,
+        "w": 24,
+        "h": 180
+      },
+      "centerPx": {
+        "x": 998,
+        "y": 1203
+      },
+      "angleDeg": -86.7,
+      "elong": 12.15,
+      "detectedLongMm": 27.59,
+      "detectedShortMm": 3.66,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-20",
+        "name": "Natural Coral",
+        "widthMm": 27.6,
+        "heightMm": 23.3
+      },
+      "fracX": 0.9419,
+      "fracY": 0.8814,
+      "cxMm": 75.92,
+      "cyMm": 146.31,
+      "wMm": 27.6,
+      "hMm": 23.3,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Star",
+      "category": "unique",
+      "pixelBox": {
+        "x": 543,
+        "y": 1189,
+        "w": 136,
+        "h": 93
+      },
+      "centerPx": {
+        "x": 611,
+        "y": 1235.5
+      },
+      "angleDeg": -9.6,
+      "elong": 1.47,
+      "detectedLongMm": 20.92,
+      "detectedShortMm": 14.43,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-06",
+        "name": "Natural Star",
+        "widthMm": 20.7,
+        "heightMm": 20.5
+      },
+      "fracX": 0.2172,
+      "fracY": 0.9115,
+      "cxMm": 17.51,
+      "cyMm": 151.31,
+      "wMm": 20.7,
+      "hMm": 20.5,
+      "rot": 0
+    }
+  ],
+  "burning-heart": [
+    {
+      "i": 0,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 795,
+        "y": 317,
+        "w": 52,
+        "h": 70
+      },
+      "centerPx": {
+        "x": 821,
+        "y": 352
+      },
+      "angleDeg": -46.7,
+      "elong": 2.49,
+      "detectedLongMm": 12.83,
+      "detectedShortMm": 6.28,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.8
+      },
+      "fracX": 0.6424,
+      "fracY": 0.1158,
+      "cxMm": 51.78,
+      "cyMm": 19.23,
+      "wMm": 12.4,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Colourful Eye",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 832,
+        "y": 328,
+        "w": 140,
+        "h": 185
+      },
+      "centerPx": {
+        "x": 902,
+        "y": 420.5
+      },
+      "angleDeg": 86,
+      "elong": 1.31,
+      "detectedLongMm": 28.28,
+      "detectedShortMm": 21.4,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34",
+        "name": "Colourful Eye",
+        "widthMm": 28.5,
+        "heightMm": 16.7
+      },
+      "fracX": 0.7933,
+      "fracY": 0.1803,
+      "cxMm": 63.94,
+      "cyMm": 29.93,
+      "wMm": 28.5,
+      "hMm": 16.7,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 827,
+        "y": 534,
+        "w": 109,
+        "h": 126
+      },
+      "centerPx": {
+        "x": 881.5,
+        "y": 597
+      },
+      "angleDeg": -62.9,
+      "elong": 1.86,
+      "detectedLongMm": 21.88,
+      "detectedShortMm": 13.9,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
+        "name": "Colourful Flower",
+        "widthMm": 17.2,
+        "heightMm": 22.8
+      },
+      "fracX": 0.7551,
+      "fracY": 0.3465,
+      "cxMm": 60.86,
+      "cyMm": 57.52,
+      "wMm": 17.2,
+      "hMm": 22.8,
+      "rot": 27.1
+    },
+    {
+      "i": 3,
+      "name": "Natural Abalone Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 494,
+        "y": 580,
+        "w": 243,
+        "h": 77
+      },
+      "centerPx": {
+        "x": 615.5,
+        "y": 618.5
+      },
+      "angleDeg": -7.6,
+      "elong": 6.41,
+      "detectedLongMm": 38.47,
+      "detectedShortMm": 10.2,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-13",
+        "name": "Natural Abalone Shell",
+        "widthMm": 24.2,
+        "heightMm": 38.6
+      },
+      "fracX": 0.2598,
+      "fracY": 0.3667,
+      "cxMm": 20.94,
+      "cyMm": 60.88,
+      "wMm": 24.2,
+      "hMm": 38.6,
+      "rot": 82.4
+    },
+    {
+      "i": 4,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 674,
+        "y": 610,
+        "w": 93,
+        "h": 102
+      },
+      "centerPx": {
+        "x": 720.5,
+        "y": 661
+      },
+      "angleDeg": 81.4,
+      "elong": 1.18,
+      "detectedLongMm": 15.58,
+      "detectedShortMm": 14.46,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-15",
+        "name": "Natural Stone",
+        "widthMm": 15.5,
+        "heightMm": 11.6
+      },
+      "fracX": 0.4553,
+      "fracY": 0.4068,
+      "cxMm": 36.7,
+      "cyMm": 67.53,
+      "wMm": 15.5,
+      "hMm": 11.6,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 875,
+        "y": 631,
+        "w": 64,
+        "h": 64
+      },
+      "centerPx": {
+        "x": 907,
+        "y": 663
+      },
+      "angleDeg": -42.9,
+      "elong": 4.81,
+      "detectedLongMm": 13.44,
+      "detectedShortMm": 3.87,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-04",
+        "name": "Natural Shell",
+        "widthMm": 13.2,
+        "heightMm": 13.4
+      },
+      "fracX": 0.8026,
+      "fracY": 0.4087,
+      "cxMm": 64.69,
+      "cyMm": 67.84,
+      "wMm": 13.2,
+      "hMm": 13.4,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Gold Heart",
+      "category": "gold",
+      "pixelBox": {
+        "x": 534,
+        "y": 642,
+        "w": 109,
+        "h": 131
+      },
+      "centerPx": {
+        "x": 588.5,
+        "y": 707.5
+      },
+      "angleDeg": -80.6,
+      "elong": 1.31,
+      "detectedLongMm": 21.1,
+      "detectedShortMm": 16.27,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32",
+        "name": "Gold Heart",
+        "widthMm": 18.9,
+        "heightMm": 21.1
+      },
+      "fracX": 0.2096,
+      "fracY": 0.4505,
+      "cxMm": 16.89,
+      "cyMm": 74.79,
+      "wMm": 18.9,
+      "hMm": 21.1,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 643,
+        "y": 721,
+        "w": 188,
+        "h": 223
+      },
+      "centerPx": {
+        "x": 737,
+        "y": 832.5
+      },
+      "angleDeg": 87.8,
+      "elong": 1.19,
+      "detectedLongMm": 34.13,
+      "detectedShortMm": 28.82,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.486,
+      "fracY": 0.5683,
+      "cxMm": 39.17,
+      "cyMm": 94.33,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 847,
+        "y": 694,
+        "w": 102,
+        "h": 308
+      },
+      "centerPx": {
+        "x": 898,
+        "y": 848
+      },
+      "angleDeg": -88.1,
+      "elong": 4.6,
+      "detectedLongMm": 47.23,
+      "detectedShortMm": 15.64,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.7859,
+      "fracY": 0.5829,
+      "cxMm": 63.34,
+      "cyMm": 96.76,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 1.9
+    },
+    {
+      "i": 9,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 494,
+        "y": 776,
+        "w": 352,
+        "h": 359
+      },
+      "centerPx": {
+        "x": 670,
+        "y": 955.5
+      },
+      "angleDeg": 53.9,
+      "elong": 1.31,
+      "detectedLongMm": 58.94,
+      "detectedShortMm": 52.69,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.3613,
+      "fracY": 0.6841,
+      "cxMm": 29.12,
+      "cyMm": 113.56,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 931,
+        "y": 924,
+        "w": 48,
+        "h": 71
+      },
+      "centerPx": {
+        "x": 955,
+        "y": 959.5
+      },
+      "angleDeg": -59.6,
+      "elong": 1.9,
+      "detectedLongMm": 11.37,
+      "detectedShortMm": 6.89,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
+        "name": "Natural Pearl",
+        "widthMm": 10,
+        "heightMm": 11.3
+      },
+      "fracX": 0.8919,
+      "fracY": 0.6878,
+      "cxMm": 71.89,
+      "cyMm": 114.18,
+      "wMm": 10,
+      "hMm": 11.3,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 614,
+        "y": 927,
+        "w": 78,
+        "h": 87
+      },
+      "centerPx": {
+        "x": 653,
+        "y": 970.5
+      },
+      "angleDeg": -78,
+      "elong": 1.25,
+      "detectedLongMm": 13.55,
+      "detectedShortMm": 12.45,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-23",
+        "name": "Natural Stone",
+        "widthMm": 9.5,
+        "heightMm": 13.5
+      },
+      "fracX": 0.3297,
+      "fracY": 0.6982,
+      "cxMm": 26.57,
+      "cyMm": 115.9,
+      "wMm": 9.5,
+      "hMm": 13.5,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 787,
+        "y": 1009,
+        "w": 129,
+        "h": 68
+      },
+      "centerPx": {
+        "x": 851.5,
+        "y": 1043
+      },
+      "angleDeg": -18.2,
+      "elong": 2.3,
+      "detectedLongMm": 21.59,
+      "detectedShortMm": 9.17,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
+        "name": "Natural Sea Pottery",
+        "widthMm": 21.9,
+        "heightMm": 17.2
+      },
+      "fracX": 0.6993,
+      "fracY": 0.7665,
+      "cxMm": 56.36,
+      "cyMm": 127.24,
+      "wMm": 21.9,
+      "hMm": 17.2,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 940,
+        "y": 900,
+        "w": 54,
+        "h": 353
+      },
+      "centerPx": {
+        "x": 967,
+        "y": 1076.5
+      },
+      "angleDeg": 88.5,
+      "elong": 7.15,
+      "detectedLongMm": 54.05,
+      "detectedShortMm": 8.89,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.9144,
+      "fracY": 0.798,
+      "cxMm": 73.7,
+      "cyMm": 132.47,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": -1.5
+    },
+    {
+      "i": 14,
+      "name": "Colourful Bow",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 824,
+        "y": 1098,
+        "w": 113,
+        "h": 135
+      },
+      "centerPx": {
+        "x": 880.5,
+        "y": 1165.5
+      },
+      "angleDeg": -66.2,
+      "elong": 1.53,
+      "detectedLongMm": 21.5,
+      "detectedShortMm": 13.88,
+      "art": {
+        "id": "image3-29",
+        "name": "Colourful Bow",
+        "widthMm": 20.8,
+        "heightMm": 18
+      },
+      "fracX": 0.7532,
+      "fracY": 0.8818,
+      "cxMm": 60.71,
+      "cyMm": 146.38,
+      "wMm": 20.8,
+      "hMm": 18,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Gold Number 3",
+      "category": "gold",
+      "pixelBox": {
+        "x": 683,
+        "y": 1117,
+        "w": 100,
+        "h": 105
+      },
+      "centerPx": {
+        "x": 733,
+        "y": 1169.5
+      },
+      "angleDeg": 54.2,
+      "elong": 1.12,
+      "detectedLongMm": 17.48,
+      "detectedShortMm": 16.51,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-37",
+        "name": "Gold Number 3",
+        "widthMm": 11.9,
+        "heightMm": 17.5
+      },
+      "fracX": 0.4785,
+      "fracY": 0.8856,
+      "cxMm": 38.57,
+      "cyMm": 147.01,
+      "wMm": 11.9,
+      "hMm": 17.5,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 914,
+        "y": 1145,
+        "w": 37,
+        "h": 64
+      },
+      "centerPx": {
+        "x": 932.5,
+        "y": 1177
+      },
+      "angleDeg": -64.6,
+      "elong": 4.9,
+      "detectedLongMm": 11.29,
+      "detectedShortMm": 2.59,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
+        "name": "Natural Pearl",
+        "widthMm": 10,
+        "heightMm": 11.3
+      },
+      "fracX": 0.8501,
+      "fracY": 0.8927,
+      "cxMm": 68.52,
+      "cyMm": 148.18,
+      "wMm": 10,
+      "hMm": 11.3,
+      "rot": 0
+    },
+    {
+      "i": 17,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 915,
+        "y": 1116,
+        "w": 53,
+        "h": 132
+      },
+      "centerPx": {
+        "x": 941.5,
+        "y": 1182
+      },
+      "angleDeg": -72.1,
+      "elong": 6.12,
+      "detectedLongMm": 21.74,
+      "detectedShortMm": 4.53,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
+        "name": "Natural Sea Pottery",
+        "widthMm": 21.9,
+        "heightMm": 17.2
+      },
+      "fracX": 0.8669,
+      "fracY": 0.8973,
+      "cxMm": 69.87,
+      "cyMm": 148.96,
+      "wMm": 21.9,
+      "hMm": 17.2,
+      "rot": 0
+    },
+    {
+      "i": 18,
+      "name": "Natural Baroque Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 494,
+        "y": 1119,
+        "w": 49,
+        "h": 134
+      },
+      "centerPx": {
+        "x": 518.5,
+        "y": 1186
+      },
+      "angleDeg": 88.3,
+      "elong": 3.37,
+      "detectedLongMm": 20.65,
+      "detectedShortMm": 7.71,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45",
+        "name": "Natural Baroque Pearl",
+        "widthMm": 18.6,
+        "heightMm": 20.6
+      },
+      "fracX": 0.0792,
+      "fracY": 0.9011,
+      "cxMm": 6.38,
+      "cyMm": 149.59,
+      "wMm": 18.6,
+      "hMm": 20.6,
+      "rot": 0
+    },
+    {
+      "i": 19,
+      "name": "Colourful Lily",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 536,
+        "y": 1140,
+        "w": 101,
+        "h": 102
+      },
+      "centerPx": {
+        "x": 586.5,
+        "y": 1191
+      },
+      "angleDeg": -63.5,
+      "elong": 1.15,
+      "detectedLongMm": 16.38,
+      "detectedShortMm": 14.18,
+      "art": {
+        "id": "image3-13",
+        "name": "Colourful Lily",
+        "widthMm": 12.9,
+        "heightMm": 16.4
+      },
+      "fracX": 0.2058,
+      "fracY": 0.9058,
+      "cxMm": 16.59,
+      "cyMm": 150.37,
+      "wMm": 12.9,
+      "hMm": 16.4,
+      "rot": 0
+    }
+  ],
+  "amalfi-rouge": [
+    {
+      "i": 0,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 849,
+        "y": 251,
+        "w": 109,
+        "h": 137
+      },
+      "centerPx": {
+        "x": 903.5,
+        "y": 319.5
+      },
+      "angleDeg": -69.6,
+      "elong": 2.08,
+      "detectedLongMm": 21.9,
+      "detectedShortMm": 12.39,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
+        "name": "Natural Sea Pottery",
+        "widthMm": 21.9,
+        "heightMm": 17.2
+      },
+      "fracX": 0.8053,
+      "fracY": 0.1293,
+      "cxMm": 64.91,
+      "cyMm": 21.47,
+      "wMm": 21.9,
+      "hMm": 17.2,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 782,
+        "y": 216,
+        "w": 34,
+        "h": 238
+      },
+      "centerPx": {
+        "x": 799,
+        "y": 335
+      },
+      "angleDeg": -86.1,
+      "elong": 12.21,
+      "detectedLongMm": 36.02,
+      "detectedShortMm": 4.49,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.6125,
+      "fracY": 0.1435,
+      "cxMm": 49.37,
+      "cyMm": 23.82,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 3.9
+    },
+    {
+      "i": 2,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 934,
+        "y": 216,
+        "w": 56,
+        "h": 366
+      },
+      "centerPx": {
+        "x": 962,
+        "y": 399
+      },
+      "angleDeg": 86.4,
+      "elong": 9.8,
+      "detectedLongMm": 55.4,
+      "detectedShortMm": 8.41,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.9133,
+      "fracY": 0.202,
+      "cxMm": 73.61,
+      "cyMm": 33.53,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": -3.6
+    },
+    {
+      "i": 3,
+      "name": "Gold Key",
+      "category": "gold",
+      "pixelBox": {
+        "x": 830,
+        "y": 390,
+        "w": 128,
+        "h": 311
+      },
+      "centerPx": {
+        "x": 894,
+        "y": 545.5
+      },
+      "angleDeg": 71.1,
+      "elong": 2.03,
+      "detectedLongMm": 44.8,
+      "detectedShortMm": 20.4,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
+        "name": "Gold Key",
+        "widthMm": 15.4,
+        "heightMm": 43.4
+      },
+      "fracX": 0.7878,
+      "fracY": 0.3359,
+      "cxMm": 63.5,
+      "cyMm": 55.76,
+      "wMm": 15.4,
+      "hMm": 43.4,
+      "rot": -18.9
+    },
+    {
+      "i": 4,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 672,
+        "y": 540,
+        "w": 135,
+        "h": 144
+      },
+      "centerPx": {
+        "x": 739.5,
+        "y": 612
+      },
+      "angleDeg": 67.8,
+      "elong": 1.09,
+      "detectedLongMm": 22.31,
+      "detectedShortMm": 19.61,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
+        "name": "Colourful Flower",
+        "widthMm": 17.2,
+        "heightMm": 22.8
+      },
+      "fracX": 0.5027,
+      "fracY": 0.3967,
+      "cxMm": 40.52,
+      "cyMm": 65.85,
+      "wMm": 17.2,
+      "hMm": 22.8,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Colourful Rose",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 836,
+        "y": 574,
+        "w": 107,
+        "h": 110
+      },
+      "centerPx": {
+        "x": 889.5,
+        "y": 629
+      },
+      "angleDeg": -61.9,
+      "elong": 1.1,
+      "detectedLongMm": 16.86,
+      "detectedShortMm": 15.49,
+      "art": {
+        "id": "image3-28",
+        "name": "Colourful Rose",
+        "widthMm": 16.7,
+        "heightMm": 16.9
+      },
+      "fracX": 0.7795,
+      "fracY": 0.4122,
+      "cxMm": 62.83,
+      "cyMm": 68.43,
+      "wMm": 16.7,
+      "hMm": 16.9,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 503,
+        "y": 547,
+        "w": 163,
+        "h": 205
+      },
+      "centerPx": {
+        "x": 584.5,
+        "y": 649.5
+      },
+      "angleDeg": 73.1,
+      "elong": 1.23,
+      "detectedLongMm": 33.49,
+      "detectedShortMm": 24.55,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-11",
+        "name": "Natural Scallop Shell",
+        "widthMm": 33.9,
+        "heightMm": 24.8
+      },
+      "fracX": 0.2167,
+      "fracY": 0.431,
+      "cxMm": 17.47,
+      "cyMm": 71.54,
+      "wMm": 33.9,
+      "hMm": 24.8,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Colourful Chili",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 517,
+        "y": 728,
+        "w": 117,
+        "h": 104
+      },
+      "centerPx": {
+        "x": 575.5,
+        "y": 780
+      },
+      "angleDeg": 35,
+      "elong": 1.93,
+      "detectedLongMm": 20.42,
+      "detectedShortMm": 10.71,
+      "art": {
+        "id": "image2-04",
+        "name": "Colourful Chili",
+        "widthMm": 8,
+        "heightMm": 20.4
+      },
+      "fracX": 0.2001,
+      "fracY": 0.5503,
+      "cxMm": 16.13,
+      "cyMm": 91.35,
+      "wMm": 8,
+      "hMm": 20.4,
+      "rot": -55
+    },
+    {
+      "i": 8,
+      "name": "Gold Rose",
+      "category": "gold",
+      "pixelBox": {
+        "x": 843,
+        "y": 718,
+        "w": 95,
+        "h": 132
+      },
+      "centerPx": {
+        "x": 890.5,
+        "y": 784
+      },
+      "angleDeg": -58,
+      "elong": 2.74,
+      "detectedLongMm": 22.95,
+      "detectedShortMm": 10.81,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-01",
+        "name": "Gold Rose",
+        "widthMm": 17.6,
+        "heightMm": 22.9
+      },
+      "fracX": 0.7814,
+      "fracY": 0.5539,
+      "cxMm": 62.98,
+      "cyMm": 91.95,
+      "wMm": 17.6,
+      "hMm": 22.9,
+      "rot": 32
+    },
+    {
+      "i": 9,
+      "name": "Silver Key",
+      "category": "silver",
+      "pixelBox": {
+        "x": 643,
+        "y": 705,
+        "w": 192,
+        "h": 189
+      },
+      "centerPx": {
+        "x": 739,
+        "y": 799.5
+      },
+      "angleDeg": 52.1,
+      "elong": 1.18,
+      "detectedLongMm": 32.95,
+      "detectedShortMm": 28.6,
+      "art": {
+        "id": "silver-14",
+        "name": "Silver Key",
+        "widthMm": 13.1,
+        "heightMm": 32.6
+      },
+      "fracX": 0.5019,
+      "fracY": 0.5681,
+      "cxMm": 40.45,
+      "cyMm": 94.3,
+      "wMm": 13.1,
+      "hMm": 32.6,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 520,
+        "y": 818,
+        "w": 88,
+        "h": 81
+      },
+      "centerPx": {
+        "x": 564,
+        "y": 858.5
+      },
+      "angleDeg": 32.8,
+      "elong": 1.13,
+      "detectedLongMm": 14.05,
+      "detectedShortMm": 12.19,
+      "art": {
+        "id": "image2-02",
+        "name": "Colourful Heart",
+        "widthMm": 11.8,
+        "heightMm": 14.1
+      },
+      "fracX": 0.1789,
+      "fracY": 0.622,
+      "cxMm": 14.42,
+      "cyMm": 103.26,
+      "wMm": 11.8,
+      "hMm": 14.1,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 485,
+        "y": 661,
+        "w": 167,
+        "h": 572
+      },
+      "centerPx": {
+        "x": 568.5,
+        "y": 947
+      },
+      "angleDeg": 79.6,
+      "elong": 3.12,
+      "detectedLongMm": 87.2,
+      "detectedShortMm": 27.37,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.1872,
+      "fracY": 0.703,
+      "cxMm": 15.09,
+      "cyMm": 116.69,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": -10.4
+    },
+    {
+      "i": 12,
+      "name": "Silver Handle",
+      "category": "silver",
+      "pixelBox": {
+        "x": 932,
+        "y": 665,
+        "w": 58,
+        "h": 568
+      },
+      "centerPx": {
+        "x": 961,
+        "y": 949
+      },
+      "angleDeg": -88.9,
+      "elong": 18.95,
+      "detectedLongMm": 85.48,
+      "detectedShortMm": 8.72,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+        "name": "Silver Handle",
+        "widthMm": 14.9,
+        "heightMm": 45.6
+      },
+      "fracX": 0.9114,
+      "fracY": 0.7048,
+      "cxMm": 73.46,
+      "cyMm": 116.99,
+      "wMm": 14.9,
+      "hMm": 45.6,
+      "rot": 1.1
+    },
+    {
+      "i": 13,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 827,
+        "y": 888,
+        "w": 110,
+        "h": 131
+      },
+      "centerPx": {
+        "x": 882,
+        "y": 953.5
+      },
+      "angleDeg": -62.7,
+      "elong": 1.46,
+      "detectedLongMm": 19.6,
+      "detectedShortMm": 14.11,
+      "art": {
+        "id": "image3-19",
+        "name": "Colourful Heart",
+        "widthMm": 17.1,
+        "heightMm": 19.6
+      },
+      "fracX": 0.7656,
+      "fracY": 0.7089,
+      "cxMm": 61.71,
+      "cyMm": 117.67,
+      "wMm": 17.1,
+      "hMm": 19.6,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Silver Scales",
+      "category": "silver",
+      "pixelBox": {
+        "x": 510,
+        "y": 914,
+        "w": 122,
+        "h": 114
+      },
+      "centerPx": {
+        "x": 571,
+        "y": 971
+      },
+      "angleDeg": 37.4,
+      "elong": 1.18,
+      "detectedLongMm": 18.78,
+      "detectedShortMm": 17.03,
+      "art": {
+        "id": "silver-07",
+        "name": "Silver Scales",
+        "widthMm": 16.9,
+        "heightMm": 18.8
+      },
+      "fracX": 0.1919,
+      "fracY": 0.7249,
+      "cxMm": 15.47,
+      "cyMm": 120.33,
+      "wMm": 16.9,
+      "hMm": 18.8,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Colourful Card Sun",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 636,
+        "y": 932,
+        "w": 94,
+        "h": 93
+      },
+      "centerPx": {
+        "x": 683,
+        "y": 978.5
+      },
+      "angleDeg": -45.6,
+      "elong": 1.06,
+      "detectedLongMm": 15.82,
+      "detectedShortMm": 13.98,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07",
+        "name": "Colourful Card Sun",
+        "widthMm": 11.9,
+        "heightMm": 15.9
+      },
+      "fracX": 0.3985,
+      "fracY": 0.7317,
+      "cxMm": 32.12,
+      "cyMm": 121.47,
+      "wMm": 11.9,
+      "hMm": 15.9,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Colourful Rose",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 736,
+        "y": 928,
+        "w": 63,
+        "h": 111
+      },
+      "centerPx": {
+        "x": 767.5,
+        "y": 983.5
+      },
+      "angleDeg": -68.9,
+      "elong": 2.78,
+      "detectedLongMm": 17.18,
+      "detectedShortMm": 7.27,
+      "art": {
+        "id": "image3-22",
+        "name": "Colourful Rose",
+        "widthMm": 13.6,
+        "heightMm": 17.2
+      },
+      "fracX": 0.5545,
+      "fracY": 0.7363,
+      "cxMm": 44.69,
+      "cyMm": 122.22,
+      "wMm": 13.6,
+      "hMm": 17.2,
+      "rot": 0
+    },
+    {
+      "i": 17,
+      "name": "Colourful Lily",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 758,
+        "y": 949,
+        "w": 54,
+        "h": 96
+      },
+      "centerPx": {
+        "x": 785,
+        "y": 997
+      },
+      "angleDeg": -59.4,
+      "elong": 8.55,
+      "detectedLongMm": 16.39,
+      "detectedShortMm": 3.02,
+      "art": {
+        "id": "image3-13",
+        "name": "Colourful Lily",
+        "widthMm": 12.9,
+        "heightMm": 16.4
+      },
+      "fracX": 0.5867,
+      "fracY": 0.7486,
+      "cxMm": 47.29,
+      "cyMm": 124.27,
+      "wMm": 12.9,
+      "hMm": 16.4,
+      "rot": 0
+    },
+    {
+      "i": 18,
+      "name": "Colourful Bow",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 792,
+        "y": 1041,
+        "w": 146,
+        "h": 166
+      },
+      "centerPx": {
+        "x": 865,
+        "y": 1124
+      },
+      "angleDeg": -72.7,
+      "elong": 1.14,
+      "detectedLongMm": 26.6,
+      "detectedShortMm": 23.16,
+      "art": {
+        "id": "image2-17",
+        "name": "Colourful Bow",
+        "widthMm": 17.5,
+        "heightMm": 26.2
+      },
+      "fracX": 0.7344,
+      "fracY": 0.8647,
+      "cxMm": 59.19,
+      "cyMm": 143.54,
+      "wMm": 17.5,
+      "hMm": 26.2,
+      "rot": 0
+    },
+    {
+      "i": 19,
+      "name": "Colourful Porcelain Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 689,
+        "y": 1095,
+        "w": 85,
+        "h": 73
+      },
+      "centerPx": {
+        "x": 731.5,
+        "y": 1131.5
+      },
+      "angleDeg": 22.2,
+      "elong": 1.73,
+      "detectedLongMm": 12.99,
+      "detectedShortMm": 9.06,
+      "art": {
+        "id": "image3-33",
+        "name": "Colourful Porcelain Heart",
+        "widthMm": 12.5,
+        "heightMm": 12.8
+      },
+      "fracX": 0.488,
+      "fracY": 0.8716,
+      "cxMm": 39.33,
+      "cyMm": 144.68,
+      "wMm": 12.5,
+      "hMm": 12.8,
+      "rot": 0
+    }
+  ],
+  "antique-garden": [
+    {
+      "i": 0,
+      "name": "Natural Rabbit",
+      "category": "unique",
+      "pixelBox": {
+        "x": 832,
+        "y": 215,
+        "w": 122,
+        "h": 124
+      },
+      "centerPx": {
+        "x": 893,
+        "y": 277
+      },
+      "angleDeg": 47.6,
+      "elong": 1.15,
+      "detectedLongMm": 21.29,
+      "detectedShortMm": 18.91,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-20",
+        "name": "Natural Rabbit",
+        "widthMm": 15.1,
+        "heightMm": 21.2
+      },
+      "fracX": 0.779,
+      "fracY": 0.0906,
+      "cxMm": 62.79,
+      "cyMm": 15.04,
+      "wMm": 15.1,
+      "hMm": 21.2,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 784,
+        "y": 215,
+        "w": 50,
+        "h": 280
+      },
+      "centerPx": {
+        "x": 809,
+        "y": 355
+      },
+      "angleDeg": -88,
+      "elong": 8.33,
+      "detectedLongMm": 41.72,
+      "detectedShortMm": 6.5,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.6268,
+      "fracY": 0.1612,
+      "cxMm": 50.52,
+      "cyMm": 26.76,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 2
+    },
+    {
+      "i": 2,
+      "name": "Gold Bow",
+      "category": "gold",
+      "pixelBox": {
+        "x": 831,
+        "y": 354,
+        "w": 102,
+        "h": 133
+      },
+      "centerPx": {
+        "x": 882,
+        "y": 420.5
+      },
+      "angleDeg": 85.7,
+      "elong": 1.28,
+      "detectedLongMm": 19.85,
+      "detectedShortMm": 15.38,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-10",
+        "name": "Gold Bow",
+        "widthMm": 19.9,
+        "heightMm": 17
+      },
+      "fracX": 0.7591,
+      "fracY": 0.2205,
+      "cxMm": 61.18,
+      "cyMm": 36.61,
+      "wMm": 19.9,
+      "hMm": 17,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Colourful Bow",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 803,
+        "y": 484,
+        "w": 169,
+        "h": 105
+      },
+      "centerPx": {
+        "x": 887.5,
+        "y": 536.5
+      },
+      "angleDeg": -21.2,
+      "elong": 3.02,
+      "detectedLongMm": 26.76,
+      "detectedShortMm": 10.41,
+      "art": {
+        "id": "image2-17",
+        "name": "Colourful Bow",
+        "widthMm": 17.5,
+        "heightMm": 26.2
+      },
+      "fracX": 0.769,
+      "fracY": 0.3257,
+      "cxMm": 61.98,
+      "cyMm": 54.06,
+      "wMm": 17.5,
+      "hMm": 26.2,
+      "rot": 68.8
+    },
+    {
+      "i": 4,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 694,
+        "y": 558,
+        "w": 92,
+        "h": 81
+      },
+      "centerPx": {
+        "x": 740,
+        "y": 598.5
+      },
+      "angleDeg": -1.2,
+      "elong": 1.23,
+      "detectedLongMm": 13.71,
+      "detectedShortMm": 11.94,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-18",
+        "name": "Natural Shell",
+        "widthMm": 13.7,
+        "heightMm": 12.8
+      },
+      "fracX": 0.5019,
+      "fracY": 0.3818,
+      "cxMm": 40.45,
+      "cyMm": 63.38,
+      "wMm": 13.7,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 513,
+        "y": 542,
+        "w": 128,
+        "h": 115
+      },
+      "centerPx": {
+        "x": 577,
+        "y": 599.5
+      },
+      "angleDeg": 16.7,
+      "elong": 1.11,
+      "detectedLongMm": 19.52,
+      "detectedShortMm": 18.28,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-07",
+        "name": "Natural Moon",
+        "widthMm": 13,
+        "heightMm": 19.3
+      },
+      "fracX": 0.2066,
+      "fracY": 0.3827,
+      "cxMm": 16.65,
+      "cyMm": 63.53,
+      "wMm": 13,
+      "hMm": 19.3,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 642,
+        "y": 638,
+        "w": 220,
+        "h": 207
+      },
+      "centerPx": {
+        "x": 752,
+        "y": 741.5
+      },
+      "angleDeg": 33.6,
+      "elong": 1.28,
+      "detectedLongMm": 31.85,
+      "detectedShortMm": 28.61,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-04",
+        "name": "Natural Scallop Shell",
+        "widthMm": 29.4,
+        "heightMm": 32.7
+      },
+      "fracX": 0.5236,
+      "fracY": 0.5113,
+      "cxMm": 42.2,
+      "cyMm": 84.88,
+      "wMm": 29.4,
+      "hMm": 32.7,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Natural Abalone Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 918,
+        "y": 764,
+        "w": 52,
+        "h": 183
+      },
+      "centerPx": {
+        "x": 944,
+        "y": 855.5
+      },
+      "angleDeg": -87.7,
+      "elong": 3.97,
+      "detectedLongMm": 27.17,
+      "detectedShortMm": 7.63,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21",
+        "name": "Natural Abalone Pearl",
+        "widthMm": 16.8,
+        "heightMm": 27
+      },
+      "fracX": 0.8713,
+      "fracY": 0.6146,
+      "cxMm": 70.23,
+      "cyMm": 102.02,
+      "wMm": 16.8,
+      "hMm": 27,
+      "rot": 2.3
+    },
+    {
+      "i": 8,
+      "name": "Silver Rose",
+      "category": "silver",
+      "pixelBox": {
+        "x": 728,
+        "y": 848,
+        "w": 133,
+        "h": 125
+      },
+      "centerPx": {
+        "x": 794.5,
+        "y": 910.5
+      },
+      "angleDeg": 9.8,
+      "elong": 1.15,
+      "detectedLongMm": 19.52,
+      "detectedShortMm": 17.62,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-12",
+        "name": "Silver Rose",
+        "widthMm": 19.5,
+        "heightMm": 18.9
+      },
+      "fracX": 0.6005,
+      "fracY": 0.6644,
+      "cxMm": 48.4,
+      "cyMm": 110.29,
+      "wMm": 19.5,
+      "hMm": 18.9,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 528,
+        "y": 850,
+        "w": 70,
+        "h": 179
+      },
+      "centerPx": {
+        "x": 563,
+        "y": 939.5
+      },
+      "angleDeg": 89.1,
+      "elong": 2.65,
+      "detectedLongMm": 26.56,
+      "detectedShortMm": 10.36,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-25",
+        "name": "Natural Sea Pottery",
+        "widthMm": 26.5,
+        "heightMm": 19.6
+      },
+      "fracX": 0.1811,
+      "fracY": 0.6907,
+      "cxMm": 14.6,
+      "cyMm": 114.65,
+      "wMm": 26.5,
+      "hMm": 19.6,
+      "rot": 89.1
+    },
+    {
+      "i": 10,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 609,
+        "y": 854,
+        "w": 125,
+        "h": 240
+      },
+      "centerPx": {
+        "x": 671.5,
+        "y": 974
+      },
+      "angleDeg": -89.8,
+      "elong": 2.4,
+      "detectedLongMm": 35.57,
+      "detectedShortMm": 18.49,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-04",
+        "name": "Natural Column",
+        "widthMm": 9.9,
+        "heightMm": 36
+      },
+      "fracX": 0.3777,
+      "fracY": 0.7219,
+      "cxMm": 30.44,
+      "cyMm": 119.84,
+      "wMm": 9.9,
+      "hMm": 36,
+      "rot": 0.2
+    },
+    {
+      "i": 11,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 851,
+        "y": 869,
+        "w": 109,
+        "h": 211
+      },
+      "centerPx": {
+        "x": 905.5,
+        "y": 974.5
+      },
+      "angleDeg": 87.3,
+      "elong": 2.15,
+      "detectedLongMm": 31.37,
+      "detectedShortMm": 16.09,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-09",
+        "name": "Natural Scallop Shell",
+        "widthMm": 27.4,
+        "heightMm": 30.8
+      },
+      "fracX": 0.8016,
+      "fracY": 0.7223,
+      "cxMm": 64.61,
+      "cyMm": 119.91,
+      "wMm": 27.4,
+      "hMm": 30.8,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 667,
+        "y": 967,
+        "w": 187,
+        "h": 265
+      },
+      "centerPx": {
+        "x": 760.5,
+        "y": 1099.5
+      },
+      "angleDeg": -72.4,
+      "elong": 2.27,
+      "detectedLongMm": 41.74,
+      "detectedShortMm": 22.77,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-19",
+        "name": "Natural Scallop Shell",
+        "widthMm": 38.2,
+        "heightMm": 40.5
+      },
+      "fracX": 0.539,
+      "fracY": 0.8356,
+      "cxMm": 43.44,
+      "cyMm": 138.71,
+      "wMm": 38.2,
+      "hMm": 40.5,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Silver Ballerina",
+      "category": "silver",
+      "pixelBox": {
+        "x": 515,
+        "y": 1071,
+        "w": 103,
+        "h": 139
+      },
+      "centerPx": {
+        "x": 566.5,
+        "y": 1140.5
+      },
+      "angleDeg": 85.1,
+      "elong": 1.37,
+      "detectedLongMm": 21,
+      "detectedShortMm": 15.63,
+      "art": {
+        "id": "silver-10",
+        "name": "Silver Ballerina",
+        "widthMm": 12.4,
+        "heightMm": 21.2
+      },
+      "fracX": 0.1875,
+      "fracY": 0.8727,
+      "cxMm": 15.11,
+      "cyMm": 144.87,
+      "wMm": 12.4,
+      "hMm": 21.2,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 871,
+        "y": 1111,
+        "w": 75,
+        "h": 126
+      },
+      "centerPx": {
+        "x": 908.5,
+        "y": 1174
+      },
+      "angleDeg": 89.2,
+      "elong": 1.72,
+      "detectedLongMm": 18.67,
+      "detectedShortMm": 11.08,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-07",
+        "name": "Natural Shell",
+        "widthMm": 18.6,
+        "heightMm": 17.6
+      },
+      "fracX": 0.8071,
+      "fracY": 0.9031,
+      "cxMm": 65.05,
+      "cyMm": 149.91,
+      "wMm": 18.6,
+      "hMm": 17.6,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 818,
+        "y": 1203,
+        "w": 76,
+        "h": 39
+      },
+      "centerPx": {
+        "x": 856,
+        "y": 1222.5
+      },
+      "angleDeg": 13.9,
+      "elong": 1.9,
+      "detectedLongMm": 11.29,
+      "detectedShortMm": 6.54,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
+        "name": "Natural Pearl",
+        "widthMm": 10,
+        "heightMm": 11.3
+      },
+      "fracX": 0.7119,
+      "fracY": 0.947,
+      "cxMm": 57.38,
+      "cyMm": 157.2,
+      "wMm": 10,
+      "hMm": 11.3,
+      "rot": 0
+    }
+  ],
+  "celeste-key-gold-custom-charm-phone-case": [
+    {
+      "i": 0,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 937,
+        "y": 354,
+        "w": 31,
+        "h": 67
+      },
+      "centerPx": {
+        "x": 952.5,
+        "y": 387.5
+      },
+      "angleDeg": -75.8,
+      "elong": 2.89,
+      "detectedLongMm": 10.76,
+      "detectedShortMm": 3.96,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-20",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.8,
+        "heightMm": 8.3
+      },
+      "fracX": 0.8841,
+      "fracY": 0.1461,
+      "cxMm": 71.26,
+      "cyMm": 24.25,
+      "wMm": 10.8,
+      "hMm": 8.3,
+      "rot": -75.8
+    },
+    {
+      "i": 1,
+      "name": "Silver Key",
+      "category": "silver",
+      "pixelBox": {
+        "x": 791,
+        "y": 333,
+        "w": 32,
+        "h": 229
+      },
+      "centerPx": {
+        "x": 807,
+        "y": 447.5
+      },
+      "angleDeg": -87.9,
+      "elong": 8.3,
+      "detectedLongMm": 35.13,
+      "detectedShortMm": 4.65,
+      "art": {
+        "id": "silver-14",
+        "name": "Silver Key",
+        "widthMm": 13.1,
+        "heightMm": 32.6
+      },
+      "fracX": 0.6102,
+      "fracY": 0.2017,
+      "cxMm": 49.18,
+      "cyMm": 33.49,
+      "wMm": 13.1,
+      "hMm": 32.6,
+      "rot": 2.1
+    },
+    {
+      "i": 2,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 630,
+        "y": 731,
+        "w": 310,
+        "h": 235
+      },
+      "centerPx": {
+        "x": 785,
+        "y": 848.5
+      },
+      "angleDeg": -23.9,
+      "elong": 2.49,
+      "detectedLongMm": 53.37,
+      "detectedShortMm": 28.42,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.5687,
+      "fracY": 0.5737,
+      "cxMm": 45.84,
+      "cyMm": 95.24,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 66.1
+    },
+    {
+      "i": 3,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 501,
+        "y": 914,
+        "w": 162,
+        "h": 159
+      },
+      "centerPx": {
+        "x": 582,
+        "y": 993.5
+      },
+      "angleDeg": 38.4,
+      "elong": 1.12,
+      "detectedLongMm": 26.8,
+      "detectedShortMm": 25.78,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-37",
+        "name": "Natural Shell",
+        "widthMm": 26.8,
+        "heightMm": 26.8
+      },
+      "fracX": 0.1865,
+      "fracY": 0.7083,
+      "cxMm": 15.03,
+      "cyMm": 117.57,
+      "wMm": 26.8,
+      "hMm": 26.8,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Silver Star",
+      "category": "silver",
+      "pixelBox": {
+        "x": 983,
+        "y": 972,
+        "w": 12,
+        "h": 76
+      },
+      "centerPx": {
+        "x": 989,
+        "y": 1010
+      },
+      "angleDeg": -89.3,
+      "elong": 6.28,
+      "detectedLongMm": 11.62,
+      "detectedShortMm": 1.89,
+      "art": {
+        "id": "silver-13",
+        "name": "Silver Star",
+        "widthMm": 10.5,
+        "heightMm": 10.7
+      },
+      "fracX": 0.953,
+      "fracY": 0.7236,
+      "cxMm": 76.81,
+      "cyMm": 120.11,
+      "wMm": 10.5,
+      "hMm": 10.7,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Gold Key",
+      "category": "gold",
+      "pixelBox": {
+        "x": 653,
+        "y": 913,
+        "w": 307,
+        "h": 227
+      },
+      "centerPx": {
+        "x": 806.5,
+        "y": 1026.5
+      },
+      "angleDeg": -17.6,
+      "elong": 1.79,
+      "detectedLongMm": 49.13,
+      "detectedShortMm": 31.97,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
+        "name": "Gold Key",
+        "widthMm": 15.4,
+        "heightMm": 43.4
+      },
+      "fracX": 0.6092,
+      "fracY": 0.7389,
+      "cxMm": 49.1,
+      "cyMm": 122.65,
+      "wMm": 15.4,
+      "hMm": 43.4,
+      "rot": 72.4
+    },
+    {
+      "i": 6,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 514,
+        "y": 1096,
+        "w": 168,
+        "h": 173
+      },
+      "centerPx": {
+        "x": 598,
+        "y": 1182.5
+      },
+      "angleDeg": 44.3,
+      "elong": 1.59,
+      "detectedLongMm": 33.96,
+      "detectedShortMm": 22.36,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-20",
+        "name": "Natural Coral",
+        "widthMm": 23.6,
+        "heightMm": 34
+      },
+      "fracX": 0.2166,
+      "fracY": 0.8836,
+      "cxMm": 17.46,
+      "cyMm": 146.67,
+      "wMm": 23.6,
+      "hMm": 34,
+      "rot": -45.7
+    },
+    {
+      "i": 7,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 712,
+        "y": 1113,
+        "w": 230,
+        "h": 154
+      },
+      "centerPx": {
+        "x": 827,
+        "y": 1190
+      },
+      "angleDeg": -3.3,
+      "elong": 1.84,
+      "detectedLongMm": 35.64,
+      "detectedShortMm": 23.59,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-04",
+        "name": "Natural Column",
+        "widthMm": 9.9,
+        "heightMm": 36
+      },
+      "fracX": 0.6479,
+      "fracY": 0.8905,
+      "cxMm": 52.22,
+      "cyMm": 147.83,
+      "wMm": 9.9,
+      "hMm": 36,
+      "rot": 86.7
+    }
+  ],
+  "the-cosmos": [
+    {
+      "i": 0,
+      "name": "Colourful Bow",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 809,
+        "y": 263,
+        "w": 139,
+        "h": 165
+      },
+      "centerPx": {
+        "x": 878.5,
+        "y": 345.5
+      },
+      "angleDeg": 58.4,
+      "elong": 1.76,
+      "detectedLongMm": 26.97,
+      "detectedShortMm": 16.84,
+      "art": {
+        "id": "image2-17",
+        "name": "Colourful Bow",
+        "widthMm": 17.5,
+        "heightMm": 26.2
+      },
+      "fracX": 0.7444,
+      "fracY": 0.1111,
+      "cxMm": 60,
+      "cyMm": 18.44,
+      "wMm": 17.5,
+      "hMm": 26.2,
+      "rot": -31.6
+    },
+    {
+      "i": 1,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 536,
+        "y": 876,
+        "w": 119,
+        "h": 146
+      },
+      "centerPx": {
+        "x": 595.5,
+        "y": 949
+      },
+      "angleDeg": -69.1,
+      "elong": 1.56,
+      "detectedLongMm": 25.69,
+      "detectedShortMm": 17.66,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.2184,
+      "fracY": 0.6719,
+      "cxMm": 17.6,
+      "cyMm": 111.54,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 662,
+        "y": 908,
+        "w": 110,
+        "h": 103
+      },
+      "centerPx": {
+        "x": 717,
+        "y": 959.5
+      },
+      "angleDeg": -27.6,
+      "elong": 1.26,
+      "detectedLongMm": 17.15,
+      "detectedShortMm": 15.34,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-06",
+        "name": "Natural Shell",
+        "widthMm": 17.1,
+        "heightMm": 10.3
+      },
+      "fracX": 0.4443,
+      "fracY": 0.6817,
+      "cxMm": 35.81,
+      "cyMm": 113.16,
+      "wMm": 17.1,
+      "hMm": 10.3,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 762,
+        "y": 955,
+        "w": 190,
+        "h": 149
+      },
+      "centerPx": {
+        "x": 857,
+        "y": 1029.5
+      },
+      "angleDeg": 11,
+      "elong": 1.63,
+      "detectedLongMm": 29.85,
+      "detectedShortMm": 22.03,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
+        "name": "Natural Shell",
+        "widthMm": 27.9,
+        "heightMm": 29.4
+      },
+      "fracX": 0.7045,
+      "fracY": 0.7467,
+      "cxMm": 56.78,
+      "cyMm": 123.96,
+      "wMm": 27.9,
+      "hMm": 29.4,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 523,
+        "y": 1013,
+        "w": 455,
+        "h": 251
+      },
+      "centerPx": {
+        "x": 750.5,
+        "y": 1138.5
+      },
+      "angleDeg": 10.8,
+      "elong": 2.35,
+      "detectedLongMm": 71.1,
+      "detectedShortMm": 37.02,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.5065,
+      "fracY": 0.8481,
+      "cxMm": 40.82,
+      "cyMm": 140.78,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": -79.2
+    },
+    {
+      "i": 5,
+      "name": "Natural Abalone Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 504,
+        "y": 1090,
+        "w": 178,
+        "h": 174
+      },
+      "centerPx": {
+        "x": 593,
+        "y": 1177
+      },
+      "angleDeg": 50.1,
+      "elong": 2.54,
+      "detectedLongMm": 37.27,
+      "detectedShortMm": 16.76,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05",
+        "name": "Natural Abalone Shell",
+        "widthMm": 25.2,
+        "heightMm": 37
+      },
+      "fracX": 0.2138,
+      "fracY": 0.8839,
+      "cxMm": 17.23,
+      "cyMm": 146.72,
+      "wMm": 25.2,
+      "hMm": 37,
+      "rot": -39.9
+    }
+  ],
+  "sea-treasures-custom-charm-phone-case": [
+    {
+      "i": 0,
+      "name": "Gold Bow Arrow",
+      "category": "gold",
+      "pixelBox": {
+        "x": 843,
+        "y": 324,
+        "w": 112,
+        "h": 151
+      },
+      "centerPx": {
+        "x": 899,
+        "y": 399.5
+      },
+      "angleDeg": -58.5,
+      "elong": 2.08,
+      "detectedLongMm": 26.48,
+      "detectedShortMm": 15.14,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20",
+        "name": "Gold Bow Arrow",
+        "widthMm": 26.3,
+        "heightMm": 26.6
+      },
+      "fracX": 0.7658,
+      "fracY": 0.1501,
+      "cxMm": 61.72,
+      "cyMm": 24.91,
+      "wMm": 26.3,
+      "hMm": 26.6,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Colourful Tooth",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 840,
+        "y": 547,
+        "w": 93,
+        "h": 113
+      },
+      "centerPx": {
+        "x": 886.5,
+        "y": 603.5
+      },
+      "angleDeg": 55.4,
+      "elong": 1.7,
+      "detectedLongMm": 18.16,
+      "detectedShortMm": 11.79,
+      "art": {
+        "id": "image3-15",
+        "name": "Colourful Tooth",
+        "widthMm": 15.8,
+        "heightMm": 18.2
+      },
+      "fracX": 0.7426,
+      "fracY": 0.3384,
+      "cxMm": 59.85,
+      "cyMm": 56.18,
+      "wMm": 15.8,
+      "hMm": 18.2,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 681,
+        "y": 609,
+        "w": 127,
+        "h": 102
+      },
+      "centerPx": {
+        "x": 744.5,
+        "y": 660
+      },
+      "angleDeg": -22.2,
+      "elong": 1.44,
+      "detectedLongMm": 21.89,
+      "detectedShortMm": 13.9,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
+        "name": "Colourful Flower",
+        "widthMm": 17.2,
+        "heightMm": 22.8
+      },
+      "fracX": 0.4787,
+      "fracY": 0.3906,
+      "cxMm": 38.58,
+      "cyMm": 64.84,
+      "wMm": 17.2,
+      "hMm": 22.8,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Gold Letter Q",
+      "category": "gold",
+      "pixelBox": {
+        "x": 916,
+        "y": 660,
+        "w": 51,
+        "h": 58
+      },
+      "centerPx": {
+        "x": 941.5,
+        "y": 689
+      },
+      "angleDeg": 51.4,
+      "elong": 1.24,
+      "detectedLongMm": 9.06,
+      "detectedShortMm": 7.1,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-25",
+        "name": "Gold Letter Q",
+        "widthMm": 8,
+        "heightMm": 9.1
+      },
+      "fracX": 0.8448,
+      "fracY": 0.4173,
+      "cxMm": 68.09,
+      "cyMm": 69.28,
+      "wMm": 8,
+      "hMm": 9.1,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Colourful Daisy",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 816,
+        "y": 674,
+        "w": 48,
+        "h": 48
+      },
+      "centerPx": {
+        "x": 840,
+        "y": 698
+      },
+      "angleDeg": -46.3,
+      "elong": 1.32,
+      "detectedLongMm": 9,
+      "detectedShortMm": 6.38,
+      "art": {
+        "id": "image2-18",
+        "name": "Colourful Daisy",
+        "widthMm": 10.4,
+        "heightMm": 10.5
+      },
+      "fracX": 0.6561,
+      "fracY": 0.4257,
+      "cxMm": 52.88,
+      "cyMm": 70.66,
+      "wMm": 10.4,
+      "hMm": 10.5,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 586,
+        "y": 700,
+        "w": 40,
+        "h": 34
+      },
+      "centerPx": {
+        "x": 606,
+        "y": 717
+      },
+      "angleDeg": -41,
+      "elong": 2.48,
+      "detectedLongMm": 7.66,
+      "detectedShortMm": 3.34,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.2212,
+      "fracY": 0.4432,
+      "cxMm": 17.83,
+      "cyMm": 73.57,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 547,
+        "y": 626,
+        "w": 181,
+        "h": 271
+      },
+      "centerPx": {
+        "x": 637.5,
+        "y": 761.5
+      },
+      "angleDeg": 74.4,
+      "elong": 2.47,
+      "detectedLongMm": 42.73,
+      "detectedShortMm": 27.32,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.2798,
+      "fracY": 0.4843,
+      "cxMm": 22.55,
+      "cyMm": 80.39,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": -15.6
+    },
+    {
+      "i": 7,
+      "name": "Colourful Daisy",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 860,
+        "y": 753,
+        "w": 37,
+        "h": 34
+      },
+      "centerPx": {
+        "x": 878.5,
+        "y": 770
+      },
+      "angleDeg": 34.2,
+      "elong": 1.77,
+      "detectedLongMm": 6.65,
+      "detectedShortMm": 4.16,
+      "art": {
+        "id": "image2-18",
+        "name": "Colourful Daisy",
+        "widthMm": 10.4,
+        "heightMm": 10.5
+      },
+      "fracX": 0.7277,
+      "fracY": 0.4922,
+      "cxMm": 58.65,
+      "cyMm": 81.7,
+      "wMm": 10.4,
+      "hMm": 10.5,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 692,
+        "y": 749,
+        "w": 59,
+        "h": 135
+      },
+      "centerPx": {
+        "x": 721.5,
+        "y": 816.5
+      },
+      "angleDeg": 81.9,
+      "elong": 2.2,
+      "detectedLongMm": 20.57,
+      "detectedShortMm": 8.85,
+      "art": {
+        "id": "image2-24",
+        "name": "Colourful Flower",
+        "widthMm": 18.1,
+        "heightMm": 20.6
+      },
+      "fracX": 0.4359,
+      "fracY": 0.5351,
+      "cxMm": 35.13,
+      "cyMm": 88.82,
+      "wMm": 18.1,
+      "hMm": 20.6,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Colourful Bow",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 756,
+        "y": 748,
+        "w": 96,
+        "h": 152
+      },
+      "centerPx": {
+        "x": 804,
+        "y": 824
+      },
+      "angleDeg": 67.7,
+      "elong": 1.64,
+      "detectedLongMm": 23.56,
+      "detectedShortMm": 14.53,
+      "art": {
+        "id": "image2-16",
+        "name": "Colourful Bow",
+        "widthMm": 16,
+        "heightMm": 23.8
+      },
+      "fracX": 0.5892,
+      "fracY": 0.542,
+      "cxMm": 47.49,
+      "cyMm": 89.97,
+      "wMm": 16,
+      "hMm": 23.8,
+      "rot": -22.3
+    },
+    {
+      "i": 10,
+      "name": "Gold Letter C",
+      "category": "gold",
+      "pixelBox": {
+        "x": 887,
+        "y": 868,
+        "w": 42,
+        "h": 54
+      },
+      "centerPx": {
+        "x": 908,
+        "y": 895
+      },
+      "angleDeg": 84.6,
+      "elong": 1.22,
+      "detectedLongMm": 8.37,
+      "detectedShortMm": 6.54,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-04",
+        "name": "Gold Letter C",
+        "widthMm": 7.5,
+        "heightMm": 8.3
+      },
+      "fracX": 0.7825,
+      "fracY": 0.6076,
+      "cxMm": 63.07,
+      "cyMm": 100.86,
+      "wMm": 7.5,
+      "hMm": 8.3,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Gold Grapes",
+      "category": "gold",
+      "pixelBox": {
+        "x": 530,
+        "y": 882,
+        "w": 116,
+        "h": 101
+      },
+      "centerPx": {
+        "x": 588,
+        "y": 932.5
+      },
+      "angleDeg": -25.4,
+      "elong": 1.15,
+      "detectedLongMm": 19.44,
+      "detectedShortMm": 16.85,
+      "art": {
+        "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-32",
+        "name": "Gold Grapes",
+        "widthMm": 14.5,
+        "heightMm": 19.3
+      },
+      "fracX": 0.1877,
+      "fracY": 0.6422,
+      "cxMm": 15.13,
+      "cyMm": 106.6,
+      "wMm": 14.5,
+      "hMm": 19.3,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 904,
+        "y": 955,
+        "w": 71,
+        "h": 54
+      },
+      "centerPx": {
+        "x": 939.5,
+        "y": 982
+      },
+      "angleDeg": -26.5,
+      "elong": 1.63,
+      "detectedLongMm": 11.32,
+      "detectedShortMm": 7.32,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-16",
+        "name": "Natural Pearl",
+        "widthMm": 10,
+        "heightMm": 11.3
+      },
+      "fracX": 0.8411,
+      "fracY": 0.6879,
+      "cxMm": 67.79,
+      "cyMm": 114.19,
+      "wMm": 10,
+      "hMm": 11.3,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Gold Key",
+      "category": "gold",
+      "pixelBox": {
+        "x": 565,
+        "y": 914,
+        "w": 327,
+        "h": 209
+      },
+      "centerPx": {
+        "x": 728.5,
+        "y": 1018.5
+      },
+      "angleDeg": -19.5,
+      "elong": 2.58,
+      "detectedLongMm": 55.36,
+      "detectedShortMm": 26.9,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
+        "name": "Gold Key",
+        "widthMm": 15.4,
+        "heightMm": 43.4
+      },
+      "fracX": 0.4489,
+      "fracY": 0.7216,
+      "cxMm": 36.18,
+      "cyMm": 119.79,
+      "wMm": 15.4,
+      "hMm": 43.4,
+      "rot": 70.5
+    },
+    {
+      "i": 14,
+      "name": "Colourful Porcelain Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 537,
+        "y": 991,
+        "w": 72,
+        "h": 79
+      },
+      "centerPx": {
+        "x": 573,
+        "y": 1030.5
+      },
+      "angleDeg": -41.3,
+      "elong": 3.51,
+      "detectedLongMm": 15.37,
+      "detectedShortMm": 5.79,
+      "art": {
+        "id": "image2-35",
+        "name": "Colourful Porcelain Heart",
+        "widthMm": 14.6,
+        "heightMm": 15.3
+      },
+      "fracX": 0.1598,
+      "fracY": 0.7327,
+      "cxMm": 12.88,
+      "cyMm": 121.63,
+      "wMm": 14.6,
+      "hMm": 15.3,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Silver Racket",
+      "category": "silver",
+      "pixelBox": {
+        "x": 815,
+        "y": 1044,
+        "w": 163,
+        "h": 201
+      },
+      "centerPx": {
+        "x": 896.5,
+        "y": 1144.5
+      },
+      "angleDeg": -53.1,
+      "elong": 1.49,
+      "detectedLongMm": 32.4,
+      "detectedShortMm": 21.55,
+      "art": {
+        "id": "silver-01",
+        "name": "Silver Racket",
+        "widthMm": 14.8,
+        "heightMm": 32.2
+      },
+      "fracX": 0.7612,
+      "fracY": 0.838,
+      "cxMm": 61.35,
+      "cyMm": 139.1,
+      "wMm": 14.8,
+      "hMm": 32.2,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Colourful Card Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 714,
+        "y": 1150,
+        "w": 78,
+        "h": 103
+      },
+      "centerPx": {
+        "x": 753,
+        "y": 1201.5
+      },
+      "angleDeg": 86,
+      "elong": 1.26,
+      "detectedLongMm": 15.75,
+      "detectedShortMm": 11.82,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-13",
+        "name": "Colourful Card Flower",
+        "widthMm": 12.7,
+        "heightMm": 15.7
+      },
+      "fracX": 0.4944,
+      "fracY": 0.8906,
+      "cxMm": 39.85,
+      "cyMm": 147.84,
+      "wMm": 12.7,
+      "hMm": 15.7,
+      "rot": 0
+    },
+    {
+      "i": 17,
+      "name": "Gold Dolphin",
+      "category": "gold",
+      "pixelBox": {
+        "x": 526,
+        "y": 1133,
+        "w": 153,
+        "h": 147
+      },
+      "centerPx": {
+        "x": 602.5,
+        "y": 1206.5
+      },
+      "angleDeg": 33.3,
+      "elong": 1.05,
+      "detectedLongMm": 23.63,
+      "detectedShortMm": 21.93,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-08",
+        "name": "Gold Dolphin",
+        "widthMm": 18.4,
+        "heightMm": 23.7
+      },
+      "fracX": 0.2146,
+      "fracY": 0.8952,
+      "cxMm": 17.3,
+      "cyMm": 148.6,
+      "wMm": 18.4,
+      "hMm": 23.7,
+      "rot": 0
+    },
+    {
+      "i": 18,
+      "name": "Colourful Daisy",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 886,
+        "y": 1245,
+        "w": 68,
+        "h": 37
+      },
+      "centerPx": {
+        "x": 920,
+        "y": 1263.5
+      },
+      "angleDeg": -24.4,
+      "elong": 3.56,
+      "detectedLongMm": 11.24,
+      "detectedShortMm": 4.19,
+      "art": {
+        "id": "image2-18",
+        "name": "Colourful Daisy",
+        "widthMm": 10.4,
+        "heightMm": 10.5
+      },
+      "fracX": 0.8048,
+      "fracY": 0.9478,
+      "cxMm": 64.87,
+      "cyMm": 157.34,
+      "wMm": 10.4,
+      "hMm": 10.5,
+      "rot": 0
+    }
+  ],
+  "exhibit-a-custom-phone-case": [
+    {
+      "i": 0,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 817,
+        "y": 294,
+        "w": 168,
+        "h": 185
+      },
+      "centerPx": {
+        "x": 901,
+        "y": 386.5
+      },
+      "angleDeg": 56.2,
+      "elong": 1.53,
+      "detectedLongMm": 34.32,
+      "detectedShortMm": 20.72,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-20",
+        "name": "Natural Coral",
+        "widthMm": 23.6,
+        "heightMm": 34
+      },
+      "fracX": 0.7699,
+      "fracY": 0.1215,
+      "cxMm": 62.05,
+      "cyMm": 20.17,
+      "wMm": 23.6,
+      "hMm": 34,
+      "rot": -33.8
+    },
+    {
+      "i": 1,
+      "name": "Natural Flower",
+      "category": "unique",
+      "pixelBox": {
+        "x": 844,
+        "y": 499,
+        "w": 111,
+        "h": 154
+      },
+      "centerPx": {
+        "x": 899.5,
+        "y": 576
+      },
+      "angleDeg": -83.2,
+      "elong": 1.53,
+      "detectedLongMm": 23.93,
+      "detectedShortMm": 16.62,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-49",
+        "name": "Natural Flower",
+        "widthMm": 23.9,
+        "heightMm": 22.2
+      },
+      "fracX": 0.767,
+      "fracY": 0.2993,
+      "cxMm": 61.82,
+      "cyMm": 49.68,
+      "wMm": 23.9,
+      "hMm": 22.2,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 511,
+        "y": 609,
+        "w": 37,
+        "h": 30
+      },
+      "centerPx": {
+        "x": 529.5,
+        "y": 624
+      },
+      "angleDeg": -40.8,
+      "elong": 1.93,
+      "detectedLongMm": 7.33,
+      "detectedShortMm": 3.9,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.0689,
+      "fracY": 0.3443,
+      "cxMm": 5.55,
+      "cyMm": 57.15,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 519,
+        "y": 832,
+        "w": 164,
+        "h": 153
+      },
+      "centerPx": {
+        "x": 601,
+        "y": 908.5
+      },
+      "angleDeg": 29.3,
+      "elong": 1.15,
+      "detectedLongMm": 27.75,
+      "detectedShortMm": 24.99,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-38",
+        "name": "Natural Shell",
+        "widthMm": 27.7,
+        "heightMm": 26.5
+      },
+      "fracX": 0.2037,
+      "fracY": 0.6111,
+      "cxMm": 16.42,
+      "cyMm": 101.45,
+      "wMm": 27.7,
+      "hMm": 26.5,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 647,
+        "y": 780,
+        "w": 177,
+        "h": 287
+      },
+      "centerPx": {
+        "x": 735.5,
+        "y": 923.5
+      },
+      "angleDeg": 67.6,
+      "elong": 4.42,
+      "detectedLongMm": 46.58,
+      "detectedShortMm": 16.37,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.4576,
+      "fracY": 0.6252,
+      "cxMm": 36.88,
+      "cyMm": 103.79,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": -22.4
+    },
+    {
+      "i": 5,
+      "name": "Natural Angel",
+      "category": "unique",
+      "pixelBox": {
+        "x": 820,
+        "y": 839,
+        "w": 166,
+        "h": 190
+      },
+      "centerPx": {
+        "x": 903,
+        "y": 934
+      },
+      "angleDeg": -79.5,
+      "elong": 1.19,
+      "detectedLongMm": 28.74,
+      "detectedShortMm": 25.28,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50",
+        "name": "Natural Angel",
+        "widthMm": 28.6,
+        "heightMm": 23.7
+      },
+      "fracX": 0.7736,
+      "fracY": 0.6351,
+      "cxMm": 62.35,
+      "cyMm": 105.42,
+      "wMm": 28.6,
+      "hMm": 23.7,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 511,
+        "y": 975,
+        "w": 56,
+        "h": 45
+      },
+      "centerPx": {
+        "x": 539,
+        "y": 997.5
+      },
+      "angleDeg": 30,
+      "elong": 2.59,
+      "detectedLongMm": 10,
+      "detectedShortMm": 3.95,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "name": "Natural Stone",
+        "widthMm": 10,
+        "heightMm": 8.4
+      },
+      "fracX": 0.0868,
+      "fracY": 0.6946,
+      "cxMm": 7,
+      "cyMm": 115.31,
+      "wMm": 10,
+      "hMm": 8.4,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Silver Fan",
+      "category": "silver",
+      "pixelBox": {
+        "x": 546,
+        "y": 989,
+        "w": 162,
+        "h": 116
+      },
+      "centerPx": {
+        "x": 627,
+        "y": 1047
+      },
+      "angleDeg": -8.2,
+      "elong": 1.51,
+      "detectedLongMm": 25.01,
+      "detectedShortMm": 17.49,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-03",
+        "name": "Silver Fan",
+        "widthMm": 25.3,
+        "heightMm": 20.1
+      },
+      "fracX": 0.2529,
+      "fracY": 0.7411,
+      "cxMm": 20.38,
+      "cyMm": 123.02,
+      "wMm": 25.3,
+      "hMm": 20.1,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 531,
+        "y": 1087,
+        "w": 35,
+        "h": 58
+      },
+      "centerPx": {
+        "x": 548.5,
+        "y": 1116
+      },
+      "angleDeg": 77.9,
+      "elong": 1.77,
+      "detectedLongMm": 9,
+      "detectedShortMm": 5.05,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-12",
+        "name": "Natural Stone",
+        "widthMm": 8.1,
+        "heightMm": 9
+      },
+      "fracX": 0.1047,
+      "fracY": 0.8058,
+      "cxMm": 8.44,
+      "cyMm": 133.77,
+      "wMm": 8.1,
+      "hMm": 9,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 742,
+        "y": 1007,
+        "w": 262,
+        "h": 276
+      },
+      "centerPx": {
+        "x": 873,
+        "y": 1145
+      },
+      "angleDeg": -29.4,
+      "elong": 1.44,
+      "detectedLongMm": 54.18,
+      "detectedShortMm": 39.54,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.717,
+      "fracY": 0.833,
+      "cxMm": 57.79,
+      "cyMm": 138.28,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 942,
+        "y": 1107,
+        "w": 62,
+        "h": 178
+      },
+      "centerPx": {
+        "x": 973,
+        "y": 1196
+      },
+      "angleDeg": -71.5,
+      "elong": 8.29,
+      "detectedLongMm": 29.01,
+      "detectedShortMm": 4.24,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
+        "name": "Natural Shell",
+        "widthMm": 27.9,
+        "heightMm": 29.4
+      },
+      "fracX": 0.9057,
+      "fracY": 0.8808,
+      "cxMm": 73,
+      "cyMm": 146.22,
+      "wMm": 27.9,
+      "hMm": 29.4,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Natural Abalone Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 511,
+        "y": 1132,
+        "w": 178,
+        "h": 153
+      },
+      "centerPx": {
+        "x": 600,
+        "y": 1208.5
+      },
+      "angleDeg": -34.4,
+      "elong": 1.19,
+      "detectedLongMm": 27.11,
+      "detectedShortMm": 26.14,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-21",
+        "name": "Natural Abalone Pearl",
+        "widthMm": 16.8,
+        "heightMm": 27
+      },
+      "fracX": 0.2019,
+      "fracY": 0.8926,
+      "cxMm": 16.27,
+      "cyMm": 148.17,
+      "wMm": 16.8,
+      "hMm": 27,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Silver Star",
+      "category": "silver",
+      "pixelBox": {
+        "x": 966,
+        "y": 1219,
+        "w": 38,
+        "h": 66
+      },
+      "centerPx": {
+        "x": 985,
+        "y": 1252
+      },
+      "angleDeg": -68,
+      "elong": 2.59,
+      "detectedLongMm": 11.61,
+      "detectedShortMm": 5.13,
+      "art": {
+        "id": "silver-13",
+        "name": "Silver Star",
+        "widthMm": 10.5,
+        "heightMm": 10.7
+      },
+      "fracX": 0.9283,
+      "fracY": 0.9334,
+      "cxMm": 74.82,
+      "cyMm": 154.94,
+      "wMm": 10.5,
+      "hMm": 10.7,
+      "rot": 0
+    }
+  ],
+  "cupid-blush-custom-charm-phone-case": [
+    {
+      "i": 0,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 807,
+        "y": 328,
+        "w": 123,
+        "h": 168
+      },
+      "centerPx": {
+        "x": 868.5,
+        "y": 412
+      },
+      "angleDeg": 77.5,
+      "elong": 1.47,
+      "detectedLongMm": 26.58,
+      "detectedShortMm": 18.8,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-25",
+        "name": "Natural Sea Pottery",
+        "widthMm": 26.5,
+        "heightMm": 19.6
+      },
+      "fracX": 0.7215,
+      "fracY": 0.1753,
+      "cxMm": 58.15,
+      "cyMm": 29.1,
+      "wMm": 26.5,
+      "hMm": 19.6,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 515,
+        "y": 579,
+        "w": 145,
+        "h": 78
+      },
+      "centerPx": {
+        "x": 587.5,
+        "y": 618
+      },
+      "angleDeg": -10,
+      "elong": 1.79,
+      "detectedLongMm": 22.29,
+      "detectedShortMm": 13.26,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-40",
+        "name": "Natural Sea Pottery",
+        "widthMm": 21.9,
+        "heightMm": 17.2
+      },
+      "fracX": 0.205,
+      "fracY": 0.3664,
+      "cxMm": 16.52,
+      "cyMm": 60.83,
+      "wMm": 21.9,
+      "hMm": 17.2,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 647,
+        "y": 699,
+        "w": 161,
+        "h": 167
+      },
+      "centerPx": {
+        "x": 727.5,
+        "y": 782.5
+      },
+      "angleDeg": -87,
+      "elong": 1.05,
+      "detectedLongMm": 25.66,
+      "detectedShortMm": 24.47,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.4623,
+      "fracY": 0.519,
+      "cxMm": 37.26,
+      "cyMm": 86.16,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 530,
+        "y": 523,
+        "w": 453,
+        "h": 545
+      },
+      "centerPx": {
+        "x": 756.5,
+        "y": 795.5
+      },
+      "angleDeg": -44.2,
+      "elong": 1.89,
+      "detectedLongMm": 97.06,
+      "detectedShortMm": 54.09,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.5156,
+      "fracY": 0.5311,
+      "cxMm": 41.56,
+      "cyMm": 88.16,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 45.8
+    },
+    {
+      "i": 4,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 957,
+        "y": 850,
+        "w": 34,
+        "h": 70
+      },
+      "centerPx": {
+        "x": 974,
+        "y": 885
+      },
+      "angleDeg": -70.6,
+      "elong": 3.23,
+      "detectedLongMm": 11.03,
+      "detectedShortMm": 4.39,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-19",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.4,
+        "heightMm": 11
+      },
+      "fracX": 0.9154,
+      "fracY": 0.6141,
+      "cxMm": 73.78,
+      "cyMm": 101.94,
+      "wMm": 10.4,
+      "hMm": 11,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Colourful Daisy",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 848,
+        "y": 872,
+        "w": 69,
+        "h": 61
+      },
+      "centerPx": {
+        "x": 882.5,
+        "y": 902.5
+      },
+      "angleDeg": -5.5,
+      "elong": 1.15,
+      "detectedLongMm": 10.52,
+      "detectedShortMm": 9.11,
+      "art": {
+        "id": "image2-18",
+        "name": "Colourful Daisy",
+        "widthMm": 10.4,
+        "heightMm": 10.5
+      },
+      "fracX": 0.7473,
+      "fracY": 0.6304,
+      "cxMm": 60.23,
+      "cyMm": 104.64,
+      "wMm": 10.4,
+      "hMm": 10.5,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 657,
+        "y": 878,
+        "w": 50,
+        "h": 58
+      },
+      "centerPx": {
+        "x": 682,
+        "y": 907
+      },
+      "angleDeg": 86.3,
+      "elong": 1.16,
+      "detectedLongMm": 8.84,
+      "detectedShortMm": 7.65,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-06",
+        "name": "Natural Stone",
+        "widthMm": 8.7,
+        "heightMm": 8.3
+      },
+      "fracX": 0.3787,
+      "fracY": 0.6345,
+      "cxMm": 30.52,
+      "cyMm": 105.33,
+      "wMm": 8.7,
+      "hMm": 8.3,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 907,
+        "y": 937,
+        "w": 42,
+        "h": 36
+      },
+      "centerPx": {
+        "x": 928,
+        "y": 955
+      },
+      "angleDeg": -26,
+      "elong": 1.61,
+      "detectedLongMm": 7.22,
+      "detectedShortMm": 4.2,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.8309,
+      "fracY": 0.679,
+      "cxMm": 66.97,
+      "cyMm": 112.72,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Natural Ceramic",
+      "category": "unique",
+      "pixelBox": {
+        "x": 961,
+        "y": 926,
+        "w": 27,
+        "h": 94
+      },
+      "centerPx": {
+        "x": 974.5,
+        "y": 973
+      },
+      "angleDeg": 86.5,
+      "elong": 3.28,
+      "detectedLongMm": 14.22,
+      "detectedShortMm": 3.95,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-03",
+        "name": "Natural Ceramic",
+        "widthMm": 14.2,
+        "heightMm": 13.5
+      },
+      "fracX": 0.9164,
+      "fracY": 0.6957,
+      "cxMm": 73.86,
+      "cyMm": 115.49,
+      "wMm": 14.2,
+      "hMm": 13.5,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 495,
+        "y": 942,
+        "w": 19,
+        "h": 76
+      },
+      "centerPx": {
+        "x": 504.5,
+        "y": 980
+      },
+      "angleDeg": 82.6,
+      "elong": 4.99,
+      "detectedLongMm": 11.76,
+      "detectedShortMm": 2.94,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-05",
+        "name": "Natural Stone",
+        "widthMm": 11.9,
+        "heightMm": 7.8
+      },
+      "fracX": 0.0524,
+      "fracY": 0.7022,
+      "cxMm": 4.22,
+      "cyMm": 116.57,
+      "wMm": 11.9,
+      "hMm": 7.8,
+      "rot": 82.6
+    },
+    {
+      "i": 10,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 656,
+        "y": 885,
+        "w": 170,
+        "h": 217
+      },
+      "centerPx": {
+        "x": 741,
+        "y": 993.5
+      },
+      "angleDeg": -59.1,
+      "elong": 1.59,
+      "detectedLongMm": 35.75,
+      "detectedShortMm": 26.18,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-04",
+        "name": "Natural Column",
+        "widthMm": 9.9,
+        "heightMm": 36
+      },
+      "fracX": 0.4871,
+      "fracY": 0.7148,
+      "cxMm": 39.26,
+      "cyMm": 118.65,
+      "wMm": 9.9,
+      "hMm": 36,
+      "rot": 30.9
+    },
+    {
+      "i": 11,
+      "name": "Colourful Cherry",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 839,
+        "y": 991,
+        "w": 95,
+        "h": 92
+      },
+      "centerPx": {
+        "x": 886.5,
+        "y": 1037
+      },
+      "angleDeg": 1.8,
+      "elong": 1.08,
+      "detectedLongMm": 14.36,
+      "detectedShortMm": 13.93,
+      "art": {
+        "id": "image2-13",
+        "name": "Colourful Cherry",
+        "widthMm": 13.4,
+        "heightMm": 14.2
+      },
+      "fracX": 0.7546,
+      "fracY": 0.7551,
+      "cxMm": 60.82,
+      "cyMm": 125.35,
+      "wMm": 13.4,
+      "hMm": 14.2,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 797,
+        "y": 1045,
+        "w": 45,
+        "h": 55
+      },
+      "centerPx": {
+        "x": 819.5,
+        "y": 1072.5
+      },
+      "angleDeg": 68.5,
+      "elong": 1.51,
+      "detectedLongMm": 8.29,
+      "detectedShortMm": 6.94,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
+        "name": "Natural Sea Pottery",
+        "widthMm": 8.5,
+        "heightMm": 6.8
+      },
+      "fracX": 0.6314,
+      "fracY": 0.788,
+      "cxMm": 50.89,
+      "cyMm": 130.81,
+      "wMm": 8.5,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 644,
+        "y": 1092,
+        "w": 35,
+        "h": 53
+      },
+      "centerPx": {
+        "x": 661.5,
+        "y": 1118.5
+      },
+      "angleDeg": 78.3,
+      "elong": 1.51,
+      "detectedLongMm": 8.42,
+      "detectedShortMm": 5.82,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
+        "name": "Natural Sea Pottery",
+        "widthMm": 8.5,
+        "heightMm": 6.8
+      },
+      "fracX": 0.3409,
+      "fracY": 0.8307,
+      "cxMm": 27.48,
+      "cyMm": 137.9,
+      "wMm": 8.5,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Gold Flower",
+      "category": "gold",
+      "pixelBox": {
+        "x": 510,
+        "y": 1066,
+        "w": 122,
+        "h": 147
+      },
+      "centerPx": {
+        "x": 571,
+        "y": 1139.5
+      },
+      "angleDeg": -78.4,
+      "elong": 1.54,
+      "detectedLongMm": 24,
+      "detectedShortMm": 17.24,
+      "art": {
+        "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-13",
+        "name": "Gold Flower",
+        "widthMm": 24.1,
+        "heightMm": 23.6
+      },
+      "fracX": 0.1747,
+      "fracY": 0.8502,
+      "cxMm": 14.08,
+      "cyMm": 141.13,
+      "wMm": 24.1,
+      "hMm": 23.6,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 692,
+        "y": 1032,
+        "w": 304,
+        "h": 231
+      },
+      "centerPx": {
+        "x": 844,
+        "y": 1147.5
+      },
+      "angleDeg": -14,
+      "elong": 1.71,
+      "detectedLongMm": 49.39,
+      "detectedShortMm": 32.07,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.6764,
+      "fracY": 0.8576,
+      "cxMm": 54.52,
+      "cyMm": 142.36,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 76
+    },
+    {
+      "i": 16,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 622,
+        "y": 1166,
+        "w": 45,
+        "h": 46
+      },
+      "centerPx": {
+        "x": 644.5,
+        "y": 1189
+      },
+      "angleDeg": -68.9,
+      "elong": 1.23,
+      "detectedLongMm": 8.22,
+      "detectedShortMm": 6.86,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
+        "name": "Natural Sea Pottery",
+        "widthMm": 8.5,
+        "heightMm": 6.8
+      },
+      "fracX": 0.3098,
+      "fracY": 0.8961,
+      "cxMm": 24.97,
+      "cyMm": 148.75,
+      "wMm": 8.5,
+      "hMm": 6.8,
+      "rot": 0
+    }
+  ],
+  "shoreline-glow-copy": [
+    {
+      "i": 0,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 794,
+        "y": 268,
+        "w": 36,
+        "h": 78
+      },
+      "centerPx": {
+        "x": 812,
+        "y": 307
+      },
+      "angleDeg": -71.8,
+      "elong": 4.77,
+      "detectedLongMm": 12.73,
+      "detectedShortMm": 3.2,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-09",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.7
+      },
+      "fracX": 0.6145,
+      "fracY": 0.0704,
+      "cxMm": 49.53,
+      "cyMm": 11.68,
+      "wMm": 12.4,
+      "hMm": 12.7,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Silver Mirror",
+      "category": "silver",
+      "pixelBox": {
+        "x": 831,
+        "y": 311,
+        "w": 152,
+        "h": 192
+      },
+      "centerPx": {
+        "x": 907,
+        "y": 407
+      },
+      "angleDeg": 88.7,
+      "elong": 1.22,
+      "detectedLongMm": 28.74,
+      "detectedShortMm": 22.7,
+      "art": {
+        "id": "image3-17",
+        "name": "Silver Mirror",
+        "widthMm": 13.8,
+        "heightMm": 29.1
+      },
+      "fracX": 0.7872,
+      "fracY": 0.1618,
+      "cxMm": 63.45,
+      "cyMm": 26.86,
+      "wMm": 13.8,
+      "hMm": 29.1,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Baroque Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 794,
+        "y": 352,
+        "w": 25,
+        "h": 138
+      },
+      "centerPx": {
+        "x": 806.5,
+        "y": 421
+      },
+      "angleDeg": 87.5,
+      "elong": 7.65,
+      "detectedLongMm": 20.58,
+      "detectedShortMm": 3.82,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45",
+        "name": "Natural Baroque Pearl",
+        "widthMm": 18.6,
+        "heightMm": 20.6
+      },
+      "fracX": 0.6046,
+      "fracY": 0.1746,
+      "cxMm": 48.73,
+      "cyMm": 28.98,
+      "wMm": 18.6,
+      "hMm": 20.6,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 838,
+        "y": 494,
+        "w": 122,
+        "h": 105
+      },
+      "centerPx": {
+        "x": 899,
+        "y": 546.5
+      },
+      "angleDeg": 30.9,
+      "elong": 1.61,
+      "detectedLongMm": 22.51,
+      "detectedShortMm": 14.32,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-17",
+        "name": "Natural Pearl",
+        "widthMm": 18.5,
+        "heightMm": 22.8
+      },
+      "fracX": 0.7727,
+      "fracY": 0.2893,
+      "cxMm": 62.28,
+      "cyMm": 48.02,
+      "wMm": 18.5,
+      "hMm": 22.8,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 898,
+        "y": 623,
+        "w": 60,
+        "h": 82
+      },
+      "centerPx": {
+        "x": 928,
+        "y": 664
+      },
+      "angleDeg": 79.4,
+      "elong": 1.43,
+      "detectedLongMm": 12.87,
+      "detectedShortMm": 8.91,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.8
+      },
+      "fracX": 0.8254,
+      "fracY": 0.3967,
+      "cxMm": 66.53,
+      "cyMm": 65.85,
+      "wMm": 12.4,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Silver Key",
+      "category": "silver",
+      "pixelBox": {
+        "x": 795,
+        "y": 550,
+        "w": 156,
+        "h": 232
+      },
+      "centerPx": {
+        "x": 873,
+        "y": 666
+      },
+      "angleDeg": 61.1,
+      "elong": 5.98,
+      "detectedLongMm": 36.69,
+      "detectedShortMm": 8.99,
+      "art": {
+        "id": "silver-14",
+        "name": "Silver Key",
+        "widthMm": 13.1,
+        "heightMm": 32.6
+      },
+      "fracX": 0.7254,
+      "fracY": 0.3986,
+      "cxMm": 58.47,
+      "cyMm": 66.16,
+      "wMm": 13.1,
+      "hMm": 32.6,
+      "rot": -28.9
+    },
+    {
+      "i": 6,
+      "name": "Silver Ballerina",
+      "category": "silver",
+      "pixelBox": {
+        "x": 537,
+        "y": 608,
+        "w": 130,
+        "h": 141
+      },
+      "centerPx": {
+        "x": 602,
+        "y": 678.5
+      },
+      "angleDeg": 82.4,
+      "elong": 1.03,
+      "detectedLongMm": 21.16,
+      "detectedShortMm": 19.98,
+      "art": {
+        "id": "silver-10",
+        "name": "Silver Ballerina",
+        "widthMm": 12.4,
+        "heightMm": 21.2
+      },
+      "fracX": 0.2328,
+      "fracY": 0.4099,
+      "cxMm": 18.76,
+      "cyMm": 68.05,
+      "wMm": 12.4,
+      "hMm": 21.2,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Silver Bow Arrow",
+      "category": "silver",
+      "pixelBox": {
+        "x": 687,
+        "y": 608,
+        "w": 120,
+        "h": 146
+      },
+      "centerPx": {
+        "x": 747,
+        "y": 681
+      },
+      "angleDeg": 56.6,
+      "elong": 1.83,
+      "detectedLongMm": 22.44,
+      "detectedShortMm": 13.18,
+      "art": {
+        "id": "silver-04",
+        "name": "Silver Bow Arrow",
+        "widthMm": 21.1,
+        "heightMm": 22.4
+      },
+      "fracX": 0.4964,
+      "fracY": 0.4122,
+      "cxMm": 40.01,
+      "cyMm": 68.43,
+      "wMm": 21.1,
+      "hMm": 22.4,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Silver Letter W",
+      "category": "silver",
+      "pixelBox": {
+        "x": 687,
+        "y": 762,
+        "w": 64,
+        "h": 48
+      },
+      "centerPx": {
+        "x": 719,
+        "y": 786
+      },
+      "angleDeg": 3,
+      "elong": 1.48,
+      "detectedLongMm": 9.38,
+      "detectedShortMm": 6.95,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-42",
+        "name": "Silver Letter W",
+        "widthMm": 8.8,
+        "heightMm": 7.2
+      },
+      "fracX": 0.4454,
+      "fracY": 0.5083,
+      "cxMm": 35.9,
+      "cyMm": 84.37,
+      "wMm": 8.8,
+      "hMm": 7.2,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 815,
+        "y": 745,
+        "w": 58,
+        "h": 92
+      },
+      "centerPx": {
+        "x": 844,
+        "y": 791
+      },
+      "angleDeg": 56.8,
+      "elong": 1.68,
+      "detectedLongMm": 13.03,
+      "detectedShortMm": 8.34,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.8
+      },
+      "fracX": 0.6727,
+      "fracY": 0.5128,
+      "cxMm": 54.22,
+      "cyMm": 85.12,
+      "wMm": 12.4,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Silver Ballerina",
+      "category": "silver",
+      "pixelBox": {
+        "x": 520,
+        "y": 761,
+        "w": 81,
+        "h": 138
+      },
+      "centerPx": {
+        "x": 560.5,
+        "y": 830
+      },
+      "angleDeg": -73.3,
+      "elong": 2.48,
+      "detectedLongMm": 21.43,
+      "detectedShortMm": 9.1,
+      "art": {
+        "id": "silver-10",
+        "name": "Silver Ballerina",
+        "widthMm": 12.4,
+        "heightMm": 21.2
+      },
+      "fracX": 0.1573,
+      "fracY": 0.5484,
+      "cxMm": 12.68,
+      "cyMm": 91.04,
+      "wMm": 12.4,
+      "hMm": 21.2,
+      "rot": 16.7
+    },
+    {
+      "i": 11,
+      "name": "Silver Pin Heart",
+      "category": "silver",
+      "pixelBox": {
+        "x": 614,
+        "y": 786,
+        "w": 203,
+        "h": 150
+      },
+      "centerPx": {
+        "x": 715.5,
+        "y": 861
+      },
+      "angleDeg": 13.2,
+      "elong": 1.52,
+      "detectedLongMm": 29.88,
+      "detectedShortMm": 23.99,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46",
+        "name": "Silver Pin Heart",
+        "widthMm": 13.8,
+        "heightMm": 29.9
+      },
+      "fracX": 0.4391,
+      "fracY": 0.5768,
+      "cxMm": 35.39,
+      "cyMm": 95.75,
+      "wMm": 13.8,
+      "hMm": 29.9,
+      "rot": -76.8
+    },
+    {
+      "i": 12,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 923,
+        "y": 832,
+        "w": 37,
+        "h": 58
+      },
+      "centerPx": {
+        "x": 941.5,
+        "y": 861
+      },
+      "angleDeg": 63.6,
+      "elong": 2.86,
+      "detectedLongMm": 10.2,
+      "detectedShortMm": 3.74,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "name": "Natural Stone",
+        "widthMm": 10,
+        "heightMm": 8.4
+      },
+      "fracX": 0.85,
+      "fracY": 0.5768,
+      "cxMm": 68.51,
+      "cyMm": 95.75,
+      "wMm": 10,
+      "hMm": 8.4,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Silver Heart",
+      "category": "silver",
+      "pixelBox": {
+        "x": 853,
+        "y": 839,
+        "w": 82,
+        "h": 91
+      },
+      "centerPx": {
+        "x": 894,
+        "y": 884.5
+      },
+      "angleDeg": 49.8,
+      "elong": 1.19,
+      "detectedLongMm": 13.97,
+      "detectedShortMm": 12.19,
+      "art": {
+        "id": "silver-09",
+        "name": "Silver Heart",
+        "widthMm": 15,
+        "heightMm": 13.4
+      },
+      "fracX": 0.7636,
+      "fracY": 0.5983,
+      "cxMm": 61.55,
+      "cyMm": 99.31,
+      "wMm": 15,
+      "hMm": 13.4,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Silver Pearl",
+      "category": "silver",
+      "pixelBox": {
+        "x": 519,
+        "y": 899,
+        "w": 107,
+        "h": 83
+      },
+      "centerPx": {
+        "x": 572.5,
+        "y": 940.5
+      },
+      "angleDeg": -0.2,
+      "elong": 1.55,
+      "detectedLongMm": 15.96,
+      "detectedShortMm": 12.34,
+      "art": {
+        "id": "silver-05",
+        "name": "Silver Pearl",
+        "widthMm": 14.5,
+        "heightMm": 15.4
+      },
+      "fracX": 0.179,
+      "fracY": 0.6495,
+      "cxMm": 14.43,
+      "cyMm": 107.81,
+      "wMm": 14.5,
+      "hMm": 15.4,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 551,
+        "y": 892,
+        "w": 167,
+        "h": 167
+      },
+      "centerPx": {
+        "x": 634.5,
+        "y": 975.5
+      },
+      "angleDeg": -36.9,
+      "elong": 1.62,
+      "detectedLongMm": 26.01,
+      "detectedShortMm": 20.88,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.2918,
+      "fracY": 0.6814,
+      "cxMm": 23.52,
+      "cyMm": 113.12,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Natural Ceramic",
+      "category": "unique",
+      "pixelBox": {
+        "x": 762,
+        "y": 928,
+        "w": 91,
+        "h": 99
+      },
+      "centerPx": {
+        "x": 807.5,
+        "y": 977.5
+      },
+      "angleDeg": 65.1,
+      "elong": 1.35,
+      "detectedLongMm": 14.27,
+      "detectedShortMm": 12.89,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-03",
+        "name": "Natural Ceramic",
+        "widthMm": 14.2,
+        "heightMm": 13.5
+      },
+      "fracX": 0.6063,
+      "fracY": 0.6833,
+      "cxMm": 48.87,
+      "cyMm": 113.42,
+      "wMm": 14.2,
+      "hMm": 13.5,
+      "rot": 0
+    },
+    {
+      "i": 17,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 861,
+        "y": 973,
+        "w": 81,
+        "h": 96
+      },
+      "centerPx": {
+        "x": 901.5,
+        "y": 1021
+      },
+      "angleDeg": -74.4,
+      "elong": 1.48,
+      "detectedLongMm": 14.46,
+      "detectedShortMm": 12.68,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-01",
+        "name": "Natural Shell",
+        "widthMm": 13.2,
+        "heightMm": 14.5
+      },
+      "fracX": 0.7773,
+      "fracY": 0.723,
+      "cxMm": 62.65,
+      "cyMm": 120.02,
+      "wMm": 13.2,
+      "hMm": 14.5,
+      "rot": 0
+    },
+    {
+      "i": 18,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 722,
+        "y": 1015,
+        "w": 81,
+        "h": 97
+      },
+      "centerPx": {
+        "x": 762.5,
+        "y": 1063.5
+      },
+      "angleDeg": 69.3,
+      "elong": 1.31,
+      "detectedLongMm": 14.7,
+      "detectedShortMm": 11.14,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-28",
+        "name": "Natural Moon",
+        "widthMm": 11.3,
+        "heightMm": 14.7
+      },
+      "fracX": 0.5246,
+      "fracY": 0.7619,
+      "cxMm": 42.28,
+      "cyMm": 126.47,
+      "wMm": 11.3,
+      "hMm": 14.7,
+      "rot": 0
+    },
+    {
+      "i": 19,
+      "name": "Natural Flower",
+      "category": "unique",
+      "pixelBox": {
+        "x": 493,
+        "y": 997,
+        "w": 10,
+        "h": 159
+      },
+      "centerPx": {
+        "x": 498,
+        "y": 1076.5
+      },
+      "angleDeg": 89.6,
+      "elong": 20.21,
+      "detectedLongMm": 23.72,
+      "detectedShortMm": 1.49,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-49",
+        "name": "Natural Flower",
+        "widthMm": 23.9,
+        "heightMm": 22.2
+      },
+      "fracX": 0.0437,
+      "fracY": 0.7738,
+      "cxMm": 3.52,
+      "cyMm": 128.45,
+      "wMm": 23.9,
+      "hMm": 22.2,
+      "rot": 0
+    },
+    {
+      "i": 20,
+      "name": "Silver Star",
+      "category": "silver",
+      "pixelBox": {
+        "x": 543,
+        "y": 1058,
+        "w": 69,
+        "h": 75
+      },
+      "centerPx": {
+        "x": 577.5,
+        "y": 1095.5
+      },
+      "angleDeg": 84.8,
+      "elong": 1.23,
+      "detectedLongMm": 11.21,
+      "detectedShortMm": 10.38,
+      "art": {
+        "id": "silver-13",
+        "name": "Silver Star",
+        "widthMm": 10.5,
+        "heightMm": 10.7
+      },
+      "fracX": 0.1882,
+      "fracY": 0.7911,
+      "cxMm": 15.17,
+      "cyMm": 131.33,
+      "wMm": 10.5,
+      "hMm": 10.7,
+      "rot": 0
+    },
+    {
+      "i": 21,
+      "name": "Silver Pin Heart",
+      "category": "silver",
+      "pixelBox": {
+        "x": 515,
+        "y": 1077,
+        "w": 196,
+        "h": 194
+      },
+      "centerPx": {
+        "x": 613,
+        "y": 1174
+      },
+      "angleDeg": -23.6,
+      "elong": 1.32,
+      "detectedLongMm": 29.9,
+      "detectedShortMm": 24.68,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-46",
+        "name": "Silver Pin Heart",
+        "widthMm": 13.8,
+        "heightMm": 29.9
+      },
+      "fracX": 0.2527,
+      "fracY": 0.8629,
+      "cxMm": 20.37,
+      "cyMm": 143.24,
+      "wMm": 13.8,
+      "hMm": 29.9,
+      "rot": 0
+    },
+    {
+      "i": 22,
+      "name": "Silver Branch",
+      "category": "silver",
+      "pixelBox": {
+        "x": 794,
+        "y": 1108,
+        "w": 173,
+        "h": 149
+      },
+      "centerPx": {
+        "x": 880.5,
+        "y": 1182.5
+      },
+      "angleDeg": -35.9,
+      "elong": 1.65,
+      "detectedLongMm": 31.17,
+      "detectedShortMm": 20.18,
+      "art": {
+        "id": "silver-20",
+        "name": "Silver Branch",
+        "widthMm": 23.7,
+        "heightMm": 30.2
+      },
+      "fracX": 0.7391,
+      "fracY": 0.8707,
+      "cxMm": 59.57,
+      "cyMm": 144.53,
+      "wMm": 23.7,
+      "hMm": 30.2,
+      "rot": 0
+    },
+    {
+      "i": 23,
+      "name": "Silver Gemstone",
+      "category": "silver",
+      "pixelBox": {
+        "x": 730,
+        "y": 1133,
+        "w": 53,
+        "h": 116
+      },
+      "centerPx": {
+        "x": 756.5,
+        "y": 1191
+      },
+      "angleDeg": 86.7,
+      "elong": 2.26,
+      "detectedLongMm": 17.42,
+      "detectedShortMm": 8.05,
+      "art": {
+        "id": "silver-22",
+        "name": "Silver Gemstone",
+        "widthMm": 14,
+        "heightMm": 17.3
+      },
+      "fracX": 0.5136,
+      "fracY": 0.8784,
+      "cxMm": 41.4,
+      "cyMm": 145.82,
+      "wMm": 14,
+      "hMm": 17.3,
+      "rot": 0
+    },
+    {
+      "i": 24,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 937,
+        "y": 1131,
+        "w": 56,
+        "h": 153
+      },
+      "centerPx": {
+        "x": 965,
+        "y": 1207.5
+      },
+      "angleDeg": -72.8,
+      "elong": 5.84,
+      "detectedLongMm": 24.27,
+      "detectedShortMm": 4.77,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-08",
+        "name": "Natural Scallop Shell",
+        "widthMm": 24.2,
+        "heightMm": 17
+      },
+      "fracX": 0.8927,
+      "fracY": 0.8935,
+      "cxMm": 71.95,
+      "cyMm": 148.32,
+      "wMm": 24.2,
+      "hMm": 17,
+      "rot": -72.8
+    },
+    {
+      "i": 25,
+      "name": "Natural Amber",
+      "category": "unique",
+      "pixelBox": {
+        "x": 914,
+        "y": 1179,
+        "w": 53,
+        "h": 91
+      },
+      "centerPx": {
+        "x": 940.5,
+        "y": 1224.5
+      },
+      "angleDeg": -63.2,
+      "elong": 8.31,
+      "detectedLongMm": 15.68,
+      "detectedShortMm": 2.32,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-33",
+        "name": "Natural Amber",
+        "widthMm": 15.8,
+        "heightMm": 14.9
+      },
+      "fracX": 0.8481,
+      "fracY": 0.909,
+      "cxMm": 68.36,
+      "cyMm": 150.9,
+      "wMm": 15.8,
+      "hMm": 14.9,
+      "rot": 0
+    }
+  ],
+  "coral-dreams": [
+    {
+      "i": 0,
+      "name": "Colourful Porcelain Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 825,
+        "y": 269,
+        "w": 100,
+        "h": 33
+      },
+      "centerPx": {
+        "x": 875,
+        "y": 285.5
+      },
+      "angleDeg": -10.2,
+      "elong": 4.62,
+      "detectedLongMm": 15.28,
+      "detectedShortMm": 3.89,
+      "art": {
+        "id": "image2-35",
+        "name": "Colourful Porcelain Heart",
+        "widthMm": 14.6,
+        "heightMm": 15.3
+      },
+      "fracX": 0.7216,
+      "fracY": 0.0499,
+      "cxMm": 58.16,
+      "cyMm": 8.29,
+      "wMm": 14.6,
+      "hMm": 15.3,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 836,
+        "y": 305,
+        "w": 75,
+        "h": 73
+      },
+      "centerPx": {
+        "x": 873.5,
+        "y": 341.5
+      },
+      "angleDeg": -45.3,
+      "elong": 1.43,
+      "detectedLongMm": 11.75,
+      "detectedShortMm": 9.23,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-05",
+        "name": "Natural Stone",
+        "widthMm": 11.9,
+        "heightMm": 7.8
+      },
+      "fracX": 0.7189,
+      "fracY": 0.1013,
+      "cxMm": 57.94,
+      "cyMm": 16.81,
+      "wMm": 11.9,
+      "hMm": 7.8,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Silver Pearl",
+      "category": "silver",
+      "pixelBox": {
+        "x": 806,
+        "y": 320,
+        "w": 25,
+        "h": 102
+      },
+      "centerPx": {
+        "x": 818.5,
+        "y": 371
+      },
+      "angleDeg": -80.9,
+      "elong": 12.73,
+      "detectedLongMm": 15.69,
+      "detectedShortMm": 1.62,
+      "art": {
+        "id": "silver-05",
+        "name": "Silver Pearl",
+        "widthMm": 14.5,
+        "heightMm": 15.4
+      },
+      "fracX": 0.6181,
+      "fracY": 0.1283,
+      "cxMm": 49.82,
+      "cyMm": 21.3,
+      "wMm": 14.5,
+      "hMm": 15.4,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 797,
+        "y": 345,
+        "w": 165,
+        "h": 321
+      },
+      "centerPx": {
+        "x": 879.5,
+        "y": 505.5
+      },
+      "angleDeg": -81.4,
+      "elong": 2.78,
+      "detectedLongMm": 49.09,
+      "detectedShortMm": 21.34,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.7299,
+      "fracY": 0.2516,
+      "cxMm": 58.83,
+      "cyMm": 41.77,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 8.6
+    },
+    {
+      "i": 4,
+      "name": "Silver Handle",
+      "category": "silver",
+      "pixelBox": {
+        "x": 967,
+        "y": 326,
+        "w": 40,
+        "h": 373
+      },
+      "centerPx": {
+        "x": 987,
+        "y": 512.5
+      },
+      "angleDeg": 89.3,
+      "elong": 12.59,
+      "detectedLongMm": 55.95,
+      "detectedShortMm": 5.82,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+        "name": "Silver Handle",
+        "widthMm": 14.9,
+        "heightMm": 45.6
+      },
+      "fracX": 0.9268,
+      "fracY": 0.258,
+      "cxMm": 74.7,
+      "cyMm": 42.83,
+      "wMm": 14.9,
+      "hMm": 45.6,
+      "rot": -0.7
+    },
+    {
+      "i": 5,
+      "name": "Colourful Porcelain Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 556,
+        "y": 603,
+        "w": 97,
+        "h": 19
+      },
+      "centerPx": {
+        "x": 604.5,
+        "y": 612.5
+      },
+      "angleDeg": -5.5,
+      "elong": 8.48,
+      "detectedLongMm": 14.66,
+      "detectedShortMm": 2.11,
+      "art": {
+        "id": "image2-32",
+        "name": "Colourful Porcelain Heart",
+        "widthMm": 14.2,
+        "heightMm": 14.7
+      },
+      "fracX": 0.2262,
+      "fracY": 0.3497,
+      "cxMm": 18.23,
+      "cyMm": 58.05,
+      "wMm": 14.2,
+      "hMm": 14.7,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 765,
+        "y": 664,
+        "w": 67,
+        "h": 69
+      },
+      "centerPx": {
+        "x": 798.5,
+        "y": 698.5
+      },
+      "angleDeg": 22.1,
+      "elong": 1.17,
+      "detectedLongMm": 10.18,
+      "detectedShortMm": 9.33,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "name": "Natural Stone",
+        "widthMm": 10,
+        "heightMm": 8.4
+      },
+      "fracX": 0.5815,
+      "fracY": 0.4285,
+      "cxMm": 46.87,
+      "cyMm": 71.13,
+      "wMm": 10,
+      "hMm": 8.4,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Natural Baroque Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 857,
+        "y": 706,
+        "w": 109,
+        "h": 96
+      },
+      "centerPx": {
+        "x": 911.5,
+        "y": 754
+      },
+      "angleDeg": 44.4,
+      "elong": 1.64,
+      "detectedLongMm": 20.58,
+      "detectedShortMm": 12.74,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-45",
+        "name": "Natural Baroque Pearl",
+        "widthMm": 18.6,
+        "heightMm": 20.6
+      },
+      "fracX": 0.7885,
+      "fracY": 0.4794,
+      "cxMm": 63.55,
+      "cyMm": 79.58,
+      "wMm": 18.6,
+      "hMm": 20.6,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 721,
+        "y": 740,
+        "w": 60,
+        "h": 39
+      },
+      "centerPx": {
+        "x": 751,
+        "y": 759.5
+      },
+      "angleDeg": 9.9,
+      "elong": 1.74,
+      "detectedLongMm": 9.45,
+      "detectedShortMm": 5.89,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-35",
+        "name": "Natural Sea Glass",
+        "widthMm": 9.1,
+        "heightMm": 9.4
+      },
+      "fracX": 0.4945,
+      "fracY": 0.4844,
+      "cxMm": 39.86,
+      "cyMm": 80.41,
+      "wMm": 9.1,
+      "hMm": 9.4,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 538,
+        "y": 610,
+        "w": 231,
+        "h": 317
+      },
+      "centerPx": {
+        "x": 653.5,
+        "y": 768.5
+      },
+      "angleDeg": -61.5,
+      "elong": 1.77,
+      "detectedLongMm": 52.45,
+      "detectedShortMm": 28.78,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.3159,
+      "fracY": 0.4927,
+      "cxMm": 25.46,
+      "cyMm": 81.78,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 28.5
+    },
+    {
+      "i": 10,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 681,
+        "y": 784,
+        "w": 190,
+        "h": 157
+      },
+      "centerPx": {
+        "x": 776,
+        "y": 862.5
+      },
+      "angleDeg": -24.7,
+      "elong": 1.41,
+      "detectedLongMm": 30.1,
+      "detectedShortMm": 21.74,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
+        "name": "Natural Shell",
+        "widthMm": 27.9,
+        "heightMm": 29.4
+      },
+      "fracX": 0.5403,
+      "fracY": 0.5789,
+      "cxMm": 43.55,
+      "cyMm": 96.09,
+      "wMm": 27.9,
+      "hMm": 29.4,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 859,
+        "y": 831,
+        "w": 103,
+        "h": 125
+      },
+      "centerPx": {
+        "x": 910.5,
+        "y": 893.5
+      },
+      "angleDeg": -85.4,
+      "elong": 1.19,
+      "detectedLongMm": 18.98,
+      "detectedShortMm": 15.64,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-07",
+        "name": "Natural Moon",
+        "widthMm": 13,
+        "heightMm": 19.3
+      },
+      "fracX": 0.7866,
+      "fracY": 0.6072,
+      "cxMm": 63.4,
+      "cyMm": 100.8,
+      "wMm": 13,
+      "hMm": 19.3,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 775,
+        "y": 937,
+        "w": 52,
+        "h": 54
+      },
+      "centerPx": {
+        "x": 801,
+        "y": 964
+      },
+      "angleDeg": 66.5,
+      "elong": 1.15,
+      "detectedLongMm": 8.36,
+      "detectedShortMm": 7.79,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
+        "name": "Natural Sea Pottery",
+        "widthMm": 8.5,
+        "heightMm": 6.8
+      },
+      "fracX": 0.5861,
+      "fracY": 0.6719,
+      "cxMm": 47.24,
+      "cyMm": 111.53,
+      "wMm": 8.5,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 693,
+        "y": 998,
+        "w": 60,
+        "h": 61
+      },
+      "centerPx": {
+        "x": 723,
+        "y": 1028.5
+      },
+      "angleDeg": -48.4,
+      "elong": 1.33,
+      "detectedLongMm": 10.83,
+      "detectedShortMm": 8.15,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-20",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.8,
+        "heightMm": 8.3
+      },
+      "fracX": 0.4432,
+      "fracY": 0.731,
+      "cxMm": 35.72,
+      "cyMm": 121.34,
+      "wMm": 10.8,
+      "hMm": 8.3,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Natural Dog",
+      "category": "unique",
+      "pixelBox": {
+        "x": 549,
+        "y": 968,
+        "w": 107,
+        "h": 133
+      },
+      "centerPx": {
+        "x": 602.5,
+        "y": 1034.5
+      },
+      "angleDeg": -88.3,
+      "elong": 1.25,
+      "detectedLongMm": 19.94,
+      "detectedShortMm": 16.31,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11",
+        "name": "Natural Dog",
+        "widthMm": 19.9,
+        "heightMm": 18.7
+      },
+      "fracX": 0.2226,
+      "fracY": 0.7365,
+      "cxMm": 17.94,
+      "cyMm": 122.26,
+      "wMm": 19.9,
+      "hMm": 18.7,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Gold Pearl",
+      "category": "gold",
+      "pixelBox": {
+        "x": 806,
+        "y": 989,
+        "w": 142,
+        "h": 106
+      },
+      "centerPx": {
+        "x": 877,
+        "y": 1042
+      },
+      "angleDeg": 0.9,
+      "elong": 1.33,
+      "detectedLongMm": 21.29,
+      "detectedShortMm": 15.9,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15",
+        "name": "Gold Pearl",
+        "widthMm": 16.8,
+        "heightMm": 21.3
+      },
+      "fracX": 0.7253,
+      "fracY": 0.7434,
+      "cxMm": 58.46,
+      "cyMm": 123.4,
+      "wMm": 16.8,
+      "hMm": 21.3,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 692,
+        "y": 1098,
+        "w": 123,
+        "h": 128
+      },
+      "centerPx": {
+        "x": 753.5,
+        "y": 1162
+      },
+      "angleDeg": -46.1,
+      "elong": 1.84,
+      "detectedLongMm": 22.48,
+      "detectedShortMm": 13.1,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31",
+        "name": "Colourful Flower",
+        "widthMm": 17.2,
+        "heightMm": 22.8
+      },
+      "fracX": 0.4991,
+      "fracY": 0.8534,
+      "cxMm": 40.23,
+      "cyMm": 141.66,
+      "wMm": 17.2,
+      "hMm": 22.8,
+      "rot": 43.9
+    },
+    {
+      "i": 17,
+      "name": "Colourful Plumeria",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 815,
+        "y": 1131,
+        "w": 120,
+        "h": 112
+      },
+      "centerPx": {
+        "x": 875,
+        "y": 1187
+      },
+      "angleDeg": -21.7,
+      "elong": 1.04,
+      "detectedLongMm": 18.82,
+      "detectedShortMm": 17.67,
+      "art": {
+        "id": "image3-27",
+        "name": "Colourful Plumeria",
+        "widthMm": 17.8,
+        "heightMm": 18.9
+      },
+      "fracX": 0.7216,
+      "fracY": 0.8763,
+      "cxMm": 58.16,
+      "cyMm": 145.46,
+      "wMm": 17.8,
+      "hMm": 18.9,
+      "rot": 0
+    },
+    {
+      "i": 18,
+      "name": "Gold Zodiac · Taurus",
+      "category": "gold",
+      "pixelBox": {
+        "x": 563,
+        "y": 1154,
+        "w": 95,
+        "h": 92
+      },
+      "centerPx": {
+        "x": 610.5,
+        "y": 1200
+      },
+      "angleDeg": -12.8,
+      "elong": 1.14,
+      "detectedLongMm": 14.85,
+      "detectedShortMm": 13.4,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-41",
+        "name": "Gold Zodiac · Taurus",
+        "widthMm": 13.2,
+        "heightMm": 14.8
+      },
+      "fracX": 0.2372,
+      "fracY": 0.8882,
+      "cxMm": 19.12,
+      "cyMm": 147.44,
+      "wMm": 13.2,
+      "hMm": 14.8,
+      "rot": 0
+    }
+  ],
+  "the-oracle": [
+    {
+      "i": 0,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 790,
+        "y": 263,
+        "w": 163,
+        "h": 302
+      },
+      "centerPx": {
+        "x": 871.5,
+        "y": 414
+      },
+      "angleDeg": -88.3,
+      "elong": 1.82,
+      "detectedLongMm": 45.39,
+      "detectedShortMm": 24.98,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.7299,
+      "fracY": 0.1736,
+      "cxMm": 58.83,
+      "cyMm": 28.82,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 1.7
+    },
+    {
+      "i": 1,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 492,
+        "y": 584,
+        "w": 47,
+        "h": 71
+      },
+      "centerPx": {
+        "x": 515.5,
+        "y": 619.5
+      },
+      "angleDeg": -59.2,
+      "elong": 3.41,
+      "detectedLongMm": 12.8,
+      "detectedShortMm": 4.28,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.8
+      },
+      "fracX": 0.0778,
+      "fracY": 0.3633,
+      "cxMm": 6.27,
+      "cyMm": 60.31,
+      "wMm": 12.4,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 797,
+        "y": 566,
+        "w": 156,
+        "h": 151
+      },
+      "centerPx": {
+        "x": 875,
+        "y": 641.5
+      },
+      "angleDeg": 39.2,
+      "elong": 1.24,
+      "detectedLongMm": 25.27,
+      "detectedShortMm": 23.3,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.7362,
+      "fracY": 0.3837,
+      "cxMm": 59.34,
+      "cyMm": 63.69,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 525,
+        "y": 800,
+        "w": 142,
+        "h": 150
+      },
+      "centerPx": {
+        "x": 596,
+        "y": 875
+      },
+      "angleDeg": 44.5,
+      "elong": 1.62,
+      "detectedLongMm": 25.19,
+      "detectedShortMm": 17.14,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.2253,
+      "fracY": 0.5993,
+      "cxMm": 18.16,
+      "cyMm": 99.48,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 894,
+        "y": 876,
+        "w": 61,
+        "h": 56
+      },
+      "centerPx": {
+        "x": 924.5,
+        "y": 904
+      },
+      "angleDeg": -42.4,
+      "elong": 1.21,
+      "detectedLongMm": 10.44,
+      "detectedShortMm": 8.42,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-12",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.7,
+        "heightMm": 7.9
+      },
+      "fracX": 0.8269,
+      "fracY": 0.626,
+      "cxMm": 66.65,
+      "cyMm": 103.92,
+      "wMm": 10.7,
+      "hMm": 7.9,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 549,
+        "y": 938,
+        "w": 71,
+        "h": 60
+      },
+      "centerPx": {
+        "x": 584.5,
+        "y": 968
+      },
+      "angleDeg": 32.4,
+      "elong": 1.77,
+      "detectedLongMm": 12.01,
+      "detectedShortMm": 8.61,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-24",
+        "name": "Natural Stone",
+        "widthMm": 10.1,
+        "heightMm": 12.1
+      },
+      "fracX": 0.2042,
+      "fracY": 0.6851,
+      "cxMm": 16.46,
+      "cyMm": 113.73,
+      "wMm": 10.1,
+      "hMm": 12.1,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Colourful Eye",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 769,
+        "y": 930,
+        "w": 188,
+        "h": 100
+      },
+      "centerPx": {
+        "x": 863,
+        "y": 980
+      },
+      "angleDeg": -1.9,
+      "elong": 2.1,
+      "detectedLongMm": 28.4,
+      "detectedShortMm": 15.29,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34",
+        "name": "Colourful Eye",
+        "widthMm": 28.5,
+        "heightMm": 16.7
+      },
+      "fracX": 0.7143,
+      "fracY": 0.6962,
+      "cxMm": 57.57,
+      "cyMm": 115.57,
+      "wMm": 28.5,
+      "hMm": 16.7,
+      "rot": -1.9
+    },
+    {
+      "i": 7,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 613,
+        "y": 936,
+        "w": 135,
+        "h": 141
+      },
+      "centerPx": {
+        "x": 680.5,
+        "y": 1006.5
+      },
+      "angleDeg": -48.3,
+      "elong": 2.18,
+      "detectedLongMm": 26.41,
+      "detectedShortMm": 15.59,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-25",
+        "name": "Natural Sea Pottery",
+        "widthMm": 26.5,
+        "heightMm": 19.6
+      },
+      "fracX": 0.38,
+      "fracY": 0.7207,
+      "cxMm": 30.63,
+      "cyMm": 119.63,
+      "wMm": 26.5,
+      "hMm": 19.6,
+      "rot": -48.3
+    },
+    {
+      "i": 8,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 948,
+        "y": 976,
+        "w": 42,
+        "h": 74
+      },
+      "centerPx": {
+        "x": 969,
+        "y": 1013
+      },
+      "angleDeg": -66.5,
+      "elong": 3.07,
+      "detectedLongMm": 12.47,
+      "detectedShortMm": 5.38,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-09",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.7
+      },
+      "fracX": 0.9084,
+      "fracY": 0.7267,
+      "cxMm": 73.22,
+      "cyMm": 120.63,
+      "wMm": 12.4,
+      "hMm": 12.7,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 492,
+        "y": 926,
+        "w": 31,
+        "h": 345
+      },
+      "centerPx": {
+        "x": 507.5,
+        "y": 1098.5
+      },
+      "angleDeg": -89.3,
+      "elong": 19.74,
+      "detectedLongMm": 51.89,
+      "detectedShortMm": 4.71,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.0632,
+      "fracY": 0.8056,
+      "cxMm": 5.09,
+      "cyMm": 133.73,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 0.7
+    },
+    {
+      "i": 10,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 679,
+        "y": 1072,
+        "w": 56,
+        "h": 63
+      },
+      "centerPx": {
+        "x": 707,
+        "y": 1103.5
+      },
+      "angleDeg": -38.7,
+      "elong": 1.26,
+      "detectedLongMm": 10.34,
+      "detectedShortMm": 8.2,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "name": "Natural Stone",
+        "widthMm": 10,
+        "heightMm": 8.4
+      },
+      "fracX": 0.4285,
+      "fracY": 0.8102,
+      "cxMm": 34.54,
+      "cyMm": 134.5,
+      "wMm": 10,
+      "hMm": 8.4,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Gold Flower",
+      "category": "gold",
+      "pixelBox": {
+        "x": 772,
+        "y": 1048,
+        "w": 187,
+        "h": 195
+      },
+      "centerPx": {
+        "x": 865.5,
+        "y": 1145.5
+      },
+      "angleDeg": -63.5,
+      "elong": 1.09,
+      "detectedLongMm": 32.56,
+      "detectedShortMm": 30.88,
+      "art": {
+        "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-19",
+        "name": "Gold Flower",
+        "widthMm": 17.7,
+        "heightMm": 32.3
+      },
+      "fracX": 0.7189,
+      "fracY": 0.849,
+      "cxMm": 57.94,
+      "cyMm": 140.94,
+      "wMm": 17.7,
+      "hMm": 32.3,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Silver Bow",
+      "category": "silver",
+      "pixelBox": {
+        "x": 514,
+        "y": 1091,
+        "w": 155,
+        "h": 151
+      },
+      "centerPx": {
+        "x": 591.5,
+        "y": 1166.5
+      },
+      "angleDeg": -71.5,
+      "elong": 1.03,
+      "detectedLongMm": 24.55,
+      "detectedShortMm": 22.55,
+      "art": {
+        "id": "silver-08",
+        "name": "Silver Bow",
+        "widthMm": 24.4,
+        "heightMm": 17.5
+      },
+      "fracX": 0.217,
+      "fracY": 0.8684,
+      "cxMm": 17.49,
+      "cyMm": 144.16,
+      "wMm": 24.4,
+      "hMm": 17.5,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 873,
+        "y": 1073,
+        "w": 119,
+        "h": 189
+      },
+      "centerPx": {
+        "x": 932.5,
+        "y": 1167.5
+      },
+      "angleDeg": -61.9,
+      "elong": 2.74,
+      "detectedLongMm": 32.19,
+      "detectedShortMm": 13.01,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-04",
+        "name": "Natural Scallop Shell",
+        "widthMm": 29.4,
+        "heightMm": 32.7
+      },
+      "fracX": 0.8416,
+      "fracY": 0.8693,
+      "cxMm": 67.83,
+      "cyMm": 144.31,
+      "wMm": 29.4,
+      "hMm": 32.7,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 696,
+        "y": 1172,
+        "w": 74,
+        "h": 58
+      },
+      "centerPx": {
+        "x": 733,
+        "y": 1201
+      },
+      "angleDeg": -30.2,
+      "elong": 1.54,
+      "detectedLongMm": 12.15,
+      "detectedShortMm": 10.08,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-24",
+        "name": "Natural Stone",
+        "widthMm": 10.1,
+        "heightMm": 12.1
+      },
+      "fracX": 0.4762,
+      "fracY": 0.9003,
+      "cxMm": 38.38,
+      "cyMm": 149.45,
+      "wMm": 10.1,
+      "hMm": 12.1,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 513,
+        "y": 1221,
+        "w": 60,
+        "h": 47
+      },
+      "centerPx": {
+        "x": 543,
+        "y": 1244.5
+      },
+      "angleDeg": 27,
+      "elong": 1.4,
+      "detectedLongMm": 9.15,
+      "detectedShortMm": 6.59,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-14",
+        "name": "Natural Sea Glass",
+        "widthMm": 9.2,
+        "heightMm": 8.7
+      },
+      "fracX": 0.1282,
+      "fracY": 0.9404,
+      "cxMm": 10.33,
+      "cyMm": 156.11,
+      "wMm": 9.2,
+      "hMm": 8.7,
+      "rot": 0
+    }
+  ],
+  "sea-of-light": [
+    {
+      "i": 0,
+      "name": "Natural Abalone Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 813,
+        "y": 290,
+        "w": 136,
+        "h": 247
+      },
+      "centerPx": {
+        "x": 881,
+        "y": 413.5
+      },
+      "angleDeg": -78.4,
+      "elong": 2.28,
+      "detectedLongMm": 36.67,
+      "detectedShortMm": 17.46,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-05",
+        "name": "Natural Abalone Shell",
+        "widthMm": 25.2,
+        "heightMm": 37
+      },
+      "fracX": 0.7357,
+      "fracY": 0.1689,
+      "cxMm": 59.3,
+      "cyMm": 28.04,
+      "wMm": 25.2,
+      "hMm": 37,
+      "rot": 11.6
+    },
+    {
+      "i": 1,
+      "name": "Silver Letter B",
+      "category": "silver",
+      "pixelBox": {
+        "x": 899,
+        "y": 554,
+        "w": 46,
+        "h": 39
+      },
+      "centerPx": {
+        "x": 922,
+        "y": 573.5
+      },
+      "angleDeg": -25.7,
+      "elong": 1.42,
+      "detectedLongMm": 7.35,
+      "detectedShortMm": 5.27,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-08",
+        "name": "Silver Letter B",
+        "widthMm": 7,
+        "heightMm": 7.4
+      },
+      "fracX": 0.811,
+      "fracY": 0.3146,
+      "cxMm": 65.37,
+      "cyMm": 52.23,
+      "wMm": 7,
+      "hMm": 7.4,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Gold Zodiac · Cancer",
+      "category": "gold",
+      "pixelBox": {
+        "x": 844,
+        "y": 586,
+        "w": 92,
+        "h": 57
+      },
+      "centerPx": {
+        "x": 890,
+        "y": 614.5
+      },
+      "angleDeg": 21.7,
+      "elong": 2.85,
+      "detectedLongMm": 15.22,
+      "detectedShortMm": 6.63,
+      "art": {
+        "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-40",
+        "name": "Gold Zodiac · Cancer",
+        "widthMm": 15.3,
+        "heightMm": 12.1
+      },
+      "fracX": 0.7522,
+      "fracY": 0.352,
+      "cxMm": 60.63,
+      "cyMm": 58.43,
+      "wMm": 15.3,
+      "hMm": 12.1,
+      "rot": 0
+    },
+    {
+      "i": 3,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 523,
+        "y": 558,
+        "w": 299,
+        "h": 203
+      },
+      "centerPx": {
+        "x": 672.5,
+        "y": 659.5
+      },
+      "angleDeg": -5.3,
+      "elong": 2.03,
+      "detectedLongMm": 46.41,
+      "detectedShortMm": 28.77,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.3532,
+      "fracY": 0.393,
+      "cxMm": 28.47,
+      "cyMm": 65.24,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 84.7
+    },
+    {
+      "i": 4,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 826,
+        "y": 657,
+        "w": 122,
+        "h": 133
+      },
+      "centerPx": {
+        "x": 887,
+        "y": 723.5
+      },
+      "angleDeg": -39.2,
+      "elong": 1.37,
+      "detectedLongMm": 24.91,
+      "detectedShortMm": 17.06,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-08",
+        "name": "Natural Scallop Shell",
+        "widthMm": 24.2,
+        "heightMm": 17
+      },
+      "fracX": 0.7468,
+      "fracY": 0.4513,
+      "cxMm": 60.19,
+      "cyMm": 74.91,
+      "wMm": 24.2,
+      "hMm": 17,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 522,
+        "y": 739,
+        "w": 122,
+        "h": 69
+      },
+      "centerPx": {
+        "x": 583,
+        "y": 773.5
+      },
+      "angleDeg": -9.5,
+      "elong": 2.9,
+      "detectedLongMm": 19,
+      "detectedShortMm": 8.53,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-07",
+        "name": "Natural Moon",
+        "widthMm": 13,
+        "heightMm": 19.3
+      },
+      "fracX": 0.189,
+      "fracY": 0.4968,
+      "cxMm": 15.23,
+      "cyMm": 82.47,
+      "wMm": 13,
+      "hMm": 19.3,
+      "rot": 80.5
+    },
+    {
+      "i": 6,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 920,
+        "y": 774,
+        "w": 38,
+        "h": 36
+      },
+      "centerPx": {
+        "x": 939,
+        "y": 792
+      },
+      "angleDeg": -11.2,
+      "elong": 1.14,
+      "detectedLongMm": 5.63,
+      "detectedShortMm": 5.43,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-40",
+        "name": "Natural Pearl",
+        "widthMm": 4.2,
+        "heightMm": 5.8
+      },
+      "fracX": 0.8422,
+      "fracY": 0.5137,
+      "cxMm": 67.88,
+      "cyMm": 85.27,
+      "wMm": 4.2,
+      "hMm": 5.8,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Gold Key",
+      "category": "gold",
+      "pixelBox": {
+        "x": 636,
+        "y": 761,
+        "w": 309,
+        "h": 176
+      },
+      "centerPx": {
+        "x": 790.5,
+        "y": 849
+      },
+      "angleDeg": 7.1,
+      "elong": 2.04,
+      "detectedLongMm": 46.26,
+      "detectedShortMm": 26.17,
+      "art": {
+        "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-11",
+        "name": "Gold Key",
+        "widthMm": 15.4,
+        "heightMm": 43.4
+      },
+      "fracX": 0.5697,
+      "fracY": 0.5656,
+      "cxMm": 45.92,
+      "cyMm": 93.89,
+      "wMm": 15.4,
+      "hMm": 43.4,
+      "rot": -82.9
+    },
+    {
+      "i": 8,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 542,
+        "y": 818,
+        "w": 84,
+        "h": 226
+      },
+      "centerPx": {
+        "x": 584,
+        "y": 931
+      },
+      "angleDeg": 86.5,
+      "elong": 3.36,
+      "detectedLongMm": 33.7,
+      "detectedShortMm": 12.35,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-11",
+        "name": "Natural Scallop Shell",
+        "widthMm": 33.9,
+        "heightMm": 24.8
+      },
+      "fracX": 0.1908,
+      "fracY": 0.6402,
+      "cxMm": 15.38,
+      "cyMm": 106.28,
+      "wMm": 33.9,
+      "hMm": 24.8,
+      "rot": 86.5
+    },
+    {
+      "i": 9,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 626,
+        "y": 918,
+        "w": 316,
+        "h": 219
+      },
+      "centerPx": {
+        "x": 784,
+        "y": 1027.5
+      },
+      "angleDeg": 2,
+      "elong": 1.4,
+      "detectedLongMm": 48.31,
+      "detectedShortMm": 33.09,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.5578,
+      "fracY": 0.7281,
+      "cxMm": 44.96,
+      "cyMm": 120.87,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 878,
+        "y": 1044,
+        "w": 82,
+        "h": 77
+      },
+      "centerPx": {
+        "x": 919,
+        "y": 1082.5
+      },
+      "angleDeg": 0.7,
+      "elong": 1.28,
+      "detectedLongMm": 12.31,
+      "detectedShortMm": 11.49,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-24",
+        "name": "Natural Stone",
+        "widthMm": 10.1,
+        "heightMm": 12.1
+      },
+      "fracX": 0.8055,
+      "fracY": 0.7783,
+      "cxMm": 64.92,
+      "cyMm": 129.19,
+      "wMm": 10.1,
+      "hMm": 12.1,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 669,
+        "y": 1090,
+        "w": 40,
+        "h": 45
+      },
+      "centerPx": {
+        "x": 689,
+        "y": 1112.5
+      },
+      "angleDeg": -38.8,
+      "elong": 1.57,
+      "detectedLongMm": 7.66,
+      "detectedShortMm": 4.72,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.3835,
+      "fracY": 0.8055,
+      "cxMm": 30.91,
+      "cyMm": 133.72,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Vial",
+      "category": "unique",
+      "pixelBox": {
+        "x": 535,
+        "y": 1060,
+        "w": 251,
+        "h": 208
+      },
+      "centerPx": {
+        "x": 660.5,
+        "y": 1164
+      },
+      "angleDeg": 20.8,
+      "elong": 1.46,
+      "detectedLongMm": 37.97,
+      "detectedShortMm": 30.65,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-32",
+        "name": "Natural Vial",
+        "widthMm": 13,
+        "heightMm": 38.1
+      },
+      "fracX": 0.3311,
+      "fracY": 0.8525,
+      "cxMm": 26.69,
+      "cyMm": 141.51,
+      "wMm": 13,
+      "hMm": 38.1,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Natural Coral",
+      "category": "unique",
+      "pixelBox": {
+        "x": 797,
+        "y": 1132,
+        "w": 159,
+        "h": 144
+      },
+      "centerPx": {
+        "x": 876.5,
+        "y": 1204
+      },
+      "angleDeg": -18.8,
+      "elong": 1.14,
+      "detectedLongMm": 25.21,
+      "detectedShortMm": 21.63,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-30",
+        "name": "Natural Coral",
+        "widthMm": 23.3,
+        "heightMm": 25.7
+      },
+      "fracX": 0.7275,
+      "fracY": 0.8889,
+      "cxMm": 58.64,
+      "cyMm": 147.56,
+      "wMm": 23.3,
+      "hMm": 25.7,
+      "rot": 0
+    }
+  ],
+  "amour-rosa-custom-charm-phone-case": [
+    {
+      "i": 0,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 773,
+        "y": 590,
+        "w": 71,
+        "h": 66
+      },
+      "centerPx": {
+        "x": 808.5,
+        "y": 623
+      },
+      "angleDeg": -19.6,
+      "elong": 1.16,
+      "detectedLongMm": 11.64,
+      "detectedShortMm": 9.71,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-05",
+        "name": "Natural Stone",
+        "widthMm": 11.9,
+        "heightMm": 7.8
+      },
+      "fracX": 0.5935,
+      "fracY": 0.3678,
+      "cxMm": 47.84,
+      "cyMm": 61.05,
+      "wMm": 11.9,
+      "hMm": 7.8,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 927,
+        "y": 705,
+        "w": 66,
+        "h": 49
+      },
+      "centerPx": {
+        "x": 960,
+        "y": 729.5
+      },
+      "angleDeg": -16.8,
+      "elong": 1.68,
+      "detectedLongMm": 10.81,
+      "detectedShortMm": 6.78,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-20",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.8,
+        "heightMm": 8.3
+      },
+      "fracX": 0.8741,
+      "fracY": 0.4642,
+      "cxMm": 70.45,
+      "cyMm": 77.06,
+      "wMm": 10.8,
+      "hMm": 8.3,
+      "rot": -16.8
+    },
+    {
+      "i": 2,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 506,
+        "y": 582,
+        "w": 243,
+        "h": 302
+      },
+      "centerPx": {
+        "x": 627.5,
+        "y": 733
+      },
+      "angleDeg": -71.9,
+      "elong": 1.65,
+      "detectedLongMm": 47.84,
+      "detectedShortMm": 28.27,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Colourful Heart",
+        "widthMm": 23.8,
+        "heightMm": 32.1
+      },
+      "fracX": 0.2583,
+      "fracY": 0.4674,
+      "cxMm": 20.82,
+      "cyMm": 77.59,
+      "wMm": 23.8,
+      "hMm": 32.1,
+      "rot": 18.1
+    },
+    {
+      "i": 3,
+      "name": "Colourful Boot",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 677,
+        "y": 692,
+        "w": 154,
+        "h": 148
+      },
+      "centerPx": {
+        "x": 754,
+        "y": 766
+      },
+      "angleDeg": -42.7,
+      "elong": 1.23,
+      "detectedLongMm": 24.97,
+      "detectedShortMm": 20.32,
+      "art": {
+        "id": "image2-01",
+        "name": "Colourful Boot",
+        "widthMm": 20.6,
+        "heightMm": 25.2
+      },
+      "fracX": 0.4926,
+      "fracY": 0.4973,
+      "cxMm": 39.7,
+      "cyMm": 82.55,
+      "wMm": 20.6,
+      "hMm": 25.2,
+      "rot": 0
+    },
+    {
+      "i": 4,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 507,
+        "y": 781,
+        "w": 64,
+        "h": 55
+      },
+      "centerPx": {
+        "x": 539,
+        "y": 808.5
+      },
+      "angleDeg": 8.6,
+      "elong": 1.22,
+      "detectedLongMm": 9.32,
+      "detectedShortMm": 8.51,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-08",
+        "name": "Natural Sea Pottery",
+        "widthMm": 9.3,
+        "heightMm": 6.3
+      },
+      "fracX": 0.0944,
+      "fracY": 0.5358,
+      "cxMm": 7.61,
+      "cyMm": 88.94,
+      "wMm": 9.3,
+      "hMm": 6.3,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Sea Pottery",
+      "category": "unique",
+      "pixelBox": {
+        "x": 824,
+        "y": 885,
+        "w": 48,
+        "h": 39
+      },
+      "centerPx": {
+        "x": 848,
+        "y": 904.5
+      },
+      "angleDeg": -34,
+      "elong": 1.68,
+      "detectedLongMm": 8.31,
+      "detectedShortMm": 5.48,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-31",
+        "name": "Natural Sea Pottery",
+        "widthMm": 8.5,
+        "heightMm": 6.8
+      },
+      "fracX": 0.6666,
+      "fracY": 0.6227,
+      "cxMm": 53.73,
+      "cyMm": 103.37,
+      "wMm": 8.5,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Natural Abalone Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 673,
+        "y": 865,
+        "w": 139,
+        "h": 151
+      },
+      "centerPx": {
+        "x": 742.5,
+        "y": 940.5
+      },
+      "angleDeg": -47.6,
+      "elong": 1.69,
+      "detectedLongMm": 27.44,
+      "detectedShortMm": 16.44,
+      "art": {
+        "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Abalone Shell",
+        "widthMm": 18.3,
+        "heightMm": 27.4
+      },
+      "fracX": 0.4713,
+      "fracY": 0.6554,
+      "cxMm": 37.99,
+      "cyMm": 108.79,
+      "wMm": 18.3,
+      "hMm": 27.4,
+      "rot": 42.4
+    },
+    {
+      "i": 7,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 870,
+        "y": 922,
+        "w": 97,
+        "h": 84
+      },
+      "centerPx": {
+        "x": 918.5,
+        "y": 964
+      },
+      "angleDeg": -38.3,
+      "elong": 1.16,
+      "detectedLongMm": 14.82,
+      "detectedShortMm": 12.49,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-09",
+        "name": "Natural Shell",
+        "widthMm": 14.9,
+        "heightMm": 9.4
+      },
+      "fracX": 0.7973,
+      "fracY": 0.6766,
+      "cxMm": 64.26,
+      "cyMm": 112.32,
+      "wMm": 14.9,
+      "hMm": 9.4,
+      "rot": 0
+    },
+    {
+      "i": 8,
+      "name": "Colourful Eye",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 506,
+        "y": 885,
+        "w": 155,
+        "h": 183
+      },
+      "centerPx": {
+        "x": 583.5,
+        "y": 976.5
+      },
+      "angleDeg": 89,
+      "elong": 1.15,
+      "detectedLongMm": 27.49,
+      "detectedShortMm": 23.35,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34",
+        "name": "Colourful Eye",
+        "widthMm": 28.5,
+        "heightMm": 16.7
+      },
+      "fracX": 0.1768,
+      "fracY": 0.688,
+      "cxMm": 14.25,
+      "cyMm": 114.2,
+      "wMm": 28.5,
+      "hMm": 16.7,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 807,
+        "y": 972,
+        "w": 28,
+        "h": 42
+      },
+      "centerPx": {
+        "x": 821,
+        "y": 993
+      },
+      "angleDeg": 75.3,
+      "elong": 1.65,
+      "detectedLongMm": 6.69,
+      "detectedShortMm": 4.34,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.6166,
+      "fracY": 0.7029,
+      "cxMm": 49.7,
+      "cyMm": 116.68,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 708,
+        "y": 1043,
+        "w": 67,
+        "h": 50
+      },
+      "centerPx": {
+        "x": 741.5,
+        "y": 1068
+      },
+      "angleDeg": 4.7,
+      "elong": 1.47,
+      "detectedLongMm": 10.16,
+      "detectedShortMm": 7.29,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-39",
+        "name": "Natural Stone",
+        "widthMm": 10,
+        "heightMm": 8.4
+      },
+      "fracX": 0.4695,
+      "fracY": 0.7708,
+      "cxMm": 37.84,
+      "cyMm": 127.96,
+      "wMm": 10,
+      "hMm": 8.4,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Natural Scallop Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 775,
+        "y": 1020,
+        "w": 198,
+        "h": 257
+      },
+      "centerPx": {
+        "x": 874,
+        "y": 1148.5
+      },
+      "angleDeg": -77.2,
+      "elong": 1.34,
+      "detectedLongMm": 40.01,
+      "detectedShortMm": 29.12,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-19",
+        "name": "Natural Scallop Shell",
+        "widthMm": 38.2,
+        "heightMm": 40.5
+      },
+      "fracX": 0.7148,
+      "fracY": 0.8437,
+      "cxMm": 57.61,
+      "cyMm": 140.06,
+      "wMm": 38.2,
+      "hMm": 40.5,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 668,
+        "y": 1088,
+        "w": 57,
+        "h": 125
+      },
+      "centerPx": {
+        "x": 696.5,
+        "y": 1150.5
+      },
+      "angleDeg": 80.1,
+      "elong": 2.49,
+      "detectedLongMm": 18.4,
+      "detectedShortMm": 7.6,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-34",
+        "name": "Natural Stone",
+        "widthMm": 16.2,
+        "heightMm": 18.3
+      },
+      "fracX": 0.3861,
+      "fracY": 0.8455,
+      "cxMm": 31.12,
+      "cyMm": 140.36,
+      "wMm": 16.2,
+      "hMm": 18.3,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Colourful Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 516,
+        "y": 1096,
+        "w": 132,
+        "h": 169
+      },
+      "centerPx": {
+        "x": 582,
+        "y": 1180.5
+      },
+      "angleDeg": -61.1,
+      "elong": 1.32,
+      "detectedLongMm": 25.75,
+      "detectedShortMm": 19.83,
+      "art": {
+        "id": "image2-11",
+        "name": "Colourful Heart",
+        "widthMm": 19.8,
+        "heightMm": 25.7
+      },
+      "fracX": 0.1741,
+      "fracY": 0.8727,
+      "cxMm": 14.03,
+      "cyMm": 144.87,
+      "wMm": 19.8,
+      "hMm": 25.7,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Natural Pearl",
+      "category": "unique",
+      "pixelBox": {
+        "x": 691,
+        "y": 1213,
+        "w": 63,
+        "h": 36
+      },
+      "centerPx": {
+        "x": 722.5,
+        "y": 1231
+      },
+      "angleDeg": -11.2,
+      "elong": 2.13,
+      "detectedLongMm": 9.69,
+      "detectedShortMm": 4.85,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-10",
+        "name": "Natural Pearl",
+        "widthMm": 9.7,
+        "heightMm": 9.7
+      },
+      "fracX": 0.4342,
+      "fracY": 0.9185,
+      "cxMm": 35,
+      "cyMm": 152.47,
+      "wMm": 9.7,
+      "hMm": 9.7,
+      "rot": 0
+    }
+  ],
+  "celeste-key": [
+    {
+      "i": 0,
+      "name": "Colourful Flower",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 820,
+        "y": 280,
+        "w": 114,
+        "h": 73
+      },
+      "centerPx": {
+        "x": 877,
+        "y": 316.5
+      },
+      "angleDeg": -28,
+      "elong": 3.57,
+      "detectedLongMm": 19.92,
+      "detectedShortMm": 6.85,
+      "art": {
+        "id": "image3-03",
+        "name": "Colourful Flower",
+        "widthMm": 15.5,
+        "heightMm": 19.9
+      },
+      "fracX": 0.7234,
+      "fracY": 0.0685,
+      "cxMm": 58.31,
+      "cyMm": 11.37,
+      "wMm": 15.5,
+      "hMm": 19.9,
+      "rot": 0
+    },
+    {
+      "i": 1,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 911,
+        "y": 385,
+        "w": 50,
+        "h": 113
+      },
+      "centerPx": {
+        "x": 936,
+        "y": 441.5
+      },
+      "angleDeg": -66.6,
+      "elong": 4.67,
+      "detectedLongMm": 17.3,
+      "detectedShortMm": 5.79,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-33",
+        "name": "Natural Stone",
+        "widthMm": 17.3,
+        "heightMm": 17.1
+      },
+      "fracX": 0.8315,
+      "fracY": 0.1834,
+      "cxMm": 67.02,
+      "cyMm": 30.44,
+      "wMm": 17.3,
+      "hMm": 17.1,
+      "rot": 0
+    },
+    {
+      "i": 2,
+      "name": "Natural Column",
+      "category": "unique",
+      "pixelBox": {
+        "x": 827,
+        "y": 317,
+        "w": 112,
+        "h": 304
+      },
+      "centerPx": {
+        "x": 883,
+        "y": 469
+      },
+      "angleDeg": 84.1,
+      "elong": 3.26,
+      "detectedLongMm": 45.87,
+      "detectedShortMm": 17.35,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-05",
+        "name": "Natural Column",
+        "widthMm": 14.9,
+        "heightMm": 45.2
+      },
+      "fracX": 0.7345,
+      "fracY": 0.2086,
+      "cxMm": 59.2,
+      "cyMm": 34.63,
+      "wMm": 14.9,
+      "hMm": 45.2,
+      "rot": -5.9
+    },
+    {
+      "i": 3,
+      "name": "Silver Handle",
+      "category": "silver",
+      "pixelBox": {
+        "x": 935,
+        "y": 300,
+        "w": 73,
+        "h": 525
+      },
+      "centerPx": {
+        "x": 971.5,
+        "y": 562.5
+      },
+      "angleDeg": 88.7,
+      "elong": 10.35,
+      "detectedLongMm": 78.75,
+      "detectedShortMm": 10.97,
+      "art": {
+        "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+        "name": "Silver Handle",
+        "widthMm": 14.9,
+        "heightMm": 45.6
+      },
+      "fracX": 0.8965,
+      "fracY": 0.2946,
+      "cxMm": 72.26,
+      "cyMm": 48.9,
+      "wMm": 14.9,
+      "hMm": 45.6,
+      "rot": -1.3
+    },
+    {
+      "i": 4,
+      "name": "Silver Shell",
+      "category": "silver",
+      "pixelBox": {
+        "x": 683,
+        "y": 634,
+        "w": 86,
+        "h": 83
+      },
+      "centerPx": {
+        "x": 726,
+        "y": 675.5
+      },
+      "angleDeg": 12.2,
+      "elong": 1.21,
+      "detectedLongMm": 13.58,
+      "detectedShortMm": 12.33,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04",
+        "name": "Silver Shell",
+        "widthMm": 12.7,
+        "heightMm": 12.2
+      },
+      "fracX": 0.4469,
+      "fracY": 0.3984,
+      "cxMm": 36.02,
+      "cyMm": 66.14,
+      "wMm": 12.7,
+      "hMm": 12.2,
+      "rot": 0
+    },
+    {
+      "i": 5,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 766,
+        "y": 678,
+        "w": 77,
+        "h": 53
+      },
+      "centerPx": {
+        "x": 804.5,
+        "y": 704.5
+      },
+      "angleDeg": -23.2,
+      "elong": 2.01,
+      "detectedLongMm": 12.97,
+      "detectedShortMm": 7.14,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
+        "name": "Natural Stone",
+        "widthMm": 12.4,
+        "heightMm": 12.8
+      },
+      "fracX": 0.5907,
+      "fracY": 0.4251,
+      "cxMm": 47.61,
+      "cyMm": 70.57,
+      "wMm": 12.4,
+      "hMm": 12.8,
+      "rot": 0
+    },
+    {
+      "i": 6,
+      "name": "Colourful Porcelain Heart",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 547,
+        "y": 674,
+        "w": 68,
+        "h": 95
+      },
+      "centerPx": {
+        "x": 581,
+        "y": 721.5
+      },
+      "angleDeg": 84.8,
+      "elong": 1.36,
+      "detectedLongMm": 14.54,
+      "detectedShortMm": 10.33,
+      "art": {
+        "id": "image2-32",
+        "name": "Colourful Porcelain Heart",
+        "widthMm": 14.2,
+        "heightMm": 14.7
+      },
+      "fracX": 0.1813,
+      "fracY": 0.4407,
+      "cxMm": 14.61,
+      "cyMm": 73.16,
+      "wMm": 14.2,
+      "hMm": 14.7,
+      "rot": 0
+    },
+    {
+      "i": 7,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 872,
+        "y": 668,
+        "w": 94,
+        "h": 112
+      },
+      "centerPx": {
+        "x": 919,
+        "y": 724
+      },
+      "angleDeg": 65.5,
+      "elong": 1.56,
+      "detectedLongMm": 17.89,
+      "detectedShortMm": 12.88,
+      "art": {
+        "id": "b4066f7a-23c7-4c9c-9454-6d9d31133b23-03",
+        "name": "Natural Shell",
+        "widthMm": 13.6,
+        "heightMm": 17.8
+      },
+      "fracX": 0.8004,
+      "fracY": 0.443,
+      "cxMm": 64.51,
+      "cyMm": 73.54,
+      "wMm": 13.6,
+      "hMm": 17.8,
+      "rot": -24.5
+    },
+    {
+      "i": 8,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 650,
+        "y": 803,
+        "w": 171,
+        "h": 97
+      },
+      "centerPx": {
+        "x": 735.5,
+        "y": 851.5
+      },
+      "angleDeg": 18.5,
+      "elong": 1.93,
+      "detectedLongMm": 26.87,
+      "detectedShortMm": 14.11,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-37",
+        "name": "Natural Shell",
+        "widthMm": 26.8,
+        "heightMm": 26.8
+      },
+      "fracX": 0.4643,
+      "fracY": 0.5602,
+      "cxMm": 37.42,
+      "cyMm": 92.99,
+      "wMm": 26.8,
+      "hMm": 26.8,
+      "rot": 0
+    },
+    {
+      "i": 9,
+      "name": "Natural Moon",
+      "category": "unique",
+      "pixelBox": {
+        "x": 533,
+        "y": 801,
+        "w": 113,
+        "h": 111
+      },
+      "centerPx": {
+        "x": 589.5,
+        "y": 856.5
+      },
+      "angleDeg": 42.5,
+      "elong": 1.16,
+      "detectedLongMm": 19.03,
+      "detectedShortMm": 16.26,
+      "art": {
+        "id": "f1553077-9a1d-4e7c-bf0a-000000000abc-07",
+        "name": "Natural Moon",
+        "widthMm": 13,
+        "heightMm": 19.3
+      },
+      "fracX": 0.1969,
+      "fracY": 0.5648,
+      "cxMm": 15.87,
+      "cyMm": 93.76,
+      "wMm": 13,
+      "hMm": 19.3,
+      "rot": 0
+    },
+    {
+      "i": 10,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 865,
+        "y": 830,
+        "w": 95,
+        "h": 82
+      },
+      "centerPx": {
+        "x": 912.5,
+        "y": 871
+      },
+      "angleDeg": 12.3,
+      "elong": 1.15,
+      "detectedLongMm": 14.38,
+      "detectedShortMm": 11.96,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-21",
+        "name": "Natural Stone",
+        "widthMm": 14.4,
+        "heightMm": 12
+      },
+      "fracX": 0.7885,
+      "fracY": 0.5781,
+      "cxMm": 63.55,
+      "cyMm": 95.97,
+      "wMm": 14.4,
+      "hMm": 12,
+      "rot": 0
+    },
+    {
+      "i": 11,
+      "name": "Colourful Daisy",
+      "category": "colourful",
+      "pixelBox": {
+        "x": 735,
+        "y": 909,
+        "w": 48,
+        "h": 29
+      },
+      "centerPx": {
+        "x": 759,
+        "y": 923.5
+      },
+      "angleDeg": -0.5,
+      "elong": 1.65,
+      "detectedLongMm": 7.21,
+      "detectedShortMm": 4.36,
+      "art": {
+        "id": "image2-18",
+        "name": "Colourful Daisy",
+        "widthMm": 10.4,
+        "heightMm": 10.5
+      },
+      "fracX": 0.5073,
+      "fracY": 0.6264,
+      "cxMm": 40.89,
+      "cyMm": 103.98,
+      "wMm": 10.4,
+      "hMm": 10.5,
+      "rot": 0
+    },
+    {
+      "i": 12,
+      "name": "Natural Stone",
+      "category": "unique",
+      "pixelBox": {
+        "x": 814,
+        "y": 920,
+        "w": 36,
+        "h": 31
+      },
+      "centerPx": {
+        "x": 832,
+        "y": 935.5
+      },
+      "angleDeg": -39.6,
+      "elong": 2,
+      "detectedLongMm": 6.73,
+      "detectedShortMm": 3.62,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-28",
+        "name": "Natural Stone",
+        "widthMm": 7.1,
+        "heightMm": 6.8
+      },
+      "fracX": 0.6411,
+      "fracY": 0.6374,
+      "cxMm": 51.67,
+      "cyMm": 105.81,
+      "wMm": 7.1,
+      "hMm": 6.8,
+      "rot": 0
+    },
+    {
+      "i": 13,
+      "name": "Silver Rose",
+      "category": "silver",
+      "pixelBox": {
+        "x": 554,
+        "y": 942,
+        "w": 137,
+        "h": 135
+      },
+      "centerPx": {
+        "x": 622.5,
+        "y": 1009.5
+      },
+      "angleDeg": 20.6,
+      "elong": 1.04,
+      "detectedLongMm": 22.94,
+      "detectedShortMm": 21.25,
+      "art": {
+        "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-47",
+        "name": "Silver Rose",
+        "widthMm": 16.7,
+        "heightMm": 22.9
+      },
+      "fracX": 0.2573,
+      "fracY": 0.7054,
+      "cxMm": 20.74,
+      "cyMm": 117.1,
+      "wMm": 16.7,
+      "hMm": 22.9,
+      "rot": 0
+    },
+    {
+      "i": 14,
+      "name": "Silver Racket",
+      "category": "silver",
+      "pixelBox": {
+        "x": 782,
+        "y": 948,
+        "w": 192,
+        "h": 162
+      },
+      "centerPx": {
+        "x": 878,
+        "y": 1029
+      },
+      "angleDeg": 37.6,
+      "elong": 1.23,
+      "detectedLongMm": 31.52,
+      "detectedShortMm": 23.48,
+      "art": {
+        "id": "silver-01",
+        "name": "Silver Racket",
+        "widthMm": 14.8,
+        "heightMm": 32.2
+      },
+      "fracX": 0.7253,
+      "fracY": 0.7234,
+      "cxMm": 58.46,
+      "cyMm": 120.08,
+      "wMm": 14.8,
+      "hMm": 32.2,
+      "rot": 0
+    },
+    {
+      "i": 15,
+      "name": "Natural Star",
+      "category": "unique",
+      "pixelBox": {
+        "x": 697,
+        "y": 981,
+        "w": 73,
+        "h": 97
+      },
+      "centerPx": {
+        "x": 733.5,
+        "y": 1029.5
+      },
+      "angleDeg": -58.8,
+      "elong": 1.68,
+      "detectedLongMm": 16.09,
+      "detectedShortMm": 9.78,
+      "art": {
+        "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-26",
+        "name": "Natural Star",
+        "widthMm": 16.1,
+        "heightMm": 16
+      },
+      "fracX": 0.4607,
+      "fracY": 0.7238,
+      "cxMm": 37.13,
+      "cyMm": 120.15,
+      "wMm": 16.1,
+      "hMm": 16,
+      "rot": 0
+    },
+    {
+      "i": 16,
+      "name": "Natural Shell",
+      "category": "unique",
+      "pixelBox": {
+        "x": 557,
+        "y": 1104,
+        "w": 143,
+        "h": 160
+      },
+      "centerPx": {
+        "x": 628.5,
+        "y": 1184
+      },
+      "angleDeg": 52.1,
+      "elong": 1.61,
+      "detectedLongMm": 29.95,
+      "detectedShortMm": 20.09,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-02",
+        "name": "Natural Shell",
+        "widthMm": 27.9,
+        "heightMm": 29.4
+      },
+      "fracX": 0.2684,
+      "fracY": 0.8658,
+      "cxMm": 21.63,
+      "cyMm": 143.72,
+      "wMm": 27.9,
+      "hMm": 29.4,
+      "rot": 0
+    },
+    {
+      "i": 17,
+      "name": "Natural Sea Glass",
+      "category": "unique",
+      "pixelBox": {
+        "x": 701,
+        "y": 1168,
+        "w": 69,
+        "h": 43
+      },
+      "centerPx": {
+        "x": 735.5,
+        "y": 1189.5
+      },
+      "angleDeg": 1.7,
+      "elong": 1.55,
+      "detectedLongMm": 10.42,
+      "detectedShortMm": 6.56,
+      "art": {
+        "id": "e540ac60-3ca6-447f-833a-9234eec3b235-12",
+        "name": "Natural Sea Glass",
+        "widthMm": 10.7,
+        "heightMm": 7.9
+      },
+      "fracX": 0.4643,
+      "fracY": 0.8708,
+      "cxMm": 37.42,
+      "cyMm": 144.56,
+      "wMm": 10.7,
+      "hMm": 7.9,
+      "rot": 1.7
+    },
+    {
+      "i": 18,
+      "name": "Silver Ballerina",
+      "category": "silver",
+      "pixelBox": {
+        "x": 813,
+        "y": 1151,
+        "w": 133,
+        "h": 104
+      },
+      "centerPx": {
+        "x": 879.5,
+        "y": 1203
+      },
+      "angleDeg": 12.4,
+      "elong": 1.3,
+      "detectedLongMm": 21.19,
+      "detectedShortMm": 16.53,
+      "art": {
+        "id": "silver-10",
+        "name": "Silver Ballerina",
+        "widthMm": 12.4,
+        "heightMm": 21.2
+      },
+      "fracX": 0.728,
+      "fracY": 0.8833,
+      "cxMm": 58.68,
+      "cyMm": 146.62,
+      "wMm": 12.4,
+      "hMm": 21.2,
+      "rot": 0
+    }
+  ]
+}
