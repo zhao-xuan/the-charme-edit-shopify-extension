@@ -19,4 +19,4 @@ api_version = "2024-10"
 automatically_update_urls_on_dev = true
 
 [[extension_directories]]
-path = "shopify/extensions/*"
+path = "extensions/*"

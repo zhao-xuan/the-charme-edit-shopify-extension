@@ -467,6 +467,21 @@ h4,
   box-shadow: var(--shadow);
   border-color: var(--blush);
 }
+.charm-card--disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  filter: grayscale(1);
+  pointer-events: auto;
+}
+.charm-card--disabled:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--line);
+}
+.charm-card--disabled .meta--price {
+  color: var(--ink-soft);
+  font-style: italic;
+}
 .charm-card .thumb {
   aspect-ratio: 1;
   display: flex;

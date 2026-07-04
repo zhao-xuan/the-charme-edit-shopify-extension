@@ -1,0 +1,4763 @@
+{
+  "Gold Letter A": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027931935098,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / A / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter B": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027931967866,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / B / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter C": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027932033402,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / C / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter D": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027932066170,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / D / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter E": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027938390394,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / E / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter F": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945009530,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / F / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter G": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945042298,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / G / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter H": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945075066,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / H / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter I": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945107834,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / I / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter J": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945140602,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / J / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter K": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945173370,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / K / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter L": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945206138,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / L / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter M": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945238906,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / M / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter N": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945271674,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / N / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter O": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945304442,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / O / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter P": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945337210,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / P / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter Q": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945369978,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / Q / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter R": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945402746,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / R / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter S": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945435514,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / S / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter T": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945468282,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / T / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter U": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945501050,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / U / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter V": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945533818,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / V / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter W": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945566586,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / W / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter X": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945599354,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / X / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter Y": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945632122,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / Y / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Letter Z": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56027945664890,
+      "product": "Letters / Initials",
+      "vtitle": "Gold / Z / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Gold Number 0": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746690426,
+      "product": "Numbers",
+      "vtitle": "Gold / 0 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746690426,
+        "product": "Numbers",
+        "vtitle": "Gold / 0 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56286817059194,
+        "product": "Zodiac Signs",
+        "vtitle": "Taurus: April 20 – May 20 / Gold",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56286817091962,
+        "product": "Zodiac Signs",
+        "vtitle": "Gemini: May 21 – June 20 / Gold",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Number 1": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746723194,
+      "product": "Numbers",
+      "vtitle": "Gold / 1 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746723194,
+        "product": "Numbers",
+        "vtitle": "Gold / 1 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56014807859578,
+        "product": "All sense - Grande Charm",
+        "vtitle": "#1 Lip - Red Gold",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870426710394,
+        "product": "Blue Tile - Grande Charm",
+        "vtitle": "Random Pick (1 pcs)",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014400389498,
+        "product": "Floral tile - Grande Charm",
+        "vtitle": "Random pick (1 Pc)",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 2": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746755962,
+      "product": "Numbers",
+      "vtitle": "Gold / 2 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746755962,
+        "product": "Numbers",
+        "vtitle": "Gold / 2 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56014807892346,
+        "product": "All sense - Grande Charm",
+        "vtitle": "#2 Eye - Orange Gold",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56532970635642,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#2 Beige",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 3": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746788730,
+      "product": "Numbers",
+      "vtitle": "Gold / 3 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746788730,
+        "product": "Numbers",
+        "vtitle": "Gold / 3 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56014807925114,
+        "product": "All sense - Grande Charm",
+        "vtitle": "#3 Tooth - Blue Gold",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56532970668410,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#3 Gold",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014865039738,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#3 Gold trumpet Cupid (Grande)",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 4": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746821498,
+      "product": "Numbers",
+      "vtitle": "Gold / 4 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746821498,
+        "product": "Numbers",
+        "vtitle": "Gold / 4 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56532970701178,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#4 Silver",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014435975546,
+        "product": "The Earth - Midi Charm",
+        "vtitle": "#4 Pebble Nude",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870364451194,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 4",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 5": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746854266,
+      "product": "Numbers",
+      "vtitle": "Gold / 5 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746854266,
+        "product": "Numbers",
+        "vtitle": "Gold / 5 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 55870364483962,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 5",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870402494842,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #5",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870402691450,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Star / #5",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 6": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746887034,
+      "product": "Numbers",
+      "vtitle": "Gold / 6 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746887034,
+        "product": "Numbers",
+        "vtitle": "Gold / 6 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56014839087482,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#6 Gold Leaf Wreath (Grande)",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870364516730,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 6",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870402527610,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #6",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Number 7": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746919802,
+      "product": "Numbers",
+      "vtitle": "Gold / 7 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746919802,
+        "product": "Numbers",
+        "vtitle": "Gold / 7 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 55870402560378,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #7",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870402756986,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Star / #7",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56849746690426,
+        "product": "Numbers",
+        "vtitle": "Gold / 0 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Number 8": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849746952570,
+      "product": "Numbers",
+      "vtitle": "Gold / 8 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849746952570,
+        "product": "Numbers",
+        "vtitle": "Gold / 8 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56849746690426,
+        "product": "Numbers",
+        "vtitle": "Gold / 0 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 3
+      },
+      {
+        "id": 56849746723194,
+        "product": "Numbers",
+        "vtitle": "Gold / 1 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Number 9": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56849747476858,
+      "product": "Numbers",
+      "vtitle": "Gold / 9 / Please write down the letter sequence in the checkout note",
+      "price": 1,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56849747476858,
+        "product": "Numbers",
+        "vtitle": "Gold / 9 / Please write down the letter sequence in the checkout note",
+        "price": 1,
+        "score": 5
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56286816928122,
+        "product": "Zodiac Signs",
+        "vtitle": "Capricorn: December 22 – January 19 / Gold",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Zodiac · Aries": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286817026426,
+      "product": "Zodiac Signs",
+      "vtitle": "Aries: March 21 – April 19 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817059194,
+        "product": "Zodiac Signs",
+        "vtitle": "Taurus: April 20 – May 20 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Taurus": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286817059194,
+      "product": "Zodiac Signs",
+      "vtitle": "Taurus: April 20 – May 20 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286817059194,
+        "product": "Zodiac Signs",
+        "vtitle": "Taurus: April 20 – May 20 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Gemini": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286817091962,
+      "product": "Zodiac Signs",
+      "vtitle": "Gemini: May 21 – June 20 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286817091962,
+        "product": "Zodiac Signs",
+        "vtitle": "Gemini: May 21 – June 20 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Cancer": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286817124730,
+      "product": "Zodiac Signs",
+      "vtitle": "Cancer: June 21 – July 22 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286817124730,
+        "product": "Zodiac Signs",
+        "vtitle": "Cancer: June 21 – July 22 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Leo": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286822138234,
+      "product": "Zodiac Signs",
+      "vtitle": "Leo: July 23 – August 22 / Gold",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 56286822138234,
+        "product": "Zodiac Signs",
+        "vtitle": "Leo: July 23 – August 22 / Gold",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Virgo": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286822171002,
+      "product": "Zodiac Signs",
+      "vtitle": "Virgo: August 23 – September 22 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286822171002,
+        "product": "Zodiac Signs",
+        "vtitle": "Virgo: August 23 – September 22 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Libra": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286822203770,
+      "product": "Zodiac Signs",
+      "vtitle": "Libra: September 23 – October 22 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286822203770,
+        "product": "Zodiac Signs",
+        "vtitle": "Libra: September 23 – October 22 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Scorpio": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286822236538,
+      "product": "Zodiac Signs",
+      "vtitle": "Scorpio: October 23 – November 21 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286822236538,
+        "product": "Zodiac Signs",
+        "vtitle": "Scorpio: October 23 – November 21 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Sagittarius": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286822269306,
+      "product": "Zodiac Signs",
+      "vtitle": "Sagittarius: November 22 – December 21 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286822269306,
+        "product": "Zodiac Signs",
+        "vtitle": "Sagittarius: November 22 – December 21 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Capricorn": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286816928122,
+      "product": "Zodiac Signs",
+      "vtitle": "Capricorn: December 22 – January 19 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286816928122,
+        "product": "Zodiac Signs",
+        "vtitle": "Capricorn: December 22 – January 19 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Aquarius": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286816960890,
+      "product": "Zodiac Signs",
+      "vtitle": "Aquarius: January 20 – February 18 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817059194,
+        "product": "Zodiac Signs",
+        "vtitle": "Taurus: April 20 – May 20 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Zodiac · Pisces": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56286816993658,
+      "product": "Zodiac Signs",
+      "vtitle": "Pisces: February 19 – March 2 / Gold",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56286816993658,
+        "product": "Zodiac Signs",
+        "vtitle": "Pisces: February 19 – March 2 / Gold",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56286816960890,
+        "product": "Zodiac Signs",
+        "vtitle": "Aquarius: January 20 – February 18 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817026426,
+        "product": "Zodiac Signs",
+        "vtitle": "Aries: March 21 – April 19 / Gold",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56286817059194,
+        "product": "Zodiac Signs",
+        "vtitle": "Taurus: April 20 – May 20 / Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Compass": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Moon": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Sun": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014459765114,
+      "product": "Sunstone - Grande Charm",
+      "vtitle": "Square Nude Marble",
+      "price": 3,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014459765114,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Nude Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014459797882,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Gold Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530385274,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#1 Light yellow sun",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530418042,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#2 Black sun",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Star": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Heart": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014822670714,
+      "product": "The Amulet Red - Grande / Midi Charm",
+      "vtitle": "Red heart (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014822670714,
+        "product": "The Amulet Red - Grande / Midi Charm",
+        "vtitle": "Red heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536086906,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#1 Black Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536119674,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#2 Red Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870471438714,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#1 Heart Pin (Grande)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Cameo Rose": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56450815623546,
+      "product": "Pink Blossom - Grande Charm",
+      "vtitle": "Pink Rose Cameo",
+      "price": 3,
+      "score": 8
+    },
+    "candidates": [
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 8
+      },
+      {
+        "id": 56718086078842,
+        "product": "Cherub Muse - Midi Charm",
+        "vtitle": "#1 Rose Cameo",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 55870490378618,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#3 Gold lead resin rose (Grande)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014876017018,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#6 White rose (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Flower": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014426505594,
+      "product": "Aurora - Grande / Midi Charm",
+      "vtitle": "Gold flower",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014426505594,
+        "product": "Aurora - Grande / Midi Charm",
+        "vtitle": "Gold flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534254970,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#2 Pink Flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Grapes": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718084702586,
+      "product": "Sweet escape - Midi Charm",
+      "vtitle": "Grapes",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718084702586,
+        "product": "Sweet escape - Midi Charm",
+        "vtitle": "Grapes",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Leaf": {
+    "price": 5,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014839087482,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#6 Gold Leaf Wreath (Grande)",
+        "price": 3,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Rose": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56450815623546,
+      "product": "Pink Blossom - Grande Charm",
+      "vtitle": "Pink Rose Cameo",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870490378618,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#3 Gold lead resin rose (Grande)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014876017018,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#6 White rose (Midi)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870432903546,
+        "product": "Lover Girl - Midi / Grande Charm",
+        "vtitle": "Rose (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Bow": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014865072506,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#4 Silver Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56014865105274,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#5 Gold Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507221370,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Bow 1 (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507254138,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Heart 1 (Grande)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Angel": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718086111610,
+      "product": "Cherub Muse - Midi Charm",
+      "vtitle": "#2 Angel Cherub",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718086111610,
+        "product": "Cherub Muse - Midi Charm",
+        "vtitle": "#2 Angel Cherub",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Dolphin": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014816575866,
+      "product": "Golden hour - Mini Charm",
+      "vtitle": "#3 Dolphin",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014816575866,
+        "product": "Golden hour - Mini Charm",
+        "vtitle": "#3 Dolphin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Starfish": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Boot": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56828922823034,
+      "product": "American cowgirl boot - Grande Charm",
+      "vtitle": "American cowgirl boot",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56828922823034,
+        "product": "American cowgirl boot - Grande Charm",
+        "vtitle": "American cowgirl boot",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870471569786,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#6 Cowboy Boots (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Bow Arrow": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014865072506,
+      "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+      "vtitle": "#4 Silver Bow and Arrow (Midi)",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 56014865072506,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#4 Silver Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56014865105274,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#5 Gold Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56014864974202,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#1 White Cupid (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014865006970,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#2 Gold Cupid (Grande)",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Branch": {
+    "price": 5,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56532970602874,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#1 Pink",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970635642,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#2 Beige",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970668410,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#3 Gold",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970701178,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#4 Silver",
+        "price": 3,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Card Ace": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 55870413799802,
+      "product": "Vintage Treasures - Midi Charm",
+      "vtitle": "#4 Ace Card",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 55870413799802,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#4 Ace Card",
+        "price": 2,
+        "score": 6
+      }
+    ]
+  },
+  "Gold Coil": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Coin": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 55870534287738,
+      "product": "Pink cloud - Midi Charm",
+      "vtitle": "#3 Flower Coin",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Cross": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Filigree": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Goblet": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Guitar": {
+    "price": 5,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56524533956986,
+        "product": "The Harmony - Midi Charm",
+        "vtitle": "#1 Guitar",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Infinity": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718080442746,
+      "product": "Infinity - Midi Charm",
+      "vtitle": "Infinity gold (1 pc)",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718080442746,
+        "product": "Infinity - Midi Charm",
+        "vtitle": "Infinity gold (1 pc)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Key": {
+    "price": 5,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 55870471471482,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#2 Ornate Key (Midi)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870471504250,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#3 Ornate Key (Grande)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870408589690,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#2 Key (Small)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870413865338,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#6 Key (Big)",
+        "price": 2,
+        "score": 2
+      }
+    ]
+  },
+  "Gold Medallion": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Music": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56524534022522,
+      "product": "The Harmony - Midi Charm",
+      "vtitle": "#3 Musical Note",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56524534022522,
+        "product": "The Harmony - Midi Charm",
+        "vtitle": "#3 Musical Note",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Music Clef": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56524533989754,
+      "product": "The Harmony - Midi Charm",
+      "vtitle": "#2 Treble Clef",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56524533989754,
+        "product": "The Harmony - Midi Charm",
+        "vtitle": "#2 Treble Clef",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56524534022522,
+        "product": "The Harmony - Midi Charm",
+        "vtitle": "#3 Musical Note",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Racket": {
+    "price": 5,
+    "category": "gold",
+    "match": null,
+    "candidates": [
+      {
+        "id": 55870476353914,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#7 Tennis Racket (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870408360314,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#1 Tennis Racket",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Gold Ring": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718082769274,
+      "product": "Spring Petal - Midi Charm",
+      "vtitle": "Gold/White",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718082769274,
+        "product": "Spring Petal - Midi Charm",
+        "vtitle": "Gold/White",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56718082802042,
+        "product": "Spring Petal - Midi Charm",
+        "vtitle": "Green",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56718083359098,
+        "product": "Spring Petal - Midi Charm",
+        "vtitle": "Purple",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Scales": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Spiral": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Violin": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56524534055290,
+      "product": "The Harmony - Midi Charm",
+      "vtitle": "#4 Violin",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56524534055290,
+        "product": "The Harmony - Midi Charm",
+        "vtitle": "#4 Violin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Gold Cowrie Shell": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Nautilus Shell": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Shell": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Gemstone": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Pearl": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 55870503584122,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503584122,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364352890,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364385658,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 2",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Gold Seahorse": {
+    "price": 3,
+    "category": "gold",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Letter A": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152234362,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / A / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter B": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152267130,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / B / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter C": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152299898,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / C / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter D": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152332666,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / D / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter E": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152365434,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / E / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter F": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152398202,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / F / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter G": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152430970,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / G / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter H": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152463738,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / H / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter I": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152496506,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / I / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter J": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152529274,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / J / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter K": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152562042,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / K / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter L": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152594810,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / L / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter M": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152627578,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / M / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter N": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152660346,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / N / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter O": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152693114,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / O / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter P": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152725882,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / P / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter Q": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152758650,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / Q / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter R": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152791418,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / R / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter S": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152824186,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / S / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter T": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152856954,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / T / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter U": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152889722,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / U / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter V": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152922490,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / V / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter W": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152955258,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / W / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter X": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028152988026,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / X / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter Y": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028153020794,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / Y / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Letter Z": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56028153053562,
+      "product": "Letters / Initials",
+      "vtitle": "Silver / Z / Please write down the letter sequence in the checkout note",
+      "price": 1
+    },
+    "candidates": []
+  },
+  "Silver Moon": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Silver Planet": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Sun": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56014459765114,
+      "product": "Sunstone - Grande Charm",
+      "vtitle": "Square Nude Marble",
+      "price": 3,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014459765114,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Nude Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014459797882,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Gold Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530385274,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#1 Light yellow sun",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530418042,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#2 Black sun",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Star": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Silver Heart": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56014822670714,
+      "product": "The Amulet Red - Grande / Midi Charm",
+      "vtitle": "Red heart (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014822670714,
+        "product": "The Amulet Red - Grande / Midi Charm",
+        "vtitle": "Red heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536086906,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#1 Black Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536119674,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#2 Red Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870471438714,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#1 Heart Pin (Grande)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Rose": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56450815623546,
+      "product": "Pink Blossom - Grande Charm",
+      "vtitle": "Pink Rose Cameo",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870490378618,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#3 Gold lead resin rose (Grande)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014876017018,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#6 White rose (Midi)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870432903546,
+        "product": "Lover Girl - Midi / Grande Charm",
+        "vtitle": "Rose (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Bow": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014865072506,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#4 Silver Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56014865105274,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#5 Gold Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507221370,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Bow 1 (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507254138,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Heart 1 (Grande)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Silver Angel": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56718086111610,
+      "product": "Cherub Muse - Midi Charm",
+      "vtitle": "#2 Angel Cherub",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718086111610,
+        "product": "Cherub Muse - Midi Charm",
+        "vtitle": "#2 Angel Cherub",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Leopard": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56014812348794,
+      "product": "Leopard - Midi Charm",
+      "vtitle": "Silver",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014812348794,
+        "product": "Leopard - Midi Charm",
+        "vtitle": "Silver",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014812316026,
+        "product": "Leopard - Midi Charm",
+        "vtitle": "Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Ballerina": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Ballet Shoes": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870444044666,
+      "product": "Girl's daydream - Midi Charm",
+      "vtitle": "#1 Ballet Shoes",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 55870444044666,
+        "product": "Girl's daydream - Midi Charm",
+        "vtitle": "#1 Ballet Shoes",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 55870444077434,
+        "product": "Girl's daydream - Midi Charm",
+        "vtitle": "#2 Ballet Dress",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870444110202,
+        "product": "Girl's daydream - Midi Charm",
+        "vtitle": "#3 Ballet Dress",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Boot": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56828922823034,
+      "product": "American cowgirl boot - Grande Charm",
+      "vtitle": "American cowgirl boot",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56828922823034,
+        "product": "American cowgirl boot - Grande Charm",
+        "vtitle": "American cowgirl boot",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870471569786,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#6 Cowboy Boots (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Bow Arrow": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56014865072506,
+      "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+      "vtitle": "#4 Silver Bow and Arrow (Midi)",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 56014865072506,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#4 Silver Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56014865105274,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#5 Gold Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56014864974202,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#1 White Cupid (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014865006970,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#2 Gold Cupid (Grande)",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Silver Branch": {
+    "price": 5,
+    "category": "silver",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56532970602874,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#1 Pink",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970635642,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#2 Beige",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970668410,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#3 Gold",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56532970701178,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#4 Silver",
+        "price": 3,
+        "score": 3
+      }
+    ]
+  },
+  "Silver Cards": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Coin": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870534287738,
+      "product": "Pink cloud - Midi Charm",
+      "vtitle": "#3 Flower Coin",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Dress": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870413832570,
+      "product": "Vintage Treasures - Midi Charm",
+      "vtitle": "#5 Mini Dress",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870413832570,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#5 Mini Dress",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870444077434,
+        "product": "Girl's daydream - Midi Charm",
+        "vtitle": "#2 Ballet Dress",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870444110202,
+        "product": "Girl's daydream - Midi Charm",
+        "vtitle": "#3 Ballet Dress",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Fan": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": [
+      {
+        "id": 55870490345850,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#1 Fan (Midi)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Silver Key": {
+    "price": 5,
+    "category": "silver",
+    "match": null,
+    "candidates": [
+      {
+        "id": 55870471471482,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#2 Ornate Key (Midi)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870471504250,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#3 Ornate Key (Grande)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870408589690,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#2 Key (Small)",
+        "price": 2,
+        "score": 2
+      },
+      {
+        "id": 55870413865338,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#6 Key (Big)",
+        "price": 2,
+        "score": 2
+      }
+    ]
+  },
+  "Silver Mirror": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56014822605178,
+      "product": "The Amulet Red - Grande / Midi Charm",
+      "vtitle": "Silver mirror (Grande)",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014822605178,
+        "product": "The Amulet Red - Grande / Midi Charm",
+        "vtitle": "Silver mirror (Grande)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Pin Heart": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870471438714,
+      "product": "Vintage Treasures - Midi / Grande Charm",
+      "vtitle": "#1 Heart Pin (Grande)",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 55870471438714,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#1 Heart Pin (Grande)",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56524526911866,
+        "product": "Pink candy - Midi Charm",
+        "vtitle": "#1 Pink heart",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56524526944634,
+        "product": "Pink candy - Midi Charm",
+        "vtitle": "#2 Pink heart",
+        "price": 2,
+        "score": 6
+      },
+      {
+        "id": 56289012973946,
+        "product": "Porcelain Hearts - Midi Charm",
+        "vtitle": "Pink (random pick of 1 pc)",
+        "price": 2,
+        "score": 6
+      }
+    ]
+  },
+  "Silver Racket": {
+    "price": 5,
+    "category": "silver",
+    "match": null,
+    "candidates": [
+      {
+        "id": 55870476353914,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#7 Tennis Racket (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870408360314,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#1 Tennis Racket",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Silver Scales": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Nautilus Shell": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Silver Shell": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Silver Gemstone": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Pearl": {
+    "price": 3,
+    "category": "silver",
+    "match": {
+      "id": 55870503584122,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503584122,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364352890,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364385658,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 2",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Colourful Heart": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014822670714,
+      "product": "The Amulet Red - Grande / Midi Charm",
+      "vtitle": "Red heart (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014822670714,
+        "product": "The Amulet Red - Grande / Midi Charm",
+        "vtitle": "Red heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536086906,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#1 Black Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56524536119674,
+        "product": "Rouge - Grande / Midi Charm",
+        "vtitle": "#2 Red Sacred Heart (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870471438714,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#1 Heart Pin (Grande)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Porcelain Heart": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56289009828218,
+      "product": "Porcelain Hearts - Midi Charm",
+      "vtitle": "Blue (random pick of 1 pc)",
+      "price": 2,
+      "score": 7
+    },
+    "candidates": [
+      {
+        "id": 56289009828218,
+        "product": "Porcelain Hearts - Midi Charm",
+        "vtitle": "Blue (random pick of 1 pc)",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56289012973946,
+        "product": "Porcelain Hearts - Midi Charm",
+        "vtitle": "Pink (random pick of 1 pc)",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56289013006714,
+        "product": "Porcelain Hearts - Midi Charm",
+        "vtitle": "Green (random pick of 1 pc)",
+        "price": 2,
+        "score": 7
+      },
+      {
+        "id": 56289013039482,
+        "product": "Porcelain Hearts - Midi Charm",
+        "vtitle": "Red (random pick of 1 pc)",
+        "price": 2,
+        "score": 7
+      }
+    ]
+  },
+  "Colourful Cloisonne": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Daisy": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Flower": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014426505594,
+      "product": "Aurora - Grande / Midi Charm",
+      "vtitle": "Gold flower",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014426505594,
+        "product": "Aurora - Grande / Midi Charm",
+        "vtitle": "Gold flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534254970,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#2 Pink Flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Lily": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Plumeria": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014876049786,
+      "product": "Birds of the Feather - Grande / Midi Charm",
+      "vtitle": "#7 White Enamel Plumeria (Grande)",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014876049786,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#7 White Enamel Plumeria (Grande)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Rose": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56450815623546,
+      "product": "Pink Blossom - Grande Charm",
+      "vtitle": "Pink Rose Cameo",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870490378618,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#3 Gold lead resin rose (Grande)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014876017018,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#6 White rose (Midi)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870432903546,
+        "product": "Lover Girl - Midi / Grande Charm",
+        "vtitle": "Rose (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Tulip": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Bow": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014865072506,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#4 Silver Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56014865105274,
+        "product": "The Amor & Arrow Reliquary - Grande / Midi Charm",
+        "vtitle": "#5 Gold Bow and Arrow (Midi)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507221370,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Bow 1 (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 55870507254138,
+        "product": "Heart & Bow - Mini / Grande Charm",
+        "vtitle": "Heart 1 (Grande)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Colourful Cherry": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56524529467770,
+      "product": "Pink candy - Midi Charm",
+      "vtitle": "#5 Cherry",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56524529467770,
+        "product": "Pink candy - Midi Charm",
+        "vtitle": "#5 Cherry",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Chili": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Pomegranate": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Strawberry": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56524529435002,
+      "product": "Pink candy - Midi Charm",
+      "vtitle": "#4 Strawberry",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56524529435002,
+        "product": "Pink candy - Midi Charm",
+        "vtitle": "#4 Strawberry",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Boot": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56828922823034,
+      "product": "American cowgirl boot - Grande Charm",
+      "vtitle": "American cowgirl boot",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56828922823034,
+        "product": "American cowgirl boot - Grande Charm",
+        "vtitle": "American cowgirl boot",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870471569786,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#6 Cowboy Boots (Midi)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Card Ace": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 55870413799802,
+      "product": "Vintage Treasures - Midi Charm",
+      "vtitle": "#4 Ace Card",
+      "price": 2,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 55870413799802,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#4 Ace Card",
+        "price": 2,
+        "score": 6
+      }
+    ]
+  },
+  "Colourful Card Flower": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014426505594,
+      "product": "Aurora - Grande / Midi Charm",
+      "vtitle": "Gold flower",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014426505594,
+        "product": "Aurora - Grande / Midi Charm",
+        "vtitle": "Gold flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870413799802,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#4 Ace Card",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534254970,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#2 Pink Flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Card Suit": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 55870413799802,
+      "product": "Vintage Treasures - Midi Charm",
+      "vtitle": "#4 Ace Card",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870413799802,
+        "product": "Vintage Treasures - Midi Charm",
+        "vtitle": "#4 Ace Card",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Card Sun": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014459765114,
+      "product": "Sunstone - Grande Charm",
+      "vtitle": "Square Nude Marble",
+      "price": 3,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014459765114,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Nude Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56014459797882,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Gold Marble",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530385274,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#1 Light yellow sun",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56524530418042,
+        "product": "Solaris collection - Midi Charm",
+        "vtitle": "#2 Black sun",
+        "price": 3,
+        "score": 4
+      }
+    ]
+  },
+  "Colourful Diamond": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Eye": {
+    "price": 5,
+    "category": "colourful",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014807892346,
+        "product": "All sense - Grande Charm",
+        "vtitle": "#2 Eye - Orange Gold",
+        "price": 3,
+        "score": 2
+      },
+      {
+        "id": 56450808349050,
+        "product": "Evil eye - Midi Charm",
+        "vtitle": "Evil eye",
+        "price": 2,
+        "score": 2
+      }
+    ]
+  },
+  "Colourful Lips": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Ornament": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": []
+  },
+  "Colourful Tooth": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56014807925114,
+      "product": "All sense - Grande Charm",
+      "vtitle": "#3 Tooth - Blue Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014807925114,
+        "product": "All sense - Grande Charm",
+        "vtitle": "#3 Tooth - Blue Gold",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Colourful Shell": {
+    "price": 3,
+    "category": "colourful",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Colourful Gem": {
+    "price": 3,
+    "category": "colourful",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56286817091962,
+        "product": "Zodiac Signs",
+        "vtitle": "Gemini: May 21 – June 20 / Gold",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Star": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Moon": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 55870398005626,
+      "product": "Moon & Star Stones - Midi Charm",
+      "vtitle": "Moon / #1",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402396538,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #2",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402429306,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #3",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870402462074,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #4",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Flower": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56014426505594,
+      "product": "Aurora - Grande / Midi Charm",
+      "vtitle": "Gold flower",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014426505594,
+        "product": "Aurora - Grande / Midi Charm",
+        "vtitle": "Gold flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534254970,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#2 Pink Flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Pearl Bow": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 55870503584122,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503584122,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364352890,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364385658,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 2",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Angel": {
+    "price": 5,
+    "category": "unique",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56718086111610,
+        "product": "Cherub Muse - Midi Charm",
+        "vtitle": "#2 Angel Cherub",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Butterfly": {
+    "price": 5,
+    "category": "unique",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56014875984250,
+        "product": "Birds of the Feather - Grande / Midi Charm",
+        "vtitle": "#5 Butterfly (Grande)",
+        "price": 2,
+        "score": 3
+      },
+      {
+        "id": 56014467236218,
+        "product": "Charms of whimsy - Grande / Midi Charm",
+        "vtitle": "#1 Butterfly (Grande)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Dog": {
+    "price": 3,
+    "category": "unique",
+    "match": null,
+    "candidates": []
+  },
+  "Natural Rabbit": {
+    "price": 3,
+    "category": "unique",
+    "match": null,
+    "candidates": []
+  },
+  "Natural Abalone Shell": {
+    "price": 5,
+    "category": "unique",
+    "match": {
+      "id": 56450830926202,
+      "product": "Abalone shell - Grande Charm",
+      "vtitle": "#1 Abalone shell",
+      "price": 3,
+      "score": 6
+    },
+    "candidates": [
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 6
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 6
+      },
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Scallop Shell": {
+    "price": 5,
+    "category": "unique",
+    "match": null,
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 3
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Shell": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Shell Cameo": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56718080835962,
+      "product": "Spiral Shell - Grande Charm",
+      "vtitle": "Gold",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718080835962,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56718081556858,
+        "product": "Spiral Shell - Grande Charm",
+        "vtitle": "Silver",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Abalone Pearl": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56450830926202,
+      "product": "Abalone shell - Grande Charm",
+      "vtitle": "#1 Abalone shell",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56450830926202,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#1 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450830958970,
+        "product": "Abalone shell - Grande Charm",
+        "vtitle": "#2 Abalone shell",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870503584122,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Baroque Pearl": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 55870503584122,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Grande)",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503584122,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Grande)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364352890,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 1",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870364385658,
+        "product": "Pearl Medley - Midi Charm",
+        "vtitle": "Pearl Medley 2",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Pearl": {
+    "price": 2,
+    "category": "unique",
+    "match": {
+      "id": 55870503616890,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Midi)",
+      "price": 2,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503616890,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Midi)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 56014467268986,
+        "product": "Charms of whimsy - Grande / Midi Charm",
+        "vtitle": "#2 Pearl (Midi)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 55870368940410,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Small)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 56820871397754,
+        "product": "Bloom & Blade - Midi Charm",
+        "vtitle": "#1 Melted pearl",
+        "price": 2,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Pearl Flower": {
+    "price": 2,
+    "category": "unique",
+    "match": {
+      "id": 55870503616890,
+      "product": "Pearl Bloom - Midi / Grande Charm",
+      "vtitle": "Pearl Bloom (Midi)",
+      "price": 2,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 55870503616890,
+        "product": "Pearl Bloom - Midi / Grande Charm",
+        "vtitle": "Pearl Bloom (Midi)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 56014467268986,
+        "product": "Charms of whimsy - Grande / Midi Charm",
+        "vtitle": "#2 Pearl (Midi)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 55870368940410,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Small)",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 56014426505594,
+        "product": "Aurora - Grande / Midi Charm",
+        "vtitle": "Gold flower",
+        "price": 2,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Amber": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56014435910010,
+      "product": "The Earth - Midi Charm",
+      "vtitle": "#2 Square Amber Marble",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014435910010,
+        "product": "The Earth - Midi Charm",
+        "vtitle": "#2 Square Amber Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56450831876474,
+        "product": "The Amber set - Midi Charm",
+        "vtitle": "#1 Amber stripe cabochon",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56450831909242,
+        "product": "The Amber set - Midi Charm",
+        "vtitle": "#2 Tortoiseshell button",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Marble": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56014459765114,
+      "product": "Sunstone - Grande Charm",
+      "vtitle": "Square Nude Marble",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014459765114,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Nude Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014459797882,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Gold Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014435877242,
+        "product": "The Earth - Midi Charm",
+        "vtitle": "#1 Square Teal Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014435910010,
+        "product": "The Earth - Midi Charm",
+        "vtitle": "#2 Square Amber Marble",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Sea Glass": {
+    "price": 2,
+    "category": "unique",
+    "match": {
+      "id": 56718084735354,
+      "product": "Sweet escape - Midi Charm",
+      "vtitle": "Cocktail glass",
+      "price": 2,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56718084735354,
+        "product": "Sweet escape - Midi Charm",
+        "vtitle": "Cocktail glass",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 55870348853626,
+        "product": "Sea Shells - Grande Charm",
+        "vtitle": "Shell (1 pc)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56027875180922,
+        "product": "Sea Shells - Midi Charm",
+        "vtitle": "Random pick (1 pc)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55868894216570,
+        "product": "Sea Shells - Mini Charm",
+        "vtitle": "Shell Mix (3 pcs)",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Stone": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56014459765114,
+      "product": "Sunstone - Grande Charm",
+      "vtitle": "Square Nude Marble",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014459765114,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Nude Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56014459797882,
+        "product": "Sunstone - Grande Charm",
+        "vtitle": "Square Gold Marble",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870368907642,
+        "product": "Pearl Stone - Midi Charm",
+        "vtitle": "Pearl Stone (Big)",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 55870398005626,
+        "product": "Moon & Star Stones - Midi Charm",
+        "vtitle": "Moon / #1",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Tortoiseshell": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56450831909242,
+      "product": "The Amber set - Midi Charm",
+      "vtitle": "#2 Tortoiseshell button",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56450831909242,
+        "product": "The Amber set - Midi Charm",
+        "vtitle": "#2 Tortoiseshell button",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Amethyst": {
+    "price": 3,
+    "category": "unique",
+    "match": null,
+    "candidates": []
+  },
+  "Natural Coral": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56532970602874,
+      "product": "Coral Branch - Grande Charm",
+      "vtitle": "#1 Pink",
+      "price": 3,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56532970602874,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#1 Pink",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56532970635642,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#2 Beige",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56532970668410,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#3 Gold",
+        "price": 3,
+        "score": 5
+      },
+      {
+        "id": 56532970701178,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#4 Silver",
+        "price": 3,
+        "score": 5
+      }
+    ]
+  },
+  "Natural Sea Pottery": {
+    "price": 2,
+    "category": "unique",
+    "match": {
+      "id": 55870348853626,
+      "product": "Sea Shells - Grande Charm",
+      "vtitle": "Shell (1 pc)",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870348853626,
+        "product": "Sea Shells - Grande Charm",
+        "vtitle": "Shell (1 pc)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56027875180922,
+        "product": "Sea Shells - Midi Charm",
+        "vtitle": "Random pick (1 pc)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55868894216570,
+        "product": "Sea Shells - Mini Charm",
+        "vtitle": "Shell Mix (3 pcs)",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014812479866,
+        "product": "Golden hour - Mini Charm",
+        "vtitle": "#1 Sea star",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Ceramic": {
+    "price": 2,
+    "category": "unique",
+    "match": {
+      "id": 56014410973562,
+      "product": "Blue oval ceramic - Mini Charm",
+      "vtitle": "1 pc",
+      "price": 2,
+      "score": 5
+    },
+    "candidates": [
+      {
+        "id": 56014410973562,
+        "product": "Blue oval ceramic - Mini Charm",
+        "vtitle": "1 pc",
+        "price": 2,
+        "score": 5
+      },
+      {
+        "id": 55870527537530,
+        "product": "Ceramic orbs - Mini Charm",
+        "vtitle": "Green/Purple",
+        "price": 1,
+        "score": 4
+      },
+      {
+        "id": 55870527570298,
+        "product": "Ceramic orbs - Mini Charm",
+        "vtitle": "Blue/Purple",
+        "price": 1,
+        "score": 4
+      },
+      {
+        "id": 55870527635834,
+        "product": "Ceramic orbs - Mini Charm",
+        "vtitle": "Yellow/White",
+        "price": 1,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Cloud": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 55870534222202,
+      "product": "Pink cloud - Midi Charm",
+      "vtitle": "#1 Pink Bow",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 55870534222202,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#1 Pink Bow",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534254970,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#2 Pink Flower",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870534287738,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#3 Flower Coin",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 55870539858298,
+        "product": "Pink cloud - Midi Charm",
+        "vtitle": "#4 Flower Coin",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Natural Pin": {
+    "price": 3,
+    "category": "unique",
+    "match": {
+      "id": 56718079623546,
+      "product": "Pink Floral Tile - Grande Charm",
+      "vtitle": "Random pick (1 pc)",
+      "price": 3,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56718079623546,
+        "product": "Pink Floral Tile - Grande Charm",
+        "vtitle": "Random pick (1 pc)",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56450815623546,
+        "product": "Pink Blossom - Grande Charm",
+        "vtitle": "Pink Rose Cameo",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 56532970602874,
+        "product": "Coral Branch - Grande Charm",
+        "vtitle": "#1 Pink",
+        "price": 3,
+        "score": 4
+      },
+      {
+        "id": 55870471438714,
+        "product": "Vintage Treasures - Midi / Grande Charm",
+        "vtitle": "#1 Heart Pin (Grande)",
+        "price": 2,
+        "score": 3
+      }
+    ]
+  },
+  "Natural Vial": {
+    "price": 5,
+    "category": "unique",
+    "match": null,
+    "candidates": []
+  },
+  "Gold Leopard": {
+    "price": 3,
+    "category": "gold",
+    "match": {
+      "id": 56014812348794,
+      "product": "Leopard - Midi Charm",
+      "vtitle": "Silver",
+      "price": 2,
+      "score": 4
+    },
+    "candidates": [
+      {
+        "id": 56014812348794,
+        "product": "Leopard - Midi Charm",
+        "vtitle": "Silver",
+        "price": 2,
+        "score": 4
+      },
+      {
+        "id": 56014812316026,
+        "product": "Leopard - Midi Charm",
+        "vtitle": "Gold",
+        "price": 2,
+        "score": 4
+      }
+    ]
+  },
+  "Silver Swimsuit": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Silver Handle": {
+    "price": 3,
+    "category": "silver",
+    "match": null,
+    "candidates": []
+  },
+  "Natural Column": {
+    "price": 3,
+    "category": "unique",
+    "match": null,
+    "candidates": []
+  }
+}

@@ -26,9 +26,38 @@ export const setToken = (t) => {
   }
 }
 
-const authHeaders = () => ({
+/** True when running embedded inside Shopify Admin (App Bridge context). */
+export const isShopifyEmbedded = () =>
+  typeof window !== 'undefined' && window.__charmeEmbedded === true
+
+/** Wait briefly for the App Bridge CDN script to define window.shopify. */
+async function waitForAppBridge(ms = 4000) {
+  const start = Date.now()
+  while (Date.now() - start < ms) {
+    if (window.shopify?.idToken) return true
+    await new Promise((r) => setTimeout(r, 50))
+  }
+  return !!window.shopify?.idToken
+}
+
+/**
+ * Bearer credential for admin writes. Inside Shopify Admin we use the fresh
+ * App Bridge session token (JWT the backend verifies with the app secret);
+ * otherwise we fall back to the manually-entered ADMIN_TOKEN.
+ */
+async function bearer() {
+  if (isShopifyEmbedded()) {
+    await waitForAppBridge()
+    try {
+      if (window.shopify?.idToken) return await window.shopify.idToken()
+    } catch { /* fall through to manual token */ }
+  }
+  return getToken()
+}
+
+const authHeaders = async () => ({
   'content-type': 'application/json',
-  authorization: `Bearer ${getToken()}`,
+  authorization: `Bearer ${await bearer()}`,
 })
 
 async function handle(res) {
@@ -46,20 +75,20 @@ export async function fetchCatalog() {
   return handle(res)
 }
 
-export const addCharms = (charms) =>
-  fetch(url('/api/admin/charms'), { method: 'POST', headers: authHeaders(), body: JSON.stringify({ charms }) }).then(handle)
+export const addCharms = async (charms) =>
+  handle(await fetch(url('/api/admin/charms'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify({ charms }) }))
 
-export const patchCharm = (id, patch) =>
-  fetch(url('/api/admin/charms'), { method: 'PATCH', headers: authHeaders(), body: JSON.stringify({ id, ...patch }) }).then(handle)
+export const patchCharm = async (id, patch) =>
+  handle(await fetch(url('/api/admin/charms'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify({ id, ...patch }) }))
 
-export const deleteCharm = (id) =>
-  fetch(url('/api/admin/charms'), { method: 'DELETE', headers: authHeaders(), body: JSON.stringify({ id }) }).then(handle)
+export const deleteCharm = async (id) =>
+  handle(await fetch(url('/api/admin/charms'), { method: 'DELETE', headers: await authHeaders(), body: JSON.stringify({ id }) }))
 
-export const addProduct = (product) =>
-  fetch(url('/api/admin/products'), { method: 'POST', headers: authHeaders(), body: JSON.stringify(product) }).then(handle)
+export const addProduct = async (product) =>
+  handle(await fetch(url('/api/admin/products'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(product) }))
 
-export const deleteProduct = (id) =>
-  fetch(url('/api/admin/products'), { method: 'DELETE', headers: authHeaders(), body: JSON.stringify({ id }) }).then(handle)
+export const deleteProduct = async (id) =>
+  handle(await fetch(url('/api/admin/products'), { method: 'DELETE', headers: await authHeaders(), body: JSON.stringify({ id }) }))
 
-export const setOverride = (scope, refId, patch) =>
-  fetch(url('/api/admin/override'), { method: 'POST', headers: authHeaders(), body: JSON.stringify({ scope, refId, ...patch }) }).then(handle)
+export const setOverride = async (scope, refId, patch) =>
+  handle(await fetch(url('/api/admin/override'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify({ scope, refId, ...patch }) }))

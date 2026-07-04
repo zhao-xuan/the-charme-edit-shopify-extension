@@ -13,6 +13,8 @@
  *     layout JSON ride along as line-item properties.
  */
 
+import baseProducts from './variantmap-products.generated.json'
+
 function token() {
   return 'cd_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
 }
@@ -34,11 +36,21 @@ async function uploadProof(uploadEndpoint, dataUrl, designToken) {
   }
 }
 
-/** Resolve the Shopify variant id for the chosen base product + colour. */
+/** Resolve the Shopify variant id for the chosen base case (model × gel/colour). */
 function resolveProductVariant(variantMap, payload) {
   const p = variantMap.products || {}
-  // try "<productId>:<colorId>" first, then "<productId>"
-  return p[`${payload.product.id}:${payload.product.colorId}`] || p[payload.product.id] || null
+  const model = payload.product.id
+  const gel = payload.product.gelId || payload.product.colorId
+  // Base case product's variants are keyed "<model>:<gel>" (glitter|white|black).
+  // Fall back to caseColour, then a bare model, then the "other" (Android/misc)
+  // row for the same gel.
+  return (
+    p[`${model}:${gel}`] ||
+    p[`${model}:${payload.product.colorId}`] ||
+    p[model] ||
+    p[`other:${gel}`] ||
+    null
+  )
 }
 
 /**
@@ -82,6 +94,9 @@ export function createCartHandler(cfg) {
 
 function createNativeCartHandler(cfg) {
   const variantMap = cfg.variantMap || { products: {}, charms: {} }
+  // The base-case variant map (model × gel → variant) is bundled, so the
+  // merchant needs no products config; any cfg.variantMap.products still wins.
+  variantMap.products = { ...baseProducts, ...(variantMap.products || {}) }
   const routesRoot = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/'
   const addUrl = `${routesRoot}cart/add.js`.replace('//', '/')
 
@@ -102,6 +117,9 @@ function createNativeCartHandler(cfg) {
     // so the merchant can get away with a couple of generic "Charm" variants
     // instead of one per charm.
     const charmVariant = (c) => {
+      // The charm carries its mapped Shopify variant id straight from the
+      // catalogue (charm.shopifyVariantId), so no per-charm merchant map needed.
+      if (c.shopifyVariantId) return c.shopifyVariantId
       const byId = (variantMap.charms || {})[c.charmId]
       if (byId) return byId
       const byPrice = variantMap.charmByPrice || {}

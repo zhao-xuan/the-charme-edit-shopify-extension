@@ -3,22 +3,31 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import { trayGroups, groupByCollection } from '../lib/catalog'
 
 function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
+  const unavailable = !!charm.unavailable
   const cls =
-    'charm-card' + (compact ? ' charm-card--compact' : '') + (row ? ' charm-card--row' : '')
+    'charm-card' +
+    (compact ? ' charm-card--compact' : '') +
+    (row ? ' charm-card--row' : '') +
+    (unavailable ? ' charm-card--disabled' : '')
   return (
     <div
       className={cls}
       role="button"
-      tabIndex={0}
-      onPointerDown={(e) => onPointerDown?.(charm, e)}
-      onClick={() => onActivate?.(charm)}
-      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onActivate?.(charm)}
+      tabIndex={unavailable ? -1 : 0}
+      aria-disabled={unavailable || undefined}
+      onPointerDown={unavailable ? undefined : (e) => onPointerDown?.(charm, e)}
+      onClick={unavailable ? undefined : () => onActivate?.(charm)}
+      onKeyDown={(e) =>
+        !unavailable && (e.key === 'Enter' || e.key === ' ') && onActivate?.(charm)
+      }
       title={
-        charm.type === 3
-          ? 'Tap to scatter into the gaps'
-          : compact
-            ? 'Tap to add — then drag it on your case'
-            : 'Drag onto your piece — or click to add'
+        unavailable
+          ? 'Currently unavailable'
+          : charm.type === 3
+            ? 'Tap to scatter into the gaps'
+            : compact
+              ? 'Tap to add — then drag it on your case'
+              : 'Drag onto your piece — or click to add'
       }
     >
       <div className="thumb">
@@ -26,7 +35,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
       </div>
       {!compact && <div className="name">{charm.name}</div>}
       <div className="meta meta--price">
-        <span>£{charm.price.toFixed(2)}</span>
+        <span>{unavailable ? 'Unavailable' : `£${charm.price.toFixed(2)}`}</span>
       </div>
     </div>
   )

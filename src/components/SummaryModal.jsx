@@ -111,10 +111,12 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         color: color.label,
         caseColour: { id: color.caseId || color.id, label: color.caseLabel || color.label },
         gelColour: color.gelId ? { id: color.gelId, label: color.gelLabel } : null,
+        gelId: color.gelId || null,
         basePrice: product.basePrice,
       },
       charms: placed.map((c) => ({
         charmId: c.charmId,
+        shopifyVariantId: c.shopifyVariantId || null,
         type: c.type,
         category: c.category,
         name: c.name,

@@ -12,7 +12,7 @@ const cors = {
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
 export async function onRequestPost({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = await request.json().catch(() => null)
   const items = body?.charms || (body ? [body] : [])
   if (!items.length) return bad('no charms')
@@ -40,7 +40,7 @@ export async function onRequestPost({ request, env }) {
 }
 
 export async function onRequestPatch({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const { id, price, hidden } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
   if (price != null) await env.DB.prepare('UPDATE charms SET price = ? WHERE id = ?').bind(price, id).run()
@@ -49,7 +49,7 @@ export async function onRequestPatch({ request, env }) {
 }
 
 export async function onRequestDelete({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const { id } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
   const row = await env.DB.prepare('SELECT image_key FROM charms WHERE id = ?').bind(id).first()

@@ -44,6 +44,7 @@ import {
   deleteProduct,
   fetchCatalog,
   getToken,
+  isShopifyEmbedded,
   patchCharm,
   setToken,
 } from '../lib/adminApi'
@@ -865,6 +866,7 @@ function BatchExtractTab({ draft, set }) {
 // ---------------------------------------------------------------------------
 function CloudTab({ draft, set }) {
   const { message, modal } = App.useApp()
+  const embedded = isShopifyEmbedded()
   const [token, setTokenState] = useState(() => getToken())
   const [loading, setLoading] = useState(false)
   const [publishing, setPublishing] = useState(false)
@@ -886,7 +888,7 @@ function CloudTab({ draft, set }) {
   const saveToken = (t) => { setTokenState(t); setToken(t) }
 
   const publish = async () => {
-    if (!getToken()) return message.warning('Enter the admin token first.')
+    if (!embedded && !getToken()) return message.warning('Enter the admin token first.')
     const charms = draft.customCharms || []
     const products = draft.customProducts || []
     if (!charms.length && !products.length) return message.info('No local drafts to publish — add charms/products first.')
@@ -934,20 +936,26 @@ function CloudTab({ draft, set }) {
         message="Cloudflare-backed catalogue (D1 + KV)"
         description="Products, charms, images and prices live in Cloudflare and load on the storefront automatically. Enter the admin token to publish or edit. Duplicates of existing gold charms were imported hidden — reveal them here if you want them shown."
       />
-      <Card size="small" title="Admin token">
+      <Card size="small" title={embedded ? 'Signed in via Shopify Admin' : 'Admin token'}>
         <Space wrap>
-          <Input.Password
-            value={token}
-            onChange={(e) => saveToken(e.target.value)}
-            placeholder="Paste the admin token"
-            style={{ width: 320 }}
-          />
+          {!embedded && (
+            <Input.Password
+              value={token}
+              onChange={(e) => saveToken(e.target.value)}
+              placeholder="Paste the admin token"
+              style={{ width: 320 }}
+            />
+          )}
           <Button icon={<ReloadOutlined />} onClick={refresh} loading={loading}>Refresh</Button>
           <Button type="primary" icon={<CloudUploadOutlined />} onClick={publish} loading={publishing}>
             Publish local drafts
           </Button>
         </Space>
-        <p className="hint" style={{ marginTop: 8 }}>The token guards writes and is stored only in this browser.</p>
+        <p className="hint" style={{ marginTop: 8 }}>
+          {embedded
+            ? 'Writes are authorised automatically by your Shopify Admin session.'
+            : 'The token guards writes and is stored only in this browser.'}
+        </p>
       </Card>
 
       <Card size="small" title={`Published products (${data.products.length})`}>

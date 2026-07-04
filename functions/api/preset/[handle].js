@@ -32,7 +32,7 @@ export async function onRequestGet({ params, env }) {
 }
 
 export async function onRequestPost({ request, params, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const handle = String(params.handle || '').trim()
   if (!handle) return bad('missing handle', 400)
   if (!env.DB) return bad('no database bound', 500)

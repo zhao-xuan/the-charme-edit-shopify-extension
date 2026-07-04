@@ -11,7 +11,7 @@ const cors = {
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
 export async function onRequestPost({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const p = (await request.json().catch(() => null)) || {}
   if (!p.src) return bad('product needs a body image')
   const id = p.id || makeId('prod', p.name || 'product')
@@ -29,7 +29,7 @@ export async function onRequestPost({ request, env }) {
 }
 
 export async function onRequestDelete({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const { id } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
   const row = await env.DB.prepare('SELECT image_key FROM products WHERE id = ?').bind(id).first()

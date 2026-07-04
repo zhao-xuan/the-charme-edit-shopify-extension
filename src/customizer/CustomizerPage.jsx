@@ -350,6 +350,7 @@ export default function CustomizerPage({
   const makePlaced = useCallback((charm, pos) => ({
     uid: uid(),
     charmId: charm.id,
+    shopifyVariantId: charm.shopifyVariantId,
     type: charm.type,
     category: charm.category,
     name: charm.name,

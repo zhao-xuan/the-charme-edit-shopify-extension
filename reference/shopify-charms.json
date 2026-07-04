@@ -1,0 +1,2401 @@
+[
+  {
+    "title": "Letters / Initials",
+    "handle": "letters-initials",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9282.jpg?v=1782262114"
+    ],
+    "variants": [
+      {
+        "id": 56027931935098,
+        "title": "Gold / A / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027931967866,
+        "title": "Gold / B / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027932033402,
+        "title": "Gold / C / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027932066170,
+        "title": "Gold / D / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027938390394,
+        "title": "Gold / E / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945009530,
+        "title": "Gold / F / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945042298,
+        "title": "Gold / G / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945075066,
+        "title": "Gold / H / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945107834,
+        "title": "Gold / I / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945140602,
+        "title": "Gold / J / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945173370,
+        "title": "Gold / K / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945206138,
+        "title": "Gold / L / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945238906,
+        "title": "Gold / M / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945271674,
+        "title": "Gold / N / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945304442,
+        "title": "Gold / O / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945337210,
+        "title": "Gold / P / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945369978,
+        "title": "Gold / Q / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945402746,
+        "title": "Gold / R / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945435514,
+        "title": "Gold / S / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945468282,
+        "title": "Gold / T / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945501050,
+        "title": "Gold / U / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945533818,
+        "title": "Gold / V / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945566586,
+        "title": "Gold / W / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945599354,
+        "title": "Gold / X / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945632122,
+        "title": "Gold / Y / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56027945664890,
+        "title": "Gold / Z / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152234362,
+        "title": "Silver / A / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152267130,
+        "title": "Silver / B / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152299898,
+        "title": "Silver / C / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152332666,
+        "title": "Silver / D / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152365434,
+        "title": "Silver / E / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152398202,
+        "title": "Silver / F / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152430970,
+        "title": "Silver / G / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152463738,
+        "title": "Silver / H / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152496506,
+        "title": "Silver / I / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152529274,
+        "title": "Silver / J / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152562042,
+        "title": "Silver / K / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152594810,
+        "title": "Silver / L / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152627578,
+        "title": "Silver / M / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152660346,
+        "title": "Silver / N / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152693114,
+        "title": "Silver / O / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152725882,
+        "title": "Silver / P / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152758650,
+        "title": "Silver / Q / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152791418,
+        "title": "Silver / R / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152824186,
+        "title": "Silver / S / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152856954,
+        "title": "Silver / T / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152889722,
+        "title": "Silver / U / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152922490,
+        "title": "Silver / V / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152955258,
+        "title": "Silver / W / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028152988026,
+        "title": "Silver / X / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028153020794,
+        "title": "Silver / Y / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56028153053562,
+        "title": "Silver / Z / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Zodiac Signs",
+    "handle": "copy-birds-of-the-feather-grande-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9284.jpg?v=1782262144",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9011.jpg?v=1775344402",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8437.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C84C113B-D6E4-4FBD-B9A6-48FBDD13AFF2.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4E8CE32C-C618-4DEE-B725-7DE1ABB8EB38.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0A92E69A-3CAF-4E82-915C-6028C912A691.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/8DE14BA3-ED12-4056-94B6-412D23B825C2.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/72CBB9CC-7996-4912-A5CC-85DABC0FAD69.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/328BAE54-59B7-4612-9E72-1EE6128BA3AE.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2D7974F9-7527-437C-B5DB-EEF151C9189E.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BA90408F-67BF-4C3C-9915-ED2BEC04A507.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/45B06709-E7DB-4C84-AE6E-336418B036CA.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2C404442-44C3-40BC-A74D-798ED713BEF8.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/1F082754-77B3-4DED-96B3-0926EE782175.jpg?v=1775345799",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/1DB1004B-EA90-41E8-99F7-607601D0E648.jpg?v=1775345799"
+    ],
+    "variants": [
+      {
+        "id": 56286816960890,
+        "title": "Aquarius: January 20 – February 18 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4E8CE32C-C618-4DEE-B725-7DE1ABB8EB38.jpg?v=1775345799"
+      },
+      {
+        "id": 56286816993658,
+        "title": "Pisces: February 19 – March 2 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0A92E69A-3CAF-4E82-915C-6028C912A691.jpg?v=1775345799"
+      },
+      {
+        "id": 56286817026426,
+        "title": "Aries: March 21 – April 19 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/8DE14BA3-ED12-4056-94B6-412D23B825C2.jpg?v=1775345799"
+      },
+      {
+        "id": 56286817059194,
+        "title": "Taurus: April 20 – May 20 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/72CBB9CC-7996-4912-A5CC-85DABC0FAD69.jpg?v=1775345799"
+      },
+      {
+        "id": 56286817091962,
+        "title": "Gemini: May 21 – June 20 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/328BAE54-59B7-4612-9E72-1EE6128BA3AE.jpg?v=1775345799"
+      },
+      {
+        "id": 56286817124730,
+        "title": "Cancer: June 21 – July 22 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2D7974F9-7527-437C-B5DB-EEF151C9189E.jpg?v=1775345799"
+      },
+      {
+        "id": 56286822138234,
+        "title": "Leo: July 23 – August 22 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BA90408F-67BF-4C3C-9915-ED2BEC04A507.jpg?v=1775345799"
+      },
+      {
+        "id": 56286822171002,
+        "title": "Virgo: August 23 – September 22 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/45B06709-E7DB-4C84-AE6E-336418B036CA.jpg?v=1775345799"
+      },
+      {
+        "id": 56286822203770,
+        "title": "Libra: September 23 – October 22 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2C404442-44C3-40BC-A74D-798ED713BEF8.jpg?v=1775345799"
+      },
+      {
+        "id": 56286822236538,
+        "title": "Scorpio: October 23 – November 21 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/1F082754-77B3-4DED-96B3-0926EE782175.jpg?v=1775345799"
+      },
+      {
+        "id": 56286822269306,
+        "title": "Sagittarius: November 22 – December 21 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/1DB1004B-EA90-41E8-99F7-607601D0E648.jpg?v=1775345799"
+      },
+      {
+        "id": 56286816928122,
+        "title": "Capricorn: December 22 – January 19 / Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C84C113B-D6E4-4FBD-B9A6-48FBDD13AFF2.jpg?v=1775345799"
+      }
+    ]
+  },
+  {
+    "title": "Numbers",
+    "handle": "numbers",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9283.jpg?v=1782262084",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/FullSizeRender_e382e2c9-b3d2-4e4e-ab9a-7bc89c060cdc.heic?v=1778081004"
+    ],
+    "variants": [
+      {
+        "id": 56849746690426,
+        "title": "Gold / 0 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746723194,
+        "title": "Gold / 1 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746755962,
+        "title": "Gold / 2 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746788730,
+        "title": "Gold / 3 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746821498,
+        "title": "Gold / 4 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746854266,
+        "title": "Gold / 5 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746887034,
+        "title": "Gold / 6 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746919802,
+        "title": "Gold / 7 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849746952570,
+        "title": "Gold / 8 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      },
+      {
+        "id": 56849747476858,
+        "title": "Gold / 9 / Please write down the letter sequence in the checkout note",
+        "price": "1.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Mini filler crystals",
+    "handle": "copy-pink-blossom-branch-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6322.jpg?v=1771302466",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6323.jpg?v=1771302471",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8438.jpg?v=1775345972"
+    ],
+    "variants": [
+      {
+        "id": 56450822701434,
+        "title": "1 Ice Blue",
+        "price": "1.50",
+        "img": null
+      },
+      {
+        "id": 56450822734202,
+        "title": "2 Mint Aqua",
+        "price": "1.50",
+        "img": null
+      },
+      {
+        "id": 56450824634746,
+        "title": "3 Smoky Mix",
+        "price": "1.50",
+        "img": null
+      },
+      {
+        "id": 56450824667514,
+        "title": "4 Pink",
+        "price": "1.50",
+        "img": null
+      },
+      {
+        "id": 56450824700282,
+        "title": "5 Earth Stone",
+        "price": "1.50",
+        "img": null
+      },
+      {
+        "id": 56450824733050,
+        "title": "6 Pearl Cream",
+        "price": "1.50",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Sunstone - Grande Charm",
+    "handle": "copy-the-earth-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/7094889E-72D8-43F6-83E3-597347E4A173.jpg?v=1767763245",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2051.jpg?v=1777459949",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2052.jpg?v=1777459965"
+    ],
+    "variants": [
+      {
+        "id": 56014459765114,
+        "title": "Square Nude Marble",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2051.jpg?v=1777459949"
+      },
+      {
+        "id": 56014459797882,
+        "title": "Square Gold Marble",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2052.jpg?v=1777459965"
+      }
+    ]
+  },
+  {
+    "title": "The pressed bloom - Grande Charm",
+    "handle": "copy-golden-hour-mini-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/D3340345-4253-4FB1-B8BE-5C3866FEBFAA.jpg?v=1767763274",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4277.jpg?v=1779292688",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4278.jpg?v=1779292701",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4279.jpg?v=1779292713"
+    ],
+    "variants": [
+      {
+        "id": 56014816838010,
+        "title": "White",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4277.jpg?v=1779292688"
+      },
+      {
+        "id": 56014816870778,
+        "title": "Red",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4278.jpg?v=1779292701"
+      },
+      {
+        "id": 56014816903546,
+        "title": "Black",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4279.jpg?v=1779292713"
+      }
+    ]
+  },
+  {
+    "title": "All sense - Grande Charm",
+    "handle": "copy-charms-of-whimsy-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0A851C5C-6E33-4877-9E38-0163346ED8A5.jpg?v=1767763256",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4627.jpg?v=1767763260",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4232.jpg?v=1779285444",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4233.jpg?v=1779285493",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4234.jpg?v=1779285509"
+    ],
+    "variants": [
+      {
+        "id": 56014807859578,
+        "title": "#1 Lip - Red Gold",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4232.jpg?v=1779285444"
+      },
+      {
+        "id": 56014807892346,
+        "title": "#2 Eye - Orange Gold",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4233.jpg?v=1779285493"
+      },
+      {
+        "id": 56014807925114,
+        "title": "#3 Tooth - Blue Gold",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4234.jpg?v=1779285509"
+      }
+    ]
+  },
+  {
+    "title": "Blue Tile - Grande Charm",
+    "handle": "blue-tile-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9909.jpg?v=1771302069"
+    ],
+    "variants": [
+      {
+        "id": 55870426710394,
+        "title": "Random Pick (1 pcs)",
+        "price": "3.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Floral tile - Grande Charm",
+    "handle": "copy-pink-cloud-midi-charm-1",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9910.jpg?v=1771302089"
+    ],
+    "variants": [
+      {
+        "id": 56014400389498,
+        "title": "Random pick (1 Pc)",
+        "price": "3.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Pink Floral Tile - Grande Charm",
+    "handle": "pink-floral-tile",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6148.jpg?v=1775218572"
+    ],
+    "variants": [
+      {
+        "id": 56718079623546,
+        "title": "Random pick (1 pc)",
+        "price": "3.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Spiral Shell - Grande Charm",
+    "handle": "spiral-shell-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/93D9C598-4D8D-437E-B0FD-D0BBE9283C89.jpg?v=1774220750",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4307.jpg?v=1779293998",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4308.jpg?v=1779294056"
+    ],
+    "variants": [
+      {
+        "id": 56718080835962,
+        "title": "Gold",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4307.jpg?v=1779293998"
+      },
+      {
+        "id": 56718081556858,
+        "title": "Silver",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4308.jpg?v=1779294056"
+      }
+    ]
+  },
+  {
+    "title": "Pink Blossom - Grande Charm",
+    "handle": "copy-burgundy-ribbon-bow-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4325.jpg?v=1779295107"
+    ],
+    "variants": [
+      {
+        "id": 56450815623546,
+        "title": "Pink Rose Cameo",
+        "price": "3.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Abalone shell - Grande Charm",
+    "handle": "copy-pink-blossom-branch-grande-charm-1",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6325.jpg?v=1771302475",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8442.jpg?v=1775346452",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8441.jpg?v=1775346453",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4330.jpg?v=1779295372",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4331_b26dc7a1-1403-42d2-a6fe-f44375a0e7bf.jpg?v=1779295387"
+    ],
+    "variants": [
+      {
+        "id": 56450830926202,
+        "title": "#1 Abalone shell",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4330.jpg?v=1779295372"
+      },
+      {
+        "id": 56450830958970,
+        "title": "#2 Abalone shell",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4331_b26dc7a1-1403-42d2-a6fe-f44375a0e7bf.jpg?v=1779295387"
+      }
+    ]
+  },
+  {
+    "title": "Sea Shells - Grande Charm",
+    "handle": "sea-shells-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9914.jpg?v=1771302073"
+    ],
+    "variants": [
+      {
+        "id": 55870348853626,
+        "title": "Shell (1 pc)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Coral Branch - Grande Charm",
+    "handle": "coral-branch-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9533.jpg?v=1771302633",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4858C509-EF25-492D-A73E-497E8920C954.jpg?v=1777595604",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E0E93B1D-163D-4DE3-85CC-B5010D0BAC0E.jpg?v=1777595620",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4DC87447-D8EF-431B-9540-83D53ECF80B0.jpg?v=1777595635"
+    ],
+    "variants": [
+      {
+        "id": 56532970602874,
+        "title": "#1 Pink",
+        "price": "3.00",
+        "img": null
+      },
+      {
+        "id": 56532970635642,
+        "title": "#2 Beige",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4858C509-EF25-492D-A73E-497E8920C954.jpg?v=1777595604"
+      },
+      {
+        "id": 56532970668410,
+        "title": "#3 Gold",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E0E93B1D-163D-4DE3-85CC-B5010D0BAC0E.jpg?v=1777595620"
+      },
+      {
+        "id": 56532970701178,
+        "title": "#4 Silver",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4DC87447-D8EF-431B-9540-83D53ECF80B0.jpg?v=1777595635"
+      }
+    ]
+  },
+  {
+    "title": "Golden Moon - Grande Charm",
+    "handle": "moon-midi-charm-copy",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3219.jpg?v=1767763151",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/A09A2C08-5C75-4154-A042-11551F355F8C.jpg?v=1777372154",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1888.jpg?v=1777372171",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1889.jpg?v=1777372197"
+    ],
+    "variants": [
+      {
+        "id": 55870382047610,
+        "title": "Golden Moon 1",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/A09A2C08-5C75-4154-A042-11551F355F8C.jpg?v=1777372154"
+      },
+      {
+        "id": 55870382080378,
+        "title": "Golden Moon 2",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1888.jpg?v=1777372171"
+      },
+      {
+        "id": 55870382113146,
+        "title": "Golden Moon 3",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1889.jpg?v=1777372197"
+      }
+    ]
+  },
+  {
+    "title": "Silver Moon - Grande Charm",
+    "handle": "silver-moon-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/A899B5EE-6157-403F-A508-D4D938FFB495.jpg?v=1767763116",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4291.jpg?v=1779293155",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4292.jpg?v=1779293172",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4293_a6089c04-573f-4ad6-bc95-786747453e01.jpg?v=1779293211"
+    ],
+    "variants": [
+      {
+        "id": 55868867903866,
+        "title": "Silver Moon 1",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4291.jpg?v=1779293155"
+      },
+      {
+        "id": 55868867936634,
+        "title": "Silver Moon 2",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4292.jpg?v=1779293172"
+      },
+      {
+        "id": 55868867969402,
+        "title": "Silver Moon 3",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4293_a6089c04-573f-4ad6-bc95-786747453e01.jpg?v=1779293211"
+      }
+    ]
+  },
+  {
+    "title": "American cowgirl boot - Grande Charm",
+    "handle": "american-cowgirl-boot-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-0529.jpg?v=1776810995"
+    ],
+    "variants": [
+      {
+        "id": 56828922823034,
+        "title": "American cowgirl boot",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "The Amor & Arrow Reliquary\n- Grande / Midi Charm",
+    "handle": "copy-the-amulet-red-grande-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9376129E-B002-420E-963C-61F691CFB226.jpg?v=1779283831",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E7AB76F8-7A5B-450A-B95B-E8EC96F0EDAC.jpg?v=1779283831",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/05E200A8-CA2A-44F5-A3DE-89C856AB7F0D.jpg?v=1779283915",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4204.jpg?v=1779283929",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4205.jpg?v=1779283944",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4206.jpg?v=1779283964",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4207.jpg?v=1779283989",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4208.jpg?v=1779284005"
+    ],
+    "variants": [
+      {
+        "id": 56014864974202,
+        "title": "#1 White Cupid (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/05E200A8-CA2A-44F5-A3DE-89C856AB7F0D.jpg?v=1779283915"
+      },
+      {
+        "id": 56014865006970,
+        "title": "#2 Gold Cupid (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4204.jpg?v=1779283929"
+      },
+      {
+        "id": 56014865039738,
+        "title": "#3 Gold trumpet Cupid (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4205.jpg?v=1779283944"
+      },
+      {
+        "id": 56014865072506,
+        "title": "#4 Silver Bow and Arrow (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4206.jpg?v=1779283964"
+      },
+      {
+        "id": 56014865105274,
+        "title": "#5 Gold Bow and Arrow (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4207.jpg?v=1779283989"
+      },
+      {
+        "id": 56014839087482,
+        "title": "#6 Gold Leaf Wreath (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4208.jpg?v=1779284005"
+      }
+    ]
+  },
+  {
+    "title": "The Amulet Red - Grande / Midi Charm",
+    "handle": "copy-the-pressed-bloom-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E3DE30E8-C97A-42CF-8759-4041B39D2E75.jpg?v=1767763278",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/928D4E1C-E0F5-4C33-B2EA-98B8124C3011.jpg?v=1777372290",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1891.jpg?v=1777372304",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1892.jpg?v=1777372321"
+    ],
+    "variants": [
+      {
+        "id": 56014822605178,
+        "title": "Silver mirror (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/928D4E1C-E0F5-4C33-B2EA-98B8124C3011.jpg?v=1777372290"
+      },
+      {
+        "id": 56014822637946,
+        "title": "Chilli (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1891.jpg?v=1777372304"
+      },
+      {
+        "id": 56014822670714,
+        "title": "Red heart (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1892.jpg?v=1777372321"
+      }
+    ]
+  },
+  {
+    "title": "Rouge - Grande /  Midi Charm",
+    "handle": "copy-the-harmony-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2B036E9D-7D23-45A8-BE44-057674E8D928.jpg?v=1771302621",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6D6D994A-C649-4566-9BD0-783EF919C040.jpg?v=1771302626",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/FE4CC6DC-E004-4B64-BA3D-BE64DD9F4F07.jpg?v=1777371731",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3BA64205-81B0-4B1E-992B-B78B6CD2B0C1.jpg?v=1777371745",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4315.jpg?v=1779294899",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4317.jpg?v=1779294923"
+    ],
+    "variants": [
+      {
+        "id": 56524536086906,
+        "title": "#1 Black Sacred Heart (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/FE4CC6DC-E004-4B64-BA3D-BE64DD9F4F07.jpg?v=1777371731"
+      },
+      {
+        "id": 56524536119674,
+        "title": "#2 Red Sacred Heart (Grande)",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3BA64205-81B0-4B1E-992B-B78B6CD2B0C1.jpg?v=1777371745"
+      },
+      {
+        "id": 56524536152442,
+        "title": "#3 Gold Cupid (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4315.jpg?v=1779294899"
+      },
+      {
+        "id": 56524536185210,
+        "title": "#4 Silver Cupid (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4317.jpg?v=1779294923"
+      }
+    ]
+  },
+  {
+    "title": "Birds of the Feather - Grande / Midi Charm",
+    "handle": "birds-of-the-feather-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/DE2C1F28-160A-4839-8366-B26BCB3B5613.jpg?v=1767763195",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4142.jpg?v=1767763199",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4236.jpg?v=1779285816",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4237.jpg?v=1779285888",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4238.jpg?v=1779285930",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4239.jpg?v=1779285964",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4240.jpg?v=1779285980",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4241.jpg?v=1779285994",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4242.jpg?v=1779286009"
+    ],
+    "variants": [
+      {
+        "id": 55870490345850,
+        "title": "#1 Fan (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4236.jpg?v=1779285816"
+      },
+      {
+        "id": 55870491033978,
+        "title": "#2 Shell (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4237.jpg?v=1779285888"
+      },
+      {
+        "id": 55870490378618,
+        "title": "#3 Gold lead resin rose (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4238.jpg?v=1779285930"
+      },
+      {
+        "id": 55870490411386,
+        "title": "#4 Pillar (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4239.jpg?v=1779285964"
+      },
+      {
+        "id": 56014875984250,
+        "title": "#5 Butterfly (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4240.jpg?v=1779285980"
+      },
+      {
+        "id": 56014876017018,
+        "title": "#6 White rose (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4241.jpg?v=1779285994"
+      },
+      {
+        "id": 56014876049786,
+        "title": "#7 White Enamel Plumeria (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4242.jpg?v=1779286009"
+      }
+    ]
+  },
+  {
+    "title": "Pearl Bloom - Midi / Grande Charm",
+    "handle": "pearl-bloom-midi-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/87AAE5B0-4CFE-4D5F-84AC-3323298961C2.jpg?v=1767763203"
+    ],
+    "variants": [
+      {
+        "id": 55870503584122,
+        "title": "Pearl Bloom (Grande)",
+        "price": "3.00",
+        "img": null
+      },
+      {
+        "id": 55870503616890,
+        "title": "Pearl Bloom (Midi)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Charms of whimsy - Grande / Midi Charm",
+    "handle": "copy-sunstone-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BDAE1DAC-51AA-4FBC-B81D-C82943BB6EE9.jpg?v=1767763249",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4629.jpg?v=1767763253",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4215_f63d98f5-eb26-4b57-88a6-7278f3f674ef.jpg?v=1779284517",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4216.jpg?v=1779284531",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4217.jpg?v=1779284550"
+    ],
+    "variants": [
+      {
+        "id": 56014467236218,
+        "title": "#1 Butterfly (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4215_f63d98f5-eb26-4b57-88a6-7278f3f674ef.jpg?v=1779284517"
+      },
+      {
+        "id": 56014467268986,
+        "title": "#2 Pearl (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4216.jpg?v=1779284531"
+      },
+      {
+        "id": 56014468350330,
+        "title": "#3 Swirl (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4217.jpg?v=1779284550"
+      }
+    ]
+  },
+  {
+    "title": "My Universe - Midi / Grande Charm",
+    "handle": "my-universe-mini-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3250.jpg?v=1767763212",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4256.jpg?v=1779286722",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4257.jpg?v=1779286756",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4258.jpg?v=1779286821",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4259.jpg?v=1779286900"
+    ],
+    "variants": [
+      {
+        "id": 55870517510522,
+        "title": "Universe 1 (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4256.jpg?v=1779286722"
+      },
+      {
+        "id": 55870517543290,
+        "title": "Universe 2 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4257.jpg?v=1779286756"
+      },
+      {
+        "id": 55870517576058,
+        "title": "Sun (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4258.jpg?v=1779286821"
+      },
+      {
+        "id": 55870517608826,
+        "title": "Star (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4259.jpg?v=1779286900"
+      }
+    ]
+  },
+  {
+    "title": "Vintage Treasures - Midi / Grande Charm",
+    "handle": "vintage-treasures-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3247.jpg?v=1767763187",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4630.jpg?v=1767763192",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4219.jpg?v=1779284898",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/7F3CB7E0-F967-49A9-9CF1-8C520114F124.jpg?v=1779284927",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/7909AC7B-76A1-4519-8FF9-FD242E271825.jpg?v=1779284951",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4221.jpg?v=1779284969",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4222.jpg?v=1779284986",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4223.jpg?v=1779285038",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4224.jpg?v=1779285054",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4225.jpg?v=1779285070"
+    ],
+    "variants": [
+      {
+        "id": 55870471438714,
+        "title": "#1 Heart Pin (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4219.jpg?v=1779284898"
+      },
+      {
+        "id": 55870471471482,
+        "title": "#2 Ornate Key (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/7909AC7B-76A1-4519-8FF9-FD242E271825.jpg?v=1779284951"
+      },
+      {
+        "id": 55870471504250,
+        "title": "#3 Ornate Key (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4221.jpg?v=1779284969"
+      },
+      {
+        "id": 55870471537018,
+        "title": "#4 Poker (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4222.jpg?v=1779284986"
+      },
+      {
+        "id": 55870471602554,
+        "title": "#5 Scale (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4223.jpg?v=1779285038"
+      },
+      {
+        "id": 55870471569786,
+        "title": "#6 Cowboy Boots (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4224.jpg?v=1779285054"
+      },
+      {
+        "id": 55870476353914,
+        "title": "#7 Tennis Racket (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4225.jpg?v=1779285070"
+      }
+    ]
+  },
+  {
+    "title": "Heart & Bow - Mini / Grande Charm",
+    "handle": "heart-bow-midi-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3248.jpg?v=1767763207",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4251.jpg?v=1779286529",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4252.jpg?v=1779286545",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4253.jpg?v=1779286560",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4254.jpg?v=1779286574"
+    ],
+    "variants": [
+      {
+        "id": 55870507221370,
+        "title": "Bow 1 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4251.jpg?v=1779286529"
+      },
+      {
+        "id": 55870507254138,
+        "title": "Heart 1 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4252.jpg?v=1779286545"
+      },
+      {
+        "id": 55870511579514,
+        "title": "Bow 2 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4253.jpg?v=1779286560"
+      },
+      {
+        "id": 55870511612282,
+        "title": "Heart 2 (Mini)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4254.jpg?v=1779286574"
+      }
+    ]
+  },
+  {
+    "title": "Solaris collection - Midi Charm",
+    "handle": "copy-pink-candy-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9198.jpg?v=1771302610",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4273.jpg?v=1779287413",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4275.jpg?v=1779287444"
+    ],
+    "variants": [
+      {
+        "id": 56524530385274,
+        "title": "#1 Light yellow sun",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4273.jpg?v=1779287413"
+      },
+      {
+        "id": 56524530418042,
+        "title": "#2 Black sun",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4275.jpg?v=1779287444"
+      }
+    ]
+  },
+  {
+    "title": "Lover Girl - Midi / Grande Charm",
+    "handle": "lover-girl-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3244.jpg?v=1767763176",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/18669FC8-7CD9-49F9-B892-FC828CAB30C6.jpg?v=1779922680",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/747107D0-D0FF-481C-A9A2-D189C5CF603D.jpg?v=1777595701",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/B847C89D-3C36-454C-A939-8B7DB4B41631.jpg?v=1777595718",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0B20A552-F9D6-4CC3-90C2-C39724EEC8F7.jpg?v=1777595734",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4B58AED6-29DE-4649-90AA-4B1F46A6A8A2.jpg?v=1777595748"
+    ],
+    "variants": [
+      {
+        "id": 55870431789434,
+        "title": "Bow 1 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/18669FC8-7CD9-49F9-B892-FC828CAB30C6.jpg?v=1779922680"
+      },
+      {
+        "id": 55870432838010,
+        "title": "Heart 1 (Grande)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/747107D0-D0FF-481C-A9A2-D189C5CF603D.jpg?v=1777595701"
+      },
+      {
+        "id": 55870432870778,
+        "title": "Bow 2 (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/B847C89D-3C36-454C-A939-8B7DB4B41631.jpg?v=1777595718"
+      },
+      {
+        "id": 55870432903546,
+        "title": "Rose (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0B20A552-F9D6-4CC3-90C2-C39724EEC8F7.jpg?v=1777595734"
+      },
+      {
+        "id": 55870432936314,
+        "title": "Heart 2 (Midi)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4B58AED6-29DE-4649-90AA-4B1F46A6A8A2.jpg?v=1777595748"
+      }
+    ]
+  },
+  {
+    "title": "Sweet escape - Midi Charm",
+    "handle": "sweet-escape-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6144.jpg?v=1774221011",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4301.jpg?v=1779293706",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4302.jpg?v=1779293723"
+    ],
+    "variants": [
+      {
+        "id": 56718084702586,
+        "title": "Grapes",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4301.jpg?v=1779293706"
+      },
+      {
+        "id": 56718084735354,
+        "title": "Cocktail glass",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4302.jpg?v=1779293723"
+      }
+    ]
+  },
+  {
+    "title": "The Earth - Midi Charm",
+    "handle": "copy-pink-cloud-midi-charm-4",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/5C7085F3-06B3-4032-9A94-EA378CD89885.jpg?v=1767763238",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4080.jpg?v=1767763241",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4227.jpg?v=1779285242",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4228.jpg?v=1779285286",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4229.jpg?v=1779285305",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4230_76d15172-1ff9-4a2c-9891-f5d8d61adb19.jpg?v=1779285339"
+    ],
+    "variants": [
+      {
+        "id": 56014435877242,
+        "title": "#1 Square Teal Marble",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4227.jpg?v=1779285242"
+      },
+      {
+        "id": 56014435910010,
+        "title": "#2 Square Amber Marble",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4228.jpg?v=1779285286"
+      },
+      {
+        "id": 56014435942778,
+        "title": "#3 Pebble Tan",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4229.jpg?v=1779285305"
+      },
+      {
+        "id": 56014435975546,
+        "title": "#4 Pebble Nude",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4230_76d15172-1ff9-4a2c-9891-f5d8d61adb19.jpg?v=1779285339"
+      }
+    ]
+  },
+  {
+    "title": "Evil eye - Midi Charm",
+    "handle": "copy-tropical-pink-blossom-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4299.jpg?v=1779293446"
+    ],
+    "variants": [
+      {
+        "id": 56450808349050,
+        "title": "Evil eye",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Pearl Stone - Midi Charm",
+    "handle": "pearl-medley-midi-charm-copy",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3245.jpg?v=1767763143"
+    ],
+    "variants": [
+      {
+        "id": 55870368907642,
+        "title": "Pearl Stone (Big)",
+        "price": "3.00",
+        "img": null
+      },
+      {
+        "id": 55870368940410,
+        "title": "Pearl Stone (Small)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Pearl Medley - Midi Charm",
+    "handle": "pearl-medley-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3249.jpg?v=1767763137",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4444.jpg?v=1767763140",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/25C9F179-AD8F-41DC-8ABE-F8104E07DC86.jpg?v=1779282649",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/FA7438D1-823E-4596-8613-23B7698F1BC9.jpg?v=1779282664",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6ADD9966-7E36-40EC-9C8F-D166FD17A856.jpg?v=1779282816",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9067A9BE-EFD0-47B7-A1AA-F75D32473457.jpg?v=1779282831",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BAA7DCE8-5805-4447-BC14-33CB4066A1A5.jpg?v=1779282846",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BE6F8644-7890-48DD-B0F0-FA4EAACA0D8C.jpg?v=1779282859"
+    ],
+    "variants": [
+      {
+        "id": 55870364352890,
+        "title": "Pearl Medley 1",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/25C9F179-AD8F-41DC-8ABE-F8104E07DC86.jpg?v=1779282649"
+      },
+      {
+        "id": 55870364385658,
+        "title": "Pearl Medley 2",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/FA7438D1-823E-4596-8613-23B7698F1BC9.jpg?v=1779282664"
+      },
+      {
+        "id": 55870364418426,
+        "title": "Pearl Medley 3",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6ADD9966-7E36-40EC-9C8F-D166FD17A856.jpg?v=1779282816"
+      },
+      {
+        "id": 55870364451194,
+        "title": "Pearl Medley 4",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9067A9BE-EFD0-47B7-A1AA-F75D32473457.jpg?v=1779282831"
+      },
+      {
+        "id": 55870364483962,
+        "title": "Pearl Medley 5",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BAA7DCE8-5805-4447-BC14-33CB4066A1A5.jpg?v=1779282846"
+      },
+      {
+        "id": 55870364516730,
+        "title": "Pearl Medley 6",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/BE6F8644-7890-48DD-B0F0-FA4EAACA0D8C.jpg?v=1779282859"
+      }
+    ]
+  },
+  {
+    "title": "The Harmony - Midi Charm",
+    "handle": "copy-pink-candy-midi-charm-1",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/92EF9727-6149-43D8-9A95-AD4E36A5E9E7.jpg?v=1771302614",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9202.jpg?v=1771302618",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4314.jpg?v=1779294807",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4316.jpg?v=1779294822",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4319.jpg?v=1779294836",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4320.jpg?v=1779294854"
+    ],
+    "variants": [
+      {
+        "id": 56524533956986,
+        "title": "#1 Guitar",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4314.jpg?v=1779294807"
+      },
+      {
+        "id": 56524533989754,
+        "title": "#2 Treble Clef",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4316.jpg?v=1779294822"
+      },
+      {
+        "id": 56524534022522,
+        "title": "#3 Musical Note",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4319.jpg?v=1779294836"
+      },
+      {
+        "id": 56524534055290,
+        "title": "#4 Violin",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4320.jpg?v=1779294854"
+      }
+    ]
+  },
+  {
+    "title": "Marble Wave - Midi Charm",
+    "handle": "pearl-stone-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9916.jpg?v=1771302078",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C41134A8-1D36-43A7-B23C-0F7EC51D746D.jpg?v=1779294411",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4311.jpg?v=1779294448",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4312.jpg?v=1779294483",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4313.jpg?v=1779294525"
+    ],
+    "variants": [
+      {
+        "id": 55870374445434,
+        "title": "Green",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C41134A8-1D36-43A7-B23C-0F7EC51D746D.jpg?v=1779294411"
+      },
+      {
+        "id": 56544349749626,
+        "title": "Blue",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4311.jpg?v=1779294448"
+      },
+      {
+        "id": 56544349782394,
+        "title": "Beige",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4312.jpg?v=1779294483"
+      },
+      {
+        "id": 56544349815162,
+        "title": "Pink",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4313.jpg?v=1779294525"
+      }
+    ]
+  },
+  {
+    "title": "Moon & Star Stones - Midi Charm",
+    "handle": "moon-star-stones-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4081.jpg?v=1767763155",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4082.jpg?v=1767763160",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/F7E94D7B-29EE-40D5-AA48-7EC005EEE9CC.jpg?v=1777371847",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1881.jpg?v=1777371887",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2780B891-C863-4B88-808C-5CAE2876A2A6.jpg?v=1777371907",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6882D8D9-20AC-4AB3-8D3F-DC415EA0A8FF.jpg?v=1777371941",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0542BAEF-5C32-411E-8B57-4EDB9AD49303.jpg?v=1777371966",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1883.jpg?v=1777371985",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/337BADAE-829E-49C9-81E9-59932C60A6D2.jpg?v=1779219579"
+    ],
+    "variants": [
+      {
+        "id": 55870398005626,
+        "title": "Moon / #1",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/F7E94D7B-29EE-40D5-AA48-7EC005EEE9CC.jpg?v=1777371847"
+      },
+      {
+        "id": 55870402396538,
+        "title": "Moon / #2",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1881.jpg?v=1777371887"
+      },
+      {
+        "id": 55870402429306,
+        "title": "Moon / #3",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2780B891-C863-4B88-808C-5CAE2876A2A6.jpg?v=1777371907"
+      },
+      {
+        "id": 55870402462074,
+        "title": "Moon / #4",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/337BADAE-829E-49C9-81E9-59932C60A6D2.jpg?v=1779219579"
+      },
+      {
+        "id": 55870402494842,
+        "title": "Moon / #5",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6882D8D9-20AC-4AB3-8D3F-DC415EA0A8FF.jpg?v=1777371941"
+      },
+      {
+        "id": 55870402527610,
+        "title": "Moon / #6",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0542BAEF-5C32-411E-8B57-4EDB9AD49303.jpg?v=1777371966"
+      },
+      {
+        "id": 55870402560378,
+        "title": "Moon / #7",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1883.jpg?v=1777371985"
+      },
+      {
+        "id": 55870398038394,
+        "title": "Star / #1",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/F7E94D7B-29EE-40D5-AA48-7EC005EEE9CC.jpg?v=1777371847"
+      },
+      {
+        "id": 55870402593146,
+        "title": "Star / #2",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1881.jpg?v=1777371887"
+      },
+      {
+        "id": 55870402625914,
+        "title": "Star / #3",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2780B891-C863-4B88-808C-5CAE2876A2A6.jpg?v=1777371907"
+      },
+      {
+        "id": 55870402658682,
+        "title": "Star / #4",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/337BADAE-829E-49C9-81E9-59932C60A6D2.jpg?v=1779219579"
+      },
+      {
+        "id": 55870402691450,
+        "title": "Star / #5",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/6882D8D9-20AC-4AB3-8D3F-DC415EA0A8FF.jpg?v=1777371941"
+      },
+      {
+        "id": 55870402724218,
+        "title": "Star / #6",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/0542BAEF-5C32-411E-8B57-4EDB9AD49303.jpg?v=1777371966"
+      },
+      {
+        "id": 55870402756986,
+        "title": "Star / #7",
+        "price": "3.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-1883.jpg?v=1777371985"
+      }
+    ]
+  },
+  {
+    "title": "Burgundy ribbon bow - Midi Charm",
+    "handle": "copy-camellia-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9E55D1CF-56A4-41E6-8709-35AB8CC41963.jpg?v=1771302459",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4322.jpg?v=1779295036",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4323.jpg?v=1779295050"
+    ],
+    "variants": [
+      {
+        "id": 56450809790842,
+        "title": "Burgundy ribbon bow (left)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4322.jpg?v=1779295036"
+      },
+      {
+        "id": 56450809823610,
+        "title": "Burgundy ribbon bow (right)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4323.jpg?v=1779295050"
+      }
+    ]
+  },
+  {
+    "title": "Pink candy - Midi Charm",
+    "handle": "copy-porcelain-hearts-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/B65ED3D6-8144-4438-B4C2-3754BF22B9E6.jpg?v=1771302600",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/656FF1BB-7154-4469-8A34-7F7F83D7FC1A.jpg?v=1771302606",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4D053144-BCF9-422A-8F22-445C3ED47F5E.jpg?v=1779283267",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4195.jpg?v=1779283282",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2747AAD0-AF40-428D-ACE9-26835A42293E.jpg?v=1779283298",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/741D988E-AE17-45F6-B6BB-3C31BA5C2F5A.jpg?v=1779283315",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/F5DCBF6F-65BA-4809-80B6-98B0EC46FA03.jpg?v=1779283330"
+    ],
+    "variants": [
+      {
+        "id": 56524526911866,
+        "title": "#1 Pink heart",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4D053144-BCF9-422A-8F22-445C3ED47F5E.jpg?v=1779283267"
+      },
+      {
+        "id": 56524526944634,
+        "title": "#2 Pink heart",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4195.jpg?v=1779283282"
+      },
+      {
+        "id": 56524529402234,
+        "title": "#3 Pink rose",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/2747AAD0-AF40-428D-ACE9-26835A42293E.jpg?v=1779283298"
+      },
+      {
+        "id": 56524529435002,
+        "title": "#4 Strawberry",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/741D988E-AE17-45F6-B6BB-3C31BA5C2F5A.jpg?v=1779283315"
+      },
+      {
+        "id": 56524529467770,
+        "title": "#5 Cherry",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/F5DCBF6F-65BA-4809-80B6-98B0EC46FA03.jpg?v=1779283330"
+      }
+    ]
+  },
+  {
+    "title": "Bloom - Midi Charm",
+    "handle": "bloom-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4340.jpg?v=1779295735",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4341.jpg?v=1779295757",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4342.jpg?v=1779295773"
+    ],
+    "variants": [
+      {
+        "id": 55868873539962,
+        "title": "Bloom Black",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4341.jpg?v=1779295757"
+      },
+      {
+        "id": 55868873572730,
+        "title": "Bloom White",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4342.jpg?v=1779295773"
+      }
+    ]
+  },
+  {
+    "title": "Ancient Riviera - Mini / Midi Charm",
+    "handle": "ancient-riviera",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4159.jpg?v=1779229311",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4169.jpg?v=1779351245",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/5CC082A9-6154-4FF9-B8F5-D6FAF61409D0.jpg?v=1779229736",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E8A7F6AB-AD6C-4970-BB3A-72948CBBB56C.jpg?v=1779229752",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3526D353-7C54-4167-A99F-0F2876BF523C.jpg?v=1779229768",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C6035493-25D3-4EC0-98DA-1C76E4B3A812.jpg?v=1779229803",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/D54D38AC-9351-4805-B3BA-33D27B039A56.jpg?v=1779229823",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/56F7E709-4788-4CF7-8D5C-4C3E8324CECA.jpg?v=1779229837",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9B60922D-2CD0-4A59-98A8-683D9FD3B947.jpg?v=1779229854",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/8463674D-5AFD-4C1F-BF17-EED1ED915A99.jpg?v=1779229868",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4168.jpg?v=1779229921"
+    ],
+    "variants": [
+      {
+        "id": 56904849457530,
+        "title": "#1",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/5CC082A9-6154-4FF9-B8F5-D6FAF61409D0.jpg?v=1779229736"
+      },
+      {
+        "id": 56904849490298,
+        "title": "#2",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E8A7F6AB-AD6C-4970-BB3A-72948CBBB56C.jpg?v=1779229752"
+      },
+      {
+        "id": 56904849523066,
+        "title": "#3",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3526D353-7C54-4167-A99F-0F2876BF523C.jpg?v=1779229768"
+      },
+      {
+        "id": 56904849555834,
+        "title": "#4",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C6035493-25D3-4EC0-98DA-1C76E4B3A812.jpg?v=1779229803"
+      },
+      {
+        "id": 56904849588602,
+        "title": "#5",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/D54D38AC-9351-4805-B3BA-33D27B039A56.jpg?v=1779229823"
+      },
+      {
+        "id": 56904849621370,
+        "title": "#6",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/56F7E709-4788-4CF7-8D5C-4C3E8324CECA.jpg?v=1779229837"
+      },
+      {
+        "id": 56904849654138,
+        "title": "#7",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9B60922D-2CD0-4A59-98A8-683D9FD3B947.jpg?v=1779229854"
+      },
+      {
+        "id": 56904849686906,
+        "title": "#8",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/8463674D-5AFD-4C1F-BF17-EED1ED915A99.jpg?v=1779229868"
+      },
+      {
+        "id": 56904849719674,
+        "title": "#9",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4168.jpg?v=1779229921"
+      }
+    ]
+  },
+  {
+    "title": "Crystal stones - Mini / Midi Charm",
+    "handle": "copy-pink-cloud-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/DF150FCA-42F4-490B-91CC-BAAE1B115FB2.jpg?v=1767763223",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8444.jpg?v=1775347143",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8448.jpg?v=1775347590"
+    ],
+    "variants": [
+      {
+        "id": 56014395212154,
+        "title": "Midi size (3 Pcs) - write in the checkout note about your colour preference",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56450845344122,
+        "title": "Mini size (8 Pcs) - write in the checkout note about your colour preference",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Sea Shells - Midi Charm",
+    "handle": "sea-shells-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4437.jpg?v=1767764317"
+    ],
+    "variants": [
+      {
+        "id": 56027875180922,
+        "title": "Random pick (1 pc)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Star shells - Midi Charm",
+    "handle": "star-shells-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6330.jpg?v=1771302479"
+    ],
+    "variants": [
+      {
+        "id": 56450831417722,
+        "title": "2 pieces",
+        "price": "1.50",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Spring Petal - Midi Charm",
+    "handle": "spring-petal-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6145.jpg?v=1774220887",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4295_5e7a1799-76ac-420e-92f2-f63b6691e13d.jpg?v=1779293366",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4296.jpg?v=1779293378",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4297_44b843d2-32d8-4803-854e-b5ad8e52192a.jpg?v=1779293389"
+    ],
+    "variants": [
+      {
+        "id": 56718082769274,
+        "title": "Gold/White",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4295_5e7a1799-76ac-420e-92f2-f63b6691e13d.jpg?v=1779293366"
+      },
+      {
+        "id": 56718082802042,
+        "title": "Green",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4296.jpg?v=1779293378"
+      },
+      {
+        "id": 56718083359098,
+        "title": "Purple",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4297_44b843d2-32d8-4803-854e-b5ad8e52192a.jpg?v=1779293389"
+      }
+    ]
+  },
+  {
+    "title": "Leopard - Midi Charm",
+    "handle": "copy-all-sense-grande-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/75E8B062-C2DD-4703-BCC7-72461A9BE7BE.jpg?v=1767763264",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4266.jpg?v=1779287190",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4265.jpg?v=1779287204"
+    ],
+    "variants": [
+      {
+        "id": 56014812348794,
+        "title": "Silver",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4266.jpg?v=1779287190"
+      },
+      {
+        "id": 56014812316026,
+        "title": "Gold",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4265.jpg?v=1779287204"
+      }
+    ]
+  },
+  {
+    "title": "Camellia - Midi Charm",
+    "handle": "copy-evil-eye-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6328.jpg?v=1771302455",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4281.jpg?v=1779292823",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4282.jpg?v=1779292835",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4283.jpg?v=1779292850"
+    ],
+    "variants": [
+      {
+        "id": 56450808807802,
+        "title": "Red",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4281.jpg?v=1779292823"
+      },
+      {
+        "id": 56450808840570,
+        "title": "Pink/purple",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4282.jpg?v=1779292835"
+      },
+      {
+        "id": 56450809004410,
+        "title": "Black",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4283.jpg?v=1779292850"
+      }
+    ]
+  },
+  {
+    "title": "Aurora - Grande / Midi Charm",
+    "handle": "copy-pink-cloud-midi-charm-3",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-5100.jpg?v=1773702855",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4286.jpg?v=1779292987",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4287.jpg?v=1779293001"
+    ],
+    "variants": [
+      {
+        "id": 56014426505594,
+        "title": "Gold flower",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4286.jpg?v=1779292987"
+      },
+      {
+        "id": 56014426603898,
+        "title": "Gold branch leaves",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4287.jpg?v=1779293001"
+      }
+    ]
+  },
+  {
+    "title": "Infinity - Midi Charm",
+    "handle": "infinity-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6149.jpg?v=1774220617"
+    ],
+    "variants": [
+      {
+        "id": 56718080442746,
+        "title": "Infinity gold (1 pc)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Bloom & Blade - Midi Charm",
+    "handle": "bloom-blade-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/DCA53231-EDD0-4F14-AD3F-DDF57CFE8211.jpg?v=1776640937",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4288.jpg?v=1779293027",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4289.jpg?v=1779293039"
+    ],
+    "variants": [
+      {
+        "id": 56820871397754,
+        "title": "#1 Melted pearl",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4288.jpg?v=1779293027"
+      },
+      {
+        "id": 56820871430522,
+        "title": "#2 Rosethorn",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4289.jpg?v=1779293039"
+      }
+    ]
+  },
+  {
+    "title": "Cherub Muse - Midi Charm",
+    "handle": "cherub-muse-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-6147.jpg?v=1774221455",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-8449.jpg?v=1775347803",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4268.jpg?v=1779287474",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4269.jpg?v=1779287490",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4270.jpg?v=1779287515"
+    ],
+    "variants": [
+      {
+        "id": 56718086078842,
+        "title": "#1 Rose Cameo",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4268.jpg?v=1779287474"
+      },
+      {
+        "id": 56718086111610,
+        "title": "#2 Angel Cherub",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4269.jpg?v=1779287490"
+      },
+      {
+        "id": 56718086963578,
+        "title": "#3 Pearl Blossom",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4270.jpg?v=1779287515"
+      }
+    ]
+  },
+  {
+    "title": "Poker - Midi Charm",
+    "handle": "poker-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3216.jpg?v=1767763112",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4333.jpg?v=1779295479",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4334_710e2977-2644-42c1-8b1a-9d75e42d60fa.jpg?v=1779295498"
+    ],
+    "variants": [
+      {
+        "id": 55868859908474,
+        "title": "Poker (left)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4333.jpg?v=1779295479"
+      },
+      {
+        "id": 55868859941242,
+        "title": "Poker (right)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4334_710e2977-2644-42c1-8b1a-9d75e42d60fa.jpg?v=1779295498"
+      }
+    ]
+  },
+  {
+    "title": "Vintage Treasures - Midi Charm",
+    "handle": "moon-star-stones-midi-charm-copy",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3218.jpg?v=1767763164",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4635.jpg?v=1767763167",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3AA86EA7-DCD1-42C9-B155-DE84973631BE.jpg?v=1779286201",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4245.jpg?v=1779286273",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4246.jpg?v=1779286299",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4247.jpg?v=1779286313",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4248.jpg?v=1779286360",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4249.jpg?v=1779286375"
+    ],
+    "variants": [
+      {
+        "id": 55870408360314,
+        "title": "#1 Tennis Racket",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/3AA86EA7-DCD1-42C9-B155-DE84973631BE.jpg?v=1779286201"
+      },
+      {
+        "id": 55870408589690,
+        "title": "#2 Key (Small)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4245.jpg?v=1779286273"
+      },
+      {
+        "id": 55870413767034,
+        "title": "#3 Scale",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4246.jpg?v=1779286299"
+      },
+      {
+        "id": 55870413799802,
+        "title": "#4 Ace Card",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4247.jpg?v=1779286313"
+      },
+      {
+        "id": 55870413832570,
+        "title": "#5 Mini Dress",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4248.jpg?v=1779286360"
+      },
+      {
+        "id": 55870413865338,
+        "title": "#6 Key (Big)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4249.jpg?v=1779286375"
+      }
+    ]
+  },
+  {
+    "title": "Gold Moon and Star - Midi Charm",
+    "handle": "gold-moon-and-star-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3243.jpg?v=1767763171"
+    ],
+    "variants": [
+      {
+        "id": 55870426382714,
+        "title": "Random pick",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Girl's daydream - Midi Charm",
+    "handle": "girls-daydream-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3246.jpg?v=1767763179",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4636.jpg?v=1767763182",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E477744E-E401-4D2C-A7DC-1586B53A0CE1.jpg?v=1777459600",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/D04BF010-DE40-4824-8C4F-A4DC2C0A9A0E.jpg?v=1777459718",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4882DD6F-2CAF-4AC4-B787-371AB6B42AFD.jpg?v=1777459752",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2045.jpg?v=1777459770",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2044.jpg?v=1777459791",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2043.jpg?v=1777459812"
+    ],
+    "variants": [
+      {
+        "id": 55870444044666,
+        "title": "#1 Ballet Shoes",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/E477744E-E401-4D2C-A7DC-1586B53A0CE1.jpg?v=1777459600"
+      },
+      {
+        "id": 55870444077434,
+        "title": "#2 Ballet Dress",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/D04BF010-DE40-4824-8C4F-A4DC2C0A9A0E.jpg?v=1777459718"
+      },
+      {
+        "id": 55870444110202,
+        "title": "#3 Ballet Dress",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/4882DD6F-2CAF-4AC4-B787-371AB6B42AFD.jpg?v=1777459752"
+      },
+      {
+        "id": 55870444142970,
+        "title": "#4 Bikini",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2045.jpg?v=1777459770"
+      },
+      {
+        "id": 55870444175738,
+        "title": "#5 Rose",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2044.jpg?v=1777459791"
+      },
+      {
+        "id": 55870445060474,
+        "title": "#6 Hair Brush",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2043.jpg?v=1777459812"
+      }
+    ]
+  },
+  {
+    "title": "The Amber set - Midi Charm",
+    "handle": "copy-burgundy-ribbon-bow-midi-charm-1",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/EC344A82-38FF-4165-9885-2D18F72C0780.jpg?v=1771302482",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4304_da144949-f9b0-4a2a-a082-be3af9d18c75.jpg?v=1779293807",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4305_634b6cb0-184c-4906-aa92-4946ce89c19f.jpg?v=1779293828"
+    ],
+    "variants": [
+      {
+        "id": 56450831876474,
+        "title": "#1 Amber stripe cabochon",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4304_da144949-f9b0-4a2a-a082-be3af9d18c75.jpg?v=1779293807"
+      },
+      {
+        "id": 56450831909242,
+        "title": "#2 Tortoiseshell button",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4305_634b6cb0-184c-4906-aa92-4946ce89c19f.jpg?v=1779293828"
+      }
+    ]
+  },
+  {
+    "title": "Tropical Pink Blossom - Midi Charm",
+    "handle": "tropical-pink-blossom-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2458.jpg?v=1767764641",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/28953D36-9A1E-4BCF-A6CF-3A20C64EAE5F.jpg?v=1777460286",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2057.jpg?v=1777460325"
+    ],
+    "variants": [
+      {
+        "id": 56289020707194,
+        "title": "Bubblegum Pink (left)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/28953D36-9A1E-4BCF-A6CF-3A20C64EAE5F.jpg?v=1777460286"
+      },
+      {
+        "id": 56289020739962,
+        "title": "Pastel Peach-Pink (right)",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2057.jpg?v=1777460325"
+      }
+    ]
+  },
+  {
+    "title": "Pink cloud - Midi Charm",
+    "handle": "pink-cloud-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3252.jpg?v=1767763219",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-9918.jpg?v=1771302084",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4261.jpg?v=1779287029",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4262.jpg?v=1779287044",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4263.jpg?v=1779287068",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4264.jpg?v=1779287094"
+    ],
+    "variants": [
+      {
+        "id": 55870534222202,
+        "title": "#1 Pink Bow",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4261.jpg?v=1779287029"
+      },
+      {
+        "id": 55870534254970,
+        "title": "#2 Pink Flower",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4262.jpg?v=1779287044"
+      },
+      {
+        "id": 55870534287738,
+        "title": "#3 Flower Coin",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4263.jpg?v=1779287068"
+      },
+      {
+        "id": 55870539858298,
+        "title": "#4 Flower Coin",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4264.jpg?v=1779287094"
+      }
+    ]
+  },
+  {
+    "title": "Porcelain Hearts - Midi Charm",
+    "handle": "porcelain-hearts-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2457.jpg?v=1767764636"
+    ],
+    "variants": [
+      {
+        "id": 56289009828218,
+        "title": "Blue (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289012973946,
+        "title": "Pink (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289013006714,
+        "title": "Green (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289013039482,
+        "title": "Red (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289013072250,
+        "title": "Purple (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289013105018,
+        "title": "Black (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      },
+      {
+        "id": 56289013137786,
+        "title": "Yellow (random pick of 1 pc)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Sea Shells - Mini Charm",
+    "handle": "sea-shells-mini-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3217.jpg?v=1767763128"
+    ],
+    "variants": [
+      {
+        "id": 55868894216570,
+        "title": "Shell Mix (3 pcs)",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Golden hour - Mini Charm",
+    "handle": "copy-leopard-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/9A6B3DC1-34BF-4274-A708-B6CC2644650B.jpg?v=1767763267",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4633.jpg?v=1767763270",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4210.jpg?v=1779284292",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4211.jpg?v=1779284309",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4212.jpg?v=1779284322",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4213.jpg?v=1779284336"
+    ],
+    "variants": [
+      {
+        "id": 56014812479866,
+        "title": "#1 Sea star",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4210.jpg?v=1779284292"
+      },
+      {
+        "id": 56014812512634,
+        "title": "#2 Fish",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4211.jpg?v=1779284309"
+      },
+      {
+        "id": 56014816575866,
+        "title": "#3 Dolphin",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4212.jpg?v=1779284322"
+      },
+      {
+        "id": 56014816608634,
+        "title": "#4 Mother of pearl",
+        "price": "2.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4213.jpg?v=1779284336"
+      }
+    ]
+  },
+  {
+    "title": "Red Bow - Mini Charm",
+    "handle": "red-bow-midi-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-2456.jpg?v=1767764628",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4628.jpg?v=1767764632",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4327_8cb41d8d-0a0e-41a4-bb07-91e4cea91071.jpg?v=1779295216",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4328_97be372c-6491-4dd2-b492-8ca98e14abcf.jpg?v=1779295269"
+    ],
+    "variants": [
+      {
+        "id": 56288969261434,
+        "title": "#1 Red Bow",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4327_8cb41d8d-0a0e-41a4-bb07-91e4cea91071.jpg?v=1779295216"
+      },
+      {
+        "id": 56288969851258,
+        "title": "#2 Red Bow",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4328_97be372c-6491-4dd2-b492-8ca98e14abcf.jpg?v=1779295269"
+      }
+    ]
+  },
+  {
+    "title": "Blue oval ceramic - Mini Charm",
+    "handle": "copy-pink-cloud-midi-charm-2",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/C4651648-4F29-49D7-82CE-F5E3CACABE9F.jpg?v=1767763230"
+    ],
+    "variants": [
+      {
+        "id": 56014410973562,
+        "title": "1 pc",
+        "price": "2.00",
+        "img": null
+      }
+    ]
+  },
+  {
+    "title": "Ceramic orbs - Mini Charm",
+    "handle": "ceramic-orbs-mini-charm",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-3251.jpg?v=1767763215",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4336.jpg?v=1779295609",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4337.jpg?v=1779295624",
+      "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4338.jpg?v=1779295647"
+    ],
+    "variants": [
+      {
+        "id": 55870527537530,
+        "title": "Green/Purple",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4336.jpg?v=1779295609"
+      },
+      {
+        "id": 55870527570298,
+        "title": "Blue/Purple",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4337.jpg?v=1779295624"
+      },
+      {
+        "id": 55870527635834,
+        "title": "Yellow/White",
+        "price": "1.00",
+        "img": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/IMG-4338.jpg?v=1779295647"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1189 @@
+<!doctype html><meta charset="utf-8"><title>Charm mapping review</title>
+<style>
+  body{font-family:system-ui,Arial;margin:16px;background:#fafafa}
+  h1{font-size:18px} .sum{margin:8px 0 16px;color:#444}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .card{border:2px solid #ddd;border-radius:8px;padding:8px;background:#fff}
+  .card.manual{border-color:#7aa7d6}.card.none{border-color:#e0a0a0;background:#fff7f7}
+  .imgs{display:flex;align-items:center;gap:6px;height:96px}
+  .imgs img{width:88px;height:88px;object-fit:contain;background:#fff;border:1px solid #eee}
+  .noimg{width:88px;height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;color:#b00;background:#fdeaea;border:1px solid #f0caca}
+  .arrow{color:#999;font-size:18px}
+  .lbl{font-size:12px;margin-top:6px;line-height:1.4}
+  .muted{color:#777}.pmis{color:#c67600;font-weight:600}
+  .badge{font-size:10px;background:#eef;border:1px solid #ccd;border-radius:4px;padding:0 4px;color:#446}
+  .card.none .badge{background:#fee;border-color:#dcc;color:#a44}
+  .filters{position:sticky;top:0;background:#fafafa;padding:8px 0}
+  button{margin-right:6px;padding:4px 10px;cursor:pointer}
+</style>
+<h1>Charm mapping review</h1>
+<div class="sum">199 distinct charms · <b>180</b> mapped to a Shopify variant · <b>19</b> no match (charmByPrice fallback). Blue=my visual judgment, plain=auto keyword match, red=no equivalent. Orange = price differs.</div>
+<div class="filters">
+  <button onclick="f('all')">All</button>
+  <button onclick="f('manual')">My judgments</button>
+  <button onclick="f('auto')">Auto</button>
+  <button onclick="f('none')">No match</button>
+  <button onclick="f('pmis')">Price mismatch</button>
+</div>
+<div class="grid" id="g"><div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56828922823034.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Boot</b> <span class="badge">auto</span><br>
+      <span class="muted">→ American cowgirl boot - Grande Charm <i>American cowgirl boot</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56828922823034</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-16.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450809790842.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Bow</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Burgundy ribbon bow - Midi Charm <i>Burgundy ribbon bow (left)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56450809790842</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413799802.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Card Ace</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#4 Ace Card</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870413799802</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014426505594.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Card Flower</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Aurora - Grande / Midi Charm <i>Gold flower</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014426505594</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image3-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413799802.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Card Suit</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#4 Ace Card</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870413799802</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014459765114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Card Sun</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sunstone - Grande Charm <i>Square Nude Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014459765114</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524529467770.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Cherry</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink candy - Midi Charm <i>#5 Cherry</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56524529467770</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014822637946.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Chili</b> <span class="badge">manual</span><br>
+      <span class="muted">→ The Amulet Red - Grande / Midi Charm <i>Chilli (Midi)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014822637946</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-19.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Cloisonne</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×4</span></div>
+    </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image2-18.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Daisy</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×1</span></div>
+    </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55868859941242.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Diamond</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Poker - Midi Charm <i>Poker (right)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55868859941242</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-34.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450808349050.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Eye</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Evil eye - Midi Charm <i>Evil eye</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">56450808349050</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-31.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014426505594.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Flower</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Aurora - Grande / Midi Charm <i>Gold flower</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014426505594</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image2-15.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Gem</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×3</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014822670714.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Heart</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amulet Red - Grande / Midi Charm <i>Red heart (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014822670714</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image3-13.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Lily</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×1</span></div>
+    </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014807859578.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Lips</b> <span class="badge">manual</span><br>
+      <span class="muted">→ All sense - Grande Charm <i>#1 Lip - Red Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014807859578</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image2-25.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Ornament</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image3-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014876049786.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Plumeria</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Birds of the Feather - Grande / Midi Charm <i>#7 White Enamel Plumeria (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014876049786</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-14.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Colourful Pomegranate</b> <span class="badge">manual</span><br><span class="muted">colourful · £3 · ×2</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-31.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56289009828218.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Porcelain Heart</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Porcelain Hearts - Midi Charm <i>Blue (random pick of 1 pc)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56289009828218</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450815623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Rose</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink Blossom - Grande Charm <i>Pink Rose Cameo</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450815623546</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524529435002.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Strawberry</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink candy - Midi Charm <i>#4 Strawberry</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56524529435002</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014807925114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Tooth</b> <span class="badge">auto</span><br>
+      <span class="muted">→ All sense - Grande Charm <i>#3 Tooth - Blue Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014807925114</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/image3-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718079623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Colourful Tulip</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Pink Floral Tile - Grande Charm <i>Random pick (1 pc)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718079623546</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718086111610.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Angel</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Cherub Muse - Midi Charm <i>#2 Angel Cherub</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56718086111610</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-14.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56828922823034.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Boot</b> <span class="badge">auto</span><br>
+      <span class="muted">→ American cowgirl boot - Grande Charm <i>American cowgirl boot</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56828922823034</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-10.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870431789434.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Bow</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Lover Girl - Midi / Grande Charm <i>Bow 1 (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870431789434</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014865072506.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Bow Arrow</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amor & Arrow Reliquary - Grande / Midi Charm <i>#4 Silver Bow and Arrow (Midi)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014865072506</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-52.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56532970668410.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Branch</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Coral Branch - Grande Charm <i>#3 Gold</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £3.00</span> · <span class="muted">56532970668410</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450815623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Cameo Rose</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink Blossom - Grande Charm <i>Pink Rose Cameo</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450815623546</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-16.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413799802.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Card Ace</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#4 Ace Card</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870413799802</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image2-27.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Coil</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-19.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870534287738.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Coin</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink cloud - Midi Charm <i>#3 Flower Coin</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870534287738</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-15.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Compass</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Cowrie Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Cross</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×2</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-08.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014816575866.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Dolphin</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Golden hour - Mini Charm <i>#3 Dolphin</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014816575866</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/image2-26.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Filigree</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014426505594.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Flower</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Aurora - Grande / Midi Charm <i>Gold flower</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014426505594</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450831876474.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Gemstone</b> <span class="badge">manual</span><br>
+      <span class="muted">→ The Amber set - Midi Charm <i>#1 Amber stripe cabochon</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56450831876474</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-17.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Goblet</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-32.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718084702586.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Grapes</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sweet escape - Midi Charm <i>Grapes</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56718084702586</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524533956986.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Guitar</b> <span class="badge">manual</span><br>
+      <span class="muted">→ The Harmony - Midi Charm <i>#1 Guitar</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">56524533956986</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014822670714.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Heart</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amulet Red - Grande / Midi Charm <i>Red heart (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014822670714</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080442746.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Infinity</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Infinity - Midi Charm <i>Infinity gold (1 pc)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56718080442746</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-11.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870471471482.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Key</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi / Grande Charm <i>#2 Ornate Key (Midi)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">55870471471482</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014426603898.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Leaf</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Aurora - Grande / Midi Charm <i>Gold branch leaves</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">56014426603898</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014812348794.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Leopard</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Leopard - Midi Charm <i>Silver</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014812348794</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027931935098.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter A</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / A / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027931935098</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027931967866.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter B</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / B / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027931967866</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027932033402.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter C</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / C / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027932033402</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027932066170.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter D</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / D / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027932066170</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-08.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027938390394.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter E</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / E / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027938390394</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-14.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945009530.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter F</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / F / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945009530</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-10.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945042298.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter G</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / G / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945042298</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-11.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945075066.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter H</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / H / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945075066</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945107834.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter I</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / I / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945107834</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945140602.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter J</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / J / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945140602</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-16.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945173370.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter K</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / K / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945173370</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-17.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945206138.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter L</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / L / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945206138</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-18.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945238906.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter M</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / M / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945238906</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-19.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945271674.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter N</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / N / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945271674</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-20.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945304442.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter O</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / O / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945304442</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-24.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945337210.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter P</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / P / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945337210</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-25.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945369978.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter Q</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / Q / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945369978</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-26.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945402746.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter R</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / R / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945402746</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-27.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945435514.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter S</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / S / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945435514</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-28.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945468282.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter T</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / T / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945468282</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-29.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945501050.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter U</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / U / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945501050</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-30.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945533818.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter V</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / V / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945533818</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-31.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945566586.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter W</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / W / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945566586</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-32.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945599354.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter X</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / X / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945599354</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-33.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945632122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter Y</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / Y / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945632122</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-34.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56027945664890.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Letter Z</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Gold / Z / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56027945664890</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-18.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Medallion</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-35.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Moon</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524534022522.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Music</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Harmony - Midi Charm <i>#3 Musical Note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56524534022522</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524533989754.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Music Clef</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Harmony - Midi Charm <i>#2 Treble Clef</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56524533989754</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Nautilus Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-23.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746690426.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 0</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 0 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746690426</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-22.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746723194.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 1</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 1 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746723194</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-21.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746755962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 2</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 2 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746755962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-37.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746788730.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 3</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 3 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746788730</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-38.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746821498.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 4</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 4 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746821498</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-36.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746854266.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 5</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 5 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746854266</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-47.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746887034.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 6</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 6 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746887034</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-46.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746919802.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 7</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 7 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746919802</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-44.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849746952570.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 8</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 8 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849746952570</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-43.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56849747476858.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Number 9</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Numbers <i>Gold / 9 / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56849747476858</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503584122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Pearl</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870503584122</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-27.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870476353914.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Racket</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi / Grande Charm <i>#7 Tennis Racket (Grande)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">55870476353914</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718082769274.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Ring</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spring Petal - Midi Charm <i>Gold/White</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56718082769274</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450815623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Rose</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink Blossom - Grande Charm <i>Pink Rose Cameo</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450815623546</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870471602554.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Scales</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi / Grande Charm <i>#5 Scale (Midi)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870471602554</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-01.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Gold Seahorse</b> <span class="badge">manual</span><br><span class="muted">gold · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-28.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Spiral</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Star</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-14.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014812479866.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Starfish</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Golden hour - Mini Charm <i>#1 Sea star</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014812479866</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014459765114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Sun</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sunstone - Grande Charm <i>Square Nude Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014459765114</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/7561dd4b-da89-4f19-a1ff-d75ff5b41698-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56524534055290.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Violin</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Harmony - Midi Charm <i>#4 Violin</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56524534055290</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-51.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286816960890.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Aquarius</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Aquarius: January 20 – February 18 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286816960890</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-42.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286817026426.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Aries</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Aries: March 21 – April 19 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286817026426</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-40.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286817124730.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Cancer</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Cancer: June 21 – July 22 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286817124730</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-55.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286816928122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Capricorn</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Capricorn: December 22 – January 19 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286816928122</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-56.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286817091962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Gemini</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Gemini: May 21 – June 20 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286817091962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-39.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286822138234.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Leo</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Leo: July 23 – August 22 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286822138234</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-49.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286822203770.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Libra</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Libra: September 23 – October 22 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286822203770</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-48.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286816993658.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Pisces</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Pisces: February 19 – March 2 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286816993658</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-57.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286822269306.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Sagittarius</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Sagittarius: November 22 – December 21 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286822269306</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-50.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286822236538.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Scorpio</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Scorpio: October 23 – November 21 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286822236538</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-41.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286817059194.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Taurus</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Taurus: April 20 – May 20 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286817059194</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-58.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56286822171002.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Gold Zodiac · Virgo</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Zodiac Signs <i>Virgo: August 23 – September 22 / Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56286822171002</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-11.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718086111610.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Angel</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Cherub Muse - Midi Charm <i>#2 Angel Cherub</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56718086111610</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/silver-10.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Silver Ballerina</b> <span class="badge">manual</span><br><span class="muted">silver · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870444044666.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Ballet Shoes</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Girl's daydream - Midi Charm <i>#1 Ballet Shoes</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870444044666</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-19.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56828922823034.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Boot</b> <span class="badge">auto</span><br>
+      <span class="muted">→ American cowgirl boot - Grande Charm <i>American cowgirl boot</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56828922823034</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870511579514.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Bow</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Heart & Bow - Mini / Grande Charm <i>Bow 2 (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870511579514</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014865072506.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Bow Arrow</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amor & Arrow Reliquary - Grande / Midi Charm <i>#4 Silver Bow and Arrow (Midi)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014865072506</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-20.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56532970701178.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Branch</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Coral Branch - Grande Charm <i>#4 Silver</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £3.00</span> · <span class="muted">56532970701178</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/silver-24.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Silver Cards</b> <span class="badge">manual</span><br><span class="muted">silver · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-15.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870534287738.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Coin</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink cloud - Midi Charm <i>#3 Flower Coin</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870534287738</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-06.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413832570.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Dress</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#5 Mini Dress</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870413832570</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870490345850.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Fan</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Birds of the Feather - Grande / Midi Charm <i>#1 Fan (Midi)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870490345850</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-22.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450830926202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Gemstone</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Abalone shell - Grande Charm <i>#1 Abalone shell</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450830926202</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Silver Handle</b> <span class="badge">manual</span><br><span class="muted">silver · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-19.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014822670714.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Heart</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amulet Red - Grande / Midi Charm <i>Red heart (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014822670714</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413865338.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Key</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#6 Key (Big)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">55870413865338</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-25.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014812348794.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Leopard</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Leopard - Midi Charm <i>Silver</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014812348794</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152234362.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter A</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / A / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152234362</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-08.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152267130.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter B</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / B / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152267130</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152299898.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter C</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / C / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152299898</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-10.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152332666.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter D</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / D / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152332666</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-15.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152365434.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter E</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / E / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152365434</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-17.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152398202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter F</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / F / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152398202</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-18.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152430970.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter G</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / G / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152430970</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-16.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152463738.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter H</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / H / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152463738</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-19.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152496506.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter I</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / I / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152496506</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-25.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152529274.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter J</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / J / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152529274</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-22.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152562042.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter K</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / K / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152562042</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-23.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152594810.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter L</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / L / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152594810</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-24.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152627578.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter M</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / M / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152627578</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-27.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152660346.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter N</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / N / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152660346</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-26.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152693114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter O</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / O / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152693114</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-28.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152725882.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter P</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / P / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152725882</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-29.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152758650.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter Q</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / Q / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152758650</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-30.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152791418.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter R</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / R / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152791418</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-36.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152824186.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter S</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / S / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152824186</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-37.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152856954.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter T</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / T / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152856954</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-38.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152889722.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter U</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / U / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152889722</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-39.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152922490.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter V</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / V / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152922490</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-42.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152955258.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter W</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / W / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152955258</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-43.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028152988026.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter X</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / X / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028152988026</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-41.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028153020794.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter Y</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / Y / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028153020794</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-44.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56028153053562.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Letter Z</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Letters / Initials <i>Silver / Z / Please write down the letter sequence in the checkout note</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £1.00</span> · <span class="muted">56028153053562</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-18.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014822605178.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Mirror</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amulet Red - Grande / Midi Charm <i>Silver mirror (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014822605178</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-34.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Moon</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Nautilus Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503584122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Pearl</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870503584122</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-14.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870471438714.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Pin Heart</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Vintage Treasures - Midi / Grande Charm <i>#1 Heart Pin (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870471438714</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-23.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870517543290.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Planet</b> <span class="badge">manual</span><br>
+      <span class="muted">→ My Universe - Midi / Grande Charm <i>Universe 2 (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870517543290</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870408360314.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Racket</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#1 Tennis Racket</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">55870408360314</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-12.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450815623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Rose</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink Blossom - Grande Charm <i>Pink Rose Cameo</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450815623546</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-07.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870413767034.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Scales</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Vintage Treasures - Midi Charm <i>#3 Scale</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870413767034</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/silver-13.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Star</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014459765114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Sun</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sunstone - Grande Charm <i>Square Nude Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014459765114</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870444142970.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Silver Swimsuit</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Girl's daydream - Midi Charm <i>#4 Bikini</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870444142970</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-21.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450830926202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Abalone Pearl</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Abalone shell - Grande Charm <i>#1 Abalone shell</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56450830926202</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450830926202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Abalone Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Abalone shell - Grande Charm <i>#1 Abalone shell</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £3.00</span> · <span class="muted">56450830926202</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-33.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014435910010.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Amber</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Earth - Midi Charm <i>#2 Square Amber Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014435910010</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/e540ac60-3ca6-447f-833a-9234eec3b235-29.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014395212154.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Amethyst</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Crystal stones - Mini / Midi Charm <i>Midi size (3 Pcs) - write in the checkout note about your colour preference</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014395212154</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-50.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014864974202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Angel</b> <span class="badge">manual</span><br>
+      <span class="muted">→ The Amor & Arrow Reliquary - Grande / Midi Charm <i>#1 White Cupid (Grande)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £3.00</span> · <span class="muted">56014864974202</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-45.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503584122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Baroque Pearl</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870503584122</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-35.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014875984250.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Butterfly</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Birds of the Feather - Grande / Midi Charm <i>#5 Butterfly (Grande)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">56014875984250</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image2-20.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014410973562.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Ceramic</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Blue oval ceramic - Mini Charm <i>1 pc</i></span><br>
+      <span class="pmis">customizer £2 ≠ Shopify £2.00</span> · <span class="muted">56014410973562</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-11.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870534222202.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Cloud</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink cloud - Midi Charm <i>#1 Pink Bow</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870534222202</span></div>
+  </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/f1551077-9a1d-4e7c-bf0a-000000000abc-04.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870490411386.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Column</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Birds of the Feather - Grande / Midi Charm <i>#4 Pillar (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">55870490411386</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-20.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56532970602874.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Coral</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Coral Branch - Grande Charm <i>#1 Pink</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56532970602874</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Natural Dog</b> <span class="badge">manual</span><br><span class="muted">unique · £3 · ×1</span></div>
+    </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014426505594.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Flower</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Aurora - Grande / Midi Charm <i>Gold flower</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56014426505594</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/image3-10.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014459765114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Marble</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sunstone - Grande Charm <i>Square Nude Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014459765114</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-09.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Moon</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-40.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503616890.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Pearl</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Midi)</i></span><br>
+      <span class="pmis">customizer £2 ≠ Shopify £2.00</span> · <span class="muted">55870503616890</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-21.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503584122.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Pearl Bow</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Grande)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870503584122</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-05.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503616890.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Pearl Flower</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Midi)</i></span><br>
+      <span class="pmis">customizer £2 ≠ Shopify £2.00</span> · <span class="muted">55870503616890</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-31.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718079623546.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Pin</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Pink Floral Tile - Grande Charm <i>Random pick (1 pc)</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718079623546</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-20.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £3</div></div>
+      <div class="lbl"><b>Natural Rabbit</b> <span class="badge">manual</span><br><span class="muted">unique · £3 · ×1</span></div>
+    </div>
+<div class="card manual">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-11.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870503616890.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Scallop Shell</b> <span class="badge">manual</span><br>
+      <span class="muted">→ Pearl Bloom - Midi / Grande Charm <i>Pearl Bloom (Midi)</i></span><br>
+      <span class="pmis">customizer £5 ≠ Shopify £2.00</span> · <span class="muted">55870503616890</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-14.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718084735354.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Sea Glass</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sweet escape - Midi Charm <i>Cocktail glass</i></span><br>
+      <span class="pmis">customizer £2 ≠ Shopify £2.00</span> · <span class="muted">56718084735354</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e540ac60-3ca6-447f-833a-9234eec3b235-08.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870348853626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Sea Pottery</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sea Shells - Grande Charm <i>Shell (1 pc)</i></span><br>
+      <span class="pmis">customizer £2 ≠ Shopify £2.00</span> · <span class="muted">55870348853626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-03.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Shell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-01.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56718080835962.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Shell Cameo</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Spiral Shell - Grande Charm <i>Gold</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56718080835962</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-10.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/55870398005626.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Star</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Moon & Star Stones - Midi Charm <i>Moon / #1</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">55870398005626</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/b4066f7a-23c7-4c9c-9454-6d9d31133b23-02.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56014459765114.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Stone</b> <span class="badge">auto</span><br>
+      <span class="muted">→ Sunstone - Grande Charm <i>Square Nude Marble</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £3.00</span> · <span class="muted">56014459765114</span></div>
+  </div>
+<div class="card auto">
+    <div class="imgs"><img src="public/assets/charms/ref/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-21.png" loading="lazy"><span class="arrow">→</span><img src="reference/_match/shopify/56450831909242.jpg" loading="lazy" onerror="this.style.opacity=.2"></div>
+    <div class="lbl"><b>Natural Tortoiseshell</b> <span class="badge">auto</span><br>
+      <span class="muted">→ The Amber set - Midi Charm <i>#2 Tortoiseshell button</i></span><br>
+      <span class="pmis">customizer £3 ≠ Shopify £2.00</span> · <span class="muted">56450831909242</span></div>
+  </div>
+<div class="card none">
+      <div class="imgs"><img src="public/assets/charms/ref/52e483c2-c80e-4920-998c-c7bf5aa59b8a-32.png" loading="lazy"><span class="arrow">→</span><div class="noimg">no match<br>charmByPrice £5</div></div>
+      <div class="lbl"><b>Natural Vial</b> <span class="badge">manual</span><br><span class="muted">unique · £5 · ×1</span></div>
+    </div></div>
+<script>
+  function f(k){document.querySelectorAll('.card').forEach(c=>{
+    let show = k==='all' || c.classList.contains(k) || (k==='pmis'&&c.querySelector('.pmis'));
+    c.style.display = show?'':'none';
+  });}
+</script>

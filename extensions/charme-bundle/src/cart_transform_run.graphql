@@ -1,0 +1,20 @@
+query CartTransformRunInput {
+  cart {
+    lines {
+      id
+      quantity
+      # Every line of one custom design carries the same _design_token property
+      # (added by shopifyCart.js when adding the base case + charms to the cart).
+      designToken: attribute(key: "_design_token") {
+        value
+      }
+    }
+  }
+  # The parent "Custom Charm Case" variant for the merged bundle line, stored as
+  # an app-owned shop metafield (set by shopify/scripts/activate-cart-transform.mjs).
+  shop {
+    parentVariant: metafield(namespace: "$app:charme", key: "parent_variant") {
+      value
+    }
+  }
+}

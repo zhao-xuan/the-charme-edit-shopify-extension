@@ -10,7 +10,7 @@ const cors = {
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
 export async function onRequestPost({ request, env }) {
-  if (!requireAdmin(request, env)) return bad('unauthorized', 401)
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const { scope, refId, price, hidden } = (await request.json().catch(() => ({}))) || {}
   if (!scope || !refId) return bad('scope and refId required')
   await env.DB.prepare(

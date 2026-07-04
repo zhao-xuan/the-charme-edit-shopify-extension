@@ -16,14 +16,18 @@ function isMerchantView() {
 
 /** The merchant CMS lives at the `/admin` route (or `?admin` / `#admin`), and
  *  is the default view on the dedicated `admin.` subdomain
- *  (admin.charme-customizer.pages.dev). */
+ *  (admin.charme-customizer.pages.dev). It is ALSO the view Shopify opens when
+ *  the app is embedded in the Shopify Admin (Shopify appends `?host`/`?shop`). */
 function isAdminView() {
   if (typeof window === 'undefined') return false
   const { hostname, pathname, search, hash } = window.location
+  const params = new URLSearchParams(search)
   return (
     /^admin\./i.test(hostname) ||
     /^\/admin\/?$/i.test(pathname) ||
-    new URLSearchParams(search).has('admin') ||
+    params.has('admin') ||
+    params.has('host') ||
+    params.has('shop') ||
     /admin/i.test(hash)
   )
 }

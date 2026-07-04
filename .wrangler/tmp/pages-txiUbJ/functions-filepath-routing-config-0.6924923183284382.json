@@ -1,0 +1,125 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/admin/charms",
+      "mountPath": "/api/admin",
+      "method": "DELETE",
+      "module": [
+        "api/admin/charms.js:onRequestDelete"
+      ]
+    },
+    {
+      "routePath": "/api/admin/charms",
+      "mountPath": "/api/admin",
+      "method": "OPTIONS",
+      "module": [
+        "api/admin/charms.js:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/admin/charms",
+      "mountPath": "/api/admin",
+      "method": "PATCH",
+      "module": [
+        "api/admin/charms.js:onRequestPatch"
+      ]
+    },
+    {
+      "routePath": "/api/admin/charms",
+      "mountPath": "/api/admin",
+      "method": "POST",
+      "module": [
+        "api/admin/charms.js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/admin/override",
+      "mountPath": "/api/admin",
+      "method": "OPTIONS",
+      "module": [
+        "api/admin/override.js:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/admin/override",
+      "mountPath": "/api/admin",
+      "method": "POST",
+      "module": [
+        "api/admin/override.js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/admin/products",
+      "mountPath": "/api/admin",
+      "method": "DELETE",
+      "module": [
+        "api/admin/products.js:onRequestDelete"
+      ]
+    },
+    {
+      "routePath": "/api/admin/products",
+      "mountPath": "/api/admin",
+      "method": "OPTIONS",
+      "module": [
+        "api/admin/products.js:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/admin/products",
+      "mountPath": "/api/admin",
+      "method": "POST",
+      "module": [
+        "api/admin/products.js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/shopify/draft-order",
+      "mountPath": "/api/shopify",
+      "method": "OPTIONS",
+      "module": [
+        "api/shopify/draft-order.js:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/shopify/draft-order",
+      "mountPath": "/api/shopify",
+      "method": "POST",
+      "module": [
+        "api/shopify/draft-order.js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/image/:key",
+      "mountPath": "/api/image",
+      "method": "GET",
+      "module": [
+        "api/image/[key].js:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/preset/:handle",
+      "mountPath": "/api/preset",
+      "method": "GET",
+      "module": [
+        "api/preset/[handle].js:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/preset/:handle",
+      "mountPath": "/api/preset",
+      "method": "POST",
+      "module": [
+        "api/preset/[handle].js:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/catalog",
+      "mountPath": "/api",
+      "method": "GET",
+      "module": [
+        "api/catalog.js:onRequestGet"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}
