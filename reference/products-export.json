@@ -1,0 +1,4536 @@
+[
+  {
+    "id": "iphone-7",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 7",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 67.1,
+    "heightMm": 138.3,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 61.1,
+        "hMm": 130.3,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5,
+          "yMm": 4.4,
+          "wMm": 13.5,
+          "hMm": 14.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5,
+      "yMm": 4.4,
+      "wMm": 13.5,
+      "hMm": 14.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-7-white.png",
+      "black": "/assets/cases/integrated-iphone-7-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-8",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 8",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 67.3,
+    "heightMm": 138.4,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 61.3,
+        "hMm": 130.4,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5,
+          "yMm": 4.4,
+          "wMm": 13.5,
+          "hMm": 14.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5,
+      "yMm": 4.4,
+      "wMm": 13.5,
+      "hMm": 14.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-8-white.png",
+      "black": "/assets/cases/integrated-iphone-8-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-7-plus",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 7 Plus",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 77.9,
+    "heightMm": 158.2,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 71.9,
+        "hMm": 150.2,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.9,
+          "yMm": 4.4,
+          "wMm": 24.1,
+          "hMm": 14.7,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.9,
+      "yMm": 4.4,
+      "wMm": 24.1,
+      "hMm": 14.7,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-7-plus-white.png",
+      "black": "/assets/cases/integrated-iphone-7-plus-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-8-plus",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 8 Plus",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 78.1,
+    "heightMm": 158.4,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 72.1,
+        "hMm": 150.4,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.9,
+          "yMm": 4.4,
+          "wMm": 24.2,
+          "hMm": 14.7,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.9,
+      "yMm": 4.4,
+      "wMm": 24.2,
+      "hMm": 14.7,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-8-plus-white.png",
+      "black": "/assets/cases/integrated-iphone-8-plus-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-x",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone X",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 70.9,
+    "heightMm": 143.6,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 64.9,
+        "hMm": 135.6,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5,
+          "yMm": 4.9,
+          "wMm": 15.9,
+          "hMm": 29,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5,
+      "yMm": 4.9,
+      "wMm": 15.9,
+      "hMm": 29,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-x-white.png",
+      "black": "/assets/cases/integrated-iphone-x-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-xs",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone XS",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 70.9,
+    "heightMm": 143.6,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 64.9,
+        "hMm": 135.6,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5.2,
+          "yMm": 5.2,
+          "wMm": 15.9,
+          "hMm": 29.4,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5.2,
+      "yMm": 5.2,
+      "wMm": 15.9,
+      "hMm": 29.4,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-xs-white.png",
+      "black": "/assets/cases/integrated-iphone-xs-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-xs-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone XS Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 77.4,
+    "heightMm": 157.5,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 71.4,
+        "hMm": 149.5,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5,
+          "yMm": 4.9,
+          "wMm": 16.6,
+          "hMm": 30.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5,
+      "yMm": 4.9,
+      "wMm": 16.6,
+      "hMm": 30.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-xs-max-white.png",
+      "black": "/assets/cases/integrated-iphone-xs-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-11",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 11",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 75.7,
+    "heightMm": 150.9,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 69.7,
+        "hMm": 142.9,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5.5,
+          "yMm": 5.3,
+          "wMm": 16.7,
+          "hMm": 31.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5.5,
+      "yMm": 5.3,
+      "wMm": 16.7,
+      "hMm": 31.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-11-white.png",
+      "black": "/assets/cases/integrated-iphone-11-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-11-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 11 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 71.4,
+    "heightMm": 144,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 65.4,
+        "hMm": 136,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 5.4,
+          "yMm": 5.2,
+          "wMm": 28.3,
+          "hMm": 31.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 5.4,
+      "yMm": 5.2,
+      "wMm": 28.3,
+      "hMm": 31.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-11-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-11-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-11-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 11 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 77.8,
+    "heightMm": 158,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 71.8,
+        "hMm": 150,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 5.1,
+          "yMm": 4.7,
+          "wMm": 28.9,
+          "hMm": 31.9,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 5.1,
+      "yMm": 4.7,
+      "wMm": 28.9,
+      "hMm": 31.9,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-11-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-11-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-12-mini",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 12 mini",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 64.2,
+    "heightMm": 131.5,
+    "radiusMm": 10,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 58.2,
+        "hMm": 123.5,
+        "rMm": 7
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.2,
+          "yMm": 3.9,
+          "wMm": 15.6,
+          "hMm": 30.1,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.2,
+      "yMm": 3.9,
+      "wMm": 15.6,
+      "hMm": 30.1,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-12-mini-white.png",
+      "black": "/assets/cases/integrated-iphone-12-mini-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-12",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 12",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 71.5,
+    "heightMm": 146.7,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 65.5,
+        "hMm": 138.7,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 5.9,
+          "yMm": 5.7,
+          "wMm": 16.3,
+          "hMm": 30.8,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 5.9,
+      "yMm": 5.7,
+      "wMm": 16.3,
+      "hMm": 30.8,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-12-white.png",
+      "black": "/assets/cases/integrated-iphone-12-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-12-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 12 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 71.5,
+    "heightMm": 146.7,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 65.5,
+        "hMm": 138.7,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 5.9,
+          "yMm": 5.7,
+          "wMm": 16.3,
+          "hMm": 30.8,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 5.9,
+      "yMm": 5.7,
+      "wMm": 16.3,
+      "hMm": 30.8,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-12-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-12-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-12-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 12 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 78.1,
+    "heightMm": 160.8,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 72.1,
+        "hMm": 152.8,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 4.5,
+          "yMm": 4.7,
+          "wMm": 33.6,
+          "hMm": 37.9,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 4.5,
+      "yMm": 4.7,
+      "wMm": 33.6,
+      "hMm": 37.9,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-12-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-12-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-13-mini",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 13 mini",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 67.5,
+    "heightMm": 134.5,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 61.5,
+        "hMm": 126.5,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 0,
+          "yMm": 0.9,
+          "wMm": 33.6,
+          "hMm": 36.7,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 0,
+      "yMm": 0.9,
+      "wMm": 33.6,
+      "hMm": 36.7,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-13-mini-white.png",
+      "black": "/assets/cases/integrated-iphone-13-mini-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-13",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 13",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.9,
+    "heightMm": 149.7,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.9,
+        "hMm": 141.7,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.9,
+          "yMm": 4.5,
+          "wMm": 30.2,
+          "hMm": 30.4,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.9,
+      "yMm": 4.5,
+      "wMm": 30.2,
+      "hMm": 30.4,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-13-white.png",
+      "black": "/assets/cases/integrated-iphone-13-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-13-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 13 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.9,
+    "heightMm": 149.7,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.9,
+        "hMm": 141.7,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 4.1,
+          "yMm": 5.4,
+          "wMm": 37.4,
+          "hMm": 38.6,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 4.1,
+      "yMm": 5.4,
+      "wMm": 37.4,
+      "hMm": 38.6,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-13-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-13-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-13-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 13 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 81.4,
+    "heightMm": 163.8,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 75.4,
+        "hMm": 155.8,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 3.8,
+          "yMm": 5.1,
+          "wMm": 38,
+          "hMm": 39.3,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 3.8,
+      "yMm": 5.1,
+      "wMm": 38,
+      "hMm": 39.3,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-13-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-13-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-14",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 14",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.9,
+    "heightMm": 149.7,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.9,
+        "hMm": 141.7,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 0,
+          "yMm": 3.7,
+          "wMm": 38.6,
+          "hMm": 36.7,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 0,
+      "yMm": 3.7,
+      "wMm": 38.6,
+      "hMm": 36.7,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-14-white.png",
+      "black": "/assets/cases/integrated-iphone-14-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-14-plus",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 14 Plus",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 81.4,
+    "heightMm": 163.8,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 75.4,
+        "hMm": 155.8,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 0,
+          "yMm": 4.3,
+          "wMm": 39.6,
+          "hMm": 37.2,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 0,
+      "yMm": 4.3,
+      "wMm": 39.6,
+      "hMm": 37.2,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-14-plus-white.png",
+      "black": "/assets/cases/integrated-iphone-14-plus-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-14-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 14 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.9,
+    "heightMm": 150.5,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.9,
+        "hMm": 142.5,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 1.3,
+          "yMm": 3.8,
+          "wMm": 45,
+          "hMm": 46.4,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 1.3,
+      "yMm": 3.8,
+      "wMm": 45,
+      "hMm": 46.4,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-14-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-14-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-14-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 14 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 81,
+    "heightMm": 163.7,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 75,
+        "hMm": 155.7,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 1,
+          "yMm": 3.4,
+          "wMm": 45.5,
+          "hMm": 47,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 1,
+      "yMm": 3.4,
+      "wMm": 45.5,
+      "hMm": 47,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-14-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-14-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-15",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 15",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.6,
+    "heightMm": 150.6,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.6,
+        "hMm": 142.6,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 0,
+          "yMm": 2.3,
+          "wMm": 38.4,
+          "hMm": 39.6,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 0,
+      "yMm": 2.3,
+      "wMm": 38.4,
+      "hMm": 39.6,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-15-white.png",
+      "black": "/assets/cases/integrated-iphone-15-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-15-plus",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 15 Plus",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 80.8,
+    "heightMm": 163.9,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 74.8,
+        "hMm": 155.9,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 0,
+          "yMm": 2.1,
+          "wMm": 38.8,
+          "hMm": 40.2,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 0,
+      "yMm": 2.1,
+      "wMm": 38.8,
+      "hMm": 40.2,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-15-plus-white.png",
+      "black": "/assets/cases/integrated-iphone-15-plus-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-15-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 15 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 73.6,
+    "heightMm": 149.6,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 67.6,
+        "hMm": 141.6,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 1.2,
+          "yMm": 2.7,
+          "wMm": 45.6,
+          "hMm": 47.4,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 1.2,
+      "yMm": 2.7,
+      "wMm": 45.6,
+      "hMm": 47.4,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-15-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-15-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-15-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 15 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 79.7,
+    "heightMm": 162.9,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 73.7,
+        "hMm": 154.9,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 1,
+          "yMm": 2.4,
+          "wMm": 45.9,
+          "hMm": 47.9,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 1,
+      "yMm": 2.4,
+      "wMm": 45.9,
+      "hMm": 47.9,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-15-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-15-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-16",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 16",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.6,
+    "heightMm": 150.6,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.6,
+        "hMm": 142.6,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.5,
+          "yMm": 4.5,
+          "wMm": 31.3,
+          "hMm": 39.2,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.5,
+      "yMm": 4.5,
+      "wMm": 31.3,
+      "hMm": 39.2,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-16-white.png",
+      "black": "/assets/cases/integrated-iphone-16-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-16-plus",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 16 Plus",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 80.8,
+    "heightMm": 163.9,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 74.8,
+        "hMm": 155.9,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareDual",
+          "xMm": 4.8,
+          "yMm": 4.9,
+          "wMm": 33.9,
+          "hMm": 42.6,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareDual",
+      "xMm": 4.8,
+      "yMm": 4.9,
+      "wMm": 33.9,
+      "hMm": 42.6,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-16-plus-white.png",
+      "black": "/assets/cases/integrated-iphone-16-plus-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-16-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 16 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.5,
+    "heightMm": 152.6,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.5,
+        "hMm": 144.6,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 4.5,
+          "yMm": 4.6,
+          "wMm": 37.3,
+          "hMm": 45.8,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 4.5,
+      "yMm": 4.6,
+      "wMm": 37.3,
+      "hMm": 45.8,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-16-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-16-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-16-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 16 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 80.6,
+    "heightMm": 166,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 74.6,
+        "hMm": 158,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "squareTriple",
+          "xMm": 2.3,
+          "yMm": 1.8,
+          "wMm": 46.6,
+          "hMm": 48.5,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareTriple",
+      "xMm": 2.3,
+      "yMm": 1.8,
+      "wMm": 46.6,
+      "hMm": 48.5,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-16-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-16-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-17",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 17",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 74.5,
+    "heightMm": 152.6,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 68.5,
+        "hMm": 144.6,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "bar",
+          "xMm": 2.2,
+          "yMm": 1.8,
+          "wMm": 28.5,
+          "hMm": 46.2,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "bar",
+      "xMm": 2.2,
+      "yMm": 1.8,
+      "wMm": 28.5,
+      "hMm": 46.2,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-17-white.png",
+      "black": "/assets/cases/integrated-iphone-17-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-17-pro",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 17 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 76,
+    "heightMm": 153,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 70,
+        "hMm": 145,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "bar",
+          "xMm": 4.8,
+          "yMm": 4.9,
+          "wMm": 69.3,
+          "hMm": 45.4,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "bar",
+      "xMm": 4.8,
+      "yMm": 4.9,
+      "wMm": 69.3,
+      "hMm": 45.4,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-17-pro-white.png",
+      "black": "/assets/cases/integrated-iphone-17-pro-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-17-pro-max",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone 17 Pro Max",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 80.6,
+    "heightMm": 166,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 74.6,
+        "hMm": 158,
+        "rMm": 10
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "bar",
+          "xMm": 4,
+          "yMm": 4.3,
+          "wMm": 75,
+          "hMm": 46.3,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "bar",
+      "xMm": 4,
+      "yMm": 4.3,
+      "wMm": 75,
+      "hMm": 46.3,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-17-pro-max-white.png",
+      "black": "/assets/cases/integrated-iphone-17-pro-max-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "iphone-air",
+    "group": "phone",
+    "brand": "apple",
+    "name": "iPhone Air",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 77.7,
+    "heightMm": 159.2,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 3,
+        "yMm": 5,
+        "wMm": 71.7,
+        "hMm": 151.2,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "kind": "bar",
+          "xMm": 4.7,
+          "yMm": 4.8,
+          "wMm": 68.4,
+          "hMm": 47.8,
+          "rMm": 13,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "bar",
+      "xMm": 4.7,
+      "yMm": 4.8,
+      "wMm": 68.4,
+      "hMm": 47.8,
+      "rMm": 13
+    },
+    "blankImage": {
+      "white": "/assets/cases/integrated-iphone-air-white.png",
+      "black": "/assets/cases/integrated-iphone-air-black.png"
+    },
+    "gelRender": true
+  },
+  {
+    "id": "galaxy-s24-ultra",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S24 Ultra",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 79,
+    "heightMm": 162.3,
+    "radiusMm": 13,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 71,
+        "hMm": 154.3,
+        "rMm": 9
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 16,
+          "hMm": 52,
+          "rMm": 8,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV4",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 16,
+      "hMm": 52,
+      "rMm": 8
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s24-ultra-white.png",
+      "black": "/assets/cases/integrated-galaxy-s24-ultra-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s24-plus",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S24+",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 75.9,
+    "heightMm": 158.5,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 67.9,
+        "hMm": 150.5,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s24-plus-white.png",
+      "black": "/assets/cases/integrated-galaxy-s24-plus-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s24",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S24",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 70.6,
+    "heightMm": 147,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 62.6,
+        "hMm": 139,
+        "rMm": 7
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s24-white.png",
+      "black": "/assets/cases/integrated-galaxy-s24-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s23-ultra",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S23 Ultra",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 78.1,
+    "heightMm": 163.4,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 70.1,
+        "hMm": 155.4,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 16,
+          "hMm": 52,
+          "rMm": 8,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV4",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 16,
+      "hMm": 52,
+      "rMm": 8
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s23-ultra-white.png",
+      "black": "/assets/cases/integrated-galaxy-s23-ultra-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s23-plus",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S23+",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 76.2,
+    "heightMm": 157.8,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 68.2,
+        "hMm": 149.8,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s23-plus-white.png",
+      "black": "/assets/cases/integrated-galaxy-s23-plus-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s23",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S23",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 70.9,
+    "heightMm": 146.3,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 62.9,
+        "hMm": 138.3,
+        "rMm": 7
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s23-white.png",
+      "black": "/assets/cases/integrated-galaxy-s23-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s22-ultra",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S22 Ultra",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 77.9,
+    "heightMm": 163.3,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 69.9,
+        "hMm": 155.3,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 16,
+          "hMm": 52,
+          "rMm": 8,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV4",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 16,
+      "hMm": 52,
+      "rMm": 8
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s22-ultra-white.png",
+      "black": "/assets/cases/integrated-galaxy-s22-ultra-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s22-plus",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S22+",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 75.8,
+    "heightMm": 157.4,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 67.8,
+        "hMm": 149.4,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s22-plus-white.png",
+      "black": "/assets/cases/integrated-galaxy-s22-plus-black.png"
+    }
+  },
+  {
+    "id": "galaxy-s22",
+    "group": "phone",
+    "brand": "samsung",
+    "name": "Galaxy S22",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 70.6,
+    "heightMm": 146,
+    "radiusMm": 11,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 62.6,
+        "hMm": 138,
+        "rMm": 7
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 15,
+          "hMm": 40,
+          "rMm": 7,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "samsungV3",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 15,
+      "hMm": 40,
+      "rMm": 7
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-galaxy-s22-white.png",
+      "black": "/assets/cases/integrated-galaxy-s22-black.png"
+    }
+  },
+  {
+    "id": "xiaomi-14-pro",
+    "group": "phone",
+    "brand": "xiaomi",
+    "name": "Xiaomi 14 Pro",
+    "kind": "phone",
+    "basePrice": 26,
+    "widthMm": 75.3,
+    "heightMm": 161.4,
+    "radiusMm": 12,
+    "colors": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelColours": [
+      {
+        "id": "glitter",
+        "label": "Glitter",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": true
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#f7f0df",
+        "edge": "#e7ddc6",
+        "glitter": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1a1614",
+        "edge": "#000000",
+        "glitter": false
+      }
+    ],
+    "gelImages": null,
+    "printable": {
+      "outer": {
+        "xMm": 4,
+        "yMm": 4,
+        "wMm": 67.3,
+        "hMm": 153.4,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "roundedRect",
+          "xMm": 8,
+          "yMm": 8,
+          "wMm": 40,
+          "hMm": 42,
+          "rMm": 12,
+          "label": "camera"
+        }
+      ]
+    },
+    "camera": {
+      "kind": "squareLarge",
+      "xMm": 8,
+      "yMm": 8,
+      "wMm": 40,
+      "hMm": 42,
+      "rMm": 12
+    },
+    "gelRender": true,
+    "blankImage": {
+      "white": "/assets/cases/integrated-xiaomi-14-pro-white.png",
+      "black": "/assets/cases/integrated-xiaomi-14-pro-black.png"
+    }
+  },
+  {
+    "id": "tote-tj",
+    "group": "tote",
+    "name": "Trader Joe's Tote",
+    "kind": "tote",
+    "basePrice": 16,
+    "widthMm": 400,
+    "heightMm": 607,
+    "radiusMm": 8,
+    "blankImage": {
+      "natural": "/assets/totes/tj-natural.png"
+    },
+    "colors": [
+      {
+        "id": "natural",
+        "label": "Natural canvas",
+        "shell": "#e9dec6",
+        "edge": "#1c2740",
+        "glitter": false
+      }
+    ],
+    "printable": {
+      "outer": {
+        "xMm": 40,
+        "yMm": 285,
+        "wMm": 320,
+        "hMm": 249,
+        "rMm": 8
+      },
+      "obstacles": [
+        {
+          "type": "circle",
+          "cxMm": 180,
+          "cyMm": 476,
+          "rMm": 44,
+          "label": "logo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "frame-5x7",
+    "group": "frame",
+    "name": "Photo Frame · 5×7”",
+    "kind": "frame",
+    "basePrice": 24,
+    "widthMm": 184,
+    "heightMm": 248,
+    "radiusMm": 4,
+    "colors": [
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1c1c1c",
+        "edge": "#050505",
+        "glitter": false
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#fbfbf9",
+        "edge": "#e7e4dd",
+        "glitter": false
+      }
+    ],
+    "caseColours": [
+      {
+        "id": "black",
+        "label": "Black",
+        "shell": "#1c1c1c",
+        "edge": "#050505",
+        "glitter": false
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "shell": "#fbfbf9",
+        "edge": "#e7e4dd",
+        "glitter": false
+      }
+    ],
+    "printable": {
+      "kind": "frame",
+      "minCoverage": 0.6,
+      "outer": {
+        "xMm": 16,
+        "yMm": 16,
+        "wMm": 152,
+        "hMm": 216,
+        "rMm": 4
+      },
+      "opening": {
+        "xMm": 38,
+        "yMm": 38,
+        "wMm": 108,
+        "hMm": 172,
+        "rMm": 3
+      }
+    }
+  }
+]

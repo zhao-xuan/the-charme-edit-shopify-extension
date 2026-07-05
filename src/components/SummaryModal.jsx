@@ -117,6 +117,9 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       charms: placed.map((c) => ({
         charmId: c.charmId,
         shopifyVariantId: c.shopifyVariantId || null,
+        src: c.src,
+        wMm: c.baseWmm,
+        hMm: c.baseHmm,
         type: c.type,
         category: c.category,
         name: c.name,

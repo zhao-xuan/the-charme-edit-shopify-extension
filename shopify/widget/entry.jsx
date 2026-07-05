@@ -60,7 +60,16 @@ export async function mount() {
   // TEMPORARILY DISABLED (commented out, not removed) — presets are hidden for
   // now. Re-enable by restoring the loadPreset() call below.
   // const initialLayout = await loadPreset(cfg)
-  const initialLayout = null
+  let initialLayout = null
+
+  // Edit an existing cart design: ?charme_edit=<cart line key> reloads that
+  // design's saved layout so the customer can keep tweaking; re-ordering then
+  // replaces the original cart group (see shopifyCart.js cfg.editKey).
+  const editKey = new URLSearchParams(location.search).get('charme_edit')
+  if (editKey) {
+    cfg.editKey = editKey
+    initialLayout = await loadEditLayout(editKey)
+  }
 
   createRoot(el).render(
     <React.StrictMode>
@@ -70,9 +79,9 @@ export async function mount() {
             <CustomizerPage
               onPlaceOrder={onPlaceOrder}
               initialGroupKey={cfg.defaultGroup || undefined}
-              initialProductId={cfg.defaultProductId || undefined}
-              initialCaseColourId={cfg.caseColourId || undefined}
-              initialGelColourId={cfg.gelColourId || undefined}
+              initialProductId={(initialLayout && initialLayout.productId) || cfg.defaultProductId || undefined}
+              initialCaseColourId={(initialLayout && initialLayout.caseColourId) || cfg.caseColourId || undefined}
+              initialGelColourId={(initialLayout && initialLayout.gelColourId) || cfg.gelColourId || undefined}
               initialLayout={initialLayout || undefined}
             />
           </div>
@@ -104,8 +113,42 @@ async function loadPreset(cfg) {
   }
 }
 
-// Inline mode mounts immediately; button/popup mode sets `lazy` and mounts on
-// the first click (see the drop-in section) to keep the product page light.
+/**
+ * Load a design saved on a cart line (its `_layout` property) back into the
+ * seedable layout shape, so ?charme_edit reopens the customizer on it. Reads
+ * the live cart and finds the line by its key.
+ */
+async function loadEditLayout(key) {
+  try {
+    const cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then((r) => r.json())
+    const item = (cart.items || []).find((i) => i.key === key)
+    if (!item || !item.properties || !item.properties._layout) return null
+    const L = JSON.parse(item.properties._layout)
+    const p = L.product || {}
+    return {
+      productId: p.id,
+      caseColourId: (p.caseColour && p.caseColour.id) || p.colorId,
+      gelColourId: p.gelId || (p.gelColour && p.gelColour.id) || undefined,
+      charms: (L.charms || []).map((c) => ({
+        charmId: c.charmId,
+        src: c.src,
+        name: c.name,
+        category: c.category,
+        type: c.type,
+        price: c.price,
+        bundle: c.bundle,
+        cxMm: c.xMm,
+        cyMm: c.yMm,
+        wMm: c.wMm,
+        hMm: c.hMm,
+        rot: c.rotDeg,
+        scale: c.scale,
+      })),
+    }
+  } catch {
+    return null
+  }
+}
 function autoBoot() {
   if ((window.CharmeConfig || {}).lazy) return
   mount()

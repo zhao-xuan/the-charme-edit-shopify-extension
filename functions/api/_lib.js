@@ -123,3 +123,126 @@ const slug = (s) =>
 const rid = () => Math.random().toString(36).slice(2, 7)
 export const makeId = (prefix, name) => `${prefix}-${slug(name)}-${rid()}`
 
+// ---------------------------------------------------------------------------
+// Shopify Admin API helpers (client_credentials grant → GraphQL → Files upload)
+// ---------------------------------------------------------------------------
+
+const SHOPIFY_API_VERSION = '2024-10'
+
+// Cache the exchanged access token per isolate (best-effort; tokens expire).
+let _shopifyToken = null // { token, exp }
+
+/**
+ * Resolve a Shopify Admin API access token. New dev-dashboard custom apps expose
+ * a Client ID + Secret and you exchange them for a short-lived token via the
+ * client_credentials grant; fall back to a static SHOPIFY_ADMIN_TOKEN if set.
+ */
+export async function getShopifyToken(env) {
+  if (env.SHOPIFY_CLIENT_ID && env.SHOPIFY_CLIENT_SECRET && env.SHOPIFY_STORE) {
+    const now = Date.now()
+    if (_shopifyToken && _shopifyToken.exp > now + 60_000) return _shopifyToken.token
+    const res = await fetch(`https://${env.SHOPIFY_STORE}/admin/oauth/access_token`, {
+      method: 'POST',
+      body: new URLSearchParams({
+        client_id: env.SHOPIFY_CLIENT_ID,
+        client_secret: env.SHOPIFY_CLIENT_SECRET,
+        grant_type: 'client_credentials',
+      }),
+    })
+    const data = await res.json().catch(() => ({}))
+    if (!res.ok || !data.access_token) {
+      throw new Error(`token exchange failed: ${JSON.stringify(data).slice(0, 200)}`)
+    }
+    _shopifyToken = { token: data.access_token, exp: now + (Number(data.expires_in) || 3600) * 1000 }
+    return _shopifyToken.token
+  }
+  if (env.SHOPIFY_ADMIN_TOKEN) return env.SHOPIFY_ADMIN_TOKEN
+  throw new Error('no Shopify auth configured')
+}
+
+/** Run an Admin GraphQL query. Throws on GraphQL-level errors. */
+export async function shopifyAdmin(env, query, variables) {
+  const token = await getShopifyToken(env)
+  const res = await fetch(
+    `https://${env.SHOPIFY_STORE}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-shopify-access-token': token },
+      body: JSON.stringify({ query, variables }),
+    },
+  )
+  const body = await res.json()
+  if (body.errors) throw new Error(JSON.stringify(body.errors))
+  return body.data
+}
+
+const STAGED_UPLOADS_CREATE = `
+  mutation stagedUploadsCreate($input: [StagedUploadInput!]!) {
+    stagedUploadsCreate(input: $input) {
+      stagedTargets { url resourceUrl parameters { name value } }
+      userErrors { field message }
+    }
+  }`
+
+const FILE_CREATE = `
+  mutation fileCreate($files: [FileCreateInput!]!) {
+    fileCreate(files: $files) {
+      files { id fileStatus alt ... on MediaImage { image { url } } }
+      userErrors { field message }
+    }
+  }`
+
+const FILE_NODE = `
+  query fileNode($id: ID!) {
+    node(id: $id) { ... on MediaImage { id fileStatus image { url } } }
+  }`
+
+/**
+ * Upload raw image bytes to the store's **Shopify Files** (Content → Files) and
+ * return the public CDN URL. Three steps: stage an upload target, POST the bytes
+ * to it, then create the File and poll until Shopify finishes processing it.
+ * Returns null if the CDN URL isn't ready within the poll window (caller should
+ * fall back to another URL).
+ */
+export async function uploadImageToShopifyFiles(env, bytes, opts = {}) {
+  const contentType = opts.contentType || 'image/png'
+  const filename = opts.filename || `charme-${rid()}.png`
+  const alt = opts.alt || filename
+
+  // 1) Ask Shopify for a staged upload target (S3/GCS form POST).
+  const staged = await shopifyAdmin(env, STAGED_UPLOADS_CREATE, {
+    input: [{ resource: 'IMAGE', filename, mimeType: contentType, httpMethod: 'POST' }],
+  })
+  const errs = staged.stagedUploadsCreate.userErrors
+  if (errs && errs.length) throw new Error('stagedUploadsCreate: ' + JSON.stringify(errs))
+  const target = staged.stagedUploadsCreate.stagedTargets[0]
+  if (!target) throw new Error('no staged upload target returned')
+
+  // 2) POST the file to the staged target with all provided form parameters.
+  const form = new FormData()
+  for (const p of target.parameters) form.append(p.name, p.value)
+  form.append('file', new Blob([bytes], { type: contentType }), filename)
+  const up = await fetch(target.url, { method: 'POST', body: form })
+  if (!up.ok) throw new Error('staged upload POST failed: ' + up.status)
+
+  // 3) Register the uploaded resource as a File.
+  const created = await shopifyAdmin(env, FILE_CREATE, {
+    files: [{ contentType: 'IMAGE', originalSource: target.resourceUrl, alt }],
+  })
+  const cErrs = created.fileCreate.userErrors
+  if (cErrs && cErrs.length) throw new Error('fileCreate: ' + JSON.stringify(cErrs))
+  const file = created.fileCreate.files[0]
+  if (!file) throw new Error('fileCreate returned no file')
+  if (file.image && file.image.url) return file.image.url
+
+  // 4) Poll until Shopify finishes processing and exposes the CDN url.
+  for (let i = 0; i < 6; i++) {
+    await new Promise((r) => setTimeout(r, 700))
+    const q = await shopifyAdmin(env, FILE_NODE, { id: file.id })
+    const node = q.node
+    if (node && node.image && node.image.url) return node.image.url
+    if (node && node.fileStatus === 'FAILED') throw new Error('Shopify file processing failed')
+  }
+  return null
+}
+

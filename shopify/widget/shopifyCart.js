@@ -92,6 +92,27 @@ export function createCartHandler(cfg) {
   return createNativeCartHandler(cfg)
 }
 
+/** Remove every cart line of the design that owns cart line `key` (edit flow). */
+async function removeDesignGroup(routesRoot, key) {
+  const cartUrl = `${routesRoot}cart.js`.replace('//', '/')
+  const updUrl = `${routesRoot}cart/update.js`.replace('//', '/')
+  const cart = await fetch(cartUrl, { headers: { Accept: 'application/json' } }).then((r) => r.json())
+  const item = (cart.items || []).find((i) => i.key === key)
+  const tok = item && item.properties && item.properties._design_token
+  if (!tok) return
+  const updates = {}
+  cart.items.forEach((i) => {
+    if (i.properties && i.properties._design_token === tok) updates[i.key] = 0
+  })
+  if (Object.keys(updates).length) {
+    await fetch(updUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ updates }),
+    })
+  }
+}
+
 function createNativeCartHandler(cfg) {
   const variantMap = cfg.variantMap || { products: {}, charms: {} }
   // The base-case variant map (model × gel → variant) is bundled, so the
@@ -101,6 +122,12 @@ function createNativeCartHandler(cfg) {
   const addUrl = `${routesRoot}cart/add.js`.replace('//', '/')
 
   return async function onPlaceOrder(payload) {
+    // Editing an existing design (?charme_edit): remove the original cart group
+    // first so the updated design replaces it instead of duplicating.
+    if (cfg.editKey) {
+      await removeDesignGroup(routesRoot, cfg.editKey).catch(() => {})
+      cfg.editKey = null
+    }
     const baseVariant = resolveProductVariant(variantMap, payload)
     if (!baseVariant) {
       throw new Error(
@@ -158,7 +185,7 @@ function createNativeCartHandler(cfg) {
           _design_token: designToken,
           Design: `${payload.charms.length} charms`,
           Finish: payload.product.color,
-          ...(proofUrl ? { _proof: proofUrl } : {}),
+          ...(proofUrl ? { Proof: proofUrl } : {}),
           _layout: JSON.stringify({
             product: payload.product,
             charms: payload.charms,

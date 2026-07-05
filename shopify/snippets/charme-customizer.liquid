@@ -96,6 +96,7 @@
     }
     window.CharmeConfig = {
       apiBase: {{ cfg_api_base | json }},
+      uploadEndpoint: {{ cfg_api_base | append: '/api/upload-proof' | json }},
       orderMode: {{ cfg_order_mode | json }},
       variantMap: variantMap,
       cartRedirect: {{ cfg_cart_redir | json }},
