@@ -1,6 +1,15 @@
-// Admin override endpoint — re-price / hide a BUNDLED base-catalogue item.
-//   POST /api/admin/override  { scope:'product'|'charm', refId, price?, hidden? }
+// Admin override endpoint — re-price / resize / hide a BUNDLED base-catalogue item.
+//   POST /api/admin/override  { scope:'product'|'charm', refId, price?, hidden?, sizeScale? }
+//
+// Storage: Shopify `charme_override` METAOBJECT when configured; else D1.
 import { json, bad, requireAdmin } from '../_lib.js'
+import {
+  TYPES,
+  shopifyConfigured,
+  saveRecord,
+  getRecord,
+  overrideHandle,
+} from '../_shopify-store.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -11,13 +20,29 @@ export const onRequestOptions = () => new Response(null, { headers: cors })
 
 export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  const { scope, refId, price, hidden } = (await request.json().catch(() => ({}))) || {}
+  const { scope, refId, price, hidden, sizeScale } = (await request.json().catch(() => ({}))) || {}
   if (!scope || !refId) return bad('scope and refId required')
+
+  if (shopifyConfigured(env)) {
+    const handle = overrideHandle(scope, refId)
+    // Merge onto the existing override so unspecified fields are preserved
+    // (mirrors the COALESCE upsert of the D1 path).
+    const rec = (await getRecord(env, TYPES.override, handle)) || { scope, refId }
+    rec.scope = scope
+    rec.refId = refId
+    if (price != null) rec.price = price
+    if (hidden != null) rec.hidden = !!hidden
+    if (sizeScale != null) rec.sizeScale = sizeScale
+    await saveRecord(env, TYPES.override, handle, rec)
+    return json({ ok: true }, { headers: cors })
+  }
+
   await env.DB.prepare(
-    `INSERT INTO overrides (scope, ref_id, price, hidden) VALUES (?,?,?,?)
+    `INSERT INTO overrides (scope, ref_id, price, hidden, size_scale) VALUES (?,?,?,?,?)
      ON CONFLICT(scope, ref_id) DO UPDATE SET
        price = COALESCE(excluded.price, overrides.price),
-       hidden = COALESCE(excluded.hidden, overrides.hidden)`,
-  ).bind(scope, refId, price ?? null, hidden == null ? null : hidden ? 1 : 0).run()
+       hidden = COALESCE(excluded.hidden, overrides.hidden),
+       size_scale = COALESCE(excluded.size_scale, overrides.size_scale)`,
+  ).bind(scope, refId, price ?? null, hidden == null ? null : hidden ? 1 : 0, sizeScale ?? null).run()
   return json({ ok: true }, { headers: cors })
 }

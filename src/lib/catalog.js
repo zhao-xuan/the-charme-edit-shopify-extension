@@ -111,6 +111,21 @@ const REMOTE = remoteCatalog() || {}
 const REMOTE_OV = REMOTE.overrides || {}
 const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
 const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
+const charmSizes = { ...(REMOTE_OV.charmSizes || {}), ...ADMIN.charmSizes }
+
+/** Apply a merchant size-scale override (keyed by charm id) to a charm's mm size. */
+function applySizeOverride(c) {
+  const scale = Number(charmSizes[c.id])
+  if (!scale || scale <= 0 || scale === 1) return c
+  const w = Number(c.widthMm)
+  const h = Number(c.heightMm)
+  return {
+    ...c,
+    sizeScale: scale,
+    widthMm: w ? +(w * scale).toFixed(2) : c.widthMm,
+    heightMm: h ? +(h * scale).toFixed(2) : c.heightMm,
+  }
+}
 
 const BASE_CHARMS = charmData.charms
   .filter((c) => !charmHidden[c.id] && !c.hidden)
@@ -152,13 +167,13 @@ const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS.filter((c) => !seenCharm.has(c.
   // flagged unavailable so the tray greys them out. Applied LAST so it wins even
   // when the D1 remote catalogue overrode the bundled charm by id.
   const ov = charmOverrides[c.id]
-  if (!ov) return c
-  return {
+  if (!ov) return applySizeOverride(c)
+  return applySizeOverride({
     ...c,
     ...(ov.price != null ? { price: ov.price } : {}),
     ...(ov.unavailable ? { unavailable: true } : {}),
     ...(ov.variantId ? { shopifyVariantId: ov.variantId } : {}),
-  }
+  })
 })
 const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
 
@@ -208,6 +223,31 @@ export function groupByCollection(items) {
     map.get(c.collection).push(c)
   }
   return Array.from(map, ([collection, list]) => ({ collection, items: list }))
+}
+
+/** Collections whose pieces are single characters — support "type a word". */
+export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
+export function isTextCollection(name) {
+  return TEXT_COLLECTIONS.includes(name)
+}
+
+/**
+ * Resolve a single-character charm (a letter or number) by the character it
+ * shows (its `charmLabel`). `collection` is "Letters & initials" or "Numbers";
+ * `preferCategory` is the tray finish tab the user is on (gold/silver/…), so a
+ * typed word uses the matching finish when one exists. Skips unavailable charms.
+ */
+export function charmByLabel(collection, label, preferCategory) {
+  const want = String(label == null ? '' : label).toUpperCase()
+  if (!want) return null
+  const matches = CHARMS.filter(
+    (c) =>
+      c.collection === collection &&
+      !c.unavailable &&
+      String(c.charmLabel == null ? '' : c.charmLabel).toUpperCase() === want,
+  )
+  if (!matches.length) return null
+  return matches.find((c) => c.category === preferCategory) || matches[0]
 }
 
 /**

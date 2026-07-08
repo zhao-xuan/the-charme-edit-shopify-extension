@@ -188,5 +188,15 @@
     root.querySelectorAll('[data-charme-open]').forEach(function (b) { b.addEventListener('click', open); });
     root.querySelectorAll('[data-charme-close]').forEach(function (b) { b.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+
+    // Arriving from a cart "Edit design" link (/products/<handle>?charme_edit=<key>)
+    // → jump STRAIGHT into the editor instead of landing on the product page. The
+    // widget reads ?charme_edit itself (entry.jsx) and loads that design's layout.
+    try {
+      if (!window.__charmeAutoOpened && new URLSearchParams(location.search).get('charme_edit')) {
+        window.__charmeAutoOpened = true;
+        open();
+      }
+    } catch (e) {}
   })();
 </script>

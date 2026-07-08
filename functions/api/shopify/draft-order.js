@@ -25,7 +25,11 @@
 //   SHOPIFY_ADMIN_TOKEN  Admin API access token (custom app) with write_draft_orders
 // Bindings already in wrangler.jsonc: DB (D1, for prices), IMAGES (KV, for proofs).
 
+import { uploadImageToShopifyFiles } from '../_lib.js'
+import { TYPES, shopifyConfigured, getRecord } from '../_shopify-store.js'
+
 const API_VERSION = '2024-10'
+
 
 // Server-authoritative base price per product kind (mirrors src/data/products.js).
 const BASE_PRICE = { phone: 26, tote: 16, frame: 24 }
@@ -105,17 +109,36 @@ const DRAFT_ORDER_CREATE = `
 
 const money = (n) => (Math.round(Number(n) * 100) / 100).toFixed(2)
 
-/** Store the proof PNG in KV and return an absolute /api/image URL for it. */
+/**
+ * Store the proof PNG. Preferred: the merchant's Shopify Files (durable,
+ * store-owned CDN). Fallback: Cloudflare KV under img:proof-<token> served from
+ * /api/image. Returns the best available absolute URL.
+ */
 async function storeProof(env, origin, token, dataUrl) {
-  if (!env.IMAGES || !dataUrl) return null
+  if (!dataUrl) return null
   const m = /^data:(image\/[a-z+]+);base64,(.*)$/s.exec(dataUrl)
   if (!m) return null
   const bin = atob(m[2])
   const bytes = new Uint8Array(bin.length)
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)
   const key = `proof-${token}`
-  await env.IMAGES.put(`img:${key}`, bytes, { metadata: { contentType: m[1] } })
-  return `${origin}/api/image/${key}`
+
+  let kvUrl = null
+  if (env.IMAGES) {
+    await env.IMAGES.put(`img:${key}`, bytes, { metadata: { contentType: m[1] } })
+    kvUrl = `${origin}/api/image/${key}`
+  }
+  try {
+    const shopifyUrl = await uploadImageToShopifyFiles(env, bytes, {
+      contentType: m[1],
+      filename: `charme-proof-${token}.png`,
+      alt: `Charmé design proof ${token}`,
+    })
+    if (shopifyUrl) return shopifyUrl
+  } catch (e) {
+    console.warn('[Charmé] Shopify Files upload failed, using KV URL', e && e.message)
+  }
+  return kvUrl
 }
 
 export async function onRequestPost({ request, env }) {
@@ -144,11 +167,23 @@ export async function onRequestPost({ request, env }) {
   const token = payload.designToken || `cd_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`
   const origin = new URL(request.url).origin
 
-  // ---- Authoritative pricing from D1 (never trust the client's numbers) ----
+  // ---- Authoritative pricing from the catalogue (never trust the client) ----
+  // Prefer the Shopify-native store (charme_charm metaobjects); fall back to the
+  // legacy D1 catalogue. Bundled base-catalogue charms live in neither, so their
+  // price falls through to the clamped client value below.
   const ids = [...new Set(charms.map((c) => c.charmId).filter(Boolean))]
   const priceById = new Map()
   const nameById = new Map()
-  if (env.DB && ids.length) {
+  if (ids.length && shopifyConfigured(env)) {
+    const recs = await Promise.all(
+      ids.map((id) => getRecord(env, TYPES.charm, id).catch(() => null)),
+    )
+    for (const r of recs) {
+      if (!r || !r.id) continue
+      priceById.set(r.id, Number(r.price))
+      nameById.set(r.id, r.name)
+    }
+  } else if (env.DB && ids.length) {
     const placeholders = ids.map(() => '?').join(',')
     const rows = await env.DB.prepare(
       `SELECT id, name, price FROM charms WHERE id IN (${placeholders})`,

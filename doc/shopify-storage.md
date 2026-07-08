@@ -6,6 +6,17 @@
 > Shopify-native storage. This gives per-merchant isolation, backups, GDPR and
 > data-residency **for free**.
 
+> ✅ **STATUS (implemented).** The admin CRUD + storefront read now point at
+> Shopify storage. When the Shopify Admin backend is configured
+> (`SHOPIFY_STORE` + `SHOPIFY_CLIENT_ID`/`SHOPIFY_CLIENT_SECRET`, or
+> `SHOPIFY_ADMIN_TOKEN`), charms/products/overrides/presets are stored as
+> **metaobjects** and images go to **Shopify Files** — see
+> [functions/api/_shopify-store.js](../functions/api/_shopify-store.js). If those
+> env vars are absent (local `vite`/`wrangler` dev, un-migrated deploys) the
+> endpoints transparently fall back to the legacy **Cloudflare D1 + KV** path, so
+> nothing breaks. The `/api/*` JSON response shapes are unchanged, so the widget
+> and admin UI needed no edits. Go-live steps are in §6.
+
 ---
 
 ## 1. Where we are today (Cloudflare) vs. where we're going (Shopify)
@@ -141,6 +152,32 @@ orders, AI split) — it just stops being the **database**.
 ---
 
 ## 6. Migration plan (incremental, low-risk)
+
+> ✅ Steps 1–3 are implemented in code (metaobject definitions are created
+> on-demand, writes create Files + metaobjects, reads come from metaobjects). To
+> **go live** on a store:
+>
+> 1. Ensure the Pages secrets are set: `SHOPIFY_STORE` + `SHOPIFY_CLIENT_ID` +
+>    `SHOPIFY_CLIENT_SECRET` (already set for draft orders). The custom app needs
+>    scopes **`write_metaobjects` / `read_metaobjects`** and **`write_files` /
+>    `read_files`** (add to [shopify.app.toml](../shopify.app.toml) then
+>    `shopify app deploy`).
+> 2. Deploy: `npm run build && npx wrangler pages deploy dist --branch production`.
+>    The first admin write (or catalogue read) auto-creates the 4 metaobject
+>    definitions (`charme_charm`, `charme_product`, `charme_override`,
+>    `charme_preset`) via `metaobjectDefinitionCreate`.
+> 3. **Seed / migrate existing D1 rows** into metaobjects with a one-off script
+>    (read `GET /api/catalog` from the *old* D1 deploy → `POST /api/admin/charms`
+>    + `/products` to the new one). Presets: re-run the seeding tool (it now upserts
+>    metaobjects). `scripts/seed-*.mjs` that wrote raw D1 SQL are dev-only and now
+>    superseded by the API.
+> 4. Verify: `curl https://<pages>/api/catalog` returns your charms with
+>    `cdn.shopify.com` image URLs, and the charms appear under **Settings →
+>    Custom data → Metaobjects** in Shopify admin.
+> 5. Once every merchant is on metaobjects, the D1/KV bindings can be dropped from
+>    [wrangler.jsonc](../wrangler.jsonc) (the fallback code is then dead).
+
+Original incremental plan (for reference):
 
 1. **Define** the metaobject definitions + Files usage via a one-time
    `metaobjectDefinitionCreate` run on app install (`app/uninstalled` cleans up if

@@ -30,6 +30,9 @@ export function defaultAdmin() {
     charmPrices: {},
     // { [charmId]: true } — hide a catalogue charm from the tray.
     charmHidden: {},
+    // { [charmId]: number } — scale multiplier on a charm's real-world size
+    // (1 = catalogue default). Lets a merchant enlarge/shrink each piece.
+    charmSizes: {},
     // Brand-new merchant charms (uploaded cut-outs).
     customCharms: [],
   }

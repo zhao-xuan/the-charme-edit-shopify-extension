@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
-import { trayGroups, groupByCollection } from '../lib/catalog'
+import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
 
 function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
   const unavailable = !!charm.unavailable
@@ -51,10 +52,21 @@ function NoteBox({ text }) {
   )
 }
 
-function GroupPanel({ group, compact, rows, onActivate, onPointerDown }) {
+function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWord }) {
   const charms = group.items || []
+  const [wordFor, setWordFor] = useState(null)
+  const [wordText, setWordText] = useState('')
+  const [wordPlace, setWordPlace] = useState('middle')
+  const [wordArc, setWordArc] = useState(false)
   if (!charms.length) return <Empty description="Nothing here yet" />
   const collections = groupByCollection(charms)
+  const submitWord = (collection) => {
+    const t = wordText.trim()
+    if (!t) return
+    onTypeWord?.(t, { collection, category: group.key, placement: wordPlace, arc: wordArc })
+    setWordText('')
+    setWordFor(null)
+  }
   return (
     <div>
       {group.note && <NoteBox text={group.note} />}
@@ -76,6 +88,74 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown }) {
             <span>{g.collection}</span>
             <span>{g.items.length}</span>
           </div>
+          {onTypeWord && isTextCollection(g.collection) && (
+            <div className="charm-word">
+              {wordFor === g.collection ? (
+                <>
+                <div className="charm-word__form">
+                  <input
+                    className="charm-word__input"
+                    autoFocus
+                    maxLength={16}
+                    value={wordText}
+                    placeholder={
+                      g.collection.toLowerCase().includes('number') ? 'e.g. 2024' : 'e.g. EMMA'
+                    }
+                    onChange={(e) => setWordText(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') submitWord(g.collection)
+                      if (e.key === 'Escape') setWordFor(null)
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="charm-word__go"
+                    onClick={() => submitWord(g.collection)}
+                  >
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    className="charm-word__cancel"
+                    aria-label="Cancel"
+                    onClick={() => setWordFor(null)}
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className="charm-word__opts">
+                  <label className="charm-word__opt">
+                    Position
+                    <select value={wordPlace} onChange={(e) => setWordPlace(e.target.value)}>
+                      <option value="top">Top</option>
+                      <option value="middle">Middle</option>
+                      <option value="bottom">Bottom</option>
+                    </select>
+                  </label>
+                  <label className="charm-word__opt charm-word__opt--check">
+                    <input
+                      type="checkbox"
+                      checked={wordArc}
+                      onChange={(e) => setWordArc(e.target.checked)}
+                    />
+                    Arc
+                  </label>
+                </div>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="charm-word__toggle"
+                  onClick={() => {
+                    setWordFor(g.collection)
+                    setWordText('')
+                  }}
+                >
+                  ✎ Type {g.collection.toLowerCase().includes('number') ? 'a number' : 'a word'}
+                </button>
+              )}
+            </div>
+          )}
           <div className={rows ? 'charm-row' : `tray-grid${compact ? ' tray-grid--compact' : ''}`}>
             {g.items.map((charm) => (
               <CharmCard
@@ -101,6 +181,7 @@ export default function CharmTray({
   rows,
   onActivate,
   onPointerDown,
+  onTypeWord,
 }) {
   const groups = trayGroups(kind)
 
@@ -115,6 +196,7 @@ export default function CharmTray({
         rows={rows}
         onActivate={onActivate}
         onPointerDown={onPointerDown}
+        onTypeWord={onTypeWord}
       />
     )
   }
@@ -130,6 +212,7 @@ export default function CharmTray({
         compact={compact}
         onActivate={onActivate}
         onPointerDown={onPointerDown}
+        onTypeWord={onTypeWord}
       />
     ),
   }))

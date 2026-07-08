@@ -197,14 +197,23 @@ const FILE_NODE = `
     node(id: $id) { ... on MediaImage { id fileStatus image { url } } }
   }`
 
+const FILE_DELETE = `
+  mutation fileDelete($ids: [ID!]!) {
+    fileDelete(fileIds: $ids) {
+      deletedFileIds
+      userErrors { field message }
+    }
+  }`
+
 /**
  * Upload raw image bytes to the store's **Shopify Files** (Content → Files) and
- * return the public CDN URL. Three steps: stage an upload target, POST the bytes
- * to it, then create the File and poll until Shopify finishes processing it.
- * Returns null if the CDN URL isn't ready within the poll window (caller should
- * fall back to another URL).
+ * return { url, id } — the permanent `cdn.shopify.com` URL plus the File GID
+ * (kept so callers can later `fileDelete` it). `url` is null if Shopify hasn't
+ * finished processing within the poll window (caller should fall back).
+ * Steps: stage an upload target, POST the bytes to it, create the File, then
+ * poll until Shopify exposes the CDN url.
  */
-export async function uploadImageToShopifyFiles(env, bytes, opts = {}) {
+export async function uploadImageFile(env, bytes, opts = {}) {
   const contentType = opts.contentType || 'image/png'
   const filename = opts.filename || `charme-${rid()}.png`
   const alt = opts.alt || filename
@@ -233,16 +242,36 @@ export async function uploadImageToShopifyFiles(env, bytes, opts = {}) {
   if (cErrs && cErrs.length) throw new Error('fileCreate: ' + JSON.stringify(cErrs))
   const file = created.fileCreate.files[0]
   if (!file) throw new Error('fileCreate returned no file')
-  if (file.image && file.image.url) return file.image.url
+  if (file.image && file.image.url) return { url: file.image.url, id: file.id }
 
   // 4) Poll until Shopify finishes processing and exposes the CDN url.
   for (let i = 0; i < 6; i++) {
     await new Promise((r) => setTimeout(r, 700))
     const q = await shopifyAdmin(env, FILE_NODE, { id: file.id })
     const node = q.node
-    if (node && node.image && node.image.url) return node.image.url
+    if (node && node.image && node.image.url) return { url: node.image.url, id: file.id }
     if (node && node.fileStatus === 'FAILED') throw new Error('Shopify file processing failed')
   }
-  return null
+  return { url: null, id: file.id }
+}
+
+/**
+ * Back-compat wrapper: upload image bytes and return just the CDN URL (or null).
+ * Existing callers (draft-order proof, upload-proof) use the URL string.
+ */
+export async function uploadImageToShopifyFiles(env, bytes, opts = {}) {
+  const { url } = await uploadImageFile(env, bytes, opts)
+  return url
+}
+
+/** Best-effort delete of Shopify File(s) by GID. Never throws. */
+export async function fileDelete(env, ids) {
+  const list = (ids || []).filter(Boolean)
+  if (!list.length) return
+  try {
+    await shopifyAdmin(env, FILE_DELETE, { ids: list })
+  } catch (e) {
+    console.warn('[Charmé] fileDelete failed', e && e.message)
+  }
 }
 

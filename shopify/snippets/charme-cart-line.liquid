@@ -1,0 +1,146 @@
+{%- doc -%}
+  Charmé folded cart line — renders ONE "Custom Charm Case" row for a design
+  group. A custom design is added as several cart lines (the base case + one line
+  per charm) that share properties._design_token; the charm lines carry
+  _role: 'charm'. The caller (cart-product(s).liquid) skips the charm lines and
+  renders THIS row for the base line, so the whole design shows as a single item
+  with a combined price + breakdown — server-side, so it works identically in the
+  cart page AND the cart drawer with no JavaScript/timing.
+
+  Styling classes (.charme-bundle-detail / .charme-edit-btn / .charme-proof-img)
+  come from the globally-rendered `charme-cart-group` snippet.
+
+  @param {object} item - the BASE cart line (the case).
+{%- enddoc -%}
+
+{%- assign charme_token = item.properties['_design_token'] -%}
+{%- assign charme_total = 0 -%}
+{%- for charme_it in cart.items -%}
+  {%- if charme_it.properties['_design_token'] == charme_token -%}
+    {%- assign charme_total = charme_total | plus: charme_it.final_line_price -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
+
+<tr
+  role="row"
+  class="cart-items__table-row"
+  ref="cartItemRows[]"
+  data-key="{{ item.key }}"
+  data-charme-line
+>
+  <td
+    class="cart-items__media"
+    role="cell"
+    headers="productImage"
+  >
+    <a
+      href="{{ item.url }}"
+      class="cart-items__media-container charme-proof-container"
+      style="--ratio:auto;"
+    >
+      {%- if charme_proof != blank -%}
+        <img
+          src="{{ charme_proof }}"
+          alt="Custom charm case design preview"
+          class="cart-items__media-image charme-proof-img"
+          loading="lazy"
+        >
+      {%- elsif item.image -%}
+        {{ item.image | image_url: width: 250 | image_tag: class: 'cart-items__media-image' }}
+      {%- endif -%}
+    </a>
+  </td>
+
+  <td
+    class="cart-items__details cart-primary-typography"
+    role="cell"
+    headers="productInformation"
+  >
+    <p>
+      <span class="cart-items__title">Custom Charm Case</span>
+    </p>
+
+    {%- if item.variant.title != blank and item.product.has_only_default_variant == false -%}
+      <dl class="cart-items__variants">
+        <div class="cart-items__variant">
+          <dd>{{ item.variant.title }}</dd>
+        </div>
+      </dl>
+    {%- endif -%}
+
+    <ul class="charme-bundle-detail">
+      <li>
+        <span>Case</span>
+        <span>{{ item.final_line_price | money }}</span>
+      </li>
+      {%- for charme_it in cart.items -%}
+        {%- if charme_it.properties['_design_token'] == charme_token and charme_it.properties['_role'] == 'charm' -%}
+          <li>
+            <span>
+              {{- charme_it.product.title -}}
+              {%- if charme_it.quantity > 1 %} &times;{{ charme_it.quantity }}{% endif -%}
+            </span>
+            <span>{{ charme_it.final_line_price | money }}</span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+      <li class="charme-bundle-total">
+        <span>Custom case total</span>
+        <span>{{ charme_total | money }}</span>
+      </li>
+    </ul>
+
+    <a
+      class="charme-edit-btn"
+      href="/products/{{ item.product.handle }}?charme_edit={{ item.key | url_encode }}"
+    >
+      Edit design
+    </a>
+  </td>
+
+  <td
+    class="cart-items__quantity"
+    role="cell"
+    headers="quantity"
+  >
+    <button
+      class="button button--tertiary cart-items__remove"
+      type="button"
+      aria-label="{{ 'accessibility.remove_item' | t: title: item.title | escape }}"
+      on:click="/onLineItemRemove/{{ item.index | plus: 1 }}"
+    >
+      {{- 'icon-delete.svg' | inline_asset_content -}}
+      <span class="visually-hidden">Remove</span>
+    </button>
+  </td>
+
+  <td
+    class="cart-items__error hidden"
+    role="cell"
+    ref="cartItemErrorContainer-{{ item.index | plus: 1 }}"
+    headers="quantity"
+  >
+    <div
+      class="cart-item__error"
+      role="alert"
+    >
+      <span class="svg-wrapper">
+        {{- 'icon-error.svg' | inline_asset_content -}}
+      </span>
+      <small
+        class="cart-item__error-text cart-primary-typography"
+        ref="cartItemError-{{ item.index | plus: 1 }}"
+      ></small>
+    </div>
+  </td>
+
+  <td
+    class="cart-items__price cart-secondary-typography"
+    role="cell"
+    headers="productTotal"
+  >
+    {%- assign charme_price = charme_total | money -%}
+    <text-component value="{{ charme_price | strip_html }}">{{ charme_price }}</text-component>
+  </td>
+</tr>

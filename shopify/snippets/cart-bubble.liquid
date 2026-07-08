@@ -1,0 +1,54 @@
+{%- doc -%}
+  @param [limit] - {number}
+  @param [live_region] - {boolean}
+
+  The maximum number of items in the cart to display. If the number of items in the cart is greater than this limit, the
+  count will be displayed as "99+".
+{%- enddoc -%}
+
+{%- comment -%}
+  Charmé: count LOGICAL items. A custom charm case is added as several cart lines
+  (base case + one line per charm sharing _design_token; charms carry
+  _role:'charm') but is folded into ONE row in the cart. Exclude the charm lines
+  so the bubble matches the visible item count instead of the raw charm total.
+{%- endcomment -%}
+{%- assign charme_item_count = 0 -%}
+{%- for charme_line in cart.items -%}
+  {%- unless charme_line.properties['_role'] == 'charm' -%}
+    {%- assign charme_item_count = charme_item_count | plus: charme_line.quantity -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+<div
+  ref="cartBubble"
+  class="cart-bubble{% if cart == empty %} visually-hidden{% endif %}"
+  {% assign item_count = charme_item_count %}
+  {% if item_count <= 99 %}
+    data-maintain-ratio
+  {% endif %}
+>
+  <span class="cart-bubble__background"></span>
+  <span
+    ref="cartBubbleText"
+    id="cart-bubble-text"
+    class="cart-bubble__text"
+    {% if live_region %}
+      role="status"
+    {% endif %}
+  >
+    <span class="visually-hidden">
+      {{- 'accessibility.cart_count' | t -}}
+      : {{ charme_item_count }}
+    </span>
+    <span
+      class="cart-bubble__text-count{% if cart == empty %} hidden{% endif %}"
+      ref="cartBubbleCount"
+      aria-hidden="true"
+      data-testid="cart-bubble"
+    >
+      {%- if limit == blank or charme_item_count < limit %}
+        {{- charme_item_count -}}
+      {%- endif -%}
+    </span>
+  </span>
+</div>

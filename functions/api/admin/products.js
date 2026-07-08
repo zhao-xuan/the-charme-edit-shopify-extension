@@ -1,7 +1,17 @@
-// Admin product endpoints (require Bearer ADMIN_TOKEN).
+// Admin product endpoints (require Bearer ADMIN_TOKEN or a Shopify session token).
 //   POST   /api/admin/products  { name,kind,basePrice,widthMm,heightMm,src(dataURL),colourLabel }
 //   DELETE /api/admin/products  { id }
+//
+// Storage: Shopify `charme_product` METAOBJECT + Shopify FILES when configured;
+// otherwise the legacy Cloudflare D1 + KV fallback.
 import { json, bad, requireAdmin, storeImage, makeId, rowToProduct } from '../_lib.js'
+import {
+  TYPES,
+  shopifyConfigured,
+  saveRecord,
+  deleteRecord,
+  storeImageToFiles,
+} from '../_shopify-store.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -15,6 +25,30 @@ export async function onRequestPost({ request, env }) {
   const p = (await request.json().catch(() => null)) || {}
   if (!p.src) return bad('product needs a body image')
   const id = p.id || makeId('prod', p.name || 'product')
+
+  if (shopifyConfigured(env)) {
+    const { url, id: imageId } = await storeImageToFiles(env, p.src, {
+      filename: `${id}.png`,
+      alt: p.name || 'Product',
+    })
+    const rec = {
+      id,
+      name: p.name || 'Custom product',
+      kind: p.kind === 'tote' ? 'tote' : 'phone',
+      basePrice: p.basePrice ?? 26,
+      widthMm: p.widthMm || 75,
+      heightMm: p.heightMm || 150,
+      src: url,
+      imageId: imageId || null,
+      colourLabel: p.colourLabel || 'Default',
+      active: true,
+    }
+    await saveRecord(env, TYPES.product, id, rec, { image: imageId })
+    const { imageId: _drop, active: _a, ...product } = rec
+    return json({ ok: true, product }, { headers: cors })
+  }
+
+  // ---- Legacy Cloudflare D1 + KV fallback ----
   const imageKey = await storeImage(env, id, p.src)
   await env.DB.prepare(
     `INSERT OR REPLACE INTO products
@@ -32,6 +66,12 @@ export async function onRequestDelete({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const { id } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
+
+  if (shopifyConfigured(env)) {
+    await deleteRecord(env, TYPES.product, id)
+    return json({ ok: true }, { headers: cors })
+  }
+
   const row = await env.DB.prepare('SELECT image_key FROM products WHERE id = ?').bind(id).first()
   if (row?.image_key) await env.IMAGES.delete(`img:${row.image_key}`)
   await env.DB.prepare('DELETE FROM products WHERE id = ?').bind(id).run()

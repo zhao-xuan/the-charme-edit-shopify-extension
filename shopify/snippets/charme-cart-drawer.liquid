@@ -1,0 +1,720 @@
+{%- doc -%}
+  Charmé Cart Drawer — a self-contained floating cart button + right-hand slide-out
+  drawer that REPLACES the qikify mini-cart. Renders its UI client-side from
+  /cart.js, so it always matches the real cart, and it FOLDS each custom design
+  (base case + its charm lines sharing properties._design_token; charms carry
+  _role:'charm') into a single "Custom Charm Case" row.
+
+  Features
+    • Floating cart button (bottom-right) with live item count.
+    • Auto-opens when anything is added to cart (intercepts /cart/add).
+    • Announcement bar (free text).
+    • Free-shipping milestone progress bar (auto "unlocked" state).
+    • Cross-sell "Make it more special" row (products from a collection, add-to-cart inline).
+    • Cart note ("Add a message for your design").
+    • Discount code box → applies via /discount/CODE, shows an "applied" chip + per-line tag.
+    • Compare-at strikethrough + accent sale price colour.
+    • Subtotal + "You saved …" summary above the checkout button.
+
+  INSTALL
+    1. Save as snippets/charme-cart-drawer.liquid.
+    2. Add ONCE near the end of layout/theme.liquid, just before </body>:
+         {% render 'charme-cart-drawer',
+             free_shipping_threshold: 4500,
+             announcement_text: '10% off ending soon: Summer10',
+             cross_sell_collection: 'add-on-charms',
+             cross_sell_title: 'Make it more special' %}
+    3. Turn OFF qikify's mini-cart (Apps → qikify → disable the Mini/Slide Cart,
+       or Online Store → Themes → Customize → App embeds → toggle qikify off).
+    4. So two drawers don't fight, set the theme cart type to "Page" (or disable
+       the drawer's auto-open) in Theme settings → Cart. This drawer takes over.
+
+  PARAMS (all optional)
+    @param {number} [free_shipping_threshold]  Free-shipping goal in the shop's minor
+                                               units (pence). Default 4500 (£45).
+    @param {string} [announcement_text]        Announcement bar text. Empty = hidden.
+    @param {string} [cross_sell_collection]    Collection handle for the cross-sell row.
+    @param {string} [cross_sell_title]         Heading for the cross-sell row.
+    @param {string} [note_label]               Label for the cart-note toggle.
+{%- enddoc -%}
+
+{%- assign cc_threshold   = free_shipping_threshold | default: 4500 -%}
+{%- assign cc_announce    = announcement_text -%}
+{%- assign cc_xcollection = cross_sell_collection | default: 'add-on-charms' -%}
+{%- assign cc_xtitle      = cross_sell_title | default: 'Make it more special' -%}
+{%- assign cc_note_label  = note_label | default: 'Add a message for your design ✨' -%}
+{%- assign cc_xcol        = collections[cc_xcollection] -%}
+
+<div
+  id="charme-cart"
+  data-threshold="{{ cc_threshold }}"
+  data-rec-intent="{{ recommendations_intent | default: 'related' }}"
+  data-money-format="{{ shop.money_format | escape }}"
+>
+  {%- comment -%} Floating cart button (bottom-right). {%- endcomment -%}
+  <button type="button" class="cc-fab" data-cc-open aria-label="Open cart">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+      <path d="M6.46 6.93V4.26C6.46 1.91 8.94 0 12 0s5.54 1.91 5.54 4.26v2.67h4.43c.45 0 .81.31.84.71L23.99 24H0L1.19 7.64c.03-.4.39-.71.84-.71h4.43Zm1.67-2.67v2.67h7.74V4.26c0-1.52-1.74-2.76-3.87-2.76S8.13 2.74 8.13 4.26Z" fill="currentColor"/>
+    </svg>
+    <span class="cc-fab__badge" data-cc-count hidden>0</span>
+  </button>
+
+  {%- comment -%} Backdrop + drawer. {%- endcomment -%}
+  <div class="cc-backdrop" data-cc-close hidden></div>
+
+  <aside class="cc-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" hidden>
+    <header class="cc-head">
+      <h2 class="cc-head__title">Shopping Cart <span data-cc-count>0</span></h2>
+      <button type="button" class="cc-x" data-cc-close aria-label="Close cart">&times;</button>
+    </header>
+
+    {%- if cc_announce != blank -%}
+      <div class="cc-announce">{{ cc_announce }}</div>
+    {%- endif -%}
+
+    <div class="cc-milestone" data-cc-milestone hidden>
+      <p class="cc-milestone__text" data-cc-milestone-text></p>
+      <div class="cc-milestone__track">
+        <div class="cc-milestone__bar"><span data-cc-milestone-fill></span></div>
+        <span class="cc-ms-icon cc-ms-truck" data-cc-milestone-truck aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 5h10v8H3zM13 8h4l4 3v2h-8zM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+        </span>
+        <span class="cc-ms-icon cc-ms-gift" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20 7h-2.18A3 3 0 0 0 12 4.35 3 3 0 0 0 6.18 7H4v4h16zM5 13v7h14v-7z"/></svg>
+        </span>
+      </div>
+      <div class="cc-milestone__labels">
+        <span data-cc-milestone-current></span>
+        <span data-cc-milestone-goal></span>
+      </div>
+    </div>
+
+    <div class="cc-body">
+      <div class="cc-items" data-cc-items aria-live="polite"></div>
+
+      <div class="cc-empty" data-cc-empty hidden>
+        <p>Your cart is empty.</p>
+      </div>
+
+      {%- if cc_xcol and cc_xcol.products.size > 0 -%}
+        <section class="cc-xsell">
+          <h3 class="cc-xsell__title">{{ cc_xtitle }}</h3>
+          <div class="cc-xsell__track">
+            {%- for product in cc_xcol.products limit: 12 -%}
+              {%- assign first_variant = product.selected_or_first_available_variant -%}
+              <div class="cc-xcard">
+                <a href="{{ product.url }}" class="cc-xcard__media" tabindex="-1">
+                  {{ product.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: product.title }}
+                </a>
+                <div class="cc-xcard__info">
+                  <div class="cc-xcard__title">{{ product.title }}</div>
+                  {%- if product.variants.size > 1 -%}
+                    <select class="cc-xcard__variant" aria-label="{{ product.title | escape }} options">
+                      {%- for v in product.variants -%}
+                        <option value="{{ v.id }}" data-price="{{ v.price }}" {% unless v.available %}disabled{% endunless %}>
+                          {{- v.title }}{% unless v.available %} — sold out{% endunless -%}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  {%- else -%}
+                    <input type="hidden" class="cc-xcard__variant" value="{{ first_variant.id }}" data-price="{{ first_variant.price }}">
+                  {%- endif -%}
+                  <button type="button" class="cc-xcard__add" data-cc-xadd {% unless product.available %}disabled{% endunless %}>
+                    {%- if product.available -%}Add{%- else -%}Sold out{%- endif -%}
+                  </button>
+                </div>
+                <div class="cc-xcard__price" data-cc-xprice>{{ first_variant.price | money }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </section>
+      {%- endif -%}
+
+      <details class="cc-note">
+        <summary>{{ cc_note_label }}</summary>
+        <textarea data-cc-note rows="2" placeholder="Type your message…"></textarea>
+      </details>
+
+      <details class="cc-discount">
+        <summary>Add a discount code</summary>
+        <div class="cc-discount__row">
+          <input type="text" data-cc-discount-input placeholder="Enter discount code" autocomplete="off">
+          <button type="button" data-cc-discount-apply>Apply</button>
+        </div>
+        <p class="cc-discount__note">* Limit 1 discount code per product</p>
+        <div class="cc-discount__chips" data-cc-discount-chips></div>
+        <p class="cc-discount__msg" data-cc-discount-msg hidden></p>
+      </details>
+    </div>
+
+    <footer class="cc-foot" data-cc-foot hidden>
+      <div class="cc-saved" data-cc-saved hidden></div>
+      <div class="cc-taxes">
+        <span>Taxes &amp; shipping</span>
+        <span>Calculated at checkout</span>
+      </div>
+      <div class="cc-subtotal">
+        <span>Subtotal</span>
+        <span data-cc-subtotal></span>
+      </div>
+      <button type="button" class="cc-checkout" data-cc-checkout>
+        Checkout · <span data-cc-checkout-total></span>
+      </button>
+      <a href="{{ routes.cart_url }}" class="cc-gotocart">Go to cart</a>
+    </footer>
+  </aside>
+</div>
+
+<style>
+  #charme-cart{
+    --cc-bg:#faf5e9; --cc-fg:#3d3530; --cc-muted:#8a7f74; --cc-line:#e7ddca;
+    --cc-accent:#3d3530; --cc-sale:#b0402f; --cc-badge:#9f1010; --cc-progress:#e0a92e; --cc-radius:12px;
+    --cc-width:400px; --cc-z:2147483000;
+    font-family:var(--font-paragraph--family,Helvetica,Arial,sans-serif);color:var(--cc-fg);
+  }
+  #charme-cart *{box-sizing:border-box}
+
+  /* Floating button */
+  .cc-fab{position:fixed;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;
+    border:0;border-radius:50%;background:var(--cc-accent);color:#f7f0df;display:flex;align-items:center;
+    justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);z-index:calc(var(--cc-z) - 2)}
+  .cc-fab:hover{opacity:.92}
+  .cc-fab__badge{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;
+    background:var(--cc-badge);color:#fff;font-size:12px;line-height:20px;text-align:center;font-weight:600}
+
+  /* Backdrop + drawer */
+  .cc-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:calc(var(--cc-z) - 1);
+    opacity:0;transition:opacity .3s;pointer-events:none}
+  .cc-backdrop.cc-show{opacity:1;pointer-events:auto}
+  .cc-drawer{position:fixed;top:0;right:0;height:100dvh;width:var(--cc-width);max-width:100vw;background:var(--cc-bg);
+    z-index:var(--cc-z);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s ease;
+    box-shadow:-4px 0 24px rgba(0,0,0,.15)}
+  .cc-drawer.cc-show{transform:translateX(0)}
+  .cc-drawer[hidden],.cc-backdrop[hidden]{display:none}
+
+  .cc-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--cc-line)}
+  .cc-head__title{margin:0;font-size:22px;font-weight:600;font-family:var(--font-heading--family,inherit)}
+  .cc-x{border:0;background:none;font-size:26px;line-height:1;cursor:pointer;color:var(--cc-fg);padding:0 4px}
+
+  .cc-announce{background:#e8a44c;color:#fff;text-align:center;font-weight:600;font-size:13px;padding:10px 16px}
+
+  .cc-milestone{padding:14px 20px 12px;background:rgba(61,53,48,.04);border-bottom:1px solid var(--cc-line)}
+  .cc-milestone__text{margin:0 0 12px;font-size:13px;text-align:center}
+  .cc-milestone__text b{font-weight:700}
+  .cc-milestone__track{position:relative;height:24px;display:flex;align-items:center;margin:0 12px}
+  .cc-milestone__bar{position:relative;height:6px;width:100%;border-radius:6px;background:var(--cc-line)}
+  .cc-milestone__bar span{display:block;height:100%;width:0;background:var(--cc-progress);border-radius:6px;transition:width .5s}
+  .cc-ms-icon{position:absolute;top:50%;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--cc-progress);display:flex;align-items:center;justify-content:center;color:var(--cc-fg);transform:translate(-50%,-50%)}
+  .cc-ms-truck{left:0;transition:left .5s}
+  .cc-ms-gift{left:auto;right:-12px;transform:translate(0,-50%)}
+  .cc-milestone.cc-unlocked .cc-milestone__bar span{background:#3f9f57}
+  .cc-milestone.cc-unlocked .cc-ms-truck,.cc-milestone.cc-unlocked .cc-ms-gift{border-color:#3f9f57;color:#3f9f57}
+  .cc-milestone__labels{display:flex;justify-content:space-between;font-size:11px;color:var(--cc-muted);margin-top:8px}
+
+  .cc-body{flex:1 1 auto;overflow-y:auto;padding:8px 20px 20px}
+  .cc-empty{padding:40px 0;text-align:center;color:var(--cc-muted)}
+
+  /* Line item */
+  .cc-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--cc-line)}
+  .cc-item__media{width:64px}
+  .cc-item__media img{width:100%;height:auto;border-radius:8px;object-fit:cover;background:#fff}
+  .cc-item--design .cc-item__media img{object-fit:contain;max-height:96px}
+  .cc-item__main{min-width:0}
+  .cc-item__head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .cc-item__title{font-weight:600;font-size:14px;margin:0}
+  .cc-item__variant{font-size:12px;color:var(--cc-muted);margin:2px 0 0}
+  .cc-item__tag{display:inline-block;background:#eadfca;color:#6b5f4f;font-size:11px;font-weight:600;
+    padding:2px 7px;border-radius:6px;margin:6px 4px 0 0}
+  .cc-item__tag--discount{background:#e7f3ea;color:#2f7d43}
+  .cc-detail{list-style:none;margin:8px 0 0;padding:8px 10px;background:rgba(61,53,48,.05);border-radius:8px;font-size:12px;line-height:1.6}
+  .cc-detail li{display:flex;justify-content:space-between;gap:10px}
+  .cc-detail li.cc-detail__total{font-weight:600;border-top:1px solid var(--cc-line);margin-top:4px;padding-top:4px}
+  .cc-item__bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+  .cc-item__edit{font-size:12px;text-decoration:underline;color:inherit;cursor:pointer}
+  .cc-item__price{font-weight:600;font-size:14px;white-space:nowrap}
+  .cc-item__price s{color:var(--cc-muted);font-weight:400;margin-right:6px}
+  .cc-item__price--sale{color:var(--cc-sale)}
+  .cc-qty{display:inline-flex;align-items:center;gap:2px}
+  .cc-qty button{border:0;background:none;width:24px;height:24px;cursor:pointer;font-size:16px;color:var(--cc-fg);line-height:1}
+  .cc-qty span{min-width:24px;text-align:center;font-size:13px}
+  .cc-remove{border:0;background:none;color:var(--cc-muted);cursor:pointer;padding:2px;display:inline-flex;line-height:0}
+  .cc-remove:hover{color:var(--cc-sale)}
+
+  /* Cross-sell (compact horizontal cards, swipe one at a time) */
+  .cc-xsell{margin-top:16px}
+  .cc-xsell__title{font-size:14px;font-weight:600;margin:0 0 8px}
+  .cc-xsell__track{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .cc-xcard{flex:0 0 92%;scroll-snap-align:start;display:grid;grid-template-columns:60px 1fr auto;gap:10px;align-items:center;
+    background:#fff;border:1px solid var(--cc-line);border-radius:10px;padding:8px 10px}
+  .cc-xcard__media{width:60px;height:60px;border-radius:8px;overflow:hidden;background:#f4ecdb}
+  .cc-xcard__media img{width:100%;height:100%;object-fit:cover}
+  .cc-xcard__info{min-width:0;display:flex;flex-direction:column;gap:6px}
+  .cc-xcard__title{font-size:13px;font-weight:600;line-height:1.25}
+  .cc-xcard__variant{font-size:12px;padding:4px 6px;border:1px solid var(--cc-line);border-radius:6px;background:#fff;max-width:100%}
+  .cc-xcard__add{align-self:flex-start;border:0;background:var(--cc-accent);color:#f7f0df;font-size:12px;font-weight:600;
+    padding:6px 16px;border-radius:6px;cursor:pointer}
+  .cc-xcard__add:hover{opacity:.9}
+  .cc-xcard__add:disabled{opacity:.5;cursor:not-allowed}
+  .cc-xcard__price{font-size:13px;font-weight:600;white-space:nowrap}
+
+  /* Note + discount */
+  .cc-note,.cc-discount{margin-top:16px;border-top:1px solid var(--cc-line);padding-top:12px}
+  .cc-note summary,.cc-discount summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;text-decoration:underline}
+  .cc-note summary::-webkit-details-marker,.cc-discount summary::-webkit-details-marker{display:none}
+  .cc-note textarea{width:100%;margin-top:8px;border:1px solid var(--cc-line);border-radius:8px;padding:8px;font:inherit;font-size:13px;background:#fff;resize:vertical}
+  .cc-discount__row{display:flex;gap:8px;margin-top:8px}
+  .cc-discount__row input{flex:1;border:1px solid var(--cc-line);border-radius:8px;padding:8px;font:inherit;font-size:13px;background:#fff}
+  .cc-discount__row button{border:0;background:var(--cc-accent);color:#f7f0df;font-weight:600;padding:0 16px;border-radius:8px;cursor:pointer}
+  .cc-discount__chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .cc-chip{display:inline-flex;align-items:center;gap:6px;background:#e7f3ea;color:#2f7d43;font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px}
+  .cc-chip button{border:0;background:none;color:inherit;cursor:pointer;font-size:13px;line-height:1;padding:0}
+  .cc-discount__note{font-size:11px;color:var(--cc-muted);margin:8px 0 0}
+  .cc-discount__msg{font-size:12px;color:var(--cc-sale);margin:8px 0 0}
+
+  /* Footer */
+  .cc-foot{border-top:1px solid var(--cc-line);padding:16px 20px;background:var(--cc-bg)}
+  .cc-saved{background:#e7f3ea;color:#2f7d43;font-size:13px;font-weight:600;text-align:center;padding:8px;border-radius:8px;margin-bottom:12px}
+  .cc-taxes{display:flex;justify-content:space-between;font-size:12px;color:var(--cc-muted);padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid var(--cc-line)}
+  .cc-subtotal{display:flex;justify-content:space-between;font-weight:600;font-size:16px;margin-bottom:12px}
+  .cc-checkout{width:100%;border:0;background:var(--cc-accent);color:#f7f0df;font-size:15px;font-weight:600;padding:16px;border-radius:10px;cursor:pointer}
+  .cc-checkout:hover{opacity:.94}
+  .cc-gotocart{display:block;text-align:center;margin-top:10px;font-size:13px;text-decoration:underline;color:var(--cc-fg)}
+
+  body.cc-open{overflow:hidden}
+  @media (max-width:480px){#charme-cart{--cc-width:100vw}.cc-fab{top:auto;bottom:16px;transform:none}}
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('charme-cart');
+  if (!root || window.__charmeCartInit) return;
+  window.__charmeCartInit = true;
+
+  var THRESHOLD = parseInt(root.getAttribute('data-threshold'), 10) || 0;
+  var MONEY_FORMAT = root.getAttribute('data-money-format') || '£{{amount}}';
+  var drawer = root.querySelector('.cc-drawer');
+  var backdrop = root.querySelector('.cc-backdrop');
+
+  var $ = function (sel, ctx) { return (ctx || root).querySelector(sel); };
+  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || root).querySelectorAll(sel)); };
+
+  function money(cents) {
+    if (window.Shopify && Shopify.formatMoney) { try { return Shopify.formatMoney(cents, MONEY_FORMAT); } catch (e) {} }
+    return '£' + (Math.round(cents) / 100).toFixed(2);
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  var TRASH = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>';
+
+  /* ------------------------------------------------------------------ open/close */
+  function open() {
+    drawer.hidden = false; backdrop.hidden = false;
+    requestAnimationFrame(function () { drawer.classList.add('cc-show'); backdrop.classList.add('cc-show'); });
+    document.body.classList.add('cc-open');
+    refresh();
+  }
+  function close() {
+    drawer.classList.remove('cc-show'); backdrop.classList.remove('cc-show');
+    document.body.classList.remove('cc-open');
+    setTimeout(function () { drawer.hidden = true; backdrop.hidden = true; }, 350);
+  }
+
+  /* ------------------------------------------------------------------ cart ops */
+  function getCart() {
+    return fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); });
+  }
+  function changeQty(key, qty) {
+    return fetch('/cart/change.js', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ id: key, quantity: qty })
+    }).then(function (r) { return r.json(); }).then(render);
+  }
+  function updateMany(updates) {
+    return fetch('/cart/update.js', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ updates: updates })
+    }).then(function (r) { return r.json(); }).then(render);
+  }
+  function addVariant(id, qty) {
+    return fetch('/cart/add.js', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ items: [{ id: Number(id), quantity: qty || 1 }] })
+    }).then(function (r) { return r.json(); }).then(function () { return refresh(); });
+  }
+  function saveNote(note) {
+    return fetch('/cart/update.js', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ note: note })
+    });
+  }
+
+  /* ------------------------------------------------------------------ rendering */
+  function logicalCount(cart) {
+    var tokens = {}, count = 0;
+    cart.items.forEach(function (it) {
+      var t = it.properties && it.properties._design_token;
+      if (t) { if (!tokens[t]) { tokens[t] = 1; count += 1; } }
+      else count += it.quantity;
+    });
+    return count;
+  }
+
+  function lineTags(it) {
+    var html = '';
+    (it.line_level_discount_allocations || []).forEach(function (d) {
+      html += '<span class="cc-item__tag cc-item__tag--discount">' + esc(d.discount_application.title) + '</span>';
+    });
+    return html;
+  }
+
+  function renderDesign(group) {
+    var base = group.filter(function (it) { return !(it.properties && it.properties._role === 'charm'); })[0] || group[0];
+    var charms = group.filter(function (it) { return it !== base; });
+    var total = group.reduce(function (s, it) { return s + it.final_line_price; }, 0);
+    var proof = base.properties && (base.properties.Proof || base.properties._proof);
+    var keys = group.map(function (it) { return it.key; });
+
+    var rows = '<li><span>Case</span><span>' + money(base.final_line_price) + '</span></li>';
+    charms.forEach(function (it) {
+      rows += '<li><span>' + esc(it.product_title || it.title) + (it.quantity > 1 ? ' &times;' + it.quantity : '') +
+        '</span><span>' + money(it.final_line_price) + '</span></li>';
+    });
+    rows += '<li class="cc-detail__total"><span>Custom case total</span><span>' + money(total) + '</span></li>';
+
+    var media = proof
+      ? '<img src="' + esc(proof) + '" alt="Design preview">'
+      : (base.image ? '<img src="' + esc(base.image) + '" alt="">' : '');
+
+    return '<div class="cc-item cc-item--design" data-keys="' + esc(keys.join(',')) + '">' +
+      '<div class="cc-item__media">' + media + '</div>' +
+      '<div class="cc-item__main">' +
+        '<div class="cc-item__head">' +
+          '<p class="cc-item__title">Custom Charm Case</p>' +
+          '<button type="button" class="cc-remove" data-cc-remove-group aria-label="Remove">' + TRASH + '</button>' +
+        '</div>' +
+        (base.variant_title ? '<p class="cc-item__variant">' + esc(base.variant_title) + '</p>' : '') +
+        lineTags(base) +
+        '<ul class="cc-detail">' + rows + '</ul>' +
+        '<div class="cc-item__bottom">' +
+          '<a class="cc-item__edit" href="/products/' + esc(base.handle) + '?charme_edit=' + encodeURIComponent(base.key) + '">Edit design</a>' +
+          '<span class="cc-item__price">' + money(total) + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderLine(it) {
+    var onSale = it.original_line_price > it.final_line_price;
+    var price = onSale
+      ? '<s>' + money(it.original_line_price) + '</s><span class="cc-item__price--sale">' + money(it.final_line_price) + '</span>'
+      : money(it.final_line_price);
+    var media = it.image ? '<img src="' + esc(it.image) + '" alt="">' : '';
+    return '<div class="cc-item" data-key="' + esc(it.key) + '">' +
+      '<div class="cc-item__media">' + media + '</div>' +
+      '<div class="cc-item__main">' +
+        '<div class="cc-item__head">' +
+          '<p class="cc-item__title">' + esc(it.product_title || it.title) + '</p>' +
+          '<button type="button" class="cc-remove" data-cc-remove aria-label="Remove">' + TRASH + '</button>' +
+        '</div>' +
+        (it.variant_title ? '<p class="cc-item__variant">' + esc(it.variant_title) + '</p>' : '') +
+        lineTags(it) +
+        '<div class="cc-item__bottom">' +
+          '<div class="cc-qty">' +
+            '<button type="button" data-cc-dec aria-label="Decrease">&minus;</button>' +
+            '<span>' + it.quantity + '</span>' +
+            '<button type="button" data-cc-inc aria-label="Increase">+</button>' +
+          '</div>' +
+          '<span class="cc-item__price">' + price + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderItems(cart) {
+    var rendered = {}, html = '';
+    cart.items.forEach(function (it) {
+      var tok = it.properties && it.properties._design_token;
+      if (tok) {
+        if (rendered[tok]) return;
+        rendered[tok] = 1;
+        var group = cart.items.filter(function (x) { return x.properties && x.properties._design_token === tok; });
+        html += (group.length > 1) ? renderDesign(group) : renderLine(it);
+      } else {
+        html += renderLine(it);
+      }
+    });
+    return html;
+  }
+
+  // Cross-sell: prefer live Shopify product recommendations (based on what's in
+  // the cart); if none are returned, keep the Liquid-rendered collection fallback.
+  var XSELL_INTENT = root.getAttribute('data-rec-intent') || 'related';
+  var _recSeed = null;
+  function imgUrl(u) { if (!u) return ''; return u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=120'; }
+  function recCard(p) {
+    var v0 = (p.variants || []).filter(function (v) { return v.available; })[0] || (p.variants || [])[0];
+    if (!v0) return '';
+    var img = p.featured_image || (p.images && p.images[0]) || '';
+    var sel;
+    if ((p.variants || []).length > 1) {
+      sel = '<select class="cc-xcard__variant" aria-label="' + esc(p.title) + ' options">' +
+        p.variants.map(function (v) {
+          return '<option value="' + v.id + '" data-price="' + v.price + '"' + (v.available ? '' : ' disabled') + '>' +
+            esc(v.title) + (v.available ? '' : ' \u2014 sold out') + '</option>';
+        }).join('') + '</select>';
+    } else {
+      sel = '<input type="hidden" class="cc-xcard__variant" value="' + v0.id + '" data-price="' + v0.price + '">';
+    }
+    return '<div class="cc-xcard">' +
+      '<a href="' + esc(p.url) + '" class="cc-xcard__media" tabindex="-1">' + (img ? '<img src="' + esc(imgUrl(img)) + '" loading="lazy" alt="">' : '') + '</a>' +
+      '<div class="cc-xcard__info">' +
+        '<div class="cc-xcard__title">' + esc(p.title) + '</div>' +
+        sel +
+        '<button type="button" class="cc-xcard__add" data-cc-xadd' + (p.available ? '' : ' disabled') + '>' + (p.available ? 'Add' : 'Sold out') + '</button>' +
+      '</div>' +
+      '<div class="cc-xcard__price" data-cc-xprice>' + money(v0.price) + '</div>' +
+    '</div>';
+  }
+  function renderCrosssell(cart) {
+    var track = $('.cc-xsell__track');
+    if (!track) return; // no cross-sell section on the page
+    var seed = null;
+    (cart.items || []).some(function (it) {
+      if (!(it.properties && it.properties._role === 'charm')) { seed = it; return true; }
+      return false;
+    });
+    if (!seed) seed = (cart.items || [])[0];
+    if (!seed || !seed.product_id) return;         // empty cart → keep fallback
+    if (_recSeed === seed.product_id) return;      // already loaded for this product
+    _recSeed = seed.product_id;
+    fetch('/recommendations/products.json?product_id=' + seed.product_id + '&limit=10&intent=' + encodeURIComponent(XSELL_INTENT),
+      { headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var products = (data && data.products) || [];
+        var inCart = {}; (cart.items || []).forEach(function (it) { inCart[it.product_id] = 1; });
+        products = products.filter(function (p) { return !inCart[p.id]; });
+        if (!products.length) return;              // no recs → keep Liquid fallback
+        track.innerHTML = products.map(recCard).join('');
+      })
+      .catch(function () { _recSeed = null; });
+  }
+
+  function renderMilestone(cart) {
+    var box = $('[data-cc-milestone]');
+    if (!THRESHOLD) { box.hidden = true; return; }
+    box.hidden = false;
+    var remaining = THRESHOLD - cart.total_price;
+    var pct = Math.max(0, Math.min(100, (cart.total_price / THRESHOLD) * 100));
+    $('[data-cc-milestone-fill]').style.width = pct + '%';
+    var truck = $('[data-cc-milestone-truck]'); if (truck) truck.style.left = pct + '%';
+    var cur = $('[data-cc-milestone-current]'); if (cur) cur.textContent = money(cart.total_price);
+    var goal = $('[data-cc-milestone-goal]'); if (goal) goal.textContent = money(THRESHOLD);
+    if (remaining <= 0) {
+      box.classList.add('cc-unlocked');
+      $('[data-cc-milestone-text]').innerHTML = '\uD83C\uDF89 <b>You\u2019ve unlocked free shipping!</b>';
+    } else {
+      box.classList.remove('cc-unlocked');
+      $('[data-cc-milestone-text]').innerHTML = '\uD83C\uDF89 <b>Free shipping!</b> Add <b>' + money(remaining) + '</b> more to qualify';
+    }
+  }
+
+  function renderDiscounts(cart) {
+    var chips = $('[data-cc-discount-chips]');
+    var apps = (cart.cart_level_discount_applications || []).concat(
+      // include unique line/order code discounts by title
+      []
+    );
+    var titles = {};
+    (cart.discount_applications || cart.cart_level_discount_applications || []).forEach(function (d) {
+      if (d.title || d.code) titles[d.title || d.code] = true;
+    });
+    var keys = Object.keys(titles);
+    chips.innerHTML = keys.map(function (t) {
+      return '<span class="cc-chip">' + esc(t) + '<button type="button" data-cc-discount-remove aria-label="Remove">&times;</button></span>';
+    }).join('');
+  }
+
+  function render(cart) {
+    var items = $('[data-cc-items]');
+    var empty = $('[data-cc-empty]');
+    var foot = $('[data-cc-foot]');
+    var isEmpty = !cart.items || cart.items.length === 0;
+
+    items.innerHTML = isEmpty ? '' : renderItems(cart);
+    empty.hidden = !isEmpty;
+    foot.hidden = isEmpty;
+
+    // counts
+    var count = logicalCount(cart);
+    $$('[data-cc-count]').forEach(function (el) {
+      el.textContent = el.classList.contains('cc-fab__badge') ? count : ('(' + count + ')');
+    });
+    var badge = $('.cc-fab__badge');
+    if (badge) { badge.textContent = count; badge.hidden = count === 0; }
+
+    // totals
+    $('[data-cc-subtotal]').textContent = money(cart.items_subtotal_price != null ? cart.items_subtotal_price : cart.total_price);
+    $('[data-cc-checkout-total]').textContent = money(cart.total_price);
+
+    var saved = $('[data-cc-saved]');
+    var savedAmt = cart.total_discount || 0;
+    if (savedAmt > 0) { saved.hidden = false; saved.textContent = 'You saved ' + money(savedAmt); }
+    else { saved.hidden = true; }
+
+    // note
+    var note = $('[data-cc-note]');
+    if (note && document.activeElement !== note) note.value = cart.note || '';
+
+    renderCrosssell(cart);
+    renderMilestone(cart);
+    renderDiscounts(cart);
+  }
+
+  function refresh() { return getCart().then(render); }
+
+  /* ------------------------------------------------------------------ events */
+  root.addEventListener('click', function (e) {
+    var t = e.target;
+
+    if (t.closest('[data-cc-open]')) { e.preventDefault(); return open(); }
+    if (t.closest('[data-cc-close]')) { e.preventDefault(); return close(); }
+    if (t.closest('[data-cc-checkout]')) { window.location.href = '/checkout'; return; }
+
+    // qty +/- and remove (single line)
+    var line = t.closest('[data-key]');
+    if (line) {
+      var key = line.getAttribute('data-key');
+      var qtyEl = line.querySelector('.cc-qty span');
+      var qty = qtyEl ? parseInt(qtyEl.textContent, 10) : 1;
+      if (t.closest('[data-cc-inc]')) return changeQty(key, qty + 1);
+      if (t.closest('[data-cc-dec]')) return changeQty(key, Math.max(0, qty - 1));
+      if (t.closest('[data-cc-remove]')) return changeQty(key, 0);
+    }
+
+    // remove a whole design group
+    var group = t.closest('[data-keys]');
+    if (group && t.closest('[data-cc-remove-group]')) {
+      var updates = {};
+      group.getAttribute('data-keys').split(',').forEach(function (k) { updates[k] = 0; });
+      return updateMany(updates);
+    }
+
+    // cross-sell add
+    var card = t.closest('.cc-xcard');
+    if (card && t.closest('[data-cc-xadd]')) {
+      var v = card.querySelector('.cc-xcard__variant');
+      var id = v && v.value;
+      if (id) { t.closest('[data-cc-xadd]').disabled = true; addVariant(id, 1).then(function () { t.closest('[data-cc-xadd]').disabled = false; }); }
+      return;
+    }
+
+    // discount apply / remove
+    if (t.closest('[data-cc-discount-apply]')) { return applyDiscount(); }
+    if (t.closest('[data-cc-discount-remove]')) { return removeDiscount(); }
+  });
+
+  // cross-sell variant price update
+  root.addEventListener('change', function (e) {
+    var sel = e.target.closest('.cc-xcard__variant');
+    if (!sel || sel.tagName !== 'SELECT') return;
+    var card = sel.closest('.cc-xcard');
+    var opt = sel.options[sel.selectedIndex];
+    var priceEl = card.querySelector('[data-cc-xprice]');
+    if (opt && priceEl) priceEl.textContent = money(parseInt(opt.getAttribute('data-price'), 10));
+  });
+
+  // cart note (debounced save)
+  var noteEl = $('[data-cc-note]');
+  if (noteEl) {
+    var noteTimer;
+    noteEl.addEventListener('input', function () {
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(function () { saveNote(noteEl.value); }, 500);
+    });
+  }
+
+  // discount code — applied via the /discount/<code> endpoint, which sets it on
+  // the cart session; /cart.js then reflects it. Cleared with a blank code.
+  function applyDiscount() {
+    var input = $('[data-cc-discount-input]');
+    var msg = $('[data-cc-discount-msg]');
+    var code = (input.value || '').trim();
+    if (!code) return;
+    msg.hidden = true;
+    fetch('/discount/' + encodeURIComponent(code), { headers: { Accept: 'text/html' } })
+      .then(function () { return refresh(); })
+      .then(function () {
+        return getCart();
+      })
+      .then(function (cart) {
+        var applied = (cart.discount_applications || cart.cart_level_discount_applications || [])
+          .some(function (d) { return (d.title || d.code || '').toLowerCase() === code.toLowerCase(); });
+        if (applied) { input.value = ''; }
+        else { msg.hidden = false; msg.textContent = 'Code “' + code + '” isn’t valid for this cart.'; }
+      })
+      .catch(function () { msg.hidden = false; msg.textContent = 'Could not apply that code.'; });
+  }
+  function removeDiscount() {
+    // Applying an empty discount clears the current one.
+    fetch('/discount/?redirect=/cart', { headers: { Accept: 'text/html' } })
+      .then(function () { return refresh(); });
+  }
+
+  /* ------------------------------------------------------------------ auto-open on add */
+  function isAddUrl(u) { return typeof u === 'string' && /\/cart\/add(\.js)?(\?|$)/.test(u); }
+  function isMutateUrl(u) { return typeof u === 'string' && /\/cart\/(add|change|update|clear)(\.js)?/.test(u); }
+
+  var _fetch = window.fetch;
+  window.fetch = function (input, init) {
+    var url = (input && input.url) ? input.url : input;
+    var p = _fetch.apply(this, arguments);
+    if (isMutateUrl(url)) {
+      p.then(function () {
+        setTimeout(function () {
+          if (isAddUrl(url)) { open(); } else { refresh(); }
+        }, 60);
+      }).catch(function () {});
+    }
+    return p;
+  };
+
+  var _open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function (method, url) {
+    this.__ccUrl = url;
+    return _open.apply(this, arguments);
+  };
+  var _send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function () {
+    var xhr = this;
+    if (isMutateUrl(xhr.__ccUrl)) {
+      xhr.addEventListener('load', function () {
+        setTimeout(function () { if (isAddUrl(xhr.__ccUrl)) open(); else refresh(); }, 60);
+      });
+    }
+    return _send.apply(this, arguments);
+  };
+
+  // Route the theme/header cart triggers to THIS drawer (capture so theme/qikify
+  // handlers don't also fire). Adjust selectors if your header differs.
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest(
+      '[data-testid="cart-drawer-trigger"], a[href="/cart"], a[href$="/cart"], .fcsb-sticky-button-container, [data-cc-open]'
+    );
+    if (trigger && !trigger.closest('#charme-cart')) {
+      e.preventDefault(); e.stopPropagation(); open();
+    } else if (trigger && trigger.hasAttribute('data-cc-open')) {
+      // handled by root listener
+    }
+  }, true);
+
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !drawer.hidden) close(); });
+
+  // Prime counts on load.
+  refresh();
+
+  window.CharmeCart = { open: open, close: close, refresh: refresh };
+})();
+</script>

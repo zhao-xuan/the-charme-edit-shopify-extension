@@ -1,4 +1,8 @@
 -- Charmé catalog schema (Cloudflare D1)
+-- ⚠️ LEGACY / FALLBACK ONLY. The primary store is now the merchant's own Shopify
+-- backend (metaobjects + Files) — see functions/api/_shopify-store.js and
+-- doc/shopify-storage.md. These D1 tables + the KV image store are used only when
+-- the Shopify backend is NOT configured (local dev / un-migrated deploys).
 -- Metadata for merchant-managed products & charms. Images live in KV (binding
 -- IMAGES) keyed by `img:<imageKey>`; rows store the imageKey, not the bytes.
 
@@ -41,13 +45,15 @@ CREATE TABLE IF NOT EXISTS charms (
 -- safe to ignore "duplicate column" errors on databases that already have them):
 --   ALTER TABLE charms ADD COLUMN bundle INTEGER NOT NULL DEFAULT 0;
 --   ALTER TABLE charms ADD COLUMN bundle_max INTEGER;
+--   ALTER TABLE overrides ADD COLUMN size_scale REAL;
 
--- Price / hide overrides for the BUNDLED base catalogue (keyed by its built-in id).
+-- Price / hide / resize overrides for the BUNDLED base catalogue (keyed by its built-in id).
 CREATE TABLE IF NOT EXISTS overrides (
-  scope   TEXT NOT NULL,   -- 'product' | 'charm'
-  ref_id  TEXT NOT NULL,   -- bundled product/charm id
-  price   REAL,
-  hidden  INTEGER,
+  scope      TEXT NOT NULL,   -- 'product' | 'charm'
+  ref_id     TEXT NOT NULL,   -- bundled product/charm id
+  price      REAL,
+  hidden     INTEGER,
+  size_scale REAL,            -- charm size multiplier (1 = catalogue default)
   PRIMARY KEY (scope, ref_id)
 );
 

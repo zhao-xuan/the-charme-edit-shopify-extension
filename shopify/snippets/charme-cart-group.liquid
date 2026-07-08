@@ -1,18 +1,23 @@
 {% comment %}
-  Charmé cart grouping (NO Checkout Extensibility needed) — Horizon-style themes.
+  Charmé cart styling + orphan cleanup — Horizon-style themes.
   ---------------------------------------------------------------------------
-  Cart mode adds a custom case as several cart lines (base case + one line per
-  charm) sharing a `_design_token` property. This visually folds each group —
-  in BOTH the cart drawer and the cart page (`<cart-items-component>`) — into a
-  single "Custom Charm Case" row with the charms listed underneath and a
-  combined price. Matches rows by their `data-key` (line item key), so it's
-  robust, and re-applies on AJAX cart updates.
+  A custom design is added as several cart lines (base case + one line per charm)
+  sharing a `_design_token` property; charm lines carry `_role: 'charm'`. The
+  visual folding into a single "Custom Charm Case" row is done SERVER-SIDE in
+  snippets/charme-cart-line.liquid (rendered from cart-products.liquid), so it
+  works in the cart page AND the drawer with no JS/timing issues.
+
+  This snippet only provides:
+    1. The shared CSS for the folded row (breakdown list, edit button, contained
+       proof preview image).
+    2. Orphan cleanup — if the base case line is removed, its (never-shown) charm
+       lines are deleted so they don't linger through to checkout.
 
   ⚠️ Cosmetic, cart-only — the CHECKOUT page still shows the separate lines
   (that needs Checkout Extensibility + a Cart Transform function).
 
   INSTALL: paste `{% render 'charme-cart-group' %}` once near the end of
-  layout/theme.liquid (just before </body>). One place covers drawer + cart page.
+  layout/theme.liquid (just before </body>).
 {% endcomment %}
 
 <style>
@@ -22,109 +27,19 @@
   .charme-row-hidden{display:none !important}
   .charme-edit-btn{display:inline-block;margin-top:8px;padding:5px 12px;border:1px solid currentColor;border-radius:6px;font-size:.82em;text-decoration:none;color:inherit;cursor:pointer}
   .charme-edit-btn:hover{opacity:.7}
+  /* Keep the design preview (a tall phone-case shot) within the thumbnail cell */
+  .cart-items__media-container.charme-proof-container{aspect-ratio:auto !important}
+  .charme-proof-img{width:100% !important;height:auto !important;max-height:120px !important;object-fit:contain !important;aspect-ratio:auto !important}
 </style>
 
 <script>
 (function () {
-  var CASE_TITLE = 'Custom Charm Case';
-
-  function money(c) {
-    try { return (window.Shopify && Shopify.formatMoney) ? Shopify.formatMoney(c) : '\u00a3' + (c / 100).toFixed(2); }
-    catch (e) { return '\u00a3' + (c / 100).toFixed(2); }
-  }
-  function esc(k) { return (window.CSS && CSS.escape) ? CSS.escape(k) : String(k).replace(/"/g, '\\"'); }
-  function rowByKey(root, key) { return root.querySelector('.cart-items__table-row[data-key="' + esc(key) + '"]'); }
-
-  async function applyIn(root) {
-    var cart;
-    try { cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }); }
-    catch (e) { return; }
-    if (!cart || !cart.items || !cart.items.length) return;
-
-    var groups = {};
-    cart.items.forEach(function (it) {
-      var tok = it.properties && it.properties._design_token;
-      if (!tok) return;
-      (groups[tok] = groups[tok] || []).push(it);
-    });
-
-    Object.keys(groups).forEach(function (tok) {
-      var g = groups[tok];
-      if (g.length < 2) return;
-      var base = g.filter(function (it) { return !(it.properties && it.properties._role === 'charm'); })[0] || g[0];
-      var charms = g.filter(function (it) { return it !== base; });
-      var baseRow = rowByKey(root, base.key);
-      if (!baseRow || baseRow.getAttribute('data-charme-grouped')) return;
-
-      // Hide the charm rows.
-      charms.forEach(function (it) { var r = rowByKey(root, it.key); if (r) r.classList.add('charme-row-hidden'); });
-
-      // Rename the base row's title.
-      var titleEl = baseRow.querySelector('.cart-items__title');
-      if (titleEl) titleEl.textContent = CASE_TITLE;
-
-      // Show the design preview (proof) as the case image, if it was uploaded.
-      var proof = base.properties && (base.properties.Proof || base.properties._proof);
-      if (proof) {
-        var img = baseRow.querySelector('.cart-items__media-image, .cart-items__media img');
-        if (img) { img.removeAttribute('srcset'); img.src = proof; }
-      }
-
-      // A custom case is a single design — hide the qty stepper (keep the
-      // remove button); removing the case cleans up its charms (see below).
-      var qtyEl = baseRow.querySelector('.cart-items__quantity quantity-selector, .cart-items__quantity .quantity-selector');
-      if (qtyEl) qtyEl.style.display = 'none';
-
-      // Hide the raw line-item properties (Proof url, Design, Finish) on the
-      // base row — we render a clean detail list instead. They still ride on
-      // the ORDER so you can see the proof in Shopify Admin.
-      baseRow.querySelectorAll('.cart-items__properties').forEach(function (el) { el.style.display = 'none'; });
-
-      // Combined price on the base row.
-      var total = g.reduce(function (s, it) { return s + it.final_line_price; }, 0);
-      var tc = baseRow.querySelector('.cart-items__price text-component');
-      if (tc) { tc.textContent = money(total); tc.setAttribute('value', money(total)); }
-      else { var p2 = baseRow.querySelector('.cart-items__price'); if (p2) p2.textContent = money(total); }
-
-      // Detail list (case + charms + total) under the details cell.
-      var details = baseRow.querySelector('.cart-items__details') || baseRow;
-      var ul = document.createElement('ul');
-      ul.className = 'charme-bundle-detail';
-      var li0 = document.createElement('li');
-      li0.innerHTML = '<span>Case</span><span>' + money(base.final_line_price) + '</span>';
-      ul.appendChild(li0);
-      charms.forEach(function (it) {
-        var li = document.createElement('li');
-        li.innerHTML = '<span>' + (it.product_title || it.title) + (it.quantity > 1 ? ' \u00d7' + it.quantity : '') + '</span><span>' + money(it.final_line_price) + '</span>';
-        ul.appendChild(li);
-      });
-      var lt = document.createElement('li');
-      lt.className = 'charme-bundle-total';
-      lt.innerHTML = '<span>Custom case total</span><span>' + money(total) + '</span>';
-      ul.appendChild(lt);
-      details.appendChild(ul);
-
-      // "Edit design" — reopen the customizer with this design loaded so the
-      // customer can keep tweaking (see entry.jsx ?charme_edit handling).
-      var editUrl = '/products/custom-charm-phone-case?charme_edit=' + encodeURIComponent(base.key);
-      var edit = document.createElement('a');
-      edit.className = 'charme-edit-btn';
-      edit.href = editUrl;
-      edit.textContent = 'Edit design';
-      details.appendChild(edit);
-
-      baseRow.setAttribute('data-charme-grouped', '1');
-    });
-  }
 
   // If a base case line is removed, its charm lines are orphaned — remove them
   // too so the cart stays consistent (charm rows are hidden and can't be removed
   // on their own). Detects any _design_token group that has charms but no base.
-  async function cleanupOrphans() {
+  async function cleanupOrphans(cart) {
     if (window.__charmeCleaning) return;
-    var cart;
-    try { cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }); }
-    catch (e) { return; }
     if (!cart || !cart.items) return;
     var byTok = {};
     cart.items.forEach(function (it) {
@@ -147,24 +62,40 @@
     }
   }
 
-  function applyAll() {
-    cleanupOrphans();
-    var comps = document.querySelectorAll('cart-items-component');
-    if (comps.length) comps.forEach(applyIn);
-    else applyIn(document);
+  async function applyAll() {
+    var cart;
+    try { cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }); }
+    catch (e) { return; }
+    // Visual folding is now done SERVER-SIDE (snippets/charme-cart-line.liquid),
+    // so it works in the cart page AND the drawer with no timing issues. Here we
+    // only clean up orphaned charm lines when the base case is removed.
+    cleanupOrphans(cart);
   }
 
   function boot() {
     applyAll();
-    // Re-apply whenever the theme re-renders the cart (add / qty change / remove).
     var t;
-    var reapply = function () { clearTimeout(t); t = setTimeout(applyAll, 150); };
-    var comps = document.querySelectorAll('cart-items-component');
-    (comps.length ? comps : [document.body]).forEach(function (c) {
-      new MutationObserver(reapply).observe(c, { childList: true, subtree: true });
+    var reapply = function () { clearTimeout(t); t = setTimeout(applyAll, 120); };
+
+    // Re-check for orphaned charm lines whenever the cart re-renders in the cart
+    // page or the drawer (the drawer is re-rendered wholesale on add-to-cart — a
+    // childList change under <body>). Debounced; cleanup is a no-op unless a base
+    // case was removed.
+    new MutationObserver(reapply).observe(document.body, { childList: true, subtree: true });
+
+    // The cart drawer is a <dialog> inside <cart-drawer-component>; also re-check
+    // when the user opens it.
+    document.addEventListener('click', function (e) {
+      var t2 = e.target;
+      if (t2 && t2.closest && t2.closest('[data-testid="cart-drawer-trigger"], cart-drawer-component, .cart-drawer, a[href$="/cart"]')) reapply();
+    }, true);
+
+    ['cart:refresh', 'cart:updated', 'cart:change', 'cart:add', 'on:cart:update'].forEach(function (ev) {
+      document.addEventListener(ev, applyAll);
     });
-    document.addEventListener('cart:refresh', applyAll);
-    document.addEventListener('cart:updated', applyAll);
+
+    // A couple of delayed passes for late-hydrating drawers.
+    [400, 1200].forEach(function (d) { setTimeout(applyAll, d); });
   }
   if (document.readyState !== 'loading') boot();
   else document.addEventListener('DOMContentLoaded', boot);

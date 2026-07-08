@@ -15,7 +15,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { PRODUCT_GROUPS, BRAND_LABELS, findProduct } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
@@ -554,6 +554,135 @@ export default function CustomizerPage({
     [activateCharm],
   )
 
+  // "Type a word" — turn typed text into letter/number charms laid out on the
+  // case. `opts.collection` is the tray section ("Letters & initials" |
+  // "Numbers"); `opts.category` is the finish tab (gold/silver/…) so the letters
+  // match the row the button lives in. `opts.placement` = top|middle|bottom;
+  // `opts.arc` = lay the word along a gentle rainbow arch instead of a straight row.
+  const addWord = useCallback(
+    (text, opts = {}) => {
+      const raw = String(text || '').toUpperCase().replace(/\s+/g, ' ').trim()
+      if (!raw) return
+      const missing = []
+      const picks = []
+      for (const ch of raw.slice(0, 16).split('')) {
+        if (ch === ' ') continue
+        const charm = charmByLabel(opts.collection, ch, opts.category)
+        if (charm) picks.push(charm)
+        else missing.push(ch)
+      }
+      const room = MAX_CHARMS - placedRef.current.length
+      if (room <= 0) {
+        message.warning(`You can add up to ${MAX_CHARMS} charms.`)
+        return
+      }
+      const place = picks.slice(0, room)
+      if (!place.length) {
+        message.warning('Those characters aren’t available as charms.')
+        return
+      }
+
+      const { outer } = product.printable
+      const marginMm = 4
+      const gapMm = 1.4
+      const vGapMm = 2
+      const usableW = Math.max(10, outer.wMm - marginMm * 2)
+      const centerX = outer.xMm + outer.wMm / 2
+      const arc = !!opts.arc && place.length > 1
+
+      // Uniform scale so the word tends to fit the width, never below a letter's
+      // own min scale.
+      const natW = place.reduce((s, c) => s + c.widthMm, 0) + gapMm * (place.length - 1)
+      const sGuess = natW > usableW ? usableW / natW : 1
+      const items = place.map((c) => {
+        const sc = Math.min(Math.max(sGuess, c.minScale || 0.8), c.maxScale || 1.5)
+        return { charm: c, scale: sc, w: c.widthMm * sc, h: c.heightMm * sc }
+      })
+      const rowH = Math.max.apply(null, items.map((i) => i.h))
+
+      // Vertical anchor from the requested placement.
+      const place3 = opts.placement || 'middle'
+      const anchorY =
+        place3 === 'top'
+          ? outer.yMm + marginMm + rowH / 2
+          : place3 === 'bottom'
+            ? outer.yMm + outer.hMm - marginMm - rowH / 2
+            : outer.yMm + outer.hMm / 2
+
+      const built = []
+
+      if (arc) {
+        // Single rainbow arch: circle centred below the apex; each letter sits on
+        // the upper arc and tilts along the tangent.
+        const totalW = items.reduce((s, i) => s + i.w, 0) + gapMm * (items.length - 1)
+        const sag = Math.min(totalW * 0.18, outer.hMm * 0.14)
+        const R = (totalW * totalW) / (8 * Math.max(0.5, sag)) + sag / 2
+        // Apex sits at anchorY but nudge down for "top" so the ends stay inside.
+        const apexY = place3 === 'top' ? anchorY + sag : anchorY
+        let acc = 0
+        for (const it of items) {
+          const chordX = acc + it.w / 2 - totalW / 2
+          acc += it.w + gapMm
+          const a = Math.asin(Math.max(-1, Math.min(1, chordX / R)))
+          const pc = makePlaced(it.charm, {
+            cxMm: centerX + chordX,
+            cyMm: apexY + R - R * Math.cos(a),
+            rot: (a * 180) / Math.PI,
+          })
+          pc.scale = it.scale
+          built.push(clampToPrintable(pc))
+        }
+      } else {
+        // Straight row(s): wrap to extra rows if it doesn't fit one line.
+        const rows = []
+        let cur = []
+        let curW = 0
+        for (const it of items) {
+          const add = (cur.length ? gapMm : 0) + it.w
+          if (cur.length && curW + add > usableW) {
+            rows.push(cur)
+            cur = []
+            curW = 0
+          }
+          cur.push(it)
+          curW += (cur.length > 1 ? gapMm : 0) + it.w
+        }
+        if (cur.length) rows.push(cur)
+
+        const blockH = rows.length * rowH + (rows.length - 1) * vGapMm
+        // Keep the whole block anchored: top→block starts at anchor, bottom→ends there.
+        let y =
+          place3 === 'top'
+            ? anchorY + rowH / 2 - rowH / 2
+            : place3 === 'bottom'
+              ? anchorY - blockH + rowH / 2
+              : anchorY - blockH / 2 + rowH / 2
+        for (const row of rows) {
+          const rowW = row.reduce((s, i) => s + i.w, 0) + gapMm * (row.length - 1)
+          let x = centerX - rowW / 2
+          for (const it of row) {
+            const pc = makePlaced(it.charm, { cxMm: x + it.w / 2, cyMm: y, rot: 0 })
+            pc.scale = it.scale
+            built.push(clampToPrintable(pc))
+            x += it.w + gapMm
+          }
+          y += rowH + vGapMm
+        }
+      }
+
+      pushHistory()
+      setPlaced((p) => {
+        const free = MAX_CHARMS - p.length
+        return [...p, ...built.slice(0, Math.max(0, free))]
+      })
+      if (built.length) setSelectedUid(built[built.length - 1].uid)
+      if (missing.length) {
+        message.info(`Skipped (no charm): ${[...new Set(missing)].join(' ')}`)
+      }
+    },
+    [product, makePlaced, clampToPrintable, pushHistory, message],
+  )
+
   const stageNode = (
     <ProductStage
       ref={stageApi}
@@ -619,6 +748,7 @@ export default function CustomizerPage({
       compact={isMobile}
       activeKey={catKey}
       onActivate={onTrayActivate}
+      onTypeWord={addWord}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}
     />
   )
@@ -636,6 +766,7 @@ export default function CustomizerPage({
       rows
       activeKey={catKey}
       onActivate={onTrayActivate}
+      onTypeWord={addWord}
     />
   )
 

@@ -35,7 +35,8 @@ import {
 import charmData from '../data/catalog.json'
 import { ALL_PRODUCTS } from '../data/products'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
-import { clearAdmin, defaultAdmin, loadAdmin, saveAdmin } from '../lib/adminStore'
+import { resolveAsset } from '../lib/assets'
+import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, loadImageData } from '../lib/segment'
 import {
   addCharms,
@@ -130,9 +131,179 @@ function ImageDrop({ value, onChange, hint, maxDim = 900 }) {
 }
 
 // ---------------------------------------------------------------------------
+// Visual Size studio — stand a piece on a real product (iPhone / tote / …) and
+// drag a slider to size it. The scale (1 = catalogue default) is saved to
+// draft.charmSizes[id] and applied to the piece's real-world mm size at
+// storefront load (lib/catalog.js), so every placed piece renders at this size.
+// ---------------------------------------------------------------------------
+const SIZE_MIN = 0.5
+const SIZE_MAX = 2
+const STAGE_MAX_W = 320
+const STAGE_MAX_H = 380
+const STAGE_PAD = 16
+
+/** Best available background image for a product (any finish). */
+function productImage(product) {
+  const img = product?.blankImage || {}
+  return img.white || img.default || img.natural || img.black || Object.values(img)[0] || null
+}
+
+function SizeStudioTab({ draft, set, charm }) {
+  const { message } = App.useApp()
+
+  const products = ALL_PRODUCTS
+  const [productId, setProductId] = useState('iphone-16-pro-max')
+  const product = useMemo(
+    () => products.find((p) => p.id === productId) || products[0],
+    [products, productId],
+  )
+
+  const savedScale = (charm && draft.charmSizes?.[charm.id]) || 1
+  const [scale, setScale] = useState(savedScale)
+  // Load the selected piece's saved scale whenever the piece changes.
+  useEffect(() => {
+    setScale((charm && draft.charmSizes?.[charm.id]) || 1)
+  }, [charm?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fit the whole product into the stage; the SAME mm→px scale sizes the piece,
+  // so it appears at its true real-world proportion on the product.
+  const fit = Math.min(
+    (STAGE_MAX_W - STAGE_PAD * 2) / product.widthMm,
+    (STAGE_MAX_H - STAGE_PAD * 2) / product.heightMm,
+  )
+  const wPx = product.widthMm * fit
+  const hPx = product.heightMm * fit
+  const baseW = Number(charm?.widthMm) || 10
+  const baseH = Number(charm?.heightMm) || 10
+  const cw = baseW * fit * scale
+  const ch = baseH * fit * scale
+  const bg = resolveAsset(productImage(product))
+  const charmSrc = charm ? resolveAsset(charm.src) : null
+  const cat = charm ? charm.category || charmCategory(charm) : null
+  const dirty = charm && +scale.toFixed(3) !== +savedScale.toFixed(3)
+
+  const save = () => {
+    if (!charm) return
+    const charmSizes = { ...(draft.charmSizes || {}) }
+    if (scale === 1) delete charmSizes[charm.id]
+    else charmSizes[charm.id] = +scale.toFixed(3)
+    const next = { ...draft, charmSizes }
+    set(next)
+    saveAdmin(next)
+    message.success(
+      `Saved “${charm.name}” at ${Math.round(scale * 100)}% (${(baseW * scale).toFixed(1)}×${(baseH * scale).toFixed(1)} mm).`,
+    )
+  }
+
+  return (
+    <Card size="small" title="Size studio" style={{ position: 'sticky', top: 8 }}>
+      <label style={{ display: 'block', marginBottom: 12 }}>
+        <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Base product</span>
+        <Select
+          value={productId}
+          onChange={setProductId}
+          showSearch
+          optionFilterProp="label"
+          options={products.map((p) => ({ value: p.id, label: p.name }))}
+          style={{ width: '100%' }}
+        />
+      </label>
+
+      {!charm ? (
+        <Empty
+          style={{ margin: '24px 0' }}
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="Select a charm on the left to size it against this product"
+        />
+      ) : (
+        <>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <img
+              src={charmSrc}
+              alt=""
+              style={{ width: 40, height: 40, objectFit: 'contain', background: '#faf7f2', borderRadius: 8, padding: 4 }}
+            />
+            <div>
+              <div style={{ fontWeight: 600 }}>{charm.name}</div>
+              {cat && <Tag style={{ marginTop: 2 }}>{cat}</Tag>}
+            </div>
+          </div>
+
+          <div
+            style={{
+              position: 'relative',
+              width: wPx + STAGE_PAD * 2,
+              height: hPx + STAGE_PAD * 2,
+              margin: '0 auto 6px',
+              background: '#faf7f2',
+              borderRadius: 12,
+            }}
+          >
+            <div style={{ position: 'absolute', left: STAGE_PAD, top: STAGE_PAD, width: wPx, height: hPx }}>
+              {bg ? (
+                <img
+                  src={bg}
+                  alt={product.name}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
+                />
+              ) : (
+                <div style={{ position: 'absolute', inset: 0, background: '#efe7d8', borderRadius: 10 }} />
+              )}
+              {charmSrc && (
+                <img
+                  src={charmSrc}
+                  alt={charm.name}
+                  style={{
+                    position: 'absolute',
+                    width: cw,
+                    height: ch,
+                    left: wPx / 2 - cw / 2,
+                    top: hPx * 0.56 - ch / 2,
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.28))',
+                    transition: 'width .06s linear, height .06s linear, left .06s linear, top .06s linear',
+                    pointerEvents: 'none',
+                  }}
+                />
+              )}
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 4 }}>
+            <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--rouge)' }}>{Math.round(scale * 100)}%</span>
+            <span style={{ fontVariantNumeric: 'tabular-nums', color: 'var(--ink-soft)' }}>
+              {(baseW * scale).toFixed(1)} × {(baseH * scale).toFixed(1)} mm
+            </span>
+          </div>
+          <Slider
+            min={SIZE_MIN}
+            max={SIZE_MAX}
+            step={0.05}
+            value={scale}
+            onChange={setScale}
+            tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
+          />
+          <div className="hint" style={{ marginBottom: 12 }}>
+            Catalogue default: {baseW}×{baseH} mm (100%).
+          </div>
+          <Space>
+            <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty}>
+              Save size
+            </Button>
+            <Button onClick={() => setScale(1)} disabled={scale === 1}>
+              Reset
+            </Button>
+          </Space>
+        </>
+      )}
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Custom charms
 // ---------------------------------------------------------------------------
-function CharmsTab({ draft, set }) {
+function CharmsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [form, setForm] = useState({
     name: '',
@@ -178,207 +349,191 @@ function CharmsTab({ draft, set }) {
     message.success('Charm added — Save changes to publish.')
   }
 
-  const removeCustom = (id) =>
-    set((d) => ({ ...d, customCharms: d.customCharms.filter((c) => c.id !== id) }))
-
-  // Base catalogue charms with current overrides applied, filtered by search.
+  // Every charm the merchant can size / re-price / hide: their Shopify-published
+  // charms FIRST (370+ once migrated), then any built-in catalogue charm not
+  // already in Shopify — deduped by id, filtered by the search box. No cap.
   const baseRows = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return charmData.charms
-      .filter((c) => !q || c.name.toLowerCase().includes(q))
-      .slice(0, 120)
-      .map((c) => ({ ...c, category: charmCategory(c) }))
-  }, [query])
+    const seen = new Set()
+    const all = [...(cloud?.data.charms || []), ...charmData.charms].filter(
+      (c) => !seen.has(c.id) && seen.add(c.id),
+    )
+    return all
+      .filter((c) => !q || (c.name || '').toLowerCase().includes(q))
+      .map((c) => ({ ...c, category: c.category || charmCategory(c) }))
+  }, [query, cloud?.data.charms])
+
+  // Selecting a charm row (in any of the tables below) drives the Size studio
+  // panel on the right. Resolve the chosen charm across every source.
+  const [selectedCharmId, setSelectedCharmId] = useState(null)
+  const selectedCharm = useMemo(() => {
+    const src = [...(draft.customCharms || []), ...(cloud?.data.charms || []), ...charmData.charms]
+    return src.find((c) => c.id === selectedCharmId) || null
+  }, [selectedCharmId, draft.customCharms, cloud])
+  const pickRow = (r) => ({ onClick: () => setSelectedCharmId(r.id) })
+  const rowCls = (r) => (r.id === selectedCharmId ? 'admin-pick-row is-selected' : 'admin-pick-row')
 
   return (
-    <Space direction="vertical" size={18} style={{ width: '100%' }}>
-      <Card size="small" title="Add a custom charm">
-        <div className="admin-grid">
-          <label>
-            <span>Name</span>
-            <Input
-              value={form.name}
-              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              placeholder="e.g. Strawberry enamel"
-            />
-          </label>
-          <label>
-            <span>Category</span>
-            <Select
-              value={form.category}
-              onChange={(v) => setForm((f) => ({ ...f, category: v }))}
-              options={CAT_OPTS}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Size tier</span>
-            <Select
-              value={form.tier}
-              onChange={(v) => {
-                const t = TIER_OPTS.find((x) => x.value === v)
-                setForm((f) => ({ ...f, tier: v, price: t.price }))
-              }}
-              options={TIER_OPTS}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Price (£)</span>
-            <InputNumber
-              min={0}
-              value={form.price}
-              onChange={(v) => setForm((f) => ({ ...f, price: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Real width (mm)</span>
-            <InputNumber
-              min={2}
-              value={form.widthMm}
-              onChange={(v) => setForm((f) => ({ ...f, widthMm: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label style={{ gridColumn: '1 / -1' }}>
-            <span>Artwork (transparent cut-out)</span>
-            <ImageDrop value={form.image} onChange={(image) => setForm((f) => ({ ...f, image }))} />
-          </label>
-          <label className="admin-check" style={{ gridColumn: '1 / -1' }}>
-            <Checkbox
-              checked={form.bundle}
-              onChange={(e) => setForm((f) => ({ ...f, bundle: e.target.checked }))}
-            >
-              Flat price — customers can pick several of this charm for the same price (e.g. little stones)
-            </Checkbox>
-          </label>
-          {form.bundle && (
-            <label>
-              <span>Max picks for the price</span>
-              <InputNumber
-                min={1}
-                max={MAX_CHARMS}
-                value={form.bundleMax}
-                onChange={(v) => setForm((f) => ({ ...f, bundleMax: v }))}
-                style={{ width: '100%' }}
-              />
-            </label>
-          )}
-        </div>
-        <p className="hint" style={{ margin: '10px 0 0' }}>
-          {form.bundle
-            ? `Customers pay £${Number(form.price) || 0} once and may add up to ${form.bundleMax || 1} of this charm.`
-            : 'Priced per piece — each one added is charged separately.'}
-        </p>
-        <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
-          Add charm
-        </Button>
-      </Card>
+    <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <style>{`.admin-pick-row{cursor:pointer}.admin-pick-row.is-selected>td{background:rgba(179,91,91,.10)!important}`}</style>
 
-      <Card size="small" title={`Your custom charms (${draft.customCharms?.length || 0})`}>
-        {draft.customCharms?.length ? (
+      {/* Left column — the catalogue list to pick a charm from. */}
+      <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <Card size="small" title={`Charms — re-price, hide or size (${baseRows.length})`}>
+          <Input.Search
+            allowClear
+            placeholder="Search charms by name…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            style={{ maxWidth: 360, marginBottom: 12 }}
+          />
           <Table
             size="small"
             rowKey="id"
-            pagination={false}
-            dataSource={draft.customCharms}
+            onRow={pickRow}
+            rowClassName={rowCls}
+            pagination={{ pageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
+            dataSource={baseRows}
             columns={[
+              { title: 'Art', width: 52, render: (_, r) => <Image src={resolveAsset(r.src)} width={34} height={34} style={{ objectFit: 'contain' }} /> },
+              { title: 'Name', dataIndex: 'name', ellipsis: true },
+              { title: 'Category', dataIndex: 'category', width: 110, render: (c) => <Tag>{c}</Tag> },
               {
-                title: 'Art',
-                dataIndex: 'src',
-                width: 64,
-                render: (src) => <Image src={src} width={40} height={40} style={{ objectFit: 'contain' }} />,
-              },
-              { title: 'Name', dataIndex: 'name' },
-              { title: 'Category', dataIndex: 'category', render: (c) => <Tag>{c}</Tag> },
-              { title: 'Size', dataIndex: 'widthMm', render: (w, r) => `${w}×${r.heightMm} mm` },
-              { title: 'Price', dataIndex: 'price', render: (p) => `£${p}` },
-              {
-                title: 'Multi-pick',
-                dataIndex: 'bundle',
-                render: (b, r) =>
-                  b ? <Tag color="geekblue">up to {r.bundleMax} · one price</Tag> : <span style={{ color: 'var(--ink-soft)' }}>—</span>,
-              },
-              {
-                title: '',
-                width: 48,
+                title: 'Price (£)',
+                width: 120,
                 render: (_, r) => (
-                  <Button
-                    type="text"
-                    danger
-                    icon={<DeleteOutlined />}
-                    onClick={() => removeCustom(r.id)}
+                  <InputNumber
+                    size="small"
+                    min={0}
+                    value={draft.charmPrices[r.id] ?? r.price}
+                    onChange={(v) =>
+                      set((d) => ({ ...d, charmPrices: { ...d.charmPrices, [r.id]: v } }))
+                    }
+                    style={{ width: 84 }}
+                  />
+                ),
+              },
+              {
+                title: 'Hidden',
+                width: 90,
+                render: (_, r) => (
+                  <Switch
+                    size="small"
+                    checked={!!draft.charmHidden[r.id]}
+                    onChange={(on) =>
+                      set((d) => {
+                        const charmHidden = { ...d.charmHidden }
+                        if (on) charmHidden[r.id] = true
+                        else delete charmHidden[r.id]
+                        return { ...d, charmHidden }
+                      })
+                    }
                   />
                 ),
               },
             ]}
           />
-        ) : (
-          <Empty description="No custom charms yet" image={Empty.PRESENTED_IMAGE_SIMPLE} />
-        )}
-      </Card>
+        </Card>
+      </Space>
 
-      <Card size="small" title="Re-price or hide catalogue charms">
-        <Input.Search
-          allowClear
-          placeholder="Search the 220+ catalogue charms…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          style={{ maxWidth: 360, marginBottom: 12 }}
-        />
-        <Table
-          size="small"
-          rowKey="id"
-          pagination={{ pageSize: 10, size: 'small' }}
-          dataSource={baseRows}
-          columns={[
-            { title: 'Name', dataIndex: 'name', ellipsis: true },
-            { title: 'Category', dataIndex: 'category', width: 110, render: (c) => <Tag>{c}</Tag> },
-            {
-              title: 'Price (£)',
-              width: 120,
-              render: (_, r) => (
+      {/* Right column — size the selected charm + add a charm. */}
+      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
+        <Space direction="vertical" size={18} style={{ width: '100%' }}>
+          <SizeStudioTab draft={draft} set={set} charm={selectedCharm} />
+
+          <Card size="small" title="Add a custom charm">
+            <div className="admin-grid">
+              <label>
+                <span>Name</span>
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                  placeholder="e.g. Strawberry enamel"
+                />
+              </label>
+              <label>
+                <span>Category</span>
+                <Select
+                  value={form.category}
+                  onChange={(v) => setForm((f) => ({ ...f, category: v }))}
+                  options={CAT_OPTS}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>Size tier</span>
+                <Select
+                  value={form.tier}
+                  onChange={(v) => {
+                    const t = TIER_OPTS.find((x) => x.value === v)
+                    setForm((f) => ({ ...f, tier: v, price: t.price }))
+                  }}
+                  options={TIER_OPTS}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>Price (£)</span>
                 <InputNumber
-                  size="small"
                   min={0}
-                  value={draft.charmPrices[r.id] ?? r.price}
-                  onChange={(v) =>
-                    set((d) => ({ ...d, charmPrices: { ...d.charmPrices, [r.id]: v } }))
-                  }
-                  style={{ width: 84 }}
+                  value={form.price}
+                  onChange={(v) => setForm((f) => ({ ...f, price: v }))}
+                  style={{ width: '100%' }}
                 />
-              ),
-            },
-            {
-              title: 'Hidden',
-              width: 90,
-              render: (_, r) => (
-                <Switch
-                  size="small"
-                  checked={!!draft.charmHidden[r.id]}
-                  onChange={(on) =>
-                    set((d) => {
-                      const charmHidden = { ...d.charmHidden }
-                      if (on) charmHidden[r.id] = true
-                      else delete charmHidden[r.id]
-                      return { ...d, charmHidden }
-                    })
-                  }
+              </label>
+              <label>
+                <span>Real width (mm)</span>
+                <InputNumber
+                  min={2}
+                  value={form.widthMm}
+                  onChange={(v) => setForm((f) => ({ ...f, widthMm: v }))}
+                  style={{ width: '100%' }}
                 />
-              ),
-            },
-          ]}
-        />
-      </Card>
-    </Space>
+              </label>
+              <label style={{ gridColumn: '1 / -1' }}>
+                <span>Artwork (transparent cut-out)</span>
+                <ImageDrop value={form.image} onChange={(image) => setForm((f) => ({ ...f, image }))} />
+              </label>
+              <label className="admin-check" style={{ gridColumn: '1 / -1' }}>
+                <Checkbox
+                  checked={form.bundle}
+                  onChange={(e) => setForm((f) => ({ ...f, bundle: e.target.checked }))}
+                >
+                  Flat price — customers can pick several of this charm for the same price (e.g. little stones)
+                </Checkbox>
+              </label>
+              {form.bundle && (
+                <label>
+                  <span>Max picks for the price</span>
+                  <InputNumber
+                    min={1}
+                    max={MAX_CHARMS}
+                    value={form.bundleMax}
+                    onChange={(v) => setForm((f) => ({ ...f, bundleMax: v }))}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+              )}
+            </div>
+            <p className="hint" style={{ margin: '10px 0 0' }}>
+              {form.bundle
+                ? `Customers pay £${Number(form.price) || 0} once and may add up to ${form.bundleMax || 1} of this charm.`
+                : 'Priced per piece — each one added is charged separately.'}
+            </p>
+            <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
+              Add charm
+            </Button>
+          </Card>
+        </Space>
+      </div>
+    </div>
   )
 }
 
 // ---------------------------------------------------------------------------
 // Products
 // ---------------------------------------------------------------------------
-function ProductsTab({ draft, set }) {
+function ProductsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [form, setForm] = useState({
     name: '',
@@ -482,6 +637,28 @@ function ProductsTab({ draft, set }) {
         >
           Add product
         </Button>
+      </Card>
+
+      <Card
+        size="small"
+        title={`Live products on Shopify (${cloud?.data.products.length || 0})`}
+        extra={<Button size="small" icon={<ReloadOutlined />} onClick={cloud?.refresh} loading={cloud?.loading}>Refresh</Button>}
+      >
+        {cloud?.data.products.length ? (
+          <Table
+            size="small" rowKey="id" pagination={false} dataSource={cloud.data.products}
+            columns={[
+              { title: 'Photo', dataIndex: 'src', width: 64, render: (s) => <Image src={s} width={40} height={40} style={{ objectFit: 'contain' }} /> },
+              { title: 'Name', dataIndex: 'name', ellipsis: true },
+              { title: 'Type', dataIndex: 'kind', width: 90, render: (k) => <Tag>{k === 'tote' ? 'Patches' : 'Charms'}</Tag> },
+              { title: 'Size', width: 120, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
+              { title: 'Price', dataIndex: 'basePrice', width: 80, render: (p) => `£${p}` },
+              { title: '', width: 48, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeProduct(r)} /> },
+            ]}
+          />
+        ) : (
+          <Empty description="No products published to Shopify yet" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+        )}
       </Card>
 
       <Card size="small" title={`Your custom products (${draft.customProducts?.length || 0})`}>
@@ -862,9 +1039,11 @@ function BatchExtractTab({ draft, set }) {
 }
 
 // ---------------------------------------------------------------------------
-// Cloud (Cloudflare-backed catalogue): publish drafts + manage published items
+// Shared Shopify catalogue state (published products + charms) — one fetch,
+// shared by the Products and Charms tabs. Publishing pushes local drafts to
+// Shopify and always persists local overrides (price / hide / size) to storage.
 // ---------------------------------------------------------------------------
-function CloudTab({ draft, set }) {
+function useCloud(draft, set) {
   const { message, modal } = App.useApp()
   const embedded = isShopifyEmbedded()
   const [token, setTokenState] = useState(() => getToken())
@@ -878,7 +1057,7 @@ function CloudTab({ draft, set }) {
       const cat = await fetchCatalog()
       setData({ products: cat.products || [], charms: cat.charms || [] })
     } catch {
-      message.error('Could not load the published catalogue.')
+      /* offline / no backend in local dev — leave lists empty */
     } finally {
       setLoading(false)
     }
@@ -888,17 +1067,22 @@ function CloudTab({ draft, set }) {
   const saveToken = (t) => { setTokenState(t); setToken(t) }
 
   const publish = async () => {
-    if (!embedded && !getToken()) return message.warning('Enter the admin token first.')
+    // Always persist local overrides (prices / hidden / sizes) to this browser.
+    saveAdmin(draft)
     const charms = draft.customCharms || []
     const products = draft.customProducts || []
-    if (!charms.length && !products.length) return message.info('No local drafts to publish — add charms/products first.')
+    if (!charms.length && !products.length) {
+      message.success('Saved. Reload the storefront to see your changes.')
+      return
+    }
+    if (!embedded && !getToken()) return message.warning('Enter the admin token first.')
     setPublishing(true)
     try {
       if (charms.length) await addCharms(charms)
       for (const p of products) await addProduct(p)
       set((d) => ({ ...d, customCharms: [], customProducts: [] }))
       saveAdmin({ ...draft, customCharms: [], customProducts: [] })
-      message.success(`Published ${charms.length} charm(s) + ${products.length} product(s) to Cloudflare.`)
+      message.success(`Published ${charms.length} charm(s) + ${products.length} product(s) to Shopify.`)
       refresh()
     } catch (e) {
       message.error(`Publish failed: ${e.message}`)
@@ -912,7 +1096,7 @@ function CloudTab({ draft, set }) {
     catch (e) { message.error(e.message) }
   }
   const removeCharm = (c) => modal.confirm({
-    title: `Delete "${c.name}" from Cloudflare?`,
+    title: `Delete "${c.name}" from Shopify?`,
     okText: 'Delete', okButtonProps: { danger: true },
     onOk: async () => { try { await deleteCharm(c.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
@@ -921,113 +1105,23 @@ function CloudTab({ draft, set }) {
     catch (e) { message.error(e.message) }
   }
   const removeProduct = (p) => modal.confirm({
-    title: `Delete "${p.name}" from Cloudflare?`,
+    title: `Delete "${p.name}" from Shopify?`,
     okText: 'Delete', okButtonProps: { danger: true },
     onOk: async () => { try { await deleteProduct(p.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
 
-  const visible = data.charms.filter((c) => !c.hidden).length
-
-  return (
-    <Space direction="vertical" size={18} style={{ width: '100%' }}>
-      <Alert
-        type="success"
-        showIcon
-        message="Cloudflare-backed catalogue (D1 + KV)"
-        description="Products, charms, images and prices live in Cloudflare and load on the storefront automatically. Enter the admin token to publish or edit. Duplicates of existing gold charms were imported hidden — reveal them here if you want them shown."
-      />
-      <Card size="small" title={embedded ? 'Signed in via Shopify Admin' : 'Admin token'}>
-        <Space wrap>
-          {!embedded && (
-            <Input.Password
-              value={token}
-              onChange={(e) => saveToken(e.target.value)}
-              placeholder="Paste the admin token"
-              style={{ width: 320 }}
-            />
-          )}
-          <Button icon={<ReloadOutlined />} onClick={refresh} loading={loading}>Refresh</Button>
-          <Button type="primary" icon={<CloudUploadOutlined />} onClick={publish} loading={publishing}>
-            Publish local drafts
-          </Button>
-        </Space>
-        <p className="hint" style={{ marginTop: 8 }}>
-          {embedded
-            ? 'Writes are authorised automatically by your Shopify Admin session.'
-            : 'The token guards writes and is stored only in this browser.'}
-        </p>
-      </Card>
-
-      <Card size="small" title={`Published products (${data.products.length})`}>
-        {data.products.length ? (
-          <Table
-            size="small" rowKey="id" pagination={false} dataSource={data.products}
-            columns={[
-              { title: 'Photo', dataIndex: 'src', width: 64, render: (s) => <Image src={s} width={40} height={40} style={{ objectFit: 'contain' }} /> },
-              { title: 'Name', dataIndex: 'name' },
-              { title: 'Type', dataIndex: 'kind', render: (k) => <Tag>{k === 'tote' ? 'Patches' : 'Charms'}</Tag> },
-              { title: 'Size', render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
-              { title: 'Price', dataIndex: 'basePrice', render: (p) => `£${p}` },
-              { title: '', width: 48, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => removeProduct(r)} /> },
-            ]}
-          />
-        ) : <Empty description="No published products" image={Empty.PRESENTED_IMAGE_SIMPLE} />}
-      </Card>
-
-      <Card size="small" title={`Published charms (${data.charms.length} · ${visible} shown)`}>
-        <Table
-          size="small" rowKey="id" loading={loading}
-          pagination={{ pageSize: 12, size: 'small' }} dataSource={data.charms}
-          columns={[
-            { title: 'Art', dataIndex: 'src', width: 56, render: (s) => <Image src={s} width={38} height={38} style={{ objectFit: 'contain' }} /> },
-            { title: 'Name', dataIndex: 'name', ellipsis: true },
-            { title: 'Category', dataIndex: 'category', width: 96, render: (c) => <Tag>{c}</Tag> },
-            { title: 'Size', width: 110, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
-            { title: 'Price (£)', width: 110, render: (_, r) => <InputNumber size="small" min={0} defaultValue={r.price} onBlur={(e) => repriceCharm(r, Number(e.target.value))} style={{ width: 80 }} /> },
-            { title: 'Shown', width: 80, render: (_, r) => <Switch size="small" checked={!r.hidden} onChange={() => toggleHide(r)} /> },
-            { title: '', width: 44, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => removeCharm(r)} /> },
-          ]}
-        />
-        {data.charms.some((c) => c.dupOf) && (
-          <p className="hint" style={{ marginTop: 8 }}>Rows hidden by default are likely duplicates of an existing gold charm (advisory). Toggle “Shown” to reveal.</p>
-        )}
-      </Card>
-    </Space>
-  )
+  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, toggleHide, removeCharm, repriceCharm, removeProduct }
 }
 
 export default function AdminPage() {
-  const { message, modal } = App.useApp()
   const [draft, setDraft] = useState(() => loadAdmin())
-  const [tab, setTab] = useState('cloud')
-
-  // On the dedicated admin subdomain (admin.charme-customizer.pages.dev) the
-  // storefront lives on the bare project domain (admin. stripped); elsewhere the
-  // customizer is just the site root.
-  const storefrontUrl =
-    typeof window !== 'undefined' && /^admin\./i.test(window.location.hostname)
-      ? `${window.location.protocol}//${window.location.hostname.replace(/^admin\./i, '')}`
-      : '/'
-
+  const [tab, setTab] = useState('products')
   const set = (updater) => setDraft((d) => (typeof updater === 'function' ? updater(d) : updater))
+  const cloud = useCloud(draft, set)
 
-  const save = () => {
-    saveAdmin(draft)
-    message.success('Saved. Open or reload the storefront to see your changes.')
-  }
-  const resetAll = () => {
-    modal.confirm({
-      title: 'Reset all merchant changes?',
-      content: 'This removes every custom product, custom charm, price and hide override.',
-      okText: 'Reset everything',
-      okButtonProps: { danger: true },
-      onOk: () => {
-        clearAdmin()
-        setDraft(defaultAdmin())
-        message.success('All overrides cleared.')
-      },
-    })
-  }
+  // "View storefront" opens the live Shopify store.
+  const storefrontUrl =
+    'https://thecharmeedit.com/products/celeste-key-gold-custom-charm-phone-case?variant=56637607281018'
 
   return (
     <div className="admin-page">
@@ -1044,11 +1138,19 @@ export default function AdminPage() {
           <Button icon={<ShopOutlined />} href={storefrontUrl} target="_blank">
             View storefront
           </Button>
-          <Button icon={<ReloadOutlined />} danger onClick={resetAll}>
-            Reset all
+          {!cloud.embedded && (
+            <Input.Password
+              value={cloud.token}
+              onChange={(e) => cloud.saveToken(e.target.value)}
+              placeholder="Admin token"
+              style={{ width: 200 }}
+            />
+          )}
+          <Button icon={<ReloadOutlined />} onClick={cloud.refresh} loading={cloud.loading}>
+            Refresh
           </Button>
-          <Button type="primary" icon={<SaveOutlined />} onClick={save}>
-            Save changes
+          <Button type="primary" icon={<CloudUploadOutlined />} onClick={cloud.publish} loading={cloud.publishing}>
+            Publish
           </Button>
         </Space>
       </div>
@@ -1057,17 +1159,8 @@ export default function AdminPage() {
         activeKey={tab}
         onChange={setTab}
         items={[
-          {
-            key: 'cloud',
-            label: (
-              <span>
-                <CloudUploadOutlined /> Cloud
-              </span>
-            ),
-            children: <CloudTab draft={draft} set={set} />,
-          },
-          { key: 'products', label: 'Products', children: <ProductsTab draft={draft} set={set} /> },
-          { key: 'charms', label: 'Charms', children: <CharmsTab draft={draft} set={set} /> },
+          { key: 'products', label: 'Products', children: <ProductsTab draft={draft} set={set} cloud={cloud} /> },
+          { key: 'charms', label: 'Charms', children: <CharmsTab draft={draft} set={set} cloud={cloud} /> },
           {
             key: 'extract',
             label: (
@@ -1081,9 +1174,9 @@ export default function AdminPage() {
       />
 
       <p className="admin-note">
-        Changes are saved to this browser and merged into the storefront on its next load. To
-        publish to every visitor, persist the same overrides to a shared backend (e.g. Cloudflare
-        KV/D1 + R2 for images) — the storefront merge layer stays the same.
+        Products, charms, images and prices are stored in your own Shopify store (Metaobjects +
+        Files) and load on the storefront automatically. <strong>Publish</strong> pushes any charms
+        or products you added here up to Shopify.
       </p>
     </div>
   )
