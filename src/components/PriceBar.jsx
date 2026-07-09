@@ -1,8 +1,8 @@
 import { Button } from 'antd'
-import { CheckCircleFilled, WarningFilled, UndoOutlined } from '@ant-design/icons'
+import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
 import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../lib/catalog'
 
-export default function PriceBar({ product, placed, validation, onSubmit, onClear, canUndo, onUndo }) {
+export default function PriceBar({ product, placed, validation, onSubmit, crossSellHint }) {
   const charmTotal = placedCharmsTotal(placed)
   const total = product.basePrice + charmTotal
   const n = placed.length
@@ -49,16 +49,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, onClea
       <Button block type="primary" size="large" disabled={n === 0} onClick={onSubmit}>
         Add my custom {noun} to cart (£{total.toFixed(0)})
       </Button>
-      <div style={{ display: 'flex', gap: 10, marginTop: 10 }}>
-        <Button block icon={<UndoOutlined />} disabled={!canUndo} onClick={onUndo}>
-          Undo
-        </Button>
-        {n > 0 && (
-          <Button block onClick={onClear}>
-            Clear
-          </Button>
-        )}
-      </div>
+      {crossSellHint && <p className="cross-sell-hint">{crossSellHint}</p>}
     </div>
   )
 }

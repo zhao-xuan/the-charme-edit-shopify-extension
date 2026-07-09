@@ -26,6 +26,7 @@ import { ConfigProvider, App as AntApp } from 'antd'
 import { theme } from '../../src/theme'
 import '../../src/styles.css'
 import { loadRemoteCatalog } from '../../src/lib/remoteCatalog'
+import { loadSettings } from '../../src/lib/settings'
 import { createCartHandler } from './shopifyCart'
 
 let mounted = false
@@ -49,7 +50,7 @@ export async function mount() {
   // BEFORE the customizer module graph evaluates, so the bundled merge folds it
   // in on first render. Best-effort: falls back to the bundled catalogue if the
   // API is unreachable, so the widget always renders.
-  await loadRemoteCatalog()
+  await Promise.all([loadRemoteCatalog(), loadSettings()])
   const { default: CustomizerPage } = await import('../../src/customizer/CustomizerPage')
 
   const onPlaceOrder = createCartHandler(cfg)

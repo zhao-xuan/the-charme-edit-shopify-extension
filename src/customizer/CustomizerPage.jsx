@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Button, App, Segmented, Select } from 'antd'
+import { Button, App, Modal, Segmented, Select } from 'antd'
 import {
   ZoomInOutlined,
   ZoomOutOutlined,
@@ -19,6 +19,7 @@ import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
+import { settings } from '../lib/settings'
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -107,6 +108,8 @@ export default function CustomizerPage({
   // Lazy catalogue accessor (built after the remote catalogue loads — see
   // products.js). Stable memoised array, safe to read every render.
   const PRODUCT_GROUPS = productGroups()
+  // Merchant settings (cross-sell prompt + discounts), loaded at startup.
+  const appSettings = settings()
 
   // Optional starting model/category (set per placement by the Shopify section,
   // so the same widget can open on a different product on each product page). A
@@ -150,6 +153,8 @@ export default function CustomizerPage({
   const [zoom, setZoom] = useState(1)
 
   const [summaryOpen, setSummaryOpen] = useState(false)
+  // Cross-sell popup shown after a product is added to the cart.
+  const [crossSellOpen, setCrossSellOpen] = useState(false)
   // Set true when the customer taps the order button while charms still overlap
   // or sit outside the craftable area — surfaces a prominent fix-it message next
   // to the case (desktop) and emphasises the Step 2 overlay warning (mobile).
@@ -824,25 +829,6 @@ export default function CustomizerPage({
       <Button
         size="small"
         shape="circle"
-        icon={<ZoomInOutlined />}
-        onClick={() => setZoom((z) => clamp(+(z + 0.15).toFixed(2), 0.6, 2))}
-      />
-      <Button
-        size="small"
-        shape="circle"
-        icon={<ZoomOutOutlined />}
-        onClick={() => setZoom((z) => clamp(+(z - 0.15).toFixed(2), 0.6, 2))}
-      />
-    </div>
-  )
-
-  // Undo / clear-all controls floating over the preview. Shared by the mobile
-  // and desktop stages so both surfaces get the same quick edit dock.
-  const editDock = (
-    <div className="edit-dock">
-      <Button
-        size="small"
-        shape="circle"
         icon={<UndoOutlined />}
         disabled={!canUndo}
         onClick={undo}
@@ -855,6 +841,19 @@ export default function CustomizerPage({
         disabled={placed.length === 0}
         onClick={clearAll}
         title="Clear all"
+      />
+      <span className="zoom-dock__sep" />
+      <Button
+        size="small"
+        shape="circle"
+        icon={<ZoomInOutlined />}
+        onClick={() => setZoom((z) => clamp(+(z + 0.15).toFixed(2), 0.6, 2))}
+      />
+      <Button
+        size="small"
+        shape="circle"
+        icon={<ZoomOutOutlined />}
+        onClick={() => setZoom((z) => clamp(+(z - 0.15).toFixed(2), 0.6, 2))}
       />
     </div>
   )
@@ -916,6 +915,35 @@ export default function CustomizerPage({
     }
     setShowOverlapWarning(true)
     setWarnPulse((n) => n + 1)
+  }
+
+  // ---- cross-sell: after add-to-cart, offer a second product ----
+  const crossSell = appSettings.crossSell || {}
+  const crossSellOptions = Array.isArray(crossSell.options)
+    ? crossSell.options.filter((o) => o && o.label)
+    : []
+  // Place the order via the host handler; in cart-drawer mode it resolves without
+  // navigating away, so we can then surface the cross-sell popup.
+  const handlePlaceOrder = async (payload) => {
+    if (onPlaceOrder) await onPlaceOrder(payload)
+    if (crossSell.enabled && crossSellOptions.length) setCrossSellOpen(true)
+  }
+  // Pick a cross-sell product: apply the promo code (best-effort) and reopen the
+  // customizer on the chosen product so the customer starts their second piece.
+  const pickCrossSell = (opt) => {
+    setCrossSellOpen(false)
+    const code = (crossSell.discountCode || '').trim()
+    if (code && typeof fetch !== 'undefined') {
+      // /discount/<CODE> applies the code to the current cart session (store origin).
+      fetch(`/discount/${encodeURIComponent(code)}`, { mode: 'no-cors' }).catch(() => {})
+    }
+    if (opt.group) handleGroup(opt.group)
+    if (opt.productId) handleProduct(opt.productId)
+    // Start the second product on a clean canvas (wins over the switch resets).
+    setPlaced([])
+    setSelectedUid(null)
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
   }
 
   // ---- mobile splitter: drag to resize the preview vs. tray split ----
@@ -985,9 +1013,7 @@ export default function CustomizerPage({
       placed={placed}
       validation={validation}
       onSubmit={attemptOrder}
-      onClear={clearAll}
-      canUndo={canUndo}
-      onUndo={undo}
+      crossSellHint={appSettings.crossSellHint}
     />
   )
 
@@ -1089,7 +1115,6 @@ export default function CustomizerPage({
           <div className="mobile-stage">
             {stageNode}
             {zoomDock}
-            {editDock}
             {validation.problems > 0 && (
               <div className="stage-attention" role="alert">
                 <WarningFilled className="stage-attention__icon" />
@@ -1226,8 +1251,30 @@ export default function CustomizerPage({
         color={color}
         placed={placed}
         onClose={() => setSummaryOpen(false)}
-        onPlaceOrder={onPlaceOrder}
+        onPlaceOrder={handlePlaceOrder}
       />
+
+      <Modal
+        open={crossSellOpen}
+        onCancel={() => setCrossSellOpen(false)}
+        footer={null}
+        centered
+        title={crossSell.title || 'Customise a second product?'}
+      >
+        <p style={{ marginTop: 0, color: 'var(--ink-soft)' }}>
+          Added to cart! Keep designing — pick your next product:
+        </p>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          {crossSellOptions.map((opt, i) => (
+            <Button key={i} type="primary" size="large" onClick={() => pickCrossSell(opt)}>
+              {opt.label}
+            </Button>
+          ))}
+          <Button size="large" onClick={() => setCrossSellOpen(false)}>
+            No thanks
+          </Button>
+        </div>
+      </Modal>
     </>
   )
 }

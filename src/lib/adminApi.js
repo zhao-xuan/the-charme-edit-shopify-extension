@@ -95,3 +95,10 @@ export const deleteProduct = async (id) =>
 
 export const setOverride = async (scope, refId, patch) =>
   handle(await fetch(url('/api/admin/override'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify({ scope, refId, ...patch }) }))
+
+/** Merchant settings (cross-sell prompt + discount rules & codes). */
+export const fetchSettings = async () =>
+  handle(await fetch(url('/api/settings'), { headers: { accept: 'application/json' }, cache: 'no-store' }))
+
+export const saveSettings = async (settings) =>
+  handle(await fetch(url('/api/settings'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(settings) }))

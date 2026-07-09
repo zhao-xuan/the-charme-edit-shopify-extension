@@ -28,14 +28,16 @@ import {
   DeleteOutlined,
   InboxOutlined,
   PlusOutlined,
+  PercentageOutlined,
   ReloadOutlined,
   SaveOutlined,
   ScissorOutlined,
   ShopOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons'
-import { allProducts } from '../data/products'
+import { allProducts, productGroups } from '../data/products'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
+import { DEFAULT_SETTINGS } from '../lib/settings'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, loadImageData } from '../lib/segment'
@@ -45,10 +47,12 @@ import {
   deleteCharm,
   deleteProduct,
   fetchCatalog,
+  fetchSettings,
   getToken,
   isShopifyEmbedded,
   patchCharm,
   patchProduct,
+  saveSettings,
   setToken,
 } from '../lib/adminApi'
 
@@ -965,6 +969,193 @@ function ProductsTab({ draft, set, cloud }) {
 }
 
 // ---------------------------------------------------------------------------
+// Discount — cross-sell prompt + customizable discount rules & codes
+// ---------------------------------------------------------------------------
+const RULE_TYPES = [
+  { value: 'category', label: 'By category (Shopify collection)' },
+  { value: 'product_qty', label: 'By number of products bought' },
+  { value: 'item', label: 'By a specific product or charm' },
+  { value: 'charm_count', label: 'By number of charms' },
+]
+const DISC_KINDS = [
+  { value: 'percent', label: '% off' },
+  { value: 'amount', label: '£ off' },
+]
+const discFieldStyle = { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 10 }
+
+function DiscountTab({ cloud }) {
+  const { message } = App.useApp()
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+  const [s, setS] = useState(() => JSON.parse(JSON.stringify(DEFAULT_SETTINGS)))
+
+  useEffect(() => {
+    fetchSettings()
+      .then((data) =>
+        setS((prev) => ({
+          ...prev,
+          ...data,
+          crossSell: { ...prev.crossSell, ...(data.crossSell || {}) },
+          discounts: { ...prev.discounts, ...(data.discounts || {}) },
+        })),
+      )
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [])
+
+  const groups = productGroups()
+  const models = allProducts()
+  const charms = cloud?.data?.charms || []
+  const categories = useMemo(() => {
+    const set2 = new Set()
+    for (const c of charms) {
+      const cc = c.category || charmCategory(c)
+      if (cc) set2.add(cc)
+    }
+    return [...set2]
+  }, [charms])
+
+  const setCross = (patch) => setS((v) => ({ ...v, crossSell: { ...v.crossSell, ...patch } }))
+  const rules = s.discounts?.rules || []
+  const codes = s.discounts?.codes || []
+  const setRules = (next) => setS((v) => ({ ...v, discounts: { ...v.discounts, rules: next } }))
+  const setCodes = (next) => setS((v) => ({ ...v, discounts: { ...v.discounts, codes: next } }))
+  const updRule = (i, patch) => setRules(rules.map((r, x) => (x === i ? { ...r, ...patch } : r)))
+  const updCode = (i, patch) => setCodes(codes.map((c, x) => (x === i ? { ...c, ...patch } : c)))
+  const updOpt = (i, patch) => {
+    const o = (s.crossSell.options || []).map((op, x) => (x === i ? { ...op, ...patch } : op))
+    setCross({ options: o })
+  }
+
+  const save = async () => {
+    setSaving(true)
+    try {
+      await saveSettings(s)
+      message.success('Discount settings saved.')
+    } catch (e) {
+      message.error(`Could not save: ${e.message}`)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  if (loading) return <div style={{ padding: 40, textAlign: 'center' }}><Spin /></div>
+
+  return (
+    <div style={{ maxWidth: 900 }}>
+      <Card size="small" title="Cross-sell prompt" style={{ marginBottom: 16 }}>
+        <label style={discFieldStyle}>
+          <span style={{ color: 'var(--ink-soft)' }}>Text under “Add … to cart”</span>
+          <Input
+            value={s.crossSellHint}
+            onChange={(e) => setS((v) => ({ ...v, crossSellHint: e.target.value }))}
+            placeholder="Customise your second product for extra 10% off"
+            style={{ maxWidth: 460 }}
+          />
+        </label>
+        <label style={discFieldStyle}>
+          <span style={{ color: 'var(--ink-soft)' }}>Show cart popup after add-to-cart</span>
+          <Switch checked={!!s.crossSell.enabled} onChange={(v) => setCross({ enabled: v })} />
+        </label>
+        <label style={discFieldStyle}>
+          <span style={{ color: 'var(--ink-soft)' }}>Popup title</span>
+          <Input value={s.crossSell.title} onChange={(e) => setCross({ title: e.target.value })} style={{ maxWidth: 460 }} />
+        </label>
+        <label style={discFieldStyle}>
+          <span style={{ color: 'var(--ink-soft)' }}>Auto-apply code for the 2nd product</span>
+          <Input value={s.crossSell.discountCode} onChange={(e) => setCross({ discountCode: e.target.value.toUpperCase() })} placeholder="e.g. SECOND10" style={{ maxWidth: 460 }} />
+        </label>
+        <Divider style={{ margin: '10px 0' }}>Popup product options</Divider>
+        {(s.crossSell.options || []).map((opt, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <Input placeholder="Label" value={opt.label} onChange={(e) => updOpt(i, { label: e.target.value })} style={{ width: 150 }} />
+            <Select placeholder="Group" value={opt.group || undefined} onChange={(v) => updOpt(i, { group: v, productId: '' })} options={groups.map((g) => ({ value: g.key, label: g.label }))} style={{ width: 150 }} />
+            <Select
+              allowClear
+              showSearch
+              optionFilterProp="label"
+              placeholder="Model (optional)"
+              value={opt.productId || undefined}
+              onChange={(v) => updOpt(i, { productId: v || '' })}
+              options={models
+                .filter((m) => !opt.group || groups.find((g) => g.key === opt.group)?.products.some((p) => p.id === m.id))
+                .map((m) => ({ value: m.id, label: m.name }))}
+              style={{ width: 180 }}
+            />
+            <Button icon={<DeleteOutlined />} onClick={() => setCross({ options: s.crossSell.options.filter((_, x) => x !== i) })} />
+          </div>
+        ))}
+        <Button icon={<PlusOutlined />} onClick={() => setCross({ options: [...(s.crossSell.options || []), { label: '', group: 'apple', productId: '' }] })}>
+          Add option
+        </Button>
+      </Card>
+
+      <Card size="small" title="Discount rules" style={{ marginBottom: 16 }}>
+        {rules.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No rules yet — add one below." />}
+        {rules.map((r, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid var(--line)' }}>
+            <Input placeholder="Rule name" value={r.name} onChange={(e) => updRule(i, { name: e.target.value })} style={{ width: 150 }} />
+            <Select value={r.type} onChange={(v) => updRule(i, { type: v })} options={RULE_TYPES} style={{ width: 240 }} />
+            {r.type === 'category' && (
+              <>
+                <Select placeholder="Category" value={r.category || undefined} onChange={(v) => updRule(i, { category: v })} options={categories.map((c) => ({ value: c, label: c }))} showSearch style={{ width: 140 }} />
+                <Input placeholder="Shopify collection handle" value={r.collection || ''} onChange={(e) => updRule(i, { collection: e.target.value })} style={{ width: 190 }} />
+              </>
+            )}
+            {r.type === 'product_qty' && (
+              <>
+                <Select value={r.productKind || 'any'} onChange={(v) => updRule(i, { productKind: v })} options={[{ value: 'any', label: 'Any product' }, { value: 'phone', label: 'Phone case' }, { value: 'tote', label: 'Tote' }, { value: 'frame', label: 'Frame' }]} style={{ width: 140 }} />
+                <InputNumber min={1} placeholder="Min qty" value={r.minQty} onChange={(v) => updRule(i, { minQty: v })} addonBefore="≥" style={{ width: 110 }} />
+              </>
+            )}
+            {r.type === 'item' && (
+              <>
+                <Select value={r.itemKind || 'product'} onChange={(v) => updRule(i, { itemKind: v, itemId: '' })} options={[{ value: 'product', label: 'Product' }, { value: 'charm', label: 'Charm' }]} style={{ width: 110 }} />
+                <Select showSearch optionFilterProp="label" placeholder="Pick" value={r.itemId || undefined} onChange={(v) => updRule(i, { itemId: v })} options={(r.itemKind === 'charm' ? charms : models).map((x) => ({ value: x.id, label: x.name }))} style={{ width: 190 }} />
+              </>
+            )}
+            {r.type === 'charm_count' && (
+              <InputNumber min={1} placeholder="Min charms" value={r.minCharms} onChange={(v) => updRule(i, { minCharms: v })} addonBefore="≥" style={{ width: 130 }} />
+            )}
+            <InputNumber min={0} value={r.value} onChange={(v) => updRule(i, { value: v })} style={{ width: 80 }} />
+            <Select value={r.discountKind || 'percent'} onChange={(v) => updRule(i, { discountKind: v })} options={DISC_KINDS} style={{ width: 88 }} />
+            <Switch checkedChildren="On" unCheckedChildren="Off" checked={r.active !== false} onChange={(v) => updRule(i, { active: v })} />
+            <Button icon={<DeleteOutlined />} onClick={() => setRules(rules.filter((_, x) => x !== i))} />
+          </div>
+        ))}
+        <Button icon={<PlusOutlined />} style={{ marginTop: 10 }} onClick={() => setRules([...rules, { name: '', type: 'charm_count', discountKind: 'percent', value: 10, active: true }])}>
+          Add rule
+        </Button>
+      </Card>
+
+      <Card size="small" title="Discount codes" style={{ marginBottom: 16 }}>
+        <p className="hint" style={{ marginTop: 0 }}>Codes customers can enter at the cart; also used by the cross-sell popup.</p>
+        {codes.map((c, i) => (
+          <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <Input placeholder="CODE" value={c.code} onChange={(e) => updCode(i, { code: e.target.value.toUpperCase() })} style={{ width: 160 }} />
+            <InputNumber min={0} value={c.value} onChange={(v) => updCode(i, { value: v })} style={{ width: 80 }} />
+            <Select value={c.discountKind || 'percent'} onChange={(v) => updCode(i, { discountKind: v })} options={DISC_KINDS} style={{ width: 88 }} />
+            <Switch checkedChildren="On" unCheckedChildren="Off" checked={c.active !== false} onChange={(v) => updCode(i, { active: v })} />
+            <Button icon={<DeleteOutlined />} onClick={() => setCodes(codes.filter((_, x) => x !== i))} />
+          </div>
+        ))}
+        <Button icon={<PlusOutlined />} onClick={() => setCodes([...codes, { code: '', discountKind: 'percent', value: 10, active: true }])}>
+          Add code
+        </Button>
+      </Card>
+
+      <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
+        Save discount settings
+      </Button>
+      <p className="hint" style={{ marginTop: 10 }}>
+        Rules preview the discounted total inside the customizer; codes apply at the Shopify cart. To
+        enforce a rule at checkout, create a matching Shopify automatic discount / code with the same value.
+      </p>
+    </div>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Batch extract — auto-cut many charms from one product photo + auto-size them
 // ---------------------------------------------------------------------------
 function BatchExtractTab({ draft, set }) {
@@ -1401,6 +1592,15 @@ export default function AdminPage() {
         items={[
           { key: 'products', label: 'Products', children: <ProductsTab draft={draft} set={set} cloud={cloud} /> },
           { key: 'charms', label: 'Charms', children: <CharmsTab draft={draft} set={set} cloud={cloud} /> },
+          {
+            key: 'discount',
+            label: (
+              <span>
+                <PercentageOutlined /> Discount
+              </span>
+            ),
+            children: <DiscountTab cloud={cloud} />,
+          },
           {
             key: 'extract',
             label: (
