@@ -24,7 +24,7 @@ export const DEFAULT_SETTINGS = {
     ],
   },
   // Discount rules + issued codes (enforced Shopify-side; see functions/api).
-  discounts: { rules: [], codes: [] },
+  discounts: { rules: [], codes: [], bundles: [] },
 }
 
 let cache = null

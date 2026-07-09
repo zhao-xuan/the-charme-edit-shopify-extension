@@ -47,7 +47,7 @@ export async function onRequestPost({ request, env }) {
   const settings = {
     crossSellHint: body.crossSellHint ?? '',
     crossSell: body.crossSell ?? {},
-    discounts: body.discounts ?? { rules: [], codes: [] },
+    discounts: body.discounts ?? { rules: [], codes: [], bundles: [] },
   }
 
   if (shopifyConfigured(env)) {
