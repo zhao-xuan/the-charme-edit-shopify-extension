@@ -1375,7 +1375,10 @@ function DiscountTab({ cloud }) {
                       const p = shopProducts.find((x) => x.handle === v)
                       updBundleItem(bi, ii, { handle: v, label: it.label || p?.title || '', image: p?.image || '' })
                     }}
-                    options={shopProducts.map((p) => ({ value: p.handle, label: p.title }))}
+                    options={shopProducts.map((p) => ({
+                      value: p.handle,
+                      label: p.status && p.status !== 'ACTIVE' ? `${p.title} · ${String(p.status).toLowerCase()}` : p.title,
+                    }))}
                     notFoundContent={shopLoading ? 'Loading…' : 'No products (open inside Shopify Admin, or set an admin token)'}
                     style={{ width: 260 }}
                   />

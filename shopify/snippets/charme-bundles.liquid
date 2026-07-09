@@ -255,8 +255,19 @@
   async function renderBundle(root, container, bundle) {
     var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); }).filter(Boolean);
     if (!handles.length) return;
-    var products;
-    try { products = await Promise.all(handles.map(getProduct)); } catch (e) { return; }
+    // Resolve each product independently so ONE unpublished / 404 handle doesn't
+    // kill the whole bundle — render with whatever is live on the storefront.
+    var results = await Promise.all(handles.map(function (h) {
+      return getProduct(h).catch(function () {
+        console.warn('[Charmé bundles] product not available on storefront (skipped): ' + h);
+        return null;
+      });
+    }));
+    var products = results.filter(Boolean);
+    if (!products.length) {
+      console.warn('[Charmé bundles] bundle "' + (bundle.name || bundle.blockTitle || '') + '" has no products published to the Online Store — nothing to show.');
+      return;
+    }
     var block = el('div', 'cb-block');
     var title = el('div', 'cb-block__title');
     title.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
