@@ -4,6 +4,7 @@ import {
   useEffect,
   useImperativeHandle,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react'
@@ -36,6 +37,14 @@ const ProductStage = forwardRef(function ProductStage(
     onTransform,
     onRemove,
     onCheckpoint,
+    wordGroups = [],
+    selectedGroupId,
+    confirmGroupId,
+    onSelectGroup,
+    onMoveGroup,
+    onRequestBreak,
+    onCancelBreak,
+    onBreakGroup,
     zoom = 1,
     onZoomChange,
   },
@@ -115,12 +124,55 @@ const ProductStage = forwardRef(function ProductStage(
   // ---- drag an existing charm ----
   const drag = useRef(null)
 
+  // Word groups that have been "broken apart" for individual letter editing —
+  // their letters drag one-by-one; every other grouped letter drags as a unit.
+  const brokenSet = useMemo(
+    () => new Set(wordGroups.filter((g) => g.broken).map((g) => g.id)),
+    [wordGroups],
+  )
+  const activeGroupOf = useCallback(
+    (charm) => (charm.groupId && !brokenSet.has(charm.groupId) ? charm.groupId : null),
+    [brokenSet],
+  )
+
+  // Begin dragging a whole (non-broken) word group: capture every member's start
+  // centre so onMoveGroup can shift them together and clamp the group's bbox.
+  const beginGroupDrag = useCallback(
+    (e, groupId) => {
+      onSelectGroup?.(groupId)
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId)
+      } catch {
+        // pointer may already be gone
+      }
+      const starts = new Map()
+      for (const c of placed) if (c.groupId === groupId) starts.set(c.uid, { cx: c.cxMm, cy: c.cyMm })
+      drag.current = {
+        mode: 'group',
+        groupId,
+        pointerId: e.pointerId,
+        startX: e.clientX,
+        startY: e.clientY,
+        starts,
+        checkpointed: false,
+      }
+    },
+    [placed, onSelectGroup],
+  )
+
   const onCharmPointerDown = useCallback(
     (e, charm) => {
       e.stopPropagation()
+      const gid = activeGroupOf(charm)
+      if (gid) {
+        // Part of a live word → drag the whole word as one unit.
+        beginGroupDrag(e, gid)
+        return
+      }
       onSelect(charm.uid)
       e.currentTarget.setPointerCapture(e.pointerId)
       drag.current = {
+        mode: 'single',
         uid: charm.uid,
         pointerId: e.pointerId,
         startX: e.clientX,
@@ -134,7 +186,7 @@ const ProductStage = forwardRef(function ProductStage(
         checkpointed: false,
       }
     },
-    [onSelect],
+    [onSelect, activeGroupOf, beginGroupDrag],
   )
 
   const onCharmPointerMove = useCallback(
@@ -149,13 +201,17 @@ const ProductStage = forwardRef(function ProductStage(
       }
       const dxMm = (e.clientX - d.startX) / scale
       const dyMm = (e.clientY - d.startY) / scale
+      if (d.mode === 'group') {
+        onMoveGroup?.(d.groupId, dxMm, dyMm, d.starts)
+        return
+      }
       // Hard-clamp the charm so its full footprint stays inside the printable
       // outer region — patterns can never be dragged off the product edge.
       const box = { cx: d.startCx + dxMm, cy: d.startCy + dyMm, w: d.w, h: d.h, rot: d.rot }
       const { cx, cy } = clampCenter(box, product.printable)
       onMove(d.uid, { cxMm: cx, cyMm: cy })
     },
-    [scale, product, onMove, onCheckpoint],
+    [scale, product, onMove, onMoveGroup, onCheckpoint],
   )
 
   const endDrag = useCallback(
@@ -163,10 +219,10 @@ const ProductStage = forwardRef(function ProductStage(
       const d = drag.current
       if (!d || d.pointerId !== e.pointerId) return
       drag.current = null
-      // Once a charm has actually been moved, dismiss its rotate/remove toolbar
-      // automatically. A plain tap (no real drag) leaves it selected so the
-      // controls stay available until the customer taps the charm again.
-      if (d.checkpointed) onSelect(null)
+      // Once a single charm has actually been moved, dismiss its rotate/remove
+      // toolbar. Group drags keep the group selected so the box + Confirm button
+      // stay put. A plain tap (no real drag) leaves the selection alone.
+      if (d.checkpointed && d.mode !== 'group') onSelect(null)
     },
     [onSelect],
   )
@@ -235,7 +291,10 @@ const ProductStage = forwardRef(function ProductStage(
       if (g.pointers.size === 0) {
         const tapped = !g.moved && g.mode !== 'pan' && g.mode !== 'pinch'
         g.mode = null
-        if (tapped) onSelect(null)
+        if (tapped) {
+          onSelect(null)
+          onSelectGroup?.(null)
+        }
       } else if (g.pointers.size === 1) {
         const pt = [...g.pointers.values()][0]
         g.mode = 'pan'
@@ -243,10 +302,35 @@ const ProductStage = forwardRef(function ProductStage(
         g.startSingle = { x: pt.x, y: pt.y }
       }
     },
-    [onSelect, pan],
+    [onSelect, onSelectGroup, pan],
   )
 
   const selected = placed.find((c) => c.uid === selectedUid)
+
+  // Bounding box (in px) of the currently-selected, still-grouped word — drives
+  // the group outline + "Confirm" control. Null when no live group is selected.
+  const groupBox = useMemo(() => {
+    if (!selectedGroupId || brokenSet.has(selectedGroupId)) return null
+    const members = placed.filter((c) => c.groupId === selectedGroupId)
+    if (!members.length) return null
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity
+    for (const c of members) {
+      const fw = c.baseWmm * (c.scale || 1)
+      const fh = c.baseHmm * (c.scale || 1)
+      minX = Math.min(minX, c.cxMm - fw / 2)
+      maxX = Math.max(maxX, c.cxMm + fw / 2)
+      minY = Math.min(minY, c.cyMm - fh / 2)
+      maxY = Math.max(maxY, c.cyMm + fh / 2)
+    }
+    const label = (wordGroups.find((g) => g.id === selectedGroupId) || {}).label || ''
+    return {
+      left: minX * scale,
+      top: minY * scale,
+      width: (maxX - minX) * scale,
+      height: (maxY - minY) * scale,
+      label,
+    }
+  }, [selectedGroupId, brokenSet, placed, wordGroups, scale])
 
   // Real product photo (e.g. the Apple iPhone case render) for the chosen finish.
   const blankPhoto = resolveAsset(
@@ -393,6 +477,53 @@ const ProductStage = forwardRef(function ProductStage(
               onRemove={onRemove}
               onCheckpoint={onCheckpoint}
             />
+          )}
+
+          {/* Selected word-group outline + "Confirm to edit letters" control.
+              The box itself is non-interactive (drag any letter to move the whole
+              word); only the confirm button / are-you-sure panel take clicks. */}
+          {groupBox && (
+            <div
+              className="group-box"
+              style={{
+                left: groupBox.left,
+                top: groupBox.top,
+                width: groupBox.width,
+                height: groupBox.height,
+              }}
+            >
+              {groupBox.label && <span className="group-box__label">{groupBox.label}</span>}
+              <div className="group-box__tools">
+                {confirmGroupId === selectedGroupId ? (
+                  <div className="group-confirm__ask" role="dialog" aria-label="Confirm">
+                    <span className="group-confirm__q">Move letters on their own?</span>
+                    <button
+                      type="button"
+                      className="group-confirm__yes"
+                      onClick={() => onBreakGroup?.(selectedGroupId)}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      type="button"
+                      className="group-confirm__no"
+                      onClick={() => onCancelBreak?.()}
+                    >
+                      No
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="group-confirm"
+                    onClick={() => onRequestBreak?.(selectedGroupId)}
+                    title="Lock this position, then edit each letter on its own"
+                  >
+                    Confirm
+                  </button>
+                )}
+              </div>
+            </div>
           )}
         </div>
       )}

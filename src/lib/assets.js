@@ -5,14 +5,12 @@
  * In the standalone dev/app build there is no `CharmeConfig`, so paths pass
  * through unchanged and Vite / Cloudflare Pages serves them from the same
  * origin. When embedded in a Shopify theme the widget runs on the *storefront*
- * origin, which has none of these paths — so the drop-in section sets
- * `window.CharmeConfig.apiBase` to the Cloudflare Pages URL
- * (e.g. https://charme-customizer.pages.dev) and we prefix every root-relative
- * asset/image URL with it, serving the art + KV images straight from that CDN.
+ * origin, which has none of these paths — so we prefix every root-relative
+ * asset/image URL with the Pages base URL (explicit `CharmeConfig.apiBase`, or
+ * the production Pages URL as a fallback), serving the art + KV images straight
+ * from that CDN.
  */
-const API_BASE = (
-  (typeof window !== 'undefined' && window.CharmeConfig && window.CharmeConfig.apiBase) || ''
-).replace(/\/$/, '')
+import { API_BASE } from './apiBase'
 
 export function resolveAsset(src) {
   if (!src) return src

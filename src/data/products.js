@@ -498,13 +498,27 @@ function buildCustomProduct(raw) {
  * Fold the merchant overrides into the catalogue: apply per-model price
  * overrides (from the Cloudflare API + local admin), then append a "Custom"
  * group holding the merchant's own uploaded products (remote DB first, then any
- * local-only drafts). Runs once at module load.
+ * local-only drafts).
+ *
+ * ⚠️ Built LAZILY + memoised (see the identical reasoning in lib/catalog.js): in
+ * the Shopify IIFE widget build (inlineDynamicImports) this module evaluates the
+ * moment the bundle script loads — BEFORE entry.jsx `await loadRemoteCatalog()`
+ * populates the remote cache. Reading `remoteCatalog()` at module-eval would miss
+ * the live catalogue (stale product prices / missing custom products). Building on
+ * first ACCESS — which only happens during React render, after the await — folds
+ * the live Shopify catalogue in reliably.
  */
 function applyAdminOverrides(groups) {
   const admin = loadAdmin()
   const remote = remoteCatalog() || {}
   const remotePrices = (remote.overrides && remote.overrides.productPrices) || {}
-  const priceOf = (id, fallback) => admin.productPrices[id] ?? remotePrices[id] ?? fallback
+  // A merchant product edited in Shopify (charme_product) carries its own
+  // base_price; apply it to the matching model by id so admin re-pricing shows
+  // up on the storefront.
+  const remoteProductPrice = {}
+  for (const p of remote.products || []) if (p.basePrice != null) remoteProductPrice[p.id] = p.basePrice
+  const priceOf = (id, fallback) =>
+    admin.productPrices[id] ?? remoteProductPrice[id] ?? remotePrices[id] ?? fallback
   const priced = groups.map((g) => ({
     ...g,
     products: g.products.map((p) => ({
@@ -512,11 +526,14 @@ function applyAdminOverrides(groups) {
       basePrice: priceOf(p.id, p.basePrice),
     })),
   }))
-  // remote DB products first, then local-only drafts; de-dup by id
+  // remote DB products first, then local-only drafts; de-dup by id. Skip any
+  // whose id matches a built-in model (those are the migrated bodies — they keep
+  // the bundled geometry/renders and only contribute their price above).
+  const bundledIds = new Set(groups.flatMap((g) => g.products.map((p) => p.id)))
   const seen = new Set()
   const customRaw = []
-  for (const p of remote.products || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
-  for (const p of admin.customProducts || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
+  for (const p of remote.products || []) { if (!bundledIds.has(p.id) && !seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
+  for (const p of admin.customProducts || []) { if (!bundledIds.has(p.id) && !seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
   const custom = customRaw.map(buildCustomProduct)
   if (custom.length) {
     priced.push({
@@ -530,10 +547,25 @@ function applyAdminOverrides(groups) {
   return priced
 }
 
-export const PRODUCT_GROUPS = applyAdminOverrides(BASE_PRODUCT_GROUPS)
+let _productCatalog = null
+function productCatalog() {
+  if (!_productCatalog) {
+    const groups = applyAdminOverrides(BASE_PRODUCT_GROUPS)
+    _productCatalog = { groups, all: groups.flatMap((g) => g.products) }
+  }
+  return _productCatalog
+}
 
-export const ALL_PRODUCTS = PRODUCT_GROUPS.flatMap((g) => g.products)
+/** All product groups (bundled + merchant overrides), built on first access. */
+export function productGroups() {
+  return productCatalog().groups
+}
+
+/** Flat list of every product across all groups. */
+export function allProducts() {
+  return productCatalog().all
+}
 
 export function findProduct(id) {
-  return ALL_PRODUCTS.find((p) => p.id === id)
+  return productCatalog().all.find((p) => p.id === id)
 }

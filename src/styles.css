@@ -265,6 +265,133 @@ h4,
 .charm-word__opt--check input {
   accent-color: var(--ink, #3d3530);
 }
+.charm-word__hint {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--ink-soft, #8a7f74);
+}
+
+/* Placed-word tags shown under "Type a word": one per live word group. Tap to
+   select that word on the case so it drags as a single unit. */
+.charm-word-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.charm-word-tags__label {
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: var(--ink-soft, #8a7f74);
+  margin-right: 2px;
+}
+.charm-word-tag {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line, #e7ddca);
+  background: #fff;
+  color: var(--ink, #3d3530);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+.charm-word-tag:hover {
+  border-color: var(--blush, #e6b9b3);
+}
+.charm-word-tag.is-active {
+  background: var(--rouge, #b35b5b);
+  border-color: var(--rouge, #b35b5b);
+  color: #fff;
+}
+
+/* Selected word-group outline on the case + its "Confirm" control. The box is
+   visual only (drag any letter to move the whole word); the tools take clicks. */
+.group-box {
+  position: absolute;
+  border: 1.5px dashed var(--rouge, #b35b5b);
+  border-radius: 6px;
+  background: rgba(179, 91, 91, 0.06);
+  pointer-events: none;
+  z-index: 45;
+}
+.group-box__label {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--rouge, #b35b5b);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.group-box__tools {
+  position: absolute;
+  bottom: -14px;
+  right: -6px;
+  transform: translateY(100%);
+  pointer-events: auto;
+}
+.group-confirm {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--rouge, #b35b5b);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(46, 42, 38, 0.22);
+  white-space: nowrap;
+}
+.group-confirm:hover {
+  background: var(--rouge-deep, #8f3f3f);
+}
+.group-confirm__ask {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--line, #e7ddca);
+  box-shadow: 0 6px 16px rgba(46, 42, 38, 0.2);
+  white-space: nowrap;
+}
+.group-confirm__q {
+  font-size: 12px;
+  color: var(--ink, #3d3530);
+}
+.group-confirm__yes,
+.group-confirm__no {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line, #e7ddca);
+  cursor: pointer;
+}
+.group-confirm__yes {
+  background: var(--rouge, #b35b5b);
+  border-color: var(--rouge, #b35b5b);
+  color: #fff;
+}
+.group-confirm__yes:hover {
+  background: var(--rouge-deep, #8f3f3f);
+}
+.group-confirm__no {
+  background: #fff;
+  color: var(--ink-soft, #8a7f74);
+}
+.group-confirm__no:hover {
+  border-color: var(--blush, #e6b9b3);
+}
 
 .section-title {
   font-size: 21px;
@@ -593,6 +720,20 @@ h4,
   line-height: 1.25;
   color: var(--ink);
 }
+/* real-world charm size shown on every tray tile so size edits are visible
+   without dragging onto the case */
+.charm-card__size {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--ink-soft);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.charm-card--compact .charm-card__size,
+.charm-card--row .charm-card__size {
+  font-size: 9px;
+}
 .charm-card .meta {
   display: flex;
   align-items: center;
@@ -800,6 +941,33 @@ h4,
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+/* Desktop right-panel tray: each sub-category is a horizontal strip (like
+   mobile). Row cards are wider than the mobile ones so the charm name + price
+   fit, and are draggable onto the case. */
+.charm-card--row:not(.charm-card--compact) {
+  width: 96px;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: grab;
+}
+.charm-card--row:not(.charm-card--compact):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--blush);
+}
+.charm-card--row:not(.charm-card--compact) .thumb {
+  max-height: 68px;
+}
+.charm-card--row:not(.charm-card--compact) .name {
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .ghost-drag {

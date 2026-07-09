@@ -11,13 +11,11 @@
 let cache = null
 
 // When embedded in a Shopify theme the widget runs on the storefront origin,
-// which has no `/api/catalog`. The drop-in section sets `CharmeConfig.apiBase`
-// to the Cloudflare Pages URL so we fetch the live D1/KV catalogue cross-origin
-// (the API replies with `access-control-allow-origin: *`). Empty in the
-// standalone app, where `/api/catalog` is same-origin.
-const API_BASE = (
-  (typeof window !== 'undefined' && window.CharmeConfig && window.CharmeConfig.apiBase) || ''
-).replace(/\/$/, '')
+// which has no `/api/catalog`. We fetch the live catalogue from the Cloudflare
+// Pages base URL (explicit `CharmeConfig.apiBase`, else the production Pages URL
+// as a fallback; empty when the widget is already served from Pages). The API
+// replies with `access-control-allow-origin: *` so the cross-origin fetch works.
+import { API_BASE } from './apiBase'
 
 export async function loadRemoteCatalog() {
   if (typeof fetch === 'undefined') return null

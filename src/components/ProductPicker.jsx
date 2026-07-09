@@ -1,6 +1,6 @@
 import { Select, Space } from 'antd'
 import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
-import { PRODUCT_GROUPS, BRAND_LABELS } from '../data/products'
+import { productGroups, BRAND_LABELS } from '../data/products'
 
 // Representative icon per base platform, shown on the Step 1 selector cards.
 const BASE_ICONS = {
@@ -90,6 +90,7 @@ export default function ProductPicker({
   onCaseColourChange,
   onGelColourChange,
 }) {
+  const PRODUCT_GROUPS = productGroups()
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
   const product = group.products.find((p) => p.id === productId) || group.products[0]
 

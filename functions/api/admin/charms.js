@@ -100,7 +100,7 @@ export async function onRequestPost({ request, env }) {
 
 export async function onRequestPatch({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  const { id, price, hidden } = (await request.json().catch(() => ({}))) || {}
+  const { id, price, hidden, widthMm, heightMm, name, category, collection, src } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
 
   if (shopifyConfigured(env)) {
@@ -108,12 +108,32 @@ export async function onRequestPatch({ request, env }) {
     if (!rec) return bad('not found', 404)
     if (price != null) rec.price = price
     if (hidden != null) rec.hidden = !!hidden
-    await saveRecord(env, TYPES.charm, id, rec)
+    if (widthMm != null) rec.widthMm = widthMm
+    if (heightMm != null) rec.heightMm = heightMm
+    if (name != null) rec.name = name
+    if (category != null) rec.category = category
+    if (collection != null) rec.collection = collection
+    const imageGids = {}
+    if (src && /^data:/.test(src)) {
+      const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
+      rec.src = url
+      imageGids.image = imageId
+    }
+    await saveRecord(env, TYPES.charm, id, rec, imageGids)
     return json({ ok: true }, { headers: cors })
   }
 
   if (price != null) await env.DB.prepare('UPDATE charms SET price = ? WHERE id = ?').bind(price, id).run()
   if (hidden != null) await env.DB.prepare('UPDATE charms SET hidden = ? WHERE id = ?').bind(hidden ? 1 : 0, id).run()
+  if (widthMm != null) await env.DB.prepare('UPDATE charms SET width_mm = ? WHERE id = ?').bind(widthMm, id).run()
+  if (heightMm != null) await env.DB.prepare('UPDATE charms SET height_mm = ? WHERE id = ?').bind(heightMm, id).run()
+  if (name != null) await env.DB.prepare('UPDATE charms SET name = ? WHERE id = ?').bind(name, id).run()
+  if (category != null) await env.DB.prepare('UPDATE charms SET category = ? WHERE id = ?').bind(category, id).run()
+  if (collection != null) await env.DB.prepare('UPDATE charms SET collection = ? WHERE id = ?').bind(collection, id).run()
+  if (src && /^data:/.test(src)) {
+    const key = await storeImage(env, id, src)
+    await env.DB.prepare('UPDATE charms SET image_key = ? WHERE id = ?').bind(key, id).run()
+  }
   return json({ ok: true }, { headers: cors })
 }
 

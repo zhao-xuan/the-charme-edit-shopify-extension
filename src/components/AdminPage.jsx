@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Alert,
   App,
+  AutoComplete,
   Button,
   Card,
   Checkbox,
@@ -10,6 +11,7 @@ import {
   Image,
   Input,
   InputNumber,
+  Popover,
   Select,
   Slider,
   Space,
@@ -32,8 +34,7 @@ import {
   ShopOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons'
-import charmData from '../data/catalog.json'
-import { ALL_PRODUCTS } from '../data/products'
+import { allProducts } from '../data/products'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
@@ -47,6 +48,7 @@ import {
   getToken,
   isShopifyEmbedded,
   patchCharm,
+  patchProduct,
   setToken,
 } from '../lib/adminApi'
 
@@ -138,9 +140,9 @@ function ImageDrop({ value, onChange, hint, maxDim = 900 }) {
 // ---------------------------------------------------------------------------
 const SIZE_MIN = 0.5
 const SIZE_MAX = 2
-const STAGE_MAX_W = 320
-const STAGE_MAX_H = 380
-const STAGE_PAD = 16
+const STAGE_MAX_W = 210
+const STAGE_MAX_H = 250
+const STAGE_PAD = 14
 
 /** Best available background image for a product (any finish). */
 function productImage(product) {
@@ -148,25 +150,39 @@ function productImage(product) {
   return img.white || img.default || img.natural || img.black || Object.values(img)[0] || null
 }
 
-function SizeStudioTab({ draft, set, charm }) {
+function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   const { message } = App.useApp()
 
-  const products = ALL_PRODUCTS
+  const products = allProducts()
   const [productId, setProductId] = useState('iphone-16-pro-max')
   const product = useMemo(
     () => products.find((p) => p.id === productId) || products[0],
     [products, productId],
   )
 
-  const savedScale = (charm && draft.charmSizes?.[charm.id]) || 1
-  const [scale, setScale] = useState(savedScale)
-  // Load the selected piece's saved scale whenever the piece changes.
+  const [name, setName] = useState('')
+  const [category, setCategory] = useState('')
+  const [subCategory, setSubCategory] = useState('')
+  const [image, setImage] = useState(null) // { src, w, h } when replacing artwork
+  const [scale, setScale] = useState(1)
+  const [saving, setSaving] = useState(false)
+  // Locally-created category / sub-category options (via the "+" popovers). They
+  // persist to Shopify on Save and reappear from the server list after a refresh.
+  const [localCats, setLocalCats] = useState([])
+  const [localSubs, setLocalSubs] = useState([])
+  const [catAdd, setCatAdd] = useState('')
+  const [subAdd, setSubAdd] = useState('')
+  const [catAddOpen, setCatAddOpen] = useState(false)
+  const [subAddOpen, setSubAddOpen] = useState(false)
+  // Load the selected charm's fields whenever a different piece is selected.
   useEffect(() => {
-    setScale((charm && draft.charmSizes?.[charm.id]) || 1)
+    setName(charm?.name || '')
+    setCategory(charm ? charm.category || charmCategory(charm) : '')
+    setSubCategory(charm?.collection || '')
+    setImage(null)
+    setScale(1)
   }, [charm?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Fit the whole product into the stage; the SAME mm→px scale sizes the piece,
-  // so it appears at its true real-world proportion on the product.
   const fit = Math.min(
     (STAGE_MAX_W - STAGE_PAD * 2) / product.widthMm,
     (STAGE_MAX_H - STAGE_PAD * 2) / product.heightMm,
@@ -178,57 +194,85 @@ function SizeStudioTab({ draft, set, charm }) {
   const cw = baseW * fit * scale
   const ch = baseH * fit * scale
   const bg = resolveAsset(productImage(product))
-  const charmSrc = charm ? resolveAsset(charm.src) : null
-  const cat = charm ? charm.category || charmCategory(charm) : null
-  const dirty = charm && +scale.toFixed(3) !== +savedScale.toFixed(3)
+  // Show the replacement artwork if one was dropped, else the charm's Shopify art.
+  const charmSrc = image?.src ? image.src : charm ? resolveAsset(charm.src) : null
+  const curCat = charm ? charm.category || charmCategory(charm) : ''
+  const curSub = charm?.collection || ''
+  const dirty =
+    !!charm &&
+    (scale !== 1 ||
+      name.trim() !== (charm.name || '') ||
+      category.trim() !== curCat ||
+      subCategory.trim() !== curSub ||
+      !!image)
 
-  const save = () => {
+  const save = async () => {
     if (!charm) return
-    const charmSizes = { ...(draft.charmSizes || {}) }
-    if (scale === 1) delete charmSizes[charm.id]
-    else charmSizes[charm.id] = +scale.toFixed(3)
-    const next = { ...draft, charmSizes }
-    set(next)
-    saveAdmin(next)
-    message.success(
-      `Saved “${charm.name}” at ${Math.round(scale * 100)}% (${(baseW * scale).toFixed(1)}×${(baseH * scale).toFixed(1)} mm).`,
-    )
+    const patch = {}
+    if (name.trim() && name.trim() !== charm.name) patch.name = name.trim()
+    if (category.trim() && category.trim() !== curCat) patch.category = category.trim()
+    if (subCategory.trim() !== curSub) patch.collection = subCategory.trim() || 'Custom'
+    if (scale !== 1) {
+      patch.widthMm = +(baseW * scale).toFixed(1)
+      patch.heightMm = +(baseH * scale).toFixed(1)
+    }
+    if (image?.src) patch.src = image.src
+    if (!Object.keys(patch).length) return
+    setSaving(true)
+    try {
+      // Persist name / category / size / artwork to the charm in Shopify.
+      await cloud.updateCharm(charm, patch)
+      setImage(null)
+      setScale(1)
+      message.success(`Saved “${patch.name || charm.name}” to Shopify.`)
+    } catch (e) {
+      message.error(`Could not save: ${e.message}`)
+    } finally {
+      setSaving(false)
+    }
   }
 
-  return (
-    <Card size="small" title="Size studio" style={{ position: 'sticky', top: 8 }}>
-      <label style={{ display: 'block', marginBottom: 12 }}>
-        <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Base product</span>
-        <Select
-          value={productId}
-          onChange={setProductId}
-          showSearch
-          optionFilterProp="label"
-          options={products.map((p) => ({ value: p.id, label: p.name }))}
-          style={{ width: '100%' }}
-        />
-      </label>
+  // Dropdown options = server categories + any locally-created ones + the charm's
+  // own current value (so it always shows even before a refresh folds it in).
+  const catOptions = useMemo(() => {
+    const s = new Set([...categories, ...localCats].filter(Boolean))
+    if (category) s.add(category)
+    return [...s].map((c) => ({ value: c, label: c }))
+  }, [categories, localCats, category])
+  const subOptions = useMemo(() => {
+    const s = new Set([...subcategories, ...localSubs].filter(Boolean))
+    if (subCategory) s.add(subCategory)
+    return [...s].map((c) => ({ value: c, label: c }))
+  }, [subcategories, localSubs, subCategory])
+  const addCategory = () => {
+    const v = catAdd.trim()
+    if (!v) return
+    setLocalCats((a) => (a.includes(v) ? a : [...a, v]))
+    setCategory(v)
+    setCatAdd('')
+    setCatAddOpen(false)
+  }
+  const addSubCategory = () => {
+    const v = subAdd.trim()
+    if (!v) return
+    setLocalSubs((a) => (a.includes(v) ? a : [...a, v]))
+    setSubCategory(v)
+    setSubAdd('')
+    setSubAddOpen(false)
+  }
+  const lblStyle = { display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }
 
+  return (
+    <Card size="small" title="Charm studio" style={{ position: 'sticky', top: 8 }}>
       {!charm ? (
         <Empty
           style={{ margin: '24px 0' }}
           image={Empty.PRESENTED_IMAGE_SIMPLE}
-          description="Select a charm on the left to size it against this product"
+          description="Select a charm on the left to edit it"
         />
       ) : (
         <>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <img
-              src={charmSrc}
-              alt=""
-              style={{ width: 40, height: 40, objectFit: 'contain', background: '#faf7f2', borderRadius: 8, padding: 4 }}
-            />
-            <div>
-              <div style={{ fontWeight: 600 }}>{charm.name}</div>
-              {cat && <Tag style={{ marginTop: 2 }}>{cat}</Tag>}
-            </div>
-          </div>
-
+          {/* 1 — Size adjuster (top): live preview + slider */}
           <div
             style={{
               position: 'relative',
@@ -283,14 +327,126 @@ function SizeStudioTab({ draft, set, charm }) {
             onChange={setScale}
             tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
           />
-          <div className="hint" style={{ marginBottom: 12 }}>
-            Catalogue default: {baseW}×{baseH} mm (100%).
+          <div className="hint" style={{ marginBottom: 14 }}>
+            Current size: {baseW}×{baseH} mm (100%).
           </div>
+
+          {/* 2 — Preview on | Name (two columns) */}
+          <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
+            <label style={{ flex: 1, minWidth: 0 }}>
+              <span style={lblStyle}>Preview on</span>
+              <Select
+                value={productId}
+                onChange={setProductId}
+                showSearch
+                optionFilterProp="label"
+                options={products.map((p) => ({ value: p.id, label: p.name }))}
+                style={{ width: '100%' }}
+              />
+            </label>
+            <label style={{ flex: 1, minWidth: 0 }}>
+              <span style={lblStyle}>Name</span>
+              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Charm name" />
+            </label>
+          </div>
+
+          {/* 3 — Category | Sub-category (two columns; pick existing, or "+" to
+              create a new one — no free-typing inside the dropdown itself) */}
+          <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
+            <label style={{ flex: 1, minWidth: 0 }}>
+              <span style={lblStyle}>Category — tab</span>
+              <div style={{ display: 'flex', gap: 6 }}>
+                <Select
+                  value={category || undefined}
+                  onChange={setCategory}
+                  showSearch
+                  optionFilterProp="label"
+                  options={catOptions}
+                  placeholder="Select"
+                  style={{ flex: 1, minWidth: 0 }}
+                />
+                <Popover
+                  open={catAddOpen}
+                  onOpenChange={setCatAddOpen}
+                  trigger="click"
+                  title="New category"
+                  content={
+                    <div style={{ display: 'flex', gap: 6 }}>
+                      <Input
+                        autoFocus
+                        value={catAdd}
+                        onChange={(e) => setCatAdd(e.target.value)}
+                        onPressEnter={addCategory}
+                        placeholder="e.g. seasonal"
+                        style={{ width: 150 }}
+                      />
+                      <Button type="primary" size="small" onClick={addCategory}>Save</Button>
+                      <Button size="small" onClick={() => { setCatAdd(''); setCatAddOpen(false) }}>Cancel</Button>
+                    </div>
+                  }
+                >
+                  <Button icon={<PlusOutlined />} title="Create a new category" />
+                </Popover>
+              </div>
+            </label>
+            <label style={{ flex: 1, minWidth: 0 }}>
+              <span style={lblStyle}>Sub-category — section</span>
+              <div style={{ display: 'flex', gap: 6 }}>
+                <Select
+                  value={subCategory || undefined}
+                  onChange={setSubCategory}
+                  showSearch
+                  optionFilterProp="label"
+                  options={subOptions}
+                  placeholder="Select"
+                  style={{ flex: 1, minWidth: 0 }}
+                />
+                <Popover
+                  open={subAddOpen}
+                  onOpenChange={setSubAddOpen}
+                  trigger="click"
+                  title="New sub-category"
+                  content={
+                    <div style={{ display: 'flex', gap: 6 }}>
+                      <Input
+                        autoFocus
+                        value={subAdd}
+                        onChange={(e) => setSubAdd(e.target.value)}
+                        onPressEnter={addSubCategory}
+                        placeholder="e.g. Zodiac"
+                        style={{ width: 150 }}
+                      />
+                      <Button type="primary" size="small" onClick={addSubCategory}>Save</Button>
+                      <Button size="small" onClick={() => { setSubAdd(''); setSubAddOpen(false) }}>Cancel</Button>
+                    </div>
+                  }
+                >
+                  <Button icon={<PlusOutlined />} title="Create a new sub-category" />
+                </Popover>
+              </div>
+            </label>
+          </div>
+
+          {/* 4 — Replace artwork (bottom) */}
+          <label style={{ display: 'block', marginBottom: 12 }}>
+            <span style={lblStyle}>Replace artwork (optional)</span>
+            <ImageDrop value={image} onChange={setImage} hint="Drop a new transparent PNG to replace the art" />
+          </label>
+
           <Space>
-            <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty}>
-              Save size
+            <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty} loading={saving}>
+              Save to Shopify
             </Button>
-            <Button onClick={() => setScale(1)} disabled={scale === 1}>
+            <Button
+              onClick={() => {
+                setName(charm.name || '')
+                setCategory(curCat)
+                setSubCategory(curSub)
+                setImage(null)
+                setScale(1)
+              }}
+              disabled={!dirty}
+            >
               Reset
             </Button>
           </Space>
@@ -308,6 +464,7 @@ function CharmsTab({ draft, set, cloud }) {
   const [form, setForm] = useState({
     name: '',
     category: 'gold',
+    subCategory: '',
     tier: 'midi',
     price: 2,
     widthMm: 16,
@@ -327,7 +484,7 @@ function CharmsTab({ draft, set, cloud }) {
     const charm = {
       id: `custom-charm-${slug(form.name)}-${rid()}`,
       name: form.name.trim(),
-      collection: 'Custom',
+      collection: form.subCategory.trim() || 'Custom',
       category: form.category,
       tier: tier.value,
       type: tier.type,
@@ -349,29 +506,41 @@ function CharmsTab({ draft, set, cloud }) {
     message.success('Charm added — Save changes to publish.')
   }
 
-  // Every charm the merchant can size / re-price / hide: their Shopify-published
-  // charms FIRST (370+ once migrated), then any built-in catalogue charm not
-  // already in Shopify — deduped by id, filtered by the search box. No cap.
+  // ONLY the merchant's Shopify-stored charms (charme_charm metaobjects) — the
+  // bundled catalogue is intentionally excluded.
   const baseRows = useMemo(() => {
     const q = query.trim().toLowerCase()
-    const seen = new Set()
-    const all = [...(cloud?.data.charms || []), ...charmData.charms].filter(
-      (c) => !seen.has(c.id) && seen.add(c.id),
-    )
-    return all
+    return (cloud?.data.charms || [])
       .filter((c) => !q || (c.name || '').toLowerCase().includes(q))
       .map((c) => ({ ...c, category: c.category || charmCategory(c) }))
   }, [query, cloud?.data.charms])
 
-  // Selecting a charm row (in any of the tables below) drives the Size studio
+  // Selecting a charm row (in any of the tables below) drives the Charm studio
   // panel on the right. Resolve the chosen charm across every source.
   const [selectedCharmId, setSelectedCharmId] = useState(null)
   const selectedCharm = useMemo(() => {
-    const src = [...(draft.customCharms || []), ...(cloud?.data.charms || []), ...charmData.charms]
+    const src = [...(draft.customCharms || []), ...(cloud?.data.charms || [])]
     return src.find((c) => c.id === selectedCharmId) || null
   }, [selectedCharmId, draft.customCharms, cloud])
   const pickRow = (r) => ({ onClick: () => setSelectedCharmId(r.id) })
   const rowCls = (r) => (r.id === selectedCharmId ? 'admin-pick-row is-selected' : 'admin-pick-row')
+
+  // Existing categories (defaults + whatever charms already use) for the studio
+  // dropdown; the merchant can also type a brand-new category.
+  const categories = useMemo(() => {
+    const s = new Set(CAT_OPTS.map((o) => o.value))
+    for (const c of cloud?.data.charms || []) {
+      const cc = c.category || charmCategory(c)
+      if (cc) s.add(cc)
+    }
+    return [...s]
+  }, [cloud?.data.charms])
+  // Existing sub-categories (charm `collection` values) for suggestions.
+  const subcategories = useMemo(() => {
+    const s = new Set()
+    for (const c of cloud?.data.charms || []) if (c.collection) s.add(c.collection)
+    return [...s].sort()
+  }, [cloud?.data.charms])
 
   return (
     <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -390,6 +559,7 @@ function CharmsTab({ draft, set, cloud }) {
           <Table
             size="small"
             rowKey="id"
+            loading={cloud?.loading}
             onRow={pickRow}
             rowClassName={rowCls}
             pagination={{ pageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
@@ -397,38 +567,33 @@ function CharmsTab({ draft, set, cloud }) {
             columns={[
               { title: 'Art', width: 52, render: (_, r) => <Image src={resolveAsset(r.src)} width={34} height={34} style={{ objectFit: 'contain' }} /> },
               { title: 'Name', dataIndex: 'name', ellipsis: true },
-              { title: 'Category', dataIndex: 'category', width: 110, render: (c) => <Tag>{c}</Tag> },
+              { title: 'Category', dataIndex: 'category', width: 100, render: (c) => <Tag>{c}</Tag> },
+              { title: 'Size', width: 104, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
               {
                 title: 'Price (£)',
-                width: 120,
+                width: 96,
                 render: (_, r) => (
                   <InputNumber
                     size="small"
                     min={0}
-                    value={draft.charmPrices[r.id] ?? r.price}
-                    onChange={(v) =>
-                      set((d) => ({ ...d, charmPrices: { ...d.charmPrices, [r.id]: v } }))
-                    }
-                    style={{ width: 84 }}
+                    defaultValue={r.price}
+                    onBlur={(e) => cloud.repriceCharm(r, Number(e.target.value))}
+                    style={{ width: 76 }}
                   />
                 ),
               },
               {
-                title: 'Hidden',
-                width: 90,
+                title: 'Shown',
+                width: 70,
                 render: (_, r) => (
-                  <Switch
-                    size="small"
-                    checked={!!draft.charmHidden[r.id]}
-                    onChange={(on) =>
-                      set((d) => {
-                        const charmHidden = { ...d.charmHidden }
-                        if (on) charmHidden[r.id] = true
-                        else delete charmHidden[r.id]
-                        return { ...d, charmHidden }
-                      })
-                    }
-                  />
+                  <Switch size="small" checked={!r.hidden} onChange={() => cloud.toggleHide(r)} />
+                ),
+              },
+              {
+                title: '',
+                width: 40,
+                render: (_, r) => (
+                  <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeCharm(r)} />
                 ),
               },
             ]}
@@ -439,7 +604,7 @@ function CharmsTab({ draft, set, cloud }) {
       {/* Right column — size the selected charm + add a charm. */}
       <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
-          <SizeStudioTab draft={draft} set={set} charm={selectedCharm} />
+          <CharmStudioTab charm={selectedCharm} cloud={cloud} categories={categories} subcategories={subcategories} />
 
           <Card size="small" title="Add a custom charm">
             <div className="admin-grid">
@@ -452,12 +617,27 @@ function CharmsTab({ draft, set, cloud }) {
                 />
               </label>
               <label>
-                <span>Category</span>
-                <Select
+                <span>Category — customizer tab</span>
+                <AutoComplete
                   value={form.category}
                   onChange={(v) => setForm((f) => ({ ...f, category: v }))}
-                  options={CAT_OPTS}
+                  options={categories.map((c) => ({ value: c }))}
+                  filterOption={(input, opt) => opt.value.toLowerCase().includes(input.toLowerCase())}
+                  placeholder="e.g. gold, seasonal…"
                   style={{ width: '100%' }}
+                  allowClear
+                />
+              </label>
+              <label>
+                <span>Sub-category — section in the tab</span>
+                <AutoComplete
+                  value={form.subCategory}
+                  onChange={(v) => setForm((f) => ({ ...f, subCategory: v }))}
+                  options={subcategories.map((c) => ({ value: c }))}
+                  filterOption={(input, opt) => opt.value.toLowerCase().includes(input.toLowerCase())}
+                  placeholder="e.g. Zodiac, Charms…"
+                  style={{ width: '100%' }}
+                  allowClear
                 />
               </label>
               <label>
@@ -533,6 +713,117 @@ function CharmsTab({ draft, set, cloud }) {
 // ---------------------------------------------------------------------------
 // Products
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Product studio — edit a product's name / price / real size / photo in Shopify.
+// ---------------------------------------------------------------------------
+function ProductStudioTab({ product, cloud }) {
+  const { message } = App.useApp()
+  const [name, setName] = useState('')
+  const [basePrice, setBasePrice] = useState(0)
+  const [widthMm, setWidthMm] = useState(0)
+  const [heightMm, setHeightMm] = useState(0)
+  const [image, setImage] = useState(null)
+  const [saving, setSaving] = useState(false)
+  useEffect(() => {
+    setName(product?.name || '')
+    setBasePrice(product?.basePrice ?? 0)
+    setWidthMm(product?.widthMm ?? 0)
+    setHeightMm(product?.heightMm ?? 0)
+    setImage(null)
+  }, [product?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const src = image?.src || (product ? resolveAsset(product.src) : null)
+  const dirty =
+    !!product &&
+    (name.trim() !== (product.name || '') ||
+      Number(basePrice) !== product.basePrice ||
+      Number(widthMm) !== product.widthMm ||
+      Number(heightMm) !== product.heightMm ||
+      !!image)
+
+  const save = async () => {
+    if (!product) return
+    const patch = {}
+    if (name.trim() && name.trim() !== product.name) patch.name = name.trim()
+    if (Number(basePrice) !== product.basePrice) patch.basePrice = Number(basePrice)
+    if (Number(widthMm) !== product.widthMm) patch.widthMm = Number(widthMm)
+    if (Number(heightMm) !== product.heightMm) patch.heightMm = Number(heightMm)
+    if (image?.src) patch.src = image.src
+    if (!Object.keys(patch).length) return
+    setSaving(true)
+    try {
+      await cloud.updateProduct(product, patch)
+      setImage(null)
+      message.success(`Saved “${patch.name || product.name}” to Shopify.`)
+    } catch (e) {
+      message.error(`Could not save: ${e.message}`)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <Card size="small" title="Product studio" style={{ position: 'sticky', top: 8 }}>
+      {!product ? (
+        <Empty
+          style={{ margin: '24px 0' }}
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="Select a product on the left to edit it"
+        />
+      ) : (
+        <>
+          <div style={{ textAlign: 'center', marginBottom: 10 }}>
+            <img
+              src={src}
+              alt={product.name}
+              style={{ maxWidth: '75%', maxHeight: 220, objectFit: 'contain', background: '#faf7f2', borderRadius: 12, padding: 8 }}
+            />
+          </div>
+          <label style={{ display: 'block', marginBottom: 10 }}>
+            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Name</span>
+            <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Product name" />
+          </label>
+          <label style={{ display: 'block', marginBottom: 10 }}>
+            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Base price (£)</span>
+            <InputNumber min={0} value={basePrice} onChange={setBasePrice} style={{ width: '100%' }} />
+          </label>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
+            <label style={{ flex: 1 }}>
+              <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Width (mm)</span>
+              <InputNumber min={1} value={widthMm} onChange={setWidthMm} style={{ width: '100%' }} />
+            </label>
+            <label style={{ flex: 1 }}>
+              <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Height (mm)</span>
+              <InputNumber min={1} value={heightMm} onChange={setHeightMm} style={{ width: '100%' }} />
+            </label>
+          </div>
+          <label style={{ display: 'block', marginBottom: 10 }}>
+            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Replace photo (optional)</span>
+            <ImageDrop value={image} onChange={setImage} hint="Drop a new product photo to replace it" />
+          </label>
+          <Space>
+            <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty} loading={saving}>
+              Save to Shopify
+            </Button>
+            <Button
+              onClick={() => {
+                setName(product.name || '')
+                setBasePrice(product.basePrice ?? 0)
+                setWidthMm(product.widthMm ?? 0)
+                setHeightMm(product.heightMm ?? 0)
+                setImage(null)
+              }}
+              disabled={!dirty}
+            >
+              Reset
+            </Button>
+          </Space>
+        </>
+      )}
+    </Card>
+  )
+}
+
 function ProductsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [form, setForm] = useState({
@@ -542,7 +833,11 @@ function ProductsTab({ draft, set, cloud }) {
     widthMm: 75,
     image: null,
   })
-  const [query, setQuery] = useState('')
+  const [selectedProductId, setSelectedProductId] = useState(null)
+  const selectedProduct =
+    (cloud?.data.products || []).find((p) => p.id === selectedProductId) || null
+  const pickRow = (r) => ({ onClick: () => setSelectedProductId(r.id) })
+  const rowCls = (r) => (r.id === selectedProductId ? 'admin-pick-row is-selected' : 'admin-pick-row')
 
   const heightMm = form.image ? +(form.widthMm * (form.image.h / form.image.w)).toFixed(1) : null
 
@@ -561,182 +856,111 @@ function ProductsTab({ draft, set, cloud }) {
     }
     set((d) => ({ ...d, customProducts: [product, ...(d.customProducts || [])] }))
     setForm({ name: '', kind: 'phone', basePrice: 26, widthMm: 75, image: null })
-    message.success('Product added — Save changes to publish.')
+    message.success('Product added — Publish to save to Shopify.')
   }
 
-  const removeProduct = (id) =>
-    set((d) => ({ ...d, customProducts: d.customProducts.filter((p) => p.id !== id) }))
-
-  const baseRows = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return ALL_PRODUCTS.filter((p) => !p.custom).filter(
-      (p) => !q || p.name.toLowerCase().includes(q),
-    )
-  }, [query])
-
   return (
-    <Space direction="vertical" size={18} style={{ width: '100%' }}>
-      <Card size="small" title="Add a custom product">
-        <div className="admin-grid">
-          <label>
-            <span>Name</span>
-            <Input
-              value={form.name}
-              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              placeholder="e.g. MagSafe Wallet"
-            />
-          </label>
-          <label>
-            <span>Decoration set</span>
-            <Select
-              value={form.kind}
-              onChange={(v) => setForm((f) => ({ ...f, kind: v }))}
-              options={[
-                { value: 'phone', label: 'Charms' },
-                { value: 'tote', label: 'Patches' },
-              ]}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Base price (£)</span>
-            <InputNumber
-              min={0}
-              value={form.basePrice}
-              onChange={(v) => setForm((f) => ({ ...f, basePrice: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Real width (mm)</span>
-            <InputNumber
-              min={10}
-              value={form.widthMm}
-              onChange={(v) => setForm((f) => ({ ...f, widthMm: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Height (auto from photo)</span>
-            <Input value={heightMm ? `${heightMm} mm` : '—'} disabled />
-          </label>
-          <label style={{ gridColumn: '1 / -1' }}>
-            <span>Product body photo</span>
-            <ImageDrop
-              value={form.image}
-              onChange={(image) => setForm((f) => ({ ...f, image }))}
-              hint="Click or drop the product photo on a clean background"
-            />
-          </label>
-        </div>
-        <Button
-          type="primary"
-          icon={<AppstoreAddOutlined />}
-          onClick={addProduct}
-          style={{ marginTop: 12 }}
+    <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <style>{`.admin-pick-row{cursor:pointer}.admin-pick-row.is-selected>td{background:rgba(179,91,91,.10)!important}`}</style>
+
+      {/* Left column — the product list to pick from. */}
+      <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <Card
+          size="small"
+          title={`Products on Shopify (${cloud?.data.products.length || 0})`}
+          extra={<Button size="small" icon={<ReloadOutlined />} onClick={cloud?.refresh} loading={cloud?.loading}>Refresh</Button>}
         >
-          Add product
-        </Button>
-      </Card>
-
-      <Card
-        size="small"
-        title={`Live products on Shopify (${cloud?.data.products.length || 0})`}
-        extra={<Button size="small" icon={<ReloadOutlined />} onClick={cloud?.refresh} loading={cloud?.loading}>Refresh</Button>}
-      >
-        {cloud?.data.products.length ? (
-          <Table
-            size="small" rowKey="id" pagination={false} dataSource={cloud.data.products}
-            columns={[
-              { title: 'Photo', dataIndex: 'src', width: 64, render: (s) => <Image src={s} width={40} height={40} style={{ objectFit: 'contain' }} /> },
-              { title: 'Name', dataIndex: 'name', ellipsis: true },
-              { title: 'Type', dataIndex: 'kind', width: 90, render: (k) => <Tag>{k === 'tote' ? 'Patches' : 'Charms'}</Tag> },
-              { title: 'Size', width: 120, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
-              { title: 'Price', dataIndex: 'basePrice', width: 80, render: (p) => `£${p}` },
-              { title: '', width: 48, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeProduct(r)} /> },
-            ]}
-          />
-        ) : (
-          <Empty description="No products published to Shopify yet" image={Empty.PRESENTED_IMAGE_SIMPLE} />
-        )}
-      </Card>
-
-      <Card size="small" title={`Your custom products (${draft.customProducts?.length || 0})`}>
-        {draft.customProducts?.length ? (
           <Table
             size="small"
             rowKey="id"
-            pagination={false}
-            dataSource={draft.customProducts}
+            loading={cloud?.loading}
+            onRow={pickRow}
+            rowClassName={rowCls}
+            pagination={{ pageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
+            dataSource={cloud?.data.products || []}
+            locale={{ emptyText: <Empty description="No products in Shopify yet — add one, then Publish." image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
             columns={[
-              {
-                title: 'Photo',
-                dataIndex: 'src',
-                width: 64,
-                render: (src) => <Image src={src} width={40} height={40} style={{ objectFit: 'contain' }} />,
-              },
-              { title: 'Name', dataIndex: 'name' },
-              {
-                title: 'Type',
-                dataIndex: 'kind',
-                render: (k) => <Tag>{k === 'tote' ? 'Patches' : 'Charms'}</Tag>,
-              },
-              { title: 'Size', render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
-              { title: 'Price', dataIndex: 'basePrice', render: (p) => `£${p}` },
-              {
-                title: '',
-                width: 48,
-                render: (_, r) => (
-                  <Button
-                    type="text"
-                    danger
-                    icon={<DeleteOutlined />}
-                    onClick={() => removeProduct(r.id)}
-                  />
-                ),
-              },
+              { title: 'Photo', dataIndex: 'src', width: 56, render: (s) => <Image src={s} width={38} height={38} style={{ objectFit: 'contain' }} /> },
+              { title: 'Name', dataIndex: 'name', ellipsis: true },
+              { title: 'Type', dataIndex: 'kind', width: 74, render: (k) => <Tag>{k === 'tote' ? 'Tote' : 'Phone'}</Tag> },
+              { title: 'Size', width: 108, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
+              { title: 'Price (£)', width: 96, render: (_, r) => <InputNumber size="small" min={0} defaultValue={r.basePrice} onBlur={(e) => cloud.repriceProduct(r, Number(e.target.value))} style={{ width: 76 }} /> },
+              { title: '', width: 40, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeProduct(r)} /> },
             ]}
           />
-        ) : (
-          <Empty description="No custom products yet" image={Empty.PRESENTED_IMAGE_SIMPLE} />
-        )}
-      </Card>
+        </Card>
+      </Space>
 
-      <Card size="small" title="Re-price catalogue models">
-        <Input.Search
-          allowClear
-          placeholder="Search models…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          style={{ maxWidth: 360, marginBottom: 12 }}
-        />
-        <Table
-          size="small"
-          rowKey="id"
-          pagination={{ pageSize: 10, size: 'small' }}
-          dataSource={baseRows}
-          columns={[
-            { title: 'Model', dataIndex: 'name', ellipsis: true },
-            { title: 'Kind', dataIndex: 'kind', width: 90, render: (k) => <Tag>{k}</Tag> },
-            {
-              title: 'Base price (£)',
-              width: 140,
-              render: (_, r) => (
-                <InputNumber
-                  size="small"
-                  min={0}
-                  value={draft.productPrices[r.id] ?? r.basePrice}
-                  onChange={(v) =>
-                    set((d) => ({ ...d, productPrices: { ...d.productPrices, [r.id]: v } }))
-                  }
-                  style={{ width: 96 }}
+      {/* Right column — edit the selected product + add a new one. */}
+      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
+        <Space direction="vertical" size={18} style={{ width: '100%' }}>
+          <ProductStudioTab product={selectedProduct} cloud={cloud} />
+
+          <Card size="small" title="Add a custom product">
+            <div className="admin-grid">
+              <label>
+                <span>Name</span>
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                  placeholder="e.g. MagSafe Wallet"
                 />
-              ),
-            },
-          ]}
-        />
-      </Card>
-    </Space>
+              </label>
+              <label>
+                <span>Decoration set</span>
+                <Select
+                  value={form.kind}
+                  onChange={(v) => setForm((f) => ({ ...f, kind: v }))}
+                  options={[
+                    { value: 'phone', label: 'Charms' },
+                    { value: 'tote', label: 'Patches' },
+                  ]}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>Base price (£)</span>
+                <InputNumber
+                  min={0}
+                  value={form.basePrice}
+                  onChange={(v) => setForm((f) => ({ ...f, basePrice: v }))}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>Real width (mm)</span>
+                <InputNumber
+                  min={10}
+                  value={form.widthMm}
+                  onChange={(v) => setForm((f) => ({ ...f, widthMm: v }))}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>Height (auto from photo)</span>
+                <Input value={heightMm ? `${heightMm} mm` : '—'} disabled />
+              </label>
+              <label style={{ gridColumn: '1 / -1' }}>
+                <span>Product body photo</span>
+                <ImageDrop
+                  value={form.image}
+                  onChange={(image) => setForm((f) => ({ ...f, image }))}
+                  hint="Click or drop the product photo on a clean background"
+                />
+              </label>
+            </div>
+            <Button
+              type="primary"
+              icon={<AppstoreAddOutlined />}
+              onClick={addProduct}
+              style={{ marginTop: 12 }}
+            >
+              Add product
+            </Button>
+          </Card>
+        </Space>
+      </div>
+    </div>
   )
 }
 
@@ -1104,13 +1328,29 @@ function useCloud(draft, set) {
     try { await patchCharm(c.id, { price }) }
     catch (e) { message.error(e.message) }
   }
+  const resizeCharm = async (c, widthMm, heightMm) => {
+    await patchCharm(c.id, { widthMm, heightMm })
+    refresh()
+  }
+  const updateCharm = async (c, patch) => {
+    await patchCharm(c.id, patch)
+    refresh()
+  }
+  const repriceProduct = async (p, basePrice) => {
+    try { await patchProduct(p.id, { basePrice }) }
+    catch (e) { message.error(e.message) }
+  }
+  const updateProduct = async (p, patch) => {
+    await patchProduct(p.id, patch)
+    refresh()
+  }
   const removeProduct = (p) => modal.confirm({
     title: `Delete "${p.name}" from Shopify?`,
     okText: 'Delete', okButtonProps: { danger: true },
     onOk: async () => { try { await deleteProduct(p.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
 
-  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, toggleHide, removeCharm, repriceCharm, removeProduct }
+  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
 }
 
 export default function AdminPage() {

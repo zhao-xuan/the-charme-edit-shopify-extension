@@ -1,7 +1,14 @@
 import { useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
-import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
+import { trayGroups, groupByCollection } from '../lib/catalog'
+
+// Round a mm value to at most one decimal so tray size labels stay compact
+// (e.g. 8.30 → 8.3, 58 → 58).
+const fmtMm = (v) => {
+  const n = Number(v)
+  return Number.isFinite(n) ? Math.round(n * 10) / 10 : v
+}
 
 function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
   const unavailable = !!charm.unavailable
@@ -35,6 +42,11 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
         <img src={charm.src} alt={charm.name} draggable={false} />
       </div>
       {!compact && <div className="name">{charm.name}</div>}
+      {charm.widthMm != null && charm.heightMm != null && (
+        <div className="charm-card__size">
+          {fmtMm(charm.widthMm)} × {fmtMm(charm.heightMm)} mm
+        </div>
+      )}
       <div className="meta meta--price">
         <span>{unavailable ? 'Unavailable' : `£${charm.price.toFixed(2)}`}</span>
       </div>
@@ -52,7 +64,7 @@ function NoteBox({ text }) {
   )
 }
 
-function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWord }) {
+function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWord, wordGroups = [], selectedGroupId, onSelectGroup }) {
   const charms = group.items || []
   const [wordFor, setWordFor] = useState(null)
   const [wordText, setWordText] = useState('')
@@ -88,7 +100,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
             <span>{g.collection}</span>
             <span>{g.items.length}</span>
           </div>
-          {onTypeWord && isTextCollection(g.collection) && (
+          {onTypeWord && g.collection === 'Letters & initials' && (
             <div className="charm-word">
               {wordFor === g.collection ? (
                 <>
@@ -96,12 +108,10 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                   <input
                     className="charm-word__input"
                     autoFocus
-                    maxLength={16}
+                    maxLength={14}
                     value={wordText}
-                    placeholder={
-                      g.collection.toLowerCase().includes('number') ? 'e.g. 2024' : 'e.g. EMMA'
-                    }
-                    onChange={(e) => setWordText(e.target.value)}
+                    placeholder="e.g. EMMA 24"
+                    onChange={(e) => setWordText(e.target.value.replace(/[^a-zA-Z0-9 ]/g, ''))}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') submitWord(g.collection)
                       if (e.key === 'Escape') setWordFor(null)
@@ -141,6 +151,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                     Arc
                   </label>
                 </div>
+                <p className="charm-word__hint">Mix letters &amp; numbers, up to 14 characters.</p>
                 </>
               ) : (
                 <button
@@ -151,8 +162,29 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                     setWordText('')
                   }}
                 >
-                  ✎ Type {g.collection.toLowerCase().includes('number') ? 'a number' : 'a word'}
+                  ✎ Type a word
                 </button>
+              )}
+              {/* One tag per placed word group (until it's broken apart for
+                  individual editing). Tapping a tag selects that word on the
+                  case so it can be dragged as a single unit. */}
+              {wordGroups.filter((w) => !w.broken).length > 0 && (
+                <div className="charm-word-tags">
+                  <span className="charm-word-tags__label">Your words:</span>
+                  {wordGroups
+                    .filter((w) => !w.broken)
+                    .map((w) => (
+                      <button
+                        key={w.id}
+                        type="button"
+                        className={`charm-word-tag${w.id === selectedGroupId ? ' is-active' : ''}`}
+                        onClick={() => onSelectGroup?.(w.id)}
+                        title="Select this word to move it as one"
+                      >
+                        {w.label}
+                      </button>
+                    ))}
+                </div>
               )}
             </div>
           )}
@@ -182,6 +214,9 @@ export default function CharmTray({
   onActivate,
   onPointerDown,
   onTypeWord,
+  wordGroups = [],
+  selectedGroupId,
+  onSelectGroup,
 }) {
   const groups = trayGroups(kind)
 
@@ -197,6 +232,9 @@ export default function CharmTray({
         onActivate={onActivate}
         onPointerDown={onPointerDown}
         onTypeWord={onTypeWord}
+        wordGroups={wordGroups}
+        selectedGroupId={selectedGroupId}
+        onSelectGroup={onSelectGroup}
       />
     )
   }
@@ -213,6 +251,9 @@ export default function CharmTray({
         onActivate={onActivate}
         onPointerDown={onPointerDown}
         onTypeWord={onTypeWord}
+        wordGroups={wordGroups}
+        selectedGroupId={selectedGroupId}
+        onSelectGroup={onSelectGroup}
       />
     ),
   }))

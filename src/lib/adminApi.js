@@ -87,6 +87,9 @@ export const deleteCharm = async (id) =>
 export const addProduct = async (product) =>
   handle(await fetch(url('/api/admin/products'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(product) }))
 
+export const patchProduct = async (id, patch) =>
+  handle(await fetch(url('/api/admin/products'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify({ id, ...patch }) }))
+
 export const deleteProduct = async (id) =>
   handle(await fetch(url('/api/admin/products'), { method: 'DELETE', headers: await authHeaders(), body: JSON.stringify({ id }) }))
 

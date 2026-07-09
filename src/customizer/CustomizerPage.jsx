@@ -14,7 +14,7 @@ import ProductPicker from '../components/ProductPicker'
 import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
-import { PRODUCT_GROUPS, BRAND_LABELS, findProduct } from '../data/products'
+import { productGroups, BRAND_LABELS, findProduct } from '../data/products'
 import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
@@ -38,6 +38,22 @@ const uid = () =>
   (crypto.randomUUID && crypto.randomUUID()) || `c${Date.now()}${Math.random().toString(16).slice(2)}`
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+
+// Max characters accepted by "Type a word" (letters + digits combined).
+const MAX_WORD_LEN = 14
+
+// Built-in phone categories have hand-tuned swatch gradients in styles.css; any
+// custom merchant category gets a stable generated hue so its tab still shows a
+// coloured dot rather than the neutral fallback.
+const BUILTIN_CAT_KEYS = new Set(['gold', 'silver', 'colourful', 'unique'])
+function catDotStyle(key) {
+  if (BUILTIN_CAT_KEYS.has(key)) return undefined
+  let h = 0
+  for (let i = 0; i < String(key).length; i++) h = (h * 31 + key.charCodeAt(i)) % 360
+  return {
+    background: `radial-gradient(circle at 34% 28%, hsl(${h} 70% 82%) 0%, hsl(${h} 55% 62%) 55%, hsl(${h} 45% 45%) 100%)`,
+  }
+}
 
 /**
  * Fold the chosen case colour + gel colour into a single render-ready colour
@@ -88,6 +104,9 @@ export default function CustomizerPage({
 }) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
+  // Lazy catalogue accessor (built after the remote catalogue loads — see
+  // products.js). Stable memoised array, safe to read every render.
+  const PRODUCT_GROUPS = productGroups()
 
   // Optional starting model/category (set per placement by the Shopify section,
   // so the same widget can open on a different product on each product page). A
@@ -119,6 +138,15 @@ export default function CustomizerPage({
   )
   const [placed, setPlaced] = useState([])
   const [selectedUid, setSelectedUid] = useState(null)
+  // "Type a word" groups. Each placed letter/number that belongs to a typed word
+  // carries a `groupId`; `wordGroups` holds the metadata { id, label, broken }.
+  // A non-broken group drags as ONE unit and shows a tag by the type-a-word box;
+  // once the customer confirms they want to fine-tune it, `broken` flips true so
+  // its letters become individually draggable and its tag disappears.
+  const [wordGroups, setWordGroups] = useState([])
+  const [selectedGroupId, setSelectedGroupId] = useState(null)
+  // Group id whose "Are you sure?" break-apart confirmation panel is showing.
+  const [confirmGroupId, setConfirmGroupId] = useState(null)
   const [zoom, setZoom] = useState(1)
 
   const [summaryOpen, setSummaryOpen] = useState(false)
@@ -316,6 +344,8 @@ export default function CustomizerPage({
     setHistLen(historyRef.current.length)
     setPlaced(prev)
     setSelectedUid(null)
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
   }, [])
   const canUndo = histLen > 0
 
@@ -334,6 +364,8 @@ export default function CustomizerPage({
       from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
     )
     setSelectedUid(null)
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
     resetHistory()
   }
   const handleProduct = (id) => {
@@ -344,6 +376,8 @@ export default function CustomizerPage({
       from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
     )
     setSelectedUid(null)
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
     resetHistory()
   }
 
@@ -493,7 +527,74 @@ export default function CustomizerPage({
     pushHistory()
     setPlaced([])
     setSelectedUid(null)
+    setWordGroups([])
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
   }
+
+  // ---- word-group helpers -------------------------------------------------
+  // Select a whole typed-word group (via its tag or by tapping any of its
+  // letters). Clears the single-charm selection so the group box shows instead
+  // of a per-charm rotation dial.
+  const selectGroup = useCallback((groupId) => {
+    setSelectedGroupId(groupId)
+    setSelectedUid(null)
+    setConfirmGroupId(null)
+  }, [])
+
+  // Move an entire (non-broken) word group by a mm delta, clamping the group's
+  // bounding box inside the printable outer so the whole word stays on the case.
+  // `starts` is a Map<uid, {cx,cy}> captured at drag start.
+  const moveGroup = useCallback(
+    (groupId, dxMm, dyMm, starts) => {
+      const outer = product.printable.outer
+      setPlaced((p) => {
+        const members = p.filter((c) => c.groupId === groupId)
+        if (!members.length) return p
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity
+        for (const c of members) {
+          const s = starts.get(c.uid)
+          if (!s) continue
+          const fw = c.baseWmm * (c.scale || 1)
+          const fh = c.baseHmm * (c.scale || 1)
+          minX = Math.min(minX, s.cx - fw / 2)
+          maxX = Math.max(maxX, s.cx + fw / 2)
+          minY = Math.min(minY, s.cy - fh / 2)
+          maxY = Math.max(maxY, s.cy + fh / 2)
+        }
+        let ddx = dxMm
+        let ddy = dyMm
+        if (minX + ddx < outer.xMm) ddx = outer.xMm - minX
+        if (maxX + ddx > outer.xMm + outer.wMm) ddx = outer.xMm + outer.wMm - maxX
+        if (minY + ddy < outer.yMm) ddy = outer.yMm - minY
+        if (maxY + ddy > outer.yMm + outer.hMm) ddy = outer.yMm + outer.hMm - maxY
+        return p.map((c) => {
+          if (c.groupId !== groupId) return c
+          const s = starts.get(c.uid)
+          return s ? { ...c, cxMm: s.cx + ddx, cyMm: s.cy + ddy } : c
+        })
+      })
+    },
+    [product],
+  )
+
+  // Break a group apart: its letters become individually draggable and its tag
+  // disappears from the type-a-word box. Called after the customer confirms.
+  const breakGroup = useCallback((groupId) => {
+    setWordGroups((gs) => gs.map((g) => (g.id === groupId ? { ...g, broken: true } : g)))
+    setConfirmGroupId(null)
+    setSelectedGroupId(null)
+  }, [])
+
+  // Prune word-group metadata once all of a group's letters have been removed.
+  useEffect(() => {
+    setWordGroups((gs) => {
+      if (!gs.length) return gs
+      const live = new Set(placed.map((c) => c.groupId).filter(Boolean))
+      const next = gs.filter((g) => live.has(g.id))
+      return next.length === gs.length ? gs : next
+    })
+  }, [placed])
 
   // ---- tray → stage drag (desktop precise placement) ----
   const [ghost, setGhost] = useState(null)
@@ -555,19 +656,22 @@ export default function CustomizerPage({
   )
 
   // "Type a word" — turn typed text into letter/number charms laid out on the
-  // case. `opts.collection` is the tray section ("Letters & initials" |
-  // "Numbers"); `opts.category` is the finish tab (gold/silver/…) so the letters
-  // match the row the button lives in. `opts.placement` = top|middle|bottom;
-  // `opts.arc` = lay the word along a gentle rainbow arch instead of a straight row.
+  // case as ONE draggable group. Accepts a mix of letters and digits: each
+  // character is resolved against the right tray section (digits → "Numbers",
+  // letters → "Letters & initials"). `opts.category` is the finish tab
+  // (gold/silver/…) so the letters match the row the button lives in.
+  // `opts.placement` = top|middle|bottom; `opts.arc` = rainbow arch vs straight.
   const addWord = useCallback(
     (text, opts = {}) => {
       const raw = String(text || '').toUpperCase().replace(/\s+/g, ' ').trim()
       if (!raw) return
       const missing = []
       const picks = []
-      for (const ch of raw.slice(0, 16).split('')) {
+      for (const ch of raw.slice(0, MAX_WORD_LEN).split('')) {
         if (ch === ' ') continue
-        const charm = charmByLabel(opts.collection, ch, opts.category)
+        // Digits come from the "Numbers" section; everything else from letters.
+        const collection = /[0-9]/.test(ch) ? 'Numbers' : 'Letters & initials'
+        const charm = charmByLabel(collection, ch, opts.category)
         if (charm) picks.push(charm)
         else missing.push(ch)
       }
@@ -671,11 +775,17 @@ export default function CustomizerPage({
       }
 
       pushHistory()
+      const groupId = uid()
+      const tagged = built.map((b) => ({ ...b, groupId, groupLabel: raw }))
       setPlaced((p) => {
         const free = MAX_CHARMS - p.length
-        return [...p, ...built.slice(0, Math.max(0, free))]
+        return [...p, ...tagged.slice(0, Math.max(0, free))]
       })
-      if (built.length) setSelectedUid(built[built.length - 1].uid)
+      if (tagged.length) {
+        setWordGroups((gs) => [...gs, { id: groupId, label: raw, broken: false }])
+        setSelectedGroupId(groupId)
+        setSelectedUid(null)
+      }
       if (missing.length) {
         message.info(`Skipped (no charm): ${[...new Set(missing)].join(' ')}`)
       }
@@ -696,6 +806,14 @@ export default function CustomizerPage({
       onTransform={transformCharm}
       onRemove={removeCharm}
       onCheckpoint={pushHistory}
+      wordGroups={wordGroups}
+      selectedGroupId={selectedGroupId}
+      confirmGroupId={confirmGroupId}
+      onSelectGroup={selectGroup}
+      onMoveGroup={moveGroup}
+      onRequestBreak={setConfirmGroupId}
+      onCancelBreak={() => setConfirmGroupId(null)}
+      onBreakGroup={breakGroup}
       zoom={zoom}
       onZoomChange={setZoom}
     />
@@ -746,10 +864,14 @@ export default function CustomizerPage({
       key={product.kind}
       kind={product.kind}
       compact={isMobile}
+      rows
       activeKey={catKey}
       onActivate={onTrayActivate}
       onTypeWord={addWord}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}
+      wordGroups={wordGroups}
+      selectedGroupId={selectedGroupId}
+      onSelectGroup={selectGroup}
     />
   )
   // Short labels for the mobile category row (drop the trailing " charms" so all
@@ -767,6 +889,9 @@ export default function CustomizerPage({
       activeKey={catKey}
       onActivate={onTrayActivate}
       onTypeWord={addWord}
+      wordGroups={wordGroups}
+      selectedGroupId={selectedGroupId}
+      onSelectGroup={selectGroup}
     />
   )
 
@@ -1075,7 +1200,7 @@ export default function CustomizerPage({
                     className={`cat-swatch${g.key === catKey ? ' is-active' : ''}`}
                     onClick={() => setCatKey(g.key)}
                   >
-                    <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} />
+                    <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} style={catDotStyle(g.key)} />
                     <span className="cat-swatch__label">
                       {product.kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label}
                     </span>

@@ -2,30 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
     <script>
-      // When Shopify opens this app embedded in the Admin, it appends ?host=/&shop=.
-      // In that case (only) load App Bridge so the admin page can mint session
-      // tokens. The public storefront customizer never hits this branch.
+      // When Shopify opens this app embedded in the Admin it appends ?host/&shop.
+      // App Bridge MUST be the first, SYNCHRONOUS script in <head> — it aborts if
+      // loaded async/deferred — so we inject it via document.write during parse
+      // (only when embedded). This makes window.shopify.idToken() available so the
+      // admin can mint session tokens for authenticated writes. The public
+      // storefront customizer (no host param) never hits this branch.
       (function () {
         try {
           var qs = new URLSearchParams(location.search)
           if (!(qs.has('host') || qs.has('shop') || qs.has('embedded'))) return
           window.__charmeEmbedded = true
-          var meta = document.createElement('meta')
-          meta.name = 'shopify-api-key'
-          meta.content = '93d071d516310e58e5eaeaf778d77e37'
-          document.head.appendChild(meta)
-          var s = document.createElement('script')
-          s.src = 'https://cdn.shopify.com/shopifycloud/app-bridge.js'
-          document.head.appendChild(s)
+          document.write(
+            '<meta name="shopify-api-key" content="93d071d516310e58e5eaeaf778d77e37">',
+          )
+          document.write(
+            '<script src="https://cdn.shopify.com/shopifycloud/app-bridge.js"><\/script>',
+          )
         } catch (e) { /* ignore */ }
       })()
     </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>The Charmé Edit · Design Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

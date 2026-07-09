@@ -1,5 +1,6 @@
 // Admin product endpoints (require Bearer ADMIN_TOKEN or a Shopify session token).
 //   POST   /api/admin/products  { name,kind,basePrice,widthMm,heightMm,src(dataURL),colourLabel }
+//   PATCH  /api/admin/products  { id, basePrice?, name? }
 //   DELETE /api/admin/products  { id }
 //
 // Storage: Shopify `charme_product` METAOBJECT + Shopify FILES when configured;
@@ -9,13 +10,14 @@ import {
   TYPES,
   shopifyConfigured,
   saveRecord,
+  getRecord,
   deleteRecord,
   storeImageToFiles,
 } from '../_shopify-store.js'
 
 const cors = {
   'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'POST,DELETE,OPTIONS',
+  'access-control-allow-methods': 'POST,PATCH,DELETE,OPTIONS',
   'access-control-allow-headers': 'authorization,content-type',
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
@@ -60,6 +62,39 @@ export async function onRequestPost({ request, env }) {
   ).run()
   const row = await env.DB.prepare('SELECT * FROM products WHERE id = ?').bind(id).first()
   return json({ ok: true, product: rowToProduct(row) }, { headers: cors })
+}
+
+export async function onRequestPatch({ request, env }) {
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
+  const { id, basePrice, name, widthMm, heightMm, src } = (await request.json().catch(() => ({}))) || {}
+  if (!id) return bad('id required')
+
+  if (shopifyConfigured(env)) {
+    const rec = await getRecord(env, TYPES.product, id)
+    if (!rec) return bad('not found', 404)
+    if (basePrice != null) rec.basePrice = basePrice
+    if (name != null) rec.name = name
+    if (widthMm != null) rec.widthMm = widthMm
+    if (heightMm != null) rec.heightMm = heightMm
+    const imageGids = {}
+    if (src && /^data:/.test(src)) {
+      const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
+      rec.src = url
+      imageGids.image = imageId
+    }
+    await saveRecord(env, TYPES.product, id, rec, imageGids)
+    return json({ ok: true }, { headers: cors })
+  }
+
+  if (basePrice != null) await env.DB.prepare('UPDATE products SET base_price = ? WHERE id = ?').bind(basePrice, id).run()
+  if (name != null) await env.DB.prepare('UPDATE products SET name = ? WHERE id = ?').bind(name, id).run()
+  if (widthMm != null) await env.DB.prepare('UPDATE products SET width_mm = ? WHERE id = ?').bind(widthMm, id).run()
+  if (heightMm != null) await env.DB.prepare('UPDATE products SET height_mm = ? WHERE id = ?').bind(heightMm, id).run()
+  if (src && /^data:/.test(src)) {
+    const key = await storeImage(env, id, src)
+    await env.DB.prepare('UPDATE products SET image_key = ? WHERE id = ?').bind(key, id).run()
+  }
+  return json({ ok: true }, { headers: cors })
 }
 
 export async function onRequestDelete({ request, env }) {
