@@ -140,9 +140,9 @@ function ImageDrop({ value, onChange, hint, maxDim = 900 }) {
 // ---------------------------------------------------------------------------
 const SIZE_MIN = 0.5
 const SIZE_MAX = 2
-const STAGE_MAX_W = 210
-const STAGE_MAX_H = 250
-const STAGE_PAD = 14
+const STAGE_MAX_W = 300
+const STAGE_MAX_H = 360
+const STAGE_PAD = 16
 
 /** Best available background image for a product (any finish). */
 function productImage(product) {
@@ -562,7 +562,7 @@ function CharmsTab({ draft, set, cloud }) {
             loading={cloud?.loading}
             onRow={pickRow}
             rowClassName={rowCls}
-            pagination={{ pageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
+            pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
             dataSource={baseRows}
             columns={[
               { title: 'Art', width: 52, render: (_, r) => <Image src={resolveAsset(r.src)} width={34} height={34} style={{ objectFit: 'contain' }} /> },
@@ -876,7 +876,7 @@ function ProductsTab({ draft, set, cloud }) {
             loading={cloud?.loading}
             onRow={pickRow}
             rowClassName={rowCls}
-            pagination={{ pageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
+            pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
             dataSource={cloud?.data.products || []}
             locale={{ emptyText: <Empty description="No products in Shopify yet — add one, then Publish." image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
             columns={[
