@@ -106,3 +106,7 @@ export const saveSettings = async (settings) =>
 /** Create/update real Shopify discounts from the saved codes + rules. */
 export const syncDiscounts = async () =>
   handle(await fetch(url('/api/admin/discounts'), { method: 'POST', headers: await authHeaders(), body: '{}' }))
+
+/** List the store's Shopify products (for bundle / product pickers). */
+export const fetchShopifyProducts = async (q) =>
+  handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))

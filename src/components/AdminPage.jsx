@@ -57,6 +57,7 @@ import {
   saveSettings,
   setToken,
   syncDiscounts,
+  fetchShopifyProducts,
 } from '../lib/adminApi'
 
 const slug = (s) =>
@@ -1049,6 +1050,9 @@ function DiscountTab({ cloud }) {
   const [saving, setSaving] = useState(false)
   const [syncing, setSyncing] = useState(false)
   const [s, setS] = useState(() => JSON.parse(JSON.stringify(DEFAULT_SETTINGS)))
+  // Live Shopify products for the bundle product picker.
+  const [shopProducts, setShopProducts] = useState([])
+  const [shopLoading, setShopLoading] = useState(true)
 
   useEffect(() => {
     fetchSettings()
@@ -1062,6 +1066,13 @@ function DiscountTab({ cloud }) {
       )
       .catch(() => {})
       .finally(() => setLoading(false))
+  }, [])
+
+  useEffect(() => {
+    fetchShopifyProducts()
+      .then((r) => setShopProducts(r.products || []))
+      .catch(() => {})
+      .finally(() => setShopLoading(false))
   }, [])
 
   const groups = productGroups()
@@ -1301,10 +1312,23 @@ function DiscountTab({ cloud }) {
                 <span style={{ color: 'var(--ink-soft)' }}>Show variant selectors</span>
                 <Switch checked={b.showVariants !== false} onChange={(v) => updBundle(bi, { showVariants: v })} />
               </label>
-              <Divider style={{ margin: '8px 0' }}>Products (Shopify product handles)</Divider>
+              <Divider style={{ margin: '8px 0' }}>Products (from your Shopify store)</Divider>
               {(b.items || []).map((it, ii) => (
                 <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-                  <Input placeholder="shopify-product-handle" value={it.handle} onChange={(e) => updBundleItem(bi, ii, { handle: e.target.value.trim() })} style={{ width: 230 }} />
+                  <Select
+                    showSearch
+                    optionFilterProp="label"
+                    placeholder="Pick a Shopify product"
+                    loading={shopLoading}
+                    value={it.handle || undefined}
+                    onChange={(v) => {
+                      const p = shopProducts.find((x) => x.handle === v)
+                      updBundleItem(bi, ii, { handle: v, label: it.label || p?.title || '' })
+                    }}
+                    options={shopProducts.map((p) => ({ value: p.handle, label: p.title }))}
+                    notFoundContent={shopLoading ? 'Loading…' : 'No products (open inside Shopify Admin, or set an admin token)'}
+                    style={{ width: 260 }}
+                  />
                   <Input placeholder="Label (optional)" value={it.label} onChange={(e) => updBundleItem(bi, ii, { label: e.target.value })} style={{ width: 150 }} />
                   <Button icon={<DeleteOutlined />} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
                 </div>
