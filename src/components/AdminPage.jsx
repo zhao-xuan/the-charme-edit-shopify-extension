@@ -24,6 +24,7 @@ import {
 } from 'antd'
 import {
   AppstoreAddOutlined,
+  AppstoreOutlined,
   CloudUploadOutlined,
   DeleteOutlined,
   InboxOutlined,
@@ -33,6 +34,7 @@ import {
   SaveOutlined,
   ScissorOutlined,
   ShopOutlined,
+  TagsOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons'
 import { allProducts, productGroups } from '../data/products'
@@ -1626,8 +1628,24 @@ export default function AdminPage() {
         activeKey={tab}
         onChange={setTab}
         items={[
-          { key: 'products', label: 'Products', children: <ProductsTab draft={draft} set={set} cloud={cloud} /> },
-          { key: 'charms', label: 'Charms', children: <CharmsTab draft={draft} set={set} cloud={cloud} /> },
+          {
+            key: 'products',
+            label: (
+              <span>
+                <AppstoreOutlined /> Products
+              </span>
+            ),
+            children: <ProductsTab draft={draft} set={set} cloud={cloud} />,
+          },
+          {
+            key: 'charms',
+            label: (
+              <span>
+                <TagsOutlined /> Charms
+              </span>
+            ),
+            children: <CharmsTab draft={draft} set={set} cloud={cloud} />,
+          },
           {
             key: 'discount',
             label: (
