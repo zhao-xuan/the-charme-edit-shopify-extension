@@ -1513,6 +1513,91 @@ h4,
   color: var(--rouge);
 }
 
+/* admin bundle editor — structural preview */
+.bundle-prev {
+  border: 1px solid var(--line, #e4d8c7);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fbf7ef;
+  text-align: center;
+}
+.bundle-prev__title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: var(--ink, #2e2a26);
+}
+.bundle-prev__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 78px;
+}
+.bundle-prev__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.bundle-prev__plus {
+  color: var(--ink-soft, #8a7f74);
+  font-weight: 700;
+}
+.bundle-prev__card {
+  width: 84px;
+  padding: 8px;
+  border: 1px solid var(--line, #e4d8c7);
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.bundle-prev__thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 40% 35%, #fff, #ece2d0);
+}
+.bundle-prev__name {
+  font-size: 10.5px;
+  line-height: 1.2;
+  color: var(--ink, #2e2a26);
+}
+.bundle-prev__vol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bundle-prev__voltier {
+  border: 1.5px solid var(--line, #e4d8c7);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+.bundle-prev__voltier.is-active {
+  border-color: var(--rouge, #b35b5b);
+  box-shadow: 0 0 0 2px rgba(179, 91, 91, 0.15);
+}
+.bundle-prev__deal {
+  margin: 12px 0;
+  font-weight: 600;
+  color: var(--rouge, #b35b5b);
+}
+.bundle-prev__claim {
+  border: none;
+  border-radius: 8px;
+  background: var(--ink, #2e2a26);
+  color: #fff;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: default;
+}
+
 /* undo / clear controls floating in the preview (phone showcase) layer,
    top-right — stacked directly below the zoom (+/-) dock. */
 .edit-dock {

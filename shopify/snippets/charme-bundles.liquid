@@ -1,0 +1,199 @@
+{%- comment -%}
+  charme-bundles.liquid — "Bundle & save" blocks, driven by the Charmé admin.
+  ---------------------------------------------------------------------------
+  Paste anywhere (product page, cart page, a custom page section, etc.):
+
+      {% render 'charme-bundles' %}
+
+  Optional params:
+      api_base    Cloudflare Pages base for the settings API
+                  (default https://charme-customizer.pages.dev)
+      bundle_name Render only the bundle whose campaign name matches (else all)
+      redirect    'cart' (default) | 'drawer' | 'none' — where to go after claim
+
+  It is fully linked to Shopify: it reads each bundle's product HANDLES from
+  /api/settings, fetches LIVE product data + prices from Shopify (/products/<h>.js),
+  adds the chosen variants to the cart (/cart/add.js) and applies the bundle's
+  discount code (/discount/<CODE>) on claim.
+{%- endcomment -%}
+
+{%- assign _api = api_base | default: 'https://charme-customizer.pages.dev' -%}
+{%- assign _redirect = redirect | default: 'cart' -%}
+
+<div
+  class="charme-bundles"
+  data-charme-bundles
+  data-api-base="{{ _api }}"
+  data-only="{{ bundle_name | escape }}"
+  data-redirect="{{ _redirect }}"
+  data-routes-cart="{{ routes.cart_url }}"
+>
+  <div class="charme-bundles__loading">Loading offers…</div>
+</div>
+
+<style>
+  .charme-bundles { margin: 22px 0; font-family: inherit; }
+  .charme-bundles__loading { color: #8a7f74; font-size: 14px; }
+  .cb-block { border: 1px solid #e4d8c7; border-radius: 14px; padding: 18px; margin: 0 0 18px; background: #fff; }
+  .cb-block__title { text-align: center; font-size: 20px; font-weight: 700; margin: 0 0 14px; color: #2e2a26; }
+  .cb-row { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .cb-plus { align-self: center; font-size: 20px; font-weight: 700; color: #b0a693; }
+  .cb-card { width: 150px; border: 1px solid #ece2d0; border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .cb-card img { width: 100%; height: 96px; object-fit: contain; border-radius: 8px; background: #faf5ec; }
+  .cb-card__name { font-size: 12.5px; line-height: 1.25; color: #2e2a26; min-height: 30px; }
+  .cb-card__price { font-size: 13px; color: #2e2a26; }
+  .cb-card select { width: 100%; font: inherit; font-size: 12px; padding: 4px 6px; border: 1px solid #e4d8c7; border-radius: 6px; }
+  .cb-summary { text-align: center; margin: 16px 0 6px; }
+  .cb-summary__was { color: #8a7f74; text-decoration: line-through; margin-right: 8px; }
+  .cb-summary__now { color: #2e7d32; font-weight: 700; font-size: 18px; }
+  .cb-claim { display: block; margin: 12px auto 0; border: none; border-radius: 10px; background: #2e2a26; color: #fff; padding: 12px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
+  .cb-claim:disabled { opacity: .5; cursor: default; }
+  .cb-vol { display: flex; flex-direction: column; gap: 10px; max-width: 460px; margin: 0 auto; }
+  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #e4d8c7; border-radius: 12px; padding: 12px 16px; cursor: pointer; }
+  .cb-vol__tier.is-active { border-color: #b35b5b; box-shadow: 0 0 0 2px rgba(179,91,91,.15); }
+  .cb-vol__save { color: #2e7d32; font-weight: 600; }
+  .cb-err { color: #b35b5b; font-size: 13px; text-align: center; }
+</style>
+
+<script>
+(function () {
+  var roots = document.querySelectorAll('[data-charme-bundles]');
+  if (!roots.length) return;
+
+  function money(cents) { return '£' + (cents / 100).toFixed(2); }
+
+  async function getProduct(handle) {
+    var res = await fetch('/products/' + encodeURIComponent(handle) + '.js', { headers: { Accept: 'application/json' } });
+    if (!res.ok) throw new Error('product not found: ' + handle);
+    return res.json();
+  }
+
+  function firstAvailableVariant(p) {
+    return (p.variants || []).find(function (v) { return v.available; }) || (p.variants || [])[0];
+  }
+
+  function discountedTotal(cents, bundle) {
+    if ((bundle.discountKind || 'percent') === 'fixed') return Math.round((Number(bundle.value) || 0) * 100);
+    return Math.round(cents * (1 - (Number(bundle.value) || 0) / 100));
+  }
+
+  async function addToCart(items) {
+    await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ items: items }),
+    });
+  }
+
+  async function applyCodeAndGo(root, code) {
+    var redirect = root.getAttribute('data-redirect') || 'cart';
+    var cart = root.getAttribute('data-routes-cart') || '/cart';
+    if (code) { try { await fetch('/discount/' + encodeURIComponent(code), { mode: 'no-cors' }); } catch (e) {} }
+    if (redirect === 'none') { document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true })); return; }
+    window.location.href = code ? ('/discount/' + encodeURIComponent(code) + '?redirect=' + encodeURIComponent(cart)) : cart;
+  }
+
+  function renderFBT(root, block, bundle, products) {
+    var row = document.createElement('div'); row.className = 'cb-row';
+    var selected = {}; // handle -> variantId
+    var origCents = 0;
+    products.forEach(function (p, i) {
+      var v = firstAvailableVariant(p); if (!v) return;
+      selected[p.handle] = v.id; origCents += v.price;
+      if (i > 0) { var plus = document.createElement('span'); plus.className = 'cb-plus'; plus.textContent = '+'; row.appendChild(plus); }
+      var card = document.createElement('div'); card.className = 'cb-card';
+      var img = document.createElement('img'); img.src = (p.featured_image || (p.images && p.images[0]) || ''); img.alt = p.title; card.appendChild(img);
+      var name = document.createElement('div'); name.className = 'cb-card__name'; name.textContent = p.title; card.appendChild(name);
+      if (bundle.showVariants !== false && (p.variants || []).length > 1) {
+        var sel = document.createElement('select');
+        p.variants.forEach(function (vr) { var o = document.createElement('option'); o.value = vr.id; o.textContent = vr.title + ' — ' + money(vr.price); if (!vr.available) o.disabled = true; sel.appendChild(o); });
+        sel.value = v.id;
+        sel.addEventListener('change', function () {
+          var vr = p.variants.find(function (x) { return String(x.id) === sel.value; });
+          selected[p.handle] = vr.id; recompute();
+        });
+        card.appendChild(sel);
+      } else {
+        var pr = document.createElement('div'); pr.className = 'cb-card__price'; pr.textContent = money(v.price); card.appendChild(pr);
+      }
+      row.appendChild(card);
+    });
+    block.appendChild(row);
+
+    var summary = document.createElement('div'); summary.className = 'cb-summary'; block.appendChild(summary);
+    var claim = document.createElement('button'); claim.type = 'button'; claim.className = 'cb-claim'; claim.textContent = bundle.claimText || 'Claim this offer'; block.appendChild(claim);
+
+    function recompute() {
+      origCents = 0;
+      products.forEach(function (p) { var vr = (p.variants || []).find(function (x) { return String(x.id) === String(selected[p.handle]); }); if (vr) origCents += vr.price; });
+      var now = discountedTotal(origCents, bundle);
+      summary.innerHTML = '<span class="cb-summary__was">' + money(origCents) + '</span><span class="cb-summary__now">' + money(now) + '</span>';
+    }
+    recompute();
+
+    claim.addEventListener('click', async function () {
+      claim.disabled = true; claim.textContent = 'Adding…';
+      try {
+        var items = Object.keys(selected).map(function (h) { return { id: selected[h], quantity: 1 }; });
+        await addToCart(items);
+        await applyCodeAndGo(root, bundle.code);
+      } catch (e) { claim.disabled = false; claim.textContent = bundle.claimText || 'Claim this offer'; var er = document.createElement('div'); er.className = 'cb-err'; er.textContent = 'Sorry, could not add the bundle.'; block.appendChild(er); }
+    });
+  }
+
+  function renderVolume(root, block, bundle, products) {
+    var p = products[0]; if (!p) return;
+    var v = firstAvailableVariant(p); if (!v) return;
+    var tiers = [1, 2, 3];
+    var chosen = 2;
+    var wrap = document.createElement('div'); wrap.className = 'cb-vol'; block.appendChild(wrap);
+    var claim = document.createElement('button'); claim.type = 'button'; claim.className = 'cb-claim'; block.appendChild(claim);
+    function draw() {
+      wrap.innerHTML = '';
+      tiers.forEach(function (n) {
+        var save = n === 1 ? 0 : Math.round((Number(bundle.value) || 0) * (n === 2 ? 0.66 : 1));
+        var el = document.createElement('div'); el.className = 'cb-vol__tier' + (n === chosen ? ' is-active' : '');
+        var price = Math.round(v.price * n * (1 - save / 100));
+        el.innerHTML = '<span><strong>' + ['One', 'Two', 'Three'][n - 1] + '</strong>' + (save ? ' <span class="cb-vol__save">Save ' + save + '%</span>' : '') + '</span><span>' + money(price) + '</span>';
+        el.addEventListener('click', function () { chosen = n; draw(); });
+        wrap.appendChild(el);
+      });
+      claim.textContent = (bundle.claimText || 'Claim this offer');
+    }
+    draw();
+    claim.addEventListener('click', async function () {
+      claim.disabled = true; claim.textContent = 'Adding…';
+      try { await addToCart([{ id: v.id, quantity: chosen }]); await applyCodeAndGo(root, bundle.code); }
+      catch (e) { claim.disabled = false; draw(); }
+    });
+  }
+
+  async function renderBundle(root, container, bundle) {
+    var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); }).filter(Boolean);
+    if (!handles.length) return;
+    var products;
+    try { products = await Promise.all(handles.map(getProduct)); }
+    catch (e) { return; } // a missing handle → skip this bundle silently
+    var block = document.createElement('div'); block.className = 'cb-block';
+    var title = document.createElement('div'); title.className = 'cb-block__title'; title.textContent = bundle.blockTitle || 'Bundle & save'; block.appendChild(title);
+    if ((bundle.layout || 'fbt') === 'volume') renderVolume(root, block, bundle, products);
+    else renderFBT(root, block, bundle, products); // fbt / mixmatch / pickany → FBT-style
+    container.appendChild(block);
+  }
+
+  roots.forEach(async function (root) {
+    var apiBase = (root.getAttribute('data-api-base') || '').replace(/\/$/, '');
+    var only = (root.getAttribute('data-only') || '').trim();
+    try {
+      var res = await fetch(apiBase + '/api/settings', { headers: { Accept: 'application/json' } });
+      var settings = res.ok ? await res.json() : {};
+      var bundles = ((settings.discounts || {}).bundles || []).filter(function (b) { return b.active !== false; });
+      if (only) bundles = bundles.filter(function (b) { return (b.name || '') === only; });
+      root.innerHTML = '';
+      if (!bundles.length) { root.style.display = 'none'; return; }
+      for (var i = 0; i < bundles.length; i++) { await renderBundle(root, root, bundles[i]); }
+      if (!root.children.length) root.style.display = 'none';
+    } catch (e) { root.style.display = 'none'; }
+  });
+})();
+</script>

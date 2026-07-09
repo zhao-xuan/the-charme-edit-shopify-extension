@@ -984,6 +984,63 @@ const DISC_KINDS = [
   { value: 'percent', label: '% off' },
   { value: 'amount', label: '£ off' },
 ]
+const BUNDLE_LAYOUTS = [
+  { value: 'fbt', label: 'Frequently bought together' },
+  { value: 'volume', label: 'Volume discount' },
+  { value: 'mixmatch', label: 'Mix & match' },
+  { value: 'pickany', label: 'Pick any (mix quantity)' },
+]
+const bundleDefault = () => ({
+  name: 'New bundle',
+  blockTitle: 'Bundle & save 15%!',
+  claimText: 'Claim this offer',
+  layout: 'fbt',
+  discountKind: 'percent',
+  value: 15,
+  code: '',
+  showVariants: true,
+  active: true,
+  items: [],
+})
+
+/** Structural, layout-aware storefront mock for the admin bundle editor. */
+function BundlePreview({ bundle }) {
+  const items = bundle.items || []
+  const kind = bundle.discountKind || 'percent'
+  const val = Number(bundle.value) || 0
+  const dealText = kind === 'fixed' ? `£${val} bundle price` : `Save ${val}%`
+  const layout = bundle.layout || 'fbt'
+  return (
+    <div className="bundle-prev">
+      <div className="bundle-prev__title">{bundle.blockTitle || 'Bundle & save'}</div>
+      {layout === 'volume' ? (
+        <div className="bundle-prev__vol">
+          {[1, 2, 3].map((n) => (
+            <div key={n} className={`bundle-prev__voltier${n === 2 ? ' is-active' : ''}`}>
+              <strong>{['One', 'Two', 'Three'][n - 1]}</strong>
+              <span>{n === 1 ? 'Standard price' : `Save ${val}%`}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="bundle-prev__row">
+          {items.length === 0 && <span className="hint">Add products to preview</span>}
+          {items.map((it, i) => (
+            <div key={i} className="bundle-prev__item">
+              {i > 0 && <span className="bundle-prev__plus">+</span>}
+              <div className="bundle-prev__card">
+                <div className="bundle-prev__thumb" />
+                <span className="bundle-prev__name">{it.label || it.handle || 'Product'}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      <div className="bundle-prev__deal">{dealText}{bundle.code ? ` · code ${bundle.code}` : ''}</div>
+      <button type="button" className="bundle-prev__claim">{bundle.claimText || 'Claim this offer'}</button>
+    </div>
+  )
+}
 const discFieldStyle = { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 10 }
 
 function DiscountTab({ cloud }) {
@@ -1188,57 +1245,83 @@ function DiscountTab({ cloud }) {
   const bundlesPanel = (
     <div>
       <p className="hint" style={{ marginTop: 0 }}>
-        Bundles show as a “Bundle up &amp; Save” carousel on the product page and in the cart. Group any products
-        (or charms) together for a percentage or fixed-price deal.
+        Bundles render as a “Bundle &amp; save” block on any page (paste the <code>charme-bundles</code> snippet)
+        and pull LIVE product data + prices from Shopify by product handle. Claiming adds the products to the cart
+        and applies the discount code. Pick a layout, add products, then <strong>Save &amp; sync to Shopify</strong>{' '}
+        so the code is created.
       </p>
       {bundles.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No bundles yet — add one below." />}
       {bundles.map((b, bi) => (
         <Card
           key={bi}
           size="small"
-          style={{ marginBottom: 12 }}
+          style={{ marginBottom: 14 }}
           title={
             <Input
-              placeholder="Bundle title (e.g. Bundle up & Save 15%)"
-              value={b.title}
-              onChange={(e) => updBundle(bi, { title: e.target.value })}
-              style={{ maxWidth: 360 }}
+              placeholder="Campaign name"
+              value={b.name}
+              onChange={(e) => updBundle(bi, { name: e.target.value })}
+              style={{ maxWidth: 280 }}
             />
           }
-          extra={<Button danger size="small" icon={<DeleteOutlined />} onClick={() => setBundles(bundles.filter((_, x) => x !== bi))} />}
+          extra={
+            <span style={{ display: 'inline-flex', gap: 10, alignItems: 'center' }}>
+              <Switch checkedChildren="Live" unCheckedChildren="Off" checked={b.active !== false} onChange={(v) => updBundle(bi, { active: v })} />
+              <Button danger size="small" icon={<DeleteOutlined />} onClick={() => setBundles(bundles.filter((_, x) => x !== bi))} />
+            </span>
+          }
         >
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
-            <span style={{ color: 'var(--ink-soft)' }}>Deal:</span>
-            <Select
-              value={b.discountKind || 'percent'}
-              onChange={(v) => updBundle(bi, { discountKind: v })}
-              options={[{ value: 'percent', label: '% off' }, { value: 'fixed', label: 'Fixed price £' }]}
-              style={{ width: 140 }}
-            />
-            <InputNumber
-              min={0}
-              value={b.value}
-              onChange={(v) => updBundle(bi, { value: v })}
-              style={{ width: 130 }}
-              addonBefore={b.discountKind === 'fixed' ? '£' : undefined}
-              addonAfter={b.discountKind !== 'fixed' ? '%' : undefined}
-            />
-            <Switch checkedChildren="On" unCheckedChildren="Off" checked={b.active !== false} onChange={(v) => updBundle(bi, { active: v })} />
-          </div>
-          <Divider style={{ margin: '6px 0' }}>Products in this bundle</Divider>
-          {(b.items || []).map((it, ii) => (
-            <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-              <Select value={it.itemKind || 'product'} onChange={(v) => updBundleItem(bi, ii, { itemKind: v, itemId: '' })} options={[{ value: 'product', label: 'Product' }, { value: 'charm', label: 'Charm' }]} style={{ width: 110 }} />
-              <Select showSearch optionFilterProp="label" placeholder="Pick" value={it.itemId || undefined} onChange={(v) => updBundleItem(bi, ii, { itemId: v })} options={(it.itemKind === 'charm' ? charms : models).map((x) => ({ value: x.id, label: x.name }))} style={{ width: 220 }} />
-              <Button icon={<DeleteOutlined />} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
+          <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
+            {/* editor */}
+            <div style={{ flex: '1 1 380px', minWidth: 0 }}>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Block title (storefront + cart)</span>
+                <Input value={b.blockTitle} onChange={(e) => updBundle(bi, { blockTitle: e.target.value })} placeholder="Bundle & save 15%!" style={{ maxWidth: 300 }} />
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Claim button text</span>
+                <Input value={b.claimText} onChange={(e) => updBundle(bi, { claimText: e.target.value })} placeholder="Claim this offer" style={{ maxWidth: 300 }} />
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Layout</span>
+                <Select value={b.layout || 'fbt'} onChange={(v) => updBundle(bi, { layout: v })} options={BUNDLE_LAYOUTS} style={{ width: 260 }} />
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Discount</span>
+                <span style={{ display: 'flex', gap: 6 }}>
+                  <Select value={b.discountKind || 'percent'} onChange={(v) => updBundle(bi, { discountKind: v })} options={[{ value: 'percent', label: '% off' }, { value: 'fixed', label: 'Fixed price £' }]} style={{ width: 130 }} />
+                  <InputNumber min={0} value={b.value} onChange={(v) => updBundle(bi, { value: v })} style={{ width: 110 }} addonBefore={b.discountKind === 'fixed' ? '£' : undefined} addonAfter={b.discountKind !== 'fixed' ? '%' : undefined} />
+                </span>
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Discount code (applied on claim)</span>
+                <Input value={b.code} onChange={(e) => updBundle(bi, { code: e.target.value.toUpperCase() })} placeholder="e.g. STRAPBUNDLE15" style={{ maxWidth: 300 }} />
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Show variant selectors</span>
+                <Switch checked={b.showVariants !== false} onChange={(v) => updBundle(bi, { showVariants: v })} />
+              </label>
+              <Divider style={{ margin: '8px 0' }}>Products (Shopify product handles)</Divider>
+              {(b.items || []).map((it, ii) => (
+                <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                  <Input placeholder="shopify-product-handle" value={it.handle} onChange={(e) => updBundleItem(bi, ii, { handle: e.target.value.trim() })} style={{ width: 230 }} />
+                  <Input placeholder="Label (optional)" value={it.label} onChange={(e) => updBundleItem(bi, ii, { label: e.target.value })} style={{ width: 150 }} />
+                  <Button icon={<DeleteOutlined />} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
+                </div>
+              ))}
+              <Button size="small" icon={<PlusOutlined />} onClick={() => updBundle(bi, { items: [...(b.items || []), { handle: '', label: '' }] })}>
+                Add product
+              </Button>
             </div>
-          ))}
-          <Button size="small" icon={<PlusOutlined />} onClick={() => updBundle(bi, { items: [...(b.items || []), { itemKind: 'product', itemId: '' }] })}>
-            Add product
-          </Button>
+            {/* live structural preview */}
+            <div style={{ flex: '1 1 280px', minWidth: 0 }}>
+              <div className="hint" style={{ marginBottom: 6 }}>Preview</div>
+              <BundlePreview bundle={b} />
+            </div>
+          </div>
         </Card>
       ))}
-      <Button icon={<PlusOutlined />} onClick={() => setBundles([...bundles, { title: 'Bundle up & Save', discountKind: 'percent', value: 15, active: true, items: [] }])}>
+      <Button icon={<PlusOutlined />} onClick={() => setBundles([...bundles, bundleDefault()])}>
         Add bundle
       </Button>
     </div>

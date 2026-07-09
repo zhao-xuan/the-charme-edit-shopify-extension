@@ -136,6 +136,7 @@ export async function onRequestPost({ request, env }) {
   settings.discounts = settings.discounts || { rules: [], codes: [] }
   const codes = settings.discounts.codes || []
   const rules = settings.discounts.rules || []
+  const bundles = settings.discounts.bundles || []
   const report = []
 
   for (const c of codes) {
@@ -166,6 +167,30 @@ export async function onRequestPost({ request, env }) {
       }
     } catch (e) {
       report.push({ type: 'rule', name: r.name, error: e.message })
+    }
+  }
+  // Bundle discount codes: percentage bundles map to a Shopify code discount the
+  // storefront applies on claim. Fixed-bundle-price can't be a plain code (the
+  // amount off depends on the live total) → reported for manual setup.
+  for (const b of bundles) {
+    const code = (b.code || '').trim()
+    if (!code) {
+      report.push({ type: 'bundle', name: b.name || b.blockTitle, skipped: 'no code set' })
+      continue
+    }
+    if (b.active === false) {
+      report.push({ type: 'bundle', name: b.name || code, skipped: 'inactive' })
+      continue
+    }
+    if ((b.discountKind || 'percent') !== 'percent') {
+      report.push({ type: 'bundle', name: b.name || code, skipped: 'fixed-price bundle — create the code in Shopify manually' })
+      continue
+    }
+    try {
+      b.shopifyCodeId = await syncCode(env, { code, discountKind: 'percent', value: b.value, shopifyId: b.shopifyCodeId })
+      report.push({ type: 'bundle', name: b.name || code, ok: true })
+    } catch (e) {
+      report.push({ type: 'bundle', name: b.name || code, error: e.message })
     }
   }
 
