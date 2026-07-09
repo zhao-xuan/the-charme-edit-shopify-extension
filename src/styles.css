@@ -1655,6 +1655,15 @@ h4,
   padding: 8px 10px;
   background: #fff;
 }
+.bundle-prev__slot .bundle-prev__thumb {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+.bundle-prev__thumb--ph {
+  border: 1px dashed var(--line, #e4d8c7);
+  background: #faf5ec;
+}
 .bundle-prev__num {
   width: 22px;
   height: 22px;

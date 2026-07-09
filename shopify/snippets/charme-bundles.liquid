@@ -78,6 +78,8 @@
   .cb-pick { width: 100%; display: flex; flex-direction: column; gap: 8px; }
   .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; background: rgba(255,255,255,0.45); }
   .cb-pick__num { width: 26px; height: 26px; border-radius: 50%; background: #2e2a26; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none; }
+  .cb-pick__thumb { width: 44px; height: 44px; flex: none; border-radius: 8px; object-fit: contain; background: #faf5ec; border: 1px solid rgba(190,170,140,0.3); }
+  .cb-pick__thumb:not(.is-set) { visibility: hidden; }
   .cb-pick__slot select { flex: 1; font: inherit; padding: 6px 8px; border: 1px solid #e4d8c7; border-radius: 8px; }
 </style>
 
@@ -235,10 +237,19 @@
     for (var i = 0; i < slots; i++) (function (i) {
       var slot = el('div', 'cb-pick__slot');
       slot.appendChild(el('span', 'cb-pick__num', String(i + 1)));
+      var thumb = el('img', 'cb-pick__thumb'); thumb.alt = ''; thumb.loading = 'lazy';
+      slot.appendChild(thumb);
       var s = document.createElement('select');
       s.appendChild(el('option', null, 'Pick a product\u2026'));
       products.forEach(function (p) { var v = firstAvailableVariant(p); if (!v) return; var o = el('option', null, p.title + ' \u2014 ' + money(v.price)); o.value = p.handle; s.appendChild(o); });
-      s.addEventListener('change', function () { pick[i] = s.value || null; recompute(); });
+      s.addEventListener('change', function () {
+        pick[i] = s.value || null;
+        var p = products.find(function (x) { return x.handle === s.value; });
+        var src = p ? imgOf(p) : '';
+        if (src) { thumb.src = src; thumb.classList.add('is-set'); }
+        else { thumb.removeAttribute('src'); thumb.classList.remove('is-set'); }
+        recompute();
+      });
       slot.appendChild(s); wrap.appendChild(slot); pick[i] = null;
     })(i);
     var summary = el('div', 'cb-summary'); block.appendChild(summary);

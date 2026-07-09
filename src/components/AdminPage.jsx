@@ -1045,12 +1045,18 @@ function BundlePreview({ bundle }) {
     const slots = Math.max(2, items.length || 3)
     body = (
       <div className="bundle-prev__pick">
-        {Array.from({ length: slots }).map((_, i) => (
-          <div key={i} className="bundle-prev__slot">
-            <span className="bundle-prev__num">{i + 1}</span>
-            <span className="bundle-prev__pickph">Pick a product…</span>
-          </div>
-        ))}
+        {Array.from({ length: slots }).map((_, i) => {
+          const it = items[i]
+          return (
+            <div key={i} className="bundle-prev__slot">
+              <span className="bundle-prev__num">{i + 1}</span>
+              {it ? thumb(it) : <div className="bundle-prev__thumb bundle-prev__thumb--ph" />}
+              <span className={it ? 'bundle-prev__name' : 'bundle-prev__pickph'}>
+                {it ? (it.label || it.handle || 'Product') : 'Pick a product…'}
+              </span>
+            </div>
+          )
+        })}
       </div>
     )
   } else {
