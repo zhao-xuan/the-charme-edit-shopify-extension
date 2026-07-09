@@ -988,11 +988,10 @@ const DISC_KINDS = [
   { value: 'amount', label: '£ off' },
 ]
 const BUNDLE_LAYOUTS = [
-  { value: 'fbt', label: 'Frequently bought together' },
+  { value: 'swipe', label: 'Match & swipe (main + swipeable match)' },
   { value: 'volume', label: 'Volume discount' },
   { value: 'mixmatch', label: 'Mix & match' },
   { value: 'pickany', label: 'Pick any (mix quantity)' },
-  { value: 'swipe', label: 'Match & swipe (main + swipeable match)' },
 ]
 const STYLE_DEFAULT = { accent: '#2e2a26', cardBg: '#ffffff', badgeBg: '#f2e7d8', badgeInk: '#8a5a2b', radius: 12 }
 const styleOf = (b) => ({ ...STYLE_DEFAULT, ...(b?.style || {}) })
@@ -1001,7 +1000,7 @@ const bundleDefault = () => ({
   name: 'New bundle',
   blockTitle: 'Bundle & save 15%!',
   claimText: 'Claim this offer',
-  layout: 'fbt',
+  layout: 'swipe',
   discountKind: 'percent',
   value: 15,
   code: '',
@@ -1430,11 +1429,12 @@ function DiscountTab({ cloud }) {
     <div>
       <p className="hint" style={{ marginTop: 0 }}>
         Bundles render as a “Bundle &amp; save” block on any page (paste the <code>charme-bundles</code> snippet)
-        and pull LIVE product data + prices from Shopify by product handle. Claiming adds the products to the cart.
-        Pick a layout, add products, then <strong>Save &amp; sync to Shopify</strong>: with no code we create a
-        product-scoped <strong>automatic discount</strong> (recommended — no code box, can’t be shared); set a code
-        only for shareable promos. Tip: the <strong>Match &amp; swipe</strong> layout keeps the customer’s product
-        fixed and lets them swipe through a whole collection of matches (like a dating app) before adding both.
+        and pull LIVE product data + prices from Shopify by product handle. On a <strong>product page</strong> only
+        the bundles that involve the product being viewed are shown; if several match they become a swipeable
+        carousel. Then <strong>Save &amp; sync to Shopify</strong>: with no code we create a product-scoped
+        <strong> automatic discount</strong> (recommended — no code box, can’t be shared); set a code only for
+        shareable promos. Tip: <strong>Match &amp; swipe</strong> keeps the customer’s product fixed and lets them
+        swipe through a whole collection of matches (like a dating app) before adding both.
       </p>
       {bundles.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No bundles yet — add one below." />}
       {bundles.map((b, bi) => (
@@ -1524,8 +1524,11 @@ function DiscountTab({ cloud }) {
               ) : (
                 <>
                   <Divider style={{ margin: '8px 0' }}>Products (from your Shopify store)</Divider>
+                  <p className="hint" style={{ marginTop: 0 }}>
+                    On a product page this bundle only shows if the customer is viewing one of these products.
+                  </p>
                   {(b.items || []).map((it, ii) => (
-                    <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'nowrap' }}>
                       <Select
                         showSearch
                         optionFilterProp="label"
@@ -1541,10 +1544,10 @@ function DiscountTab({ cloud }) {
                           label: p.status && p.status !== 'ACTIVE' ? `${p.title} · ${String(p.status).toLowerCase()}` : p.title,
                         }))}
                         notFoundContent={shopLoading ? 'Loading…' : 'No products (open inside Shopify Admin, or set an admin token)'}
-                        style={{ width: 260 }}
+                        style={{ flex: 1, minWidth: 0 }}
                       />
-                      <Input placeholder="Label (optional)" value={it.label} onChange={(e) => updBundleItem(bi, ii, { label: e.target.value })} style={{ width: 150 }} />
-                      <Button icon={<DeleteOutlined />} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
+                      <Input placeholder="Label" value={it.label} onChange={(e) => updBundleItem(bi, ii, { label: e.target.value })} style={{ width: 120, flex: 'none' }} />
+                      <Button icon={<DeleteOutlined />} style={{ flex: 'none' }} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
                     </div>
                   ))}
                   <Button size="small" icon={<PlusOutlined />} onClick={() => updBundle(bi, { items: [...(b.items || []), { handle: '', label: '' }] })}>

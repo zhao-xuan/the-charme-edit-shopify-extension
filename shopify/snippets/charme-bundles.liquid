@@ -13,9 +13,11 @@
 
   It is fully linked to Shopify: it reads each bundle's product HANDLES from
   /api/settings, fetches LIVE product data + prices from Shopify (/products/<h>.js),
-  and adds the chosen variants to the cart (/cart/add.js) on claim. The saving is
-  applied by the product-scoped Shopify AUTOMATIC discount created via "Save &
-  sync to Shopify" (no code needed); if a bundle has a code, it is applied too.
+  and adds the chosen variants to the cart (/cart/add.js) on claim. On a PRODUCT
+  page it only shows the bundles that involve the product being viewed; when
+  several match they become a swipeable carousel. The saving is applied by the
+  product-scoped Shopify AUTOMATIC discount created via "Save & sync to Shopify"
+  (no code needed); if a bundle has a code, it is applied too.
 {%- endcomment -%}
 
 {%- assign _api = api_base | default: 'https://charme-customizer.pages.dev' -%}
@@ -92,12 +94,22 @@
   .cb-swipe__dots { display: inline-flex; gap: 4px; align-items: center; }
   .cb-swipe__dot { width: 6px; height: 6px; border-radius: 50%; background: #e4d8c7; display: inline-block; }
   .cb-swipe__dot.is-on { background: var(--cb-accent, #2e2a26); }
+
+  /* Carousel — multiple bundles relevant to the current product page. */
+  .cb-carousel { max-width: 380px; margin: 0 auto; }
+  .cb-carousel__nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 6px; }
+  .cb-carousel__arrow { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 18px; line-height: 1; cursor: pointer; color: #2e2a26; }
+  .cb-carousel__arrow:hover { background: #faf5ec; }
+  .cb-carousel__dots { display: inline-flex; gap: 5px; align-items: center; }
+  .cb-carousel__dot { width: 7px; height: 7px; border-radius: 50%; background: #e4d8c7; display: inline-block; }
+  .cb-carousel__dot.is-on { background: #2e2a26; }
 </style>
 
 <script>
 (function () {
   var roots = document.querySelectorAll('[data-charme-bundles]');
   if (!roots.length) return;
+  var _colCache = {};
 
   function money(cents) { return '£' + (cents / 100).toFixed(2); }
   function pct(bundle) { return Number(bundle.value) || 0; }
@@ -114,11 +126,12 @@
     return res.json();
   }
   async function getCollectionProducts(handle) {
-    // Storefront AJAX: up to 250 published products for a collection.
+    // Storefront AJAX: up to 250 published products for a collection (cached per handle).
+    if (_colCache[handle]) return _colCache[handle];
     var res = await fetch('/collections/' + encodeURIComponent(handle) + '/products.json?limit=250', { headers: { Accept: 'application/json' } });
-    if (!res.ok) return [];
-    var data = await res.json();
-    return (data && data.products) || [];
+    var list = res.ok ? (((await res.json()) || {}).products || []) : [];
+    _colCache[handle] = list;
+    return list;
   }
   function firstAvailableVariant(p) { return (p.variants || []).find(function (v) { return v.available; }) || (p.variants || [])[0]; }
   // /products/<h>.js gives price in CENTS (number); /collections/..products.json gives "48.00" (string).
@@ -149,6 +162,23 @@
     var handles = (side.products || []).map(function (p) { return (p.handle || '').trim(); }).filter(Boolean);
     var res = await Promise.all(handles.map(function (h) { return getProduct(h).catch(function () { return null; }); }));
     return res.filter(Boolean);
+  }
+  // Is `handle` one of the products a bundle side points at (product list or collection)?
+  async function productInSide(side, handle) {
+    side = side || {};
+    if (side.mode === 'collection' && side.collection && side.collection.handle) {
+      var prods = await getCollectionProducts(side.collection.handle);
+      return prods.some(function (p) { return p.handle === handle; });
+    }
+    return (side.products || []).some(function (p) { return (p.handle || '').trim() === handle; });
+  }
+  // Show a bundle on a product page only when it involves the product being viewed.
+  // (No product context — e.g. cart / custom page — shows every active bundle.)
+  async function bundleRelevant(bundle, handle) {
+    if (!handle) return true;
+    if ((bundle.layout || 'fbt') === 'swipe') return await productInSide(bundle.main, handle);
+    var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); });
+    return handles.indexOf(handle) !== -1;
   }
 
   async function addToCart(items) {
@@ -388,7 +418,7 @@
     return true;
   }
 
-  async function renderBundle(root, container, bundle) {
+  async function buildBundle(root, bundle) {
     var layout = bundle.layout || 'fbt';
     if (layout === 'swipe') {
       var sblock = el('div', 'cb-block'); applyStyle(sblock, bundle);
@@ -396,11 +426,10 @@
       stitle.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
       sblock.appendChild(stitle);
       var ok = await renderSwipe(root, sblock, bundle);
-      if (ok) container.appendChild(sblock);
-      return;
+      return ok ? sblock : null;
     }
     var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); }).filter(Boolean);
-    if (!handles.length) return;
+    if (!handles.length) return null;
     // Resolve each product independently so ONE unpublished / 404 handle doesn't
     // kill the whole bundle — render with whatever is live on the storefront.
     var results = await Promise.all(handles.map(function (h) {
@@ -412,7 +441,7 @@
     var products = results.filter(Boolean);
     if (!products.length) {
       console.warn('[Charmé bundles] bundle "' + (bundle.name || bundle.blockTitle || '') + '" has no products published to the Online Store — nothing to show.');
-      return;
+      return null;
     }
     var block = el('div', 'cb-block'); applyStyle(block, bundle);
     var title = el('div', 'cb-block__title');
@@ -422,7 +451,32 @@
     else if (layout === 'mixmatch') renderMixMatch(root, block, bundle, products);
     else if (layout === 'pickany') renderPickAny(root, block, bundle, products);
     else renderFBT(root, block, bundle, products);
-    container.appendChild(block);
+    return block;
+  }
+
+  // Several relevant bundles on one page → a swipeable / paged carousel.
+  function mountCarousel(root, blocks) {
+    if (blocks.length === 1) { root.appendChild(blocks[0]); return; }
+    var wrap = el('div', 'cb-carousel');
+    var viewport = el('div', 'cb-carousel__viewport');
+    blocks.forEach(function (b, i) { b.classList.add('cb-carousel__slide'); if (i !== 0) b.style.display = 'none'; viewport.appendChild(b); });
+    var nav = el('div', 'cb-carousel__nav');
+    var prev = el('button', 'cb-carousel__arrow', '\u2039'); prev.type = 'button'; prev.setAttribute('aria-label', 'Previous offer');
+    var next = el('button', 'cb-carousel__arrow', '\u203a'); next.type = 'button'; next.setAttribute('aria-label', 'Next offer');
+    var dots = el('div', 'cb-carousel__dots');
+    nav.appendChild(prev); nav.appendChild(dots); nav.appendChild(next);
+    var idx = 0;
+    function paint() { dots.innerHTML = ''; blocks.forEach(function (_, i) { dots.appendChild(el('span', 'cb-carousel__dot' + (i === idx ? ' is-on' : ''))); }); }
+    function show(n) { blocks[idx].style.display = 'none'; idx = (n + blocks.length) % blocks.length; blocks[idx].style.display = ''; paint(); }
+    prev.addEventListener('click', function () { show(idx - 1); });
+    next.addEventListener('click', function () { show(idx + 1); });
+    // Touch swipe across the whole carousel
+    var sx = null;
+    viewport.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', function (e) { if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1)); sx = null; });
+    paint();
+    wrap.appendChild(viewport); wrap.appendChild(nav);
+    root.appendChild(wrap);
   }
 
   roots.forEach(async function (root) {
@@ -433,10 +487,18 @@
       var settings = res.ok ? await res.json() : {};
       var bundles = ((settings.discounts || {}).bundles || []).filter(function (b) { return b.active !== false; });
       if (only) bundles = bundles.filter(function (b) { return (b.name || '') === only; });
+      // On a product page, keep only the bundles that involve the current product.
+      var handle = currentHandle();
+      var toShow = bundles;
+      if (!only && handle) {
+        toShow = [];
+        for (var k = 0; k < bundles.length; k++) { if (await bundleRelevant(bundles[k], handle)) toShow.push(bundles[k]); }
+      }
+      var blocks = [];
+      for (var i = 0; i < toShow.length; i++) { var b = await buildBundle(root, toShow[i]); if (b) blocks.push(b); }
       root.innerHTML = '';
-      if (!bundles.length) { root.style.display = 'none'; return; }
-      for (var i = 0; i < bundles.length; i++) { await renderBundle(root, root, bundles[i]); }
-      if (!root.children.length) root.style.display = 'none';
+      if (!blocks.length) { root.style.display = 'none'; return; }
+      mountCarousel(root, blocks);
     } catch (e) { root.style.display = 'none'; }
   });
 })();
