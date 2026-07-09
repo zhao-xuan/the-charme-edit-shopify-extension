@@ -54,6 +54,7 @@ import {
   patchProduct,
   saveSettings,
   setToken,
+  syncDiscounts,
 } from '../lib/adminApi'
 
 const slug = (s) =>
@@ -987,6 +988,7 @@ function DiscountTab({ cloud }) {
   const { message } = App.useApp()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [syncing, setSyncing] = useState(false)
   const [s, setS] = useState(() => JSON.parse(JSON.stringify(DEFAULT_SETTINGS)))
 
   useEffect(() => {
@@ -1036,6 +1038,34 @@ function DiscountTab({ cloud }) {
       message.error(`Could not save: ${e.message}`)
     } finally {
       setSaving(false)
+    }
+  }
+
+  // Save, then create/update the matching real Shopify discounts (codes +
+  // automatic rules) via the Admin API, and fold the returned GIDs back in.
+  const saveAndSync = async () => {
+    setSyncing(true)
+    try {
+      await saveSettings(s)
+      const res = await syncDiscounts()
+      if (res && res.settings) {
+        setS((prev) => ({
+          ...prev,
+          ...res.settings,
+          crossSell: { ...prev.crossSell, ...(res.settings.crossSell || {}) },
+          discounts: { ...prev.discounts, ...(res.settings.discounts || {}) },
+        }))
+      }
+      const errs = (res?.report || []).filter((r) => r.error)
+      if (errs.length) {
+        message.warning(`Synced with ${errs.length} issue(s): ${errs.map((e) => `${e.name}: ${e.error}`).join(' · ')}`)
+      } else {
+        message.success('Discounts synced to Shopify.')
+      }
+    } catch (e) {
+      message.error(`Sync failed: ${e.message}`)
+    } finally {
+      setSyncing(false)
     }
   }
 
@@ -1147,9 +1177,15 @@ function DiscountTab({ cloud }) {
       <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
         Save discount settings
       </Button>
+      <Button icon={<PercentageOutlined />} loading={syncing} onClick={saveAndSync} style={{ marginLeft: 10 }}>
+        Save &amp; sync to Shopify
+      </Button>
       <p className="hint" style={{ marginTop: 10 }}>
-        Rules preview the discounted total inside the customizer; codes apply at the Shopify cart. To
-        enforce a rule at checkout, create a matching Shopify automatic discount / code with the same value.
+        <strong>Save</strong> stores your settings (the customizer preview + cross-sell popup use them).{' '}
+        <strong>Save &amp; sync to Shopify</strong> creates matching real discounts via the Admin API:
+        every active <em>code</em> becomes a Shopify code discount, and <em>category</em> / <em>product-quantity</em>{' '}
+        rules become automatic discounts. Specific-item / charm-count rules aren’t natively enforceable — issue a
+        code for those. (Requires the app’s <code>write_discounts</code> scope — reinstall the app if you just added it.)
       </p>
     </div>
   )

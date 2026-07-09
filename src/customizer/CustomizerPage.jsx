@@ -945,6 +945,14 @@ export default function CustomizerPage({
     setSelectedGroupId(null)
     setConfirmGroupId(null)
   }
+  // Skip the cross-sell and go straight to the cart to check out.
+  const goToCart = () => {
+    setCrossSellOpen(false)
+    if (typeof window !== 'undefined') {
+      const cartUrl = (window.CharmeConfig && window.CharmeConfig.cartUrl) || '/cart'
+      window.location.href = cartUrl
+    }
+  }
 
   // ---- mobile splitter: drag to resize the preview vs. tray split ----
   const onSplitDown = useCallback((e) => {
@@ -1270,8 +1278,10 @@ export default function CustomizerPage({
               {opt.label}
             </Button>
           ))}
-          <Button size="large" onClick={() => setCrossSellOpen(false)}>
-            No thanks
+        </div>
+        <div style={{ marginTop: 18, textAlign: 'center' }}>
+          <Button type="link" size="large" onClick={goToCart}>
+            No thanks — go to my cart →
           </Button>
         </div>
       </Modal>
