@@ -67,13 +67,18 @@
   .cb-vol__save { color: #2e7d32; font-weight: 600; font-size: 12px; }
   .cb-vol__was { color:#8a7f74; text-decoration: line-through; margin-right: 8px; font-size: 13px; }
 
-  /* Layout 3 — Mix & match: a grid of products with +/- steppers + a live basket bar. */
-  .cb-mix { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-  .cb-mix__card { border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 6px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
+  /* Layout 3 — Mix & match: a compact 2-row horizontally-scrollable strip of
+     products with +/- steppers + a live basket bar. */
+  .cb-mix { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); grid-auto-columns: 124px; gap: 10px; overflow-x: auto; overflow-y: hidden; padding-bottom: 8px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(190,170,140,0.5) transparent; }
+  .cb-mix::-webkit-scrollbar { height: 6px; }
+  .cb-mix::-webkit-scrollbar-thumb { background: rgba(190,170,140,0.5); border-radius: 999px; }
+  .cb-mix__card { scroll-snap-align: start; border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 8px; text-align: center; display: flex; flex-direction: column; gap: 4px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
+  .cb-mix__card .cb-card__img { height: 72px; }
+  .cb-mix__card .cb-card__name { min-height: 26px; font-size: 11.5px; }
   .cb-step { display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
-  .cb-step button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 16px; line-height: 1; cursor: pointer; }
-  .cb-step span { min-width: 20px; font-weight: 600; }
-  .cb-mix__bar { position: sticky; bottom: 0; margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(250,245,236,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; }
+  .cb-step button { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 15px; line-height: 1; cursor: pointer; }
+  .cb-step span { min-width: 18px; font-weight: 600; }
+  .cb-mix__bar { position: sticky; bottom: 0; margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(250,245,236,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; }
   .cb-mix__bar .cb-claim { margin: 0; width: auto; }
 
   /* Layout 4 — Pick any (mix quantity): numbered slots you fill from a dropdown. */
@@ -312,7 +317,9 @@
 
   // ---- Layout 4: Pick any (numbered slots you fill from a dropdown) --------
   function renderPickAny(root, block, bundle, products) {
-    var slots = Math.max(2, (bundle.items || []).length || products.length);
+    // "Pick any N" — a small, fixed number of slots (never one-per-product, which
+    // would be huge for a whole-collection pool). Merchant override via bundle.slots.
+    var slots = Math.max(2, Math.min(Number(bundle.slots) || 3, products.length));
     block.appendChild(subtitle('Pick any ' + slots + ' \u2014 ' + (isFixed(bundle) ? ('bundle for \u00a3' + (Number(bundle.value) || 0)) : ('save ' + pct(bundle) + '%')) + '.'));
     var wrap = el('div', 'cb-pick'); block.appendChild(wrap);
     var pick = [];
