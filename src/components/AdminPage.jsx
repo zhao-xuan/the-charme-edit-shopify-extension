@@ -1297,9 +1297,10 @@ function DiscountTab({ cloud }) {
     <div>
       <p className="hint" style={{ marginTop: 0 }}>
         Bundles render as a “Bundle &amp; save” block on any page (paste the <code>charme-bundles</code> snippet)
-        and pull LIVE product data + prices from Shopify by product handle. Claiming adds the products to the cart
-        and applies the discount code. Pick a layout, add products, then <strong>Save &amp; sync to Shopify</strong>{' '}
-        so the code is created.
+        and pull LIVE product data + prices from Shopify by product handle. Claiming adds the products to the cart.
+        Pick a layout, add products, then <strong>Save &amp; sync to Shopify</strong>: with no code we create a
+        product-scoped <strong>automatic discount</strong> (recommended — no code box, can’t be shared); set a code
+        only for shareable promos.
       </p>
       {bundles.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No bundles yet — add one below." />}
       {bundles.map((b, bi) => (
@@ -1355,8 +1356,8 @@ function DiscountTab({ cloud }) {
                 </span>
               </label>
               <label style={discFieldStyle}>
-                <span style={{ color: 'var(--ink-soft)' }}>Discount code (applied on claim)</span>
-                <Input value={b.code} onChange={(e) => updBundle(bi, { code: e.target.value.toUpperCase() })} placeholder="e.g. STRAPBUNDLE15" style={{ maxWidth: 300 }} />
+                <span style={{ color: 'var(--ink-soft)' }}>Discount code (optional)</span>
+                <Input value={b.code} onChange={(e) => updBundle(bi, { code: e.target.value.toUpperCase() })} placeholder="Leave blank = automatic discount (recommended)" style={{ maxWidth: 300 }} />
               </label>
               <label style={discFieldStyle}>
                 <span style={{ color: 'var(--ink-soft)' }}>Show variant selectors</span>

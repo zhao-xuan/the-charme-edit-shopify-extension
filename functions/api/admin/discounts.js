@@ -60,12 +60,21 @@ const AUTO_UPDATE = `
 // `collections(query:"handle:...")` is version-stable (collectionByHandle is deprecated).
 const COLLECTION_LOOKUP = `
   query($q: String!) { collections(first: 1, query: $q) { edges { node { id handle } } } }`
+const PRODUCT_LOOKUP = `
+  query($q: String!) { products(first: 1, query: $q) { edges { node { id handle } } } }`
 
 async function collectionGid(env, handle) {
   if (!handle) return null
   const data = await shopifyAdmin(env, COLLECTION_LOOKUP, { q: `handle:${handle}` })
   const edge = (data.collections?.edges || [])[0]
   return edge && edge.node.handle === handle ? edge.node.id : edge?.node?.id || null
+}
+
+async function productGid(env, handle) {
+  if (!handle) return null
+  const data = await shopifyAdmin(env, PRODUCT_LOOKUP, { q: `handle:${handle}` })
+  const edge = (data.products?.edges || [])[0]
+  return edge && edge.node.handle === handle ? edge.node.id : null
 }
 
 const itemsFor = (colGid) => (colGid ? { collections: { add: [colGid] } } : { all: true })
@@ -76,13 +85,13 @@ function assertNoErrors(payload, key) {
   if (ue && ue.length) throw new Error(ue.map((e) => e.message).join('; '))
 }
 
-async function syncCode(env, c) {
+async function syncCode(env, c, items) {
   const input = {
     title: c.code,
     code: c.code,
     startsAt: new Date().toISOString(),
     customerSelection: { all: true },
-    customerGets: { value: getsValue(c), items: { all: true } },
+    customerGets: { value: getsValue(c), items: items || { all: true } },
     appliesOncePerCustomer: false,
   }
   if (c.shopifyId) {
@@ -120,6 +129,46 @@ async function syncRule(env, r) {
   const d = await shopifyAdmin(env, AUTO_CREATE, { automaticBasicDiscount: input })
   assertNoErrors(d, 'discountAutomaticBasicCreate')
   return d.discountAutomaticBasicCreate.automaticDiscountNode.id
+}
+
+/**
+ * Sync a bundle to Shopify. RECOMMENDED default: a product-scoped AUTOMATIC
+ * discount (no code needed — applies whenever the bundle's products are in the
+ * cart, can't be shared/hunted). If the merchant set a code, we make a
+ * product-scoped CODE discount instead (so the code can't discount the whole
+ * cart). Only percentage bundles map to a native basic discount; a fixed bundle
+ * PRICE needs Shopify Bundles / a Discount Function, so it's reported for manual
+ * setup. Returns { autoId?, codeId? } or null (skipped).
+ */
+async function syncBundle(env, b) {
+  if ((b.discountKind || 'percent') !== 'percent') return { skip: 'fixed-price bundle — use Shopify Bundles / a Discount Function' }
+  const handles = (b.items || []).map((it) => (it.handle || '').trim()).filter(Boolean)
+  if (!handles.length) return { skip: 'no products in the bundle' }
+  const gids = []
+  for (const h of handles) {
+    const gid = await productGid(env, h)
+    if (gid) gids.push(gid)
+  }
+  if (!gids.length) throw new Error('none of the bundle products were found in Shopify')
+  const items = { products: { productsToAdd: gids } }
+  const value = getsValue({ discountKind: 'percent', value: b.value })
+  const title = (b.blockTitle || b.name || 'Charmé bundle') + ' (Charmé)'
+
+  const code = (b.code || '').trim()
+  if (code) {
+    const codeId = await syncCode(env, { code, discountKind: 'percent', value: b.value, shopifyId: b.shopifyCodeId }, items)
+    return { codeId }
+  }
+  // Automatic, product-scoped.
+  const input = { title, startsAt: new Date().toISOString(), customerGets: { value, items } }
+  if (b.shopifyAutoId) {
+    const d = await shopifyAdmin(env, AUTO_UPDATE, { id: b.shopifyAutoId, automaticBasicDiscount: input })
+    assertNoErrors(d, 'discountAutomaticBasicUpdate')
+    return { autoId: b.shopifyAutoId }
+  }
+  const d = await shopifyAdmin(env, AUTO_CREATE, { automaticBasicDiscount: input })
+  assertNoErrors(d, 'discountAutomaticBasicCreate')
+  return { autoId: d.discountAutomaticBasicCreate.automaticDiscountNode.id }
 }
 
 function cleanSettings(rec) {
@@ -169,28 +218,25 @@ export async function onRequestPost({ request, env }) {
       report.push({ type: 'rule', name: r.name, error: e.message })
     }
   }
-  // Bundle discount codes: percentage bundles map to a Shopify code discount the
-  // storefront applies on claim. Fixed-bundle-price can't be a plain code (the
-  // amount off depends on the live total) → reported for manual setup.
+  // Bundles → a product-scoped AUTOMATIC discount (recommended) or, if a code is
+  // set, a product-scoped code discount. Fixed-price bundles are reported for
+  // manual setup (need Shopify Bundles / a Discount Function).
   for (const b of bundles) {
-    const code = (b.code || '').trim()
-    if (!code) {
-      report.push({ type: 'bundle', name: b.name || b.blockTitle, skipped: 'no code set' })
-      continue
-    }
     if (b.active === false) {
-      report.push({ type: 'bundle', name: b.name || code, skipped: 'inactive' })
-      continue
-    }
-    if ((b.discountKind || 'percent') !== 'percent') {
-      report.push({ type: 'bundle', name: b.name || code, skipped: 'fixed-price bundle — create the code in Shopify manually' })
+      report.push({ type: 'bundle', name: b.name || b.blockTitle, skipped: 'inactive' })
       continue
     }
     try {
-      b.shopifyCodeId = await syncCode(env, { code, discountKind: 'percent', value: b.value, shopifyId: b.shopifyCodeId })
-      report.push({ type: 'bundle', name: b.name || code, ok: true })
+      const res = await syncBundle(env, b)
+      if (!res || res.skip) {
+        report.push({ type: 'bundle', name: b.name || b.blockTitle, skipped: (res && res.skip) || 'skipped' })
+      } else {
+        if (res.autoId) { b.shopifyAutoId = res.autoId; b.shopifyCodeId = undefined }
+        if (res.codeId) { b.shopifyCodeId = res.codeId; b.shopifyAutoId = undefined }
+        report.push({ type: 'bundle', name: b.name || b.blockTitle, ok: true, mode: res.autoId ? 'automatic' : 'code' })
+      }
     } catch (e) {
-      report.push({ type: 'bundle', name: b.name || code, error: e.message })
+      report.push({ type: 'bundle', name: b.name || b.blockTitle, error: e.message })
     }
   }
 

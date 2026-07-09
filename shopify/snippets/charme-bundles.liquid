@@ -13,8 +13,9 @@
 
   It is fully linked to Shopify: it reads each bundle's product HANDLES from
   /api/settings, fetches LIVE product data + prices from Shopify (/products/<h>.js),
-  adds the chosen variants to the cart (/cart/add.js) and applies the bundle's
-  discount code (/discount/<CODE>) on claim.
+  and adds the chosen variants to the cart (/cart/add.js) on claim. The saving is
+  applied by the product-scoped Shopify AUTOMATIC discount created via "Save &
+  sync to Shopify" (no code needed); if a bundle has a code, it is applied too.
 {%- endcomment -%}
 
 {%- assign _api = api_base | default: 'https://charme-customizer.pages.dev' -%}
