@@ -1010,39 +1010,72 @@ function BundlePreview({ bundle }) {
   const items = bundle.items || []
   const kind = bundle.discountKind || 'percent'
   const val = Number(bundle.value) || 0
-  const dealText = kind === 'fixed' ? `£${val} bundle price` : `Save ${val}%`
+  const dealText = kind === 'fixed' ? `£${val} bundle` : `Save ${val}%`
   const layout = bundle.layout || 'fbt'
+  const thumb = (it) =>
+    it.image ? <img className="bundle-prev__thumb" src={it.image} alt="" /> : <div className="bundle-prev__thumb" />
+  const empty = <span className="hint">Add products to preview</span>
+
+  let body
+  if (layout === 'volume') {
+    body = (
+      <div className="bundle-prev__vol">
+        {[1, 2, 3].map((n) => (
+          <div key={n} className={`bundle-prev__voltier${n === 2 ? ' is-active' : ''}`}>
+            <strong>{['One', 'Two', 'Three'][n - 1]}</strong>
+            <span>{n === 1 ? 'Standard price' : `Save ${val}%`}</span>
+          </div>
+        ))}
+      </div>
+    )
+  } else if (layout === 'mixmatch') {
+    body = (
+      <div className="bundle-prev__mix">
+        {items.length === 0 && empty}
+        {items.map((it, i) => (
+          <div key={i} className="bundle-prev__mixcard">
+            {thumb(it)}
+            <span className="bundle-prev__name">{it.label || it.handle || 'Product'}</span>
+            <span className="bundle-prev__step">− 0 +</span>
+          </div>
+        ))}
+      </div>
+    )
+  } else if (layout === 'pickany') {
+    const slots = Math.max(2, items.length || 3)
+    body = (
+      <div className="bundle-prev__pick">
+        {Array.from({ length: slots }).map((_, i) => (
+          <div key={i} className="bundle-prev__slot">
+            <span className="bundle-prev__num">{i + 1}</span>
+            <span className="bundle-prev__pickph">Pick a product…</span>
+          </div>
+        ))}
+      </div>
+    )
+  } else {
+    body = (
+      <div className="bundle-prev__row">
+        {items.length === 0 && empty}
+        {items.map((it, i) => (
+          <div key={i} className="bundle-prev__item">
+            {i > 0 && <span className="bundle-prev__plus">+</span>}
+            <div className="bundle-prev__card">
+              {thumb(it)}
+              <span className="bundle-prev__name">{it.label || it.handle || 'Product'}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div className="bundle-prev">
-      <div className="bundle-prev__title">{bundle.blockTitle || 'Bundle & save'}</div>
-      {layout === 'volume' ? (
-        <div className="bundle-prev__vol">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className={`bundle-prev__voltier${n === 2 ? ' is-active' : ''}`}>
-              <strong>{['One', 'Two', 'Three'][n - 1]}</strong>
-              <span>{n === 1 ? 'Standard price' : `Save ${val}%`}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="bundle-prev__row">
-          {items.length === 0 && <span className="hint">Add products to preview</span>}
-          {items.map((it, i) => (
-            <div key={i} className="bundle-prev__item">
-              {i > 0 && <span className="bundle-prev__plus">+</span>}
-              <div className="bundle-prev__card">
-                {it.image ? (
-                  <img className="bundle-prev__thumb" src={it.image} alt={it.label || it.handle || ''} />
-                ) : (
-                  <div className="bundle-prev__thumb" />
-                )}
-                <span className="bundle-prev__name">{it.label || it.handle || 'Product'}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <div className="bundle-prev__deal">{dealText}{bundle.code ? ` · code ${bundle.code}` : ''}</div>
+      <div className="bundle-prev__title">
+        {bundle.blockTitle || 'Bundle & save'} <span className="bundle-prev__badge">{dealText}</span>
+      </div>
+      {body}
       <button type="button" className="bundle-prev__claim">{bundle.claimText || 'Claim this offer'}</button>
     </div>
   )
