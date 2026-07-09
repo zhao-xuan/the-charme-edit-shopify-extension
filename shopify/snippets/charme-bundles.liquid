@@ -34,7 +34,7 @@
 <style>
   .charme-bundles { margin: 22px 0; font-family: inherit; }
   .charme-bundles__loading { color: #8a7f74; font-size: 14px; }
-  .cb-block { border: 1px solid #e4d8c7; border-radius: 14px; padding: 18px; margin: 0 0 18px; background: #fff; }
+  .cb-block { border: none; border-radius: 14px; padding: 18px 4px; margin: 0 0 18px; background: transparent; width: 100%; box-sizing: border-box; }
   .cb-block__title { text-align: center; font-size: 20px; font-weight: 700; margin: 0 0 4px; color: #2e2a26; }
   .cb-block__sub { text-align: center; font-size: 13px; color: #8a7f74; margin: 0 0 16px; }
   .cb-claim { display: block; margin: 14px auto 0; border: none; border-radius: 10px; background: #2e2a26; color: #fff; padding: 12px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
@@ -49,7 +49,7 @@
      and a checkbox per product. */
   .cb-fbt { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; }
   .cb-plus { align-self: center; font-size: 22px; font-weight: 700; color: #b0a693; }
-  .cb-fbt__card { position: relative; width: 160px; border: 1px solid #ece2d0; border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .cb-fbt__card { position: relative; flex: 1 1 150px; max-width: 200px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; background: rgba(255,255,255,0.45); }
   .cb-fbt__check { position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; accent-color: #b35b5b; }
   .cb-card__img { width: 100%; height: 100px; object-fit: contain; border-radius: 8px; background: #faf5ec; }
   .cb-card__name { font-size: 12.5px; line-height: 1.25; color: #2e2a26; min-height: 30px; }
@@ -57,8 +57,8 @@
   .cb-card select { width: 100%; font: inherit; font-size: 12px; padding: 4px 6px; border: 1px solid #e4d8c7; border-radius: 6px; }
 
   /* Layout 2 — Volume discount: stacked quantity tiers. */
-  .cb-vol { display: flex; flex-direction: column; gap: 10px; max-width: 460px; margin: 0 auto; }
-  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #e4d8c7; border-radius: 12px; padding: 12px 16px; cursor: pointer; }
+  .cb-vol { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(190,170,140,0.4); border-radius: 12px; padding: 12px 16px; cursor: pointer; background: rgba(255,255,255,0.5); }
   .cb-vol__tier.is-active { border-color: #b35b5b; box-shadow: 0 0 0 2px rgba(179,91,91,.15); }
   .cb-vol__tier .cb-vol__q { font-weight: 700; }
   .cb-vol__save { color: #2e7d32; font-weight: 600; font-size: 12px; }
@@ -66,16 +66,16 @@
 
   /* Layout 3 — Mix & match: a grid of products with +/- steppers + a live basket bar. */
   .cb-mix { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-  .cb-mix__card { border: 1px solid #ece2d0; border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+  .cb-mix__card { border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.45); }
   .cb-step { display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
   .cb-step button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 16px; line-height: 1; cursor: pointer; }
   .cb-step span { min-width: 20px; font-weight: 600; }
-  .cb-mix__bar { position: sticky; bottom: 0; margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #faf5ec; border: 1px solid #e4d8c7; border-radius: 12px; padding: 10px 14px; }
+  .cb-mix__bar { position: sticky; bottom: 0; margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(250,245,236,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; }
   .cb-mix__bar .cb-claim { margin: 0; }
 
   /* Layout 4 — Pick any (mix quantity): numbered slots you fill from a dropdown. */
-  .cb-pick { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-  .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid #ece2d0; border-radius: 12px; padding: 10px 14px; }
+  .cb-pick { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+  .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; background: rgba(255,255,255,0.45); }
   .cb-pick__num { width: 26px; height: 26px; border-radius: 50%; background: #2e2a26; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none; }
   .cb-pick__slot select { flex: 1; font: inherit; padding: 6px 8px; border: 1px solid #e4d8c7; border-radius: 8px; }
 </style>
