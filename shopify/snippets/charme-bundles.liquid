@@ -32,12 +32,12 @@
 </div>
 
 <style>
-  .charme-bundles { margin: 22px 0; font-family: inherit; }
+  .charme-bundles { margin: 16px 0; font-family: inherit; }
   .charme-bundles__loading { color: #8a7f74; font-size: 14px; }
-  .cb-block { border: none; border-radius: 14px; padding: 18px 4px; margin: 0 0 18px; background: transparent; width: 100%; box-sizing: border-box; }
-  .cb-block__title { text-align: center; font-size: 20px; font-weight: 700; margin: 0 0 4px; color: #2e2a26; }
-  .cb-block__sub { text-align: center; font-size: 13px; color: #8a7f74; margin: 0 0 16px; }
-  .cb-claim { display: block; margin: 14px auto 0; border: none; border-radius: 10px; background: #2e2a26; color: #fff; padding: 12px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
+  .cb-block { border: none; border-radius: 0; padding: 12px 0 16px; margin: 0; background: transparent; width: 100%; box-sizing: border-box; }
+  .cb-block__title { text-align: center; font-size: 19px; font-weight: 700; margin: 0 0 3px; color: #2e2a26; }
+  .cb-block__sub { text-align: center; font-size: 13px; color: #8a7f74; margin: 0 0 12px; }
+  .cb-claim { display: block; width: 100%; margin: 14px 0 0; border: none; border-radius: 10px; background: #2e2a26; color: #fff; padding: 13px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
   .cb-claim:disabled { opacity: .5; cursor: default; }
   .cb-summary { text-align: center; margin: 16px 0 6px; }
   .cb-summary__was { color: #8a7f74; text-decoration: line-through; margin-right: 8px; }
@@ -57,8 +57,8 @@
   .cb-card select { width: 100%; font: inherit; font-size: 12px; padding: 4px 6px; border: 1px solid #e4d8c7; border-radius: 6px; }
 
   /* Layout 2 — Volume discount: stacked quantity tiers. */
-  .cb-vol { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(190,170,140,0.4); border-radius: 12px; padding: 12px 16px; cursor: pointer; background: rgba(255,255,255,0.5); }
+  .cb-vol { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(190,170,140,0.4); border-radius: 12px; padding: 11px 15px; cursor: pointer; background: rgba(255,255,255,0.5); }
   .cb-vol__tier.is-active { border-color: #b35b5b; box-shadow: 0 0 0 2px rgba(179,91,91,.15); }
   .cb-vol__tier .cb-vol__q { font-weight: 700; }
   .cb-vol__save { color: #2e7d32; font-weight: 600; font-size: 12px; }
@@ -71,10 +71,10 @@
   .cb-step button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 16px; line-height: 1; cursor: pointer; }
   .cb-step span { min-width: 20px; font-weight: 600; }
   .cb-mix__bar { position: sticky; bottom: 0; margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(250,245,236,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; }
-  .cb-mix__bar .cb-claim { margin: 0; }
+  .cb-mix__bar .cb-claim { margin: 0; width: auto; }
 
   /* Layout 4 — Pick any (mix quantity): numbered slots you fill from a dropdown. */
-  .cb-pick { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+  .cb-pick { width: 100%; display: flex; flex-direction: column; gap: 8px; }
   .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; background: rgba(255,255,255,0.45); }
   .cb-pick__num { width: 26px; height: 26px; border-radius: 50%; background: #2e2a26; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none; }
   .cb-pick__slot select { flex: 1; font: inherit; padding: 6px 8px; border: 1px solid #e4d8c7; border-radius: 8px; }
