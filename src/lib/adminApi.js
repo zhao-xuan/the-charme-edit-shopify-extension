@@ -110,3 +110,7 @@ export const syncDiscounts = async () =>
 /** List the store's Shopify products (for bundle / product pickers). */
 export const fetchShopifyProducts = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
+
+/** List the store's Shopify collections (for the bundle "whole collection" picker). */
+export const fetchShopifyCollections = async (q) =>
+  handle(await fetch(url(`/api/admin/shopify-collections${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))

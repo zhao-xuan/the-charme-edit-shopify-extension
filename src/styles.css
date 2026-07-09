@@ -1567,8 +1567,8 @@ h4,
   width: 84px;
   padding: 8px;
   border: 1px solid var(--line, #e4d8c7);
-  border-radius: 10px;
-  background: #fff;
+  border-radius: var(--bp-radius, 10px);
+  background: var(--bp-card-bg, #fff);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1593,11 +1593,11 @@ h4,
 }
 .bundle-prev__voltier {
   border: 1.5px solid var(--line, #e4d8c7);
-  border-radius: 10px;
+  border-radius: var(--bp-radius, 10px);
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: var(--bp-card-bg, #fff);
 }
 .bundle-prev__voltier.is-active {
   border-color: var(--rouge, #b35b5b);
@@ -1612,8 +1612,8 @@ h4,
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
-  color: #8a5a2b;
-  background: #f2e7d8;
+  color: var(--bp-badge-ink, #8a5a2b);
+  background: var(--bp-badge-bg, #f2e7d8);
   border-radius: 999px;
   padding: 2px 9px;
   vertical-align: middle;
@@ -1627,9 +1627,9 @@ h4,
 }
 .bundle-prev__mixcard {
   border: 1px solid var(--line, #e4d8c7);
-  border-radius: 10px;
+  border-radius: var(--bp-radius, 10px);
   padding: 6px;
-  background: #fff;
+  background: var(--bp-card-bg, #fff);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1651,9 +1651,9 @@ h4,
   align-items: center;
   gap: 10px;
   border: 1px solid var(--line, #e4d8c7);
-  border-radius: 10px;
+  border-radius: var(--bp-radius, 10px);
   padding: 8px 10px;
-  background: #fff;
+  background: var(--bp-card-bg, #fff);
 }
 .bundle-prev__slot .bundle-prev__thumb {
   width: 34px;
@@ -1683,12 +1683,87 @@ h4,
 }
 .bundle-prev__claim {
   border: none;
-  border-radius: 8px;
-  background: var(--ink, #2e2a26);
+  border-radius: var(--bp-radius, 8px);
+  background: var(--bp-accent, #2e2a26);
   color: #fff;
   padding: 8px 18px;
   font-weight: 600;
   cursor: default;
+}
+/* match & swipe preview */
+.bundle-prev__swipe {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  min-height: 78px;
+}
+.bundle-prev__scard {
+  flex: 1 1 0;
+  min-width: 0;
+  border: 1px solid var(--line, #e4d8c7);
+  border-radius: var(--bp-radius, 10px);
+  padding: 8px;
+  background: var(--bp-card-bg, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.bundle-prev__stag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #b0a693;
+}
+.bundle-prev__sarrows {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  margin-top: 2px;
+  color: var(--ink-soft, #8a7f74);
+  font-size: 14px;
+}
+.bundle-prev__sdots {
+  display: inline-flex;
+  gap: 3px;
+}
+.bundle-prev__sdots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #e4d8c7;
+  display: inline-block;
+}
+.bundle-prev__sdots i.is-on {
+  background: var(--bp-accent, #2e2a26);
+}
+/* bundle preview style controls */
+.bundle-style {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bundle-style__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--ink-soft, #8a7f74);
+}
+.bundle-style__row input[type='color'] {
+  width: 42px;
+  height: 26px;
+  border: 1px solid var(--line, #e4d8c7);
+  border-radius: 6px;
+  background: #fff;
+  padding: 0;
+  cursor: pointer;
 }
 
 /* undo / clear controls floating in the preview (phone showcase) layer,

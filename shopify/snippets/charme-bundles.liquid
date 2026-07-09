@@ -38,19 +38,19 @@
   .cb-block { border: none; border-radius: 0; padding: 12px 0 16px; margin: 0 auto; background: transparent; width: 100%; max-width: 380px; box-sizing: border-box; }
   .cb-block__title { text-align: center; font-size: 19px; font-weight: 700; margin: 0 0 3px; color: #2e2a26; }
   .cb-block__sub { text-align: center; font-size: 13px; color: #8a7f74; margin: 0 0 12px; }
-  .cb-claim { display: block; width: 100%; margin: 14px 0 0; border: none; border-radius: 10px; background: #2e2a26; color: #fff; padding: 13px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
+  .cb-claim { display: block; width: 100%; margin: 14px 0 0; border: none; border-radius: var(--cb-radius, 10px); background: var(--cb-accent, #2e2a26); color: #fff; padding: 13px 26px; font-weight: 600; font-size: 15px; cursor: pointer; }
   .cb-claim:disabled { opacity: .5; cursor: default; }
   .cb-summary { text-align: center; margin: 16px 0 6px; }
   .cb-summary__was { color: #8a7f74; text-decoration: line-through; margin-right: 8px; }
   .cb-summary__now { color: #2e7d32; font-weight: 700; font-size: 18px; }
   .cb-err { color: #b35b5b; font-size: 13px; text-align: center; }
-  .cb-badge { display:inline-block; background:#f2e7d8; color:#8a5a2b; font-size:11px; font-weight:700; border-radius:999px; padding:2px 9px; }
+  .cb-badge { display:inline-block; background:var(--cb-badge-bg, #f2e7d8); color:var(--cb-badge-ink, #8a5a2b); font-size:11px; font-weight:700; border-radius:999px; padding:2px 9px; }
 
   /* Layout 1 — Frequently bought together: a horizontal row with + separators
      and a checkbox per product. */
   .cb-fbt { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; }
   .cb-plus { align-self: center; font-size: 22px; font-weight: 700; color: #b0a693; }
-  .cb-fbt__card { position: relative; flex: 1 1 150px; max-width: 200px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; background: rgba(255,255,255,0.45); }
+  .cb-fbt__card { position: relative; flex: 1 1 150px; max-width: 200px; border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
   .cb-fbt__check { position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; accent-color: #b35b5b; }
   .cb-card__img { width: 100%; height: 100px; object-fit: contain; border-radius: 8px; background: #faf5ec; }
   .cb-card__name { font-size: 12.5px; line-height: 1.25; color: #2e2a26; min-height: 30px; }
@@ -59,7 +59,7 @@
 
   /* Layout 2 — Volume discount: stacked quantity tiers. */
   .cb-vol { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(190,170,140,0.4); border-radius: 12px; padding: 11px 15px; cursor: pointer; background: rgba(255,255,255,0.5); }
+  .cb-vol__tier { display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(190,170,140,0.4); border-radius: var(--cb-radius, 12px); padding: 11px 15px; cursor: pointer; background: var(--cb-card-bg, rgba(255,255,255,0.5)); }
   .cb-vol__tier.is-active { border-color: #b35b5b; box-shadow: 0 0 0 2px rgba(179,91,91,.15); }
   .cb-vol__tier .cb-vol__q { font-weight: 700; }
   .cb-vol__save { color: #2e7d32; font-weight: 600; font-size: 12px; }
@@ -67,7 +67,7 @@
 
   /* Layout 3 — Mix & match: a grid of products with +/- steppers + a live basket bar. */
   .cb-mix { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-  .cb-mix__card { border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.45); }
+  .cb-mix__card { border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 6px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
   .cb-step { display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
   .cb-step button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 16px; line-height: 1; cursor: pointer; }
   .cb-step span { min-width: 20px; font-weight: 600; }
@@ -76,11 +76,22 @@
 
   /* Layout 4 — Pick any (mix quantity): numbered slots you fill from a dropdown. */
   .cb-pick { width: 100%; display: flex; flex-direction: column; gap: 8px; }
-  .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(190,170,140,0.35); border-radius: 12px; padding: 10px 14px; background: rgba(255,255,255,0.45); }
+  .cb-pick__slot { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 10px 14px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
   .cb-pick__num { width: 26px; height: 26px; border-radius: 50%; background: #2e2a26; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none; }
   .cb-pick__thumb { width: 44px; height: 44px; flex: none; border-radius: 8px; object-fit: contain; background: #faf5ec; border: 1px solid rgba(190,170,140,0.3); }
   .cb-pick__thumb:not(.is-set) { visibility: hidden; }
   .cb-pick__slot select { flex: 1; font: inherit; padding: 6px 8px; border: 1px solid #e4d8c7; border-radius: 8px; }
+
+  /* Layout 5 — Match & swipe: fixed main product + a swipeable match card. */
+  .cb-swipe { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .cb-swipe__card { position: relative; flex: 1 1 150px; max-width: 210px; border: 1px solid rgba(190,170,140,0.35); border-radius: var(--cb-radius, 12px); padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 8px; background: var(--cb-card-bg, rgba(255,255,255,0.45)); }
+  .cb-swipe__tag { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #b0a693; }
+  .cb-swipe__arrows { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; }
+  .cb-swipe__arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #e4d8c7; background: #fff; font-size: 17px; line-height: 1; cursor: pointer; color: #2e2a26; }
+  .cb-swipe__arrow:hover { background: #faf5ec; }
+  .cb-swipe__dots { display: inline-flex; gap: 4px; align-items: center; }
+  .cb-swipe__dot { width: 6px; height: 6px; border-radius: 50%; background: #e4d8c7; display: inline-block; }
+  .cb-swipe__dot.is-on { background: var(--cb-accent, #2e2a26); }
 </style>
 
 <script>
@@ -102,8 +113,43 @@
     if (!res.ok) throw new Error('product not found: ' + handle);
     return res.json();
   }
+  async function getCollectionProducts(handle) {
+    // Storefront AJAX: up to 250 published products for a collection.
+    var res = await fetch('/collections/' + encodeURIComponent(handle) + '/products.json?limit=250', { headers: { Accept: 'application/json' } });
+    if (!res.ok) return [];
+    var data = await res.json();
+    return (data && data.products) || [];
+  }
   function firstAvailableVariant(p) { return (p.variants || []).find(function (v) { return v.available; }) || (p.variants || [])[0]; }
-  function imgOf(p) { return p.featured_image || (p.images && p.images[0]) || ''; }
+  // /products/<h>.js gives price in CENTS (number); /collections/..products.json gives "48.00" (string).
+  function vPrice(v) { var p = v && v.price; if (typeof p === 'number') return p; var n = parseFloat(p); return isNaN(n) ? 0 : Math.round(n * 100); }
+  function imgOf(p) {
+    var f = p.featured_image;
+    if (f) return typeof f === 'string' ? f : (f.src || f.url || '');
+    var im = p.images && p.images[0];
+    if (!im) return '';
+    return typeof im === 'string' ? im : (im.src || im.url || '');
+  }
+  function titleOf(p) { return p.title || p.handle || ''; }
+  function currentHandle() { var m = (location.pathname || '').match(/\/products\/([^/?#]+)/); return m ? m[1] : ''; }
+  function applyStyle(block, bundle) {
+    var st = bundle.style || {};
+    if (st.accent) block.style.setProperty('--cb-accent', st.accent);
+    if (st.cardBg) block.style.setProperty('--cb-card-bg', st.cardBg);
+    if (st.badgeBg) block.style.setProperty('--cb-badge-bg', st.badgeBg);
+    if (st.badgeInk) block.style.setProperty('--cb-badge-ink', st.badgeInk);
+    if (st.radius != null) block.style.setProperty('--cb-radius', st.radius + 'px');
+  }
+  // Resolve one "side" of a swipe bundle (specific products OR a whole collection).
+  async function resolveSide(side) {
+    side = side || {};
+    if (side.mode === 'collection' && side.collection && side.collection.handle) {
+      return await getCollectionProducts(side.collection.handle);
+    }
+    var handles = (side.products || []).map(function (p) { return (p.handle || '').trim(); }).filter(Boolean);
+    var res = await Promise.all(handles.map(function (h) { return getProduct(h).catch(function () { return null; }); }));
+    return res.filter(Boolean);
+  }
 
   async function addToCart(items) {
     if (!items.length) return;
@@ -264,7 +310,95 @@
     claim.addEventListener('click', function () { doClaim(root, block, bundle, claim, chosen().map(function (x) { return { id: x.id, quantity: 1 }; })); });
   }
 
+  // ---- Layout 5: Match & swipe (fixed main product + swipeable match) ------
+  async function renderSwipe(root, block, bundle) {
+    var mainList = await resolveSide(bundle.main);
+    var matchList = await resolveSide(bundle.match);
+    if (!mainList.length || !matchList.length) {
+      console.warn('[Charmé bundles] "' + (bundle.name || '') + '" swipe bundle needs a main AND a match with live products.');
+      return false;
+    }
+    // The main product stays fixed: use the current product page's product if it
+    // belongs to the main set, else the first main product.
+    var curr = currentHandle();
+    var main = mainList.find(function (p) { return p.handle === curr; }) || mainList[0];
+    var mv = firstAvailableVariant(main);
+
+    block.appendChild(subtitle(bundle.subtitle || 'Swipe to find your match \u2014 then add both and save.'));
+    var row = el('div', 'cb-swipe'); block.appendChild(row);
+
+    // Fixed main card
+    var mainCard = el('div', 'cb-swipe__card');
+    mainCard.appendChild(el('div', 'cb-swipe__tag', 'Your pick'));
+    var mImg = el('img', 'cb-card__img'); mImg.alt = ''; mImg.src = imgOf(main); mainCard.appendChild(mImg);
+    mainCard.appendChild(el('div', 'cb-card__name', titleOf(main)));
+    mainCard.appendChild(el('div', 'cb-card__price', money(vPrice(mv))));
+    row.appendChild(mainCard);
+
+    row.appendChild(el('div', 'cb-plus', '+'));
+
+    // Swipeable match card
+    var idx = 0;
+    var matchCard = el('div', 'cb-swipe__card');
+    matchCard.appendChild(el('div', 'cb-swipe__tag', 'Match'));
+    var xImg = el('img', 'cb-card__img'); xImg.alt = ''; matchCard.appendChild(xImg);
+    var xName = el('div', 'cb-card__name'); matchCard.appendChild(xName);
+    var xPrice = el('div', 'cb-card__price'); matchCard.appendChild(xPrice);
+    var arrows = el('div', 'cb-swipe__arrows');
+    var prev = el('button', 'cb-swipe__arrow', '\u2039'); prev.type = 'button'; prev.setAttribute('aria-label', 'Previous match');
+    var next = el('button', 'cb-swipe__arrow', '\u203a'); next.type = 'button'; next.setAttribute('aria-label', 'Next match');
+    var dots = el('div', 'cb-swipe__dots');
+    arrows.appendChild(prev); arrows.appendChild(dots); arrows.appendChild(next);
+    matchCard.appendChild(arrows);
+    row.appendChild(matchCard);
+
+    var summary = el('div', 'cb-summary'); block.appendChild(summary);
+    var claim = claimBtn(bundle); block.appendChild(claim);
+
+    function paintDots() {
+      dots.innerHTML = '';
+      var n = Math.min(matchList.length, 8);
+      for (var i = 0; i < n; i++) { dots.appendChild(el('span', 'cb-swipe__dot' + (i === (idx % n) ? ' is-on' : ''))); }
+    }
+    function render() {
+      var m = matchList[idx];
+      var v = firstAvailableVariant(m);
+      xImg.src = imgOf(m); xName.textContent = titleOf(m); xPrice.textContent = money(vPrice(v));
+      var orig = vPrice(mv) + vPrice(v);
+      var now = discounted(orig, bundle);
+      summary.innerHTML = '<span class="cb-summary__was">' + money(orig) + '</span><span class="cb-summary__now">' + money(now) + '</span>';
+      claim.disabled = !mv || !v;
+      paintDots();
+    }
+    function go(step) { idx = (idx + step + matchList.length) % matchList.length; render(); }
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    // Touch swipe on the match card
+    var sx = null;
+    matchCard.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    matchCard.addEventListener('touchend', function (e) { if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 30) go(dx < 0 ? 1 : -1); sx = null; });
+    render();
+
+    claim.addEventListener('click', function () {
+      var mvNow = firstAvailableVariant(main);
+      var xvNow = firstAvailableVariant(matchList[idx]);
+      if (!mvNow || !xvNow) return;
+      doClaim(root, block, bundle, claim, [{ id: mvNow.id, quantity: 1 }, { id: xvNow.id, quantity: 1 }]);
+    });
+    return true;
+  }
+
   async function renderBundle(root, container, bundle) {
+    var layout = bundle.layout || 'fbt';
+    if (layout === 'swipe') {
+      var sblock = el('div', 'cb-block'); applyStyle(sblock, bundle);
+      var stitle = el('div', 'cb-block__title');
+      stitle.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
+      sblock.appendChild(stitle);
+      var ok = await renderSwipe(root, sblock, bundle);
+      if (ok) container.appendChild(sblock);
+      return;
+    }
     var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); }).filter(Boolean);
     if (!handles.length) return;
     // Resolve each product independently so ONE unpublished / 404 handle doesn't
@@ -280,11 +414,10 @@
       console.warn('[Charmé bundles] bundle "' + (bundle.name || bundle.blockTitle || '') + '" has no products published to the Online Store — nothing to show.');
       return;
     }
-    var block = el('div', 'cb-block');
+    var block = el('div', 'cb-block'); applyStyle(block, bundle);
     var title = el('div', 'cb-block__title');
     title.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
     block.appendChild(title);
-    var layout = bundle.layout || 'fbt';
     if (layout === 'volume') renderVolume(root, block, bundle, products);
     else if (layout === 'mixmatch') renderMixMatch(root, block, bundle, products);
     else if (layout === 'pickany') renderPickAny(root, block, bundle, products);
