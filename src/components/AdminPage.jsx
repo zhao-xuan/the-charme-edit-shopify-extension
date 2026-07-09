@@ -997,20 +997,36 @@ const STYLE_DEFAULT = { accent: '#2e2a26', cardBg: '#ffffff', badgeBg: '#f2e7d8'
 const styleOf = (b) => ({ ...STYLE_DEFAULT, ...(b?.style || {}) })
 const sideDefault = () => ({ mode: 'products', products: [], collection: null })
 const bundleDefault = () => ({
-  name: 'New bundle',
+  name: 'New offer',
   blockTitle: 'Bundle & save 15%!',
-  claimText: 'Claim this offer',
+  claimText: 'Add to basket',
   layout: 'swipe',
   discountKind: 'percent',
   value: 15,
   code: '',
   showVariants: true,
   active: true,
-  items: [],
-  main: sideDefault(),
-  match: sideDefault(),
+  target: sideDefault(),
+  partner: sideDefault(),
   style: { ...STYLE_DEFAULT },
 })
+
+/** Migrate any bundle to the anchor-first shape: target (what it's for) + partner (what to bundle with). */
+const normalizeBundle = (b) => {
+  const target = b.target || b.main || { mode: 'products', products: (b.items || []).filter((x) => x && x.handle), collection: null }
+  const partner = b.partner || b.match || sideDefault()
+  const out = {
+    ...b,
+    layout: b.layout === 'fbt' ? 'swipe' : b.layout || 'swipe',
+    target: { ...sideDefault(), ...target },
+    partner: { ...sideDefault(), ...partner },
+    style: styleOf(b),
+  }
+  delete out.items
+  delete out.main
+  delete out.match
+  return out
+}
 
 /** One "side" of a swipe bundle: specific products OR a whole collection. */
 function BundleSideEditor({ side, onChange, shopProducts, shopLoading, shopCollections, collLoading }) {
@@ -1082,11 +1098,10 @@ function BundleSideEditor({ side, onChange, shopProducts, shopLoading, shopColle
 
 /** Structural, layout-aware storefront mock for the admin bundle editor. */
 function BundlePreview({ bundle }) {
-  const items = bundle.items || []
   const kind = bundle.discountKind || 'percent'
   const val = Number(bundle.value) || 0
   const dealText = kind === 'fixed' ? `£${val} bundle` : `Save ${val}%`
-  const layout = bundle.layout || 'fbt'
+  const layout = bundle.layout || 'swipe'
   const st = styleOf(bundle)
   const styleVars = {
     '--bp-accent': st.accent,
@@ -1096,9 +1111,19 @@ function BundlePreview({ bundle }) {
     '--bp-radius': `${st.radius}px`,
   }
   const sideItems = (side) => (side && side.mode === 'collection' ? [] : (side && side.products) || [])
+  const sideLabel = (side, fallback) => {
+    const its = sideItems(side)
+    if (its[0]) return its[0].label || its[0].handle
+    if (side && side.mode === 'collection' && side.collection) return side.collection.title || 'Collection'
+    return fallback
+  }
+  const target = bundle.target || bundle.main || { mode: 'products', products: bundle.items || [] }
+  const partner = bundle.partner || bundle.match || { mode: 'products', products: [] }
+  // Pool used by the mix/pick previews = anchor(s) + partners.
+  const items = [...sideItems(target), ...sideItems(partner)]
   const thumb = (it) =>
     it.image ? <img className="bundle-prev__thumb" src={it.image} alt="" /> : <div className="bundle-prev__thumb" />
-  const empty = <span className="hint">Add products to preview</span>
+  const empty = <span className="hint">Pick products to preview</span>
 
   let body
   if (layout === 'volume') {
@@ -1144,10 +1169,10 @@ function BundlePreview({ bundle }) {
       </div>
     )
   } else if (layout === 'swipe') {
-    const mainIt = sideItems(bundle.main)[0]
-    const matchIt = sideItems(bundle.match)[0]
-    const mainLabel = mainIt ? mainIt.label || mainIt.handle : bundle.main?.collection?.title || 'Main product'
-    const matchLabel = matchIt ? matchIt.label || matchIt.handle : bundle.match?.collection?.title || 'Match product'
+    const mainIt = sideItems(target)[0]
+    const matchIt = sideItems(partner)[0]
+    const mainLabel = sideLabel(target, 'Main product')
+    const matchLabel = sideLabel(partner, 'Match product')
     body = (
       <div className="bundle-prev__swipe">
         <div className="bundle-prev__scard">
@@ -1219,12 +1244,16 @@ function DiscountTab({ cloud }) {
   useEffect(() => {
     fetchSettings()
       .then((data) =>
-        setS((prev) => ({
-          ...prev,
-          ...data,
-          crossSell: { ...prev.crossSell, ...(data.crossSell || {}) },
-          discounts: { ...prev.discounts, ...(data.discounts || {}) },
-        })),
+        setS((prev) => {
+          const merged = {
+            ...prev,
+            ...data,
+            crossSell: { ...prev.crossSell, ...(data.crossSell || {}) },
+            discounts: { ...prev.discounts, ...(data.discounts || {}) },
+          }
+          merged.discounts.bundles = (merged.discounts.bundles || []).map(normalizeBundle)
+          return merged
+        }),
       )
       .catch(() => {})
       .finally(() => setLoading(false))
@@ -1266,8 +1295,6 @@ function DiscountTab({ cloud }) {
   const updRule = (i, patch) => setRules(rules.map((r, x) => (x === i ? { ...r, ...patch } : r)))
   const updCode = (i, patch) => setCodes(codes.map((c, x) => (x === i ? { ...c, ...patch } : c)))
   const updBundle = (i, patch) => setBundles(bundles.map((b, x) => (x === i ? { ...b, ...patch } : b)))
-  const updBundleItem = (bi, ii, patch) =>
-    updBundle(bi, { items: (bundles[bi].items || []).map((it, x) => (x === ii ? { ...it, ...patch } : it)) })
   const updSide = (bi, side, patch) =>
     updBundle(bi, { [side]: { ...(bundles[bi][side] || sideDefault()), ...patch } })
   const updStyle = (bi, patch) => updBundle(bi, { style: { ...styleOf(bundles[bi]), ...patch } })
@@ -1428,15 +1455,14 @@ function DiscountTab({ cloud }) {
   const bundlesPanel = (
     <div>
       <p className="hint" style={{ marginTop: 0 }}>
-        Bundles render as a “Bundle &amp; save” block on any page (paste the <code>charme-bundles</code> snippet)
-        and pull LIVE product data + prices from Shopify by product handle. On a <strong>product page</strong> only
-        the bundles that involve the product being viewed are shown; if several match they become a swipeable
-        carousel. Then <strong>Save &amp; sync to Shopify</strong>: with no code we create a product-scoped
+        Build offers <strong>around a product or a category</strong>: pick what the offer is for, then choose the
+        “Bundle &amp; save” style to attach. On a <strong>product page</strong> only the offers whose target
+        includes the product being viewed are shown; if several match they become a swipeable carousel. Then{' '}
+        <strong>Save &amp; sync to Shopify</strong>: with no code we create a product-scoped
         <strong> automatic discount</strong> (recommended — no code box, can’t be shared); set a code only for
-        shareable promos. Tip: <strong>Match &amp; swipe</strong> keeps the customer’s product fixed and lets them
-        swipe through a whole collection of matches (like a dating app) before adding both.
+        shareable promos.
       </p>
-      {bundles.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No bundles yet — add one below." />}
+      {bundles.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No offers yet — add one below." />}
       {bundles.map((b, bi) => (
         <Card
           key={bi}
@@ -1446,7 +1472,7 @@ function DiscountTab({ cloud }) {
             editNameIdx === bi ? (
               <Input
                 autoFocus
-                placeholder="Campaign name"
+                placeholder="Offer name"
                 value={b.name}
                 onChange={(e) => updBundle(bi, { name: e.target.value })}
                 onBlur={() => setEditNameIdx(null)}
@@ -1455,7 +1481,7 @@ function DiscountTab({ cloud }) {
               />
             ) : (
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                <strong>{b.name || 'Untitled bundle'}</strong>
+                <strong>{b.name || 'Untitled offer'}</strong>
                 <Button type="text" size="small" icon={<EditOutlined />} onClick={() => setEditNameIdx(bi)} title="Rename" />
               </span>
             )
@@ -1468,19 +1494,26 @@ function DiscountTab({ cloud }) {
           }
         >
           <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
-            {/* editor */}
+            {/* editor — anchor-first: pick what it's for, then the offer */}
             <div style={{ flex: '1 1 380px', minWidth: 0 }}>
+              <Divider style={{ margin: '2px 0 8px' }} orientation="left">① This offer is for</Divider>
+              <p className="hint" style={{ marginTop: 0 }}>
+                Pick a specific product or a whole category. The “Bundle &amp; save” block only appears on those product
+                pages, with the product being viewed as the main item.
+              </p>
+              <BundleSideEditor
+                side={b.target}
+                onChange={(patch) => updSide(bi, 'target', patch)}
+                shopProducts={shopProducts}
+                shopLoading={shopLoading}
+                shopCollections={shopCollections}
+                collLoading={collLoading}
+              />
+
+              <Divider style={{ margin: '12px 0 8px' }} orientation="left">② The offer</Divider>
               <label style={discFieldStyle}>
-                <span style={{ color: 'var(--ink-soft)' }}>Block title (storefront + cart)</span>
-                <Input value={b.blockTitle} onChange={(e) => updBundle(bi, { blockTitle: e.target.value })} placeholder="Bundle & save 15%!" style={{ maxWidth: 300 }} />
-              </label>
-              <label style={discFieldStyle}>
-                <span style={{ color: 'var(--ink-soft)' }}>Claim button text</span>
-                <Input value={b.claimText} onChange={(e) => updBundle(bi, { claimText: e.target.value })} placeholder="Claim this offer" style={{ maxWidth: 300 }} />
-              </label>
-              <label style={discFieldStyle}>
-                <span style={{ color: 'var(--ink-soft)' }}>Layout</span>
-                <Select value={b.layout || 'fbt'} onChange={(v) => updBundle(bi, { layout: v })} options={BUNDLE_LAYOUTS} style={{ width: 260 }} />
+                <span style={{ color: 'var(--ink-soft)' }}>Offer style</span>
+                <Select value={b.layout || 'swipe'} onChange={(v) => updBundle(bi, { layout: v })} options={BUNDLE_LAYOUTS} style={{ width: 260 }} />
               </label>
               <label style={discFieldStyle}>
                 <span style={{ color: 'var(--ink-soft)' }}>Discount</span>
@@ -1493,68 +1526,41 @@ function DiscountTab({ cloud }) {
                 <span style={{ color: 'var(--ink-soft)' }}>Discount code (optional)</span>
                 <Input value={b.code} onChange={(e) => updBundle(bi, { code: e.target.value.toUpperCase() })} placeholder="Leave blank = automatic discount (recommended)" style={{ maxWidth: 300 }} />
               </label>
+
+              {b.layout !== 'volume' && (
+                <>
+                  <Divider style={{ margin: '12px 0 8px' }} orientation="left">
+                    {b.layout === 'swipe' ? '③ Bundle it with — swipe to choose' : '③ Bundle it with'}
+                  </Divider>
+                  <p className="hint" style={{ marginTop: 0 }}>
+                    {b.layout === 'swipe'
+                      ? 'The add-ons the customer swipes through. Pick specific products or a whole category.'
+                      : 'The add-ons the customer can pick to bundle with. Pick specific products or a whole category.'}
+                  </p>
+                  <BundleSideEditor
+                    side={b.partner}
+                    onChange={(patch) => updSide(bi, 'partner', patch)}
+                    shopProducts={shopProducts}
+                    shopLoading={shopLoading}
+                    shopCollections={shopCollections}
+                    collLoading={collLoading}
+                  />
+                </>
+              )}
+
+              <Divider style={{ margin: '12px 0 8px' }} orientation="left">Wording &amp; display</Divider>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Block title (storefront + cart)</span>
+                <Input value={b.blockTitle} onChange={(e) => updBundle(bi, { blockTitle: e.target.value })} placeholder="Bundle & save 15%!" style={{ maxWidth: 300 }} />
+              </label>
+              <label style={discFieldStyle}>
+                <span style={{ color: 'var(--ink-soft)' }}>Claim button text</span>
+                <Input value={b.claimText} onChange={(e) => updBundle(bi, { claimText: e.target.value })} placeholder="Add to basket" style={{ maxWidth: 300 }} />
+              </label>
               <label style={discFieldStyle}>
                 <span style={{ color: 'var(--ink-soft)' }}>Show variant selectors</span>
                 <Switch checked={b.showVariants !== false} onChange={(v) => updBundle(bi, { showVariants: v })} />
               </label>
-              {b.layout === 'swipe' ? (
-                <>
-                  <Divider style={{ margin: '8px 0' }}>Main product — what they’re buying (stays fixed)</Divider>
-                  <p className="hint" style={{ marginTop: 0 }}>
-                    On a product page the current product is used as the main one (if it’s in this set); otherwise the first.
-                  </p>
-                  <BundleSideEditor
-                    side={b.main}
-                    onChange={(patch) => updSide(bi, 'main', patch)}
-                    shopProducts={shopProducts}
-                    shopLoading={shopLoading}
-                    shopCollections={shopCollections}
-                    collLoading={collLoading}
-                  />
-                  <Divider style={{ margin: '8px 0' }}>Match with — swipe left/right to choose</Divider>
-                  <BundleSideEditor
-                    side={b.match}
-                    onChange={(patch) => updSide(bi, 'match', patch)}
-                    shopProducts={shopProducts}
-                    shopLoading={shopLoading}
-                    shopCollections={shopCollections}
-                    collLoading={collLoading}
-                  />
-                </>
-              ) : (
-                <>
-                  <Divider style={{ margin: '8px 0' }}>Products (from your Shopify store)</Divider>
-                  <p className="hint" style={{ marginTop: 0 }}>
-                    On a product page this bundle only shows if the customer is viewing one of these products.
-                  </p>
-                  {(b.items || []).map((it, ii) => (
-                    <div key={ii} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'nowrap' }}>
-                      <Select
-                        showSearch
-                        optionFilterProp="label"
-                        placeholder="Pick a Shopify product"
-                        loading={shopLoading}
-                        value={it.handle || undefined}
-                        onChange={(v) => {
-                          const p = shopProducts.find((x) => x.handle === v)
-                          updBundleItem(bi, ii, { handle: v, label: it.label || p?.title || '', image: p?.image || '' })
-                        }}
-                        options={shopProducts.map((p) => ({
-                          value: p.handle,
-                          label: p.status && p.status !== 'ACTIVE' ? `${p.title} · ${String(p.status).toLowerCase()}` : p.title,
-                        }))}
-                        notFoundContent={shopLoading ? 'Loading…' : 'No products (open inside Shopify Admin, or set an admin token)'}
-                        style={{ flex: 1, minWidth: 0 }}
-                      />
-                      <Input placeholder="Label" value={it.label} onChange={(e) => updBundleItem(bi, ii, { label: e.target.value })} style={{ width: 120, flex: 'none' }} />
-                      <Button icon={<DeleteOutlined />} style={{ flex: 'none' }} onClick={() => updBundle(bi, { items: (b.items || []).filter((_, x) => x !== ii) })} />
-                    </div>
-                  ))}
-                  <Button size="small" icon={<PlusOutlined />} onClick={() => updBundle(bi, { items: [...(b.items || []), { handle: '', label: '' }] })}>
-                    Add product
-                  </Button>
-                </>
-              )}
             </div>
             {/* live structural preview + style controls */}
             <div style={{ flex: '1 1 280px', minWidth: 0 }}>
@@ -1589,7 +1595,7 @@ function DiscountTab({ cloud }) {
         </Card>
       ))}
       <Button icon={<PlusOutlined />} onClick={() => setBundles([...bundles, bundleDefault()])}>
-        Add bundle
+        Add offer
       </Button>
     </div>
   )

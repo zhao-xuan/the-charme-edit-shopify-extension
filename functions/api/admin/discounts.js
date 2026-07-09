@@ -142,50 +142,40 @@ async function syncRule(env, r) {
  */
 async function syncBundle(env, b) {
   if ((b.discountKind || 'percent') !== 'percent') return { skip: 'fixed-price bundle — use Shopify Bundles / a Discount Function' }
-  let items
-  if ((b.layout || 'fbt') === 'swipe') {
-    // Main + match sides, each a set of specific products OR a whole collection.
-    // The automatic discount is scoped to ALL involved products/collections so
-    // whichever main+match pair is bought gets the saving.
-    const prodHandles = []
-    const colHandles = []
-    for (const side of [b.main, b.match]) {
-      if (!side) continue
-      if (side.mode === 'collection' && side.collection && side.collection.handle) {
-        colHandles.push(side.collection.handle)
-      } else {
-        for (const p of side.products || []) {
-          const h = (p.handle || '').trim()
-          if (h) prodHandles.push(h)
-        }
+  // Anchor-first model: target (what it's for) + partner (what to bundle with).
+  // Legacy bundles used main/match/items — fall back to those. The automatic
+  // discount is scoped to ALL involved products/collections so whichever pair is
+  // bought gets the saving.
+  const target = b.target || b.main || { mode: 'products', products: b.items || [] }
+  const partner = b.partner || b.match || { mode: 'products', products: [] }
+  const prodHandles = []
+  const colHandles = []
+  for (const side of [target, partner]) {
+    if (!side) continue
+    if (side.mode === 'collection' && side.collection && side.collection.handle) {
+      colHandles.push(side.collection.handle)
+    } else {
+      for (const p of side.products || []) {
+        const h = (p.handle || '').trim()
+        if (h) prodHandles.push(h)
       }
     }
-    if (!prodHandles.length && !colHandles.length) return { skip: 'no products/collections in the swipe bundle' }
-    const pGids = []
-    for (const h of prodHandles) {
-      const g = await productGid(env, h)
-      if (g) pGids.push(g)
-    }
-    const cGids = []
-    for (const h of colHandles) {
-      const g = await collectionGid(env, h)
-      if (g) cGids.push(g)
-    }
-    if (!pGids.length && !cGids.length) throw new Error('none of the swipe bundle products/collections were found in Shopify')
-    items = {}
-    if (pGids.length) items.products = { productsToAdd: pGids }
-    if (cGids.length) items.collections = { add: cGids }
-  } else {
-    const handles = (b.items || []).map((it) => (it.handle || '').trim()).filter(Boolean)
-    if (!handles.length) return { skip: 'no products in the bundle' }
-    const gids = []
-    for (const h of handles) {
-      const gid = await productGid(env, h)
-      if (gid) gids.push(gid)
-    }
-    if (!gids.length) throw new Error('none of the bundle products were found in Shopify')
-    items = { products: { productsToAdd: gids } }
   }
+  if (!prodHandles.length && !colHandles.length) return { skip: 'no products/collections in the offer' }
+  const pGids = []
+  for (const h of prodHandles) {
+    const g = await productGid(env, h)
+    if (g) pGids.push(g)
+  }
+  const cGids = []
+  for (const h of colHandles) {
+    const g = await collectionGid(env, h)
+    if (g) cGids.push(g)
+  }
+  if (!pGids.length && !cGids.length) throw new Error('none of the offer products/collections were found in Shopify')
+  const items = {}
+  if (pGids.length) items.products = { productsToAdd: pGids }
+  if (cGids.length) items.collections = { add: cGids }
   const value = getsValue({ discountKind: 'percent', value: b.value })
   const title = (b.blockTitle || b.name || 'Charmé bundle') + ' (Charmé)'
 

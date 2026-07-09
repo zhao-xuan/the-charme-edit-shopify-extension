@@ -163,6 +163,14 @@
     var res = await Promise.all(handles.map(function (h) { return getProduct(h).catch(function () { return null; }); }));
     return res.filter(Boolean);
   }
+  // The anchor-first model: `target` = what the offer is FOR (drives which product
+  // pages show it + the main item); `partner` = what to bundle it WITH. Legacy
+  // bundles used main/match/items — fall back to those.
+  function sideOf(bundle, which) {
+    if (which === 'target') return bundle.target || bundle.main || { mode: 'products', products: bundle.items || [], collection: null };
+    return bundle.partner || bundle.match || { mode: 'products', products: [], collection: null };
+  }
+  function dedupProducts(arr) { var seen = {}; return arr.filter(function (p) { if (!p || seen[p.handle]) return false; seen[p.handle] = true; return true; }); }
   // Is `handle` one of the products a bundle side points at (product list or collection)?
   async function productInSide(side, handle) {
     side = side || {};
@@ -172,13 +180,11 @@
     }
     return (side.products || []).some(function (p) { return (p.handle || '').trim() === handle; });
   }
-  // Show a bundle on a product page only when it involves the product being viewed.
-  // (No product context — e.g. cart / custom page — shows every active bundle.)
+  // Show an offer on a product page only when the product being viewed is part of
+  // its target. (No product context — cart / custom page — shows every active offer.)
   async function bundleRelevant(bundle, handle) {
     if (!handle) return true;
-    if ((bundle.layout || 'fbt') === 'swipe') return await productInSide(bundle.main, handle);
-    var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); });
-    return handles.indexOf(handle) !== -1;
+    return await productInSide(sideOf(bundle, 'target'), handle);
   }
 
   async function addToCart(items) {
@@ -219,11 +225,11 @@
       card.appendChild(el('div', 'cb-card__name', p.title));
       if (bundle.showVariants !== false && (p.variants || []).length > 1) {
         var sel = document.createElement('select');
-        p.variants.forEach(function (vr) { var o = el('option', null, vr.title + ' \u2014 ' + money(vr.price)); o.value = vr.id; if (!vr.available) o.disabled = true; sel.appendChild(o); });
+        p.variants.forEach(function (vr) { var o = el('option', null, vr.title + ' \u2014 ' + money(vPrice(vr))); o.value = vr.id; if (!vr.available) o.disabled = true; sel.appendChild(o); });
         sel.value = v.id;
         sel.addEventListener('change', function () { selected[p.handle] = sel.value; recompute(); });
         card.appendChild(sel);
-      } else { card.appendChild(el('div', 'cb-card__price', money(v.price))); }
+      } else { card.appendChild(el('div', 'cb-card__price', money(vPrice(v)))); }
       row.appendChild(card);
     });
     block.appendChild(row);
@@ -232,7 +238,7 @@
     function items() {
       return Object.keys(checked).filter(function (h) { return checked[h]; }).map(function (h) {
         var p = byHandle[h]; var vr = (p.variants || []).find(function (x) { return String(x.id) === String(selected[h]); });
-        return { id: vr.id, price: vr.price };
+        return { id: vr.id, price: vPrice(vr) };
       });
     }
     function recompute() {
@@ -256,7 +262,7 @@
     function draw() {
       wrap.innerHTML = '';
       [1, 2, 3].forEach(function (n) {
-        var save = saveAt(n); var was = v.price * n;
+        var save = saveAt(n); var was = vPrice(v) * n;
         var price = (isFixed(bundle) && n >= 2) ? Math.round(discounted(was, bundle)) : Math.round(was * (1 - save / 100));
         var tier = el('div', 'cb-vol__tier' + (n === chosen ? ' is-active' : ''));
         tier.innerHTML = '<span><span class="cb-vol__q">' + ['One', 'Two', 'Three'][n - 1] + '</span>' + (save ? ' <span class="cb-vol__save">Save ' + save + '%</span>' : ' <span class="cb-vol__save" style="color:#8a7f74">Standard price</span>') + '</span><span>' + (save ? '<span class="cb-vol__was">' + money(was) + '</span>' : '') + money(price) + '</span>';
@@ -279,7 +285,7 @@
       var card = el('div', 'cb-mix__card');
       var img = el('img', 'cb-card__img'); img.src = imgOf(p); img.alt = p.title; card.appendChild(img);
       card.appendChild(el('div', 'cb-card__name', p.title));
-      card.appendChild(el('div', 'cb-card__price', money(v.price)));
+      card.appendChild(el('div', 'cb-card__price', money(vPrice(v))));
       var step = el('div', 'cb-step');
       var minus = el('button', null, '\u2212'); minus.type = 'button';
       var count = el('span', null, '0');
@@ -293,7 +299,7 @@
     var bar = el('div', 'cb-mix__bar'); block.appendChild(bar);
     var totals = el('div'); var claim = claimBtn(bundle);
     bar.appendChild(totals); bar.appendChild(claim);
-    function items() { return Object.keys(qty).filter(function (h) { return qty[h] > 0; }).map(function (h) { var p = byHandle[h]; var vr = (p.variants || []).find(function (x) { return String(x.id) === String(sel[h]); }); return { id: vr.id, quantity: qty[h], price: vr.price }; }); }
+    function items() { return Object.keys(qty).filter(function (h) { return qty[h] > 0; }).map(function (h) { var p = byHandle[h]; var vr = (p.variants || []).find(function (x) { return String(x.id) === String(sel[h]); }); return { id: vr.id, quantity: qty[h], price: vPrice(vr) }; }); }
     function recompute() {
       var its = items(); var count = its.reduce(function (s, x) { return s + x.quantity; }, 0);
       var orig = its.reduce(function (s, x) { return s + x.price * x.quantity; }, 0); var now = discounted(orig, bundle);
@@ -317,7 +323,7 @@
       slot.appendChild(thumb);
       var s = document.createElement('select');
       s.appendChild(el('option', null, 'Pick a product\u2026'));
-      products.forEach(function (p) { var v = firstAvailableVariant(p); if (!v) return; var o = el('option', null, p.title + ' \u2014 ' + money(v.price)); o.value = p.handle; s.appendChild(o); });
+      products.forEach(function (p) { var v = firstAvailableVariant(p); if (!v) return; var o = el('option', null, p.title + ' \u2014 ' + money(vPrice(v))); o.value = p.handle; s.appendChild(o); });
       s.addEventListener('change', function () {
         pick[i] = s.value || null;
         var p = products.find(function (x) { return x.handle === s.value; });
@@ -330,7 +336,7 @@
     })(i);
     var summary = el('div', 'cb-summary'); block.appendChild(summary);
     var claim = claimBtn(bundle); block.appendChild(claim);
-    function chosen() { return pick.filter(Boolean).map(function (h) { var p = products.find(function (x) { return x.handle === h; }); var v = firstAvailableVariant(p); return { id: v.id, price: v.price }; }); }
+    function chosen() { return pick.filter(Boolean).map(function (h) { var p = products.find(function (x) { return x.handle === h; }); var v = firstAvailableVariant(p); return { id: v.id, price: vPrice(v) }; }); }
     function recompute() {
       var c = chosen(); var orig = c.reduce(function (s, x) { return s + x.price; }, 0); var now = discounted(orig, bundle);
       summary.innerHTML = c.length ? ('<span class="cb-summary__was">' + money(orig) + '</span><span class="cb-summary__now">' + money(now) + '</span>') : '<span class="cb-block__sub">Fill the slots above</span>';
@@ -341,17 +347,8 @@
   }
 
   // ---- Layout 5: Match & swipe (fixed main product + swipeable match) ------
-  async function renderSwipe(root, block, bundle) {
-    var mainList = await resolveSide(bundle.main);
-    var matchList = await resolveSide(bundle.match);
-    if (!mainList.length || !matchList.length) {
-      console.warn('[Charmé bundles] "' + (bundle.name || '') + '" swipe bundle needs a main AND a match with live products.');
-      return false;
-    }
-    // The main product stays fixed: use the current product page's product if it
-    // belongs to the main set, else the first main product.
-    var curr = currentHandle();
-    var main = mainList.find(function (p) { return p.handle === curr; }) || mainList[0];
+  // `main` = the anchor product (already resolved), `matchList` = the add-ons pool.
+  function renderSwipe(root, block, bundle, main, matchList) {
     var mv = firstAvailableVariant(main);
 
     block.appendChild(subtitle(bundle.subtitle || 'Swipe to find your match \u2014 then add both and save.'));
@@ -419,38 +416,39 @@
   }
 
   async function buildBundle(root, bundle) {
-    var layout = bundle.layout || 'fbt';
-    if (layout === 'swipe') {
-      var sblock = el('div', 'cb-block'); applyStyle(sblock, bundle);
-      var stitle = el('div', 'cb-block__title');
-      stitle.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
-      sblock.appendChild(stitle);
-      var ok = await renderSwipe(root, sblock, bundle);
-      return ok ? sblock : null;
-    }
-    var handles = (bundle.items || []).map(function (it) { return (it.handle || '').trim(); }).filter(Boolean);
-    if (!handles.length) return null;
-    // Resolve each product independently so ONE unpublished / 404 handle doesn't
-    // kill the whole bundle — render with whatever is live on the storefront.
-    var results = await Promise.all(handles.map(function (h) {
-      return getProduct(h).catch(function () {
-        console.warn('[Charmé bundles] product not available on storefront (skipped): ' + h);
-        return null;
-      });
-    }));
-    var products = results.filter(Boolean);
-    if (!products.length) {
-      console.warn('[Charmé bundles] bundle "' + (bundle.name || bundle.blockTitle || '') + '" has no products published to the Online Store — nothing to show.');
+    var targetProducts = await resolveSide(sideOf(bundle, 'target'));
+    if (!targetProducts.length) {
+      console.warn('[Charmé bundles] offer "' + (bundle.name || bundle.blockTitle || '') + '" has no live target products — nothing to show.');
       return null;
     }
+    var partnerProducts = await resolveSide(sideOf(bundle, 'partner'));
+    // The anchor stays fixed: the current product page's product if it's in the
+    // target set, else the first target product.
+    var curr = currentHandle();
+    var anchor = targetProducts.find(function (p) { return p.handle === curr; }) || targetProducts[0];
+    var pool = dedupProducts([anchor].concat(partnerProducts));
+
+    var layout = bundle.layout || 'swipe';
     var block = el('div', 'cb-block'); applyStyle(block, bundle);
     var title = el('div', 'cb-block__title');
     title.innerHTML = (bundle.blockTitle || 'Bundle & save') + ' <span class="cb-badge">' + dealBadge(bundle) + '</span>';
     block.appendChild(title);
-    if (layout === 'volume') renderVolume(root, block, bundle, products);
-    else if (layout === 'mixmatch') renderMixMatch(root, block, bundle, products);
-    else if (layout === 'pickany') renderPickAny(root, block, bundle, products);
-    else renderFBT(root, block, bundle, products);
+
+    if (layout === 'swipe') {
+      if (!partnerProducts.length) {
+        console.warn('[Charmé bundles] swipe offer "' + (bundle.name || '') + '" has no partner products to swipe.');
+        return null;
+      }
+      renderSwipe(root, block, bundle, anchor, partnerProducts);
+    } else if (layout === 'volume') {
+      renderVolume(root, block, bundle, [anchor]);
+    } else if (layout === 'mixmatch') {
+      renderMixMatch(root, block, bundle, pool);
+    } else if (layout === 'pickany') {
+      renderPickAny(root, block, bundle, pool);
+    } else {
+      renderFBT(root, block, bundle, pool);
+    }
     return block;
   }
 
