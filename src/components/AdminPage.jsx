@@ -27,6 +27,7 @@ import {
   AppstoreOutlined,
   CloudUploadOutlined,
   DeleteOutlined,
+  EditOutlined,
   InboxOutlined,
   PlusOutlined,
   PercentageOutlined,
@@ -1030,7 +1031,11 @@ function BundlePreview({ bundle }) {
             <div key={i} className="bundle-prev__item">
               {i > 0 && <span className="bundle-prev__plus">+</span>}
               <div className="bundle-prev__card">
-                <div className="bundle-prev__thumb" />
+                {it.image ? (
+                  <img className="bundle-prev__thumb" src={it.image} alt={it.label || it.handle || ''} />
+                ) : (
+                  <div className="bundle-prev__thumb" />
+                )}
                 <span className="bundle-prev__name">{it.label || it.handle || 'Product'}</span>
               </div>
             </div>
@@ -1053,6 +1058,8 @@ function DiscountTab({ cloud }) {
   // Live Shopify products for the bundle product picker.
   const [shopProducts, setShopProducts] = useState([])
   const [shopLoading, setShopLoading] = useState(true)
+  // Which bundle's name is currently being edited (index), or null.
+  const [editNameIdx, setEditNameIdx] = useState(null)
 
   useEffect(() => {
     fetchSettings()
@@ -1268,12 +1275,22 @@ function DiscountTab({ cloud }) {
           size="small"
           style={{ marginBottom: 14 }}
           title={
-            <Input
-              placeholder="Campaign name"
-              value={b.name}
-              onChange={(e) => updBundle(bi, { name: e.target.value })}
-              style={{ maxWidth: 280 }}
-            />
+            editNameIdx === bi ? (
+              <Input
+                autoFocus
+                placeholder="Campaign name"
+                value={b.name}
+                onChange={(e) => updBundle(bi, { name: e.target.value })}
+                onBlur={() => setEditNameIdx(null)}
+                onPressEnter={() => setEditNameIdx(null)}
+                style={{ maxWidth: 280 }}
+              />
+            ) : (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <strong>{b.name || 'Untitled bundle'}</strong>
+                <Button type="text" size="small" icon={<EditOutlined />} onClick={() => setEditNameIdx(bi)} title="Rename" />
+              </span>
+            )
           }
           extra={
             <span style={{ display: 'inline-flex', gap: 10, alignItems: 'center' }}>
@@ -1323,7 +1340,7 @@ function DiscountTab({ cloud }) {
                     value={it.handle || undefined}
                     onChange={(v) => {
                       const p = shopProducts.find((x) => x.handle === v)
-                      updBundleItem(bi, ii, { handle: v, label: it.label || p?.title || '' })
+                      updBundleItem(bi, ii, { handle: v, label: it.label || p?.title || '', image: p?.image || '' })
                     }}
                     options={shopProducts.map((p) => ({ value: p.handle, label: p.title }))}
                     notFoundContent={shopLoading ? 'Loading…' : 'No products (open inside Shopify Admin, or set an admin token)'}

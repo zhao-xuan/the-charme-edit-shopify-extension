@@ -1560,6 +1560,7 @@ h4,
   height: 52px;
   border-radius: 8px;
   background: radial-gradient(circle at 40% 35%, #fff, #ece2d0);
+  object-fit: contain;
 }
 .bundle-prev__name {
   font-size: 10.5px;
