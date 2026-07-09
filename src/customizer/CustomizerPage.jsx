@@ -8,6 +8,8 @@ import {
   CloseOutlined,
   DeleteOutlined,
   InfoCircleOutlined,
+  ExpandOutlined,
+  CompressOutlined,
 } from '@ant-design/icons'
 import ProductStage from '../components/ProductStage'
 import ProductPicker from '../components/ProductPicker'
@@ -151,6 +153,8 @@ export default function CustomizerPage({
   // Group id whose "Are you sure?" break-apart confirmation panel is showing.
   const [confirmGroupId, setConfirmGroupId] = useState(null)
   const [zoom, setZoom] = useState(1)
+  // Desktop: enlarge the charm selector (wider tray + bigger cards) and back.
+  const [trayExpanded, setTrayExpanded] = useState(false)
 
   const [summaryOpen, setSummaryOpen] = useState(false)
   // Cross-sell popup shown after a product is added to the cart.
@@ -1192,7 +1196,7 @@ export default function CustomizerPage({
         </div>
         </>
       ) : (
-        <div className="studio" ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
+        <div className={`studio${trayExpanded ? ' studio--tray-max' : ''}`} ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
           <div className="panel panel--left">
             <Tips />
             <div style={{ marginTop: 22 }}>{picker}</div>
@@ -1223,7 +1227,16 @@ export default function CustomizerPage({
               </p>
               <div className="charms-bar">
                 <span className="charms-bar__title">Charms</span>
-                <span className="charms-bar__count">{placed.length} selected</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                  <span className="charms-bar__count">{placed.length} selected</span>
+                  <Button
+                    size="small"
+                    shape="circle"
+                    icon={trayExpanded ? <CompressOutlined /> : <ExpandOutlined />}
+                    onClick={() => setTrayExpanded((v) => !v)}
+                    title={trayExpanded ? 'Shrink charm picker' : 'Enlarge charm picker'}
+                  />
+                </span>
               </div>
               <div className="cat-swatches">
                 {groups.map((g) => (

@@ -98,6 +98,23 @@ h4,
   grid-template-columns: 300px 1fr var(--tray-w, 384px);
   gap: 0;
 }
+/* Enlarged charm picker: hide the tips column, shrink the preview, and give the
+   charm tray the room + bigger cards. Toggled by the expand button. */
+.studio--tray-max {
+  grid-template-columns: 0 minmax(200px, 34%) 1fr;
+}
+.studio--tray-max .panel--left {
+  display: none;
+}
+.studio--tray-max .tray-grid {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+.studio--tray-max .charm-card--row:not(.charm-card--compact) {
+  width: 128px;
+}
+.studio--tray-max .charm-card--row:not(.charm-card--compact) .thumb {
+  max-height: 96px;
+}
 .panel {
   min-height: 0;
   overflow: auto;
@@ -149,9 +166,11 @@ h4,
   padding: 18px 18px 8px;
 }
 .pricebox {
-  flex: none;
-  padding: 4px 18px 16px;
+  flex: 0 0 auto;
+  padding: 4px 18px 12px;
   background: var(--panel);
+  overflow-y: auto;
+  max-height: 62%;
 }
 .stage-wrap {
   min-height: 0;
@@ -1506,10 +1525,10 @@ h4,
 
 /* cross-sell prompt under the "Add … to cart" button */
 .cross-sell-hint {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   text-align: center;
-  font-size: 12.5px;
-  line-height: 1.4;
+  font-size: 11.5px;
+  line-height: 1.35;
   color: var(--rouge);
 }
 

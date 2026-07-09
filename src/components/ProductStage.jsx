@@ -493,7 +493,12 @@ const ProductStage = forwardRef(function ProductStage(
               }}
             >
               {groupBox.label && <span className="group-box__label">{groupBox.label}</span>}
-              <div className="group-box__tools">
+              <div
+                className="group-box__tools"
+                onPointerDown={(e) => e.stopPropagation()}
+                onPointerUp={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
+              >
                 {confirmGroupId === selectedGroupId ? (
                   <div className="group-confirm__ask" role="dialog" aria-label="Confirm">
                     <span className="group-confirm__q">Move letters on their own?</span>

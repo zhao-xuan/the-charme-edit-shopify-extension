@@ -18,7 +18,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
 
   return (
     <div className="pricebar">
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 7 }}>
         {ok ? (
           <span className="pill pill--ok">
             <CheckCircleFilled /> Ready to order
@@ -41,7 +41,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
           {charmTotal > 0 && <> &nbsp;+&nbsp; charms £{charmTotal.toFixed(2)}</>}
         </span>
       </div>
-      <div className="price-row" style={{ marginBottom: 12 }}>
+      <div className="price-row" style={{ marginBottom: 8 }}>
         <span style={{ fontSize: 13, color: 'var(--ink-soft)' }}>Estimated total</span>
         <span className="total">£{total.toFixed(2)}</span>
       </div>
