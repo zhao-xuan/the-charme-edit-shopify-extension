@@ -184,14 +184,74 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   const [subAdd, setSubAdd] = useState('')
   const [catAddOpen, setCatAddOpen] = useState(false)
   const [subAddOpen, setSubAddOpen] = useState(false)
-  // Load the selected charm's fields whenever a different piece is selected.
+
+  // Keep the latest form values in a ref so pending edits can be flushed when the
+  // user switches to a different charm (before this panel resets its state).
+  const formRef = useRef({})
+  formRef.current = { name, category, subCategory, scale, image }
+  // The charm currently loaded into the form (drives the flush-on-switch).
+  const loadedRef = useRef(null)
+
+  // Diff the form against a base charm → the minimal patch (or null if clean).
+  const patchFor = (base, st) => {
+    if (!base) return null
+    const bCat = base.category || charmCategory(base)
+    const bSub = base.collection || ''
+    const bw = Number(base.widthMm) || 10
+    const bh = Number(base.heightMm) || 10
+    const patch = {}
+    if (st.name.trim() && st.name.trim() !== (base.name || '')) patch.name = st.name.trim()
+    if (st.category.trim() && st.category.trim() !== bCat) patch.category = st.category.trim()
+    if (st.subCategory.trim() !== bSub) patch.collection = st.subCategory.trim() || 'Custom'
+    if (st.scale !== 1) {
+      patch.widthMm = +(bw * st.scale).toFixed(1)
+      patch.heightMm = +(bh * st.scale).toFixed(1)
+    }
+    if (st.image?.src) patch.src = st.image.src
+    return Object.keys(patch).length ? patch : null
+  }
+
+  // Load the selected charm's fields whenever a different piece is selected —
+  // flushing any pending edits of the previously-loaded charm FIRST so switching
+  // charms never drops an unsaved change.
   useEffect(() => {
+    const prev = loadedRef.current
+    if (prev && prev.id !== charm?.id) {
+      const patch = patchFor(prev, formRef.current)
+      if (patch) cloud.updateCharm(prev, patch).catch(() => {})
+    }
+    loadedRef.current = charm || null
     setName(charm?.name || '')
     setCategory(charm ? charm.category || charmCategory(charm) : '')
     setSubCategory(charm?.collection || '')
     setImage(null)
     setScale(1)
   }, [charm?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Auto-save to Shopify: whenever the form is dirty, persist after a short idle
+  // debounce so every change (name / category / sub-category / size / artwork) is
+  // saved without a manual button press.
+  useEffect(() => {
+    if (!charm) return
+    const patch = patchFor(charm, { name, category, subCategory, scale, image })
+    if (!patch) return
+    const t = setTimeout(async () => {
+      setSaving(true)
+      try {
+        await cloud.updateCharm(charm, patch)
+        // Size / artwork are expressed RELATIVE to the charm's stored values; once
+        // saved (and the catalogue refreshed) reset the relative controls so the
+        // next debounce doesn't re-apply them on top of the new base values.
+        if (scale !== 1) setScale(1)
+        if (image) setImage(null)
+      } catch (e) {
+        message.error(`Could not save: ${e.message}`)
+      } finally {
+        setSaving(false)
+      }
+    }, 700)
+    return () => clearTimeout(t)
+  }, [charm, name, category, subCategory, scale, image]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const fit = Math.min(
     (STAGE_MAX_W - STAGE_PAD * 2) / product.widthMm,
@@ -215,32 +275,6 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
       category.trim() !== curCat ||
       subCategory.trim() !== curSub ||
       !!image)
-
-  const save = async () => {
-    if (!charm) return
-    const patch = {}
-    if (name.trim() && name.trim() !== charm.name) patch.name = name.trim()
-    if (category.trim() && category.trim() !== curCat) patch.category = category.trim()
-    if (subCategory.trim() !== curSub) patch.collection = subCategory.trim() || 'Custom'
-    if (scale !== 1) {
-      patch.widthMm = +(baseW * scale).toFixed(1)
-      patch.heightMm = +(baseH * scale).toFixed(1)
-    }
-    if (image?.src) patch.src = image.src
-    if (!Object.keys(patch).length) return
-    setSaving(true)
-    try {
-      // Persist name / category / size / artwork to the charm in Shopify.
-      await cloud.updateCharm(charm, patch)
-      setImage(null)
-      setScale(1)
-      message.success(`Saved “${patch.name || charm.name}” to Shopify.`)
-    } catch (e) {
-      message.error(`Could not save: ${e.message}`)
-    } finally {
-      setSaving(false)
-    }
-  }
 
   // Dropdown options = server categories + any locally-created ones + the charm's
   // own current value (so it always shows even before a refresh folds it in).
@@ -443,10 +477,18 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
             <ImageDrop value={image} onChange={setImage} hint="Drop a new transparent PNG to replace the art" />
           </label>
 
-          <Space>
-            <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty} loading={saving}>
-              Save to Shopify
-            </Button>
+          <Space align="center">
+            <span className="hint" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              {saving ? (
+                <>
+                  <Spin size="small" /> Saving to Shopify…
+                </>
+              ) : dirty ? (
+                'Saving…'
+              ) : (
+                'All changes saved to Shopify'
+              )}
+            </span>
             <Button
               onClick={() => {
                 setName(charm.name || '')
@@ -1992,7 +2034,7 @@ function useCloud(draft, set) {
     onOk: async () => { try { await deleteCharm(c.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
   const repriceCharm = async (c, price) => {
-    try { await patchCharm(c.id, { price }) }
+    try { await patchCharm(c.id, { price }); refresh() }
     catch (e) { message.error(e.message) }
   }
   const resizeCharm = async (c, widthMm, heightMm) => {

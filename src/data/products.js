@@ -323,10 +323,12 @@ const ANDROIDS = [
 ]
   .map((a) => makePhone(...a))
   .map(applyIntegratedGel)
-  // Only surface Android models that already have a generated integrated-gel
-  // render. Models still awaiting a render are hidden for now; each reappears
-  // automatically once its render lands in integrated-models.json.
-  .filter((p) => INTEGRATED_GEL_MODELS.has(p.id))
+  // Every Android model is surfaced. Models with a generated integrated-gel
+  // render use that baked photo; the rest fall back to the parametric gel render
+  // (a black gel = black case, white gel = white case) drawn by ProductCanvas,
+  // whose PhoneShell already knows each brand's camera layout (Samsung vertical
+  // column, Huawei round island, Xiaomi square island), so no model is hidden
+  // just for lacking a render.
   .map((p) => ({ ...p, basePrice: PHONE_BASE_PRICE }))
 
 /** Sub-brand display labels (used to group the Android model dropdown). */
