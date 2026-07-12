@@ -987,6 +987,16 @@ function ProductsTab({ draft, set, cloud }) {
     },
   })
 
+  const enableOversell = async () => {
+    setBusy(true)
+    try {
+      const r = await caseVariantAction({ action: 'sellWhenSoldOut' })
+      message.success(`Enabled selling on ${r.updated || 0} sold-out variant(s) — the “- Unavailable” tag will drop.`)
+      loadCase()
+    } catch (e) { message.error(e.message || 'Could not update the variants.') }
+    finally { setBusy(false) }
+  }
+
   const deleteRow = (r) => {
     if (!r.variantOnly) return cloud.removeProduct(r) // cascades metaobject + image + variants
     modal.confirm({
@@ -1072,7 +1082,14 @@ function ProductsTab({ draft, set, cloud }) {
         <Card
           size="small"
           title={`Products & variants (${rows.length})`}
-          extra={<Button size="small" icon={<ReloadOutlined />} onClick={() => { cloud?.refresh(); loadCase() }} loading={cloud?.loading || caseLoading}>Refresh</Button>}
+          extra={
+            <Space>
+              <Button size="small" icon={<ThunderboltOutlined />} loading={busy} onClick={enableOversell}>
+                Sell sold-out models
+              </Button>
+              <Button size="small" icon={<ReloadOutlined />} onClick={() => { cloud?.refresh(); loadCase() }} loading={cloud?.loading || caseLoading}>Refresh</Button>
+            </Space>
+          }
         >
           <p className="hint" style={{ marginTop: 0 }}>
             One list for the customizer models and their sellable Shopify variants. Editing a colour price

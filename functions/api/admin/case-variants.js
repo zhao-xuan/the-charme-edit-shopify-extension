@@ -95,6 +95,20 @@ export async function onRequestPost({ request, env }) {
     } else if (action === 'deleteColour') {
       if (!body.colour) return bad('colour required')
       deleted = await deleteColourVariants(env, product, String(body.colour).trim())
+    } else if (action === 'sellWhenSoldOut') {
+      // Set inventoryPolicy=CONTINUE on out-of-stock variants (or all when
+      // onlySoldOut===false) so the theme stops labelling them "- Unavailable".
+      const onlySoldOut = body.onlySoldOut !== false
+      const targets = product.variants.filter((v) => !v.continueSelling && (!onlySoldOut || !v.available))
+      const variants = targets.map((v) => ({ id: v.id, inventoryPolicy: 'CONTINUE' }))
+      for (let i = 0; i < variants.length; i += 100) {
+        const chunk = variants.slice(i, i + 100)
+        if (!chunk.length) continue
+        const data = await shopifyAdmin(env, M_UPDATE, { productId: product.productId, variants: chunk })
+        const errs = data.productVariantsBulkUpdate?.userErrors || []
+        if (errs.length) return bad(`Shopify: ${JSON.stringify(errs)}`, 400)
+      }
+      return json({ ok: true, updated: variants.length }, { headers: cors })
     } else {
       return bad(`unknown action "${action}"`)
     }
