@@ -1,43 +1,35 @@
-// Admin endpoint for the REAL sellable phone-case variants (the actual Shopify
-// product the customer buys), so the merchant can see/edit their live prices &
-// availability from the admin — the "product page" is wired to the real Shopify
-// variants, not just the customizer's display metaobjects.
+// Admin endpoint for the ONE real sellable phone-case product on Shopify — the
+// single source of truth for what customers buy (iPhone Model × Case & Gel
+// Colour). The admin's product list is wired to these variants:
 //
-//   GET   /api/admin/case-variants[?handle=custom-charm-phone-case]
-//         → { productId, handle, title, options, variants:[{id, price, model,
-//             colour, available, inventory}] }
-//   PATCH /api/admin/case-variants  { productId, variantId, price?, available? }
-//         → updates the variant via productVariantsBulkUpdate (needs write_products)
+//   GET   /api/admin/case-variants[?handle=]
+//         → { productId, colourOptionName, modelOptionName, colours[], models[],
+//             variants[] } (see _case-variants.getCaseProduct)
+//   PATCH /api/admin/case-variants  { productId, variantId, price?, continueSelling? }
+//         → update ONE variant (productVariantsBulkUpdate)
+//   POST  /api/admin/case-variants  { action, ... }   (needs write_products)
+//         addModel    { model, price? }   create the model's colour variants
+//         deleteModel { model }           delete a model's variants
+//         addColour   { colour, price? }  add a colour variant to every model
+//         deleteColour{ colour }          remove a colour from every model
 //
-// The product = one "Custom phone case" with Option "iPhone Model" × "Case & Gel
-// Colour" (see scripts/build-base-variant-map.mjs). API version 2024-10.
+// API version 2024-10.
 import { json, bad, requireAdmin, shopifyAdmin } from '../_lib.js'
 import { shopifyConfigured } from '../_shopify-store.js'
-
-const DEFAULT_HANDLE = 'custom-charm-phone-case'
+import {
+  getCaseProduct,
+  addModelVariants,
+  deleteModelVariants,
+  addColourVariants,
+  deleteColourVariants,
+} from '../_case-variants.js'
 
 const cors = {
   'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET,PATCH,OPTIONS',
+  'access-control-allow-methods': 'GET,POST,PATCH,OPTIONS',
   'access-control-allow-headers': 'authorization,content-type',
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
-
-const Q_PRODUCT = `
-  query($q: String!) {
-    products(first: 1, query: $q) {
-      edges { node {
-        id title handle
-        options { name position values }
-        variants(first: 100) {
-          edges { node {
-            id title price availableForSale inventoryQuantity inventoryPolicy
-            selectedOptions { name value }
-          } }
-        }
-      } }
-    }
-  }`
 
 const M_UPDATE = `
   mutation($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
@@ -47,37 +39,15 @@ const M_UPDATE = `
     }
   }`
 
-/** Pick the option value whose option name matches (case-insensitive) any hint. */
-function optOf(selected, hints) {
-  const s = (selected || []).find((o) => hints.some((h) => o.name.toLowerCase().includes(h)))
-  return s ? s.value : ''
-}
-
 export async function onRequestGet({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  if (!shopifyConfigured(env)) return json({ productId: null, variants: [] }, { headers: cors })
+  if (!shopifyConfigured(env)) return json({ productId: null, colours: [], models: [], variants: [] }, { headers: cors })
   const url = new URL(request.url)
-  const handle = (url.searchParams.get('handle') || DEFAULT_HANDLE).trim()
+  const handle = (url.searchParams.get('handle') || '').trim() || undefined
   try {
-    const data = await shopifyAdmin(env, Q_PRODUCT, { q: `handle:${handle}` })
-    const node = data.products?.edges?.[0]?.node
-    if (!node) return bad(`product "${handle}" not found`, 404)
-    const variants = (node.variants?.edges || []).map((e) => {
-      const v = e.node
-      return {
-        id: v.id,
-        price: v.price != null ? Number(v.price) : null,
-        model: optOf(v.selectedOptions, ['model', 'phone']),
-        colour: optOf(v.selectedOptions, ['colour', 'color', 'gel']),
-        available: !!v.availableForSale,
-        inventory: v.inventoryQuantity,
-        continueSelling: v.inventoryPolicy === 'CONTINUE',
-      }
-    })
-    return json(
-      { productId: node.id, handle: node.handle, title: node.title, options: node.options || [], variants },
-      { headers: cors },
-    )
+    const product = await getCaseProduct(env, handle)
+    if (!product) return bad('phone-case product not found', 404)
+    return json(product, { headers: cors })
   } catch (e) {
     return bad(`Shopify variants query failed: ${e.message}`, 502)
   }
@@ -100,5 +70,36 @@ export async function onRequestPatch({ request, env }) {
     return json({ ok: true }, { headers: cors })
   } catch (e) {
     return bad(`Shopify variant update failed: ${e.message}`, 502)
+  }
+}
+
+export async function onRequestPost({ request, env }) {
+  if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
+  if (!shopifyConfigured(env)) return bad('Shopify not configured', 400)
+  const body = (await request.json().catch(() => ({}))) || {}
+  const action = body.action
+  try {
+    const product = await getCaseProduct(env)
+    if (!product) return bad('phone-case product not found', 404)
+    let created = 0
+    let deleted = 0
+    if (action === 'addModel') {
+      if (!body.model) return bad('model required')
+      created = await addModelVariants(env, product, String(body.model).trim(), body.price)
+    } else if (action === 'deleteModel') {
+      if (!body.model) return bad('model required')
+      deleted = await deleteModelVariants(env, product, String(body.model).trim())
+    } else if (action === 'addColour') {
+      if (!body.colour) return bad('colour required')
+      created = await addColourVariants(env, product, String(body.colour).trim(), body.price)
+    } else if (action === 'deleteColour') {
+      if (!body.colour) return bad('colour required')
+      deleted = await deleteColourVariants(env, product, String(body.colour).trim())
+    } else {
+      return bad(`unknown action "${action}"`)
+    }
+    return json({ ok: true, created, deleted }, { headers: cors })
+  } catch (e) {
+    return bad(`Shopify variant ${action} failed: ${e.message}`, 502)
   }
 }

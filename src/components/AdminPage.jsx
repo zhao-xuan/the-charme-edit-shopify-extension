@@ -65,6 +65,7 @@ import {
   fetchShopifyCollections,
   fetchCaseVariants,
   updateCaseVariant,
+  caseVariantAction,
 } from '../lib/adminApi'
 
 const slug = (s) =>
@@ -881,89 +882,8 @@ function ProductStudioTab({ product, cloud }) {
   )
 }
 
-// The REAL sellable phone-case variants (iPhone model × case/gel colour) that
-// live on the "custom-charm-phone-case" Shopify product. Editing a price here
-// writes straight back to the live Shopify variant, so the admin product page
-// is wired to the merchant's real variants — not just the customizer display.
-function CaseVariantsCard() {
-  const { message } = App.useApp()
-  const [loading, setLoading] = useState(true)
-  const [saving, setSaving] = useState(null)
-  const [data, setData] = useState({ productId: null, title: '', variants: [] })
-  const [q, setQ] = useState('')
-
-  const load = () => {
-    setLoading(true)
-    fetchCaseVariants()
-      .then((d) => setData(d || { productId: null, variants: [] }))
-      .catch((e) => message.error(e.message || 'Could not load Shopify variants.'))
-      .finally(() => setLoading(false))
-  }
-  useEffect(() => { load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const rows = useMemo(() => {
-    const list = data.variants || []
-    const f = q.trim().toLowerCase()
-    return f ? list.filter((v) => `${v.model} ${v.colour}`.toLowerCase().includes(f)) : list
-  }, [data, q])
-
-  const patchVariant = async (v, patch) => {
-    setSaving(v.id)
-    try {
-      await updateCaseVariant({ productId: data.productId, variantId: v.id, ...patch })
-      setData((d) => ({ ...d, variants: d.variants.map((x) => (x.id === v.id ? { ...x, ...patch } : x)) }))
-      message.success('Saved to Shopify.')
-    } catch (e) {
-      message.error(e.message || 'Save failed.')
-    } finally {
-      setSaving(null)
-    }
-  }
-
-  const savePrice = (v, value) => {
-    const price = Number(value)
-    if (value == null || value === '' || Number.isNaN(price) || price === v.price) return
-    patchVariant(v, { price })
-  }
-
-  return (
-    <Card
-      size="small"
-      title={`Phone-case variants on Shopify${data.title ? ` · ${data.title}` : ''} (${data.variants.length})`}
-      extra={<Button size="small" icon={<ReloadOutlined />} onClick={load} loading={loading}>Refresh</Button>}
-    >
-      <p className="hint" style={{ marginTop: 0 }}>
-        These are the <strong>real sellable variants</strong> (iPhone model × case &amp; gel colour) the
-        customer actually buys. Editing a price or availability here writes straight to the live Shopify
-        product.
-      </p>
-      <Input.Search
-        placeholder="Filter by model or colour…"
-        allowClear
-        onChange={(e) => setQ(e.target.value)}
-        style={{ marginBottom: 10, maxWidth: 320 }}
-      />
-      <Table
-        size="small"
-        rowKey="id"
-        loading={loading}
-        dataSource={rows}
-        pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 60, 100] }}
-        locale={{ emptyText: <Empty description="No variants found — is write_products approved?" image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
-        columns={[
-          { title: 'iPhone Model', dataIndex: 'model', ellipsis: true, defaultSortOrder: 'ascend', sorter: (a, b) => (a.model || '').localeCompare(b.model || '') },
-          { title: 'Case & Gel', dataIndex: 'colour', width: 150, ellipsis: true, sorter: (a, b) => (a.colour || '').localeCompare(b.colour || '') },
-          { title: 'Price (£)', width: 104, render: (_, v) => <InputNumber size="small" min={0} step={0.5} defaultValue={v.price} disabled={saving === v.id} onBlur={(e) => savePrice(v, e.target.value)} style={{ width: 84 }} /> },
-          { title: 'Stock', width: 84, render: (_, v) => (v.available ? <Tag color="green">In stock</Tag> : <Tag>Sold out</Tag>) },
-          { title: 'Sell when sold out', width: 128, render: (_, v) => <Switch size="small" checked={!!v.continueSelling} loading={saving === v.id} onChange={(c) => patchVariant(v, { continueSelling: c })} /> },
-        ]}
-      />
-    </Card>
-  )
-}
-
 function ProductsTab({ draft, set, cloud }) {
-  const { message } = App.useApp()
+  const { message, modal } = App.useApp()
   const [form, setForm] = useState({
     name: '',
     kind: 'phone',
@@ -974,10 +894,119 @@ function ProductsTab({ draft, set, cloud }) {
   const [selectedProductId, setSelectedProductId] = useState(null)
   const selectedProduct =
     (cloud?.data.products || []).find((p) => p.id === selectedProductId) || null
-  const pickRow = (r) => ({ onClick: () => setSelectedProductId(r.id) })
+  const pickRow = (r) => (r.variantOnly ? {} : { onClick: () => setSelectedProductId(r.id) })
   const rowCls = (r) => (r.id === selectedProductId ? 'admin-pick-row is-selected' : 'admin-pick-row')
 
+  // ---- The ONE real sellable product (custom-charm-phone-case) -------------
+  // Every phone model has a colour variant (Black/White/Glitter/…) here; the
+  // product list below is wired to them so a price edit / add / delete touches
+  // the real Shopify variants the customer buys.
+  const [caseData, setCaseData] = useState({ productId: null, colours: [], models: [], variants: [] })
+  const [caseLoading, setCaseLoading] = useState(true)
+  const [busy, setBusy] = useState(false)
+  const [newColour, setNewColour] = useState('')
+
+  const loadCase = () => {
+    setCaseLoading(true)
+    fetchCaseVariants()
+      .then((d) => setCaseData(d || { productId: null, colours: [], models: [], variants: [] }))
+      .catch((e) => message.error(e.message || 'Could not load Shopify variants.'))
+      .finally(() => setCaseLoading(false))
+  }
+  // Reload the live variants whenever the metaobject product list changes
+  // (add / delete cascades server-side, then cloud.refresh updates products).
+  useEffect(() => { loadCase() }, [cloud?.data.products]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const colours = caseData.colours || []
+  const variantAt = useMemo(() => {
+    const m = {}
+    for (const v of caseData.variants || []) (m[v.model] ||= {})[v.colour] = v
+    return m
+  }, [caseData])
+
+  // Unified rows = metaobject products + any live models without a metaobject.
+  const rows = useMemo(() => {
+    const products = cloud?.data.products || []
+    const names = new Set(products.map((p) => p.name))
+    const extras = (caseData.models || [])
+      .filter((mm) => !names.has(mm.name))
+      .map((mm) => ({ id: `variant:${mm.name}`, name: mm.name, kind: 'phone', variantOnly: true }))
+    return [...products, ...extras]
+  }, [cloud?.data.products, caseData])
+
+  const saveVariantPrice = async (model, colour, value) => {
+    const v = variantAt[model]?.[colour]
+    if (!v) return
+    const price = Number(value)
+    if (value == null || value === '' || Number.isNaN(price) || price === v.price) return
+    try {
+      await updateCaseVariant({ productId: caseData.productId, variantId: v.id, price })
+      setCaseData((d) => ({ ...d, variants: d.variants.map((x) => (x.id === v.id ? { ...x, price } : x)) }))
+    } catch (e) {
+      message.error(e.message || 'Could not update the variant price.')
+    }
+  }
+
+  const createVariantsFor = async (model) => {
+    setBusy(true)
+    try {
+      const r = await caseVariantAction({ action: 'addModel', model, price: form.basePrice })
+      message.success(`Created ${r.created || 0} variant(s) for “${model}”.`)
+      loadCase()
+    } catch (e) { message.error(e.message || 'Could not create variants.') }
+    finally { setBusy(false) }
+  }
+
+  const addColour = async () => {
+    const colour = newColour.trim()
+    if (!colour) return
+    if (colours.some((c) => c.name.toLowerCase() === colour.toLowerCase()))
+      return message.warning('That colour already exists.')
+    setBusy(true)
+    try {
+      const r = await caseVariantAction({ action: 'addColour', colour })
+      setNewColour('')
+      message.success(`Added “${colour}” — created ${r.created || 0} variant(s) across models.`)
+      loadCase()
+    } catch (e) { message.error(e.message || 'Could not add the colour.') }
+    finally { setBusy(false) }
+  }
+
+  const removeColour = (name) => modal.confirm({
+    title: `Remove “${name}” from every model?`,
+    content: 'This deletes that colour’s variant on Shopify for all phone models.',
+    okText: 'Remove', okButtonProps: { danger: true },
+    onOk: async () => {
+      setBusy(true)
+      try {
+        const r = await caseVariantAction({ action: 'deleteColour', colour: name })
+        message.success(`Removed “${name}” — deleted ${r.deleted || 0} variant(s).`)
+        loadCase()
+      } catch (e) { message.error(e.message || 'Could not remove the colour.') }
+      finally { setBusy(false) }
+    },
+  })
+
+  const deleteRow = (r) => {
+    if (!r.variantOnly) return cloud.removeProduct(r) // cascades metaobject + image + variants
+    modal.confirm({
+      title: `Delete all variants of “${r.name}”?`,
+      content: 'This model has no customizer product — only its Shopify variants will be removed.',
+      okText: 'Delete', okButtonProps: { danger: true },
+      onOk: async () => {
+        setBusy(true)
+        try {
+          const x = await caseVariantAction({ action: 'deleteModel', model: r.name })
+          message.success(`Deleted ${x.deleted || 0} variant(s).`)
+          loadCase()
+        } catch (e) { message.error(e.message || 'Could not delete the variants.') }
+        finally { setBusy(false) }
+      },
+    })
+  }
+
   const heightMm = form.image ? +(form.widthMm * (form.image.h / form.image.w)).toFixed(1) : null
+
 
   const addProduct = () => {
     if (!form.name.trim()) return message.warning('Give the product a name.')
@@ -1001,30 +1030,102 @@ function ProductsTab({ draft, set, cloud }) {
     <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
       <style>{`.admin-pick-row{cursor:pointer}.admin-pick-row.is-selected>td{background:rgba(179,91,91,.10)!important}`}</style>
 
-      {/* Left column — the product list to pick from. */}
-      <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
-        <CaseVariantsCard />
+      {/* Left column — the single product list, wired to the real variants. */}
+      <Space direction="vertical" size={18} style={{ flex: '1 1 560px', minWidth: 0 }}>
         <Card
           size="small"
-          title={`Products on Shopify (${cloud?.data.products.length || 0})`}
-          extra={<Button size="small" icon={<ReloadOutlined />} onClick={cloud?.refresh} loading={cloud?.loading}>Refresh</Button>}
+          title={`Case colours (variant types) · ${colours.length}`}
+          loading={caseLoading}
         >
+          <p className="hint" style={{ marginTop: 0 }}>
+            Each colour is a variant on <strong>every</strong> phone model. Adding a colour creates it for
+            all models; removing it deletes those variants on Shopify.
+          </p>
+          <Space wrap size={[6, 6]}>
+            {colours.length ? (
+              colours.map((c) => (
+                <Tag
+                  key={c.name}
+                  closable
+                  onClose={(e) => { e.preventDefault(); removeColour(c.name) }}
+                  style={{ padding: '2px 8px', fontSize: 13 }}
+                >
+                  {c.name}
+                </Tag>
+              ))
+            ) : (
+              <span className="hint">No colours yet.</span>
+            )}
+          </Space>
+          <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
+            <Input
+              placeholder="New colour (e.g. Clear)"
+              value={newColour}
+              onChange={(e) => setNewColour(e.target.value)}
+              onPressEnter={addColour}
+              style={{ maxWidth: 220 }}
+            />
+            <Button icon={<PlusOutlined />} loading={busy} onClick={addColour}>Add colour</Button>
+          </div>
+        </Card>
+
+        <Card
+          size="small"
+          title={`Products & variants (${rows.length})`}
+          extra={<Button size="small" icon={<ReloadOutlined />} onClick={() => { cloud?.refresh(); loadCase() }} loading={cloud?.loading || caseLoading}>Refresh</Button>}
+        >
+          <p className="hint" style={{ marginTop: 0 }}>
+            One list for the customizer models and their sellable Shopify variants. Editing a colour price
+            writes to the live variant. Deleting a product removes its metaobject, image and all its variants.
+          </p>
           <Table
             size="small"
             rowKey="id"
-            loading={cloud?.loading}
+            loading={cloud?.loading || caseLoading}
             onRow={pickRow}
             rowClassName={rowCls}
+            scroll={{ x: 'max-content' }}
             pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
-            dataSource={cloud?.data.products || []}
-            locale={{ emptyText: <Empty description="No products in Shopify yet — add one, then Publish." image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
+            dataSource={rows}
+            locale={{ emptyText: <Empty description="No products yet — add one below, then Publish." image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
             columns={[
-              { title: 'Photo', dataIndex: 'src', width: 56, render: (s) => <Image src={s} width={38} height={38} style={{ objectFit: 'contain' }} /> },
-              { title: 'Name', dataIndex: 'name', ellipsis: true },
-              { title: 'Type', dataIndex: 'kind', width: 74, render: (k) => <Tag>{k === 'tote' ? 'Tote' : 'Phone'}</Tag> },
-              { title: 'Size', width: 108, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
-              { title: 'Price (£)', width: 96, render: (_, r) => <InputNumber size="small" min={0} defaultValue={r.basePrice} onBlur={(e) => cloud.repriceProduct(r, Number(e.target.value))} style={{ width: 76 }} /> },
-              { title: '', width: 40, render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeProduct(r)} /> },
+              { title: 'Photo', dataIndex: 'src', width: 52, render: (s, r) => (r.variantOnly ? <Tag color="blue">live</Tag> : <Image src={resolveAsset(s)} width={36} height={36} style={{ objectFit: 'contain' }} />) },
+              { title: 'Model', dataIndex: 'name', ellipsis: true, fixed: 'left', width: 150 },
+              ...colours.map((c) => ({
+                title: `${c.name} (£)`,
+                key: `col-${c.name}`,
+                width: 92,
+                render: (_, r) => {
+                  const v = variantAt[r.name]?.[c.name]
+                  return v ? (
+                    <InputNumber
+                      key={`${v.id}:${v.price}`}
+                      size="small"
+                      min={0}
+                      step={0.5}
+                      defaultValue={v.price}
+                      onBlur={(e) => saveVariantPrice(r.name, c.name, e.target.value)}
+                      style={{ width: 74 }}
+                    />
+                  ) : (
+                    <span style={{ color: '#ccc' }}>—</span>
+                  )
+                },
+              })),
+              {
+                title: '',
+                key: 'sync',
+                width: 96,
+                render: (_, r) => {
+                  const missing = colours.length && colours.some((c) => !variantAt[r.name]?.[c.name])
+                  return missing ? (
+                    <Button size="small" icon={<PlusOutlined />} loading={busy} onClick={() => createVariantsFor(r.name)}>
+                      Variants
+                    </Button>
+                  ) : null
+                },
+              },
+              { title: '', key: 'del', width: 40, fixed: 'right', render: (_, r) => <Button type="text" danger icon={<DeleteOutlined />} onClick={() => deleteRow(r)} /> },
             ]}
           />
         </Card>

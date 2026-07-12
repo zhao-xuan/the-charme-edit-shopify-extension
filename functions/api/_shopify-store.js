@@ -17,7 +17,7 @@
 // All calls run server-side with the app's Admin API token (see
 // _lib.getShopifyToken), so no token reaches the browser and each shop only ever
 // touches its own data.
-import { shopifyAdmin, uploadImageFile } from './_lib.js'
+import { shopifyAdmin, uploadImageFile, fileDelete } from './_lib.js'
 
 /** Metaobject type keys (one "table" each). */
 export const TYPES = {
@@ -347,14 +347,25 @@ export async function saveRecord(env, type, id, record, imageGids = {}) {
   return res.metaobjectCreate.metaobject.id
 }
 
-/** Delete a record by id (the referenced image File is left in Files). */
-export async function deleteRecord(env, type, id) {
+/**
+ * Delete a record by id. With `{ deleteImages: true }` the metaobject's
+ * referenced Shopify Files (any field holding a MediaImage GID) are also removed
+ * from the store's Files — used when a product is deleted so its body render is
+ * cleaned up too. Defaults to leaving the File in place (back-compat).
+ */
+export async function deleteRecord(env, type, id, opts = {}) {
   await ensureDefinition(env, type)
   const node = await findNode(env, type, id)
   if (!node) return false
+  const imageIds = opts.deleteImages
+    ? (node.fields || [])
+        .map((f) => f.value)
+        .filter((v) => typeof v === 'string' && v.startsWith('gid://shopify/MediaImage/'))
+    : []
   const res = await shopifyAdmin(env, M_DELETE, { id: node.id })
   const errs = res.metaobjectDelete.userErrors || []
   if (errs.length) throw new Error(`delete ${type}: ${JSON.stringify(errs)}`)
+  if (imageIds.length) await fileDelete(env, imageIds)
   return true
 }
 

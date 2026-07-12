@@ -134,3 +134,7 @@ export const fetchCaseVariants = async (h) =>
 /** Update a real phone-case variant's price / availability on Shopify. */
 export const updateCaseVariant = async (patch) =>
   handle(await fetch(url('/api/admin/case-variants'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify(patch) }))
+
+/** Structural variant actions: addModel/deleteModel/addColour/deleteColour. */
+export const caseVariantAction = async (body) =>
+  handle(await fetch(url('/api/admin/case-variants'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(body) }))

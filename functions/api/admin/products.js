@@ -14,6 +14,7 @@ import {
   deleteRecord,
   storeImageToFiles,
 } from '../_shopify-store.js'
+import { getCaseProduct, addModelVariants, deleteModelVariants } from '../_case-variants.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -46,8 +47,22 @@ export async function onRequestPost({ request, env }) {
       active: true,
     }
     await saveRecord(env, TYPES.product, id, rec, { image: imageId })
+    // Cascade: a phone model must have its real sellable variants (one per
+    // colour) on the single custom-charm-phone-case product. Best-effort — a
+    // missing write_products scope must not block creating the metaobject.
+    let variantNote
+    if (rec.kind === 'phone') {
+      try {
+        const caseProduct = await getCaseProduct(env)
+        if (caseProduct && !caseProduct.models.some((m) => m.name === rec.name)) {
+          await addModelVariants(env, caseProduct, rec.name, rec.basePrice)
+        }
+      } catch (e) {
+        variantNote = `Product saved, but its Shopify variants weren't created: ${e.message}`
+      }
+    }
     const { imageId: _drop, active: _a, ...product } = rec
-    return json({ ok: true, product }, { headers: cors })
+    return json({ ok: true, product, variantNote }, { headers: cors })
   }
 
   // ---- Legacy Cloudflare D1 + KV fallback ----
@@ -103,8 +118,20 @@ export async function onRequestDelete({ request, env }) {
   if (!id) return bad('id required')
 
   if (shopifyConfigured(env)) {
-    await deleteRecord(env, TYPES.product, id)
-    return json({ ok: true }, { headers: cors })
+    // Read the record first so we know its name (to match the sellable variants)
+    // and kind before deleting the metaobject + its Shopify Files image.
+    const rec = await getRecord(env, TYPES.product, id)
+    await deleteRecord(env, TYPES.product, id, { deleteImages: true })
+    let variantNote
+    if (rec && rec.kind === 'phone') {
+      try {
+        const caseProduct = await getCaseProduct(env)
+        if (caseProduct) await deleteModelVariants(env, caseProduct, rec.name)
+      } catch (e) {
+        variantNote = `Product deleted, but its Shopify variants weren't removed: ${e.message}`
+      }
+    }
+    return json({ ok: true, variantNote }, { headers: cors })
   }
 
   const row = await env.DB.prepare('SELECT image_key FROM products WHERE id = ?').bind(id).first()
