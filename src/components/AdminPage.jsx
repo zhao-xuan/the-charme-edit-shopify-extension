@@ -27,6 +27,7 @@ import {
   AppstoreOutlined,
   CloudUploadOutlined,
   DeleteOutlined,
+  DownOutlined,
   EditOutlined,
   HolderOutlined,
   InboxOutlined,
@@ -34,6 +35,7 @@ import {
   PercentageOutlined,
   OrderedListOutlined,
   ReloadOutlined,
+  RightOutlined,
   SaveOutlined,
   ScissorOutlined,
   ShopOutlined,
@@ -75,6 +77,38 @@ const slug = (s) =>
     .replace(/^-|-$/g, '')
     .slice(0, 40) || 'item'
 const rid = () => Math.random().toString(36).slice(2, 7)
+
+/** Move an item within an array (returns a new array). */
+const moveInArray = (arr, from, to) => {
+  const next = (arr || []).slice()
+  if (to < 0 || to >= next.length) return next
+  const [x] = next.splice(from, 1)
+  next.splice(to, 0, x)
+  return next
+}
+
+// Collapsible right-column card: click the title to fold; body stays mounted
+// (display:none) so form state survives. Used across the Products / Charms tabs
+// so the whole studio column can float (sticky) while the left list scrolls.
+function RightPanel({ title, extra, defaultOpen = true, children }) {
+  const [open, setOpen] = useState(defaultOpen)
+  return (
+    <Card
+      size="small"
+      title={
+        <span
+          onClick={() => setOpen((o) => !o)}
+          style={{ cursor: 'pointer', userSelect: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+        >
+          {open ? <DownOutlined style={{ fontSize: 11 }} /> : <RightOutlined style={{ fontSize: 11 }} />} {title}
+        </span>
+      }
+      extra={extra}
+    >
+      <div style={{ display: open ? 'block' : 'none' }}>{children}</div>
+    </Card>
+  )
+}
 
 const CAT_OPTS = [
   { value: 'gold', label: 'Gold' },
@@ -313,7 +347,7 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   const lblStyle = { display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }
 
   return (
-    <Card size="small" title="Charm studio" style={{ position: 'sticky', top: 8 }}>
+    <>
       {!charm ? (
         <Empty
           style={{ margin: '24px 0' }}
@@ -510,7 +544,7 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
           </Space>
         </>
       )}
-    </Card>
+    </>
   )
 }
 
@@ -659,12 +693,15 @@ function CharmsTab({ draft, set, cloud }) {
         </Card>
       </Space>
 
-      {/* Right column — size the selected charm + add a charm. */}
-      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
+      {/* Right column — size the selected charm + add a charm. Sticky so it
+          floats while the left list scrolls; each card collapsible. */}
+      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 24px)', overflowY: 'auto' }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
-          <CharmStudioTab charm={selectedCharm} cloud={cloud} categories={categories} subcategories={subcategories} />
+          <RightPanel title="Charm studio">
+            <CharmStudioTab charm={selectedCharm} cloud={cloud} categories={categories} subcategories={subcategories} />
+          </RightPanel>
 
-          <Card size="small" title="Add a custom charm">
+          <RightPanel title="Add a custom charm" defaultOpen={false}>
             <div className="admin-grid">
               <label>
                 <span>Name</span>
@@ -761,7 +798,7 @@ function CharmsTab({ draft, set, cloud }) {
             <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
               Add charm
             </Button>
-          </Card>
+          </RightPanel>
         </Space>
       </div>
     </div>
@@ -774,6 +811,209 @@ function CharmsTab({ draft, set, cloud }) {
 // ---------------------------------------------------------------------------
 // Product studio — edit a product's name / price / real size / photo in Shopify.
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Variant selector (storefront brand → model picker) — admin editor
+// ---------------------------------------------------------------------------
+const vsNode = (label) => ({ id: rid(), label: label || 'New group', children: [], models: [] })
+
+// One recursive node of the model hierarchy (brand → sub-brand → … → models).
+function VariantTreeNode({ node, models, depth, onChange, onDelete, onMove, canUp, canDown }) {
+  const set = (patch) => onChange({ ...node, ...patch })
+  const kids = node.children || []
+  const addChild = () => set({ children: [...kids, vsNode('New sub-group')] })
+  return (
+    <div style={{ borderLeft: depth ? '2px solid #efe9dc' : 'none', paddingLeft: depth ? 10 : 0, marginBottom: 8 }}>
+      <div style={{ display: 'flex', gap: 4, alignItems: 'center', flexWrap: 'wrap' }}>
+        <Input size="small" value={node.label} onChange={(e) => set({ label: e.target.value })} style={{ maxWidth: 170 }} />
+        <Button size="small" type="text" icon={<PlusOutlined />} title="Add sub-group" onClick={addChild} />
+        <Button size="small" type="text" disabled={!canUp} onClick={() => onMove(-1)}>↑</Button>
+        <Button size="small" type="text" disabled={!canDown} onClick={() => onMove(1)}>↓</Button>
+        <Button size="small" type="text" danger icon={<DeleteOutlined />} onClick={onDelete} />
+      </div>
+      {kids.length === 0 && (
+        <Select
+          mode="multiple"
+          size="small"
+          allowClear
+          placeholder="Phone models in this group"
+          value={node.models || []}
+          onChange={(v) => set({ models: v })}
+          options={models.map((m) => ({ value: m, label: m }))}
+          style={{ width: '100%', marginTop: 6 }}
+          maxTagCount="responsive"
+        />
+      )}
+      {kids.map((c, i) => (
+        <VariantTreeNode
+          key={c.id}
+          node={c}
+          models={models}
+          depth={depth + 1}
+          onChange={(nn) => set({ children: kids.map((x, ix) => (ix === i ? nn : x)) })}
+          onDelete={() => set({ children: kids.filter((_, ix) => ix !== i) })}
+          onMove={(dir) => set({ children: moveInArray(kids, i, i + dir) })}
+          canUp={i > 0}
+          canDown={i < kids.length - 1}
+        />
+      ))}
+    </div>
+  )
+}
+
+function VariantTreeEditor({ tree, models, onChange }) {
+  const list = tree || []
+  return (
+    <div>
+      {list.map((n, i) => (
+        <VariantTreeNode
+          key={n.id}
+          node={n}
+          models={models}
+          depth={0}
+          onChange={(nn) => onChange(list.map((x, ix) => (ix === i ? nn : x)))}
+          onDelete={() => onChange(list.filter((_, ix) => ix !== i))}
+          onMove={(dir) => onChange(moveInArray(list, i, i + dir))}
+          canUp={i > 0}
+          canDown={i < list.length - 1}
+        />
+      ))}
+      <Button size="small" icon={<PlusOutlined />} onClick={() => onChange([...list, vsNode('New brand')])}>
+        Add brand / category
+      </Button>
+    </div>
+  )
+}
+
+const VS_LABEL = { color: 'var(--ink-soft)', fontSize: 13, display: 'block', marginBottom: 4 }
+
+// The whole "Variant selector" studio card: style controls + the model
+// hierarchy, persisted to settings.variantSelector (drives the storefront
+// snippet charme-variant-selector.liquid).
+function VariantSelectorCard({ models }) {
+  const { message } = App.useApp()
+  const [vs, setVs] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    const base = DEFAULT_SETTINGS.variantSelector
+    fetchSettings()
+      .then((s) => {
+        const v = s?.variantSelector || {}
+        setVs({ enabled: v.enabled !== false, style: { ...base.style, ...(v.style || {}) }, tree: v.tree || [] })
+      })
+      .catch(() => setVs({ ...base }))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const setStyle = (patch) => setVs((v) => ({ ...v, style: { ...v.style, ...patch } }))
+  const save = async () => {
+    setSaving(true)
+    try {
+      await saveSettings({ variantSelector: vs })
+      message.success('Variant selector saved — refresh the storefront to see it.')
+    } catch (e) {
+      message.error(e.message || 'Could not save.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  if (loading || !vs) return <Card size="small" title="Variant selector" loading />
+  const st = vs.style
+  const swatch = (label, key) => (
+    <label style={{ flex: '1 1 120px' }}>
+      <span style={VS_LABEL}>{label}</span>
+      <input type="color" value={st[key]} onChange={(e) => setStyle({ [key]: e.target.value })} style={{ width: '100%', height: 30, border: '1px solid var(--line)', borderRadius: 6, background: '#fff' }} />
+    </label>
+  )
+
+  return (
+    <RightPanel
+      title="Variant selector"
+      extra={<Button size="small" type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>Save</Button>}
+    >
+      <p className="hint" style={{ marginTop: 0 }}>
+        The storefront product-page picker (brand → model). Style + hierarchy here drive the{' '}
+        <code>charme-variant-selector</code> snippet.
+      </p>
+
+      <label style={{ display: 'block', marginBottom: 10 }}>
+        <Checkbox checked={vs.enabled} onChange={(e) => setVs((v) => ({ ...v, enabled: e.target.checked }))}>
+          Enabled on the storefront
+        </Checkbox>
+      </label>
+
+      <div style={{ fontWeight: 600, margin: '6px 0 8px' }}>Style</div>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
+        {swatch('Active bg', 'accent')}
+        {swatch('Active text', 'accentInk')}
+        {swatch('Button bg', 'buttonBg')}
+        {swatch('Button text', 'buttonInk')}
+        {swatch('Border', 'border')}
+      </div>
+      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+        <label style={{ flex: '1 1 120px' }}>
+          <span style={VS_LABEL}>Corner radius</span>
+          <Slider min={0} max={24} value={st.radius} onChange={(v) => setStyle({ radius: v })} />
+        </label>
+        <label style={{ flex: '1 1 120px' }}>
+          <span style={VS_LABEL}>Model control</span>
+          <Select
+            value={st.layout}
+            onChange={(v) => setStyle({ layout: v })}
+            options={[{ value: 'buttons', label: 'Brand buttons + dropdown' }, { value: 'dropdown', label: 'Dropdowns only' }]}
+            style={{ width: '100%' }}
+          />
+        </label>
+      </div>
+      <label style={{ display: 'block', marginBottom: 10 }}>
+        <span style={VS_LABEL}>Heading</span>
+        <Input value={st.heading} onChange={(e) => setStyle({ heading: e.target.value })} />
+      </label>
+      <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
+        <label style={{ flex: 1 }}>
+          <span style={VS_LABEL}>Brand label</span>
+          <Input value={st.brandLabel} onChange={(e) => setStyle({ brandLabel: e.target.value })} />
+        </label>
+        <label style={{ flex: 1 }}>
+          <span style={VS_LABEL}>Model label</span>
+          <Input value={st.modelLabel} onChange={(e) => setStyle({ modelLabel: e.target.value })} />
+        </label>
+      </div>
+
+      {/* Live preview of the button style */}
+      <div style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, marginBottom: 14, background: '#faf7f2' }}>
+        <div style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '.04em', color: '#6b655c', marginBottom: 8 }}>{st.heading}</div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {['Apple', 'Google', 'Samsung'].map((b, i) => (
+            <span
+              key={b}
+              style={{
+                padding: '8px 16px',
+                borderRadius: st.radius,
+                border: `1px solid ${i === 0 ? st.accent : st.border}`,
+                background: i === 0 ? st.accent : st.buttonBg,
+                color: i === 0 ? st.accentInk : st.buttonInk,
+                fontSize: 13,
+              }}
+            >
+              {b}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ fontWeight: 600, margin: '4px 0 8px' }}>Model hierarchy</div>
+      <p className="hint" style={{ marginTop: 0 }}>
+        Group models into brands and any number of sub-levels (e.g. Android → Samsung → S series). Leave a
+        group without sub-groups to assign models to it. Empty = auto-group by brand.
+      </p>
+      <VariantTreeEditor tree={vs.tree} models={models} onChange={(tree) => setVs((v) => ({ ...v, tree }))} />
+    </RightPanel>
+  )
+}
+
 function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
   const { message } = App.useApp()
   const [name, setName] = useState('')
@@ -835,7 +1075,7 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
   }
 
   return (
-    <Card size="small" title="Product studio" style={{ position: 'sticky', top: 8 }}>
+    <>
       {!product ? (
         <Empty
           style={{ margin: '24px 0' }}
@@ -916,7 +1156,7 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
           </Space>
         </>
       )}
-    </Card>
+    </>
   )
 }
 
@@ -1231,17 +1471,22 @@ function ProductsTab({ draft, set, cloud }) {
         </Card>
       </Space>
 
-      {/* Right column — edit the selected product + add a new one. */}
-      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
+      {/* Right column — variant selector + edit the selected product + add one.
+          Sticky so it floats while the left list scrolls; each card collapsible. */}
+      <div style={{ flex: '1 1 380px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 24px)', overflowY: 'auto' }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
-          <ProductStudioTab
-            product={selectedProduct}
-            cloud={cloud}
-            variants={selectedProduct ? (caseData.variants || []).filter((v) => v.model === selectedProduct.name) : []}
-            onVariantImage={saveVariantImage}
-          />
+          <VariantSelectorCard models={(caseData.models || []).map((m) => m.name)} />
 
-          <Card size="small" title="Add a custom product">
+          <RightPanel title="Product studio">
+            <ProductStudioTab
+              product={selectedProduct}
+              cloud={cloud}
+              variants={selectedProduct ? (caseData.variants || []).filter((v) => v.model === selectedProduct.name) : []}
+              onVariantImage={saveVariantImage}
+            />
+          </RightPanel>
+
+          <RightPanel title="Add a custom product" defaultOpen={false}>
             <div className="admin-grid">
               <label>
                 <span>Name</span>
@@ -1302,7 +1547,7 @@ function ProductsTab({ draft, set, cloud }) {
             >
               Add product
             </Button>
-          </Card>
+          </RightPanel>
         </Space>
       </div>
     </div>

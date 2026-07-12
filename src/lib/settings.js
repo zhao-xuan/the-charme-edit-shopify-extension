@@ -31,6 +31,28 @@ export const DEFAULT_SETTINGS = {
   //   charmOrder["<cat>::<collection>"] — order of the charms within a section (by id)
   // Anything not listed keeps its natural (first-seen) order after the listed ones.
   taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+  // Storefront product-page variant selector (the new brand → model picker).
+  //   style — look & feel, controlled from Admin → Products → Variant selector.
+  //   tree  — arbitrary-depth category nodes; leaves carry `models` (the
+  //           product's "iPhone Model" option values). Empty → the storefront
+  //           falls back to grouping models by brand automatically.
+  variantSelector: {
+    enabled: true,
+    style: {
+      accent: '#12261d',
+      accentInk: '#ffffff',
+      buttonBg: '#ffffff',
+      buttonInk: '#1f2a24',
+      border: '#d9d4c7',
+      radius: 10,
+      layout: 'buttons', // 'buttons' | 'dropdown'
+      heading: '1. Select your case',
+      brandLabel: 'Brand',
+      modelLabel: 'Model',
+      showPrice: true,
+    },
+    tree: [],
+  },
 }
 
 let cache = null
@@ -66,5 +88,11 @@ function mergeDefaults(data) {
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
+    variantSelector: {
+      ...DEFAULT_SETTINGS.variantSelector,
+      ...(d.variantSelector || {}),
+      style: { ...DEFAULT_SETTINGS.variantSelector.style, ...((d.variantSelector || {}).style || {}) },
+      tree: (d.variantSelector || {}).tree || [],
+    },
   }
 }

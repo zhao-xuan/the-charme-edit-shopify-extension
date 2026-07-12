@@ -46,7 +46,7 @@ export async function onRequestPost({ request, env }) {
   // Merge only the known top-level keys that were actually provided onto the
   // existing settings, so a partial save (e.g. the Discount tab) never wipes
   // another tab's data (e.g. the taxonomy order).
-  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy']
+  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy', 'variantSelector']
   const patch = {}
   for (const k of KNOWN) if (k in body) patch[k] = body[k]
 
@@ -55,6 +55,7 @@ export async function onRequestPost({ request, env }) {
     crossSell: {},
     discounts: { rules: [], codes: [], bundles: [] },
     taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+    variantSelector: { enabled: true, style: {}, tree: [] },
   }
 
   if (shopifyConfigured(env)) {

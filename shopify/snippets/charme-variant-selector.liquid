@@ -1,0 +1,266 @@
+{%- comment -%}
+  charme-variant-selector.liquid — hierarchical BRAND → MODEL variant picker for
+  the "Custom phone case" product page (replaces the theme's native model/colour
+  <select>s with the Charmé-styled selector).
+
+  Install: on the product template, add a Custom Liquid block with:
+      {% render 'charme-variant-selector' %}
+  and hide the theme's native variant picker for this product.
+
+  Optional params:
+      {% render 'charme-variant-selector',
+         api_base: 'https://charme-customizer.pages.dev',
+         design_url: '' %}   {%- comment -%} link/anchor for "Design your own" {%- endcomment -%}
+
+  Look & feel + the brand/sub-brand hierarchy are controlled from the app admin
+  (Admin → Products → Variant selector); this snippet fetches them at runtime from
+  {api_base}/api/settings (variantSelector.style + variantSelector.tree). When the
+  tree is empty it auto-groups models by brand (Apple / Samsung / Google / Other).
+{%- endcomment -%}
+
+{%- assign cvs_api = api_base | default: 'https://charme-customizer.pages.dev' -%}
+{%- assign uid = 'cvs-' | append: product.id -%}
+
+<div id="{{ uid }}" class="cvs" data-charme-variant-selector>
+  <div class="cvs__head">
+    <div class="cvs__title">{{ product.title }}</div>
+    <div class="cvs__price" data-cvs-price>{{ product.selected_or_first_available_variant.price | money }}</div>
+  </div>
+  <div class="cvs__heading" data-cvs-heading>1. Select your case</div>
+
+  <div class="cvs__group" data-cvs-brands hidden>
+    <div class="cvs__label" data-cvs-brand-label>Brand</div>
+    <div class="cvs__btns" data-cvs-brand-btns></div>
+  </div>
+
+  {%- comment -%} One row per extra hierarchy level (sub-brand, sub-sub-brand…) {%- endcomment -%}
+  <div class="cvs__levels" data-cvs-levels></div>
+
+  <div class="cvs__group" data-cvs-models hidden>
+    <div class="cvs__label" data-cvs-model-label>Model</div>
+    <select class="cvs__select" data-cvs-model></select>
+  </div>
+
+  <div class="cvs__group" data-cvs-colours hidden>
+    <div class="cvs__label">Case &amp; Gel Colour</div>
+    <div class="cvs__btns" data-cvs-colour-btns></div>
+  </div>
+
+  <button type="button" class="cvs__design" data-cvs-design hidden>Design your own</button>
+</div>
+
+<style>
+  #{{ uid }}{--cvs-accent:#12261d;--cvs-accent-ink:#fff;--cvs-btn-bg:#fff;--cvs-btn-ink:#1f2a24;--cvs-border:#d9d4c7;--cvs-radius:10px;font-family:'Jost',system-ui,sans-serif;max-width:560px;color:#1f2a24}
+  #{{ uid }} .cvs__head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+  #{{ uid }} .cvs__title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;line-height:1.1}
+  #{{ uid }} .cvs__price{font-size:18px;color:#5b564e}
+  #{{ uid }} .cvs__heading{text-transform:uppercase;letter-spacing:.04em;font-size:15px;margin:18px 0 12px;color:#3a352e}
+  #{{ uid }} .cvs__group{margin-bottom:16px}
+  #{{ uid }} .cvs__label{font-size:14px;color:#6b655c;margin-bottom:8px}
+  #{{ uid }} .cvs__btns{display:flex;flex-wrap:wrap;gap:10px}
+  #{{ uid }} .cvs__btn{padding:11px 20px;border:1px solid var(--cvs-border);background:var(--cvs-btn-bg);color:var(--cvs-btn-ink);border-radius:var(--cvs-radius);font-size:15px;cursor:pointer;transition:all .12s}
+  #{{ uid }} .cvs__btn:hover{border-color:var(--cvs-accent)}
+  #{{ uid }} .cvs__btn.is-active{background:var(--cvs-accent);color:var(--cvs-accent-ink);border-color:var(--cvs-accent)}
+  #{{ uid }} .cvs__btn.is-out{opacity:.45}
+  #{{ uid }} .cvs__select{width:100%;max-width:420px;padding:12px 14px;border:1px solid var(--cvs-border);border-radius:var(--cvs-radius);background:#fff;font-size:15px;color:#1f2a24;appearance:auto}
+  #{{ uid }} .cvs__design{margin-top:6px;padding:13px 26px;border:0;border-radius:var(--cvs-radius);background:var(--cvs-accent);color:var(--cvs-accent-ink);font-size:15px;cursor:pointer}
+  #{{ uid }} .cvs__levels:empty{display:none}
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById({{ uid | json }});
+    if (!root) return;
+    var API = {{ cvs_api | json }};
+    var DESIGN_URL = {{ design_url | default: '' | json }};
+
+    // Variants inlined from Liquid (option1 = colour, option2 = model).
+    var VARIANTS = [
+      {%- for v in product.variants -%}
+      { id: {{ v.id | json }}, colour: {{ v.option1 | json }}, model: {{ v.option2 | json }},
+        available: {{ v.available | json }}, price: {{ v.price | json }},
+        image: {{ v.featured_image | default: product.featured_image | image_url: width: 400 | json }} }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ];
+
+    var $ = function (sel) { return root.querySelector(sel); };
+    var money = function (cents) {
+      try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: {{ shop.currency | json }} }).format((cents || 0) / 100); }
+      catch (e) { return '£' + ((cents || 0) / 100).toFixed(2); }
+    };
+
+    // Distinct option values, in first-seen order.
+    function distinct(key) { var seen = {}, out = []; VARIANTS.forEach(function (v) { if (v[key] && !seen[v[key]]) { seen[v[key]] = 1; out.push(v[key]); } }); return out; }
+    var COLOURS = distinct('colour');
+    var MODELS = distinct('model');
+
+    // Auto brand grouping used when the admin hasn't defined a tree.
+    function brandOf(model) {
+      var m = String(model || '').toLowerCase();
+      if (/iphone|ipad/.test(m)) return 'Apple';
+      if (/galaxy|samsung/.test(m)) return 'Samsung';
+      if (/pixel/.test(m)) return 'Google';
+      if (/huawei|xiaomi|oneplus|oppo|android|other phone/.test(m)) return 'Android';
+      return 'Other';
+    }
+    function autoTree() {
+      var groups = {}, order = [];
+      MODELS.forEach(function (m) { var b = brandOf(m); if (!groups[b]) { groups[b] = []; order.push(b); } groups[b].push(m); });
+      return order.map(function (b) { return { label: b, children: [], models: groups[b] }; });
+    }
+
+    var state = { style: {}, tree: [], path: [], colour: COLOURS[0] || null, model: null };
+
+    // ---- resolve the selected variant + push it into the theme's form -------
+    function variantFor(colour, model) {
+      return VARIANTS.filter(function (v) { return v.model === model && v.colour === colour; })[0] ||
+             VARIANTS.filter(function (v) { return v.model === model; })[0] || null;
+    }
+    function applyVariant() {
+      var v = variantFor(state.colour, state.model);
+      if (!v) return;
+      var form = document.querySelector('form[action*="/cart/add"]');
+      var input = form && (form.querySelector('[name="id"]') );
+      if (form && !input) { input = document.createElement('input'); input.type = 'hidden'; input.name = 'id'; form.appendChild(input); }
+      if (input) { input.value = v.id; input.dispatchEvent(new Event('change', { bubbles: true })); }
+      try { var u = new URL(location.href); u.searchParams.set('variant', v.id); history.replaceState({}, '', u); } catch (e) {}
+      var priceEl = $('[data-cvs-price]'); if (priceEl) priceEl.textContent = money(v.price);
+    }
+
+    // ---- rendering ----------------------------------------------------------
+    function nodesAtPath() {
+      var level = state.tree, node = null;
+      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; level = node ? (node.children || []) : []; }
+      return { siblings: state.path.length ? (parentChildren()) : state.tree, node: node };
+    }
+    function parentChildren() {
+      var level = state.tree, node = null;
+      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; if (i < state.path.length - 1) level = node ? (node.children || []) : []; }
+      return level;
+    }
+    // Models available for the current path (leaf models, or all under the branch).
+    function modelsForPath() {
+      var level = state.tree, node = null;
+      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; level = node ? (node.children || []) : []; }
+      function collect(n) { var out = (n.models || []).slice(); (n.children || []).forEach(function (c) { out = out.concat(collect(c)); }); return out; }
+      if (!node) return [];
+      var all = collect(node);
+      // keep only models that actually exist as variants
+      return all.filter(function (m) { return MODELS.indexOf(m) !== -1; });
+    }
+
+    function btn(label, active, out, onClick) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cvs__btn' + (active ? ' is-active' : '') + (out ? ' is-out' : '');
+      b.textContent = label;
+      b.addEventListener('click', onClick);
+      return b;
+    }
+
+    function render() {
+      var st = state.style || {};
+      root.style.setProperty('--cvs-accent', st.accent || '#12261d');
+      root.style.setProperty('--cvs-accent-ink', st.accentInk || '#fff');
+      root.style.setProperty('--cvs-btn-bg', st.buttonBg || '#fff');
+      root.style.setProperty('--cvs-btn-ink', st.buttonInk || '#1f2a24');
+      root.style.setProperty('--cvs-border', st.border || '#d9d4c7');
+      root.style.setProperty('--cvs-radius', (st.radius != null ? st.radius : 10) + 'px');
+      $('[data-cvs-heading]').textContent = st.heading || '1. Select your case';
+      $('[data-cvs-brand-label]').textContent = st.brandLabel || 'Brand';
+      $('[data-cvs-model-label]').textContent = st.modelLabel || 'Model';
+      $('[data-cvs-price]').style.display = st.showPrice === false ? 'none' : '';
+
+      // Top-level brands.
+      var brands = $('[data-cvs-brand-btns]');
+      brands.innerHTML = '';
+      (state.tree || []).forEach(function (n) {
+        brands.appendChild(btn(n.label, state.path[0] === n.label, false, function () {
+          state.path = [n.label]; ensureModel(); render();
+        }));
+      });
+      $('[data-cvs-brands]').hidden = !(state.tree && state.tree.length);
+
+      // Intermediate levels (children of the chosen node, recursively).
+      var levels = $('[data-cvs-levels]');
+      levels.innerHTML = '';
+      var cursor = state.tree, depth = 0;
+      while (depth < state.path.length) {
+        var node = (cursor || []).filter(function (n) { return n.label === state.path[depth]; })[0];
+        var kids = node ? (node.children || []) : [];
+        if (kids.length) {
+          var row = document.createElement('div');
+          row.className = 'cvs__group';
+          var lbl = document.createElement('div'); lbl.className = 'cvs__label'; lbl.textContent = node.label; row.appendChild(lbl);
+          var wrap = document.createElement('div'); wrap.className = 'cvs__btns';
+          (function (dpth) {
+            kids.forEach(function (k) {
+              wrap.appendChild(btn(k.label, state.path[dpth + 1] === k.label, false, function () {
+                state.path = state.path.slice(0, dpth + 1).concat([k.label]); ensureModel(); render();
+              }));
+            });
+          })(depth);
+          row.appendChild(wrap); levels.appendChild(row);
+        }
+        cursor = kids; depth++;
+      }
+
+      // Model dropdown for the current branch.
+      var models = state.path.length ? modelsForPath() : MODELS;
+      var sel = $('[data-cvs-model]');
+      sel.innerHTML = '';
+      models.forEach(function (m) {
+        var o = document.createElement('option'); o.value = m; o.textContent = m; if (m === state.model) o.selected = true; sel.appendChild(o);
+      });
+      $('[data-cvs-models]').hidden = models.length === 0;
+
+      // Colours.
+      var cwrap = $('[data-cvs-colour-btns]');
+      cwrap.innerHTML = '';
+      COLOURS.forEach(function (c) {
+        var v = variantFor(c, state.model);
+        cwrap.appendChild(btn(c, state.colour === c, v && !v.available, function () { state.colour = c; applyVariant(); render(); }));
+      });
+      $('[data-cvs-colours]').hidden = COLOURS.length === 0;
+
+      if (DESIGN_URL) { var d = $('[data-cvs-design]'); d.hidden = false; }
+    }
+
+    function ensureModel() {
+      var models = state.path.length ? modelsForPath() : MODELS;
+      if (models.indexOf(state.model) === -1) state.model = models[0] || MODELS[0] || null;
+      applyVariant();
+    }
+
+    $('[data-cvs-model]').addEventListener('change', function (e) { state.model = e.target.value; applyVariant(); render(); });
+    var design = $('[data-cvs-design]');
+    if (design) design.addEventListener('click', function () { if (DESIGN_URL) { if (DESIGN_URL.charAt(0) === '#') { var t = document.querySelector(DESIGN_URL); if (t) t.scrollIntoView({ behavior: 'smooth' }); } else location.href = DESIGN_URL; } });
+
+    // Preselect from the current URL / form, else first values.
+    (function preselect() {
+      var vid = new URLSearchParams(location.search).get('variant');
+      var cur = vid && VARIANTS.filter(function (v) { return String(v.id) === String(vid); })[0];
+      if (cur) { state.colour = cur.colour; state.model = cur.model; }
+      else { state.model = MODELS[0] || null; }
+    })();
+
+    // Load admin style + hierarchy, then render.
+    fetch(API + '/api/settings', { headers: { accept: 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (s) {
+        var vs = (s && s.variantSelector) || {};
+        state.style = vs.style || {};
+        state.tree = (vs.tree && vs.tree.length) ? vs.tree : autoTree();
+        // set the initial path to the brand that contains the preselected model
+        if (state.model) {
+          for (var i = 0; i < state.tree.length; i++) {
+            var flat = []; (function walk(n) { (n.models || []).forEach(function (m) { flat.push(m); }); (n.children || []).forEach(walk); })(state.tree[i]);
+            if (flat.indexOf(state.model) !== -1) { state.path = [state.tree[i].label]; break; }
+          }
+        }
+        render();
+        applyVariant();
+      })
+      .catch(function () { state.tree = autoTree(); render(); applyVariant(); });
+  })();
+</script>
