@@ -5,6 +5,7 @@
 // or removing a model, or a colour, cascades to the real variants here so the
 // sellable product always matches the customizer. API version 2024-10.
 import { shopifyAdmin } from './_lib.js'
+import { storeImageToFiles } from './_shopify-store.js'
 
 export const CASE_HANDLE = 'custom-charm-phone-case'
 // Seed colours if the product has no colour option values yet (fresh store).
@@ -19,6 +20,7 @@ const Q_PRODUCT = `
         variants(first: 250) {
           edges { node {
             id title price availableForSale inventoryPolicy
+            image { url }
             selectedOptions { name value }
           } }
         }
@@ -90,6 +92,7 @@ export async function getCaseProduct(env, handle = CASE_HANDLE) {
       model: valueOf(v.selectedOptions, modelName),
       available: !!v.availableForSale,
       continueSelling: v.inventoryPolicy === 'CONTINUE',
+      image: v.image?.url || null,
     }
   })
   const colours = (colour?.optionValues || []).map((x) => ({ id: x.id, name: x.name }))
@@ -190,4 +193,61 @@ export async function deleteColourVariants(env, product, colourName) {
   const n = await bulkDelete(env, product.productId, ids)
   await dropOptionValue(env, product, 'colour', colourName)
   return n
+}
+
+const M_VUPDATE = `
+  mutation($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+    productVariantsBulkUpdate(productId: $productId, variants: $variants) {
+      productVariants { id }
+      userErrors { field message }
+    }
+  }`
+
+const M_MEDIA_CREATE = `
+  mutation($productId: ID!, $media: [CreateMediaInput!]!) {
+    productCreateMedia(productId: $productId, media: $media) {
+      media { ... on MediaImage { id image { url } } }
+      mediaUserErrors { field message }
+    }
+  }`
+
+/** Set the same price on many variants at once (chunked). Returns count. */
+export async function setVariantPrices(env, product, variantIds, price) {
+  const variants = (variantIds || []).filter(Boolean).map((id) => ({ id, price: String(price) }))
+  for (let i = 0; i < variants.length; i += 100) {
+    const chunk = variants.slice(i, i + 100)
+    if (!chunk.length) continue
+    const d = await shopifyAdmin(env, M_VUPDATE, { productId: product.productId, variants: chunk })
+    const e = d.productVariantsBulkUpdate?.userErrors || []
+    if (e.length) throw new Error(JSON.stringify(e))
+  }
+  return variants.length
+}
+
+/**
+ * Upload an image (data URL or http url) and set it as ONE variant's image:
+ * store to Files → productCreateMedia → associate the media to the variant.
+ * Returns the CDN url.
+ */
+export async function setVariantImage(env, product, variantId, imageSrc) {
+  const { url } = await storeImageToFiles(env, imageSrc, {
+    filename: `variant-${Date.now()}.png`,
+    alt: 'Variant image',
+  })
+  if (!url) throw new Error('image upload failed')
+  const cm = await shopifyAdmin(env, M_MEDIA_CREATE, {
+    productId: product.productId,
+    media: [{ originalSource: url, mediaContentType: 'IMAGE', alt: 'Variant image' }],
+  })
+  const mErrs = cm.productCreateMedia?.mediaUserErrors || []
+  if (mErrs.length) throw new Error(JSON.stringify(mErrs))
+  const mediaId = cm.productCreateMedia?.media?.[0]?.id
+  if (!mediaId) throw new Error('media create returned no id')
+  const up = await shopifyAdmin(env, M_VUPDATE, {
+    productId: product.productId,
+    variants: [{ id: variantId, mediaId }],
+  })
+  const uErrs = up.productVariantsBulkUpdate?.userErrors || []
+  if (uErrs.length) throw new Error(JSON.stringify(uErrs))
+  return url
 }

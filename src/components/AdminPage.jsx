@@ -774,7 +774,7 @@ function CharmsTab({ draft, set, cloud }) {
 // ---------------------------------------------------------------------------
 // Product studio — edit a product's name / price / real size / photo in Shopify.
 // ---------------------------------------------------------------------------
-function ProductStudioTab({ product, cloud }) {
+function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
   const { message } = App.useApp()
   const [name, setName] = useState('')
   const [basePrice, setBasePrice] = useState(0)
@@ -782,6 +782,7 @@ function ProductStudioTab({ product, cloud }) {
   const [heightMm, setHeightMm] = useState(0)
   const [image, setImage] = useState(null)
   const [saving, setSaving] = useState(false)
+  const [vImg, setVImg] = useState(null)
   useEffect(() => {
     setName(product?.name || '')
     setBasePrice(product?.basePrice ?? 0)
@@ -817,6 +818,19 @@ function ProductStudioTab({ product, cloud }) {
       message.error(`Could not save: ${e.message}`)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const uploadVariantImage = async (variantId, img) => {
+    if (!img?.src) return
+    setVImg(variantId)
+    try {
+      await onVariantImage?.(variantId, img.src)
+      message.success('Variant image updated on Shopify.')
+    } catch (e) {
+      message.error(`Could not upload: ${e.message}`)
+    } finally {
+      setVImg(null)
     }
   }
 
@@ -856,9 +870,33 @@ function ProductStudioTab({ product, cloud }) {
             </label>
           </div>
           <label style={{ display: 'block', marginBottom: 10 }}>
-            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Replace photo (optional)</span>
+            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Customizer render (optional)</span>
             <ImageDrop value={image} onChange={setImage} hint="Drop a new product photo to replace it" />
           </label>
+          {variants.length ? (
+            <div style={{ marginBottom: 12 }}>
+              <span style={{ display: 'block', marginBottom: 6, color: 'var(--ink-soft)' }}>
+                Variant images ({variants.length}) — one per colour, saved straight to Shopify
+              </span>
+              <Space direction="vertical" size={10} style={{ width: '100%' }}>
+                {variants.map((v) => (
+                  <div key={v.id} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                    <img
+                      src={v.image || src}
+                      alt={v.colour}
+                      style={{ width: 46, height: 46, objectFit: 'contain', background: '#faf7f2', borderRadius: 8, flex: 'none' }}
+                    />
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 13, marginBottom: 4 }}>
+                        {v.colour} {vImg === v.id && <Spin size="small" style={{ marginLeft: 6 }} />}
+                      </div>
+                      <ImageDrop value={null} onChange={(img) => uploadVariantImage(v.id, img)} hint="Drop this colour’s photo" />
+                    </div>
+                  </div>
+                ))}
+              </Space>
+            </div>
+          ) : null}
           <Space>
             <Button type="primary" icon={<SaveOutlined />} onClick={save} disabled={!dirty} loading={saving}>
               Save to Shopify
@@ -905,6 +943,8 @@ function ProductsTab({ draft, set, cloud }) {
   const [caseLoading, setCaseLoading] = useState(true)
   const [busy, setBusy] = useState(false)
   const [newColour, setNewColour] = useState('')
+  const [selectedRowKeys, setSelectedRowKeys] = useState([])
+  const [bulkPrice, setBulkPrice] = useState(null)
 
   const loadCase = () => {
     setCaseLoading(true)
@@ -995,6 +1035,30 @@ function ProductsTab({ draft, set, cloud }) {
       loadCase()
     } catch (e) { message.error(e.message || 'Could not update the variants.') }
     finally { setBusy(false) }
+  }
+
+  // Batch-set the price on every variant of the selected models (all colours).
+  const applyBulkPrice = async () => {
+    const price = Number(bulkPrice)
+    if (bulkPrice == null || bulkPrice === '' || Number.isNaN(price)) return message.warning('Enter a price first.')
+    const names = new Set(rows.filter((r) => selectedRowKeys.includes(r.id)).map((r) => r.name))
+    const ids = (caseData.variants || []).filter((v) => names.has(v.model)).map((v) => v.id)
+    if (!ids.length) return message.warning('The selected models have no live variants yet.')
+    setBusy(true)
+    try {
+      const r = await caseVariantAction({ action: 'setPrices', variantIds: ids, price })
+      message.success(`Set ${r.updated || 0} variant(s) to £${price}.`)
+      setSelectedRowKeys([])
+      loadCase()
+    } catch (e) { message.error(e.message || 'Could not set the prices.') }
+    finally { setBusy(false) }
+  }
+
+  // Upload an image for ONE colour variant (sets its Shopify variant image).
+  const saveVariantImage = async (variantId, imageSrc) => {
+    const r = await caseVariantAction({ action: 'setVariantImage', variantId, imageSrc })
+    loadCase()
+    return r
   }
 
   const deleteRow = (r) => {
@@ -1095,12 +1159,31 @@ function ProductsTab({ draft, set, cloud }) {
             One list for the customizer models and their sellable Shopify variants. Editing a colour price
             writes to the live variant. Deleting a product removes its metaobject, image and all its variants.
           </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+            <span className="hint" style={{ margin: 0 }}>
+              {selectedRowKeys.length ? `${selectedRowKeys.length} selected · set every variant to` : 'Select models, then batch-set every variant to'}
+            </span>
+            <InputNumber
+              size="small"
+              min={0}
+              step={0.5}
+              prefix="£"
+              value={bulkPrice}
+              onChange={setBulkPrice}
+              placeholder="26"
+              style={{ width: 96 }}
+            />
+            <Button size="small" type="primary" loading={busy} disabled={!selectedRowKeys.length} onClick={applyBulkPrice}>
+              Apply price
+            </Button>
+          </div>
           <Table
             size="small"
             rowKey="id"
             loading={cloud?.loading || caseLoading}
             onRow={pickRow}
             rowClassName={rowCls}
+            rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
             scroll={{ x: 'max-content' }}
             pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
             dataSource={rows}
@@ -1151,7 +1234,12 @@ function ProductsTab({ draft, set, cloud }) {
       {/* Right column — edit the selected product + add a new one. */}
       <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460 }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
-          <ProductStudioTab product={selectedProduct} cloud={cloud} />
+          <ProductStudioTab
+            product={selectedProduct}
+            cloud={cloud}
+            variants={selectedProduct ? (caseData.variants || []).filter((v) => v.model === selectedProduct.name) : []}
+            onVariantImage={saveVariantImage}
+          />
 
           <Card size="small" title="Add a custom product">
             <div className="admin-grid">

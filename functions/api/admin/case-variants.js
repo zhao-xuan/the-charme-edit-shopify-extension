@@ -22,6 +22,8 @@ import {
   deleteModelVariants,
   addColourVariants,
   deleteColourVariants,
+  setVariantPrices,
+  setVariantImage,
 } from '../_case-variants.js'
 
 const cors = {
@@ -109,6 +111,14 @@ export async function onRequestPost({ request, env }) {
         if (errs.length) return bad(`Shopify: ${JSON.stringify(errs)}`, 400)
       }
       return json({ ok: true, updated: variants.length }, { headers: cors })
+    } else if (action === 'setPrices') {
+      if (body.price == null || body.price === '') return bad('price required')
+      const updated = await setVariantPrices(env, product, body.variantIds || [], body.price)
+      return json({ ok: true, updated }, { headers: cors })
+    } else if (action === 'setVariantImage') {
+      if (!body.variantId || !body.imageSrc) return bad('variantId and imageSrc required')
+      const url = await setVariantImage(env, product, body.variantId, body.imageSrc)
+      return json({ ok: true, url }, { headers: cors })
     } else {
       return bad(`unknown action "${action}"`)
     }
