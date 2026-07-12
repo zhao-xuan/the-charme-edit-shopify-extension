@@ -248,7 +248,12 @@ function toRecord(type, node) {
       basePrice: numOrNull(f.base_price),
       widthMm: numOrNull(f.width_mm),
       heightMm: numOrNull(f.height_mm),
+      // Merchant-uploaded body renders, served from Shopify Files (cdn.shopify.com).
+      // `src` is the primary (white/glitter) finish; `srcBlack` the black finish
+      // when the merchant uploaded one. The storefront uses these as the case
+      // render so the picture always comes from the merchant's Shopify store.
       src: ref.body_image_white || ref.body_image_black || null,
+      srcBlack: ref.body_image_black || null,
       colourLabel: 'Default',
       _gid: node.id,
       _handle: node.handle,
@@ -351,6 +356,19 @@ export async function deleteRecord(env, type, id) {
   const errs = res.metaobjectDelete.userErrors || []
   if (errs.length) throw new Error(`delete ${type}: ${JSON.stringify(errs)}`)
   return true
+}
+
+/**
+ * Update specific fields of an already-known metaobject by its GID (partial
+ * update — omitted fields are preserved). Much cheaper than saveRecord() when
+ * you already hold the node GID (e.g. from listRecords → record._gid), because
+ * it skips the by-id lookup. `fields` is `[{ key, value }]`.
+ */
+export async function updateRecordFields(env, gid, fields) {
+  const res = await shopifyAdmin(env, M_UPDATE, { id: gid, metaobject: { fields } })
+  const errs = res.metaobjectUpdate.userErrors || []
+  if (errs.length) throw new Error(`update ${gid}: ${JSON.stringify(errs)}`)
+  return gid
 }
 
 // ---------------------------------------------------------------------------

@@ -1,6 +1,8 @@
 import { Select, Space } from 'antd'
 import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
 import { productGroups, BRAND_LABELS } from '../data/products'
+import { formatMoney } from '../lib/money'
+import { t } from '../lib/i18n'
 
 // Representative icon per base platform, shown on the Step 1 selector cards.
 const BASE_ICONS = {
@@ -24,7 +26,7 @@ const toOption = (p) => ({
   value: p.id,
   name: p.name,
   price: p.basePrice,
-  label: `${p.name} · £${p.basePrice}`,
+  label: `${p.name} · ${formatMoney(p.basePrice, { whole: true })}`,
 })
 
 /**
@@ -101,7 +103,7 @@ export default function ProductPicker({
 
   return (
     <div>
-      <p className="eyebrow">Step 1 · Choose your base</p>
+      <p className="eyebrow">{t('picker.step1')}</p>
       <div className="base-grid">
         {PRODUCT_GROUPS.filter((g) => g.key !== 'tote').map((g) => (
           <button
@@ -120,11 +122,6 @@ export default function ProductPicker({
         value={productId}
         onChange={onProductChange}
         size="large"
-        showSearch
-        optionFilterProp="name"
-        filterOption={(input, option) =>
-          option?.name ? option.name.toLowerCase().includes(input.toLowerCase()) : false
-        }
         style={{ width: '100%', marginBottom: 18 }}
         popupMatchSelectWidth
         listHeight={360}
@@ -134,7 +131,7 @@ export default function ProductPicker({
           return (
             <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
               <strong>{p.name}</strong>
-              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 17 }}>£{p.basePrice}</span>
+              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 17 }}>{formatMoney(p.basePrice, { whole: true })}</span>
             </span>
           )
         }}
@@ -142,7 +139,7 @@ export default function ProductPicker({
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
             <strong>{opt.data.name}</strong>
             <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}>
-              £{opt.data.price}
+              {formatMoney(opt.data.price, { whole: true })}
             </span>
           </div>
         )}
@@ -155,14 +152,14 @@ export default function ProductPicker({
               redundant and is hidden for them. */}
           {!product.gelRender && (
             <ColourGroup
-              title="Case colour"
+              title={t('picker.caseColour')}
               colours={caseColours}
               value={caseColourId}
               onChange={onCaseColourChange}
             />
           )}
           <ColourGroup
-            title="Gel colour"
+            title={t('picker.gelColour')}
             colours={gelColours}
             value={gelColourId}
             onChange={onGelColourChange}
@@ -170,7 +167,7 @@ export default function ProductPicker({
         </>
       ) : (
         <ColourGroup
-          title="Colour"
+          title={t('picker.colour')}
           colours={caseColours}
           value={caseColourId}
           onChange={onCaseColourChange}

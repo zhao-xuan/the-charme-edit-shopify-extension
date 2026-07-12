@@ -218,7 +218,7 @@ function createNativeCartHandler(cfg) {
     const added = await res.json().catch(() => ({}))
     if (added && added.sections) applyDrawerSections(added.sections)
 
-    surfaceCart(cfg, routesRoot, designToken)
+    surfaceCart(cfg, routesRoot, designToken, payload.deferSurface)
     return { designToken }
   }
 }
@@ -274,11 +274,16 @@ function tryOpenDrawer() {
 }
 
 /** Surface the cart per the merchant's preference (drawer → cart → nothing). */
-function surfaceCart(cfg, routesRoot, designToken) {
+function surfaceCart(cfg, routesRoot, designToken, defer) {
   // Generic events for themes that listen (non-Dawn drawers, cart notices).
   document.dispatchEvent(new CustomEvent('charme:added', { detail: { designToken } }))
   document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }))
   document.dispatchEvent(new CustomEvent('cart:build'))
+  // `defer`: the customizer is about to show the cross-sell popup — keep the
+  // shopper in the customizer (don't open the drawer or navigate to /cart). The
+  // cart-refresh events above still fire so the header count stays in sync; the
+  // "No thanks" button then surfaces the cart.
+  if (defer) return
   const mode = cfg.cartRedirect || 'drawer'
   if (mode === 'none') return
   if (mode === 'cart') {

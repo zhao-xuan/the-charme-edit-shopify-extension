@@ -28,9 +28,11 @@ import {
   CloudUploadOutlined,
   DeleteOutlined,
   EditOutlined,
+  HolderOutlined,
   InboxOutlined,
   PlusOutlined,
   PercentageOutlined,
+  OrderedListOutlined,
   ReloadOutlined,
   SaveOutlined,
   ScissorOutlined,
@@ -55,11 +57,14 @@ import {
   isShopifyEmbedded,
   patchCharm,
   patchProduct,
+  renameTaxonomy,
   saveSettings,
   setToken,
   syncDiscounts,
   fetchShopifyProducts,
   fetchShopifyCollections,
+  fetchCaseVariants,
+  updateCaseVariant,
 } from '../lib/adminApi'
 
 const slug = (s) =>
@@ -876,6 +881,87 @@ function ProductStudioTab({ product, cloud }) {
   )
 }
 
+// The REAL sellable phone-case variants (iPhone model × case/gel colour) that
+// live on the "custom-charm-phone-case" Shopify product. Editing a price here
+// writes straight back to the live Shopify variant, so the admin product page
+// is wired to the merchant's real variants — not just the customizer display.
+function CaseVariantsCard() {
+  const { message } = App.useApp()
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(null)
+  const [data, setData] = useState({ productId: null, title: '', variants: [] })
+  const [q, setQ] = useState('')
+
+  const load = () => {
+    setLoading(true)
+    fetchCaseVariants()
+      .then((d) => setData(d || { productId: null, variants: [] }))
+      .catch((e) => message.error(e.message || 'Could not load Shopify variants.'))
+      .finally(() => setLoading(false))
+  }
+  useEffect(() => { load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const rows = useMemo(() => {
+    const list = data.variants || []
+    const f = q.trim().toLowerCase()
+    return f ? list.filter((v) => `${v.model} ${v.colour}`.toLowerCase().includes(f)) : list
+  }, [data, q])
+
+  const patchVariant = async (v, patch) => {
+    setSaving(v.id)
+    try {
+      await updateCaseVariant({ productId: data.productId, variantId: v.id, ...patch })
+      setData((d) => ({ ...d, variants: d.variants.map((x) => (x.id === v.id ? { ...x, ...patch } : x)) }))
+      message.success('Saved to Shopify.')
+    } catch (e) {
+      message.error(e.message || 'Save failed.')
+    } finally {
+      setSaving(null)
+    }
+  }
+
+  const savePrice = (v, value) => {
+    const price = Number(value)
+    if (value == null || value === '' || Number.isNaN(price) || price === v.price) return
+    patchVariant(v, { price })
+  }
+
+  return (
+    <Card
+      size="small"
+      title={`Phone-case variants on Shopify${data.title ? ` · ${data.title}` : ''} (${data.variants.length})`}
+      extra={<Button size="small" icon={<ReloadOutlined />} onClick={load} loading={loading}>Refresh</Button>}
+    >
+      <p className="hint" style={{ marginTop: 0 }}>
+        These are the <strong>real sellable variants</strong> (iPhone model × case &amp; gel colour) the
+        customer actually buys. Editing a price or availability here writes straight to the live Shopify
+        product.
+      </p>
+      <Input.Search
+        placeholder="Filter by model or colour…"
+        allowClear
+        onChange={(e) => setQ(e.target.value)}
+        style={{ marginBottom: 10, maxWidth: 320 }}
+      />
+      <Table
+        size="small"
+        rowKey="id"
+        loading={loading}
+        dataSource={rows}
+        pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 60, 100] }}
+        locale={{ emptyText: <Empty description="No variants found — is write_products approved?" image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
+        columns={[
+          { title: 'iPhone Model', dataIndex: 'model', ellipsis: true, defaultSortOrder: 'ascend', sorter: (a, b) => (a.model || '').localeCompare(b.model || '') },
+          { title: 'Case & Gel', dataIndex: 'colour', width: 150, ellipsis: true, sorter: (a, b) => (a.colour || '').localeCompare(b.colour || '') },
+          { title: 'Price (£)', width: 104, render: (_, v) => <InputNumber size="small" min={0} step={0.5} defaultValue={v.price} disabled={saving === v.id} onBlur={(e) => savePrice(v, e.target.value)} style={{ width: 84 }} /> },
+          { title: 'Stock', width: 84, render: (_, v) => (v.available ? <Tag color="green">In stock</Tag> : <Tag>Sold out</Tag>) },
+          { title: 'Sell when sold out', width: 128, render: (_, v) => <Switch size="small" checked={!!v.continueSelling} loading={saving === v.id} onChange={(c) => patchVariant(v, { continueSelling: c })} /> },
+        ]}
+      />
+    </Card>
+  )
+}
+
 function ProductsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [form, setForm] = useState({
@@ -917,6 +1003,7 @@ function ProductsTab({ draft, set, cloud }) {
 
       {/* Left column — the product list to pick from. */}
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <CaseVariantsCard />
         <Card
           size="small"
           title={`Products on Shopify (${cloud?.data.products.length || 0})`}
@@ -2062,6 +2149,283 @@ function useCloud(draft, set) {
   return { embedded, token, saveToken, loading, publishing, data, refresh, publish, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
 }
 
+// ---------------------------------------------------------------------------
+// Categories & order tab
+// ---------------------------------------------------------------------------
+/** Return `items` reordered so the ones listed in `order` come first (in that
+ *  order), then any not listed keep their natural order. */
+function orderList(items, order) {
+  const set = new Set(items)
+  const head = (order || []).filter((x) => set.has(x))
+  const seen = new Set(head)
+  return [...head, ...items.filter((x) => !seen.has(x))]
+}
+
+const taxRowStyle = { display: 'flex', alignItems: 'center', gap: 6 }
+const taxNameBtn = { flex: 1, textAlign: 'left', background: 'transparent', border: 0, cursor: 'pointer', padding: '3px 6px', borderRadius: 6, fontFamily: 'inherit', fontSize: 'inherit', display: 'flex', alignItems: 'center', gap: 8 }
+const taxNameSel = { background: 'rgba(179,91,91,.12)', fontWeight: 600 }
+
+/**
+ * A reusable reorderable list with drag-to-reorder, inline rename, merge-and-
+ * delete and add. `items` = [{ key, label?, count?, img? }]. `onReorder(from,to)`,
+ * `onRename(key, newName)`, `onDelete(key, targetKey)` and `onAdd(name)` are all
+ * optional — the matching control renders only when its handler is provided.
+ * Reordering uses native HTML5 drag-and-drop (grab the ⠿ handle or the row).
+ */
+function TaxonomyList({ title, hint, items, selected, onSelect, onReorder, onRename, onDelete, onAdd, addLabel, mergeLabel }) {
+  const [editKey, setEditKey] = useState(null)
+  const [editVal, setEditVal] = useState('')
+  const [delKey, setDelKey] = useState(null)
+  const [delTarget, setDelTarget] = useState(null)
+  const [addVal, setAddVal] = useState('')
+  const [dragIdx, setDragIdx] = useState(null)
+  const [overIdx, setOverIdx] = useState(null)
+  const startEdit = (k) => { setDelKey(null); setEditKey(k); setEditVal(k) }
+  const saveEdit = () => { const v = editVal.trim(); if (v) onRename(editKey, v); setEditKey(null) }
+  const startDel = (k) => { setEditKey(null); setDelKey(k); setDelTarget(null) }
+  const confirmDel = () => { if (delTarget) onDelete(delKey, delTarget); setDelKey(null) }
+  const doAdd = () => { const v = addVal.trim(); if (v) onAdd(v); setAddVal('') }
+  const dropOn = (idx) => { if (dragIdx != null && dragIdx !== idx && onReorder) onReorder(dragIdx, idx); setDragIdx(null); setOverIdx(null) }
+  return (
+    <Card size="small" title={title} styles={{ body: { padding: 12 } }}>
+      {hint && <p className="hint" style={{ marginTop: 0, marginBottom: 10 }}>{hint}</p>}
+      {!items.length && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Nothing here yet" />}
+      <Space direction="vertical" size={6} style={{ width: '100%' }}>
+        {items.map((it, idx) => {
+          if (editKey === it.key)
+            return (
+              <div key={it.key} style={taxRowStyle}>
+                <Input size="small" autoFocus value={editVal} onChange={(e) => setEditVal(e.target.value)} onPressEnter={saveEdit} style={{ flex: 1 }} />
+                <Button size="small" type="primary" onClick={saveEdit}>Save</Button>
+                <Button size="small" onClick={() => setEditKey(null)}>Cancel</Button>
+              </div>
+            )
+          if (delKey === it.key)
+            return (
+              <div key={it.key} style={taxRowStyle}>
+                <span style={{ color: 'var(--ink-soft)', fontSize: 12, whiteSpace: 'nowrap' }}>{mergeLabel || 'Move to'}</span>
+                <Select size="small" value={delTarget} onChange={setDelTarget} placeholder="choose…" style={{ flex: 1, minWidth: 110 }}
+                  options={items.filter((x) => x.key !== it.key).map((x) => ({ value: x.key, label: x.label ?? x.key }))} />
+                <Button size="small" danger type="primary" disabled={!delTarget} onClick={confirmDel}>Merge</Button>
+                <Button size="small" onClick={() => setDelKey(null)}>Cancel</Button>
+              </div>
+            )
+          const nameInner = (
+            <>
+              {it.img && <img src={it.img} alt="" draggable={false} width={26} height={26} style={{ objectFit: 'contain', borderRadius: 4, background: '#faf5ec', flex: 'none' }} />}
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{it.label ?? it.key}</span>
+              {it.count != null && <Tag style={{ marginLeft: 2 }}>{it.count}</Tag>}
+            </>
+          )
+          const isOver = overIdx === idx && dragIdx != null && dragIdx !== idx
+          return (
+            <div
+              key={it.key}
+              draggable={!!onReorder}
+              onDragStart={(e) => { setDragIdx(idx); try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', String(idx)) } catch { /* noop */ } }}
+              onDragEnter={(e) => { e.preventDefault(); if (onReorder) setOverIdx(idx) }}
+              onDragOver={(e) => { if (onReorder) { e.preventDefault(); e.dataTransfer.dropEffect = 'move' } }}
+              onDrop={(e) => { e.preventDefault(); dropOn(idx) }}
+              onDragEnd={() => { setDragIdx(null); setOverIdx(null) }}
+              style={{
+                ...taxRowStyle,
+                borderRadius: 6,
+                opacity: dragIdx === idx ? 0.4 : 1,
+                background: isOver ? 'rgba(179,91,91,.08)' : 'transparent',
+                boxShadow: isOver ? 'inset 0 2px 0 var(--rouge, #b35b5b)' : 'none',
+              }}
+            >
+              {onReorder && <HolderOutlined style={{ cursor: 'grab', color: '#b0a693', flex: 'none' }} />}
+              {onSelect ? (
+                <button type="button" onClick={() => onSelect(it.key)} style={{ ...taxNameBtn, ...(selected === it.key ? taxNameSel : null) }}>{nameInner}</button>
+              ) : (
+                <span style={{ ...taxNameBtn, cursor: onReorder ? 'grab' : 'default' }}>{nameInner}</span>
+              )}
+              {onRename && <Button size="small" icon={<EditOutlined />} onClick={() => startEdit(it.key)} />}
+              {onDelete && <Button size="small" danger icon={<DeleteOutlined />} disabled={items.length < 2} onClick={() => startDel(it.key)} />}
+            </div>
+          )
+        })}
+      </Space>
+      {onAdd && (
+        <div style={{ ...taxRowStyle, marginTop: 10 }}>
+          <Input size="small" placeholder={addLabel} value={addVal} onChange={(e) => setAddVal(e.target.value)} onPressEnter={doAdd} style={{ flex: 1 }} />
+          <Button size="small" icon={<PlusOutlined />} onClick={doAdd}>Add</Button>
+        </div>
+      )}
+    </Card>
+  )
+}
+
+/**
+ * Manage the customizer taxonomy: rename / merge / add charm categories (tabs)
+ * and sub-categories (sections), and set the display order of categories,
+ * sub-categories and the charms within a section. A rename cascades to every
+ * charm (via /api/admin/taxonomy); the order is saved to /api/settings.
+ */
+function TaxonomyTab({ cloud }) {
+  const { message } = App.useApp()
+  const charms = cloud?.data?.charms || []
+  const [tax, setTax] = useState({ categoryOrder: [], subOrder: {}, charmOrder: {} })
+  const [selCat, setSelCat] = useState(null)
+  const [selSub, setSelSub] = useState(null)
+  const [busy, setBusy] = useState(false)
+
+  useEffect(() => {
+    fetchSettings()
+      .then((d) => { if (d && d.taxonomy) setTax((t) => ({ ...t, ...d.taxonomy })) })
+      .catch(() => {})
+  }, [])
+
+  const catOf = (c) => c.category || 'gold'
+  const subOf = (c) => c.collection || 'Custom'
+
+  const cats = useMemo(() => {
+    const seen = []
+    const set = new Set()
+    for (const c of charms) { const k = catOf(c); if (!set.has(k)) { set.add(k); seen.push(k) } }
+    for (const k of tax.categoryOrder || []) if (!set.has(k)) { set.add(k); seen.push(k) }
+    return orderList(seen, tax.categoryOrder)
+  }, [charms, tax.categoryOrder])
+
+  const subs = useMemo(() => {
+    if (!selCat) return []
+    const seen = []
+    const set = new Set()
+    for (const c of charms) if (catOf(c) === selCat) { const k = subOf(c); if (!set.has(k)) { set.add(k); seen.push(k) } }
+    for (const k of tax.subOrder[selCat] || []) if (!set.has(k)) { set.add(k); seen.push(k) }
+    return orderList(seen, tax.subOrder[selCat])
+  }, [charms, selCat, tax.subOrder])
+
+  const charmRows = useMemo(() => {
+    if (!selCat || !selSub) return []
+    const list = charms.filter((c) => catOf(c) === selCat && subOf(c) === selSub)
+    const byId = new Map(list.map((c) => [c.id, c]))
+    const ids = orderList(list.map((c) => c.id), tax.charmOrder[`${selCat}::${selSub}`])
+    return ids.map((id) => byId.get(id)).filter(Boolean)
+  }, [charms, selCat, selSub, tax.charmOrder])
+
+  const catCount = (cat) => charms.filter((c) => catOf(c) === cat).length
+  const subCount = (sub) => charms.filter((c) => catOf(c) === selCat && subOf(c) === sub).length
+
+  const persist = async (nextTax) => {
+    setTax(nextTax)
+    try { await saveSettings({ taxonomy: nextTax }) }
+    catch (e) { message.error(`Could not save order: ${e.message}`) }
+  }
+  // Drag-to-reorder: move the item at `from` to position `to`, then persist the
+  // full explicit order.
+  const arrayMove = (arr, from, to) => {
+    if (from === to || from < 0 || to < 0 || from >= arr.length || to >= arr.length) return null
+    const n = [...arr]
+    const [x] = n.splice(from, 1)
+    n.splice(to, 0, x)
+    return n
+  }
+
+  const reorderCat = (from, to) => { const n = arrayMove(cats, from, to); if (n) persist({ ...tax, categoryOrder: n }) }
+  const reorderSub = (from, to) => { const n = arrayMove(subs, from, to); if (n) persist({ ...tax, subOrder: { ...tax.subOrder, [selCat]: n } }) }
+  const reorderCharm = (from, to) => {
+    const n = arrayMove(charmRows.map((c) => c.id), from, to)
+    if (n) persist({ ...tax, charmOrder: { ...tax.charmOrder, [`${selCat}::${selSub}`]: n } })
+  }
+
+  // Rename / merge a category → cascade to charms, then fix up the order keys.
+  const renameCat = async (from, to) => {
+    if (!to || to === from) return
+    setBusy(true)
+    try {
+      await renameTaxonomy('category', from, to)
+      const next = JSON.parse(JSON.stringify(tax))
+      next.categoryOrder = [...new Set(orderList(cats, tax.categoryOrder).map((k) => (k === from ? to : k)))]
+      if (next.subOrder[from]) { next.subOrder[to] = [...new Set([...(next.subOrder[to] || []), ...next.subOrder[from]])]; delete next.subOrder[from] }
+      for (const key of Object.keys(next.charmOrder)) {
+        if (key.startsWith(`${from}::`)) { next.charmOrder[`${to}::${key.slice(from.length + 2)}`] = next.charmOrder[key]; delete next.charmOrder[key] }
+      }
+      await persist(next)
+      await cloud.refresh()
+      if (selCat === from) setSelCat(to)
+      message.success(`Renamed “${from}” → “${to}” — charms updated.`)
+    } catch (e) { message.error(e.message) } finally { setBusy(false) }
+  }
+  const renameSub = async (from, to) => {
+    if (!selCat || !to || to === from) return
+    setBusy(true)
+    try {
+      await renameTaxonomy('subcategory', from, to, selCat)
+      const next = JSON.parse(JSON.stringify(tax))
+      next.subOrder[selCat] = [...new Set(orderList(subs, tax.subOrder[selCat]).map((k) => (k === from ? to : k)))]
+      const ok = `${selCat}::${from}`, nk = `${selCat}::${to}`
+      if (next.charmOrder[ok]) { next.charmOrder[nk] = [...new Set([...(next.charmOrder[nk] || []), ...next.charmOrder[ok]])]; delete next.charmOrder[ok] }
+      await persist(next)
+      await cloud.refresh()
+      if (selSub === from) setSelSub(to)
+      message.success(`Renamed “${from}” → “${to}” — charms updated.`)
+    } catch (e) { message.error(e.message) } finally { setBusy(false) }
+  }
+  const addCat = (name) => { if (cats.includes(name)) { setSelCat(name); setSelSub(null); return } persist({ ...tax, categoryOrder: [...cats, name] }); setSelCat(name); setSelSub(null) }
+  const addSub = (name) => { if (!selCat) return; if (subs.includes(name)) { setSelSub(name); return } persist({ ...tax, subOrder: { ...tax.subOrder, [selCat]: [...subs, name] } }); setSelSub(name) }
+
+  return (
+    <Spin spinning={busy}>
+      <p className="hint" style={{ marginTop: 0 }}>
+        Rename, merge, add and reorder the customizer’s <strong>categories</strong> (the tabs) and{' '}
+        <strong>sub-categories</strong> (the sections in a tab), and set the order charms appear in.
+        Renames update every affected charm. Charms are assigned to a category / sub-category in the{' '}
+        <strong>Charms</strong> tab.
+      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'flex-start' }}>
+        <div style={{ flex: '1 1 300px', minWidth: 250 }}>
+          <TaxonomyList
+            title="Categories · tabs"
+            hint="The customizer’s top-level tabs. Drag to reorder; select one to manage its sub-categories."
+            items={cats.map((k) => ({ key: k, count: catCount(k) }))}
+            selected={selCat}
+            onSelect={(k) => { setSelCat(k); setSelSub(null) }}
+            onReorder={reorderCat}
+            onRename={renameCat}
+            onDelete={renameCat}
+            onAdd={addCat}
+            addLabel="New category name"
+            mergeLabel="Move its charms to"
+          />
+        </div>
+        <div style={{ flex: '1 1 300px', minWidth: 250 }}>
+          {selCat ? (
+            <TaxonomyList
+              title={`Sub-categories · sections of “${selCat}”`}
+              hint="The sections inside the selected tab. Drag to reorder; select one to reorder its charms."
+              items={subs.map((k) => ({ key: k, count: subCount(k) }))}
+              selected={selSub}
+              onSelect={setSelSub}
+              onReorder={reorderSub}
+              onRename={renameSub}
+              onDelete={renameSub}
+              onAdd={addSub}
+              addLabel="New sub-category name"
+              mergeLabel="Move its charms to"
+            />
+          ) : (
+            <Card size="small"><Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Select a category on the left" /></Card>
+          )}
+        </div>
+        <div style={{ flex: '1 1 300px', minWidth: 250 }}>
+          {selCat && selSub ? (
+            <TaxonomyList
+              title={`Charms · order in “${selSub}”`}
+              hint="Drag the charms to set the order they appear in this section."
+              items={charmRows.map((c) => ({ key: c.id, label: c.name, img: resolveAsset(c.src) }))}
+              onReorder={reorderCharm}
+            />
+          ) : (
+            <Card size="small"><Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Select a sub-category to reorder its charms" /></Card>
+          )}
+        </div>
+      </div>
+    </Spin>
+  )
+}
+
 export default function AdminPage() {
   const [draft, setDraft] = useState(() => loadAdmin())
   const [tab, setTab] = useState('products')
@@ -2125,6 +2489,15 @@ export default function AdminPage() {
               </span>
             ),
             children: <CharmsTab draft={draft} set={set} cloud={cloud} />,
+          },
+          {
+            key: 'taxonomy',
+            label: (
+              <span>
+                <OrderedListOutlined /> Categories & order
+              </span>
+            ),
+            children: <TaxonomyTab cloud={cloud} />,
           },
           {
             key: 'discount',

@@ -43,18 +43,30 @@ export async function onRequestGet({ env }) {
 export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = (await request.json().catch(() => ({}))) || {}
-  // Only persist the known top-level keys (avoid storing junk / internals).
-  const settings = {
-    crossSellHint: body.crossSellHint ?? '',
-    crossSell: body.crossSell ?? {},
-    discounts: body.discounts ?? { rules: [], codes: [], bundles: [] },
+  // Merge only the known top-level keys that were actually provided onto the
+  // existing settings, so a partial save (e.g. the Discount tab) never wipes
+  // another tab's data (e.g. the taxonomy order).
+  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy']
+  const patch = {}
+  for (const k of KNOWN) if (k in body) patch[k] = body[k]
+
+  const DEFAULTS = {
+    crossSellHint: '',
+    crossSell: {},
+    discounts: { rules: [], codes: [], bundles: [] },
+    taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
   }
 
   if (shopifyConfigured(env)) {
+    const existing = clean(await getRecord(env, TYPES.override, SETTINGS_HANDLE)) || {}
+    const settings = { ...DEFAULTS, ...existing, ...patch }
     await saveRecord(env, TYPES.override, SETTINGS_HANDLE, { scope: 'settings', ...settings })
     return json({ ok: true }, { headers: cors })
   }
   if (env.IMAGES) {
+    let existing = {}
+    try { const raw = await env.IMAGES.get(KV_KEY); existing = raw ? JSON.parse(raw) : {} } catch { /* ignore */ }
+    const settings = { ...DEFAULTS, ...existing, ...patch }
     await env.IMAGES.put(KV_KEY, JSON.stringify(settings))
     return json({ ok: true }, { headers: cors })
   }

@@ -75,12 +75,13 @@
   .charme-modal{position:fixed;inset:0;z-index:2147483000}
   .charme-modal[hidden]{display:none}
   .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column}
-  .charme-modal__topbar{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;padding:8px 16px;border-bottom:1px solid #eceae7;background:#fff}
-  .charme-back{display:inline-flex;align-items:center;gap:8px;font:inherit;cursor:pointer;border:0;border-radius:0;background:transparent;color:#1a1614;font-size:15px;padding:8px 10px;z-index:1}
+  .charme-modal__topbar{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;padding:8px 16px;border-bottom:1px solid #e4d8c7;background:#f4edda}
+  .charme-back{display:inline-flex;align-items:center;gap:8px;font:inherit;cursor:pointer;border:0;border-radius:0;background:transparent;color:#2e2a26;font-size:15px;padding:8px 10px;z-index:1}
   .charme-back:hover{opacity:.65}
   .charme-back__arrow{font-size:18px;line-height:1}
-  /* Charmé logo replaces the store menu, centred in the nav bar. */
-  .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond','Playfair Display',Georgia,serif;font-size:24px;font-weight:600;letter-spacing:.02em;color:#1a1614;white-space:nowrap;pointer-events:none}
+  /* Charmé logo replaces the store menu, centred in the nav bar (matches the
+     app's serif brand mark). */
+  .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond','Playfair Display',Georgia,serif;font-size:23px;font-weight:600;letter-spacing:.02em;color:#2e2a26;white-space:nowrap;pointer-events:none}
   .charme-logo-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-height:40px;width:auto;pointer-events:none}
   .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
   body.charme-modal-open{overflow:hidden}
@@ -102,6 +103,19 @@
       cartRedirect: {{ cfg_cart_redir | json }},
       defaultGroup: {{ cfg_def_group | json }},
       defaultProductId: {{ cfg_def_product | strip | json }},
+      {%- comment -%}
+        Buyer language + presentment currency, forwarded from the storefront so the
+        widget renders localised copy and buyer-local prices. `base` is the shop
+        currency the catalogue prices are stored in; `active` is the buyer's
+        chosen presentment currency. The live conversion RATE is read client-side
+        from window.Shopify.currency.rate (injected by Shopify Markets); when the
+        store is single-currency active === base and no conversion is applied.
+      {%- endcomment -%}
+      locale: {{ request.locale.iso_code | json }},
+      currency: {
+        base: {{ shop.currency | json }},
+        active: {{ cart.currency.iso_code | default: shop.currency | json }}
+      },
       {%- comment -%} presets temporarily hidden {%- endcomment -%}
       {%- comment -%} presetHandle: {{ cfg_preset | strip | json }}, {%- endcomment -%}
       height: "100%",
@@ -112,6 +126,11 @@
   })();
 </script>
 
+{%- comment -%} Brand fonts so the nav bar + widget render in the Charmé serif even
+  when the theme doesn't already load them. {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="{{ cfg_api_base }}/widget/charme-customizer.css">
 <script src="{{ cfg_api_base }}/widget/charme-customizer.js" defer></script>
 

@@ -25,6 +25,12 @@ export const DEFAULT_SETTINGS = {
   },
   // Discount rules + issued codes (enforced Shopify-side; see functions/api).
   discounts: { rules: [], codes: [], bundles: [] },
+  // Customizer taxonomy display order (managed in Admin → Categories & order).
+  //   categoryOrder — order of the category TABS (by category key)
+  //   subOrder[cat] — order of the sub-category SECTIONS within a tab (by collection)
+  //   charmOrder["<cat>::<collection>"] — order of the charms within a section (by id)
+  // Anything not listed keeps its natural (first-seen) order after the listed ones.
+  taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
 }
 
 let cache = null
@@ -59,5 +65,6 @@ function mergeDefaults(data) {
     ...d,
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
+    taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
   }
 }

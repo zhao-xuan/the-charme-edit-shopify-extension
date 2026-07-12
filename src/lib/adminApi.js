@@ -103,6 +103,18 @@ export const fetchSettings = async () =>
 export const saveSettings = async (settings) =>
   handle(await fetch(url('/api/settings'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(settings) }))
 
+/**
+ * Bulk-rename a charm category or sub-category so the change cascades to every
+ * charm that used the old name. `scope` = 'category' | 'subcategory'; `within`
+ * (optional, subcategory only) limits it to one parent category.
+ */
+export const renameTaxonomy = async (scope, from, to, within) =>
+  handle(await fetch(url('/api/admin/taxonomy'), {
+    method: 'POST',
+    headers: await authHeaders(),
+    body: JSON.stringify({ scope, from, to, ...(within ? { within } : {}) }),
+  }))
+
 /** Create/update real Shopify discounts from the saved codes + rules. */
 export const syncDiscounts = async () =>
   handle(await fetch(url('/api/admin/discounts'), { method: 'POST', headers: await authHeaders(), body: '{}' }))
@@ -114,3 +126,11 @@ export const fetchShopifyProducts = async (q) =>
 /** List the store's Shopify collections (for the bundle "whole collection" picker). */
 export const fetchShopifyCollections = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-collections${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
+
+/** The REAL sellable phone-case variants (model × gel colour) on Shopify. */
+export const fetchCaseVariants = async (h) =>
+  handle(await fetch(url(`/api/admin/case-variants${h ? `?handle=${encodeURIComponent(h)}` : ''}`), { headers: await authHeaders() }))
+
+/** Update a real phone-case variant's price / availability on Shopify. */
+export const updateCaseVariant = async (patch) =>
+  handle(await fetch(url('/api/admin/case-variants'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify(patch) }))

@@ -72,9 +72,19 @@ export async function mount() {
     initialLayout = await loadEditLayout(editKey)
   }
 
+  // Where AntD popups (model/variant dropdown, tooltips…) should render. By
+  // default they portal to <body> at z-index ~1050 — but the drop-in's
+  // full-screen modal sits at a near-max z-index (2147483000) to cover the
+  // store header, so a body-level dropdown renders BEHIND it and looks empty
+  // ("dropdown shows no phone models"). Render popups inside the modal panel
+  // (a positioned, full-size container) instead so they stack above the modal
+  // and are positioned correctly; fall back to the mount node for non-modal
+  // placements.
+  const popupContainer = () => el.closest('.charme-modal__panel') || el
+
   createRoot(el).render(
     <React.StrictMode>
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={theme} getPopupContainer={popupContainer}>
         <AntApp className="charme-embed-app" style={{ height: '100%', minHeight: 0 }}>
           <div className="app-shell" style={{ height: cfg.height || '88vh' }}>
             <CustomizerPage

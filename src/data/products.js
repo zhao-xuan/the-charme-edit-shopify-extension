@@ -49,7 +49,7 @@ const GEL_REP = {
 }
 function gelOverlaySrc(id) {
   const rep = GEL_REP[id] || '17'
-  return { white: `/assets/cases/gel-${rep}-white.png`, black: `/assets/cases/gel-${rep}-black.png` }
+  return { white: `/assets/cases/gel-alone/gel-${rep}-white.png`, black: `/assets/cases/gel-alone/gel-${rep}-black.png` }
 }
 
 // The models with bespoke "integrated gel" renders — a single cohesive product
@@ -69,8 +69,8 @@ function applyIntegratedGel(p) {
     gelRender: true,
     gelImages: null, // the gel is baked into the render — no separate overlay
     blankImage: {
-      white: `/assets/cases/integrated-${p.id}-white.png`,
-      black: `/assets/cases/integrated-${p.id}-black.png`,
+      white: `/assets/cases/case-with-gel/integrated-${p.id}-white.png`,
+      black: `/assets/cases/case-with-gel/integrated-${p.id}-black.png`,
     },
   }
 }
@@ -227,12 +227,21 @@ function applyPhotoCase(p) {
     rMm: Math.round(p.widthMm * 0.16) - inset,
   }
 
+  // The plain (gel-free) Apple case photos live under case-without-gel/ (they
+  // were moved into that subfolder by the "organize case files" commit while
+  // cases.json still records the old flat /assets/cases/<id>.png paths), so
+  // rewrite each recorded path into the subfolder it is actually served from.
+  const blankImage = {}
+  for (const [colour, path] of Object.entries(entry.images)) {
+    blankImage[colour] = path.replace('/assets/cases/', '/assets/cases/case-without-gel/')
+  }
+
   return {
     ...p,
     colors: CASE_COLOURS, // White + Black; a finish renders gel if it has no photo
     caseColours: CASE_COLOURS,
     gelColours: GEL_COLOURS,
-    blankImage: entry.images, // { black?, white? } — real Apple photos
+    blankImage, // { black?, white? } — real Apple photos (case-without-gel/)
     printable: {
       outer,
       obstacles: [{ type: 'roundedRect', ...camera, label: 'camera' }],
@@ -515,15 +524,39 @@ function applyAdminOverrides(groups) {
   const remote = remoteCatalog() || {}
   const remotePrices = (remote.overrides && remote.overrides.productPrices) || {}
   // A merchant product edited in Shopify (charme_product) carries its own
-  // base_price; apply it to the matching model by id so admin re-pricing shows
-  // up on the storefront.
+  // base_price AND its uploaded body render(s); apply both to the matching
+  // built-in model by id so admin re-pricing shows up on the storefront and the
+  // case picture is served from the merchant's own Shopify Files (cdn.shopify.com)
+  // rather than the bundled Cloudflare art.
   const remoteProductPrice = {}
-  for (const p of remote.products || []) if (p.basePrice != null) remoteProductPrice[p.id] = p.basePrice
+  const remoteProductImg = {}
+  for (const p of remote.products || []) {
+    if (p.basePrice != null) remoteProductPrice[p.id] = p.basePrice
+    if (p.src) remoteProductImg[p.id] = { white: p.src, black: p.srcBlack || null }
+  }
   const priceOf = (id, fallback) =>
     admin.productPrices[id] ?? remoteProductPrice[id] ?? remotePrices[id] ?? fallback
+  // Swap a built-in model's case render for the merchant's Shopify-hosted image
+  // when one exists (keeping the bundled render as a per-finish fallback). The
+  // migrated Shopify file holds each model's real render — the integrated-gel
+  // photo for gel-render models, the plain case otherwise — so the look is
+  // unchanged, only the host (Shopify) differs.
+  const withRemoteImage = (p) => {
+    const img = remoteProductImg[p.id]
+    if (!img || !p.blankImage) return p
+    return {
+      ...p,
+      blankImage: {
+        ...p.blankImage,
+        white: img.white || p.blankImage.white,
+        black: img.black || p.blankImage.black || img.white,
+        default: img.white || p.blankImage.default,
+      },
+    }
+  }
   const priced = groups.map((g) => ({
     ...g,
-    products: g.products.map((p) => ({
+    products: g.products.map((p) => withRemoteImage({
       ...p,
       basePrice: priceOf(p.id, p.basePrice),
     })),

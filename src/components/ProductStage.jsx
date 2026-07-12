@@ -12,6 +12,7 @@ import { DeleteOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
+import { t } from '../lib/i18n'
 
 const PAD = 18
 const MIN_ZOOM = 0.6
@@ -500,21 +501,21 @@ const ProductStage = forwardRef(function ProductStage(
                 onClick={(e) => e.stopPropagation()}
               >
                 {confirmGroupId === selectedGroupId ? (
-                  <div className="group-confirm__ask" role="dialog" aria-label="Confirm">
-                    <span className="group-confirm__q">Move letters on their own?</span>
+                  <div className="group-confirm__ask" role="dialog" aria-label={t('group.confirm')}>
+                    <span className="group-confirm__q">{t('group.moveOnOwn')}</span>
                     <button
                       type="button"
                       className="group-confirm__yes"
                       onClick={() => onBreakGroup?.(selectedGroupId)}
                     >
-                      Yes
+                      {t('group.yes')}
                     </button>
                     <button
                       type="button"
                       className="group-confirm__no"
                       onClick={() => onCancelBreak?.()}
                     >
-                      No
+                      {t('group.no')}
                     </button>
                   </div>
                 ) : (
@@ -522,9 +523,9 @@ const ProductStage = forwardRef(function ProductStage(
                     type="button"
                     className="group-confirm"
                     onClick={() => onRequestBreak?.(selectedGroupId)}
-                    title="Lock this position, then edit each letter on its own"
+                    title={t('group.confirmTip')}
                   >
-                    Confirm
+                    {t('group.confirm')}
                   </button>
                 )}
               </div>
@@ -608,7 +609,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
       <button
         type="button"
         className="charm-dial__remove"
-        aria-label="Remove"
+        aria-label={t('action.remove')}
         onPointerDown={(e) => e.stopPropagation()}
         onClick={() => onRemove(charm.uid)}
       >

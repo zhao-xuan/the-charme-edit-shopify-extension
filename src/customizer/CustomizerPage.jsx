@@ -22,6 +22,8 @@ import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayo
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
+import { formatMoney } from '../lib/money'
+import { t } from '../lib/i18n'
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -172,8 +174,8 @@ export default function CustomizerPage({
   // the title toggles it back open.
   const [step2Open, setStep2Open] = useState(true)
   useEffect(() => {
-    const t = setTimeout(() => setStep2Open(false), 5000)
-    return () => clearTimeout(t)
+    const timer = setTimeout(() => setStep2Open(false), 5000)
+    return () => clearTimeout(timer)
   }, [])
 
   // Mobile only: the charm tray's share of the screen (% of the shell height).
@@ -189,7 +191,34 @@ export default function CustomizerPage({
   // row) or reclaim the space for the preview.
   const [trayWidth, setTrayWidth] = useState(384)
   const studioRef = useRef(null)
+  const trayRef = useRef(null)
   const trayDrag = useRef(null)
+  // On a too-narrow DESKTOP window the 3-column layout can push the charm tray
+  // off-screen. Detect that and surface a top-right "widen the window" hint.
+  const [trayClipped, setTrayClipped] = useState(false)
+  useEffect(() => {
+    if (isMobile) {
+      setTrayClipped(false)
+      return
+    }
+    const check = () => {
+      const studio = studioRef.current
+      const el = trayRef.current
+      if (!studio || !el) return
+      // Clipped when the 3-column grid overflows its own box (fixed side + tray
+      // columns can't fit) or the tray has been squeezed below a usable width.
+      const overflow = studio.scrollWidth > studio.clientWidth + 2
+      setTrayClipped(overflow || el.getBoundingClientRect().width < 240)
+    }
+    check()
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(check) : null
+    if (ro && studioRef.current) ro.observe(studioRef.current)
+    window.addEventListener('resize', check)
+    return () => {
+      if (ro) ro.disconnect()
+      window.removeEventListener('resize', check)
+    }
+  }, [isMobile, trayWidth, trayExpanded])
 
   const stageApi = useRef(null)
 
@@ -427,13 +456,13 @@ export default function CustomizerPage({
   const canAddMore = useCallback(
     (charm) => {
       if (placedRef.current.length >= MAX_CHARMS) {
-        message.warning(`You can add up to ${MAX_CHARMS} charms.`)
+        message.warning(t('msg.maxCharms', { n: MAX_CHARMS }))
         return false
       }
       if (charm.bundle && charm.bundleMax) {
         const have = placedRef.current.filter((c) => c.charmId === charm.id).length
         if (have >= charm.bundleMax) {
-          message.info(`Up to ${charm.bundleMax} “${charm.name}” are included for one price.`)
+          message.info(t('msg.bundleIncluded', { n: charm.bundleMax, name: charm.name }))
           return false
         }
       }
@@ -686,12 +715,12 @@ export default function CustomizerPage({
       }
       const room = MAX_CHARMS - placedRef.current.length
       if (room <= 0) {
-        message.warning(`You can add up to ${MAX_CHARMS} charms.`)
+        message.warning(t('msg.maxCharms', { n: MAX_CHARMS }))
         return
       }
       const place = picks.slice(0, room)
       if (!place.length) {
-        message.warning('Those characters aren’t available as charms.')
+        message.warning(t('msg.charsUnavailable'))
         return
       }
 
@@ -796,7 +825,7 @@ export default function CustomizerPage({
         setSelectedUid(null)
       }
       if (missing.length) {
-        message.info(`Skipped (no charm): ${[...new Set(missing)].join(' ')}`)
+        message.info(t('msg.skipped', { chars: [...new Set(missing)].join(' ') }))
       }
     },
     [product, makePlaced, clampToPrintable, pushHistory, message],
@@ -836,7 +865,7 @@ export default function CustomizerPage({
         icon={<UndoOutlined />}
         disabled={!canUndo}
         onClick={undo}
-        title="Undo"
+        title={t('action.undo')}
       />
       <Button
         size="small"
@@ -844,7 +873,7 @@ export default function CustomizerPage({
         icon={<DeleteOutlined />}
         disabled={placed.length === 0}
         onClick={clearAll}
-        title="Clear all"
+        title={t('action.clearAll')}
       />
       <span className="zoom-dock__sep" />
       <Button
@@ -909,12 +938,12 @@ export default function CustomizerPage({
     }
     if (validation.tooFew) {
       message.warning(
-        `Please add at least ${MIN_CHARMS} charms before ordering — you have ${placed.length}.`,
+        t('msg.addAtLeastHave', { min: MIN_CHARMS, have: placed.length }),
       )
       return
     }
     if (validation.tooMany) {
-      message.warning(`Please use at most ${MAX_CHARMS} charms.`)
+      message.warning(t('msg.useAtMost', { n: MAX_CHARMS }))
       return
     }
     setShowOverlapWarning(true)
@@ -929,8 +958,13 @@ export default function CustomizerPage({
   // Place the order via the host handler; in cart-drawer mode it resolves without
   // navigating away, so we can then surface the cross-sell popup.
   const handlePlaceOrder = async (payload) => {
-    if (onPlaceOrder) await onPlaceOrder(payload)
-    if (crossSell.enabled && crossSellOptions.length) setCrossSellOpen(true)
+    // When the cross-sell popup will be shown, tell the cart handler NOT to
+    // surface the cart yet (no drawer / no redirect to /cart) — the customer
+    // should see the popup first and only go to the cart if they decline it
+    // ("No thanks" → goToCart). Otherwise add-to-cart behaves as before.
+    const willCrossSell = crossSell.enabled && crossSellOptions.length > 0
+    if (onPlaceOrder) await onPlaceOrder(willCrossSell ? { ...payload, deferSurface: true } : payload)
+    if (willCrossSell) setCrossSellOpen(true)
   }
   // Pick a cross-sell product: apply the promo code (best-effort) and reopen the
   // customizer on the chosen product so the customer starts their second piece.
@@ -1026,20 +1060,21 @@ export default function CustomizerPage({
       validation={validation}
       onSubmit={attemptOrder}
       crossSellHint={appSettings.crossSellHint}
+      compact={trayExpanded}
     />
   )
 
   const charmCount = placed.length
   const stepTwoHint = (
     <>
-      We recommend {REC_MIN}–{REC_MAX} charms for a balanced look.
-      {charmCount > 0 && <strong> {charmCount} added.</strong>}
+      {t('step2.recommend', { min: REC_MIN, max: REC_MAX })}
+      {charmCount > 0 && <strong>{t('step2.added', { n: charmCount })}</strong>}
     </>
   )
 
   // Order CTA total + noun (case / tote / frame) for the Step 3 bar.
-  const orderNoun = product.kind === 'tote' ? 'tote' : product.kind === 'frame' ? 'frame' : 'case'
-  const orderTotal = (product.basePrice + placedCharmsTotal(placed)).toFixed(0)
+  const orderNoun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
+  const orderTotal = formatMoney(product.basePrice + placedCharmsTotal(placed), { whole: true })
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).
@@ -1052,13 +1087,12 @@ export default function CustomizerPage({
       <div className="overlap-alert" role="alert">
         <WarningFilled className="overlap-alert__icon" />
         <p className="overlap-alert__text">
-          Some charms are overlapping or placed outside the craftable area. Please nudge the
-          highlighted charms apart until the outline clears.
+          {t('alert.overlap')}
         </p>
         <button
           type="button"
           className="overlap-alert__close"
-          aria-label="Dismiss"
+          aria-label={t('action.dismiss')}
           onClick={() => setShowOverlapWarning(false)}
         >
           <CloseOutlined />
@@ -1073,7 +1107,7 @@ export default function CustomizerPage({
         <div className="mobile-shell" ref={mobileShellRef}>
           <header className="mobile-head">
             <div className="mobile-head__top">
-              <span className="mobile-head__step">Step 1: Select Model</span>
+              <span className="mobile-head__step">{t('step1.mobile')}</span>
               <Segmented
                 className="mobile-head__platform"
                 size="small"
@@ -1084,7 +1118,7 @@ export default function CustomizerPage({
             </div>
             <div className="mobile-head__selects">
               <label className="mobile-head__field mobile-head__field--model">
-                <span className="mobile-head__label">Model</span>
+                <span className="mobile-head__label">{t('picker.model')}</span>
                 <Select
                   className="mobile-head__sel"
                   size="small"
@@ -1092,13 +1126,11 @@ export default function CustomizerPage({
                   onChange={handleProduct}
                   options={modelOptions}
                   popupMatchSelectWidth={false}
-                  showSearch
-                  optionFilterProp="label"
                 />
               </label>
               {!product.gelRender && (
                 <label className="mobile-head__field">
-                  <span className="mobile-head__label">Case</span>
+                  <span className="mobile-head__label">{t('label.case')}</span>
                   <Select
                     className="mobile-head__sel"
                     size="small"
@@ -1111,7 +1143,7 @@ export default function CustomizerPage({
               )}
               {gelOptions && (
                 <label className="mobile-head__field">
-                  <span className="mobile-head__label">Gel</span>
+                  <span className="mobile-head__label">{t('label.gel')}</span>
                   <Select
                     className="mobile-head__sel"
                     size="small"
@@ -1131,7 +1163,7 @@ export default function CustomizerPage({
               <div className="stage-attention" role="alert">
                 <WarningFilled className="stage-attention__icon" />
                 <span>
-                  {validation.problems} charm{validation.problems > 1 ? 's' : ''} need attention
+                  {tn('price.needAttention', validation.problems)}
                 </span>
               </div>
             )}
@@ -1141,7 +1173,7 @@ export default function CustomizerPage({
               <div className="mobile-step-overlay__body">
                 <span className="mobile-step-overlay__hint">{stepTwoHint}</span>
                 <span className="mobile-step-overlay__hint">
-                  Tap to add charms. Once added, you can move the charms around the case and rotate them.
+                  {t('step2.mobileHint')}
                 </span>
               </div>
               <div className="mobile-step2-bar">
@@ -1151,7 +1183,7 @@ export default function CustomizerPage({
                   aria-expanded={step2Expanded}
                   onClick={() => setStep2Open((o) => !o)}
                 >
-                  <span>Step 2: Add charms</span>
+                  <span>{t('step2.mobileTitle')}</span>
                   <InfoCircleOutlined className="mobile-step-overlay__chevron" />
                 </button>
                 <div className="mobile-cat-bar">
@@ -1171,7 +1203,7 @@ export default function CustomizerPage({
             className="mobile-splitter"
             role="separator"
             aria-orientation="horizontal"
-            aria-label="Drag to resize the preview and charm tray"
+            aria-label={t('aria.splitter')}
             onPointerDown={onSplitDown}
             onPointerMove={onSplitMove}
             onPointerUp={onSplitUp}
@@ -1191,12 +1223,18 @@ export default function CustomizerPage({
             disabled={placed.length === 0}
             onClick={attemptOrder}
           >
-            Add my custom {orderNoun} to cart (£{orderTotal})
+            {t('cta.addToCart', { noun: orderNoun, price: orderTotal })}
           </button>
         </div>
         </>
       ) : (
         <div className={`studio${trayExpanded ? ' studio--tray-max' : ''}`} ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
+          {trayClipped && (
+            <div className="tray-clip-hint" role="status">
+              <WarningFilled />
+              <span>{t('hint.widen')}</span>
+            </div>
+          )}
           <div className="panel panel--left">
             <Tips />
             <div style={{ marginTop: 22 }}>{picker}</div>
@@ -1206,12 +1244,12 @@ export default function CustomizerPage({
             {zoomDock}
             {overlapAlert}
           </div>
-          <div className="panel--right">
+          <div className="panel--right" ref={trayRef}>
             <div
               className="tray-resizer"
               role="separator"
               aria-orientation="vertical"
-              aria-label="Drag to resize the charm tray"
+              aria-label={t('aria.trayResizer')}
               onPointerDown={onTrayResizeDown}
               onPointerMove={onTrayResizeMove}
               onPointerUp={onTrayResizeUp}
@@ -1220,25 +1258,42 @@ export default function CustomizerPage({
               <span className="tray-resizer__grip" />
             </div>
             <div className="tray-head">
-              <p className="eyebrow" style={{ margin: 0 }}>Step 2 · Add your charms</p>
-              <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
-                We recommend {REC_MIN}–{REC_MAX} charms for a balanced look. Minimum {MIN_CHARMS}{' '}
-                charms required.
-              </p>
-              <div className="charms-bar">
-                <span className="charms-bar__title">Charms</span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-                  <span className="charms-bar__count">{placed.length} selected</span>
+              {/* Enlarged mode = a focused "browse charms" view: hide the Step 2
+                  header + the Charms/count bar (the price breakdown is hidden in
+                  the PriceBar too), leaving just the category selector, the charm
+                  grid and the add-to-cart button. */}
+              {!trayExpanded && (
+                <>
+                  <p className="eyebrow" style={{ margin: 0 }}>{t('step2.desktopTitle')}</p>
+                  <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
+                    {t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
+                  </p>
+                  <div className="charms-bar">
+                    <span className="charms-bar__title">{t('charms.label')}</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                      <span className="charms-bar__count">{t('charms.selected', { n: placed.length })}</span>
+                      <Button
+                        size="small"
+                        shape="circle"
+                        icon={<ExpandOutlined />}
+                        onClick={() => setTrayExpanded(true)}
+                        title={t('charms.enlarge')}
+                      />
+                    </span>
+                  </div>
+                </>
+              )}
+              <div className="cat-swatches">
+                {trayExpanded && (
                   <Button
                     size="small"
                     shape="circle"
-                    icon={trayExpanded ? <CompressOutlined /> : <ExpandOutlined />}
-                    onClick={() => setTrayExpanded((v) => !v)}
-                    title={trayExpanded ? 'Shrink charm picker' : 'Enlarge charm picker'}
+                    icon={<CompressOutlined />}
+                    onClick={() => setTrayExpanded(false)}
+                    title={t('charms.shrink')}
+                    style={{ flex: 'none' }}
                   />
-                </span>
-              </div>
-              <div className="cat-swatches">
+                )}
                 {groups.map((g) => (
                   <button
                     key={g.key}
@@ -1280,10 +1335,10 @@ export default function CustomizerPage({
         onCancel={() => setCrossSellOpen(false)}
         footer={null}
         centered
-        title={crossSell.title || 'Customise a second product?'}
+        title={crossSell.title || t('crossSell.title')}
       >
         <p style={{ marginTop: 0, color: 'var(--ink-soft)' }}>
-          Added to cart! Keep designing — pick your next product:
+          {t('crossSell.body')}
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           {crossSellOptions.map((opt, i) => (
@@ -1294,7 +1349,7 @@ export default function CustomizerPage({
         </div>
         <div style={{ marginTop: 18, textAlign: 'center' }}>
           <Button type="link" size="large" onClick={goToCart}>
-            No thanks — go to my cart →
+            {t('crossSell.noThanks')}
           </Button>
         </div>
       </Modal>
@@ -1305,13 +1360,14 @@ export default function CustomizerPage({
 function Tips() {
   return (
     <div>
-      <p className="eyebrow">How this works</p>
+      <p className="eyebrow">{t('tips.title')}</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
-        <li>Browse charms by <strong>Gold</strong>, <strong>Silver</strong>, <strong>Colourful</strong> &amp; <strong>Natural</strong>.</li>
-        <li>Drag a charm onto your case — or tap to drop it in automatically.</li>
-        <li>Select a charm to rotate or remove it.</li>
-        <li>Changed your mind? <strong>Undo</strong> brings back a cleared or deleted charm.</li>
-        <li>A highlighted charm is overlapping or off-edge — nudge until all clear before ordering.</li>
+        <li>{t('tips.1')}</li>
+        <li>{t('tips.2')}</li>
+        <li>{t('tips.3')}</li>
+        <li>{t('tips.4')}</li>
+        <li>{t('tips.5')}</li>
+        <li>{t('tips.6')}</li>
       </ol>
     </div>
   )

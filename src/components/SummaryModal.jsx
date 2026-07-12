@@ -2,7 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Modal, Button, Spin, Divider, App } from 'antd'
 import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
-import { PHONE_CATEGORIES, placedCharmsTotal } from '../lib/catalog'
+import { categoryLabel, placedCharmsTotal } from '../lib/catalog'
+import { formatMoney } from '../lib/money'
+import { t } from '../lib/i18n'
 
 const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
@@ -85,16 +87,21 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
 
   const charmTotal = placedCharmsTotal(placed)
   const total = product.basePrice + charmTotal
-  const noun = product.kind === 'tote' ? 'tote' : product.kind === 'frame' ? 'frame' : 'case'
+  const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
   // Group charms by browsing category (phone) or interaction type (tote).
   const grouped = useMemo(() => {
     if (product.kind !== 'tote') {
-      return PHONE_CATEGORIES.map((c) => ({
-        key: c.key,
-        label: c.label,
-        items: placed.filter((p) => p.category === c.key),
-      })).filter((g) => g.items.length)
+      // Group by each charm's ACTUAL category (backend-driven; includes custom
+      // categories), first-seen order, labelled to match the customizer tabs.
+      const order = []
+      const byCat = new Map()
+      for (const p of placed) {
+        const key = p.category || 'gold'
+        if (!byCat.has(key)) { byCat.set(key, []); order.push(key) }
+        byCat.get(key).push(p)
+      }
+      return order.map((key) => ({ key, label: categoryLabel(key), items: byCat.get(key) }))
     }
     return [1, 2, 3]
       .map((t) => ({ key: t, label: TOTE_TYPE_LABEL[t], items: placed.filter((p) => p.type === t) }))
@@ -189,7 +196,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             >
               <img
                 src={previewUrl}
-                alt="Your design preview"
+                alt={t('summary.previewAlt')}
                 className="proof-img"
                 style={{
                   width: 'auto',
@@ -203,8 +210,8 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             </div>
             {(hasFiller || hasUnique) && (
               <p className="hint preview-note" style={{ marginTop: 8 }}>
-                <span className="red-key" /> Charms outlined in red are indicative.
-                {hasFiller && ' Filler charms are arranged by hand.'}
+                <span className="red-key" /> {t('summary.indicative')}
+                {hasFiller && t('summary.fillerNote')}
                 {hasUnique && ` ${UNIQUE_NOTE}`}
               </p>
             )}
@@ -214,14 +221,14 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               style={{ marginTop: 8 }}
               onClick={() => downloadDataUrl(previewUrl, `${product.id}-design.png`)}
             >
-              Download
+              {t('summary.download')}
             </Button>
           </div>
           <div className="summary-order">
-            <p className="eyebrow" style={{ marginTop: 4 }}>Order summary</p>
+            <p className="eyebrow" style={{ marginTop: 4 }}>{t('price.orderSummary')}</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
               <span>{product.name}</span>
-              <span>£{product.basePrice.toFixed(2)}</span>
+              <span>{formatMoney(product.basePrice)}</span>
             </div>
             <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginBottom: 8 }}>{color.label}</div>
             {grouped.map((g) => (
@@ -235,15 +242,15 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                     style={{ display: 'flex', justifyContent: 'space-between', gap: 10, fontSize: 12.5, color: 'var(--ink-soft)' }}
                   >
                     <span>{r.name}{r.count > 1 ? ` × ${r.count}` : ''}</span>
-                    <span style={{ whiteSpace: 'nowrap' }}>£{r.price.toFixed(2)}</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>{formatMoney(r.price)}</span>
                   </div>
                 ))}
               </div>
             ))}
             <Divider style={{ margin: '10px 0' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <span>Total</span>
-              <span className="display" style={{ fontSize: 26 }}>£{total.toFixed(2)}</span>
+              <span>{t('price.total')}</span>
+              <span className="display" style={{ fontSize: 26 }}>{formatMoney(total)}</span>
             </div>
             <Button
               type="primary"
@@ -254,7 +261,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               style={{ marginTop: 12 }}
               onClick={placeOrder}
             >
-              Add my custom {noun} to cart (£{total.toFixed(0)})
+              {t('cta.addToCart', { noun, price: formatMoney(total, { whole: true }) })}
             </Button>
           </div>
         </div>

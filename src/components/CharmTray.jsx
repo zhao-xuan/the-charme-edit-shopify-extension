@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { trayGroups, groupByCollection } from '../lib/catalog'
+import { formatMoney } from '../lib/money'
+import { t } from '../lib/i18n'
 
 // Round a mm value to at most one decimal so tray size labels stay compact
 // (e.g. 8.30 → 8.3, 58 → 58).
@@ -30,12 +32,12 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
       }
       title={
         unavailable
-          ? 'Currently unavailable'
+          ? t('charm.tip.unavailable')
           : charm.type === 3
-            ? 'Tap to scatter into the gaps'
+            ? t('charm.tip.scatter')
             : compact
-              ? 'Tap to add — then drag it on your case'
-              : 'Drag onto your piece — or click to add'
+              ? t('charm.tip.tapAdd')
+              : t('charm.tip.dragAdd')
       }
     >
       <div className="thumb">
@@ -48,7 +50,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
         </div>
       )}
       <div className="meta meta--price">
-        <span>{unavailable ? 'Unavailable' : `£${charm.price.toFixed(2)}`}</span>
+        <span>{unavailable ? t('charm.unavailable') : formatMoney(charm.price)}</span>
       </div>
     </div>
   )
@@ -70,12 +72,12 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
   const [wordText, setWordText] = useState('')
   const [wordPlace, setWordPlace] = useState('middle')
   const [wordArc, setWordArc] = useState(false)
-  if (!charms.length) return <Empty description="Nothing here yet" />
+  if (!charms.length) return <Empty description={t('charm.empty')} />
   const collections = groupByCollection(charms)
   const submitWord = (collection) => {
-    const t = wordText.trim()
-    if (!t) return
-    onTypeWord?.(t, { collection, category: group.key, placement: wordPlace, arc: wordArc })
+    const txt = wordText.trim()
+    if (!txt) return
+    onTypeWord?.(txt, { collection, category: group.key, placement: wordPlace, arc: wordArc })
     setWordText('')
     setWordFor(null)
   }
@@ -110,7 +112,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                     autoFocus
                     maxLength={14}
                     value={wordText}
-                    placeholder="e.g. EMMA 24"
+                    placeholder={t('charm.wordPlaceholder')}
                     onChange={(e) => setWordText(e.target.value.replace(/[^a-zA-Z0-9 ]/g, ''))}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') submitWord(g.collection)
@@ -122,12 +124,12 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                     className="charm-word__go"
                     onClick={() => submitWord(g.collection)}
                   >
-                    Add
+                    {t('charm.add')}
                   </button>
                   <button
                     type="button"
                     className="charm-word__cancel"
-                    aria-label="Cancel"
+                    aria-label={t('action.cancel')}
                     onClick={() => setWordFor(null)}
                   >
                     ×
@@ -135,11 +137,11 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                 </div>
                 <div className="charm-word__opts">
                   <label className="charm-word__opt">
-                    Position
+                    {t('charm.position')}
                     <select value={wordPlace} onChange={(e) => setWordPlace(e.target.value)}>
-                      <option value="top">Top</option>
-                      <option value="middle">Middle</option>
-                      <option value="bottom">Bottom</option>
+                      <option value="top">{t('charm.position.top')}</option>
+                      <option value="middle">{t('charm.position.middle')}</option>
+                      <option value="bottom">{t('charm.position.bottom')}</option>
                     </select>
                   </label>
                   <label className="charm-word__opt charm-word__opt--check">
@@ -148,10 +150,10 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                       checked={wordArc}
                       onChange={(e) => setWordArc(e.target.checked)}
                     />
-                    Arc
+                    {t('charm.arch')}
                   </label>
                 </div>
-                <p className="charm-word__hint">Mix letters &amp; numbers, up to 14 characters.</p>
+                <p className="charm-word__hint">{t('charm.wordHint')}</p>
                 </>
               ) : (
                 <button
@@ -162,7 +164,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                     setWordText('')
                   }}
                 >
-                  ✎ Type a word
+                  ✎ {t('charm.typeWord')}
                 </button>
               )}
               {/* One tag per placed word group (until it's broken apart for
@@ -170,7 +172,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                   case so it can be dragged as a single unit. */}
               {wordGroups.filter((w) => !w.broken).length > 0 && (
                 <div className="charm-word-tags">
-                  <span className="charm-word-tags__label">Your words:</span>
+                  <span className="charm-word-tags__label">{t('charm.yourWords')}</span>
                   {wordGroups
                     .filter((w) => !w.broken)
                     .map((w) => (
@@ -179,7 +181,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
                         type="button"
                         className={`charm-word-tag${w.id === selectedGroupId ? ' is-active' : ''}`}
                         onClick={() => onSelectGroup?.(w.id)}
-                        title="Select this word to move it as one"
+                        title={t('charm.selectWord')}
                       >
                         {w.label}
                       </button>

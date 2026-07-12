@@ -1,3 +1,9 @@
+/* Brand fonts (Cormorant Garamond display + Jost body). Bundled here so the
+   widget renders correctly when embedded in a Shopify theme that doesn't already
+   load them — otherwise the serif brand / headings fall back to a generic font
+   and look wrong. Must be the first rule in the file. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
 :root {
   --cream: #f7f1e8;
   --cream-deep: #efe6d8;
@@ -95,16 +101,20 @@ h4,
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 300px 1fr var(--tray-w, 384px);
+  /* The preview column uses minmax(0, 1fr) so it can shrink (rather than force
+     the tray off-screen) when the window is narrow. */
+  grid-template-columns: 300px minmax(0, 1fr) var(--tray-w, 384px);
+  /* One full-height row so each column gets a definite height regardless of what
+     the (case preview) column contributes — otherwise the tray collapses when the
+     preview column is hidden in the enlarged view. */
+  grid-template-rows: minmax(0, 1fr);
   gap: 0;
 }
-/* Enlarged charm picker: hide the tips column, shrink the preview, and give the
-   charm tray the room + bigger cards. Toggled by the expand button. */
+/* Enlarged charm picker: KEEP the left sidebar (base picker + tips) and only
+   hide the case preview, giving the freed space to the charm tray + bigger
+   cards. Toggled by the expand button. */
 .studio--tray-max {
-  grid-template-columns: 0 minmax(200px, 34%) 1fr;
-}
-.studio--tray-max .panel--left {
-  display: none;
+  grid-template-columns: 300px 0 1fr;
 }
 .studio--tray-max .tray-grid {
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -114,6 +124,28 @@ h4,
 }
 .studio--tray-max .charm-card--row:not(.charm-card--compact) .thumb {
   max-height: 96px;
+}
+/* Shown top-right when the desktop layout is too narrow and the charm tray is
+   clipped off-screen — prompts the shopper to widen the window / zoom out. */
+.tray-clip-hint {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(320px, 78vw);
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--rouge);
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 1.35;
+  box-shadow: var(--shadow);
+}
+.tray-clip-hint .anticon {
+  flex: none;
 }
 .panel {
   min-height: 0;
