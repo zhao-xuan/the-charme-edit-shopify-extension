@@ -1,0 +1,1797 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-12T11:58:35.104Z",
+    "totalModels": 87,
+    "byBrand": {
+      "Apple": 34,
+      "Google": 18,
+      "Samsung": 28,
+      "Xiaomi": 4,
+      "Huawei": 3
+    },
+    "counts": {
+      "withoutGelComplete": 43,
+      "withGelComplete": 49,
+      "fullyComplete": 41,
+      "requestedTotal": 46,
+      "requestedMissingShell": 37
+    }
+  },
+  "models": [
+    {
+      "id": "iphone-11",
+      "brand": "Apple",
+      "name": "iPhone 11",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-11-pro",
+      "brand": "Apple",
+      "name": "iPhone 11 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-11-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 11 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-12",
+      "brand": "Apple",
+      "name": "iPhone 12",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-12-mini",
+      "brand": "Apple",
+      "name": "iPhone 12 mini",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-12-pro",
+      "brand": "Apple",
+      "name": "iPhone 12 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-12-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 12 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-13",
+      "brand": "Apple",
+      "name": "iPhone 13",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-13-mini",
+      "brand": "Apple",
+      "name": "iPhone 13 mini",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-13-pro",
+      "brand": "Apple",
+      "name": "iPhone 13 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-13-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 13 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-14",
+      "brand": "Apple",
+      "name": "iPhone 14",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-14-plus",
+      "brand": "Apple",
+      "name": "iPhone 14 Plus",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-14-pro",
+      "brand": "Apple",
+      "name": "iPhone 14 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-14-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 14 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-15",
+      "brand": "Apple",
+      "name": "iPhone 15",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-15-plus",
+      "brand": "Apple",
+      "name": "iPhone 15 Plus",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-15-pro",
+      "brand": "Apple",
+      "name": "iPhone 15 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-15-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 15 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-16",
+      "brand": "Apple",
+      "name": "iPhone 16",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-16-plus",
+      "brand": "Apple",
+      "name": "iPhone 16 Plus",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-16-pro",
+      "brand": "Apple",
+      "name": "iPhone 16 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-16-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 16 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-17",
+      "brand": "Apple",
+      "name": "iPhone 17",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-17-pro",
+      "brand": "Apple",
+      "name": "iPhone 17 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-17-pro-max",
+      "brand": "Apple",
+      "name": "iPhone 17 Pro Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-7",
+      "brand": "Apple",
+      "name": "iPhone 7",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-7-plus",
+      "brand": "Apple",
+      "name": "iPhone 7 Plus",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-8",
+      "brand": "Apple",
+      "name": "iPhone 8",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-8-plus",
+      "brand": "Apple",
+      "name": "iPhone 8 Plus",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-air",
+      "brand": "Apple",
+      "name": "iPhone Air",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-x",
+      "brand": "Apple",
+      "name": "iPhone X",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-xs",
+      "brand": "Apple",
+      "name": "iPhone XS",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "iphone-xs-max",
+      "brand": "Apple",
+      "name": "iPhone XS Max",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-10",
+      "brand": "Google",
+      "name": "Pixel 10",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-10-pro",
+      "brand": "Google",
+      "name": "Pixel 10 Pro",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": true
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-10-pro-fold",
+      "brand": "Google",
+      "name": "Pixel 10 Pro Fold",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-10-pro-xl",
+      "brand": "Google",
+      "name": "Pixel 10 Pro XL",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-6",
+      "brand": "Google",
+      "name": "Pixel 6",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-6-pro",
+      "brand": "Google",
+      "name": "Pixel 6 Pro",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": true
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-6a",
+      "brand": "Google",
+      "name": "Pixel 6a",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-7",
+      "brand": "Google",
+      "name": "Pixel 7",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-7-pro",
+      "brand": "Google",
+      "name": "Pixel 7 Pro",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": true
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-7a",
+      "brand": "Google",
+      "name": "Pixel 7a",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-8",
+      "brand": "Google",
+      "name": "Pixel 8",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-8-pro",
+      "brand": "Google",
+      "name": "Pixel 8 Pro",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": true
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-8a",
+      "brand": "Google",
+      "name": "Pixel 8a",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-9",
+      "brand": "Google",
+      "name": "Pixel 9",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-9-pro",
+      "brand": "Google",
+      "name": "Pixel 9 Pro",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": true
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "pixel-9-pro-fold",
+      "brand": "Google",
+      "name": "Pixel 9 Pro Fold",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-9-pro-xl",
+      "brand": "Google",
+      "name": "Pixel 9 Pro XL",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "pixel-9a",
+      "brand": "Google",
+      "name": "Pixel 9a",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a15",
+      "brand": "Samsung",
+      "name": "Galaxy A15 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a16",
+      "brand": "Samsung",
+      "name": "Galaxy A16 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a25",
+      "brand": "Samsung",
+      "name": "Galaxy A25 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a26",
+      "brand": "Samsung",
+      "name": "Galaxy A26 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a34",
+      "brand": "Samsung",
+      "name": "Galaxy A34 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a35",
+      "brand": "Samsung",
+      "name": "Galaxy A35 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a36",
+      "brand": "Samsung",
+      "name": "Galaxy A36 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a54",
+      "brand": "Samsung",
+      "name": "Galaxy A54 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a55",
+      "brand": "Samsung",
+      "name": "Galaxy A55 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-a56",
+      "brand": "Samsung",
+      "name": "Galaxy A56 5G",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s22",
+      "brand": "Samsung",
+      "name": "Galaxy S22",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s22-plus",
+      "brand": "Samsung",
+      "name": "Galaxy S22+",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s22-ultra",
+      "brand": "Samsung",
+      "name": "Galaxy S22 Ultra",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s23",
+      "brand": "Samsung",
+      "name": "Galaxy S23",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s23-fe",
+      "brand": "Samsung",
+      "name": "Galaxy S23 FE",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s23-plus",
+      "brand": "Samsung",
+      "name": "Galaxy S23+",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s23-ultra",
+      "brand": "Samsung",
+      "name": "Galaxy S23 Ultra",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "galaxy-s24",
+      "brand": "Samsung",
+      "name": "Galaxy S24",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s24-fe",
+      "brand": "Samsung",
+      "name": "Galaxy S24 FE",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s24-plus",
+      "brand": "Samsung",
+      "name": "Galaxy S24+",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s24-ultra",
+      "brand": "Samsung",
+      "name": "Galaxy S24 Ultra",
+      "requested": true,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "complete",
+      "needs": []
+    },
+    {
+      "id": "galaxy-s25",
+      "brand": "Samsung",
+      "name": "Galaxy S25",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s25-edge",
+      "brand": "Samsung",
+      "name": "Galaxy S25 Edge",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s25-plus",
+      "brand": "Samsung",
+      "name": "Galaxy S25+",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s25-ultra",
+      "brand": "Samsung",
+      "name": "Galaxy S25 Ultra",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s26",
+      "brand": "Samsung",
+      "name": "Galaxy S26",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s26-plus",
+      "brand": "Samsung",
+      "name": "Galaxy S26+",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "galaxy-s26-ultra",
+      "brand": "Samsung",
+      "name": "Galaxy S26 Ultra",
+      "requested": true,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": true,
+        "white": true
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "xiaomi-13",
+      "brand": "Xiaomi",
+      "name": "Xiaomi 13",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "xiaomi-13-pro",
+      "brand": "Xiaomi",
+      "name": "Xiaomi 13 Pro",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "xiaomi-14",
+      "brand": "Xiaomi",
+      "name": "Xiaomi 14",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "xiaomi-14-pro",
+      "brand": "Xiaomi",
+      "name": "Xiaomi 14 Pro",
+      "requested": false,
+      "liveInCatalog": true,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": true,
+        "white": true,
+        "glitter": false
+      },
+      "status": "gel-only (missing plain shell)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white"
+      ]
+    },
+    {
+      "id": "huawei-mate-50-pro",
+      "brand": "Huawei",
+      "name": "Huawei Mate 50 Pro",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "huawei-mate-60-pro",
+      "brand": "Huawei",
+      "name": "Huawei Mate 60 Pro",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "huawei-p60-pro",
+      "brand": "Huawei",
+      "name": "Huawei P60 Pro",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    }
+  ]
+}

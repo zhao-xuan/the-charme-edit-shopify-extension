@@ -1,6 +1,5 @@
 import charmData from '../data/catalog.json'
 import patchData from '../data/patches.json'
-import charmOverrides from '../data/charm-overrides.generated.json'
 import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
@@ -104,35 +103,27 @@ export function charmCategory(charm) {
   return 'colourful'
 }
 
-/**
- * Single-character label ("A".."Z" / "0".."9") for a letter or number charm,
- * used by "Type a word". Bundled catalogue rows carry an explicit `charmLabel`,
- * but MIGRATED Shopify charms don't — so derive it from the name (e.g. "Gold
- * Letter A" → "A", "Gold Number 0" → "0") for the text collections.
- */
-function deriveCharmLabel(c) {
-  if (c.charmLabel) return c.charmLabel
-  const name = c.name || ''
-  let m = /\bletter\s+([a-z])\b/i.exec(name)
-  if (m) return m[1].toUpperCase()
-  m = /\bnumber\s+([0-9]+)\b/i.exec(name)
-  if (m) return m[1]
-  return c.charmLabel
-}
+// Merchant overrides (re-priced / hidden charms + uploaded custom charms) are
+// merged on top of the built-in catalogue at load time. These come from the
+// Cloudflare API (remoteCatalog) and any local-only admin drafts.
+const ADMIN = loadAdmin()
+const REMOTE = remoteCatalog() || {}
+const REMOTE_OV = REMOTE.overrides || {}
+const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
+const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
 
-/** Apply a merchant size-scale override (keyed by charm id) to a charm's mm size. */
-function applySizeOverride(c, charmSizes) {
-  const scale = Number(charmSizes[c.id])
-  if (!scale || scale <= 0 || scale === 1) return c
-  const w = Number(c.widthMm)
-  const h = Number(c.heightMm)
-  return {
+const BASE_CHARMS = charmData.charms
+  .filter((c) => !charmHidden[c.id] && !c.hidden)
+  .map((c) => ({
     ...c,
-    sizeScale: scale,
-    widthMm: w ? +(w * scale).toFixed(2) : c.widthMm,
-    heightMm: h ? +(h * scale).toFixed(2) : c.heightMm,
-  }
-}
+    kind: 'phone',
+    src: resolveAsset(c.src),
+    price: charmPrices[c.id] ?? c.price,
+    // Catalogue rows now carry an explicit material category (gold | silver |
+    // colourful | unique) from the reference categorisation; only fall back to
+    // the keyword classifier for legacy rows that lack one.
+    category: c.category || charmCategory(c),
+  }))
 
 // The merged catalogue (bundled + remote Shopify + local admin drafts) is built
 // LAZILY, on first access, and memoised.
@@ -166,31 +157,17 @@ function buildCatalog() {
       ...c,
       kind: 'phone',
       src: resolveAsset(c.src),
-      price: charmPrices[c.id] ?? c.price,
-      // Catalogue rows now carry an explicit material category (gold | silver |
-      // colourful | unique) from the reference categorisation; only fall back to
-      // the keyword classifier for legacy rows that lack one.
       category: c.category || charmCategory(c),
     }))
+const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
 
-  // Remote (Shopify) charms first, then local-only drafts; skip hidden ones and
-  // de-dup by id.
-  const seenCharm = new Set()
-  const mergeCustom = (list) =>
-    (list || [])
-      .filter((c) => !c.hidden && !seenCharm.has(c.id) && seenCharm.add(c.id))
-      .map((c) => ({
-        minScale: 1,
-        maxScale: 1,
-        ...c,
-        kind: 'phone',
-        src: resolveAsset(c.src),
-        category: c.category || charmCategory(c),
-        // Migrated Shopify charms lack charmLabel → derive it so "Type a word"
-        // can resolve letters/numbers from the remote catalogue too.
-        charmLabel: deriveCharmLabel(c),
-      }))
-  const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
+// Merchant charms surface first within each category so they're easy to find.
+// Drop any bundled charm whose id was already supplied by the remote/admin
+// (merchant) layer: the reference set lives in BOTH the bundled catalogue and
+// the Cloudflare DB, so without this de-dup every reference charm is listed
+// twice in the tray.
+const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS.filter((c) => !seenCharm.has(c.id))]
+const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
 
   // When the merchant's Shopify catalogue is present, the storefront uses ONLY
   // those charms: every image then comes from Shopify Files (cdn.shopify.com) and
@@ -253,7 +230,7 @@ export const TYPE_META_BY_KIND = {
 
 /** All decorations for a product kind, grouped by interaction type. */
 export function itemsByType(kind) {
-  const items = catalog().ITEMS_BY_KIND[kind] || []
+  const items = ITEMS_BY_KIND[kind] || []
   return {
     1: items.filter((c) => c.type === 1),
     2: items.filter((c) => c.type === 2),
@@ -267,7 +244,6 @@ export function typeMeta(kind) {
 
 /** Look an item up by id across both worlds. */
 export function itemById(id) {
-  const { CHARMS, PATCHES } = catalog()
   return CHARMS.find((c) => c.id === id) || PATCHES.find((p) => p.id === id) || null
 }
 
@@ -281,38 +257,11 @@ export function groupByCollection(items) {
   return Array.from(map, ([collection, list]) => ({ collection, items: list }))
 }
 
-/** Collections whose pieces are single characters — support "type a word". */
-export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
-export function isTextCollection(name) {
-  return TEXT_COLLECTIONS.includes(name)
-}
-
 /**
- * Resolve a single-character charm (a letter or number) by the character it
- * shows (its `charmLabel`). `collection` is "Letters & initials" or "Numbers";
- * `preferCategory` is the tray finish tab the user is on (gold/silver/…), so a
- * typed word uses the matching finish when one exists. Skips unavailable charms.
- */
-export function charmByLabel(collection, label, preferCategory) {
-  const want = String(label == null ? '' : label).toUpperCase()
-  if (!want) return null
-  const matches = catalog().CHARMS.filter(
-    (c) =>
-      c.collection === collection &&
-      !c.unavailable &&
-      String(c.charmLabel == null ? '' : c.charmLabel).toUpperCase() === want,
-  )
-  if (!matches.length) return null
-  return matches.find((c) => c.category === preferCategory) || matches[0]
-}
-
-/**
- * Ordered tray groups for a product kind. Phone charms browse by **category**
- * (one tab each): the four built-in materials (Gold / Silver / Colourful /
- * Natural) first — with their nice labels — then any custom merchant categories
- * that have charms. Within each tab the charms are further split into sections
- * by their `collection` (the sub-category). Tote patches keep the original
- * interaction-type tabs. Each group is `{ key, label, sub, help, note?, items }`.
+ * Ordered tray groups for a product kind. Phone charms browse by the four
+ * material categories (Gold / Silver / Colourful / Unique); tote patches keep
+ * the original interaction-type tabs. Each group is `{ key, label, sub, help,
+ * note?, items }` so the tray can render either taxonomy generically.
  */
 export function trayGroups(kind) {
   if (kind === 'tote') {

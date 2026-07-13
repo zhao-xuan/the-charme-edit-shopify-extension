@@ -54,15 +54,6 @@ h4,
   overflow: hidden;
 }
 
-/* Embedded in Shopify, the AntD <App> wrapper sits between the mount container
-   and .app-shell (which uses an inline height:100% instead of 100dvh). Without a
-   definite height on this wrapper the percentage collapses and the stage measures
-   0 until a reflow (e.g. opening devtools), so nothing renders. */
-.charme-embed-app {
-  height: 100%;
-  min-height: 0;
-}
-
 /* ---------- Top bar ---------- */
 .topbar {
   display: flex;
@@ -225,225 +216,6 @@ h4,
   color: var(--ink-soft);
   margin: 0 0 8px;
 }
-
-/* ---------- "Type a word" (letters / numbers) ---------- */
-.charm-word {
-  margin: 0 0 10px;
-}
-.charm-word__toggle {
-  font: inherit;
-  font-size: 12px;
-  cursor: pointer;
-  border: 1px solid var(--line, #e7ddca);
-  background: #fff;
-  color: var(--ink, #3d3530);
-  border-radius: 999px;
-  padding: 5px 12px;
-}
-.charm-word__toggle:hover {
-  border-color: var(--ink, #3d3530);
-}
-.charm-word__form {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.charm-word__input {
-  flex: 1 1 auto;
-  min-width: 0;
-  font: inherit;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 7px 10px;
-  border: 1px solid var(--line, #e7ddca);
-  border-radius: 8px;
-  background: #fff;
-}
-.charm-word__input:focus {
-  outline: none;
-  border-color: var(--ink, #3d3530);
-}
-.charm-word__go {
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  border: 0;
-  background: var(--ink, #3d3530);
-  color: #f7f0df;
-  border-radius: 8px;
-  padding: 7px 14px;
-}
-.charm-word__go:hover {
-  opacity: 0.9;
-}
-.charm-word__cancel {
-  font: inherit;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  border: 0;
-  background: none;
-  color: var(--ink-soft, #8a7f74);
-  padding: 0 4px;
-}
-.charm-word__opts {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 8px;
-}
-.charm-word__opt {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--ink-soft, #8a7f74);
-}
-.charm-word__opt select {
-  font: inherit;
-  font-size: 12px;
-  padding: 3px 6px;
-  border: 1px solid var(--line, #e7ddca);
-  border-radius: 6px;
-  background: #fff;
-  color: var(--ink, #3d3530);
-}
-.charm-word__opt--check {
-  cursor: pointer;
-}
-.charm-word__opt--check input {
-  accent-color: var(--ink, #3d3530);
-}
-.charm-word__hint {
-  margin: 6px 0 0;
-  font-size: 11px;
-  color: var(--ink-soft, #8a7f74);
-}
-
-/* Placed-word tags shown under "Type a word": one per live word group. Tap to
-   select that word on the case so it drags as a single unit. */
-.charm-word-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-}
-.charm-word-tags__label {
-  font-size: 11px;
-  letter-spacing: 0.4px;
-  color: var(--ink-soft, #8a7f74);
-  margin-right: 2px;
-}
-.charm-word-tag {
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line, #e7ddca);
-  background: #fff;
-  color: var(--ink, #3d3530);
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-}
-.charm-word-tag:hover {
-  border-color: var(--blush, #e6b9b3);
-}
-.charm-word-tag.is-active {
-  background: var(--rouge, #b35b5b);
-  border-color: var(--rouge, #b35b5b);
-  color: #fff;
-}
-
-/* Selected word-group outline on the case + its "Confirm" control. The box is
-   visual only (drag any letter to move the whole word); the tools take clicks. */
-.group-box {
-  position: absolute;
-  border: 1.5px dashed var(--rouge, #b35b5b);
-  border-radius: 6px;
-  background: rgba(179, 91, 91, 0.06);
-  pointer-events: none;
-  z-index: 45;
-}
-.group-box__label {
-  position: absolute;
-  top: -18px;
-  left: 0;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--rouge, #b35b5b);
-  white-space: nowrap;
-  pointer-events: none;
-}
-.group-box__tools {
-  position: absolute;
-  bottom: -14px;
-  right: -6px;
-  transform: translateY(100%);
-  pointer-events: auto;
-}
-.group-confirm {
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 999px;
-  border: none;
-  background: var(--rouge, #b35b5b);
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(46, 42, 38, 0.22);
-  white-space: nowrap;
-}
-.group-confirm:hover {
-  background: var(--rouge-deep, #8f3f3f);
-}
-.group-confirm__ask {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 10px;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid var(--line, #e7ddca);
-  box-shadow: 0 6px 16px rgba(46, 42, 38, 0.2);
-  white-space: nowrap;
-}
-.group-confirm__q {
-  font-size: 12px;
-  color: var(--ink, #3d3530);
-}
-.group-confirm__yes,
-.group-confirm__no {
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--line, #e7ddca);
-  cursor: pointer;
-}
-.group-confirm__yes {
-  background: var(--rouge, #b35b5b);
-  border-color: var(--rouge, #b35b5b);
-  color: #fff;
-}
-.group-confirm__yes:hover {
-  background: var(--rouge-deep, #8f3f3f);
-}
-.group-confirm__no {
-  background: #fff;
-  color: var(--ink-soft, #8a7f74);
-}
-.group-confirm__no:hover {
-  border-color: var(--blush, #e6b9b3);
-}
-
 .section-title {
   font-size: 21px;
   margin: 0 0 14px;
@@ -559,90 +331,6 @@ h4,
     drop-shadow(0 0 1px #e0962a);
 }
 
-/* Enlarged touch target: a transparent padded ::before so tiny charms stay easy
-   to grab (especially on a phone) without changing their visual size. */
-.charm::before {
-  content: '';
-  position: absolute;
-  inset: calc(-1 * var(--hit-pad, 0px));
-  border-radius: 45%;
-}
-
-/* Curved free-rotation dial around the selected charm. The centre stays clear so
-   the charm itself can still be dragged — only the ring, thumb and remove button
-   capture pointer events. */
-.charm-dial {
-  position: absolute;
-  z-index: 60;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.charm-dial__svg {
-  position: absolute;
-  inset: 0;
-  overflow: visible;
-  pointer-events: none;
-}
-.charm-dial__track {
-  fill: none;
-  stroke: rgba(26, 22, 20, 0.16);
-  stroke-width: 2;
-}
-.charm-dial__hit {
-  fill: none;
-  stroke: transparent;
-  stroke-width: 26;
-  pointer-events: stroke;
-  cursor: grab;
-}
-.charm-dial__spoke {
-  stroke: rgba(26, 22, 20, 0.28);
-  stroke-width: 1.5;
-  pointer-events: none;
-}
-.charm-dial__thumb {
-  fill: var(--rouge);
-  stroke: #fff;
-  stroke-width: 2.5;
-  pointer-events: all;
-  cursor: grab;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-}
-.charm-dial__deg {
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  padding: 1px 7px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-}
-.charm-dial__remove {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 50%;
-  background: #d4380d;
-  color: #fff;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-}
-.charm-dial__remove:hover {
-  background: #b32b09;
-}
-
 /* selection toolbar floating above a selected charm */
 .charm-tools {
   position: absolute;
@@ -737,21 +425,6 @@ h4,
   box-shadow: var(--shadow);
   border-color: var(--blush);
 }
-.charm-card--disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
-  filter: grayscale(1);
-  pointer-events: auto;
-}
-.charm-card--disabled:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--line);
-}
-.charm-card--disabled .meta--price {
-  color: var(--ink-soft);
-  font-style: italic;
-}
 .charm-card .thumb {
   aspect-ratio: 1;
   display: flex;
@@ -770,20 +443,6 @@ h4,
   font-size: 11.5px;
   line-height: 1.25;
   color: var(--ink);
-}
-/* real-world charm size shown on every tray tile so size edits are visible
-   without dragging onto the case */
-.charm-card__size {
-  font-size: 10px;
-  line-height: 1.2;
-  text-align: center;
-  color: var(--ink-soft);
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-}
-.charm-card--compact .charm-card__size,
-.charm-card--row .charm-card__size {
-  font-size: 9px;
 }
 .charm-card .meta {
   display: flex;
@@ -994,33 +653,6 @@ h4,
   object-fit: contain;
 }
 
-/* Desktop right-panel tray: each sub-category is a horizontal strip (like
-   mobile). Row cards are wider than the mobile ones so the charm name + price
-   fit, and are draggable onto the case. */
-.charm-card--row:not(.charm-card--compact) {
-  width: 96px;
-  padding: 8px;
-  border-radius: 12px;
-  cursor: grab;
-}
-.charm-card--row:not(.charm-card--compact):hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-  border-color: var(--blush);
-}
-.charm-card--row:not(.charm-card--compact) .thumb {
-  max-height: 68px;
-}
-.charm-card--row:not(.charm-card--compact) .name {
-  font-size: 11px;
-  line-height: 1.2;
-  text-align: center;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .ghost-drag {
   position: fixed;
   z-index: 4000;
@@ -1087,11 +719,8 @@ h4,
   gap: 18px;
 }
 .summary-layout .proof-img {
-  width: auto;
-  height: auto;
   max-height: 300px;
   max-width: 100%;
-  object-fit: contain;
 }
 .summary-preview .preview-note {
   display: flex;
@@ -1262,56 +891,6 @@ h4,
     display: flex;
     flex-direction: column;
     background: #fffdf9;
-  }
-
-  /* Lock the page on mobile: only the charm tray scrolls. Pinching / panning /
-     magnifying the phone case must never scroll or bounce the whole page. */
-  .app-shell,
-  .mobile-shell {
-    overscroll-behavior: none;
-  }
-  .mobile-stage,
-  .mobile-stage .stage-wrap {
-    touch-action: none;
-    overscroll-behavior: none;
-  }
-
-  /* Bigger phone-case preview (~75% of the screen): trim the surrounding chrome
-     so the fit-scaled case fills more of the stage. */
-  .mobile-head {
-    padding: 6px 12px;
-    gap: 6px;
-  }
-  .mobile-stage .stage-wrap {
-    padding-top: 2px;
-    padding-bottom: 20px;
-  }
-
-  /* "N charms need attention" pinned to the bottom-right of the phone-case layer. */
-  .stage-attention {
-    position: absolute;
-    right: 10px;
-    bottom: 48px;
-    z-index: 7;
-    max-width: 64%;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 7px 10px;
-    background: #fff;
-    border: 1.5px solid #d4380d;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(46, 42, 38, 0.22);
-    font-size: 12px;
-    font-weight: 600;
-    color: #a8071a;
-    line-height: 1.2;
-    pointer-events: none;
-  }
-  .stage-attention__icon {
-    color: #d4380d;
-    font-size: 15px;
-    flex: none;
   }
   /* category switcher (Step 2 control) — a horizontal full-width tab row in its
      own slim bar BELOW the Step 2 text overlay (kept out of the overlay so it
