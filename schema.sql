@@ -79,3 +79,18 @@ CREATE TABLE IF NOT EXISTS presets (
   updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_presets_active ON presets (active);
+
+-- Review state for the internal case-image QA dashboard. One row represents
+-- one model/finish image and stores the reviewer-selected issue tags as JSON.
+CREATE TABLE IF NOT EXISTS case_asset_reviews (
+  review_key TEXT PRIMARY KEY,                 -- <model_id>:<finish>
+  model_id   TEXT NOT NULL,
+  finish     TEXT NOT NULL CHECK (finish IN ('black', 'white', 'glitter')),
+  status     TEXT NOT NULL DEFAULT 'checking'
+             CHECK (status IN ('checking', 'approved', 'changes')),
+  comment    TEXT NOT NULL DEFAULT '',
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  issues     TEXT NOT NULL DEFAULT '[]',        -- JSON string array
+  UNIQUE (model_id, finish)
+);
