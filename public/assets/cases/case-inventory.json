@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-12T11:58:35.104Z",
+    "generatedAt": "2026-07-15T16:53:36.123Z",
     "totalModels": 87,
     "byBrand": {
       "Apple": 34,
@@ -157,7 +157,7 @@
       "withGel": {
         "black": true,
         "white": true,
-        "glitter": false
+        "glitter": true
       },
       "status": "complete",
       "needs": []
@@ -265,7 +265,7 @@
       "withGel": {
         "black": true,
         "white": true,
-        "glitter": false
+        "glitter": true
       },
       "status": "complete",
       "needs": []
@@ -427,7 +427,7 @@
       "withGel": {
         "black": true,
         "white": true,
-        "glitter": false
+        "glitter": true
       },
       "status": "complete",
       "needs": []
@@ -1472,7 +1472,7 @@
       "withGel": {
         "black": true,
         "white": true,
-        "glitter": false
+        "glitter": true
       },
       "status": "complete",
       "needs": []

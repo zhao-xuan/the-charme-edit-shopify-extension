@@ -1,6 +1,6 @@
 # Phone-case asset inventory
 
-_Generated 2026-07-12T11:58:35.104Z by `scripts/build-case-inventory.mjs`._
+_Generated 2026-07-15T16:53:36.123Z by `scripts/build-case-inventory.mjs`._
 
 Legend: ● = present · ○ = missing. **without-gel** = plain silicone shell (base for gel). **with-gel** = poured-gel render used in the customizer.
 
@@ -19,13 +19,13 @@ Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** 
 | iPhone 12 mini | `iphone-12-mini` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 12 Pro | `iphone-12-pro` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 12 Pro Max | `iphone-12-pro-max` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 13 | `iphone-13` | ● / ● | ● / ● / ○ | complete |  |
+| iPhone 13 | `iphone-13` | ● / ● | ● / ● / ● | complete |  |
 | iPhone 13 mini | `iphone-13-mini` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 13 Pro | `iphone-13-pro` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 13 Pro Max | `iphone-13-pro-max` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 14 | `iphone-14` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 14 Plus | `iphone-14-plus` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 14 Pro | `iphone-14-pro` | ● / ● | ● / ● / ○ | complete |  |
+| iPhone 14 Pro | `iphone-14-pro` | ● / ● | ● / ● / ● | complete |  |
 | iPhone 14 Pro Max | `iphone-14-pro-max` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 15 | `iphone-15` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 15 Plus | `iphone-15-plus` | ● / ● | ● / ● / ○ | complete |  |
@@ -34,7 +34,7 @@ Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** 
 | iPhone 16 | `iphone-16` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 16 Plus | `iphone-16-plus` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 16 Pro | `iphone-16-pro` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 16 Pro Max | `iphone-16-pro-max` | ● / ● | ● / ● / ○ | complete |  |
+| iPhone 16 Pro Max | `iphone-16-pro-max` | ● / ● | ● / ● / ● | complete |  |
 | iPhone 17 | `iphone-17` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 17 Pro | `iphone-17-pro` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 17 Pro Max | `iphone-17-pro-max` | ● / ● | ● / ● / ○ | complete |  |
@@ -94,7 +94,7 @@ Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** 
 | Galaxy S24 | `galaxy-s24` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S24 FE | `galaxy-s24-fe` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy S24+ | `galaxy-s24-plus` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
-| Galaxy S24 Ultra | `galaxy-s24-ultra` | ● / ● | ● / ● / ○ | complete | ✔ |
+| Galaxy S24 Ultra | `galaxy-s24-ultra` | ● / ● | ● / ● / ● | complete | ✔ |
 | Galaxy S25 | `galaxy-s25` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy S25 Edge | `galaxy-s25-edge` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy S25+ | `galaxy-s25-plus` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
