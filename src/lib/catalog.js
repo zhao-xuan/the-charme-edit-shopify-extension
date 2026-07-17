@@ -1,5 +1,6 @@
 import charmData from '../data/catalog.json'
 import patchData from '../data/patches.json'
+import charmOverrides from '../data/charm-overrides.generated.json'
 import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
@@ -103,27 +104,27 @@ export function charmCategory(charm) {
   return 'colourful'
 }
 
-// Merchant overrides (re-priced / hidden charms + uploaded custom charms) are
-// merged on top of the built-in catalogue at load time. These come from the
-// Cloudflare API (remoteCatalog) and any local-only admin drafts.
-const ADMIN = loadAdmin()
-const REMOTE = remoteCatalog() || {}
-const REMOTE_OV = REMOTE.overrides || {}
-const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
-const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
+function deriveCharmLabel(charm) {
+  if (charm.charmLabel) return charm.charmLabel
+  const name = charm.name || ''
+  let match = /\bletter\s+([a-z])\b/i.exec(name)
+  if (match) return match[1].toUpperCase()
+  match = /\bnumber\s+([0-9]+)\b/i.exec(name)
+  return match ? match[1] : charm.charmLabel
+}
 
-const BASE_CHARMS = charmData.charms
-  .filter((c) => !charmHidden[c.id] && !c.hidden)
-  .map((c) => ({
-    ...c,
-    kind: 'phone',
-    src: resolveAsset(c.src),
-    price: charmPrices[c.id] ?? c.price,
-    // Catalogue rows now carry an explicit material category (gold | silver |
-    // colourful | unique) from the reference categorisation; only fall back to
-    // the keyword classifier for legacy rows that lack one.
-    category: c.category || charmCategory(c),
-  }))
+function applySizeOverride(charm, charmSizes) {
+  const scale = Number(charmSizes[charm.id])
+  if (!scale || scale <= 0 || scale === 1) return charm
+  const width = Number(charm.widthMm)
+  const height = Number(charm.heightMm)
+  return {
+    ...charm,
+    sizeScale: scale,
+    widthMm: width ? +(width * scale).toFixed(2) : charm.widthMm,
+    heightMm: height ? +(height * scale).toFixed(2) : charm.heightMm,
+  }
+}
 
 // The merged catalogue (bundled + remote Shopify + local admin drafts) is built
 // LAZILY, on first access, and memoised.
@@ -157,17 +158,24 @@ function buildCatalog() {
       ...c,
       kind: 'phone',
       src: resolveAsset(c.src),
+      price: charmPrices[c.id] ?? c.price,
       category: c.category || charmCategory(c),
     }))
-const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
 
-// Merchant charms surface first within each category so they're easy to find.
-// Drop any bundled charm whose id was already supplied by the remote/admin
-// (merchant) layer: the reference set lives in BOTH the bundled catalogue and
-// the Cloudflare DB, so without this de-dup every reference charm is listed
-// twice in the tray.
-const CHARMS = [...CUSTOM_CHARMS, ...BASE_CHARMS.filter((c) => !seenCharm.has(c.id))]
-const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
+  const seenCharm = new Set()
+  const mergeCustom = (list) =>
+    (list || [])
+      .filter((c) => !c.hidden && !seenCharm.has(c.id) && seenCharm.add(c.id))
+      .map((c) => ({
+        minScale: 1,
+        maxScale: 1,
+        ...c,
+        kind: 'phone',
+        src: resolveAsset(c.src),
+        category: c.category || charmCategory(c),
+        charmLabel: deriveCharmLabel(c),
+      }))
+  const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
 
   // When the merchant's Shopify catalogue is present, the storefront uses ONLY
   // those charms: every image then comes from Shopify Files (cdn.shopify.com) and
@@ -230,7 +238,7 @@ export const TYPE_META_BY_KIND = {
 
 /** All decorations for a product kind, grouped by interaction type. */
 export function itemsByType(kind) {
-  const items = ITEMS_BY_KIND[kind] || []
+  const items = catalog().ITEMS_BY_KIND[kind] || []
   return {
     1: items.filter((c) => c.type === 1),
     2: items.filter((c) => c.type === 2),
@@ -244,6 +252,7 @@ export function typeMeta(kind) {
 
 /** Look an item up by id across both worlds. */
 export function itemById(id) {
+  const { CHARMS, PATCHES } = catalog()
   return CHARMS.find((c) => c.id === id) || PATCHES.find((p) => p.id === id) || null
 }
 
@@ -255,6 +264,24 @@ export function groupByCollection(items) {
     map.get(c.collection).push(c)
   }
   return Array.from(map, ([collection, list]) => ({ collection, items: list }))
+}
+
+export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
+export function isTextCollection(name) {
+  return TEXT_COLLECTIONS.includes(name)
+}
+
+export function charmByLabel(collection, label, preferCategory) {
+  const wantedLabel = String(label == null ? '' : label).toUpperCase()
+  if (!wantedLabel) return null
+  const matches = catalog().CHARMS.filter(
+    (charm) =>
+      charm.collection === collection &&
+      !charm.unavailable &&
+      String(charm.charmLabel == null ? '' : charm.charmLabel).toUpperCase() === wantedLabel,
+  )
+  if (!matches.length) return null
+  return matches.find((charm) => charm.category === preferCategory) || matches[0]
 }
 
 /**

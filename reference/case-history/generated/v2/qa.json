@@ -1,0 +1,269 @@
+{
+  "generatedAt": "2026-07-16T00:29:42.689Z",
+  "results": [
+    {
+      "modelId": "iphone-13",
+      "finish": "black",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-13-black.png",
+      "imagePath": "public/assets/cases/case-history/iphone-13/black/v2.png",
+      "rawBounds": {
+        "canvasWidth": 903,
+        "canvasHeight": 1742,
+        "left": 58,
+        "top": 65,
+        "width": 789,
+        "height": 1600
+      },
+      "target": {
+        "width": 920,
+        "height": 1835
+      },
+      "rawAspect": 0.493125,
+      "targetAspect": 0.5013623978201635,
+      "horizontalCorrectionPercent": 1.670448227156096,
+      "sha256": "54b03d9727755ac0d3737c2a44d97491aa5dda0781813d593c5c3212a72175c6"
+    },
+    {
+      "modelId": "iphone-13",
+      "finish": "white",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-13-white.png",
+      "imagePath": "public/assets/cases/case-history/iphone-13/white/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 81,
+        "top": 65,
+        "width": 772,
+        "height": 1540
+      },
+      "target": {
+        "width": 920,
+        "height": 1835
+      },
+      "rawAspect": 0.5012987012987012,
+      "targetAspect": 0.5013623978201635,
+      "horizontalCorrectionPercent": 0.01270630091345648,
+      "sha256": "268e4bb6fe96392f13c34844bbab0b299871172ff9dd35943e0499981fb0c3bd"
+    },
+    {
+      "modelId": "iphone-13",
+      "finish": "glitter",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-13-glitter.png",
+      "imagePath": "public/assets/cases/case-history/iphone-13/glitter/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 102,
+        "top": 65,
+        "width": 737,
+        "height": 1512
+      },
+      "target": {
+        "width": 920,
+        "height": 1835
+      },
+      "rawAspect": 0.48743386243386244,
+      "targetAspect": 0.5013623978201635,
+      "horizontalCorrectionPercent": 2.857523134882922,
+      "sha256": "a479b20143452d01ab2adab297983f3883b642a77f7725aa4973d5be817b6f52"
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "black",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-14-pro-black.png",
+      "imagePath": "public/assets/cases/case-history/iphone-14-pro/black/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 56,
+        "top": 30,
+        "width": 825,
+        "height": 1604
+      },
+      "target": {
+        "width": 915,
+        "height": 1831
+      },
+      "rawAspect": 0.5143391521197007,
+      "targetAspect": 0.4997269251774986,
+      "horizontalCorrectionPercent": -2.840971153368743,
+      "sha256": "a6326bbd7896f1724a919d51435f1d4f11b47996290a38928d48606eb9e98c49"
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "white",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-14-pro-white.png",
+      "imagePath": "public/assets/cases/case-history/iphone-14-pro/white/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 59,
+        "top": 31,
+        "width": 819,
+        "height": 1601
+      },
+      "target": {
+        "width": 915,
+        "height": 1831
+      },
+      "rawAspect": 0.5115552779512804,
+      "targetAspect": 0.4997269251774986,
+      "horizontalCorrectionPercent": -2.312233551993248,
+      "sha256": "7c7832704d391511aabc99739d4671befcf5ca01b747c78e8340ee40c727e045"
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "glitter",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-14-pro-glitter.png",
+      "imagePath": "public/assets/cases/case-history/iphone-14-pro/glitter/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 41,
+        "top": 9,
+        "width": 860,
+        "height": 1654
+      },
+      "target": {
+        "width": 915,
+        "height": 1831
+      },
+      "rawAspect": 0.5199516324062878,
+      "targetAspect": 0.4997269251774986,
+      "horizontalCorrectionPercent": -3.8897285763276,
+      "sha256": "ee94186b28a8b4822881bf1c6709dcf4e2eba4858e9166c68c01ec4f4d3fc363"
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "black",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-16-pro-max-black.png",
+      "imagePath": "public/assets/cases/case-history/iphone-16-pro-max/black/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 104,
+        "top": 54,
+        "width": 732,
+        "height": 1499
+      },
+      "target": {
+        "width": 898,
+        "height": 1832
+      },
+      "rawAspect": 0.4883255503669113,
+      "targetAspect": 0.490174672489083,
+      "horizontalCorrectionPercent": 0.37866585534636066,
+      "sha256": "186d3532df4115685854e05d2fdc0d7b94a3ab6e6e8b53379ddd2490234ede56"
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "white",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-16-pro-max-white.png",
+      "imagePath": "public/assets/cases/case-history/iphone-16-pro-max/white/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 86,
+        "top": 36,
+        "width": 775,
+        "height": 1600
+      },
+      "target": {
+        "width": 898,
+        "height": 1832
+      },
+      "rawAspect": 0.484375,
+      "targetAspect": 0.490174672489083,
+      "horizontalCorrectionPercent": 1.1973517396816513,
+      "sha256": "027390edf1d877f7416223865dc5e9910c0598eabd6d9f75a4b608f487644039"
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "glitter",
+      "rawPath": "reference/case-history/generated/v2/raw/iphone-16-pro-max-glitter.png",
+      "imagePath": "public/assets/cases/case-history/iphone-16-pro-max/glitter/v2.png",
+      "rawBounds": {
+        "canvasWidth": 941,
+        "canvasHeight": 1672,
+        "left": 101,
+        "top": 55,
+        "width": 737,
+        "height": 1507
+      },
+      "target": {
+        "width": 898,
+        "height": 1832
+      },
+      "rawAspect": 0.48905109489051096,
+      "targetAspect": 0.490174672489083,
+      "horizontalCorrectionPercent": 0.2297464641856095,
+      "sha256": "116f14a673a32f7d07ef99696db53f391cdc6d984c1582ac1458c081b3c39425"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "black",
+      "rawPath": "reference/case-history/generated/v2/raw/galaxy-s24-ultra-black.png",
+      "imagePath": "public/assets/cases/case-history/galaxy-s24-ultra/black/v2.png",
+      "rawBounds": {
+        "canvasWidth": 886,
+        "canvasHeight": 1775,
+        "left": 0,
+        "top": 0,
+        "width": 883,
+        "height": 1774
+      },
+      "target": {
+        "width": 620,
+        "height": 1283
+      },
+      "rawAspect": 0.4977452085682074,
+      "targetAspect": 0.48324240062353857,
+      "horizontalCorrectionPercent": -2.91370116578058,
+      "sha256": "e5c5ea065590bc918438708a50e073b1543779478074a14cb0a44671e102baba"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "white",
+      "rawPath": "reference/case-history/generated/v2/raw/galaxy-s24-ultra-white.png",
+      "imagePath": "public/assets/cases/case-history/galaxy-s24-ultra/white/v2.png",
+      "rawBounds": {
+        "canvasWidth": 887,
+        "canvasHeight": 1774,
+        "left": 64,
+        "top": 43,
+        "width": 752,
+        "height": 1718
+      },
+      "target": {
+        "width": 620,
+        "height": 1283
+      },
+      "rawAspect": 0.43771827706635624,
+      "targetAspect": 0.48324240062353857,
+      "horizontalCorrectionPercent": 10.400325036069047,
+      "sha256": "0918e908304f02d378cbd59b2d70fdb61111640d7a04a0a376364c5b9e3416e3"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "glitter",
+      "rawPath": "reference/case-history/generated/v2/raw/galaxy-s24-ultra-glitter.png",
+      "imagePath": "public/assets/cases/case-history/galaxy-s24-ultra/glitter/v2.png",
+      "rawBounds": {
+        "canvasWidth": 887,
+        "canvasHeight": 1774,
+        "left": 99,
+        "top": 113,
+        "width": 678,
+        "height": 1545
+      },
+      "target": {
+        "width": 620,
+        "height": 1283
+      },
+      "rawAspect": 0.4388349514563107,
+      "targetAspect": 0.48324240062353857,
+      "horizontalCorrectionPercent": 10.119396602266528,
+      "sha256": "7514f8d2ced6cfe6d1b26fbd6ccf01503d4eb79688605b1a86bfb058744ea95c"
+    }
+  ]
+}

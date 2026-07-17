@@ -1,6 +1,12 @@
 import CustomizerPage from './customizer/CustomizerPage'
 import MerchantStudio from './components/MerchantStudio'
 import AdminPage from './components/AdminPage'
+import CaseReviewPage from './components/CaseReviewPage'
+
+function isCaseReviewView() {
+  if (typeof window === 'undefined') return false
+  return /^\/case-review\/?$/i.test(window.location.pathname)
+}
 
 /**
  * The Merchant Studio is an internal tool. It is reachable only via an explicit
@@ -33,6 +39,8 @@ function isAdminView() {
 }
 
 export default function App() {
+  if (isCaseReviewView()) return <CaseReviewPage />
+
   if (isAdminView()) {
     return (
       <div className="app-shell">

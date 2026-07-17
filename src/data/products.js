@@ -553,11 +553,24 @@ function applyAdminOverrides(groups) {
       basePrice: priceOf(p.id, p.basePrice),
     })),
   }))
-  // remote DB products first, then local-only drafts; de-dup by id
+  // Remote DB products first, then local-only drafts; de-dup by id. Migrated
+  // built-in models contribute price/images above and must not become duplicate
+  // custom products.
+  const bundledIds = new Set(groups.flatMap((group) => group.products.map((product) => product.id)))
   const seen = new Set()
   const customRaw = []
-  for (const p of remote.products || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
-  for (const p of admin.customProducts || []) { if (!seen.has(p.id)) { seen.add(p.id); customRaw.push(p) } }
+  for (const product of remote.products || []) {
+    if (!bundledIds.has(product.id) && !seen.has(product.id)) {
+      seen.add(product.id)
+      customRaw.push(product)
+    }
+  }
+  for (const product of admin.customProducts || []) {
+    if (!bundledIds.has(product.id) && !seen.has(product.id)) {
+      seen.add(product.id)
+      customRaw.push(product)
+    }
+  }
   const custom = customRaw.map(buildCustomProduct)
   if (custom.length) {
     priced.push({
@@ -571,10 +584,23 @@ function applyAdminOverrides(groups) {
   return priced
 }
 
-export const PRODUCT_GROUPS = applyAdminOverrides(BASE_PRODUCT_GROUPS)
+let productCatalogCache = null
+function productCatalog() {
+  if (!productCatalogCache) {
+    const groups = applyAdminOverrides(BASE_PRODUCT_GROUPS)
+    productCatalogCache = { groups, all: groups.flatMap((group) => group.products) }
+  }
+  return productCatalogCache
+}
 
-export const ALL_PRODUCTS = PRODUCT_GROUPS.flatMap((g) => g.products)
+export function productGroups() {
+  return productCatalog().groups
+}
+
+export function allProducts() {
+  return productCatalog().all
+}
 
 export function findProduct(id) {
-  return ALL_PRODUCTS.find((p) => p.id === id)
+  return productCatalog().all.find((product) => product.id === id)
 }

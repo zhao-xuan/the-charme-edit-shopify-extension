@@ -1,6 +1,6 @@
 # Phone-case asset inventory
 
-_Generated 2026-07-15T22:03:32.490Z by `scripts/build-case-inventory.mjs`._
+_Generated 2026-07-16T00:37:46.928Z by `scripts/build-case-inventory.mjs`._
 
 Legend: ● = present · ○ = missing. **without-gel** = plain silicone shell (base for gel). **with-gel** = poured-gel render used in the customizer.
 

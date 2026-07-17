@@ -94,3 +94,42 @@ CREATE TABLE IF NOT EXISTS case_asset_reviews (
   issues     TEXT NOT NULL DEFAULT '[]',        -- JSON string array
   UNIQUE (model_id, finish)
 );
+
+-- Immutable generation audit trail. Prompt and image versions are separate so
+-- retries may share a prompt later without losing the exact image -> prompt link.
+CREATE TABLE IF NOT EXISTS case_prompt_versions (
+  prompt_version_key TEXT PRIMARY KEY,          -- <review_key>:prompt:v<n>
+  review_key         TEXT NOT NULL,
+  model_id           TEXT NOT NULL,
+  finish             TEXT NOT NULL CHECK (finish IN ('black', 'white', 'glitter')),
+  version            INTEGER NOT NULL CHECK (version > 0),
+  prompt_text        TEXT NOT NULL,
+  reference_images   TEXT NOT NULL DEFAULT '[]', -- JSON string array
+  generator          TEXT NOT NULL DEFAULT 'ChatGPT',
+  conversation_url   TEXT NOT NULL DEFAULT '',
+  created_at         TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE (review_key, version)
+);
+
+CREATE TABLE IF NOT EXISTS case_image_versions (
+  image_version_key  TEXT PRIMARY KEY,          -- <review_key>:image:v<n>
+  review_key         TEXT NOT NULL,
+  model_id           TEXT NOT NULL,
+  finish             TEXT NOT NULL CHECK (finish IN ('black', 'white', 'glitter')),
+  version            INTEGER NOT NULL CHECK (version > 0),
+  image_path         TEXT NOT NULL,              -- immutable /assets/cases/case-history path
+  sha256             TEXT NOT NULL DEFAULT '',
+  width_px           INTEGER,
+  height_px          INTEGER,
+  source_url         TEXT NOT NULL DEFAULT '',
+  prompt_version_key TEXT NOT NULL,
+  is_current         INTEGER NOT NULL DEFAULT 0 CHECK (is_current IN (0, 1)),
+  created_at         TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE (review_key, version),
+  FOREIGN KEY (prompt_version_key) REFERENCES case_prompt_versions(prompt_version_key)
+);
+
+CREATE INDEX IF NOT EXISTS idx_case_prompts_review
+  ON case_prompt_versions (review_key, version DESC);
+CREATE INDEX IF NOT EXISTS idx_case_images_review
+  ON case_image_versions (review_key, version DESC);

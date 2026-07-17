@@ -1,0 +1,111 @@
+.case-review-page {
+  min-height: 100dvh;
+  overflow: auto;
+  padding: 32px;
+  background: #f4f0e8;
+  color: #292622;
+}
+
+.case-review-header,
+.case-review-progress,
+.case-review-filters,
+.case-review-model__head,
+.case-review-finish__title {
+  display: flex;
+  align-items: center;
+}
+
+.case-review-header { gap: 18px; }
+.case-review-header > div:first-child { flex: 1; }
+.case-review-header h1 { margin: 2px 0; font-size: 36px; }
+.case-review-header p { margin: 0; color: #716960; }
+.case-review-eyebrow { font-size: 11px; letter-spacing: 2px; color: #8c7e70; }
+.case-review-cloud { color: #527761; }
+
+.case-review-progress {
+  gap: 28px;
+  margin: 26px 0 18px;
+  padding: 16px 20px;
+  border-block: 1px solid #dcd2c4;
+}
+.case-review-progress span { color: #746a60; }
+.case-review-progress strong { margin-left: 6px; color: #292622; font-size: 18px; }
+
+.case-review-filters { gap: 12px; margin-bottom: 18px; }
+.case-review-filters .ant-input-affix-wrapper { max-width: 360px; }
+.case-review-filters .ant-select { width: 180px; }
+.case-review-filters > span { margin-left: auto; color: #746a60; }
+
+.case-review-loading { display: grid; min-height: 320px; place-items: center; }
+.case-review-models { display: grid; gap: 14px; }
+.case-review-model { border: 1px solid #ddd2c3; background: #fff; }
+.case-review-model__head { justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid #e8dfd4; }
+.case-review-model__head span { color: #8b7969; font-size: 12px; }
+.case-review-model__head h2 { display: inline; margin: 0 12px 0 8px; font-size: 24px; }
+.case-review-model__head code { color: #8b8177; }
+.case-review-finishes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-review-finish { min-width: 0; padding: 16px; border-right: 1px solid #eee6dc; }
+.case-review-finish:last-child { border-right: 0; }
+.case-review-finish__title { justify-content: space-between; margin-bottom: 12px; }
+.case-review-images { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.case-review-images figure { min-width: 0; margin: 0; }
+.case-review-images figcaption { margin-bottom: 6px; color: #82766b; font-size: 11px; text-transform: uppercase; }
+.case-review-images .ant-image { display: block; width: 100%; }
+.case-review-images img { width: 100%; height: 260px; object-fit: contain; background: #faf8f4; }
+.case-review-image-missing { display: grid; height: 260px; place-items: center; background: #faf8f4; color: #9a8e83; font-size: 12px; }
+.case-review-controls { display: grid; gap: 12px; margin-top: 14px; }
+.case-review-controls__row { display: flex; gap: 8px; }
+.case-review-controls__row .ant-select { flex: 1; }
+.case-review-issues { display: grid; gap: 7px; }
+.case-review-issues .ant-checkbox-wrapper { align-items: flex-start; margin: 0; color: #544d46; font-size: 12px; line-height: 1.45; }
+
+.case-history-drawer .ant-drawer-body { background: #f5f1ea; }
+.case-history-section + .case-history-section { margin-top: 30px; }
+.case-history-section h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font-family: 'Jost', sans-serif; font-size: 16px; }
+.case-history-latest { padding-bottom: 24px; border-bottom: 1px solid #d8cec1; }
+.case-history-latest__meta { display: flex; align-items: center; gap: 7px; margin-bottom: 14px; }
+.case-history-latest__meta time { margin-left: auto; color: #84796f; font-size: 11px; }
+.case-history-latest__meta a { color: #526d5b; white-space: nowrap; }
+.case-history-references > strong { display: block; margin-bottom: 9px; font-size: 12px; }
+.case-history-references__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+.case-history-reference { min-width: 0; border: 1px solid #ddd3c6; border-radius: 4px; background: #fff; }
+.case-history-reference .ant-image { display: block; width: 100%; }
+.case-history-reference img,
+.case-history-reference__file { width: 100%; height: 126px; object-fit: contain; background: #faf8f4; }
+.case-history-reference__file { display: grid; place-items: center; color: #9a8e83; font-size: 30px; }
+.case-history-reference code { display: block; overflow: hidden; padding: 7px 8px; color: #6d645c; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.case-history-latest__prompt { max-height: 320px; margin: 14px 0 0 !important; overflow: auto; overflow-wrap: anywhere; padding: 12px; border: 1px solid #d8cec1; background: #fff; color: #514a44; font-size: 12px; line-height: 1.55; white-space: pre-wrap; }
+.case-history-list { display: grid; gap: 12px; }
+.case-history-entry { display: grid; grid-template-columns: 170px minmax(0, 1fr); border: 1px solid #ddd3c6; background: #fff; }
+.case-history-entry__image { display: grid; min-height: 280px; place-items: center; border-right: 1px solid #e7dfd5; background: #faf8f4; }
+.case-history-entry__image .ant-image { display: block; width: 100%; }
+.case-history-entry__image img { width: 100%; height: 280px; object-fit: contain; }
+.case-history-entry__body { min-width: 0; padding: 14px; }
+.case-history-entry__meta { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.case-history-entry__meta time { margin-left: auto; color: #84796f; font-size: 11px; }
+.case-history-entry__body > code { display: block; overflow: hidden; margin-bottom: 10px; color: #877c72; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.case-history-prompt { max-height: 240px; margin: 0 !important; overflow: auto; overflow-wrap: anywhere; color: #514a44; font-size: 12px; line-height: 1.55; white-space: pre-wrap; }
+.case-history-diff-selects { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px; margin-bottom: 12px; }
+.case-history-diff-selects .ant-select { min-width: 0; }
+.case-history-diff { overflow: hidden; border: 1px solid #d8cec1; background: #fff; }
+.case-history-diff p { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; margin: 0; overflow-wrap: anywhere; padding: 9px 12px; border-bottom: 1px solid #eee7de; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; white-space: pre-wrap; }
+.case-history-diff p:last-child { border-bottom: 0; }
+.case-history-diff__added { background: #edf7ef; color: #255b35; }
+.case-history-diff__removed { background: #fff0ef; color: #873b35; }
+.case-history-diff__same { color: #6e665f; }
+.case-history-diff p > span { color: inherit; font-weight: 700; }
+
+@media (max-width: 900px) {
+  .case-review-page { padding: 18px; }
+  .case-review-header { align-items: flex-start; flex-wrap: wrap; }
+  .case-review-progress { gap: 14px; overflow-x: auto; }
+  .case-review-finishes { grid-template-columns: 1fr; }
+  .case-review-finish { border-right: 0; border-bottom: 1px solid #eee6dc; }
+  .case-history-entry { grid-template-columns: 120px minmax(0, 1fr); }
+  .case-history-entry__image,
+  .case-history-entry__image img { min-height: 220px; height: 220px; }
+  .case-history-latest__meta { align-items: flex-start; flex-wrap: wrap; }
+  .case-history-latest__meta time { width: 100%; margin-left: 0; }
+  .case-history-entry__meta { align-items: flex-start; flex-wrap: wrap; }
+  .case-history-entry__meta time { width: 100%; margin-left: 0; }
+}
