@@ -17,11 +17,12 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, BRAND_LABELS, findProduct } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel, itemById } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
+import { charmPricingGroupFor } from '../lib/charmPricing'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
@@ -240,25 +241,30 @@ export default function CustomizerPage({
     const gelId = opts.gelColourId || layout.gelColourId
     if (caseId) setCaseColourId(caseId)
     if (gelId) setGelColourId(gelId)
-    let placed = (layout.charms || []).map((it) => ({
-      uid: uid(),
-      charmId: it.charmId || 'demo',
-      type: it.type || 2,
-      category: it.category || 'gold',
-      name: it.name || 'demo',
-      src: resolveAsset(it.src),
-      price: it.price || 0,
-      bundle: false,
-      bundleMax: undefined,
-      baseWmm: it.wMm,
-      baseHmm: it.hMm,
-      minScale: 0.05,
-      maxScale: 20,
-      scale: 1,
-      rot: it.rot || 0,
-      cxMm: it.cxMm,
-      cyMm: it.cyMm,
-    }))
+    let placed = (layout.charms || []).map((it) => {
+      const catalogCharm = itemById(it.charmId)
+      return {
+        uid: uid(),
+        charmId: it.charmId || 'demo',
+        shopifyVariantId: catalogCharm?.shopifyVariantId || it.shopifyVariantId,
+        type: catalogCharm?.type || it.type || 2,
+        category: catalogCharm?.category || it.category || 'gold',
+        collection: catalogCharm?.collection || it.collection || '',
+        name: catalogCharm?.name || it.name || 'demo',
+        src: resolveAsset(catalogCharm?.src || it.src),
+        price: catalogCharm?.price ?? it.price ?? 0,
+        bundle: !!catalogCharm?.bundle,
+        bundleMax: catalogCharm?.bundleMax,
+        baseWmm: it.wMm || catalogCharm?.widthMm,
+        baseHmm: it.hMm || catalogCharm?.heightMm,
+        minScale: catalogCharm?.minScale ?? 0.05,
+        maxScale: catalogCharm?.maxScale ?? 20,
+        scale: it.scale || 1,
+        rot: it.rot || 0,
+        cxMm: it.cxMm,
+        cyMm: it.cyMm,
+      }
+    })
     const fromP = findProduct(layout.productId)
     const toP = findProduct(wantPid)
     if (fromP && toP && fromP !== toP && fromP.kind === 'phone' && toP.kind === 'phone') {
@@ -425,6 +431,7 @@ export default function CustomizerPage({
     shopifyVariantId: charm.shopifyVariantId,
     type: charm.type,
     category: charm.category,
+    collection: charm.collection,
     name: charm.name,
     src: charm.src,
     price: charm.price,
@@ -452,14 +459,17 @@ export default function CustomizerPage({
     [product],
   )
 
-  // Gate every add path on the overall cap and a bundle charm's per-piece limit.
+  // Gate every add path on the overall cap and a legacy bundle charm's
+  // per-piece limit. Shared pricing groups may exceed one block: the next
+  // quantity block is simply charged again.
   const canAddMore = useCallback(
     (charm) => {
       if (placedRef.current.length >= MAX_CHARMS) {
         message.warning(t('msg.maxCharms', { n: MAX_CHARMS }))
         return false
       }
-      if (charm.bundle && charm.bundleMax) {
+      const sharedGroup = charmPricingGroupFor(charm, appSettings.charmPricingGroups)
+      if (!sharedGroup && charm.bundle && charm.bundleMax) {
         const have = placedRef.current.filter((c) => c.charmId === charm.id).length
         if (have >= charm.bundleMax) {
           message.info(t('msg.bundleIncluded', { n: charm.bundleMax, name: charm.name }))
@@ -468,7 +478,7 @@ export default function CustomizerPage({
       }
       return true
     },
-    [message],
+    [message, appSettings.charmPricingGroups],
   )
 
   // Commit a built placed-charm, enforcing the hard caps inside the updater so
@@ -480,7 +490,9 @@ export default function CustomizerPage({
       pushHistory()
       setPlaced((p) => {
         if (p.length >= MAX_CHARMS) return p
+        const sharedGroup = charmPricingGroupFor(pc, appSettings.charmPricingGroups)
         if (
+          !sharedGroup &&
           pc.bundle &&
           pc.bundleMax &&
           p.filter((c) => c.charmId === pc.charmId).length >= pc.bundleMax
@@ -491,7 +503,7 @@ export default function CustomizerPage({
       })
       setSelectedUid(pc.uid)
     },
-    [pushHistory],
+    [pushHistory, appSettings.charmPricingGroups],
   )
 
   const addAt = useCallback(
@@ -1228,7 +1240,7 @@ export default function CustomizerPage({
         </div>
         </>
       ) : (
-        <div className={`studio${trayExpanded ? ' studio--tray-max' : ''}`} ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
+        <div className="studio" ref={studioRef} style={{ '--tray-w': `${trayWidth}px` }}>
           {trayClipped && (
             <div className="tray-clip-hint" role="status">
               <WarningFilled />
@@ -1244,7 +1256,7 @@ export default function CustomizerPage({
             {zoomDock}
             {overlapAlert}
           </div>
-          <div className="panel--right" ref={trayRef}>
+          <div className={`panel--right${trayExpanded ? ' panel--right--expanded' : ''}`} ref={trayRef}>
             <div
               className="tray-resizer"
               role="separator"

@@ -1,0 +1,37 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a5a2804-2418-83ed-8ad3-38dcf23ff999",
+  "modelId": "iphone-13",
+  "finish": "black",
+  "promptRevision": "run6",
+  "status": "candidate",
+  "reason": "The run6 probe uses a substantially earlier, broader lower-shoulder turn and one extra-wide soft crown. The normalized red-line overlay shows the generated raised bead closely tracking the intended path without a square cap or camera moat; explicit user approval is still required.",
+  "image": "iphone-13-black-run6-original.png",
+  "width": 887,
+  "height": 1774,
+  "bytes": 1660364,
+  "sha256": "014b918ddb5f6ce3465af262f30a5b3af74ba442373747994683b03c6fcd8571",
+  "normalizedImage": "iphone-13-black-run6-normalized.png",
+  "normalizedWidth": 920,
+  "normalizedHeight": 1835,
+  "normalizedSha256": "56e451ef5ce81c05499353c25d4ab2e3080343266e94aeef1463497d5d317593",
+  "referenceImages": [
+    "run6-iphone-13-black-source(1).png",
+    "run6-iphone-13-black-exact-gel-path(1).png",
+    "run6-raised-rim-detail(1).png",
+    "run6-black-material-detail(1).png"
+  ],
+  "referenceDirectory": "references",
+  "referenceCount": 4,
+  "guideCoordinates": {
+    "shoulderX": 379,
+    "shoulderY": 501
+  },
+  "qa": {
+    "redlineOverlay": "qa-run6-redline-overlay.png",
+    "redlineOverlaySha256": "c5d830c8dea669d732399caf04e1e35a2245d314f21e18575569dcb2fc762985",
+    "comparison": "qa-run6-comparison.png",
+    "comparisonSha256": "0011947e53b45804b5b1342e09cb77f18c3abbe427b1f2d084715ab86aeb568d"
+  },
+  "productionPromoted": false,
+  "assessment": "Candidate pending explicit user review. Preserve this run6 result and its exact references. Do not generate the remaining eight campaign images, seed case-review, or change production until approval."
+}

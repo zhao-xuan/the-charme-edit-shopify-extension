@@ -1,0 +1,17 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a5a268f-fd44-83ed-8052-a8859ff2bda8",
+  "modelId": "iphone-13",
+  "finish": "black",
+  "promptRevision": "run6",
+  "status": "aborted",
+  "reason": "ChatGPT retained only two of the four required attachments after submission. Generation was stopped before an image completed because the camera-free rim and Black material references were missing.",
+  "image": null,
+  "referenceImages": [
+    "run6-iphone-13-black-source.png",
+    "run6-iphone-13-black-exact-gel-path.png"
+  ],
+  "requiredReferenceCount": 4,
+  "retainedReferenceCount": 2,
+  "referenceDirectory": "references",
+  "assessment": "Aborted technical upload failure. This request is not a visual attempt and must never be promoted, reviewed as a candidate, or used as a geometry/material reference."
+}

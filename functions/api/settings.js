@@ -1,4 +1,5 @@
-// Merchant settings endpoint — cross-sell prompt + discount rules & codes.
+// Merchant settings endpoint — cross-sell, discounts, grouped charm pricing and
+// storefront variant-selector configuration.
 //   GET  /api/settings            → public, returns the settings JSON (or {})
 //   POST /api/settings  { ... }   → admin, saves the settings JSON
 //
@@ -6,6 +7,7 @@
 // app-owned record holding a `data` JSON blob) when configured; else KV.
 import { json, bad, requireAdmin } from './_lib.js'
 import { TYPES, shopifyConfigured, saveRecord, getRecord } from './_shopify-store.js'
+import { DEFAULT_CHARM_PRICING_GROUPS } from '../../src/lib/charmPricing.js'
 
 const SETTINGS_HANDLE = 'app-settings'
 const KV_KEY = 'settings:app'
@@ -46,7 +48,7 @@ export async function onRequestPost({ request, env }) {
   // Merge only the known top-level keys that were actually provided onto the
   // existing settings, so a partial save (e.g. the Discount tab) never wipes
   // another tab's data (e.g. the taxonomy order).
-  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy', 'variantSelector']
+  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy', 'charmPricingGroups', 'variantSelector']
   const patch = {}
   for (const k of KNOWN) if (k in body) patch[k] = body[k]
 
@@ -55,6 +57,7 @@ export async function onRequestPost({ request, env }) {
     crossSell: {},
     discounts: { rules: [], codes: [], bundles: [] },
     taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+    charmPricingGroups: DEFAULT_CHARM_PRICING_GROUPS,
     variantSelector: { enabled: true, style: {}, tree: [] },
   }
 

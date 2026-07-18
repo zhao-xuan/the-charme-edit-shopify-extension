@@ -5,6 +5,7 @@ import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
+import { charmPricingTotal } from './charmPricing'
 
 // ---- Order limits & pricing ------------------------------------------------
 // A craftable order needs at least MIN_CHARMS pieces and no more than
@@ -16,22 +17,12 @@ export const REC_MIN = 12
 export const REC_MAX = 15
 
 /**
- * Total chargeable charm price for a placed layout. "Bundle" charms — a flat
- * price that lets the customer pick several of the same piece (e.g. little
- * stones) — are billed once per charm id; every other charm is billed per
- * placed piece.
+ * Total chargeable charm price for a placed layout. Merchant pricing groups
+ * share a quantity allowance across different charm styles; legacy "bundle"
+ * charms still bill once per charm id.
  */
 export function placedCharmsTotal(placed) {
-  let total = 0
-  const billed = new Set()
-  for (const c of placed || []) {
-    if (c.bundle) {
-      if (billed.has(c.charmId)) continue
-      billed.add(c.charmId)
-    }
-    total += c.price || 0
-  }
-  return total
+  return charmPricingTotal(placed, settings().charmPricingGroups)
 }
 
 /**

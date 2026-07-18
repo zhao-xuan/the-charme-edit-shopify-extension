@@ -42,7 +42,7 @@
   </div>
 
   <div class="cvs__group" data-cvs-colours hidden>
-    <div class="cvs__label">Case &amp; Gel Colour</div>
+    <div class="cvs__label">Case &amp; Gel Colour <span class="cvs__label-value" data-cvs-colour-label></span></div>
     <div class="cvs__btns" data-cvs-colour-btns></div>
   </div>
 
@@ -50,21 +50,44 @@
 </div>
 
 <style>
-  #{{ uid }}{--cvs-accent:#12261d;--cvs-accent-ink:#fff;--cvs-btn-bg:#fff;--cvs-btn-ink:#1f2a24;--cvs-border:#d9d4c7;--cvs-radius:10px;font-family:'Jost',system-ui,sans-serif;max-width:560px;color:#1f2a24}
-  #{{ uid }} .cvs__head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
-  #{{ uid }} .cvs__title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;line-height:1.1}
-  #{{ uid }} .cvs__price{font-size:18px;color:#5b564e}
-  #{{ uid }} .cvs__heading{text-transform:uppercase;letter-spacing:.04em;font-size:15px;margin:18px 0 12px;color:#3a352e}
-  #{{ uid }} .cvs__group{margin-bottom:16px}
-  #{{ uid }} .cvs__label{font-size:14px;color:#6b655c;margin-bottom:8px}
-  #{{ uid }} .cvs__btns{display:flex;flex-wrap:wrap;gap:10px}
-  #{{ uid }} .cvs__btn{padding:11px 20px;border:1px solid var(--cvs-border);background:var(--cvs-btn-bg);color:var(--cvs-btn-ink);border-radius:var(--cvs-radius);font-size:15px;cursor:pointer;transition:all .12s}
+  #{{ uid }}{--cvs-accent:#34312e;--cvs-accent-ink:#fff;--cvs-btn-bg:#fff;--cvs-btn-ink:#34312e;--cvs-border:#aaa69f;--cvs-radius:0px;box-sizing:border-box;display:flex;flex-direction:column;width:100%;max-width:570px;margin-top:26px;padding-top:34px;border-top:1px solid #cfcbc4;color:#34312e;font-family:inherit;letter-spacing:0}
+  #{{ uid }} *{box-sizing:border-box;letter-spacing:0}
+  #{{ uid }} .cvs__head,#{{ uid }} .cvs__heading{display:none}
+  #{{ uid }} [data-cvs-colours]{order:1}
+  #{{ uid }} [data-cvs-brands]{order:2}
+  #{{ uid }} .cvs__levels{order:3}
+  #{{ uid }} [data-cvs-models]{order:4}
+  #{{ uid }} .cvs__design{order:5}
+  #{{ uid }} .cvs__group{margin:0 0 22px}
+  #{{ uid }} .cvs__label{margin:0 0 9px;color:#383430;font-size:17px;font-weight:400;line-height:1.35}
+  #{{ uid }} .cvs__label-value{margin-left:5px;color:#4b4742}
+  #{{ uid }} .cvs__btns{display:flex;flex-wrap:wrap;gap:9px}
+  #{{ uid }} .cvs__btn{min-height:44px;padding:9px 18px;border:1px solid var(--cvs-border);border-radius:0;background:var(--cvs-btn-bg);color:var(--cvs-btn-ink);font:inherit;font-size:16px;line-height:1.2;cursor:pointer;transition:border-color .12s ease,background-color .12s ease,color .12s ease}
   #{{ uid }} .cvs__btn:hover{border-color:var(--cvs-accent)}
-  #{{ uid }} .cvs__btn.is-active{background:var(--cvs-accent);color:var(--cvs-accent-ink);border-color:var(--cvs-accent)}
-  #{{ uid }} .cvs__btn.is-out{opacity:.45}
-  #{{ uid }} .cvs__select{width:100%;max-width:420px;padding:12px 14px;border:1px solid var(--cvs-border);border-radius:var(--cvs-radius);background:#fff;font-size:15px;color:#1f2a24;appearance:auto}
-  #{{ uid }} .cvs__design{margin-top:6px;padding:13px 26px;border:0;border-radius:var(--cvs-radius);background:var(--cvs-accent);color:var(--cvs-accent-ink);font-size:15px;cursor:pointer}
+  #{{ uid }} .cvs__btn:focus-visible,#{{ uid }} .cvs__select:focus-visible,#{{ uid }} .cvs__design:focus-visible{outline:2px solid var(--cvs-accent);outline-offset:2px}
+  #{{ uid }} .cvs__btn.is-active{border-color:var(--cvs-accent);background:var(--cvs-accent);color:var(--cvs-accent-ink)}
+  #{{ uid }} .cvs__btn.is-out{opacity:.42}
+  #{{ uid }} [data-cvs-colour-btns]{gap:10px}
+  #{{ uid }} [data-cvs-colour-value].is-swatch{position:relative;width:76px;min-width:76px;height:40px;min-height:40px;padding:4px;overflow:hidden;border-color:#ddd9d3;background:#fff;color:transparent;font-size:0}
+  #{{ uid }} [data-cvs-colour-value].is-swatch::before{content:'';display:block;width:100%;height:100%;border:1px solid #e2dfda;background:#d8d5cf}
+  #{{ uid }} [data-cvs-colour-value*='white'].is-swatch::before{border-color:#ece9e4;background:#faf9f7}
+  #{{ uid }} [data-cvs-colour-value*='glitter'].is-swatch::before{border-color:#dedbd5;background-color:#efeeeb;background-image:radial-gradient(circle at 18% 32%,rgba(255,255,255,.95) 0 1px,transparent 1.5px),radial-gradient(circle at 72% 66%,rgba(190,187,181,.6) 0 1px,transparent 1.5px),radial-gradient(circle at 48% 20%,rgba(255,255,255,.9) 0 1px,transparent 1.5px)}
+  #{{ uid }} [data-cvs-colour-value*='black'].is-swatch::before{border-color:#494649;background:#494649}
+  #{{ uid }} [data-cvs-colour-value*='clear'].is-swatch::before{border-color:#dedbd5;background:#f4f3f0}
+  #{{ uid }} [data-cvs-colour-value*='pink'].is-swatch::before{border-color:#d5aeb6;background:#d5aeb6}
+  #{{ uid }} [data-cvs-colour-value*='red'].is-swatch::before{border-color:#a53b3e;background:#a53b3e}
+  #{{ uid }} [data-cvs-colour-value*='blue'].is-swatch::before{border-color:#728da8;background:#728da8}
+  #{{ uid }} [data-cvs-colour-value*='green'].is-swatch::before{border-color:#728a72;background:#728a72}
+  #{{ uid }} [data-cvs-colour-value*='gold'].is-swatch::before{border-color:#b99a54;background:#b99a54}
+  #{{ uid }} [data-cvs-colour-value*='silver'].is-swatch::before{border-color:#aaa9a5;background:#c8c7c3}
+  #{{ uid }} [data-cvs-colour-value*='purple'].is-swatch::before{border-color:#826f8c;background:#826f8c}
+  #{{ uid }} [data-cvs-colour-value*='yellow'].is-swatch::before{border-color:#d5bc63;background:#d5bc63}
+  #{{ uid }} [data-cvs-colour-value].is-swatch.is-active{padding:3px;border:2px solid var(--cvs-accent);background:#fff;color:transparent}
+  #{{ uid }} .cvs__select{display:block;width:100%;max-width:none;min-height:66px;margin:0;padding:0 52px 0 23px;border:1px solid var(--cvs-border);border-radius:0;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,#625e59 50%),linear-gradient(135deg,#625e59 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 17px) 50%;background-repeat:no-repeat;background-size:5px 5px;color:#34312e;font:inherit;font-size:17px;line-height:1.3;cursor:pointer;appearance:none;-webkit-appearance:none}
+  #{{ uid }} .cvs__design{width:100%;min-height:62px;margin:2px 0 0;padding:13px 24px;border:1px solid #56524d;border-radius:0;background:#cbd7e5;color:#34312e;font:inherit;font-size:17px;cursor:pointer}
   #{{ uid }} .cvs__levels:empty{display:none}
+  #{{ uid }} [data-cvs-brands]:has(.cvs__btn:only-child),#{{ uid }} .cvs__levels .cvs__group:has(.cvs__btn:only-child){display:none}
+  @media(max-width:749px){#{{ uid }}{max-width:none;margin-top:22px;padding-top:28px}#{{ uid }} .cvs__group{margin-bottom:20px}#{{ uid }} .cvs__label{font-size:16px}#{{ uid }} .cvs__btn{min-height:42px;padding:8px 15px;font-size:15px}#{{ uid }} [data-cvs-colour-value].is-swatch{width:68px;min-width:68px;height:38px;min-height:38px}#{{ uid }} .cvs__select{min-height:60px;padding-left:18px;font-size:16px}#{{ uid }} .cvs__design{min-height:58px;font-size:16px}}
 </style>
 
 <script>
@@ -160,12 +183,12 @@
 
     function render() {
       var st = state.style || {};
-      root.style.setProperty('--cvs-accent', st.accent || '#12261d');
+      root.style.setProperty('--cvs-accent', st.accent || '#34312e');
       root.style.setProperty('--cvs-accent-ink', st.accentInk || '#fff');
       root.style.setProperty('--cvs-btn-bg', st.buttonBg || '#fff');
-      root.style.setProperty('--cvs-btn-ink', st.buttonInk || '#1f2a24');
-      root.style.setProperty('--cvs-border', st.border || '#d9d4c7');
-      root.style.setProperty('--cvs-radius', (st.radius != null ? st.radius : 10) + 'px');
+      root.style.setProperty('--cvs-btn-ink', st.buttonInk || '#34312e');
+      root.style.setProperty('--cvs-border', st.border || '#aaa69f');
+      root.style.setProperty('--cvs-radius', (st.radius != null ? st.radius : 0) + 'px');
       $('[data-cvs-heading]').textContent = st.heading || '1. Select your case';
       $('[data-cvs-brand-label]').textContent = st.brandLabel || 'Brand';
       $('[data-cvs-model-label]').textContent = st.modelLabel || 'Model';
@@ -219,8 +242,14 @@
       cwrap.innerHTML = '';
       COLOURS.forEach(function (c) {
         var v = variantFor(c, state.model);
-        cwrap.appendChild(btn(c, state.colour === c, v && !v.available, function () { state.colour = c; applyVariant(); render(); }));
+        var colourButton = btn(c, state.colour === c, v && !v.available, function () { state.colour = c; applyVariant(); render(); });
+        var colourKey = String(c || '').toLowerCase();
+        colourButton.setAttribute('data-cvs-colour-value', colourKey);
+        colourButton.title = c;
+        if (/black|white|glitter|clear|pink|red|blue|green|gold|silver|purple|yellow/.test(colourKey)) colourButton.classList.add('is-swatch');
+        cwrap.appendChild(colourButton);
       });
+      $('[data-cvs-colour-label]').textContent = state.colour || '';
       $('[data-cvs-colours]').hidden = COLOURS.length === 0;
 
       if (DESIGN_URL) { var d = $('[data-cvs-design]'); d.hidden = false; }

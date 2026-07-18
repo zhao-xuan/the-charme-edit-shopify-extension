@@ -126,6 +126,11 @@ Suggested order admin hygiene:
 - **Single rolled-up price.** Prefer one clean line? Use **Shopify Functions
   (cart transform / bundles)** to merge the charm lines into the case line at
   checkout, or **Draft Orders** with a custom total. Keep `_layout` for the maker.
+- **Grouped stone pricing.** In **Merchant Admin → Charms → Grouped pricing**, set
+  the number of pieces and price for each started block. Styles matching the same
+  rule share one allowance; for example, 7 Filling Stones at 6 per block charge
+  two £1.50 blocks. Native cart mode also needs a Shopify billing variant whose
+  price equals the configured block price; Draft Orders use the configured price.
 - **Design fee / deposit.** Add a fixed “Bespoke design” product if you charge for
   the service on top of materials.
 - **Min/refundable rules.** The customizer already enforces “no overlaps / on-product

@@ -1,8 +1,6 @@
-/* Brand fonts (Cormorant Garamond display + Jost body). Bundled here so the
-   widget renders correctly when embedded in a Shopify theme that doesn't already
-   load them — otherwise the serif brand / headings fall back to a generic font
-   and look wrong. Must be the first rule in the file. */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+/* Brand display font. The UI body uses the system Helvetica stack below so the
+  embedded widget does not depend on a theme-provided sans-serif font. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 :root {
   --cream: #f7f1e8;
@@ -11,7 +9,7 @@
   --paper: #ffffff;
   --ink: #2e2a26;
   --ink-soft: #6f665c;
-  --rouge: #a8524c;
+  --rouge: #2e2a26;
   --gold: #bfa15f;
   --blush: #e7c9c2;
   --line: #e4d8c7;
@@ -32,9 +30,173 @@ body,
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
+}
+
+/* Customizer controls follow the Figma system: an editorial display face with
+   compact sans-serif controls, square corners, and a quiet ink-on-paper palette. */
+.app-shell,
+.mobile-shell {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.app-shell .ant-btn,
+.mobile-shell .ant-btn,
+.app-shell .ant-select-selector,
+.mobile-shell .ant-select-selector {
+  border-color: var(--ink) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.35px;
+}
+.app-shell .ant-select-selection-item,
+.mobile-shell .ant-select-selection-item,
+.ant-select-dropdown .ant-select-item {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.app-shell .ant-btn,
+.mobile-shell .ant-btn {
+  min-height: 32px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.app-shell .ant-btn:hover,
+.mobile-shell .ant-btn:hover {
+  border-color: var(--ink) !important;
+  background: var(--cream-deep) !important;
+  color: var(--ink) !important;
+}
+.app-shell .ant-btn-primary,
+.mobile-shell .ant-btn-primary {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
+.app-shell .ant-btn-primary:hover,
+.mobile-shell .ant-btn-primary:hover {
+  background: #4a4540 !important;
+  color: var(--paper) !important;
+}
+.app-shell .ant-btn-circle,
+.mobile-shell .ant-btn-circle {
+  min-width: 30px;
+  min-height: 30px;
+  padding-inline: 0;
+}
+.app-shell .ant-segmented,
+.mobile-shell .ant-segmented {
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: none;
+  font-family: inherit;
+}
+.app-shell .ant-segmented-item,
+.mobile-shell .ant-segmented-item {
+  border-radius: 0;
+  color: var(--ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.35px;
+}
+.app-shell .ant-segmented-item-selected,
+.mobile-shell .ant-segmented-item-selected {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  box-shadow: none !important;
+}
+.charm-word__form {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+.charm-word__input,
+.charm-word__opt select {
+  min-width: 0;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.charm-word__input {
+  flex: 1 1 auto;
+  height: 30px;
+  padding: 0 9px;
+}
+.charm-word__go,
+.charm-word__cancel,
+.charm-word__toggle,
+.charm-word-tag {
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+}
+.charm-word__go {
+  min-width: 48px;
+  margin-left: -1px;
+  padding: 0 10px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.charm-word__cancel {
+  width: 30px;
+  margin-left: -1px;
+  padding: 0;
+}
+.charm-word__go:hover,
+.charm-word__toggle:hover,
+.charm-word-tag:hover {
+  background: var(--cream-deep);
+  color: var(--ink);
+}
+.charm-word__go:hover {
+  background: #4a4540;
+  color: var(--paper);
+}
+.charm-word__opts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.charm-word__opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+.charm-word__opt select {
+  height: 26px;
+  padding: 0 22px 0 7px;
+}
+.charm-word__opt--check input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+.charm-word__hint {
+  margin: 7px 0 0;
+  color: var(--ink-soft);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.charm-word__toggle {
+  min-height: 30px;
+  padding: 0 10px;
 }
 
 h1,
@@ -101,19 +263,15 @@ h4,
   grid-template-rows: minmax(0, 1fr);
   gap: 0;
 }
-/* Enlarged charm picker: KEEP the left sidebar (base picker + tips) and only
-   hide the case preview, giving the freed space to the charm tray + bigger
-   cards. Toggled by the expand button. */
-.studio--tray-max {
-  grid-template-columns: 300px 0 1fr;
-}
-.studio--tray-max .tray-grid {
+/* Enlarged charm picker: only content inside the right sidebar changes. The
+  three desktop columns keep their exact size and position. */
+.panel--right--expanded .tray-grid {
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
-.studio--tray-max .charm-card--row:not(.charm-card--compact) {
+.panel--right--expanded .charm-card--row:not(.charm-card--compact) {
   width: 128px;
 }
-.studio--tray-max .charm-card--row:not(.charm-card--compact) .thumb {
+.panel--right--expanded .charm-card--row:not(.charm-card--compact) .thumb {
   max-height: 96px;
 }
 /* Shown top-right when the desktop layout is too narrow and the charm tray is
@@ -235,8 +393,8 @@ h4,
   justify-content: center;
   gap: 8px;
   padding: 14px 8px;
-  border-radius: 14px;
-  border: 1.5px solid var(--line);
+  border-radius: 0;
+  border: 1px solid var(--ink);
   background: #fff;
   color: var(--ink-soft);
   cursor: pointer;
@@ -257,12 +415,13 @@ h4,
   letter-spacing: 0.4px;
 }
 .base-card.is-active {
-  border-color: var(--rouge);
-  color: var(--ink);
-  box-shadow: 0 0 0 1px var(--rouge);
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: none;
 }
 .base-card.is-active .base-card__icon {
-  color: var(--rouge);
+  color: var(--paper);
 }
 
 /* ---------- Stage / charms ---------- */
@@ -410,7 +569,7 @@ h4,
 }
 .charm-card {
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 0;
   background: #fff;
   padding: 8px;
   display: flex;
@@ -431,7 +590,7 @@ h4,
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at 50% 40%, #fff 0%, #faf5ec 100%);
-  border-radius: 8px;
+  border-radius: 0;
 }
 .charm-card .thumb img {
   max-width: 78%;
@@ -563,9 +722,9 @@ h4,
   transform: translateY(-1px);
 }
 .cat-swatch.is-active .cat-swatch__dot {
-  border-color: var(--rouge);
+  border-color: var(--ink);
   box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(46, 42, 38, 0.18),
-    0 0 0 2px var(--panel), 0 0 0 4px var(--rouge);
+    0 0 0 2px var(--panel), 0 0 0 4px var(--ink);
 }
 .cat-swatch.is-active .cat-swatch__label {
   color: var(--ink);
@@ -580,11 +739,11 @@ h4,
 .charm-card--compact {
   padding: 5px;
   gap: 4px;
-  border-radius: 9px;
+  border-radius: 0;
   cursor: pointer;
 }
 .charm-card--compact .thumb {
-  border-radius: 6px;
+  border-radius: 0;
 }
 .charm-card--compact .thumb img {
   max-width: 84%;
@@ -826,6 +985,10 @@ h4,
     width: 100%;
     min-width: 0;
   }
+  .mobile-head__sel .ant-select-selector {
+    min-height: 28px !important;
+    padding-inline: 8px !important;
+  }
 
   /* split: phone preview on top, charm tray below — resizable via the splitter.
      The tray's flex-basis is driven inline (default ~42%); drag to rebalance. */
@@ -1041,7 +1204,7 @@ h4,
     width: 100%;
     padding: 9px 16px calc(9px + env(safe-area-inset-bottom));
     border: none;
-    background: var(--rouge);
+    background: var(--ink);
     color: #fff;
     font: inherit;
     font-size: 14px;
@@ -1052,7 +1215,7 @@ h4,
     cursor: pointer;
   }
   .mobile-order-bar:disabled {
-    background: #cdbfae;
+    background: #a9a39d;
     cursor: not-allowed;
   }
   .mobile-tray-body {
@@ -1114,9 +1277,20 @@ h4,
   align-items: center;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 8px 6px;
+  border-radius: 0;
+  padding: 0;
+  gap: 0;
   box-shadow: var(--shadow);
+}
+.zoom-dock .ant-btn {
+  width: 38px;
+  height: 38px;
+  border: 0 !important;
+  border-bottom: 1px solid var(--ink) !important;
+  border-radius: 0 !important;
+}
+.zoom-dock .ant-btn:last-child {
+  border-bottom: 0 !important;
 }
 @media (max-width: 760px) {
   /* magnifier docks to the top-right corner of the phone showcase on mobile */
@@ -1128,10 +1302,10 @@ h4,
 }
 /* thin divider between the undo/clear controls and the zoom (+/-) buttons */
 .zoom-dock__sep {
-  width: 20px;
+  width: 100%;
   height: 1px;
-  background: var(--line);
-  margin: 1px 0;
+  background: var(--ink);
+  margin: 0;
 }
 
 /* cross-sell prompt under the "Add … to cart" button */

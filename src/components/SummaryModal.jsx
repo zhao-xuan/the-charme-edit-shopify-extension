@@ -3,6 +3,8 @@ import { Modal, Button, Spin, Divider, App } from 'antd'
 import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
 import { categoryLabel, placedCharmsTotal } from '../lib/catalog'
+import { charmChargeLines } from '../lib/charmPricing'
+import { settings } from '../lib/settings'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
@@ -10,26 +12,34 @@ const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
 
 /**
- * Collapse a list of placed charms into priced summary rows. Bundle charms
- * (flat price, pick-multiple) fold into a single "name × N" row charged once;
- * every other charm gets its own row.
+ * Collapse placed charms into priced summary rows. Shared pricing groups show
+ * the selected piece count and number of charged blocks; legacy bundles still
+ * fold into one row charged once.
  */
 function summaryRows(items) {
-  const rows = []
-  const bundleIdx = new Map()
-  for (const c of items) {
-    if (c.bundle) {
-      if (bundleIdx.has(c.charmId)) {
-        rows[bundleIdx.get(c.charmId)].count += 1
-        continue
+  return charmChargeLines(items, settings().charmPricingGroups).map((line, index) => {
+    const first = line.items[0]
+    if (line.kind === 'group') {
+      return {
+        key: `group-${line.rule.id}`,
+        name: line.rule.label,
+        price: line.total,
+        count: line.items.length,
+        blocks: line.quantity,
+        category: first.category || 'gold',
+        type: first.type,
       }
-      bundleIdx.set(c.charmId, rows.length)
-      rows.push({ key: c.charmId, name: c.name, price: c.price, count: 1 })
-    } else {
-      rows.push({ key: c.uid, name: c.name, price: c.price, count: 1 })
     }
-  }
-  return rows
+    return {
+      key: first.uid || `${line.key}-${index}`,
+      name: first.name,
+      price: line.total,
+      count: line.kind === 'legacy-bundle' ? line.items.length : 1,
+      blocks: null,
+      category: first.category || 'gold',
+      type: first.type,
+    }
+  })
 }
 
 function useMedia(query) {
@@ -89,24 +99,34 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   const total = product.basePrice + charmTotal
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
-  // Group charms by browsing category (phone) or interaction type (tote).
+  // Price globally before arranging rows into visual sections. This preserves
+  // one shared allowance even if matching styles have different browse labels.
+  const pricedRows = useMemo(() => summaryRows(placed), [placed])
+
+  // Group priced rows by browsing category (phone) or interaction type (tote).
   const grouped = useMemo(() => {
     if (product.kind !== 'tote') {
       // Group by each charm's ACTUAL category (backend-driven; includes custom
       // categories), first-seen order, labelled to match the customizer tabs.
       const order = []
       const byCat = new Map()
-      for (const p of placed) {
-        const key = p.category || 'gold'
+      for (const row of pricedRows) {
+        const key = row.category
         if (!byCat.has(key)) { byCat.set(key, []); order.push(key) }
-        byCat.get(key).push(p)
+        byCat.get(key).push(row)
       }
-      return order.map((key) => ({ key, label: categoryLabel(key), items: byCat.get(key) }))
+      return order.map((key) => {
+        const rows = byCat.get(key)
+        return { key, label: categoryLabel(key), count: rows.reduce((sum, row) => sum + row.count, 0), rows }
+      })
     }
     return [1, 2, 3]
-      .map((t) => ({ key: t, label: TOTE_TYPE_LABEL[t], items: placed.filter((p) => p.type === t) }))
-      .filter((g) => g.items.length)
-  }, [product.kind, placed])
+      .map((type) => {
+        const rows = pricedRows.filter((row) => row.type === type)
+        return { key: type, label: TOTE_TYPE_LABEL[type], count: rows.reduce((sum, row) => sum + row.count, 0), rows }
+      })
+      .filter((group) => group.rows.length)
+  }, [product.kind, pricedRows])
 
   const placeOrder = async () => {
     const payload = {
@@ -129,6 +149,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         hMm: c.baseHmm,
         type: c.type,
         category: c.category,
+        collection: c.collection,
         name: c.name,
         price: c.price,
         bundle: !!c.bundle,
@@ -234,14 +255,17 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             {grouped.map((g) => (
               <div key={g.key} style={{ marginBottom: 6 }}>
                 <div className="eyebrow" style={{ marginBottom: 2 }}>
-                  {g.label} × {g.items.length}
+                  {g.label} × {g.count}
                 </div>
-                {summaryRows(g.items).map((r) => (
+                {g.rows.map((r) => (
                   <div
                     key={r.key}
                     style={{ display: 'flex', justifyContent: 'space-between', gap: 10, fontSize: 12.5, color: 'var(--ink-soft)' }}
                   >
-                    <span>{r.name}{r.count > 1 ? ` × ${r.count}` : ''}</span>
+                    <span>
+                      {r.name}{r.count > 1 || r.blocks ? ` × ${r.count}` : ''}
+                      {r.blocks ? ` (${r.blocks} ${r.blocks === 1 ? 'block' : 'blocks'})` : ''}
+                    </span>
                     <span style={{ whiteSpace: 'nowrap' }}>{formatMoney(r.price)}</span>
                   </div>
                 ))}

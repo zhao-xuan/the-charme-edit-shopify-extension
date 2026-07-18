@@ -1,6 +1,6 @@
 /**
- * settings.js — merchant-configurable storefront settings (cross-sell prompt +
- * discount rules + codes), loaded once at startup from the Cloudflare-backed
+ * settings.js — merchant-configurable storefront settings (cross-sell prompt,
+ * discounts, grouped charm pricing and product selector), loaded once from the
  * `/api/settings` and cached globally.
  *
  * Mirrors remoteCatalog.js: main.jsx / entry.jsx awaits loadSettings() before
@@ -8,6 +8,7 @@
  * first render. Falls back to sensible defaults when the API is unreachable.
  */
 import { API_BASE } from './apiBase'
+import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from './charmPricing'
 
 export const DEFAULT_SETTINGS = {
   // Prompt shown under "Add my custom … to cart".
@@ -31,6 +32,10 @@ export const DEFAULT_SETTINGS = {
   //   charmOrder["<cat>::<collection>"] — order of the charms within a section (by id)
   // Anything not listed keeps its natural (first-seen) order after the listed ones.
   taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+  // Quantity-tier pricing shared across different charm styles in a category.
+  // Each started quantity block is billed once (for example, 7 filling stones
+  // at 6 per block are billed as two £1.50 blocks).
+  charmPricingGroups: DEFAULT_CHARM_PRICING_GROUPS,
   // Storefront product-page variant selector (the new brand → model picker).
   //   style — look & feel, controlled from Admin → Products → Variant selector.
   //   tree  — arbitrary-depth category nodes; leaves carry `models` (the
@@ -88,6 +93,9 @@ function mergeDefaults(data) {
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
+    charmPricingGroups: normalizeCharmPricingGroups(
+      d.charmPricingGroups || DEFAULT_SETTINGS.charmPricingGroups,
+    ),
     variantSelector: {
       ...DEFAULT_SETTINGS.variantSelector,
       ...(d.variantSelector || {}),

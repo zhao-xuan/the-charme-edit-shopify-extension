@@ -14,6 +14,8 @@
  */
 
 import baseProducts from './variantmap-products.generated.json'
+import { charmChargeLines } from '../../src/lib/charmPricing'
+import { settings } from '../../src/lib/settings'
 
 function token() {
   return 'cd_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
@@ -153,27 +155,35 @@ function createNativeCartHandler(cfg) {
       return byPrice[String(c.price)] || byPrice[c.price] || null
     }
 
+    const groupVariant = (line) => {
+      const byGroup = variantMap.charmPricingGroups || {}
+      const byPrice = variantMap.charmByPrice || {}
+      return (
+        line.rule.shopifyVariantId ||
+        byGroup[line.rule.id] ||
+        byPrice[String(line.unitPrice)] ||
+        byPrice[line.unitPrice] ||
+        null
+      )
+    }
+
     const charmCounts = {}
-    const bundleBilled = new Set()
     const unmapped = []
-    for (const c of payload.charms) {
-      const vid = charmVariant(c)
+    const chargeLines = charmChargeLines(payload.charms, settings().charmPricingGroups)
+    for (const line of chargeLines) {
+      const first = line.items[0]
+      const vid = line.kind === 'group' ? groupVariant(line) : charmVariant(first)
       if (!vid) {
-        unmapped.push(c.name)
+        unmapped.push(line.kind === 'group' ? line.rule.label : first.name)
         continue
       }
-      // Flat-price bundle charms (e.g. little stones) are charged once no matter
-      // how many copies the customer placed — add a single unit per charm id.
-      if (c.bundle) {
-        if (bundleBilled.has(c.charmId)) continue
-        bundleBilled.add(c.charmId)
-      }
-      charmCounts[vid] = (charmCounts[vid] || 0) + 1
+      charmCounts[vid] = (charmCounts[vid] || 0) + line.quantity
     }
     if (unmapped.length) {
       throw new Error(
         `These charms aren’t mapped to a Shopify variant yet: ${[...new Set(unmapped)].join(', ')}. ` +
-          `Add them to the variant map (by charm id, or by price via "charmByPrice").`,
+          `Set each group’s billing variant in Admin → Charms → Grouped pricing, ` +
+          `or add a variant map entry by group or price.`,
       )
     }
 

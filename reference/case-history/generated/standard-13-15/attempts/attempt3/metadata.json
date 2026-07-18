@@ -1,0 +1,21 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a5a2323-f334-83ed-9ea0-0e3108974faf",
+  "modelId": "iphone-13",
+  "finish": "black",
+  "promptRevision": "run5",
+  "status": "rejected",
+  "reason": "The organic topology was correct, but the user requested substantially larger rounding radii. The lower shoulder still turned too late and the upper crown remained too narrow.",
+  "image": "iphone-13-black-probe.png",
+  "width": 880,
+  "height": 1786,
+  "sha256": "855845341ec78e91e5f0b604c897187d546318aeda574099aa1a2e7dbf6c6805",
+  "referenceImages": [
+    "run5-iphone-13-black-source.png",
+    "run5-iphone-13-black-exact-gel-path.png",
+    "run5-raised-rim-detail.png",
+    "run5-black-material-detail.png"
+  ],
+  "referenceDirectory": "references",
+  "referenceCount": 4,
+  "assessment": "Rejected after user review. Preserve this run5 result and its exact references, but do not upload it or use it as cross-finish geometry."
+}

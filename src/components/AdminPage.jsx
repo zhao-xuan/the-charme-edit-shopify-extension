@@ -45,6 +45,7 @@ import {
 import { allProducts, productGroups } from '../data/products'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
+import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, loadImageData } from '../lib/segment'
@@ -551,6 +552,139 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
 // ---------------------------------------------------------------------------
 // Custom charms
 // ---------------------------------------------------------------------------
+function CharmPricingGroupsPanel() {
+  const { message } = App.useApp()
+  const [groups, setGroups] = useState(() => DEFAULT_CHARM_PRICING_GROUPS.map((g) => ({ ...g })))
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    let alive = true
+    fetchSettings()
+      .then((data) => {
+        if (alive) {
+          setGroups(normalizeCharmPricingGroups(data.charmPricingGroups).map((g) => ({ ...g })))
+        }
+      })
+      .catch((err) => message.error(`Could not load grouped pricing: ${err.message}`))
+      .finally(() => alive && setLoading(false))
+    return () => { alive = false }
+  }, [message])
+
+  const update = (id, patch) => {
+    setGroups((current) => current.map((group) => (group.id === id ? { ...group, ...patch } : group)))
+  }
+
+  const save = async () => {
+    try {
+      setSaving(true)
+      const next = normalizeCharmPricingGroups(groups)
+      await saveSettings({ charmPricingGroups: next })
+      setGroups(next.map((group) => ({ ...group })))
+      message.success('Grouped pricing saved to Shopify.')
+    } catch (err) {
+      message.error(`Could not save grouped pricing: ${err.message}`)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  if (loading) return <div style={{ minHeight: 120, display: 'grid', placeItems: 'center' }}><Spin /></div>
+
+  return (
+    <Space direction="vertical" size={14} style={{ width: '100%' }}>
+      <Alert
+        type="info"
+        showIcon
+        message="One price per started quantity block"
+        description="Styles in the same group share the allowance. A seventh Filling Stone starts a second 6-piece block."
+      />
+      {groups.map((group) => (
+        <div key={group.id} style={{ borderBottom: '1px solid var(--line)', paddingBottom: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 10 }}>
+            <Input
+              value={group.label}
+              onChange={(e) => update(group.id, { label: e.target.value })}
+              aria-label={`${group.id} label`}
+              style={{ fontWeight: 600 }}
+            />
+            <Switch
+              checked={group.enabled}
+              onChange={(enabled) => update(group.id, { enabled })}
+              checkedChildren="On"
+              unCheckedChildren="Off"
+            />
+          </div>
+          <div className="admin-grid" style={{ marginBottom: 10 }}>
+            <label>
+              <span>Collection</span>
+              <Input
+                value={group.collection}
+                onChange={(e) => update(group.id, { collection: e.target.value })}
+                placeholder="Shopify charm collection"
+              />
+            </label>
+            <label>
+              <span>Exact charm name (optional)</span>
+              <Input
+                value={group.nameEquals}
+                onChange={(e) => update(group.id, { nameEquals: e.target.value })}
+                placeholder="Blank matches the whole collection"
+              />
+            </label>
+          </div>
+          <div className="admin-grid">
+            <label>
+              <span>Pieces per block</span>
+              <InputNumber
+                min={1}
+                max={MAX_CHARMS}
+                precision={0}
+                value={group.quantity}
+                onChange={(quantity) => update(group.id, { quantity })}
+                style={{ width: '100%' }}
+              />
+            </label>
+            <label>
+              <span>Price per block (£)</span>
+              <InputNumber
+                min={0}
+                step={0.5}
+                precision={2}
+                value={group.price}
+                onChange={(price) => update(group.id, { price })}
+                style={{ width: '100%' }}
+              />
+            </label>
+          </div>
+          <label style={{ display: 'grid', gap: 5, marginTop: 10 }}>
+            <span style={{ fontSize: 12 }}>Shopify billing variant ID</span>
+            <Input
+              value={group.shopifyVariantId}
+              onChange={(e) => update(group.id, { shopifyVariantId: e.target.value.trim() })}
+              placeholder="Required for native cart mode"
+            />
+          </label>
+        </div>
+      ))}
+      <Alert
+        type="warning"
+        showIcon
+        message="Native cart pricing"
+        description="Keep each billing variant's Shopify price equal to the block price above. Draft orders use the configured price directly."
+      />
+      <Space wrap>
+        <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
+          Save grouped pricing
+        </Button>
+        <Button onClick={() => setGroups(DEFAULT_CHARM_PRICING_GROUPS.map((group) => ({ ...group })))}>
+          Restore defaults
+        </Button>
+      </Space>
+    </Space>
+  )
+}
+
 function CharmsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [form, setForm] = useState({
@@ -697,6 +831,10 @@ function CharmsTab({ draft, set, cloud }) {
           floats while the left list scrolls; each card collapsible. */}
       <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 24px)', overflowY: 'auto' }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
+          <RightPanel title="Grouped pricing">
+            <CharmPricingGroupsPanel />
+          </RightPanel>
+
           <RightPanel title="Charm studio">
             <CharmStudioTab charm={selectedCharm} cloud={cloud} categories={categories} subcategories={subcategories} />
           </RightPanel>

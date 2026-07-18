@@ -5,13 +5,6 @@ import { trayGroups, groupByCollection } from '../lib/catalog'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
-// Round a mm value to at most one decimal so tray size labels stay compact
-// (e.g. 8.30 → 8.3, 58 → 58).
-const fmtMm = (v) => {
-  const n = Number(v)
-  return Number.isFinite(n) ? Math.round(n * 10) / 10 : v
-}
-
 function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
   const unavailable = !!charm.unavailable
   const cls =
@@ -44,11 +37,6 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
         <img src={charm.src} alt={charm.name} draggable={false} />
       </div>
       {!compact && <div className="name">{charm.name}</div>}
-      {charm.widthMm != null && charm.heightMm != null && (
-        <div className="charm-card__size">
-          {fmtMm(charm.widthMm)} × {fmtMm(charm.heightMm)} mm
-        </div>
-      )}
       <div className="meta meta--price">
         <span>{unavailable ? t('charm.unavailable') : formatMoney(charm.price)}</span>
       </div>

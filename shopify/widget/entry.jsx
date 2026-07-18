@@ -145,6 +145,7 @@ async function loadEditLayout(key) {
         src: c.src,
         name: c.name,
         category: c.category,
+        collection: c.collection,
         type: c.type,
         price: c.price,
         bundle: c.bundle,

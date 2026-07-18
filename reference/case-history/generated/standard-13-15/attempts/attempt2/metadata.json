@@ -1,0 +1,28 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a59ffb9-4288-83ed-b929-69ee80e3f97a",
+  "modelId": "iphone-13",
+  "finish": "black",
+  "status": "rejected",
+  "reason": "The upper-right gel lobe was still built as a rounded rectangle with a straight inner wall and a nearly horizontal top. The user requires one organic shoulder-to-crown curve with no square cap.",
+  "image": "iphone-13-black-probe.png",
+  "width": 902,
+  "height": 1744,
+  "sha256": "b4ef3e03ad5ef67e251af4dc892c9c7fb462c8f94f9f1f174dff38ff2c0cb5fa",
+  "referenceImages": [
+    "run4-iphone-13-black-source.png",
+    "run4-iphone-13-black-exact-gel-path.png",
+    "run4-raised-rim-detail.png",
+    "run4-black-material-detail.png"
+  ],
+  "referenceDirectory": "references",
+  "referenceCount": 4,
+  "guideCoordinates": {
+    "cameraRightX": 499,
+    "cameraBottomY": 501
+  },
+  "normalizedProbeCoordinates": {
+    "cameraRightHighlightX": 492,
+    "cameraBottomHighlightY": 513
+  },
+  "assessment": "Rejected after user review. Preserve this run4 result and its exact references, but do not upload it or use it as cross-finish geometry."
+}

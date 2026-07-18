@@ -27,8 +27,11 @@
 
 import { uploadImageToShopifyFiles } from '../_lib.js'
 import { TYPES, shopifyConfigured, getRecord } from '../_shopify-store.js'
+import { charmChargeLines, normalizeCharmPricingGroups } from '../../../src/lib/charmPricing.js'
 
 const API_VERSION = '2024-10'
+const SETTINGS_HANDLE = 'app-settings'
+const SETTINGS_KV_KEY = 'settings:app'
 
 
 // Server-authoritative base price per product kind (mirrors src/data/products.js).
@@ -109,6 +112,23 @@ const DRAFT_ORDER_CREATE = `
 
 const money = (n) => (Math.round(Number(n) * 100) / 100).toFixed(2)
 
+async function loadCharmPricingGroups(env) {
+  try {
+    if (shopifyConfigured(env)) {
+      const settings = await getRecord(env, TYPES.override, SETTINGS_HANDLE)
+      return normalizeCharmPricingGroups(settings?.charmPricingGroups)
+    }
+    if (env.IMAGES) {
+      const raw = await env.IMAGES.get(SETTINGS_KV_KEY)
+      const settings = raw ? JSON.parse(raw) : {}
+      return normalizeCharmPricingGroups(settings.charmPricingGroups)
+    }
+  } catch (err) {
+    console.warn('[Charmé] Could not load grouped pricing settings, using defaults', err?.message)
+  }
+  return normalizeCharmPricingGroups()
+}
+
 /**
  * Store the proof PNG. Preferred: the merchant's Shopify Files (durable,
  * store-owned CDN). Fallback: Cloudflare KV under img:proof-<token> served from
@@ -172,50 +192,65 @@ export async function onRequestPost({ request, env }) {
   // legacy D1 catalogue. Bundled base-catalogue charms live in neither, so their
   // price falls through to the clamped client value below.
   const ids = [...new Set(charms.map((c) => c.charmId).filter(Boolean))]
-  const priceById = new Map()
-  const nameById = new Map()
+  const catalogById = new Map()
   if (ids.length && shopifyConfigured(env)) {
     const recs = await Promise.all(
       ids.map((id) => getRecord(env, TYPES.charm, id).catch(() => null)),
     )
     for (const r of recs) {
       if (!r || !r.id) continue
-      priceById.set(r.id, Number(r.price))
-      nameById.set(r.id, r.name)
+      catalogById.set(r.id, r)
     }
   } else if (env.DB && ids.length) {
     const placeholders = ids.map(() => '?').join(',')
     const rows = await env.DB.prepare(
-      `SELECT id, name, price FROM charms WHERE id IN (${placeholders})`,
+      `SELECT id, name, collection, price, bundle FROM charms WHERE id IN (${placeholders})`,
     ).bind(...ids).all()
     for (const r of rows.results || []) {
-      priceById.set(r.id, Number(r.price))
-      nameById.set(r.id, r.name)
+      catalogById.set(r.id, r)
     }
   }
   // Fall back to the client price only for charms not in D1 (e.g. custom art),
   // clamped to a sane range so a tampered request can't set an arbitrary price.
   const priceFor = (c) => {
-    if (priceById.has(c.charmId)) return priceById.get(c.charmId)
+    if (catalogById.has(c.charmId)) return Number(catalogById.get(c.charmId).price) || 0
     return Math.max(0, Math.min(100, Number(c.price) || 0))
   }
 
-  // Merge charms into quantities. Flat-price "bundle" charms are billed once.
-  const counts = new Map() // charmId → { qty, price, name }
-  const bundleBilled = new Set()
-  for (const c of charms) {
-    if (!c.charmId) continue
-    if (c.bundle) {
-      if (bundleBilled.has(c.charmId)) continue
-      bundleBilled.add(c.charmId)
-    }
-    const cur = counts.get(c.charmId) || {
+  const pricingGroups = await loadCharmPricingGroups(env)
+  const authoritativeCharms = charms
+    .filter((c) => c.charmId)
+    .map((c) => {
+      const catalogCharm = catalogById.get(c.charmId)
+      return {
+        ...c,
+        name: catalogCharm?.name || c.name || 'Charm',
+        // Unknown client records may retain their clamped price for legacy base
+        // catalogue support, but cannot opt themselves into grouped pricing.
+        collection: catalogCharm?.collection || '',
+        price: priceFor(c),
+        bundle: !!catalogCharm?.bundle,
+      }
+    })
+
+  // Build charge lines with the same rules as the storefront, then merge
+  // repeated regular charms to keep Shopify's visible attributes compact.
+  const entriesByKey = new Map()
+  for (const line of charmChargeLines(authoritativeCharms, pricingGroups)) {
+    const first = line.items[0]
+    const key = line.kind === 'group' ? `group:${line.rule.id}` : `${line.kind}:${line.key}`
+    const current = entriesByKey.get(key) || {
       qty: 0,
-      price: priceFor(c),
-      name: nameById.get(c.charmId) || c.name || 'Charm',
+      price: line.unitPrice,
+      name: line.kind === 'group' ? line.rule.label : first.name,
+      selectedCount: 0,
+      blockSize: line.kind === 'group' ? line.rule.quantity : null,
+      grouped: line.kind === 'group',
+      legacyBundle: line.kind === 'legacy-bundle',
     }
-    cur.qty += 1
-    counts.set(c.charmId, cur)
+    current.qty += line.quantity
+    current.selectedCount += line.items.length
+    entriesByKey.set(key, current)
   }
 
   const proofUrl = await storeProof(env, origin, token, payload.preview)
@@ -225,7 +260,7 @@ export async function onRequestPost({ request, env }) {
   const basePrice = BASE_PRICE[kind]
 
   // Merged, priced charm list (billed quantities) to itemise BENEATH the case.
-  const charmEntries = [...counts.values()] // { qty, price, name }
+  const charmEntries = [...entriesByKey.values()]
   const charmsTotal = charmEntries.reduce((n, c) => n + c.price * c.qty, 0)
   const casePrice = basePrice + charmsTotal
 
@@ -237,7 +272,13 @@ export async function onRequestPost({ request, env }) {
   if (finish) baseAttributes.push({ key: 'Case & Gel', value: String(finish) })
   baseAttributes.push({ key: 'Base case', value: `£${money(basePrice)}` })
   charmEntries.forEach((c, i) => {
-    const qtyPart = c.qty > 1 ? ` ×${c.qty}` : ''
+    let qtyPart = c.qty > 1 ? ` ×${c.qty}` : ''
+    if (c.grouped) {
+      const blocks = `${c.qty} ${c.qty === 1 ? 'block' : 'blocks'} of ${c.blockSize}`
+      qtyPart = ` ×${c.selectedCount} (${blocks})`
+    } else if (c.legacyBundle && c.selectedCount > 1) {
+      qtyPart = ` ×${c.selectedCount}`
+    }
     baseAttributes.push({
       key: `Charm ${i + 1}`,
       value: `${c.name}${qtyPart} · £${money(c.price * c.qty)}`,

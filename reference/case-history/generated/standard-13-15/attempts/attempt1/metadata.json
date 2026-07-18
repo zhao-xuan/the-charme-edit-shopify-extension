@@ -1,0 +1,13 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a59fb53-a4f4-83eb-a84d-8252b147daa5",
+  "modelId": "iphone-13",
+  "finish": "black",
+  "status": "rejected",
+  "reason": "The camera-island right edge to gel gap is visibly narrower than the lower gap, so the gel still traces too close to the camera on the right side.",
+  "image": "iphone-13-black-rejected.png",
+  "width": 887,
+  "height": 1774,
+  "sha256": "68f70927394b462f5b638fcf51e490dd0d7ac26fbaf24dfd20300995d8fa7a42",
+  "referenceDirectory": "references",
+  "referenceCount": 12
+}

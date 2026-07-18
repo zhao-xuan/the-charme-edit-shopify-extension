@@ -1,0 +1,573 @@
+{
+  "sourceDocument": {
+    "name": "Charms that can be enhanced.docx",
+    "googleDocumentId": "1LyuGBUSZnlQTk1pTsdjr1gu764flCS7O4qB8N-4lBSU",
+    "mediaDirectory": "/tmp/charme-doc-qa/enhance/word/media",
+    "imageCount": 27,
+    "noteCount": 25
+  },
+  "updatedAt": "2026-07-18",
+  "acceptanceDefaults": [
+    "Preserve the production canvas dimensions and documented physical dimensions.",
+    "Keep exactly one connected foreground component unless the source proves otherwise.",
+    "Preserve intentional openings and remove accidental transparent damage.",
+    "Remove white backgrounds, cast shadows, and detached fragments.",
+    "Write byte-identical PNGs to reference/3-charms-each-piece and public/assets/charms/ref.",
+    "Do not publish to Shopify until authenticated write access is available."
+  ],
+  "repairs": [
+    {
+      "documentImages": [
+        "image1.png"
+      ],
+      "productionIds": [
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-29"
+      ],
+      "name": "Gold Star",
+      "noteZh": "这个里面应该中空",
+      "defect": "The four-point star center should be a physical through-hole.",
+      "sourceReference": "reference/3-charms-each-piece/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-29.png",
+      "method": "GPT regeneration, measured silhouette selection, controlled horizontal calibration, and white-to-alpha conversion.",
+      "conversation": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+      "candidates": [
+        {
+          "attempt": 1,
+          "sha256": "eeaa6688892a5617cfb44840f5efed012e522d462f344c8815603798488cc4c6",
+          "status": "selected_for_calibration",
+          "outerAspect": 0.4582,
+          "outerSilhouetteIoU": 0.7764
+        },
+        {
+          "attempt": 2,
+          "sha256": "90162f3b3c2e1f54bacdbd3d17b0325c62bf173081e24fed3f59985536e34008",
+          "status": "rejected_too_narrow",
+          "outerAspect": 0.3764,
+          "outerSilhouetteIoU": 0.5431
+        },
+        {
+          "attempt": 3,
+          "sha256": "1370876b6213c1f2d2a6fd21aa660a03b67380e26e4b0b8f0804daa7763424e9",
+          "status": "rejected_too_wide",
+          "outerAspect": 0.486,
+          "outerSilhouetteIoU": 0.5375
+        }
+      ],
+      "output": {
+        "sha256": "3f8b76882dde0581d307f93c671a84150836c7baf2d15e908e1770eefbb255e2",
+        "width": 98,
+        "height": 203,
+        "outerAspect": 0.4262,
+        "foregroundComponents": 1,
+        "intentionalHoles": 2,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image2.png"
+      ],
+      "productionIds": [
+        "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-45"
+      ],
+      "name": "Gold Moon",
+      "noteZh": "这个里面应该中空",
+      "defect": "The solid crescent body should be a continuous gold frame with a physical crescent-shaped through-hole.",
+      "sourceReference": "reference/2-charms-extracted/2075D4E3-C7DD-4C32-BBD0-38BC5DDFCF9B.png",
+      "method": "GPT structural regeneration followed by component-aware white-to-alpha conversion that retains only the crescent and attachment-ring holes.",
+      "conversation": "https://chatgpt.com/c/6a5b3b74-c6d8-83ed-a074-01726199fbf4",
+      "candidates": [
+        {
+          "attempt": 1,
+          "sha256": "7a49a26b3005c9c1cfe50c5e9bde57d4464812b7086ea3c6bd3ec7f92c20a58f",
+          "status": "accepted",
+          "outerAspect": 0.7519,
+          "targetOuterAspect": 0.7483,
+          "aspectErrorPct": 0.49
+        }
+      ],
+      "output": {
+        "sha256": "c0eeba51dc1ec29b5068a100ac226385da3973c562d5fc618489a4dcc53a4e46",
+        "width": 127,
+        "height": 163,
+        "outerAspect": 0.7483,
+        "foregroundComponents": 1,
+        "intentionalHoles": 2,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image5.png"
+      ],
+      "productionIds": [
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20"
+      ],
+      "name": "Gold Moon, circular variant",
+      "noteZh": null,
+      "defect": "No explicit note is attached to this image in the DOCX paragraph order.",
+      "method": "Source comparison before any modification.",
+      "status": "pending_note_confirmation"
+    },
+    {
+      "documentImages": [
+        "image17.png"
+      ],
+      "productionIds": [
+        "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03"
+      ],
+      "name": "Gold Angel",
+      "noteZh": "被ai 丑化了哈哈",
+      "defect": "AI-distorted form and details.",
+      "method": "GPT identity and detail reconstruction against the source collage.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image23.png"
+      ],
+      "productionIds": [
+        "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-52"
+      ],
+      "name": "Gold Branch",
+      "noteZh": "弯曲的弧度不太对",
+      "defect": "The branch curvature is incorrect.",
+      "method": "GPT geometry correction against the document image and source collage.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image10.png"
+      ],
+      "productionIds": [
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01"
+      ],
+      "name": "Gold Cross",
+      "noteZh": "细节不对",
+      "defect": "The relief details are incorrect.",
+      "method": "GPT detail reconstruction with source-backed silhouette constraints.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image26.png"
+      ],
+      "productionIds": [
+        "7561dd4b-da89-4f19-a1ff-d75ff5b41698-03"
+      ],
+      "name": "Gold Nautilus Shell",
+      "noteZh": "中间有一点被挖空了",
+      "defect": "An accidental transparent gouge appears in the solid center.",
+      "method": "Source-backed reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "3347d94a735bce4c1319a7957e30e31325fbc6ec30766d4defa121f36cfb7279",
+        "width": 197,
+        "height": 212,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image19.png"
+      ],
+      "productionIds": [
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15"
+      ],
+      "name": "Gold Gemstone",
+      "noteZh": "这个不带钩子",
+      "defect": "The charm should not have an attachment hook.",
+      "method": "GPT hook removal while preserving the gemstone silhouette and setting.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image6.png"
+      ],
+      "productionIds": [
+        "f1551077-9a1d-4e7c-bf0a-000000000abc-01"
+      ],
+      "name": "Gold Leopard",
+      "noteZh": "有阴影",
+      "defect": "The cutout contains a cast shadow.",
+      "method": "Source-backed re-keying with a shadow-excluding alpha mask.",
+      "conversation": "https://chatgpt.com/c/6a5b3fd2-a0a8-83ed-bf38-047399e2e1f3",
+      "candidates": [
+        {
+          "attempt": 1,
+          "sha256": "d7ce9441ccee32239d1554b3eea634e611b55fbfc3a7239e28630dc770dbe182",
+          "status": "rejected_identity_change",
+          "reason": "The generated result became a realistic animal and changed the head, legs, tail, spots, and pose."
+        }
+      ],
+      "output": {
+        "sha256": "d789c1d01d7bc34500249a35d2da3943f3b6422f3c704d1e6b28c4f22ddf63a4",
+        "width": 471,
+        "height": 302,
+        "foregroundComponents": 1,
+        "intentionalHoles": 1,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image21.png"
+      ],
+      "productionIds": [
+        "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15"
+      ],
+      "name": "Gold Pearl",
+      "noteZh": "珍珠这个挖空了",
+      "defect": "The solid pearl contains accidental transparent damage.",
+      "method": "Source-backed reconstruction from the original collage.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image24.png"
+      ],
+      "productionIds": [
+        "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01"
+      ],
+      "name": "Silver Sun",
+      "noteZh": "这个里面是中空的",
+      "defect": "The center should be a physical through-hole.",
+      "method": "GPT structural regeneration with source-silhouette calibration.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image7.png"
+      ],
+      "productionIds": [
+        "silver-03"
+      ],
+      "name": "Silver Heart",
+      "noteZh": "这个不带钩子",
+      "defect": "The charm should not have an attachment hook.",
+      "method": "GPT hook removal while retaining the heart body and silver finish.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image18.png"
+      ],
+      "productionIds": [
+        "silver-02"
+      ],
+      "name": "Silver Key",
+      "noteZh": "这个ai比例弄错了",
+      "defect": "AI generation produced incorrect proportions.",
+      "method": "GPT regeneration constrained to the source silhouette aspect and landmarks.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image4.png"
+      ],
+      "productionIds": [
+        "f1551077-9a1d-4e7c-bf0a-000000000abc-02"
+      ],
+      "name": "Silver Swimsuit",
+      "noteZh": "有阴影",
+      "defect": "The cutout contains a cast shadow.",
+      "method": "Source-backed re-keying with a shadow-excluding alpha mask.",
+      "output": {
+        "sha256": "5e2b0c6a7b8831aa96d7f11a243cf36eaa9e908f9eefc856e4268044d0cf7206",
+        "width": 404,
+        "height": 663,
+        "foregroundComponents": 1,
+        "intentionalHoles": 2,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image22.png"
+      ],
+      "productionIds": [
+        "silver-21"
+      ],
+      "name": "Silver Heart",
+      "noteZh": "心的左上角被掏空了",
+      "defect": "The upper-left edge contains accidental transparent damage.",
+      "method": "Source-backed reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "e94a8e00dfe49b90ecef0a3fc1cc855ba695ea41936b5a1b88cbe9915f266be8",
+        "width": 192,
+        "height": 215,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image3.png"
+      ],
+      "productionIds": [
+        "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04"
+      ],
+      "name": "Silver Shell",
+      "noteZh": "下面缺了",
+      "defect": "The lower section is missing.",
+      "method": "Source-backed reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "f74b3b5acdeff4f8c03873c7bd25df29467f83e988de5eb275ab0a10c19c1d76",
+        "width": 117,
+        "height": 113,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image9.png"
+      ],
+      "productionIds": [
+        "image2-02"
+      ],
+      "name": "Red Mini Heart",
+      "noteZh": "这个边是银色的",
+      "defect": "The outer edge should be silver.",
+      "method": "GPT material correction constrained to the source silhouette.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image20.png"
+      ],
+      "productionIds": [
+        "image2-24"
+      ],
+      "name": "Colourful Flower, probable mapping",
+      "noteZh": "这个不带钩子",
+      "defect": "The charm should not have an attachment hook.",
+      "method": "GPT hook removal while preserving the black medallion, gold flower relief, and circular silhouette.",
+      "mappingConfidence": "confirmed",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image27.png"
+      ],
+      "productionIds": [
+        "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27"
+      ],
+      "name": "Natural Star",
+      "noteZh": "角缺了一点",
+      "defect": "One corner is missing.",
+      "method": "Source-backed edge reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "3f5a67f8bbcf302c3b2c177932d93f018ba6780a9673748a0573331073724fec",
+        "width": 147,
+        "height": 145,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image12.png"
+      ],
+      "productionIds": [
+        "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29"
+      ],
+      "name": "Natural Moon",
+      "noteZh": "角缺了一点",
+      "defect": "One corner is missing.",
+      "method": "Source-backed edge reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "967bfe0ea6e99735f5668a7d70bb20d4c005d8367e3ffd4a49b4e0b722d28c09",
+        "width": 119,
+        "height": 141,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image16.png"
+      ],
+      "productionIds": [
+        "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11"
+      ],
+      "name": "White porcelain angel (catalogued as Natural Dog)",
+      "noteZh": "这个被切了",
+      "defect": "The object has been cut off.",
+      "method": "Source-backed reconstruction from the intact full-body original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "1c645811d21c9be4b0c1f795032873433f45ad4712b9b0304f56f1be210ba2e8",
+        "width": 171,
+        "height": 161,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image11.png"
+      ],
+      "productionIds": [
+        "52e483c2-c80e-4920-998c-c7bf5aa59b8a-35"
+      ],
+      "name": "Butterfly",
+      "noteZh": "有缺口",
+      "defect": "The body or edge contains a gap.",
+      "method": "Source-backed reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "21eaf190add966f187c06cefeab55401d2299e92030afb3700691ee7ff2f9a1a",
+        "width": 215,
+        "height": 264,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image14.png"
+      ],
+      "productionIds": [
+        "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50"
+      ],
+      "name": "White Angel",
+      "noteZh": "翅膀缺了一个口",
+      "defect": "A section is missing from one wing.",
+      "method": "Source-backed wing reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "05b64c668f9e7172007f5646e2878e93b9530ef0d1857193ba97bf4cf7940bea",
+        "width": 264,
+        "height": 219,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image8.png"
+      ],
+      "productionIds": [
+        "f1552077-9a1d-4e7c-bf0a-000000000abc-07"
+      ],
+      "name": "Mother-of-pearl shard",
+      "noteZh": "有缺口",
+      "defect": "The edge contains a gap.",
+      "method": "Source-backed reconstruction from the intact black-background source crop.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "f649c8fc7cac38693132e2f3723296606870865d5f40966aa0e6e7f890c2fbf1",
+        "width": 101,
+        "height": 154,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image15.png"
+      ],
+      "productionIds": [
+        "e540ac60-3ca6-447f-833a-9234eec3b235-10"
+      ],
+      "name": "Natural charm",
+      "noteZh": "有缺口",
+      "defect": "The edge contains a gap.",
+      "method": "Source-backed reconstruction from intact original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "cce896315d56ad72c8fd552894a014a3aa62eecb1553ae7d461680c8dd392860",
+        "width": 100,
+        "height": 103,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
+    },
+    {
+      "documentImages": [
+        "image25.png"
+      ],
+      "productionIds": [
+        "image2-20",
+        "image2-21",
+        "image2-22"
+      ],
+      "name": "Natural Ceramic set",
+      "noteZh": "1和3的颜色不太对",
+      "defect": "The colors of items 1 and 3 are incorrect; item 2 is the control.",
+      "method": "GPT color correction for items 1 and 3 against the document reference and item 2 control.",
+      "status": "pending"
+    },
+    {
+      "documentImages": [
+        "image13.png"
+      ],
+      "productionIds": [
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02"
+      ],
+      "name": "Gold Sun, probable mapping",
+      "noteZh": "AI有一点点失真？",
+      "defect": "The AI rendering appears slightly distorted.",
+      "method": "GPT detail correction against the confirmed document reference and source landmarks.",
+      "mappingConfidence": "confirmed",
+      "status": "pending"
+    }
+  ],
+  "productionAuditRepairs": [
+    {
+      "productionId": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08",
+      "name": "Gold Heart",
+      "defect": "Accidental transparent holes in a solid charm.",
+      "method": "Source-backed reconstruction.",
+      "status": "applied_local"
+    },
+    {
+      "productionId": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32",
+      "name": "Gold Heart",
+      "defect": "Accidental transparent holes in a solid charm.",
+      "method": "Source-backed reconstruction.",
+      "status": "applied_local"
+    },
+    {
+      "productionId": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15",
+      "name": "Gold Pearl",
+      "defect": "Accidental transparent holes in a solid pearl.",
+      "method": "Source-backed reconstruction.",
+      "status": "applied_local"
+    }
+  ],
+  "shopify": {
+    "status": "not_published",
+    "reason": "The current external session has no authenticated Shopify Admin write token."
+  }
+}
