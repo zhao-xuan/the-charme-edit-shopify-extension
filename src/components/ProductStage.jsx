@@ -543,8 +543,9 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   const cx = charm.cxMm * scale
   const cy = charm.cyMm * scale
   const rot = charm.rot || 0
-  const R = Math.max(w, h) / 2 + 20
-  const size = R * 2 + 30
+  const charmRadius = Math.hypot(w, h) / 2
+  const R = charmRadius + 10
+  const size = R * 2 + 24
   const c = size / 2
   const svgRef = useRef(null)
   const dragging = useRef(false)
@@ -564,6 +565,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
     return Math.round(n)
   }
   const start = (e) => {
+    e.preventDefault()
     e.stopPropagation()
     try {
       e.currentTarget.setPointerCapture(e.pointerId)
@@ -582,12 +584,14 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   }
 
   const ta = ((rot - 90) * Math.PI) / 180
+  const sx = c + (charmRadius + 3) * Math.cos(ta)
+  const sy = c + (charmRadius + 3) * Math.sin(ta)
   const tx = c + R * Math.cos(ta)
   const ty = c + R * Math.sin(ta)
   return (
     <div
       className="charm-dial"
-      style={{ left: cx, top: cy, width: size, height: size }}
+      style={{ left: cx, top: cy, width: size, height: size, '--dial-radius': `${R}px` }}
       onPointerDown={(e) => e.stopPropagation()}
     >
       <svg
@@ -595,14 +599,19 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         className="charm-dial__svg"
         width={size}
         height={size}
-        onPointerDown={start}
-        onPointerMove={move}
-        onPointerUp={end}
-        onPointerCancel={end}
       >
         <circle className="charm-dial__track" cx={c} cy={c} r={R} />
-        <circle className="charm-dial__hit" cx={c} cy={c} r={R} />
-        <line className="charm-dial__spoke" x1={c} y1={c} x2={tx} y2={ty} />
+        <circle
+          className="charm-dial__hit"
+          cx={c}
+          cy={c}
+          r={R}
+          onPointerDown={start}
+          onPointerMove={move}
+          onPointerUp={end}
+          onPointerCancel={end}
+        />
+        <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
         <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
       </svg>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>

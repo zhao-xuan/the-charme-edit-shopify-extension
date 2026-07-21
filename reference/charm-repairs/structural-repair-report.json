@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15",
+    "documentImage": "image19.png",
+    "name": "Gold Gemstone",
+    "method": "Remove the attachment ring above source row 38.",
+    "output": "reference/charm-repairs/structural-generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15.png",
+    "sha256": "52d1a033ae160478f97cbbe1c3d04d486205bdfd2e1091e54caa4ad5bb9ca522",
+    "width": 108,
+    "height": 161,
+    "applied": true
+  },
+  {
+    "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01",
+    "documentImage": "image24.png",
+    "name": "Silver Sun",
+    "method": "Open the source-backed center at (105, 110) with a 31 px feathered radius.",
+    "output": "reference/charm-repairs/structural-generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+    "sha256": "b97098f15bafc238d1d38db5250cefeb33993e5fbd59390287360c955fcec7f4",
+    "width": 225,
+    "height": 215,
+    "applied": true
+  },
+  {
+    "id": "silver-03",
+    "documentImage": "image7.png",
+    "name": "Silver Heart",
+    "method": "Re-key the authentic source and replace the attachment-ring band with mirrored left-lobe pixels.",
+    "output": "reference/charm-repairs/structural-generated/silver-03.png",
+    "sha256": "e0698f6c2d2ca3cf137a9f947fc9993688f248b2aab84290dd88bc63fe923ff4",
+    "width": 178,
+    "height": 185,
+    "applied": true
+  },
+  {
+    "id": "image2-02",
+    "documentImage": "image9.png",
+    "name": "Red Mini Heart",
+    "method": "Re-key the authentic source, preserve the attachment-ring opening, and convert only the surrounding metal from gold to cool silver.",
+    "output": "reference/charm-repairs/structural-generated/image2-02.png",
+    "sha256": "c8881d9b39fa8fb3191cd128d96e4ea4d1a33c89ef15c7b27a6af720dd3d61ea",
+    "width": 109,
+    "height": 130,
+    "applied": true
+  },
+  {
+    "id": "image2-24",
+    "documentImage": "image20.png",
+    "name": "Black Gold Flower Medallion",
+    "method": "Remove the attachment ring above source row 33.",
+    "output": "reference/charm-repairs/structural-generated/image2-24.png",
+    "sha256": "b70118743098304ce94b5d0a720da261d7af3a0aac0c1e190656a8c79c050d66",
+    "width": 167,
+    "height": 190,
+    "applied": true
+  }
+]

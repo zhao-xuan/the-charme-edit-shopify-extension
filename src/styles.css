@@ -485,9 +485,83 @@ h4,
 }
 .charm.is-bad img {
   filter:
-    drop-shadow(0 0 1.5px #e0962a)
-    drop-shadow(0 0 1.5px #e0962a)
-    drop-shadow(0 0 1px #e0962a);
+    drop-shadow(0 0 1.5px #d4380d)
+    drop-shadow(0 0 1.5px #d4380d)
+    drop-shadow(0 0 1px #d4380d);
+}
+
+/* Free-rotation control for the selected charm. The dial deliberately sits
+   above the charm without catching clicks in its centre, so the charm remains
+   draggable while only the ring adjusts its angle. */
+.charm-dial {
+  position: absolute;
+  z-index: 60;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.charm-dial__svg {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+  touch-action: none;
+}
+.charm-dial__track {
+  fill: none;
+  stroke: rgba(46, 42, 38, 0.42);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+.charm-dial__hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 12;
+  pointer-events: stroke;
+  cursor: grab;
+  touch-action: none;
+}
+.charm-dial__hit:active {
+  cursor: grabbing;
+}
+.charm-dial__spoke {
+  stroke: var(--rouge);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+.charm-dial__thumb {
+  fill: #fff;
+  stroke: var(--rouge);
+  stroke-width: 2;
+  pointer-events: none;
+}
+.charm-dial__deg {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + var(--dial-radius) + 13px);
+  transform: translateX(-50%);
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.charm-dial__remove {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid #d4380d;
+  border-radius: 50%;
+  background: #fff;
+  color: #d4380d;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.charm-dial__remove:hover {
+  background: #fdecea;
 }
 
 /* selection toolbar floating above a selected charm */
@@ -785,31 +859,59 @@ h4,
   width: 60px;
   scroll-snap-align: start;
 }
-/* mobile cards never drag — allow scroll/tap (fixes zodiac & tall lists) */
-.charm-card--compact,
-.charm-card--row {
+/* Mobile cards never drag — allow scroll/tap (fixes zodiac & tall lists). */
+.charm-card--compact {
   touch-action: manipulation;
   cursor: pointer;
 }
-.charm-card--compact:hover,
-.charm-card--row:hover {
+.charm-card--compact:hover {
   transform: none;
 }
-/* hard-cap every thumbnail image so tall/long charms never overflow the card */
-.charm-card--compact .thumb,
-.charm-card--row .thumb {
+/* Hard-cap mobile thumbnails so tall/long charms never overflow the card. */
+.charm-card--compact .thumb {
   aspect-ratio: 1 / 1;
   width: 100%;
   max-height: 52px;
   overflow: hidden;
 }
-.charm-card--compact .thumb img,
-.charm-card--row .thumb img {
+.charm-card--compact .thumb img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+/* Desktop collection strips match the compact mobile tiles: artwork plus price
+   only, so browsing stays dense without long names stretching every card. */
+.charm-card--row:not(.charm-card--compact) {
+  width: 60px;
+  min-height: 0;
+  padding: 5px;
+  gap: 4px;
+  touch-action: none;
+  cursor: grab;
+}
+.charm-card--row:not(.charm-card--compact) .thumb {
+  width: 100%;
+  height: 52px;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.charm-card--row:not(.charm-card--compact) .thumb img {
+  max-width: 84%;
+  max-height: 84%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.charm-card--row:not(.charm-card--compact) .name {
+  display: none;
+}
+.charm-card--row:not(.charm-card--compact) .meta--price {
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .ghost-drag {
@@ -869,6 +971,13 @@ h4,
 .pill--warn {
   background: #fdecea;
   color: #c0392b;
+}
+.pricebar__warnings {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
 }
 
 /* ---------- Order summary modal ---------- */
@@ -1315,6 +1424,65 @@ h4,
   font-size: 11.5px;
   line-height: 1.35;
   color: var(--rouge);
+}
+.cross-sell-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.cross-sell-option {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.cross-sell-option__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--cream);
+}
+.cross-sell-option .ant-btn {
+  width: 100%;
+  border-radius: 0;
+}
+.cross-sell-admin-option {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.cross-sell-admin-option__preview,
+.cross-sell-admin-option__placeholder {
+  width: 96px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+.cross-sell-admin-option__placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+.cross-sell-admin-option__fields {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+@media (max-width: 520px) {
+  .cross-sell-admin-option {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* admin bundle editor — structural preview */

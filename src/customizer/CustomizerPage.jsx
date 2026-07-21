@@ -45,6 +45,14 @@ const uid = () =>
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
+function crossSellImage(option, groups) {
+  const group = groups.find((item) => item.key === option.group)
+  const fallbackId = option.group === 'apple' ? 'iphone-16-pro-max' : group?.products?.[0]?.id
+  const product = findProduct(option.productId || fallbackId)
+  const blank = product?.blankImage || {}
+  return resolveAsset(option.image || blank.white || blank.default || blank.natural || blank.black || null)
+}
+
 // Max characters accepted by "Type a word" (letters + digits combined).
 const MAX_WORD_LEN = 14
 
@@ -1352,11 +1360,16 @@ export default function CustomizerPage({
         <p style={{ marginTop: 0, color: 'var(--ink-soft)' }}>
           {t('crossSell.body')}
         </p>
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+        <div className="cross-sell-options">
           {crossSellOptions.map((opt, i) => (
-            <Button key={i} type="primary" size="large" onClick={() => pickCrossSell(opt)}>
-              {opt.label}
-            </Button>
+            <article className="cross-sell-option" key={i}>
+              {crossSellImage(opt, PRODUCT_GROUPS) && (
+                <img className="cross-sell-option__image" src={crossSellImage(opt, PRODUCT_GROUPS)} alt="" />
+              )}
+              <Button type="primary" size="large" onClick={() => pickCrossSell(opt)}>
+                {opt.buttonLabel || opt.label}
+              </Button>
+            </article>
           ))}
         </div>
         <div style={{ marginTop: 18, textAlign: 'center' }}>

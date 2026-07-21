@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
-import { trayGroups, groupByCollection } from '../lib/catalog'
+import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
+
+const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
 
 function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
   const unavailable = !!charm.unavailable
@@ -90,7 +92,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
             <span>{g.collection}</span>
             <span>{g.items.length}</span>
           </div>
-          {onTypeWord && g.collection === 'Letters & initials' && (
+          {onTypeWord && isTextCollection(g.collection) && normalizedCollection(g.collection) !== 'numbers' && (
             <div className="charm-word">
               {wordFor === g.collection ? (
                 <>

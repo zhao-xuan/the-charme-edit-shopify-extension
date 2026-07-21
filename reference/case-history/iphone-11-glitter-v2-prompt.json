@@ -1,0 +1,19 @@
+{
+  "conversationUrl": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+  "prompts": [
+    {
+      "modelId": "iphone-11",
+      "finish": "glitter",
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000003f1c820ab6996fc0141cc6f7&ts=495694&p=fs&cid=1&sig=325b28da46264bbc2664aa85849dc022b9f198100b57508a26e3f280fbe690af&v=0",
+      "referenceImages": [
+        "iphone-11-white.png",
+        "iphone-14-glitter-v3.png",
+        "gpt-glitter-pixel-10-pro.png",
+        "gpt-iphone-11-wide-camera-clearance.png"
+      ],
+      "promptText": "Reject the second candidate too. It is a close-up and cannot be accepted. Generate exactly ONE NEW full-canvas iPhone 11 Glitter Gel product image using the SAME FOUR attachments in the immediately preceding generation request, not either generated candidate. Absolute output contract: use IMAGE 1's entire original canvas and full case, from complete top edge through complete bottom edge, straight-on and uncropped. Preserve IMAGE 1 pixel-for-pixel for all bare-shell and hardware geometry. This is specifically iPhone 11: its two camera lenses MUST be vertically stacked on one straight vertical axis inside the original upper-left rounded-square camera island. Preserve the original flash and sensor locations. A diagonal two-camera layout is an automatic failure. Do not invent a newer iPhone, change lens count, change camera island, move buttons, change proportions, add a logo, or zoom/crop. Apply exactly ONE continuous pale pearly-white Glitter gel slab only in the usable back area defined by IMAGE 4: red is a strict no-gel camera keep-out. Use the continuous calm L-shaped coverage language in IMAGE 2, adapted to the iPhone 11 guide. The camera boundary must be one broad smooth rounded shoulder around the complete guide, never a tight lens trace or separate pieces. Maintain only a thin even bare-shell hairline at the outer edge. Use IMAGE 3 only for subtle translucent milky pearl micro-shimmer: ultra-fine, quiet, embedded sparkle; no dense sandy texture, sequins, flakes, crystals, blobs, marble, text, or shadows. Remove all red from final. Output only the complete finished iPhone 11 back-view product image."
+    }
+  ]
+}

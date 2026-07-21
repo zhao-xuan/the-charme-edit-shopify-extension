@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "campaign": "iphone-black-white-glitter-shape-trials",
+  "publish": false,
+  "reviewStatus": "pending",
+  "candidates": [
+    {
+      "modelId": "iphone-11",
+      "finish": "black",
+      "candidateVersion": "v1",
+      "imagePath": "candidates/iphone-11-black-v1.png",
+      "conversationUrl": "https://chatgpt.com/c/6a5eba2b-e0c4-83ed-808f-80c2c520ec4d",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000606c81f4bbed9746aba225e3&ts=495720&p=fs&cid=1&sig=5dde3b04bc3250233a12d1d8dd75d5ad59953cc617eaa0a1d4e6ec6f60c3ef1f&v=0",
+      "sha256": "7a820c055b05907aee592ee5286702efc250921ff669185c43c64350c63ac750",
+      "widthPx": 863,
+      "heightPx": 1822
+    },
+    {
+      "modelId": "iphone-11",
+      "finish": "white",
+      "candidateVersion": "v1",
+      "imagePath": "candidates/iphone-11-white-v1.png",
+      "conversationUrl": "https://chatgpt.com/c/6a5ebaed-1364-83ed-9922-5ea54629e5a5",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000022e081f49e28d8336eb18825&ts=495720&p=fs&cid=1&sig=7ac4adc082af3fc4c2304f6dc765cf5178ba5b099b25a58e0e09a3d57cda3400&v=0",
+      "sha256": "8e0c84c02a84177b41705449b1c7781f87b6e3f1a3ebf861ecbca8d9228b5889",
+      "widthPx": 910,
+      "heightPx": 1728
+    }
+  ]
+}

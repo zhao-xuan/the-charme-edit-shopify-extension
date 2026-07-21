@@ -20,8 +20,8 @@ export const DEFAULT_SETTINGS = {
     discountCode: '',
     // Each option deep-links into the customizer for a product group/model.
     options: [
-      { label: 'Phone case', group: 'apple', productId: '' },
-      { label: 'Photo frame', group: 'frame', productId: '' },
+      { label: 'Phone case', buttonLabel: 'Customise phone case', group: 'apple', productId: '' },
+      { label: 'Photo frame', buttonLabel: 'Customise photo frame', group: 'frame', productId: '' },
     ],
   },
   // Discount rules + issued codes (enforced Shopify-side; see functions/api).

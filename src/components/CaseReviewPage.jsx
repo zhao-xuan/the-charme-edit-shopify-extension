@@ -34,7 +34,7 @@ function finishesFor(model, history) {
       (image) => image.modelId === model.id && image.finish === finish,
     )
     return finish === 'glitter'
-      ? model.withGel?.glitter || hasHistory
+      ? model.withGel?.glitter || model.withGel?.black || model.withGel?.white || hasHistory
       : model.withoutGel?.[finish] || model.withGel?.[finish] || hasHistory
   })
 }
@@ -47,6 +47,13 @@ function bareFinish(model, finish) {
 
 function reviewKey(modelId, finish) {
   return `${modelId}:${finish}`
+}
+
+function currentHistoryImage(history, modelId, finish) {
+  const entries = (history?.images || []).filter(
+    (image) => image.modelId === modelId && image.finish === finish,
+  )
+  return entries.find((image) => image.current)?.imagePath || ''
 }
 
 function fixedReferenceUrl(referenceImage) {
@@ -383,6 +390,10 @@ export default function CaseReviewPage() {
                   const review = reviews[key] || { status: 'checking', comment: '', issues: [] }
                   const promptCount = history.prompts.filter((prompt) => reviewKey(prompt.modelId, prompt.finish) === key).length
                   const imageCount = history.images.filter((image) => reviewKey(image.modelId, image.finish) === key).length
+                  const historyImage = currentHistoryImage(history, model.id, finish)
+                  const gelImage = historyImage || (model.withGel?.[finish]
+                    ? `/assets/cases/case-with-gel/integrated-${model.id}-${finish}.png`
+                    : '')
                   const versionCount = Math.max(promptCount, imageCount)
                   return (
                     <section className="case-review-finish" key={finish}>
@@ -394,8 +405,8 @@ export default function CaseReviewPage() {
                         <figure><figcaption>{finish === 'glitter' ? '裸壳参考' : 'Without gel'}</figcaption>{shell && <Image src={`/assets/cases/case-without-gel/${model.id}-${shell}.png`} alt="Without gel" />}</figure>
                         <figure>
                           <figcaption>With gel</figcaption>
-                          {model.withGel?.[finish]
-                            ? <Image src={`/assets/cases/case-with-gel/integrated-${model.id}-${finish}.png`} alt="With gel" />
+                          {gelImage
+                            ? <Image src={gelImage} alt="With gel" />
                             : <div className="case-review-image-missing">尚未生成</div>}
                         </figure>
                       </div>

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "prompts": [
+    {
+      "modelId": "iphone-16-plus",
+      "finish": "glitter",
+      "promptText": "Archived existing approved iPhone 16 Plus Glitter render. Preserve the full uncropped white case, complete vertical dual-camera module, continuous pale transparent Glitter gel slab, broad rounded camera clearance, thin outer shell reveal, and subtle fine pearlescent micro-shimmer.",
+      "referenceImages": [
+        "integrated-iphone-16-plus-glitter.png"
+      ],
+      "generator": "Existing approved static render"
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "glitter",
+      "promptText": "Archived existing approved iPhone 16 Pro Glitter render. Preserve the full uncropped white case, complete triple-camera module, continuous pale transparent Glitter gel slab, broad rounded camera clearance, thin outer shell reveal, and subtle fine pearlescent micro-shimmer.",
+      "referenceImages": [
+        "integrated-iphone-16-pro-glitter.png"
+      ],
+      "generator": "Existing approved static render"
+    }
+  ]
+}

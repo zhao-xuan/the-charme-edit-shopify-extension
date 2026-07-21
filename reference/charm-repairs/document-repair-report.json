@@ -120,21 +120,39 @@
       "name": "Gold Angel",
       "noteZh": "被ai 丑化了哈哈",
       "defect": "AI-distorted form and details.",
-      "method": "GPT identity and detail reconstruction against the source collage.",
-      "status": "pending"
+      "method": "Source-backed reconstruction from the authentic original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "18376d57f7febb158ac848c9f38b5b1c6dca7acae4beca354da187c6cef9cbfb",
+        "width": 232,
+        "height": 205,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
         "image23.png"
       ],
       "productionIds": [
-        "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-52"
+        "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28"
       ],
-      "name": "Gold Branch",
+      "name": "Gold Leaf",
       "noteZh": "弯曲的弧度不太对",
       "defect": "The branch curvature is incorrect.",
-      "method": "GPT geometry correction against the document image and source collage.",
-      "status": "pending"
+      "method": "Source-backed reconstruction against the confirmed leafy branch in the original collage.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "1ab0dcfebc651c45f89904386b27f98339efa8ebb52cc80f27f6dcc05467dd1d",
+        "width": 164,
+        "height": 304,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -146,8 +164,17 @@
       "name": "Gold Cross",
       "noteZh": "细节不对",
       "defect": "The relief details are incorrect.",
-      "method": "GPT detail reconstruction with source-backed silhouette constraints.",
-      "status": "pending"
+      "method": "Source-backed detail reconstruction from the authentic original collage pixels.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "f4fe1324fb5683fa41d5416987f6dba914f97a2f7275dc6d72be2686b0f65afa",
+        "width": 125,
+        "height": 247,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -181,8 +208,17 @@
       "name": "Gold Gemstone",
       "noteZh": "这个不带钩子",
       "defect": "The charm should not have an attachment hook.",
-      "method": "GPT hook removal while preserving the gemstone silhouette and setting.",
-      "status": "pending"
+      "method": "Deterministic source-backed alpha edit removing only the attachment ring above source row 38.",
+      "sourceRepairReport": "reference/charm-repairs/structural-repair-report.json",
+      "output": {
+        "sha256": "52d1a033ae160478f97cbbe1c3d04d486205bdfd2e1091e54caa4ad5bb9ca522",
+        "width": 108,
+        "height": 161,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -226,6 +262,14 @@
       "defect": "The solid pearl contains accidental transparent damage.",
       "method": "Source-backed reconstruction from the original collage.",
       "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "728ba04379a255a54e4537f84f03916a9b4627ea63af62bd51eb0c4d71eda4ed",
+        "width": 155,
+        "height": 197,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
       "status": "applied_local"
     },
     {
@@ -238,8 +282,17 @@
       "name": "Silver Sun",
       "noteZh": "这个里面是中空的",
       "defect": "The center should be a physical through-hole.",
-      "method": "GPT structural regeneration with source-silhouette calibration.",
-      "status": "pending"
+      "method": "Deterministic source-backed alpha edit opening the center at (105, 110) with a 31 px feathered radius.",
+      "sourceRepairReport": "reference/charm-repairs/structural-repair-report.json",
+      "output": {
+        "sha256": "b97098f15bafc238d1d38db5250cefeb33993e5fbd59390287360c955fcec7f4",
+        "width": 225,
+        "height": 215,
+        "foregroundComponents": 1,
+        "intentionalHoles": 1,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -251,8 +304,17 @@
       "name": "Silver Heart",
       "noteZh": "这个不带钩子",
       "defect": "The charm should not have an attachment hook.",
-      "method": "GPT hook removal while retaining the heart body and silver finish.",
-      "status": "pending"
+      "method": "Source-backed re-keying with mirrored left-lobe reconstruction limited to the attachment-ring band.",
+      "sourceRepairReport": "reference/charm-repairs/structural-repair-report.json",
+      "output": {
+        "sha256": "e0698f6c2d2ca3cf137a9f947fc9993688f248b2aab84290dd88bc63fe923ff4",
+        "width": 178,
+        "height": 185,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -264,8 +326,17 @@
       "name": "Silver Key",
       "noteZh": "这个ai比例弄错了",
       "defect": "AI generation produced incorrect proportions.",
-      "method": "GPT regeneration constrained to the source silhouette aspect and landmarks.",
-      "status": "pending"
+      "method": "Source-backed reconstruction preserving the authentic key proportions and designed opening.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "017b70814d3a40fe4112cfec50923a7b27b5fa887224716ce2d3276ef92636d0",
+        "width": 140,
+        "height": 277,
+        "foregroundComponents": 1,
+        "intentionalHoles": 1,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -342,8 +413,17 @@
       "name": "Red Mini Heart",
       "noteZh": "这个边是银色的",
       "defect": "The outer edge should be silver.",
-      "method": "GPT material correction constrained to the source silhouette.",
-      "status": "pending"
+      "method": "Source-backed re-keying with enamel masking, a preserved attachment-ring opening, and cool-silver conversion limited to the surrounding metal.",
+      "sourceRepairReport": "reference/charm-repairs/structural-repair-report.json",
+      "output": {
+        "sha256": "c8881d9b39fa8fb3191cd128d96e4ea4d1a33c89ef15c7b27a6af720dd3d61ea",
+        "width": 109,
+        "height": 130,
+        "foregroundComponents": 1,
+        "intentionalHoles": 1,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -352,12 +432,21 @@
       "productionIds": [
         "image2-24"
       ],
-      "name": "Colourful Flower, probable mapping",
+      "name": "Black Gold Flower Medallion",
       "noteZh": "这个不带钩子",
       "defect": "The charm should not have an attachment hook.",
-      "method": "GPT hook removal while preserving the black medallion, gold flower relief, and circular silhouette.",
+      "method": "Deterministic source-backed alpha edit removing only the attachment ring above source row 33.",
+      "sourceRepairReport": "reference/charm-repairs/structural-repair-report.json",
       "mappingConfidence": "confirmed",
-      "status": "pending"
+      "output": {
+        "sha256": "b70118743098304ce94b5d0a720da261d7af3a0aac0c1e190656a8c79c050d66",
+        "width": 167,
+        "height": 190,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -525,8 +614,30 @@
       "name": "Natural Ceramic set",
       "noteZh": "1和3的颜色不太对",
       "defect": "The colors of items 1 and 3 are incorrect; item 2 is the control.",
-      "method": "GPT color correction for items 1 and 3 against the document reference and item 2 control.",
-      "status": "pending"
+      "method": "Source-backed color restoration for items 1 and 3; item 2 remains the untouched control.",
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "outputs": [
+        {
+          "productionId": "image2-20",
+          "sha256": "4ac23b64d43eb4ffb553935939e4de825df8578a164a42338b97d664b784ea22",
+          "width": 111,
+          "height": 117,
+          "foregroundComponents": 1,
+          "intentionalHoles": 0,
+          "extraComponents": 0
+        },
+        {
+          "productionId": "image2-22",
+          "sha256": "933b72ebe2a04cd2f8971886a99a226a6ff52de9bf2f8850f6cdeffba7e6b575",
+          "width": 118,
+          "height": 118,
+          "foregroundComponents": 1,
+          "intentionalHoles": 0,
+          "extraComponents": 0
+        }
+      ],
+      "untouchedControlProductionId": "image2-21",
+      "status": "applied_local"
     },
     {
       "documentImages": [
@@ -538,9 +649,18 @@
       "name": "Gold Sun, probable mapping",
       "noteZh": "AI有一点点失真？",
       "defect": "The AI rendering appears slightly distorted.",
-      "method": "GPT detail correction against the confirmed document reference and source landmarks.",
+      "method": "Source-backed detail reconstruction from the confirmed authentic original collage pixels.",
       "mappingConfidence": "confirmed",
-      "status": "pending"
+      "sourceRepairReport": "reference/charm-repairs/solid-repair-report.json",
+      "output": {
+        "sha256": "9f28f0954afea161e5be41fa8fc1c63740f7efe6402d5071b9084a3f3a9e6d32",
+        "width": 213,
+        "height": 227,
+        "foregroundComponents": 1,
+        "intentionalHoles": 0,
+        "extraComponents": 0
+      },
+      "status": "applied_local"
     }
   ],
   "productionAuditRepairs": [

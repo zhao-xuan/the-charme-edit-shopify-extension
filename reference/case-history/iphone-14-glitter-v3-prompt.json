@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "conversationUrl": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+  "prompts": [
+    {
+      "modelId": "iphone-14",
+      "finish": "glitter",
+      "promptText": "Generate exactly ONE image now: iPhone 14 Glitter gel v3. IMAGE 1 is the exact bare white iPhone 14 case and is the only authority for the phone, camera hardware, silhouette, scale, framing, background, shadows and buttons. Preserve it pixel-for-pixel: keep the complete original diagonal dual-camera island, lenses, flash and sensor intact; keep the full phone visible, uncropped, unrotated, and do not add or remove a logo, hardware, gel patch or shell feature. IMAGE 2 is the accepted iPhone 14 Glitter v2. Preserve its overall continuous L-shaped gel footprint, outer hairline clearance, and raised-rim language. IMAGE 3 supplies Glitter material only: subtle, even, fine pearlescent micro-sparkle. Do not use chunky glitter, coloured glitter, text, patterns or icons. IMAGE 4 is the mandatory red camera-clearance guide. Red means NO GEL. The camera's right-side gel boundary must follow its larger, broad rounded turn: extend the bare-shell clearance farther to the right of the camera module, then use one wide smooth arc down into the lower gel slab. This is the only permitted geometry change from IMAGE 2. Do not use a short-radius corner, narrow bend, straight vertical rise, or gel that approaches the camera more closely than the guide. Render one continuous pale transparent Glitter gel slab everywhere outside that intentional camera keep-out and the fixed thin outer shell border. No isolated bare-shell islands, no detached gel pieces, no camera cut-out per lens, no red lines, no guide overlay, no labels. Output only the finished product image.",
+      "referenceImages": [
+        "iphone-14-white.png",
+        "iphone-14-glitter-v2.png",
+        "gpt-glitter-pixel-10-pro.png",
+        "gpt-iphone-14-wide-camera-clearance.png"
+      ],
+      "generator": "ChatGPT"
+    }
+  ]
+}

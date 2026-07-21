@@ -12,11 +12,12 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
   const problems = validation.problems
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
-  // Why the order isn't ready yet (count first, then geometry).
-  let warnLabel
-  if (validation.tooFew) warnLabel = t('price.addAtLeast', { n: MIN_CHARMS })
-  else if (validation.tooMany) warnLabel = t('price.useAtMost', { n: MAX_CHARMS })
-  else warnLabel = tn('price.needAttention', problems)
+  // Keep count and placement problems visible together: a layout can be both
+  // short of charms and have overlapping charms that still need fixing.
+  const warnings = []
+  if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: MIN_CHARMS }))
+  if (validation.tooMany) warnings.push(t('price.useAtMost', { n: MAX_CHARMS }))
+  if (problems > 0) warnings.push(tn('price.needAttention', problems))
 
   return (
     <div className="pricebar">
@@ -25,16 +26,20 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
           hidden to leave the maximum room to browse charms. */}
       {!compact && (
         <>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 7 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, marginBottom: 7 }}>
             {ok ? (
               <span className="pill pill--ok">
                 <CheckCircleFilled /> {t('price.ready')}
               </span>
             ) : (
-              <span className="pill pill--warn">
-                <WarningFilled />
-                {warnLabel}
-              </span>
+              <div className="pricebar__warnings">
+                {warnings.map((warning) => (
+                  <span key={warning} className="pill pill--warn">
+                    <WarningFilled />
+                    {warning}
+                  </span>
+                ))}
+              </div>
             )}
             <span className="hint">
               {tn('price.charmCount', n)}

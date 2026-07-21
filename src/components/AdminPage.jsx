@@ -1944,6 +1944,13 @@ function BundlePreview({ bundle }) {
 }
 const discFieldStyle = { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 10 }
 
+function crossSellOptionImage(option, models, groups) {
+  const group = groups.find((item) => item.key === option.group)
+  const fallbackId = option.group === 'apple' ? 'iphone-16-pro-max' : group?.products?.[0]?.id
+  const product = models.find((item) => item.id === (option.productId || fallbackId))
+  return option.image || productImage(product)
+}
+
 function DiscountTab({ cloud }) {
   const { message } = App.useApp()
   const [loading, setLoading] = useState(true)
@@ -2087,26 +2094,36 @@ function DiscountTab({ cloud }) {
         <Input value={s.crossSell.discountCode} onChange={(e) => setCross({ discountCode: e.target.value.toUpperCase() })} placeholder="e.g. SECOND10" style={{ maxWidth: 460 }} />
       </label>
       <Divider style={{ margin: '10px 0' }}>Popup product options</Divider>
-      {(s.crossSell.options || []).map((opt, i) => (
-        <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-          <Input placeholder="Label" value={opt.label} onChange={(e) => updOpt(i, { label: e.target.value })} style={{ width: 150 }} />
-          <Select placeholder="Group" value={opt.group || undefined} onChange={(v) => updOpt(i, { group: v, productId: '' })} options={groups.map((g) => ({ value: g.key, label: g.label }))} style={{ width: 150 }} />
-          <Select
-            allowClear
-            showSearch
-            optionFilterProp="label"
-            placeholder="Model (optional)"
-            value={opt.productId || undefined}
-            onChange={(v) => updOpt(i, { productId: v || '' })}
-            options={models
-              .filter((m) => !opt.group || groups.find((g) => g.key === opt.group)?.products.some((p) => p.id === m.id))
-              .map((m) => ({ value: m.id, label: m.name }))}
-            style={{ width: 180 }}
-          />
-          <Button icon={<DeleteOutlined />} onClick={() => setCross({ options: s.crossSell.options.filter((_, x) => x !== i) })} />
-        </div>
-      ))}
-      <Button icon={<PlusOutlined />} onClick={() => setCross({ options: [...(s.crossSell.options || []), { label: '', group: 'apple', productId: '' }] })}>
+      {(s.crossSell.options || []).map((opt, i) => {
+        const preview = crossSellOptionImage(opt, models, groups)
+        return (
+          <div key={i} className="cross-sell-admin-option">
+            {preview ? <img src={preview} alt="" className="cross-sell-admin-option__preview" /> : <div className="cross-sell-admin-option__placeholder">No image</div>}
+            <div className="cross-sell-admin-option__fields">
+              <Input placeholder="Option label" value={opt.label} onChange={(e) => updOpt(i, { label: e.target.value })} />
+              <Input placeholder="Button label" value={opt.buttonLabel || ''} onChange={(e) => updOpt(i, { buttonLabel: e.target.value })} />
+              <Input placeholder="Image URL (optional; model image used when blank)" value={opt.image || ''} onChange={(e) => updOpt(i, { image: e.target.value })} />
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <Select placeholder="Group" value={opt.group || undefined} onChange={(v) => updOpt(i, { group: v, productId: '' })} options={groups.map((g) => ({ value: g.key, label: g.label }))} style={{ width: 150 }} />
+                <Select
+                  allowClear
+                  showSearch
+                  optionFilterProp="label"
+                  placeholder="Model (optional)"
+                  value={opt.productId || undefined}
+                  onChange={(v) => updOpt(i, { productId: v || '' })}
+                  options={models
+                    .filter((m) => !opt.group || groups.find((g) => g.key === opt.group)?.products.some((p) => p.id === m.id))
+                    .map((m) => ({ value: m.id, label: m.name }))}
+                  style={{ width: 190 }}
+                />
+                <Button icon={<DeleteOutlined />} onClick={() => setCross({ options: s.crossSell.options.filter((_, x) => x !== i) })} />
+              </div>
+            </div>
+          </div>
+        )
+      })}
+      <Button icon={<PlusOutlined />} onClick={() => setCross({ options: [...(s.crossSell.options || []), { label: '', buttonLabel: '', image: '', group: 'apple', productId: '' }] })}>
         Add option
       </Button>
     </div>

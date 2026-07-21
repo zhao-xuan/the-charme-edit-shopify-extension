@@ -161,7 +161,7 @@ export async function rekey(id, srcRel, solid = false, opts = {}) {
 
   // morphological close (bridge internal dark gaps so a piece stays whole) then
   // open (drop sparkle/thin bridges) before component analysis
-  const closeR = solid ? 4 : CLOSE_R
+  const closeR = opts.closeR ?? (solid ? 4 : CLOSE_R)
   const fgClosed = erodeN(dilateN(fg, w, h, closeR), w, h, closeR)
   const fgOpen = dilate(erode(fgClosed, w, h), w, h)
 
@@ -200,7 +200,7 @@ export async function rekey(id, srcRel, solid = false, opts = {}) {
   const holeMask = new Uint8Array(N)
   for (let p = 0; p < N; p++) if (!kept[p] && !bgReach[p]) holeMask[p] = 1
   const holes = label(holeMask, w, h)
-  const holeCap = solid ? Infinity : pieceArea * HOLE_MAX_FRAC
+  const holeCap = solid ? Infinity : pieceArea * (opts.holeMaxFrac ?? HOLE_MAX_FRAC)
   const fillHole = new Uint8Array(holes.count)
   for (let c = 0; c < holes.count; c++) if (holes.areas[c] <= holeCap) fillHole[c] = 1
   for (let p = 0; p < N; p++) if (holeMask[p] && fillHole[holes.lab[p]]) kept[p] = 1

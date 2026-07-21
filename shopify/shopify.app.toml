@@ -8,9 +8,10 @@ embedded = true
 
 [access_scopes]
 # write_files: app/upload-proof.js stores design proofs on Shopify Files.
+# write_products: sync-case-review-images-to-shopify.mjs updates product media and variants.
 # write_cart_transforms: needed to activate the charme-bundle cart transform
 # (cartTransformCreate) so the custom case shows as one merged line in the cart.
-scopes = "write_files,write_cart_transforms"
+scopes = "write_files,write_products,write_cart_transforms"
 
 [webhooks]
 api_version = "2024-10"

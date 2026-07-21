@@ -3,13 +3,9 @@
     "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08",
     "documentImage": null,
     "source": "DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png",
-    "match": {
-      "x": 48,
-      "y": 144,
-      "width": 112,
-      "height": 112,
-      "score": 47.1
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08.png",
     "dimensions": "120x117",
     "applied": true
@@ -18,13 +14,9 @@
     "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32",
     "documentImage": null,
     "source": "E7E403B5-CE76-47E7-808B-F552FDF2B7E9.png",
-    "match": {
-      "x": 1128,
-      "y": 764,
-      "width": 168,
-      "height": 188,
-      "score": 73.67
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32.png",
     "dimensions": "175x195",
     "applied": true
@@ -33,13 +25,9 @@
     "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-15",
     "documentImage": null,
     "source": "7561DD4B-DA89-4F19-A1FF-D75FF5B41698.png",
-    "match": {
-      "x": 812,
-      "y": 756,
-      "width": 148,
-      "height": 192,
-      "score": 69.32
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png",
     "dimensions": "155x197",
     "applied": true
@@ -48,13 +36,9 @@
     "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-03",
     "documentImage": "image26.png",
     "source": "7561DD4B-DA89-4F19-A1FF-D75FF5B41698.png",
-    "match": {
-      "x": 48,
-      "y": 188,
-      "width": 192,
-      "height": 204,
-      "score": 46.48
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/7561dd4b-da89-4f19-a1ff-d75ff5b41698-03.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/7561dd4b-da89-4f19-a1ff-d75ff5b41698-03.png",
     "dimensions": "197x212",
     "applied": true
@@ -63,13 +47,9 @@
     "id": "silver-21",
     "documentImage": "image22.png",
     "source": "silver.png",
-    "match": {
-      "x": 852,
-      "y": 704,
-      "width": 184,
-      "height": 208,
-      "score": 72.08
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/silver-21.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/silver-21.png",
     "dimensions": "192x215",
     "applied": true
@@ -78,13 +58,9 @@
     "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27",
     "documentImage": "image27.png",
     "source": "E7E403B5-CE76-47E7-808B-F552FDF2B7E9.png",
-    "match": {
-      "x": 640,
-      "y": 624,
-      "width": 140,
-      "height": 140,
-      "score": 27.15
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27.png",
     "dimensions": "147x145",
     "applied": true
@@ -93,13 +69,9 @@
     "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29",
     "documentImage": "image12.png",
     "source": "E7E403B5-CE76-47E7-808B-F552FDF2B7E9.png",
-    "match": {
-      "x": 456,
-      "y": 628,
-      "width": 112,
-      "height": 136,
-      "score": 21.57
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29.png",
     "dimensions": "119x141",
     "applied": true
@@ -108,13 +80,9 @@
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-35",
     "documentImage": "image11.png",
     "source": "52E483C2-C80E-4920-998C-C7BF5AA59B8A.png",
-    "match": {
-      "x": 1284,
-      "y": 484,
-      "width": 208,
-      "height": 256,
-      "score": 20.27
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/52e483c2-c80e-4920-998c-c7bf5aa59b8a-35.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-35.png",
     "dimensions": "215x264",
     "applied": true
@@ -123,13 +91,9 @@
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50",
     "documentImage": "image14.png",
     "source": "52E483C2-C80E-4920-998C-C7BF5AA59B8A.png",
-    "match": {
-      "x": 1200,
-      "y": 744,
-      "width": 260,
-      "height": 212,
-      "score": 14.67
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/52e483c2-c80e-4920-998c-c7bf5aa59b8a-50.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-50.png",
     "dimensions": "264x219",
     "applied": true
@@ -138,6 +102,8 @@
     "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-07",
     "documentImage": "image8.png",
     "source": "f1552077-9a1d-4e7c-bf0a-000000000abc-07.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/f1552077-9a1d-4e7c-bf0a-000000000abc-07.png",
+    "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/f1552077-9a1d-4e7c-bf0a-000000000abc-07.png",
     "dimensions": "101x154",
@@ -147,13 +113,9 @@
     "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
     "documentImage": "image15.png",
     "source": "E540AC60-3CA6-447F-833A-9234EEC3B235.png",
-    "match": {
-      "x": 92,
-      "y": 196,
-      "width": 92,
-      "height": 100,
-      "score": 20.09
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/e540ac60-3ca6-447f-833a-9234eec3b235-10.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/e540ac60-3ca6-447f-833a-9234eec3b235-10.png",
     "dimensions": "100x103",
     "applied": true
@@ -162,13 +124,9 @@
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04",
     "documentImage": "image3.png",
     "source": "52E483C2-C80E-4920-998C-C7BF5AA59B8A.png",
-    "match": {
-      "x": 1368,
-      "y": 116,
-      "width": 100,
-      "height": 96,
-      "score": 11.38
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/52e483c2-c80e-4920-998c-c7bf5aa59b8a-04.png",
+    "sourceCropReused": true,
+    "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-04.png",
     "dimensions": "117x113",
     "applied": true
@@ -177,15 +135,143 @@
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11",
     "documentImage": "image16.png",
     "source": "52E483C2-C80E-4920-998C-C7BF5AA59B8A.png",
-    "match": {
-      "x": 1216,
-      "y": 244,
-      "width": 164,
-      "height": 156,
-      "score": 8.88
-    },
+    "sourceCrop": "reference/charm-repairs/source-crops/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
+    "sourceCropReused": false,
+    "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
     "dimensions": "171x161",
+    "applied": true
+  },
+  {
+    "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03",
+    "documentImage": "image17.png",
+    "source": "2075D4E3-C7DD-4C32-BBD0-38BC5DDFCF9B.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03.png",
+    "dimensions": "232x205",
+    "applied": true
+  },
+  {
+    "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28",
+    "documentImage": "image23.png",
+    "source": "DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
+    "dimensions": "164x304",
+    "applied": true
+  },
+  {
+    "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01",
+    "documentImage": "image10.png",
+    "source": "DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png",
+    "dimensions": "125x247",
+    "applied": true
+  },
+  {
+    "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15",
+    "documentImage": "image19.png",
+    "source": "DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15.png",
+    "dimensions": "108x161",
+    "applied": false
+  },
+  {
+    "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-01",
+    "documentImage": "image24.png",
+    "source": "52E483C2-C80E-4920-998C-C7BF5AA59B8A.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+    "dimensions": "225x215",
+    "applied": false
+  },
+  {
+    "id": "silver-03",
+    "documentImage": "image7.png",
+    "source": "silver.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/silver-03.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/silver-03.png",
+    "dimensions": "178x185",
+    "applied": false
+  },
+  {
+    "id": "silver-02",
+    "documentImage": "image18.png",
+    "source": "silver.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/silver-02.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/silver-02.png",
+    "dimensions": "140x277",
+    "applied": true
+  },
+  {
+    "id": "image2-02",
+    "documentImage": "image9.png",
+    "source": "image2.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/image2-02.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/image2-02.png",
+    "dimensions": "109x130",
+    "applied": false
+  },
+  {
+    "id": "image2-24",
+    "documentImage": "image20.png",
+    "source": "image2.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/image2-24.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/image2-24.png",
+    "dimensions": "167x190",
+    "applied": false
+  },
+  {
+    "id": "image2-20",
+    "documentImage": "image25.png",
+    "source": "image2.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/image2-20.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/image2-20.png",
+    "dimensions": "111x117",
+    "applied": true
+  },
+  {
+    "id": "image2-22",
+    "documentImage": "image25.png",
+    "source": "image2.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/image2-22.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/image2-22.png",
+    "dimensions": "118x118",
+    "applied": true
+  },
+  {
+    "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02",
+    "documentImage": "image13.png",
+    "source": "DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png",
+    "sourceCrop": "reference/charm-repairs/source-crops/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02.png",
+    "sourceCropReused": true,
+    "match": null,
+    "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02.png",
+    "dimensions": "213x227",
     "applied": true
   }
 ]

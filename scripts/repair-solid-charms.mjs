@@ -11,6 +11,7 @@ const REPAIR_DIR = path.join(ROOT, 'reference/charm-repairs')
 const CROP_DIR = path.join(REPAIR_DIR, 'source-crops')
 const OUTPUT_DIR = path.join(REPAIR_DIR, 'generated')
 const APPLY = process.argv.includes('--apply')
+const REFRESH_CROPS = process.argv.includes('--refresh-crops')
 const DOWNSAMPLE = 4
 
 const TARGETS = [
@@ -76,7 +77,78 @@ const TARGETS = [
     id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-11',
     sheet: '52E483C2-C80E-4920-998C-C7BF5AA59B8A.png',
     documentImage: 'image16.png',
-    padding: { top: 14, right: 14, bottom: 90, left: 14 },
+    crop: { left: 1202, top: 230, width: 192, height: 260 },
+  },
+  {
+    id: '2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03',
+    sheet: '2075D4E3-C7DD-4C32-BBD0-38BC5DDFCF9B.png',
+    documentImage: 'image17.png',
+    solid: false,
+  },
+  {
+    id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28',
+    sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
+    documentImage: 'image23.png',
+    solid: false,
+  },
+  {
+    id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01',
+    sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
+    documentImage: 'image10.png',
+    solid: false,
+  },
+  {
+    id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15',
+    sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
+    documentImage: 'image19.png',
+    apply: false,
+  },
+  {
+    id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-01',
+    sheet: '52E483C2-C80E-4920-998C-C7BF5AA59B8A.png',
+    documentImage: 'image24.png',
+    solid: false,
+    apply: false,
+  },
+  {
+    id: 'silver-03',
+    sheet: 'silver.png',
+    documentImage: 'image7.png',
+    apply: false,
+  },
+  {
+    id: 'silver-02',
+    sheet: 'silver.png',
+    documentImage: 'image18.png',
+    solid: false,
+  },
+  {
+    id: 'image2-02',
+    sheet: 'image2.png',
+    documentImage: 'image9.png',
+    apply: false,
+  },
+  {
+    id: 'image2-24',
+    sheet: 'image2.png',
+    documentImage: 'image20.png',
+    apply: false,
+  },
+  {
+    id: 'image2-20',
+    sheet: 'image2.png',
+    documentImage: 'image25.png',
+  },
+  {
+    id: 'image2-22',
+    sheet: 'image2.png',
+    documentImage: 'image25.png',
+  },
+  {
+    id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02',
+    sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
+    documentImage: 'image13.png',
+    solid: false,
   },
 ]
 
@@ -192,24 +264,29 @@ async function repair(target) {
   const cropPath = path.join(CROP_DIR, `${target.id}.png`)
   const outputPath = path.join(OUTPUT_DIR, `${target.id}.png`)
   let match = null
+  const sourceCropReused = !target.crop && !REFRESH_CROPS && fs.existsSync(cropPath)
 
-  if (target.directSource) {
-    await sharp(sheetPath).png().toFile(cropPath)
-  } else {
-    const sheet = await inkMap(sheetPath)
-    const current = await inkMap(currentPath)
-    match = matchTemplate(sheet, trimInk(current))
-    const padding = typeof target.padding === 'number'
-      ? { top: target.padding, right: target.padding, bottom: target.padding, left: target.padding }
-      : target.padding || { top: 14, right: 14, bottom: 14, left: 14 }
-    const left = Math.max(0, match.x - padding.left)
-    const top = Math.max(0, match.y - padding.top)
-    const width = Math.min(sheet.sourceWidth - left, match.width + padding.left + padding.right)
-    const height = Math.min(sheet.sourceHeight - top, match.height + padding.top + padding.bottom)
-    await sharp(sheetPath).extract({ left, top, width, height }).png().toFile(cropPath)
+  if (!sourceCropReused) {
+    if (target.crop) {
+      await sharp(sheetPath).extract(target.crop).png().toFile(cropPath)
+    } else if (target.directSource) {
+      await sharp(sheetPath).png().toFile(cropPath)
+    } else {
+      const sheet = await inkMap(sheetPath)
+      const current = await inkMap(currentPath)
+      match = matchTemplate(sheet, trimInk(current))
+      const padding = typeof target.padding === 'number'
+        ? { top: target.padding, right: target.padding, bottom: target.padding, left: target.padding }
+        : target.padding || { top: 14, right: 14, bottom: 14, left: 14 }
+      const left = Math.max(0, match.x - padding.left)
+      const top = Math.max(0, match.y - padding.top)
+      const width = Math.min(sheet.sourceWidth - left, match.width + padding.left + padding.right)
+      const height = Math.min(sheet.sourceHeight - top, match.height + padding.top + padding.bottom)
+      await sharp(sheetPath).extract({ left, top, width, height }).png().toFile(cropPath)
+    }
   }
   const cropRelative = path.relative(ROOT, cropPath)
-  const repaired = await rekey(target.id, cropRelative, true)
+  const repaired = await rekey(target.id, cropRelative, target.solid ?? true)
   const currentMeta = await sharp(currentPath).metadata()
   const normalized = await sharp(repaired.buf)
     .resize(currentMeta.width, currentMeta.height, {
@@ -220,7 +297,8 @@ async function repair(target) {
     .toBuffer()
   fs.writeFileSync(outputPath, normalized)
 
-  if (APPLY) {
+  const applied = APPLY && target.apply !== false
+  if (applied) {
     fs.writeFileSync(currentPath, normalized)
     fs.writeFileSync(path.join(PUBLIC_DIR, `${target.id}.png`), normalized)
   }
@@ -229,6 +307,8 @@ async function repair(target) {
     id: target.id,
     documentImage: target.documentImage || null,
     source: target.sheet,
+    sourceCrop: path.relative(ROOT, cropPath),
+    sourceCropReused,
     match: match
       ? {
           x: match.x,
@@ -240,7 +320,7 @@ async function repair(target) {
       : null,
     output: path.relative(ROOT, outputPath),
     dimensions: `${currentMeta.width}x${currentMeta.height}`,
-    applied: APPLY,
+    applied,
   }
 }
 

@@ -10,12 +10,12 @@ function argument(name, fallback = '') {
 
 const baseUrl = argument('url')
 const manifestPath = argument('manifest', 'reference/case-history/v1-prompts.json')
-const imageVersion = argument('image-version', 'v1')
+const defaultImageVersion = argument('image-version', 'v1')
 
 if (!/^https?:\/\//.test(baseUrl)) {
   throw new Error('Pass --url with the Pages origin, for example --url http://localhost:8788')
 }
-if (!/^v[1-9][0-9]*$/.test(imageVersion)) {
+if (!/^v[1-9][0-9]*$/.test(defaultImageVersion)) {
   throw new Error('--image-version must look like v1, v2, ...')
 }
 
@@ -49,7 +49,15 @@ async function imageMetadata(filePath) {
 }
 
 for (const prompt of manifest.prompts) {
+  if (prompt.publish === false) {
+    console.log(`skip ${prompt.modelId}:${prompt.finish} ${prompt.imageVersion || defaultImageVersion} (publish=false)`)
+    continue
+  }
   const { modelId, finish, promptText } = prompt
+  const imageVersion = prompt.imageVersion || defaultImageVersion
+  if (!/^v[1-9][0-9]*$/.test(imageVersion)) {
+    throw new Error(`${modelId}:${finish} imageVersion must look like v1, v2, ...`)
+  }
   const imagePath = `/assets/cases/case-history/${modelId}/${finish}/${imageVersion}.png`
   const localImagePath = path.join('public', imagePath)
   const metadata = await imageMetadata(localImagePath)

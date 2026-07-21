@@ -1,0 +1,682 @@
+{
+  "schemaVersion": 1,
+  "campaign": "iphone-glitter-gpt-sparse",
+  "conversationUrl": "https://chatgpt.com/c/6a5e1c0e-4730-83eb-bf17-d1ee6baf0e9b",
+  "prompts": [
+    {
+      "modelId": "iphone-7",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e7328-8584-83ed-b831-15eaf8d8c82c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000614081f4a891982092177a70&ts=495715&p=fs&cid=1&sig=d7333e9d8fb67b0f319eead84377ae7f78e86410dbcaf6066eef3b5868aac799&v=0",
+      "referenceImages": [
+        "iphone-7-white.png",
+        "gpt-iphone-7-closed-gel-path.png",
+        "gpt-iphone-7-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 7 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its modern phone, diagonal camera island, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 7, exactly ONE large round lens at far LEFT inside the original long horizontal rounded camera housing, with the tiny black microphone and original round flash to its RIGHT, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never add a second lens, redraw, zoom, crop, resize, substitute hardware or move the flash. IMAGE 1's transparent/checkerboard exterior is NOT part of the phone: replace every exterior pixel with pure solid #FFFFFF. The complete case must occupy 92% to 96% of canvas height with a narrow white margin around all four edges and corners; never output black, transparent or checkerboard exterior and never make the phone small.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the COMPLETE horizontal camera housing, microphone and flash with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the flash's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, lens cut-out, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 7; exactly ONE large round lens at far LEFT inside the original long horizontal rounded camera housing, with the tiny black microphone and original round flash to its RIGHT; NO Apple logo; pure-white exterior; case height 92%-96%; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-8",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e73b2-3cf8-83eb-babc-ba6f9e8e5a51",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000aa7881f4b9176b69db98ec2d&ts=495715&p=fs&cid=1&sig=c709c137db5b20b9d25de043c522b8b45db48a046835261848a65c3cf65ef015&v=0",
+      "referenceImages": [
+        "iphone-8-white.png",
+        "gpt-iphone-8-closed-gel-path.png",
+        "gpt-iphone-8-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 8 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its modern phone, diagonal camera island, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 8, exactly ONE large round lens at far LEFT inside the original long horizontal rounded camera housing, with the tiny black microphone and original round flash to its RIGHT, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never add a second lens, redraw, zoom, crop, resize, substitute hardware or move the flash. IMAGE 1's transparent/checkerboard exterior is NOT part of the phone: replace every exterior pixel with pure solid #FFFFFF. The complete case must occupy 92% to 96% of canvas height with a narrow white margin around all four edges and corners; never output black, transparent or checkerboard exterior and never make the phone small.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the COMPLETE horizontal camera housing, microphone and flash with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the flash's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, lens cut-out, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 8; exactly ONE large round lens at far LEFT inside the original long horizontal rounded camera housing, with the tiny black microphone and original round flash to its RIGHT; NO Apple logo; pure-white exterior; case height 92%-96%; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-7-plus",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e736e-6370-83eb-b9f6-63448467301c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000000708824386e6a7bc25f9bab4&ts=495715&p=fs&cid=1&sig=4fa6640e81a6a3a42a110fa0def50e13dcf6f9b611256a84dd5e482943c1ff33&v=0",
+      "referenceImages": [
+        "iphone-7-plus-white.png",
+        "gpt-iphone-7-plus-closed-gel-path.png",
+        "gpt-iphone-7-plus-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 7 Plus Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its modern phone, diagonal camera island, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 7 Plus, exactly TWO small lenses arranged HORIZONTALLY inside the original black pill-shaped camera window at far LEFT, with the tiny black microphone and original round flash to the RIGHT, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never rotate the lens pair, add a third lens, redraw, zoom, crop, resize, substitute hardware or move the flash. IMAGE 1's transparent/checkerboard exterior is NOT part of the phone: replace every exterior pixel with pure solid #FFFFFF. The complete case must occupy 92% to 96% of canvas height with a narrow white margin around all four edges and corners; never output black, transparent or checkerboard exterior and never make the phone small.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the COMPLETE horizontal camera housing, microphone and flash with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the flash's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, lens cut-out, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 7 Plus; exactly TWO small lenses arranged HORIZONTALLY inside the original black pill-shaped camera window at far LEFT, with the tiny black microphone and original round flash to the RIGHT; NO Apple logo; pure-white exterior; case height 92%-96%; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-8-plus",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e9ba2-bd64-83eb-bcdc-a9cd80ae836b",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000a94c81f4b803b05b27ef2653&ts=495718&p=fs&cid=1&sig=362ff73194f6284ec51a45f0a662d956548c8f8d97869c63459a898d35b5bc5f&v=0",
+      "referenceImages": [
+        "iphone-8-plus-white-solid-bg.png",
+        "gpt-iphone-8-plus-closed-gel-path.png",
+        "gpt-iphone-8-plus-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone 8 Plus using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone 8 Plus Glitter Gel product image now. IMAGE 1 alone controls the exact complete pure-white-background phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and early broad-turn location; never copy its phone, diagonal cameras, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 except remove the Apple logo and replace it with seamless matching plain off-white silicone. Keep the exact complete iPhone 8 Plus, exactly TWO lenses side-by-side inside the original horizontal black pill, plus the original microphone pinhole and circular flash to its right in the raised white housing. Preserve all corners and full edges, straight-on, centred and uncropped, on pure white #FFFFFF. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nCAMERA PROXIMITY - HIGHEST PRIORITY: Gel runs immediately beneath the complete horizontal camera housing with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the complete hardware envelope's right edge. NO large white shelf, NO wide corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate; never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. No moat, notch, keyhole, pinch, detached patch or per-lens cut-out. Leave only an extremely thin outer shell-colour hairline. Use IMAGE 4's thick puffy glossy wet bead and IMAGE 5's mostly smooth calm material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-x",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e9c04-60dc-83eb-93d1-cba6314bde1b",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000170c81f49c7dad2cb8209805&ts=495718&p=fs&cid=1&sig=2a0f99c4cbdc57f6f4214b6c462c11c8d7f4be559fc7523ddd009696c9e28e83&v=0",
+      "referenceImages": [
+        "iphone-x-white-solid-bg.png",
+        "gpt-iphone-x-closed-gel-path.png",
+        "gpt-iphone-x-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone X using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone X Glitter Gel product image now. IMAGE 1 alone controls the exact complete pure-white-background phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and early broad-turn location; never copy its phone, diagonal cameras, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 except remove the Apple logo and replace it with seamless matching plain off-white silicone. Keep the exact complete iPhone X, exactly TWO large lenses stacked vertically at the top and bottom of the original narrow black pill, with the original circular flash between them and original tiny microphone in its exact IMAGE 3 position. Preserve all rings, reflections, spacing, corners and full edges, straight-on, centred and uncropped, on pure white #FFFFFF. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nCAMERA PROXIMITY - HIGHEST PRIORITY: Gel runs immediately beneath the complete vertical camera pill with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the complete hardware envelope's right edge. NO large white shelf, NO wide right corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate; never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. No moat, notch, keyhole, pinch, detached patch or per-lens cut-out. Leave only an extremely thin outer shell-colour hairline. Use IMAGE 4's thick puffy glossy wet bead and IMAGE 5's mostly smooth calm material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-xs",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e9c39-6e28-83eb-9abf-fb7d03ce7727",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000d82881f4859e7564ac490e86&ts=495718&p=fs&cid=1&sig=12ebd5f9f5050212a127d7c21aa3ba847783f9f364641aaf5e500f1b5d90b38d&v=0",
+      "referenceImages": [
+        "iphone-xs-white-solid-bg.png",
+        "gpt-iphone-xs-closed-gel-path.png",
+        "gpt-iphone-xs-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone XS using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone XS Glitter Gel product image now. IMAGE 1 alone controls the exact complete pure-white-background phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and early broad-turn location; never copy its phone, diagonal cameras, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 except remove the Apple logo and replace it with seamless matching plain off-white silicone. Keep the exact complete iPhone XS, exactly TWO large lenses stacked vertically at the top and bottom of the original narrow black pill, with the original circular flash between them and original tiny microphone in its exact IMAGE 3 position. Preserve all rings, reflections, spacing, corners and full edges, straight-on, centred and uncropped, on pure white #FFFFFF. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nCAMERA PROXIMITY - HIGHEST PRIORITY: Gel runs immediately beneath the complete vertical camera pill with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the complete hardware envelope's right edge. NO large white shelf, NO wide right corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate; never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. No moat, notch, keyhole, pinch, detached patch or per-lens cut-out. Leave only an extremely thin outer shell-colour hairline. Use IMAGE 4's thick puffy glossy wet bead and IMAGE 5's mostly smooth calm material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-xs-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e9c5f-8948-83eb-bee6-297621f3e5d7",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000f48081f480514113dfa486a8&ts=495718&p=fs&cid=1&sig=96023d3f5e3b5589745b81fc36324a5ddc287626a02d499ee01ceb54565b2624&v=0",
+      "referenceImages": [
+        "iphone-xs-max-white-solid-bg.png",
+        "gpt-iphone-xs-max-closed-gel-path.png",
+        "gpt-iphone-xs-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone XS Max using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone XS Max Glitter Gel product image now. IMAGE 1 alone controls the exact complete pure-white-background phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and early broad-turn location; never copy its phone, diagonal cameras, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 except remove the Apple logo and replace it with seamless matching plain off-white silicone. Keep the exact complete iPhone XS Max, exactly TWO large lenses stacked vertically at the top and bottom of the original narrow black pill, with the original circular flash between them and original tiny microphone in its exact IMAGE 3 position. Preserve all rings, reflections, spacing, corners and full edges, straight-on, centred and uncropped, on pure white #FFFFFF. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nCAMERA PROXIMITY - HIGHEST PRIORITY: Gel runs immediately beneath the complete vertical camera pill with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the complete hardware envelope's right edge. NO large white shelf, NO wide right corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate; never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. No moat, notch, keyhole, pinch, detached patch or per-lens cut-out. Leave only an extremely thin outer shell-colour hairline. Use IMAGE 4's thick puffy glossy wet bead and IMAGE 5's mostly smooth calm material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-11",
+      "finish": "glitter",
+      "imageVersion": "v4",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e44d6-5418-83ed-8f4a-cfe857a5dbad",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000906c81f4870d4d6ca4457261&ts=495711&p=fs&cid=1&sig=d42507e5ebbd1d5718c61401ad3c33214aba253ee1faa15388bf10482167c23a&v=0",
+      "referenceImages": [
+        "iphone-11-white.png",
+        "gpt-iphone-11-closed-gel-path.png",
+        "gpt-iphone-11-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 11 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 11, exactly TWO large lenses stacked VERTICALLY in the original rounded-square camera island, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 11; exactly TWO large lenses stacked VERTICALLY in the original rounded-square camera island, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-11-pro",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e4508-abbc-83eb-9997-ea5994b6ffb7",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000009f44820a80f69f189173f927&ts=495712&p=fs&cid=1&sig=4bb1f66f0f09649d5de453dc9e5a93141ff648ec532e3e6700b015ce66bc5b50&v=0",
+      "referenceImages": [
+        "iphone-11-pro-white.png",
+        "gpt-iphone-11-pro-closed-gel-path.png",
+        "gpt-iphone-11-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 11 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 11 Pro, exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 11 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e4521-c6c4-83eb-8654-3e84d0a7927e",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000005e9481f4a56da46249d960d8&ts=495712&p=fs&cid=1&sig=5669f1d51f16115ef0bdca45b8e1d1a2b4de975b5dc26260aacff84e9c8c45b8&v=0",
+      "referenceImages": [
+        "iphone-11-pro-max-white.png",
+        "gpt-iphone-11-pro-max-closed-gel-path.png",
+        "gpt-iphone-11-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 11 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 11 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 11 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-12-mini",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e32f4-9110-83eb-bc1e-69c4c4ba224c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000079c0824389285fe6f7f50bfa&ts=495710&p=fs&cid=1&sig=970785ef577fa13585c3da1cb6af5fc986c9b54b8ef8deeaa9215ec23b7faa62&v=0",
+      "referenceImages": [
+        "iphone-12-mini-white.png",
+        "gpt-iphone-12-mini-closed-gel-path.png",
+        "gpt-iphone-12-mini-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 12 mini Glitter Gel product image now from the SIX attachments. This is a fresh generation, never an edit or continuation of another model.\n\nIMAGE 1 is the exact bare OFF-WHITE Apple iPhone 12 mini source and is the ONLY authority for the complete phone, shell, hardware, silhouette, scale, framing, buttons and shadows. IMAGE 2 is its coordinate-registered CLOSED RED GEL MASK and is the ONLY authority for the final Gel footprint. IMAGE 3 locks this same model's camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 result and controls ONLY how CLOSE the Gel runs beside and below the camera island and where the broad turn begins. Never copy IMAGE 6's phone, lenses, colours, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 pixel-for-pixel, including exactly TWO large lenses stacked VERTICALLY in the original blue rounded-square island, with the original flash and microphone, all proportions, buttons, full top/bottom edges and all four corners. Keep the complete phone straight-on, centred and uncropped. Never zoom, crop, rotate, resize, redraw, change lens count or substitute another iPhone. Copy IMAGE 3's camera island, lenses, rings, reflections, positions, spacing, flash and microphone exactly.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: reproduce IMAGE 6's tight camera relationship proportionally on this iPhone 12 mini. The Gel bead must run immediately beneath the camera island with only a NARROW clean strip of bare white silicone, then begin its broad rising turn near the camera island's right edge. It must NOT leave a large white shelf below the camera, a wide white corridor to its right, or a distant detached-looking Gel boundary. IMAGE 2 already encodes this tight relationship: place the centre of the OUTERMOST raised Gel bead directly on EVERY red-line coordinate with no drift. Do not inset, shrink, lower, move right, centre, approximate or reinterpret the mask.\n\nReplace the COMPLETE pale-red interior of IMAGE 2 with ONE continuous translucent milky pearl-white Glitter gel slab, then remove every red/pink pixel. Follow the short tight under-camera shoulder and early broad upward sweep exactly. No lens trace, camera moat, notch, keyhole, pinch, straight inner wall, flat top, box, pill or detached patch. Along the outer left, bottom, right and top-right boundaries leave only one extremely thin unbroken shell-colour hairline; Gel and silicone remain visibly separate.\n\nCopy IMAGE 4's thick puffy glossy wet perimeter bead with restrained folds and consistent height. Copy IMAGE 5's VERY SPARSE material: a mostly smooth calm translucent milky pearl-white centre with large clean quiet areas and only 3 to 8 isolated, widely separated pin-point silver-white micro-glints across the entire Gel. Read first as smooth pearl gel, secondarily as Glitter. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, fibres, flakes, sequins, crystals, rainbow, blobs, marble, logo, text or watermark.\n\nExterior background is pure solid white #FFFFFF. FINAL QA before output: exact complete uncropped iPhone 12 mini; exactly TWO large lenses stacked VERTICALLY in the original blue rounded-square island, with the original flash and microphone; no logo; Gel bead follows every IMAGE 2 red coordinate; camera gap as tight as IMAGE 6 with no large white shelf/corridor; one continuous slab; ultra-close outer hairline; only 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-12",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e453c-acc8-83ed-8f6a-82b83433546d",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000fbf081f4b0cb5694c4a631ef&ts=495712&p=fs&cid=1&sig=7f251c0f27c809e9e5e1f54e397153a2214be5a1b85f514eefc5a9dcdc43f35b&v=0",
+      "referenceImages": [
+        "iphone-12-white.png",
+        "gpt-iphone-12-closed-gel-path.png",
+        "gpt-iphone-12-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 12 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 12, exactly TWO large lenses stacked VERTICALLY in the original rounded-square camera island, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 12; exactly TWO large lenses stacked VERTICALLY in the original rounded-square camera island, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-12-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e3788-15b8-83eb-8fa2-a0a670f52506",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000eee48243a158229a8f6316f6&ts=495711&p=fs&cid=1&sig=8a9f04d7a2d5213f28b33eb20a73947e2f65a485acf4e41a717d12b4e9f53e17&v=0",
+      "referenceImages": [
+        "iphone-12-pro-white.png",
+        "gpt-iphone-12-pro-closed-gel-path.png",
+        "gpt-iphone-12-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 12 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 is the coordinate-registered CLOSED RED GEL MASK and alone controls the final Gel footprint. IMAGE 3 locks the same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 result and controls ONLY the tight Gel-to-camera spacing and location of the broad turn; never copy its phone, lenses, colours, sparkle density or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 12 Pro, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all four corners and full top/bottom edges, straight-on, centred and uncropped. Copy IMAGE 3's hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: Gel runs immediately beneath the camera island with only a NARROW clean strip of bare white silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below the camera, NO wide white corridor to its right, and NO distant boundary. Place the centre of the OUTERMOST bead directly on EVERY red-line coordinate in IMAGE 2. Never inset, shrink, lower, move right, centre, approximate or reinterpret it.\n\nReplace the complete pale-red interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight under-camera shoulder and early broad sweep exactly. No camera moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only one extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's VERY SPARSE material: smooth calm translucent milky pearl-white with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints across the entire Gel. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, fibres, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure solid white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 12 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; only 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-12-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e390d-85c0-83eb-b433-831f5faba182",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000d764824690d4423d1e45d91b&ts=495711&p=fs&cid=1&sig=310b999d672cee5bab40627c483f2af4c170d0c4346fb5235467f391b25151a8&v=0",
+      "referenceImages": [
+        "iphone-12-pro-max-white.png",
+        "gpt-iphone-12-pro-max-closed-gel-path.png",
+        "gpt-iphone-12-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 12 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and the broad-turn location; never copy its phone, lenses, colour, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 12 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor to the right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, fibres, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 12 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-13-mini",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e3f30-d7cc-83eb-84f2-50a02f514fd1",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000004324824390ecabb225157df7&ts=495711&p=fs&cid=1&sig=a65ecec3e389594cfaa73624a708382482c8449b8375df3907311cec8dca8659&v=0",
+      "referenceImages": [
+        "iphone-13-mini-white.png",
+        "gpt-iphone-13-mini-closed-gel-path.png",
+        "gpt-iphone-13-mini-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 13 mini Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 13 mini, exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 13 mini; exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-13",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e3976-f5dc-83ed-aaa5-03f94b7cf777",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000b2e481f4ae141237e5a38850&ts=495711&p=fs&cid=1&sig=088dcff4218c9815f28d1aefeb767aa62c73dbee24fc4af6a943048b1038022d&v=0",
+      "referenceImages": [
+        "iphone-13-white.png",
+        "gpt-iphone-13-closed-gel-path.png",
+        "gpt-iphone-13-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 13 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 13, exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 13; exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only.\n\nRetry the exact preceding iPhone 13 image-generation request now using the same six attachments and every preceding constraint unchanged. Generate exactly one image. Highest priority: preserve the exact diagonal dual-camera iPhone 13 hardware and make the Gel camera-side gap as tight as accepted IMAGE 6 iPhone 14, following every IMAGE 2 red-line coordinate. Keep only 3 to 8 micro-glints and no logo."
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e3fd1-03cc-83eb-bb94-39e439612e84",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000000488246918a276d29958453&ts=495711&p=fs&cid=1&sig=b29e70620ebba492e44937bedf68b50c69e02a36af746725caf0b272e9dc6c33&v=0",
+      "referenceImages": [
+        "iphone-13-pro-white.png",
+        "gpt-iphone-13-pro-closed-gel-path.png",
+        "gpt-iphone-13-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 13 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls exact phone, shell, hardware, scale and framing. IMAGE 2 alone controls the coordinate-registered Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised rim only. IMAGE 5 controls sparse material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and turn location; never copy its dual cameras or dense sparkle.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 13 Pro, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all edges/corners, straight-on, centred, uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, resize, substitute hardware or change lens count.\n\nHIGHEST PRIORITY IPHONE 14 PROXIMITY: Gel bead runs immediately beneath the camera island with only a NARROW white silicone strip, then begins its broad rise near the island's right edge. NO large white shelf, NO wide right corridor, NO distant boundary. Put OUTERMOST bead centre on EVERY IMAGE 2 red coordinate; never inset, shrink, lower or move right.\n\nReplace all tinted interior with ONE continuous translucent milky pearl-white slab and remove red/pink. Follow short tight shoulder and early broad sweep. No moat, notch, keyhole, pinch, box, pill or detached patch. Keep an extremely thin outer shell hairline and separate Gel/silicone.\n\nUse IMAGE 4's thick puffy glossy wet bead and IMAGE 5's smooth calm material with ONLY 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6 particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Pure white exterior.\n\nFINAL QA: exact uncropped iPhone 13 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; iPhone 14-tight camera gap; every mask coordinate followed; one slab; 3-8 glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e40f8-16ac-83eb-bdb9-a1ca7a2c0955",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000670c82438aac64c1150b890f&ts=495711&p=fs&cid=1&sig=ff230bd555626b9fc7bbf63afb7ce5324238f87e2126b97ff1f29b9e4bb46c32&v=0",
+      "referenceImages": [
+        "iphone-13-pro-max-white.png",
+        "gpt-iphone-13-pro-max-closed-gel-path.png",
+        "gpt-iphone-13-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 13 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls exact phone, shell, hardware, scale and framing. IMAGE 2 alone controls coordinate-registered Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised rim only. IMAGE 5 controls sparse material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and turn location; never copy its dual cameras or dense sparkle.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 13 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all edges/corners, straight-on, centred, uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, resize, substitute hardware or change lens count.\n\nHIGHEST PRIORITY IPHONE 14 PROXIMITY: Gel bead runs immediately beneath camera island with only a NARROW white silicone strip, then begins broad rise near island right edge. NO large white shelf, NO wide right corridor, NO distant boundary. Put OUTERMOST bead centre on EVERY IMAGE 2 red coordinate; never inset, shrink, lower or move right.\n\nReplace all tinted interior with ONE continuous translucent milky pearl-white slab and remove red/pink. Follow short tight shoulder and early broad sweep. No moat, notch, keyhole, pinch, box, pill or detached patch. Keep extremely thin outer shell hairline and separate Gel/silicone.\n\nUse IMAGE 4's thick puffy glossy wet bead and IMAGE 5's smooth calm material with ONLY 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6 particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Pure white exterior.\n\nFINAL QA: exact uncropped iPhone 13 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; iPhone 14-tight camera gap; every mask coordinate followed; one slab; 3-8 glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-14",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+      "sourceUrl": "",
+      "referenceImages": [
+        "iphone-14-white.png",
+        "iphone-14-glitter-v2.png",
+        "gpt-glitter-pixel-10-pro.png",
+        "gpt-iphone-14-wide-camera-clearance.png"
+      ],
+      "promptText": "Generate exactly ONE image now: iPhone 14 Glitter gel v3. IMAGE 1 is the exact bare white iPhone 14 case and is the only authority for the phone, camera hardware, silhouette, scale, framing, background, shadows and buttons. Preserve it pixel-for-pixel: keep the complete original diagonal dual-camera island, lenses, flash and sensor intact; keep the full phone visible, uncropped, unrotated, and do not add or remove a logo, hardware, gel patch or shell feature. IMAGE 2 is the accepted iPhone 14 Glitter v2. Preserve its overall continuous L-shaped gel footprint, outer hairline clearance, and raised-rim language. IMAGE 3 supplies Glitter material only: subtle, even, fine pearlescent micro-sparkle. Do not use chunky glitter, coloured glitter, text, patterns or icons. IMAGE 4 is the mandatory red camera-clearance guide. Red means NO GEL. The camera's right-side gel boundary must follow its larger, broad rounded turn: extend the bare-shell clearance farther to the right of the camera module, then use one wide smooth arc down into the lower gel slab. This is the only permitted geometry change from IMAGE 2. Do not use a short-radius corner, narrow bend, straight vertical rise, or gel that approaches the camera more closely than the guide. Render one continuous pale transparent Glitter gel slab everywhere outside that intentional camera keep-out and the fixed thin outer shell border. No isolated bare-shell islands, no detached gel pieces, no camera cut-out per lens, no red lines, no guide overlay, no labels. Output only the finished product image."
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e4744-c3c4-83eb-a172-e28446f0d21a",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000004a6c8246bb861255364455e1&ts=495712&p=fs&cid=1&sig=923726067ce5a75447de293997cd3f4758f920ed15d9842bed51939789b4000e&v=0",
+      "referenceImages": [
+        "iphone-14-plus-white.png",
+        "gpt-iphone-14-plus-closed-gel-path.png",
+        "gpt-iphone-14-plus-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 14 Plus Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 14 Plus, exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 14 Plus; exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e478c-fb44-83eb-837e-e8b121001172",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000008e8481f493b124a689bce12f&ts=495712&p=fs&cid=1&sig=8b0221db5fe5a4e411a5df191f13388509a3c628bb027965022e76944d82a5e2&v=0",
+      "referenceImages": [
+        "iphone-14-pro-white.png",
+        "gpt-iphone-14-pro-closed-gel-path.png",
+        "gpt-iphone-14-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 14 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 14 Pro, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 14 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e47cc-56f8-83eb-a5d4-5e929c474936",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000076f0824393dfe08c9e8a0db1&ts=495712&p=fs&cid=1&sig=23a3977338d9f9c78fd21d61e7b4ded1b24dbfe08763b08a4d7edda53ecf4c6b&v=0",
+      "referenceImages": [
+        "iphone-14-pro-max-white.png",
+        "gpt-iphone-14-pro-max-closed-gel-path.png",
+        "gpt-iphone-14-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 14 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 14 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 14 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-15",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e4814-8140-83eb-9910-a47c7ae3fbaf",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000364c8243b067f88d672b4b49&ts=495712&p=fs&cid=1&sig=9144a0a3a9a9e21647f695d704cd341441b0ec920ae9326f25fb5a55d1969a19&v=0",
+      "referenceImages": [
+        "iphone-15-white.png",
+        "gpt-iphone-15-closed-gel-path.png",
+        "gpt-iphone-15-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 15 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 15, exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 15; exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6d1e-24d0-83eb-90fd-b1c5a4ec053a",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000046a881f4b42cd5a27f527c9c&ts=495714&p=fs&cid=1&sig=2d2305a00cddf28842cf6cd366956cd3da923e74d73184f05713cce3bc986038&v=0",
+      "referenceImages": [
+        "iphone-15-plus-white.png",
+        "gpt-iphone-15-plus-closed-gel-path.png",
+        "gpt-iphone-15-plus-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 15 Plus Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 15 Plus, exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 15 Plus; exactly TWO large lenses in the original DIAGONAL arrangement, with the original flash and microphone; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6d5d-7644-83eb-82e4-b21721c79c6b",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000094908246bd651442c6a0a318&ts=495714&p=fs&cid=1&sig=407ea1296335c7e3f241aebbcbd8c4556b8bd80be26ce6c77b1414221f69d970&v=0",
+      "referenceImages": [
+        "iphone-15-pro-white.png",
+        "gpt-iphone-15-pro-closed-gel-path.png",
+        "gpt-iphone-15-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 15 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 15 Pro, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 15 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6d8d-9aac-83eb-a8af-5fc091a6c84f",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000008a4081f483b676a0dd284fd7&ts=495714&p=fs&cid=1&sig=1da330d94fb1f6337376f529cc6a661f7d9090715195928dc13250d922a8f436&v=0",
+      "referenceImages": [
+        "iphone-15-pro-max-white.png",
+        "gpt-iphone-15-pro-max-closed-gel-path.png",
+        "gpt-iphone-15-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 15 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 15 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the camera island with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the island's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 15 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original flash, microphone and LiDAR sensor; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-16",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5ac9fc-02c4-83eb-9805-cc47dd872d49",
+      "sourceUrl": "",
+      "referenceImages": [
+        "iphone-16-white.png",
+        "gpt-iphone-16-17-standard-gel-path.png",
+        "gpt-glitter-pixel-10-pro(1).png"
+      ],
+      "promptText": "Generate exactly ONE image now.\n\nIMAGE 1 = the exact bare OFF-WHITE Apple iPhone 16 in its silicone case attached to THIS message (iphone-16-white.png). IMAGE 2 = the user-approved red-line gel-footprint guide attached to THIS message (gpt-iphone-16-17-standard-gel-path.png). IMAGE 3 = the fixed gpt-glitter-pixel-10-pro(1).png. Add Glitter gel to IMAGE 1.\n\nSOURCE AUTHORITY - NON-NEGOTIABLE: IMAGE 1 alone is authoritative for the phone, camera hardware and silicone shell. Preserve pixel-for-pixel its exact Apple iPhone 16 identity, two vertically stacked rear lenses inside the original narrow vertical camera housing, the separate circular flash to the right, every sensor, button, silhouette, body and shell proportion, width/height ratio, colour, texture, shadow, scale, position, framing, complete bottom edge and all four corners. Keep the whole phone fully visible and uncropped. Do not zoom, crop, reframe, rotate, shorten, widen, rescale, redraw, redesign, smooth over, fuse or substitute any product part. Never convert it into a Pro model, square camera island, diagonal-lens layout or three-lens layout. IMAGE 2 supplies gel geometry only and must never replace IMAGE 1's phone or hardware. IMAGE 3 supplies gel material only.\n\nRED-LINE FOOTPRINT LOCK - COPY IMAGE 2: the red line marks the required gel perimeter and camera-side boundary. Reproduce that path as closely as physically possible, but NEVER render the red line, guide marks or any coloured outline in the final image. Make one continuous poured-gel slab covering the large lower and right-hand usable back inside that path.\n\nSTANDARD iPHONE 16/17 CAMERA-SIDE PATH: at the upper-left, the gel boundary must enter from the left side BELOW the complete vertical two-lens camera housing, sweep rightward as one broad, nearly horizontal, softly rounded shoulder beneath the entire camera housing, continue beneath the separate flash, then make one large smooth upward turn to the RIGHT of the flash and rise toward the top edge in the upper-right region. This creates the same single broad stepped L-shaped exclusion zone shown by IMAGE 2. Treat the full vertical camera housing and separate flash as one grouped keep-out.\n\nFORBIDDEN CAMERA GEOMETRY: do not wrap gel tightly around either lens; do not put gel between the two lenses; do not create a U-shaped or keyhole notch around the flash; do not make individual lens or flash cut-outs; do not trace the circular hardware; do not bridge a narrow strip of gel between the camera housing and flash; do not use an iPhone Pro rounded-square camera island. The camera-side boundary must remain one simple continuous broad curve with generous radii and clear bare shell around every hardware edge.\n\nVERY-CLOSE OUTER FIT: along the left side below the camera shoulder, the complete right side, bottom, and the top-right segment reached by the red-line path, leave one continuous one-pixel-like hairline of silicone shell between gel and the raised shell wall, approximately 0.3%-0.5% of case width and never wider than 0.7%. Keep the reveal optically equal, parallel to the shell wall and continuous around corners. Do not shrink or centre the gel, leave a normal-width border, touch the shell wall or climb onto it.\n\nSHELL AND CAMERA PROPORTION LOCK: compare against IMAGE 1 before output. The phone's outer width-to-height ratio and camera hardware's relative size and placement must remain unchanged. Preserve the exact narrow vertical camera housing and separate flash spacing. No shell distortion, narrower body, enlarged camera, softened hardware, altered corner radius or missing edge.\n\nGEL/SHELL SEPARATION: gel and silicone remain visibly separate materials. Preserve the shell-colour hairline and tiny natural contact shadow around the complete gel perimeter. Keep the glossy raised gel bead fully inside the flat back panel. Never blend the gel into the silicone rim, recolour the shell as gel, erase the shell reveal, create a double rim or make the gel look moulded into the case.\n\nRAISED GEL RIM: follow IMAGE 2's thick, puffy, raised wet perimeter bead with restrained organic waves. Keep bead thickness and height visually consistent along the outer perimeter and the broad camera-side shoulder. The centre stays calmer and flatter. No thin hard cut edge, inflated corner blob or style change near the camera.\n\nGLITTER MATERIAL LOCK: reproduce IMAGE 3 exactly. Keep its calm translucent-milky low-contrast pearl-white centre and exact subtle embedded micro-shimmer. Do not invent sequins, crystals, sand, silver flakes, rainbow glitter, large sparkle dots, marble streaks or glossy centre bands. The thick raised rim carries the visible wet gloss and soft liquid folds.\n\nFINAL QA BEFORE OUTPUT: exact Apple iPhone 16 source shell; vertical two-lens standard-model camera identity; one continuous slab; camera boundary follows IMAGE 2's broad under-camera shoulder and right-of-flash upward turn; no individual hardware notches; no red guide line; very-close equal outer hairline; shell and gel never fused; exact Glitter material; no added logo, text, icon or symbol. Output one photorealistic ultra-high-resolution straight-on full back-view product image only.\n\nPUBLICATION VERSION: reissue the accepted no-logo image at a new immutable asset path after the previous CDN path returned a cached fallback document."
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6dc1-fd8c-83eb-b545-f6ff38ca54c7",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000009c481f4bae6f93d042bc282&ts=495714&p=fs&cid=1&sig=ea53b92e7f491fa7a7c1ae3fc255a300cba6b2836e98a97abb2a7a85643935d6&v=0",
+      "referenceImages": [
+        "iphone-16-plus-white.png",
+        "gpt-iphone-16-plus-closed-gel-path.png",
+        "gpt-iphone-16-plus-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 16 Plus Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, diagonal camera island, hardware, dense sparkle or proportions.\n\nPreserve IMAGE 1 pixel-for-pixel: exact iPhone 16 Plus, exactly TWO large lenses stacked VERTICALLY inside the original tall narrow pill-shaped camera island, with the tiny original microphone beside them and the separate round flash to the RIGHT of the island, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware, move the separate flash or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the complete camera hardware envelope, including the separate right-side flash, with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the flash's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 16 Plus; exactly TWO large lenses stacked VERTICALLY inside the original tall narrow pill-shaped camera island, with the tiny original microphone beside them and the separate round flash to the RIGHT of the island; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6f67-21fc-83ed-a89a-840473ae658c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000189881f4a6b577195693a005&ts=495715&p=fs&cid=1&sig=d500b3f78a364750994f9d6676099725ff55ea74fff366b6347c07d96ad9e842&v=0",
+      "referenceImages": [
+        "iphone-16-pro-white.png",
+        "gpt-iphone-16-pro-closed-gel-path.png",
+        "gpt-iphone-16-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 16 Pro Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, diagonal dual-camera hardware, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 16 Pro, exactly THREE large lenses in the original triangular arrangement, with the original round flash at upper right, black LiDAR sensor at lower right and tiny microphone beside them, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the complete camera hardware envelope with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the envelope's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 16 Pro; exactly THREE large lenses in the original triangular arrangement, with the original round flash at upper right, black LiDAR sensor at lower right and tiny microphone beside them; NO Apple logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e74ad-bca8-83ed-9670-a0b9b8bf200f",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000007ecc81f4a26fb9c3fac25aeb&ts=495715&p=fs&cid=1&sig=b278e00994672c18343e75770ce2b7acc6c1d56a1ec3b4ad75315978b198d589&v=0",
+      "referenceImages": [
+        "iphone-16-pro-max-white-solid-bg.png",
+        "gpt-iphone-16-pro-max-closed-gel-path.png",
+        "gpt-iphone-16-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 16 Pro Max Glitter Gel product image now from the SIX attachments. This is a FRESH generation, not an edit of any prior result. IMAGE 1 is the exact same-model source already on a pure-white background and alone controls the complete phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 controls ONLY the accepted iPhone 14's tight Gel-to-camera spacing and broad-turn location; never copy its phone, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 16 Pro Max, exactly THREE large lenses in the original triangular arrangement, with the original round flash at upper right, black LiDAR sensor at lower right and tiny microphone beside them, all corners and full edges, straight-on, centred and uncropped. Keep its existing near-full-canvas scale; the complete case must occupy 92% to 96% of canvas height with a narrow pure #FFFFFF margin. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, shrink, substitute hardware, change lens count, or create black/transparent/checkerboard exterior.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the complete camera hardware envelope with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the envelope's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 16 Pro Max; exactly THREE large lenses in the original triangular arrangement, with the original round flash at upper right, black LiDAR sensor at lower right and tiny microphone beside them; NO logo; case height 92%-96%; pure-white exterior; camera gap as tight as IMAGE 6; one slab; only 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-17",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e6fb9-9530-83eb-9d39-51fcc952e1d5",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000009d1c81f4a6ea0155953f0fbc&ts=495715&p=fs&cid=1&sig=47ea0bc0444cea756ffde3d35a06db185ae866e213f947a96d3ad0e9c51012c1&v=0",
+      "referenceImages": [
+        "iphone-17-white.png",
+        "gpt-iphone-17-closed-gel-path.png",
+        "gpt-iphone-17-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 17 Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, diagonal camera island, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 17, exactly TWO large lenses stacked VERTICALLY inside the original tall BLACK pill-shaped camera island, with the tiny original microphone inside the pill and the separate round flash to the RIGHT, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware, move the separate flash or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the complete camera hardware envelope, including the separate right-side flash, with only a NARROW clean strip of bare silicone, then begins its broad rising turn near the flash's right edge. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 17; exactly TWO large lenses stacked VERTICALLY inside the original tall BLACK pill-shaped camera island, with the tiny original microphone inside the pill and the separate round flash to the RIGHT; NO Apple logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e8fea-2ac8-83eb-99cf-312023ebd02c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000a66881f4ab1cb25fd5e982c5&ts=495718&p=fs&cid=1&sig=d1e4cfee252a6da61ac0213ce27ea656f924206391fea97439b181129c21af82&v=0",
+      "referenceImages": [
+        "iphone-17-pro-white-bg.png",
+        "gpt-iphone-17-pro-closed-gel-path.png",
+        "gpt-iphone-17-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone 17 Pro using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone 17 Pro Glitter Gel product image now.\n\nREFERENCE AUTHORITY: IMAGE 1 alone controls the exact complete pure-white-background iPhone 17 Pro, shell, full-width camera plateau, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks the exact same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and the location of the early broad turn; never copy its phone, compact camera island, dual-camera hardware, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 pixel-for-pixel: exact iPhone 17 Pro with the original full-width top camera plateau, exactly THREE large lenses in their original left-side triangular arrangement, and the original right-side flash, microphone and LiDAR sensor group. Preserve all corners and full edges, straight-on, centred and uncropped, with pure white #FFFFFF exterior. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware or change lens count.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the complete full-width camera plateau with only a NARROW clean strip of bare silicone, following every IMAGE 2 red-line coordinate. NO large white shelf below the plateau, NO wide corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow IMAGE 2 exactly. No moat, notch, keyhole, pinch, detached patch or per-lens cut-out. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark.\n\nFINAL QA: exact complete uncropped iPhone 17 Pro; correct full-width camera plateau and three-lens hardware; pure white exterior; no logo; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only.\n\nEDIT ONLY THE EXTERIOR BACKGROUND of this exact generated iPhone 17 Pro image. Replace every black or dark strip/pixel OUTSIDE the physical phone/case silhouette along the left and right canvas edges with uniform pure white #FFFFFF. Keep the exact 863x1822 portrait canvas, current near-full-canvas phone scale, all four complete phone edges, camera plateau, three lenses, flash, microphone, LiDAR, tight Gel geometry, raised rim, shadows, material and exactly the same sparse micro-glints unchanged pixel-for-pixel. Do not zoom, shrink, crop, reframe, recolor the product, add particles, add a logo, or alter any pixel inside the physical case silhouette. Output exactly one corrected full image."
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e72e1-3080-83eb-a01b-12e430c2abbe",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000006e1c81f4bdbed76d32869709&ts=495715&p=fs&cid=1&sig=0a2e8de8a02d8ec01b09f17594d9e3597f8974af9adc7db444b2093969f21e78&v=0",
+      "referenceImages": [
+        "iphone-17-pro-max-white.png",
+        "gpt-iphone-17-pro-max-closed-gel-path.png",
+        "gpt-iphone-17-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 17 Pro Max Glitter Gel product image now from the SIX attachments. IMAGE 1 alone controls the exact complete phone, white shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is the accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and broad-turn location; never copy its phone, compact camera island, dense sparkle, logo or proportions.\n\nPreserve IMAGE 1 exactly except REMOVE its faint Apple logo: exact iPhone 17 Pro Max, the original full-width horizontal rounded-rectangle camera plateau, exactly THREE large lenses in a triangular group on the LEFT, the round flash at upper RIGHT, tiny microphone near centre-right and black LiDAR sensor at lower RIGHT, all corners and full edges, straight-on, centred and uncropped. Copy IMAGE 3 hardware and full-width plateau exactly. Never redraw, zoom, crop, resize, narrow the plateau, substitute hardware or change lens count. IMAGE 1's transparent/checkerboard exterior is NOT part of the phone: replace every exterior pixel with pure solid #FFFFFF. The complete case must occupy 92% to 96% of canvas height with a narrow white margin around all four edges and corners; never output black, transparent or checkerboard exterior and never make the phone small.\n\nIPHONE 14 CAMERA-PROXIMITY LOCK - HIGHEST PRIORITY: the Gel runs immediately beneath the COMPLETE full-width camera plateau with only a NARROW clean strip of bare silicone, then follows IMAGE 2's early broad transition at the plateau's right side. NO large white shelf below, NO wide white corridor right, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate. Never inset, shrink, lower, move right, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. Follow the short tight shoulder and early broad sweep exactly. No moat, notch, keyhole, pinch, flat top, box, pill or detached patch. Leave only an extremely thin outer shell-colour hairline; keep Gel and silicone separate.\n\nUse IMAGE 4's thick puffy glossy wet bead. Use IMAGE 5's smooth calm VERY SPARSE material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, marble, Apple logo, text or watermark. Pure white #FFFFFF exterior.\n\nFINAL QA: exact complete uncropped iPhone 17 Pro Max; the original full-width horizontal rounded-rectangle camera plateau, exactly THREE large lenses in a triangular group on the LEFT, the round flash at upper RIGHT, tiny microphone near centre-right and black LiDAR sensor at lower RIGHT; NO Apple logo; pure-white exterior; case height 92%-96%; camera gap as tight as IMAGE 6; bead follows every IMAGE 2 coordinate; one slab; 3 to 8 micro-glints. Output one photorealistic high-resolution straight-on full-back product image only."
+    },
+    {
+      "modelId": "iphone-air",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": true,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e9bd4-18d8-83eb-81a2-ddf34e5666d3",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000bfec81f48449bc44286eeca8&ts=495718&p=fs&cid=1&sig=1e32299f953e2db8f1380cafada668307a49972d2f8747b6cf4457565459572d&v=0",
+      "referenceImages": [
+        "iphone-air-white-solid-bg.png",
+        "gpt-iphone-air-closed-gel-path.png",
+        "gpt-iphone-air-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png",
+        "v3.png"
+      ],
+      "promptText": "FINAL GENERATION REQUEST for the same iPhone Air using all SIX registered references. Generate exactly ONE NEW full-canvas iPhone Air Glitter Gel product image now. IMAGE 1 alone controls the exact complete pure-white-background phone, shell, hardware, scale, framing, buttons and shadows. IMAGE 2 alone controls the coordinate-registered final Gel footprint. IMAGE 3 locks same-model camera hardware. IMAGE 4 controls raised-rim material only. IMAGE 5 controls very sparse Glitter material only. IMAGE 6 is accepted iPhone 14 and controls ONLY tight Gel-to-camera spacing and early broad-turn location; never copy its phone, dual cameras, dense sparkle or proportions.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 except remove the Apple logo and replace it with seamless matching plain off-white silicone. Keep the exact complete iPhone Air with its original wide horizontal raised camera plateau, exactly ONE large lens at the left, the original small microphone near centre, and the original circular flash at right. Preserve all corners and full edges, straight-on, centred and uncropped, on pure white #FFFFFF. Copy IMAGE 3 hardware exactly. Never redraw, zoom, crop, resize, substitute hardware, add a lens or change lens count.\n\nCAMERA PROXIMITY - HIGHEST PRIORITY: Gel runs immediately beneath the complete wide camera plateau with only a NARROW clean strip of bare silicone and follows every IMAGE 2 red-line coordinate. NO large white shelf below the plateau, NO wide corridor, NO distant boundary. Put the OUTERMOST bead centre on EVERY IMAGE 2 red-line coordinate; never inset, shrink, lower, centre or approximate it.\n\nReplace the complete tinted interior with ONE continuous translucent milky pearl-white slab and remove all red/pink. No moat, notch, keyhole, pinch, detached patch or lens cut-out. Leave only an extremely thin outer shell-colour hairline. Use IMAGE 4's thick puffy glossy wet bead and IMAGE 5's mostly smooth calm material with large quiet areas and only 3 to 8 isolated widely separated pin-point silver-white micro-glints. Do NOT copy IMAGE 6's dense particles. No grain, frost, sand, dense dots, flakes, crystals, rainbow, marble, Apple logo, text or watermark. Output one photorealistic high-resolution straight-on full-back product image only.\n\nExecute the exact immediately preceding FINAL GENERATION REQUEST now using all SIX references already registered in this conversation. Generate exactly ONE image. Do not explain, summarize, or ask questions. Preserve every preceding model-specific hardware, pure-white-background, tight-camera-proximity, no-logo, and 3-to-8-micro-glint constraint unchanged."
+    },
+    {
+      "modelId": "iphone-11",
+      "finish": "glitter",
+      "imageVersion": "v3",
+      "publish": false,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e1c0e-4730-83eb-bf17-d1ee6baf0e9b",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000ad34824691a3d86318ecde40&ts=495709&p=fs&cid=1&sig=df37af1f9e6ecc1d8a375c2a444a7762931cbc5e1605b94f50971f474f99ad11&v=0",
+      "referenceImages": [
+        "iphone-11-white.png",
+        "gpt-iphone-11-run6-exact-gel-path.png",
+        "iphone-11-camera-lock.png",
+        "iphone-14-v3-approved-rim-detail.png",
+        "iphone-14-v3-approved-glitter-detail.png"
+      ],
+      "promptText": "Generate exactly ONE NEW image. IMAGE 1 is the exact bare OFF-WHITE Apple iPhone 11 case and alone controls the complete phone, shell, hardware, scale, framing and proportions. IMAGE 2 is the coordinate-registered closed red gel-placement mask and controls geometry only. IMAGE 3 is an exact source-pixel crop of the same two-camera iPhone 11 camera island and controls hardware only. IMAGE 4 is a camera-free accepted iPhone 14 Glitter v3 raised-rim detail and controls local rim style only. IMAGE 5 is a camera-free accepted iPhone 14 Glitter v3 material detail and controls material only. Preserve the complete uncropped straight-on iPhone 11 with exactly TWO large black lenses stacked VERTICALLY, plus its original microphone and flash. Replace the complete tinted interior of IMAGE 2 with one continuous Glitter gel slab whose outermost raised bead follows the closed red outline exactly. Preserve the broad under-camera shoulder, wide rounded top-right crown, ultra-close off-white shell hairline, pure-white exterior background, and separate gel/silicone materials. Use a thick puffy glossy wet perimeter bead and a calm translucent milky pearl-white centre. MATERIAL-ONLY FINAL CORRECTION: keep every pixel of the phone, shell, two vertical cameras, flash, microphone, framing, white background, gel footprint, L-shaped camera shoulder, top-right crown, outer hairline, raised rim and shadows geometrically locked. Remove approximately 90% of visible sparkle particles and remove continuous grain, frost and sand texture. The broad centre must be mostly smooth, calm translucent milky pearl-white with large clean quiet areas. Retain only a very small number of isolated, widely separated pin-point silver-white micro-glints, so the image reads first as smooth pearl gel and only secondarily as Glitter. No dense dots, fibres, squiggles, flakes, sequins, crystals, sand, frost, rainbow colour, logo, text or watermark. Output the same complete uncropped image only."
+    },
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": false,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e2a63-4348-83ed-bfb2-d2fa41200e7c",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000e01c81f48977be61acc99fee&ts=495710&p=fs&cid=1&sig=3678f4b20f98138a9d4cfda25e602be6c5ede2492c7169042a21becdd91986fd&v=0",
+      "referenceImages": [
+        "iphone-11-pro-max-white.png",
+        "gpt-iphone-11-pro-max-closed-gel-path.png",
+        "gpt-iphone-11-pro-max-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 11 Pro Max Glitter Gel product image from the five attachments. IMAGE 1 alone controls the exact complete phone, shell, three-lens triangular camera hardware, silhouette, scale, framing, buttons and shadows. IMAGE 2 is the coordinate-registered closed red gel mask and controls geometry only. IMAGE 3 locks the same-model camera hardware. IMAGE 4 controls the thick puffy glossy wet raised rim. IMAGE 5 controls the very sparse material. Replace the complete red interior with one continuous pearl-white slab whose outermost bead covers the full red outline, including its broad under-camera shoulder, smooth rising sweep, wide crown and ultra-close outer fit. Keep gel and silicone separate. The centre must be mostly smooth translucent milky pearl-white with large quiet areas and only a very small number of isolated, widely separated pin-point silver-white micro-glints. No grain, frost, sand, dense dots, flakes, sequins, crystals, rainbow, logo, text or watermark. Preserve the full uncropped iPhone 11 Pro Max and pure-white exterior background."
+    },
+    {
+      "modelId": "iphone-11-pro",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": false,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e29a2-be94-83eb-a86d-e50510e52264",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000001d9c8246b5f30b0ce8876378&ts=495710&p=fs&cid=1&sig=33a8247d757e34ef2282cd369712af65e97e136a1d77a03e34013f14ebe4a57a&v=0",
+      "referenceImages": [
+        "iphone-11-pro-white.png",
+        "gpt-iphone-11-pro-closed-gel-path.png",
+        "gpt-iphone-11-pro-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 11 Pro Glitter Gel product image now. This is a fresh generation from the five attachments, never an edit or continuation of another model.\n\nIMAGE 1 is the exact bare OFF-WHITE Apple iPhone 11 Pro source and is the ONLY authority for the complete phone, case shell, hardware, silhouette, scale, framing, buttons and shadows. IMAGE 2 is IMAGE 1 with an exact coordinate-registered CLOSED RED GEL-PLACEMENT MASK and controls gel geometry only. IMAGE 3 is an exact source-pixel crop of this same model's camera hardware and controls camera identity only. IMAGE 4 is a camera-free accepted sparse-Glitter raised-rim detail and controls local rim style only. IMAGE 5 is a camera-free accepted sparse-Glitter material detail and controls material only.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 pixel-for-pixel for the exact Apple iPhone 11 Pro identity, proportions, off-white shell, exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone, all buttons, full top and bottom edges and all four corners. Keep the entire phone straight-on, centred and uncropped. Never zoom, crop, rotate, resize, redraw, substitute hardware, change lens count or convert it into another iPhone. Copy IMAGE 3's camera lenses, rings, reflections, positions, spacing, flash, microphone, island size and surround exactly.\n\nEXACT CLOSED RED MASK - HIGHEST GEOMETRY PRIORITY: the pale-red interior of IMAGE 2 is the complete intended gel footprint. Replace that entire tinted region with ONE continuous pale pearl-white Glitter gel slab. Put the centre of the OUTERMOST raised gel bead directly on the complete closed red outline with no inward or outward drift, then remove every red/pink pixel. Do not inset, shrink, centre, approximate or reinterpret the mask.\n\nCOPY THE ORGANIC CAMERA SHOULDER EXACTLY: follow IMAGE 2's long calm under-camera shoulder, early broad continuously changing upward sweep, and one wide soft top-right crown. Never trace individual lenses or the camera island; no moat, notch, keyhole, pinch, straight inner wall, flat top, box, pill or detached top patch. Cover every tinted pixel as one continuous slab.\n\nULTRA-CLOSE OUTER FIT: follow IMAGE 2 along the complete left, bottom and right edges and top-right segment. Leave only one extremely thin unbroken shell-colour hairline and tiny contact shadow. Gel and silicone must remain visibly separate; never fuse them or create a double rim.\n\nRAISED RIM: reproduce IMAGE 4's thick puffy glossy wet perimeter bead with restrained liquid folds and consistent height around the full outer boundary and camera shoulder. Keep the broad centre calm and flat.\n\nSPARSE GLITTER MATERIAL - NON-NEGOTIABLE: reproduce IMAGE 5 exactly. The broad centre must be mostly smooth translucent milky pearl-white with large clean quiet areas. Retain only a VERY SMALL NUMBER of isolated, widely separated pin-point silver-white micro-glints, comparable to IMAGE 5. The image must read first as smooth pearl gel and only secondarily as Glitter. No continuous grain, frost, sand, dense dots, fibres, flakes, sequins, crystals, rainbow colour, blobs, marble, logo, text or watermark.\n\nBACKGROUND: every exterior pixel outside the shell must be pure solid white (#FFFFFF), with no transparency, black/grey background, checkerboard, halo, frame, floor, horizon or props. Retain only IMAGE 1's tiny natural contact shadow.\n\nFINAL QA: exact full uncropped iPhone 11 Pro; exactly THREE large lenses in the original triangular arrangement, with the original flash and microphone; outermost bead covers every part of IMAGE 2's red line; one continuous slab; broad camera shoulder; ultra-close outer hairline; sparse material matching IMAGE 5; pure white exterior. Correct any failure before output. Output one photorealistic ultra-high-resolution straight-on full-back product image only.\n\nLOCAL LOGO REMOVAL ONLY on THIS EXACT current image. Remove ONLY the faint Apple logo visible in the broad gel centre and seamlessly fill that small logo area with the same surrounding smooth translucent milky pearl-white gel. No logo, brand mark, icon, text or watermark may remain. LOCK EVERY OTHER PIXEL: preserve the complete uncropped iPhone 11 Pro, exactly three original camera lenses and all camera hardware, shell, silhouette, scale, framing, pure-white background, full gel footprint, broad shoulder, wide crown, ultra-close outer hairline, raised wet perimeter bead, sparse isolated micro-glints, shadows and every edge exactly unchanged. Do not redraw, move, crop, zoom, resize, reframe, add glitter or alter geometry. Output the same complete full-back product image only."
+    },
+    {
+      "modelId": "iphone-12",
+      "finish": "glitter",
+      "imageVersion": "v2",
+      "publish": false,
+      "generator": "ChatGPT",
+      "conversationUrl": "https://chatgpt.com/c/6a5e2b0d-adf4-83ed-9f81-10cff855364d",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000bd54820ab168c396d1ff2ea7&ts=495710&p=fs&cid=1&sig=560389c637cda3f42aaca20fa60ea98678fc986e6ed4fb12e70bb91d1d6bd114&v=0",
+      "referenceImages": [
+        "iphone-12-white.png",
+        "gpt-iphone-12-closed-gel-path.png",
+        "gpt-iphone-12-camera-lock.png",
+        "gpt-sparse-glitter-rim-detail.png",
+        "gpt-sparse-glitter-material-detail.png"
+      ],
+      "promptText": "Generate exactly ONE NEW full-canvas iPhone 12 Glitter Gel product image now from the five attachments, never an edit of another model. IMAGE 1 is the exact bare OFF-WHITE iPhone 12 and the ONLY authority for the complete phone, shell, hardware, silhouette, scale, framing, buttons and shadows. IMAGE 2 is its coordinate-registered CLOSED RED GEL MASK and controls geometry only. IMAGE 3 is an exact same-model camera crop and controls hardware only. IMAGE 4 controls raised-rim style only. IMAGE 5 controls sparse material only.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1 pixel-for-pixel, including exactly TWO large lenses stacked VERTICALLY in the original rounded-square island, with the original flash and microphone, all proportions, buttons, full top/bottom edges and corners. Keep the whole phone straight-on, centred and uncropped. Never zoom, resize, redraw, change lens count or substitute another iPhone. Copy IMAGE 3's camera hardware exactly.\n\nReplace the COMPLETE pale-red interior of IMAGE 2 with ONE continuous pearl-white Glitter gel slab. Put the centre of the OUTERMOST raised bead directly on the entire closed red outline, then remove all red/pink. Do not inset, shrink, centre, approximate or reinterpret it. Copy the broad under-camera shoulder, early smooth upward sweep and wide soft top-right crown exactly. No lens trace, camera moat, notch, pinch, straight inner wall, flat top, box, pill or detached patch. Along left/bottom/right/top-right leave only one extremely thin unbroken shell-colour hairline and tiny contact shadow; gel and silicone stay separate.\n\nCopy IMAGE 4's thick puffy glossy wet perimeter bead with restrained folds and consistent height. Copy IMAGE 5's VERY SPARSE material: a mostly smooth translucent milky pearl-white centre with large clean quiet areas and only a very small number of isolated, widely separated pin-point silver-white micro-glints. Read first as smooth pearl gel, secondarily as Glitter. No continuous grain, frost, sand, dense dots, fibres, flakes, sequins, crystals, rainbow, blobs, marble, logo, text or watermark.\n\nExterior background is pure solid white #FFFFFF; no transparency, grey/black, checkerboard, halo, frame, floor, horizon or props. Final QA: exact full uncropped iPhone 12; exactly TWO large lenses stacked VERTICALLY in the original rounded-square island, with the original flash and microphone; bead covers every red-line coordinate; one continuous slab; ultra-close hairline; sparse IMAGE 5 material. Output one photorealistic high-resolution straight-on full-back product image only.\n\nLOCAL LOGO REMOVAL ONLY on THIS EXACT current image. Remove ONLY the faint Apple logo visible in the broad gel centre and fill that small logo area seamlessly with the same surrounding smooth translucent milky pearl-white gel. No logo, brand mark, icon, text or watermark may remain. LOCK EVERY OTHER PIXEL: preserve the complete uncropped iPhone 12, exactly two vertically stacked original lenses, blue source-authoritative camera island, flash, microphone, shell, silhouette, scale, framing, pure-white background, complete gel footprint, broad shoulder, wide crown, ultra-close outer hairline, raised wet perimeter bead, sparse isolated micro-glints, shadows and every edge exactly unchanged. Do not redraw, move, crop, zoom, resize, reframe, add glitter or alter geometry. Output the same complete full-back product image only."
+    }
+  ]
+}

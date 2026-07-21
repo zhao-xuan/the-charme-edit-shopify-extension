@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "prompts": [
+    {
+      "modelId": "iphone-11",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-11. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-11-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-11-pro",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-11-pro. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-11-pro-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-11-pro-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-11-pro-max-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-12",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-12. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-12-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-12-mini",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-12-mini. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-12-mini-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-12-pro",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-12-pro. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-12-pro-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-12-pro-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-12-pro-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-12-pro-max-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-13-mini",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-13-mini. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-13-mini-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-13-pro. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-13-pro-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-13-pro-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-13-pro-max-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-14-plus. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-14-plus-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-14-pro-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-14-pro-max-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-15-plus. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-15-plus-white.png",
+        "gel-17-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-17-pro. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-17-pro-white.png",
+        "gel-17pro-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-17-pro-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-17-pro-max-white.png",
+        "gel-17promax-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-7",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-7. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-7-white.png",
+        "gel-8-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-7-plus",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-7-plus. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-7-plus-white.png",
+        "gel-8plus-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-8",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-8. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-8-white.png",
+        "gel-8-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-8-plus",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-8-plus. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-8-plus-white.png",
+        "gel-8plus-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-air",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-air. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-air-white.png",
+        "gel-air-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-x",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-x. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-x-white.png",
+        "gel-xs-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-xs",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-xs. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-xs-white.png",
+        "gel-xs-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    },
+    {
+      "modelId": "iphone-xs-max",
+      "finish": "glitter",
+      "promptText": "Deterministic Glitter composition for iphone-xs-max. The approved white case source remains pixel-exact; the established Gel mask supplies the continuous poured-gel footprint and camera keep-out; fine silver-white micro-sparkle is constrained to the Gel alpha only.",
+      "referenceImages": [
+        "iphone-xs-max-white.png",
+        "gel-xs-white.png"
+      ],
+      "generator": "Deterministic approved Gel composition"
+    }
+  ]
+}

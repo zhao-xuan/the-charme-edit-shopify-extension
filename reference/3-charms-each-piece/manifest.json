@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-06-21T17:57:40.774Z",
-  "count": 382,
+  "count": 386,
   "pieces": [
     {
       "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-01",
@@ -2706,6 +2706,34 @@
       "pid": "P253",
       "pxW": 375,
       "pxH": 458
+    },
+    {
+      "id": "f1554077-9a1d-4e7c-bf0a-000000000abc-01",
+      "src": "f1554077-9a1d-4e7c-bf0a-000000000abc-01.png",
+      "fromPhoto": "Missing Charms.docx/image2.png",
+      "pxW": 368,
+      "pxH": 370
+    },
+    {
+      "id": "f1554077-9a1d-4e7c-bf0a-000000000abc-02",
+      "src": "f1554077-9a1d-4e7c-bf0a-000000000abc-02.png",
+      "fromPhoto": "Missing Charms.docx/image5.png",
+      "pxW": 318,
+      "pxH": 288
+    },
+    {
+      "id": "f1554077-9a1d-4e7c-bf0a-000000000abc-03",
+      "src": "f1554077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "fromPhoto": "Missing Charms.docx/image6.jpg",
+      "pxW": 681,
+      "pxH": 367
+    },
+    {
+      "id": "f1554077-9a1d-4e7c-bf0a-000000000abc-04",
+      "src": "f1554077-9a1d-4e7c-bf0a-000000000abc-04.png",
+      "fromPhoto": "Missing Charms.docx/image7.png",
+      "pxW": 287,
+      "pxH": 274
     }
   ]
 }

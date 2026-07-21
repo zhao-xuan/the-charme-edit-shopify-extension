@@ -95,6 +95,26 @@ export function charmCategory(charm) {
   return 'colourful'
 }
 
+// Shopify metadata has historically used both title-case and lowercase values,
+// and called the fourth finish "Natural". Keep the customer picker to its four
+// curated finish tabs regardless of that storage spelling.
+function normalizeCharmCategory(category, charm) {
+  switch (String(category || '').trim().toLowerCase()) {
+    case 'gold':
+      return 'gold'
+    case 'silver':
+      return 'silver'
+    case 'colourful':
+    case 'colorful':
+      return 'colourful'
+    case 'natural':
+    case 'unique':
+      return 'unique'
+    default:
+      return charmCategory(charm)
+  }
+}
+
 function deriveCharmLabel(charm) {
   if (charm.charmLabel) return charm.charmLabel
   const name = charm.name || ''
@@ -150,7 +170,7 @@ function buildCatalog() {
       kind: 'phone',
       src: resolveAsset(c.src),
       price: charmPrices[c.id] ?? c.price,
-      category: c.category || charmCategory(c),
+      category: normalizeCharmCategory(c.category, c),
     }))
 
   const seenCharm = new Set()
@@ -163,7 +183,7 @@ function buildCatalog() {
         ...c,
         kind: 'phone',
         src: resolveAsset(c.src),
-        category: c.category || charmCategory(c),
+        category: normalizeCharmCategory(c.category, c),
         charmLabel: deriveCharmLabel(c),
       }))
   const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
@@ -258,8 +278,9 @@ export function groupByCollection(items) {
 }
 
 export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
+const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
 export function isTextCollection(name) {
-  return TEXT_COLLECTIONS.includes(name)
+  return TEXT_COLLECTIONS.some((collection) => normalizedCollection(collection) === normalizedCollection(name))
 }
 
 export function charmByLabel(collection, label, preferCategory) {
@@ -267,7 +288,7 @@ export function charmByLabel(collection, label, preferCategory) {
   if (!wantedLabel) return null
   const matches = catalog().CHARMS.filter(
     (charm) =>
-      charm.collection === collection &&
+      normalizedCollection(charm.collection) === normalizedCollection(collection) &&
       !charm.unavailable &&
       String(charm.charmLabel == null ? '' : charm.charmLabel).toUpperCase() === wantedLabel,
   )
@@ -293,37 +314,16 @@ export function trayGroups(kind) {
       items: items[t],
     }))
   }
-  const titleCase = (s) =>
-    String(s || '')
-      .replace(/[-_]+/g, ' ')
-      .replace(/\b\w/g, (m) => m.toUpperCase())
   const { CHARMS } = catalog()
   const groups = []
-  const usedKeys = new Set()
-  // Built-in categories first (only if they actually have charms). The tab LABEL
-  // is derived from the real category value (titleCase of the key) — NOT a fixed
-  // brand label — so what the customer sees matches exactly what the merchant
-  // sees / edits in the Shopify admin (rename a category there and it shows here).
-  // The curated help text + coloured dot are kept as visual enhancement only.
+  // The shopper-facing picker has four curated finish tabs. Admin metadata may
+  // use different casing, but buildCatalog normalizes every charm before it gets
+  // here, so each item appears in exactly one of these groups.
   for (const c of PHONE_CATEGORIES) {
     const items = CHARMS.filter((ch) => ch.category === c.key)
     if (items.length) {
-      groups.push({ ...c, label: titleCase(c.key), items })
-      usedKeys.add(c.key)
+      groups.push({ ...c, label: categoryLabel(c.key), items })
     }
-  }
-  // Then any custom merchant category (in first-seen order) as its own tab.
-  for (const ch of CHARMS) {
-    const cat = ch.category
-    if (!cat || usedKeys.has(cat)) continue
-    usedKeys.add(cat)
-    groups.push({
-      key: cat,
-      label: titleCase(cat),
-      sub: '',
-      help: `Browse ${titleCase(cat)} charms.`,
-      items: CHARMS.filter((c) => c.category === cat),
-    })
   }
   // Never render an empty tray: if nothing matched (edge case), fall back to the
   // four built-in category groups.
