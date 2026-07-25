@@ -1,3 +1,4 @@
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
@@ -10,9 +11,14 @@ const PUBLIC_DIR = path.join(ROOT, 'public/assets/charms/ref')
 const REPAIR_DIR = path.join(ROOT, 'reference/charm-repairs')
 const CROP_DIR = path.join(REPAIR_DIR, 'source-crops')
 const OUTPUT_DIR = path.join(REPAIR_DIR, 'generated')
+const CATALOG_PATH = path.join(ROOT, 'src/data/catalog.json')
 const APPLY = process.argv.includes('--apply')
+const APPLY_METALS = process.argv.includes('--apply-metals')
 const REFRESH_CROPS = process.argv.includes('--refresh-crops')
 const DOWNSAMPLE = 4
+const CATEGORY_BY_ID = new Map(
+  JSON.parse(fs.readFileSync(CATALOG_PATH, 'utf8')).charms.map((charm) => [charm.id, charm.category]),
+)
 
 const TARGETS = [
   {
@@ -72,6 +78,8 @@ const TARGETS = [
     id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-04',
     sheet: '52E483C2-C80E-4920-998C-C7BF5AA59B8A.png',
     documentImage: 'image3.png',
+    rekeyOpts: { removeNeutralShadow: false },
+    apply: false,
   },
   {
     id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-11',
@@ -90,12 +98,14 @@ const TARGETS = [
     sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
     documentImage: 'image23.png',
     solid: false,
+    apply: false,
   },
   {
     id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01',
     sheet: 'DDCC0C89-AC31-4ABB-B784-1406F89C9BBB.png',
     documentImage: 'image10.png',
     solid: false,
+    apply: false,
   },
   {
     id: 'ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15',
@@ -166,7 +176,7 @@ async function inkMap(input) {
     .toBuffer({ resolveWithObject: true })
   const sourceWidth = info.width
   const sourceHeight = info.height
-  const width = Math.max(1, Math.floor(sourceWidth / DOWNSAMPLE))
+    const width = Math.max(1, Math.floor(sourceWidth / DOWNSAMPLE))
   const height = Math.max(1, Math.floor(sourceHeight / DOWNSAMPLE))
   const ink = new Float32Array(width * height)
 
@@ -180,7 +190,7 @@ async function inkMap(input) {
           const sourceY = y * DOWNSAMPLE + dy
           if (sourceX >= sourceWidth || sourceY >= sourceHeight) continue
           const offset = (sourceY * sourceWidth + sourceX) * info.channels
-          total += distanceFromWhite(data[offset], data[offset + 1], data[offset + 2])
+           total += distanceFromWhite(data[offset], data[offset + 1], data[offset + 2])
           count++
         }
       }
@@ -286,7 +296,17 @@ async function repair(target) {
     }
   }
   const cropRelative = path.relative(ROOT, cropPath)
-  const repaired = await rekey(target.id, cropRelative, target.solid ?? true)
+  const category = CATEGORY_BY_ID.get(target.id)
+  const edgeMode = category === 'gold' || category === 'silver' ? category : undefined
+  const metalDefaults = edgeMode
+    ? { edgeAwareBackground: true, removeNeutralShadow: true, maxShadowChroma: edgeMode === 'gold' ? 12 : 8 }
+    : {}
+  const repaired = await rekey(
+    target.id,
+    cropRelative,
+    target.solid ?? true,
+    { ...metalDefaults, ...target.rekeyOpts, edgeMode },
+  )
   const currentMeta = await sharp(currentPath).metadata()
   const normalized = await sharp(repaired.buf)
     .resize(currentMeta.width, currentMeta.height, {
@@ -297,7 +317,7 @@ async function repair(target) {
     .toBuffer()
   fs.writeFileSync(outputPath, normalized)
 
-  const applied = APPLY && target.apply !== false
+  const applied = (APPLY || (APPLY_METALS && Boolean(edgeMode))) && target.apply !== false
   if (applied) {
     fs.writeFileSync(currentPath, normalized)
     fs.writeFileSync(path.join(PUBLIC_DIR, `${target.id}.png`), normalized)
@@ -319,6 +339,7 @@ async function repair(target) {
         }
       : null,
     output: path.relative(ROOT, outputPath),
+    sha256: crypto.createHash('sha256').update(normalized).digest('hex'),
     dimensions: `${currentMeta.width}x${currentMeta.height}`,
     applied,
   }
@@ -331,7 +352,9 @@ async function main() {
   for (const target of TARGETS) report.push(await repair(target))
   fs.writeFileSync(path.join(REPAIR_DIR, 'solid-repair-report.json'), `${JSON.stringify(report, null, 2)}\n`)
   console.log(JSON.stringify(report, null, 2))
-  if (!APPLY) console.log('\nGenerated staging artwork only. Re-run with --apply after visual QA.')
+  if (!APPLY && !APPLY_METALS) {
+    console.log('\nGenerated staging artwork only. Re-run with --apply after visual QA.')
+  }
 }
 
 main()

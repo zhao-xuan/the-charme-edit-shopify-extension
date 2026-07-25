@@ -1,0 +1,21 @@
+{
+  "publishedAt": "2026-07-25T13:01:14.138Z",
+  "expectedCount": 329,
+  "actualCount": 329,
+  "applied": {
+    "artwork": [],
+    "dimensions": [],
+    "created": [
+      "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34"
+    ]
+  },
+  "newRecordFieldVerification": [
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34"
+  ],
+  "decodedImageVerification": [
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34"
+  ],
+  "imageUrls": {
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34_a1776b0b-e068-40da-bf2e-de7106a76393.png?v=1784984327"
+  }
+}

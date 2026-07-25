@@ -94,10 +94,6 @@
       "hMm": 14.1,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-7-white.png",
-      "black": "/assets/cases/integrated-iphone-7-black.png"
-    },
     "gelRender": true
   },
   {
@@ -194,10 +190,6 @@
       "wMm": 13.5,
       "hMm": 14.1,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-8-white.png",
-      "black": "/assets/cases/integrated-iphone-8-black.png"
     },
     "gelRender": true
   },
@@ -296,10 +288,6 @@
       "hMm": 14.7,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-7-plus-white.png",
-      "black": "/assets/cases/integrated-iphone-7-plus-black.png"
-    },
     "gelRender": true
   },
   {
@@ -396,10 +384,6 @@
       "wMm": 24.2,
       "hMm": 14.7,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-8-plus-white.png",
-      "black": "/assets/cases/integrated-iphone-8-plus-black.png"
     },
     "gelRender": true
   },
@@ -498,10 +482,6 @@
       "hMm": 29,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-x-white.png",
-      "black": "/assets/cases/integrated-iphone-x-black.png"
-    },
     "gelRender": true
   },
   {
@@ -599,10 +579,6 @@
       "hMm": 29.4,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-xs-white.png",
-      "black": "/assets/cases/integrated-iphone-xs-black.png"
-    },
     "gelRender": true
   },
   {
@@ -699,10 +675,6 @@
       "wMm": 16.6,
       "hMm": 30.1,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-xs-max-white.png",
-      "black": "/assets/cases/integrated-iphone-xs-max-black.png"
     },
     "gelRender": true
   },
@@ -1912,10 +1884,6 @@
       "hMm": 36.7,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-14-white.png",
-      "black": "/assets/cases/integrated-iphone-14-black.png"
-    },
     "gelRender": true
   },
   {
@@ -2012,10 +1980,6 @@
       "wMm": 39.6,
       "hMm": 37.2,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-14-plus-white.png",
-      "black": "/assets/cases/integrated-iphone-14-plus-black.png"
     },
     "gelRender": true
   },
@@ -2114,10 +2078,6 @@
       "hMm": 46.4,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-14-pro-white.png",
-      "black": "/assets/cases/integrated-iphone-14-pro-black.png"
-    },
     "gelRender": true
   },
   {
@@ -2214,10 +2174,6 @@
       "wMm": 45.5,
       "hMm": 47,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-14-pro-max-white.png",
-      "black": "/assets/cases/integrated-iphone-14-pro-max-black.png"
     },
     "gelRender": true
   },
@@ -2316,10 +2272,6 @@
       "hMm": 39.6,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-15-white.png",
-      "black": "/assets/cases/integrated-iphone-15-black.png"
-    },
     "gelRender": true
   },
   {
@@ -2416,10 +2368,6 @@
       "wMm": 38.8,
       "hMm": 40.2,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-15-plus-white.png",
-      "black": "/assets/cases/integrated-iphone-15-plus-black.png"
     },
     "gelRender": true
   },
@@ -2518,10 +2466,6 @@
       "hMm": 47.4,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-15-pro-white.png",
-      "black": "/assets/cases/integrated-iphone-15-pro-black.png"
-    },
     "gelRender": true
   },
   {
@@ -2618,10 +2562,6 @@
       "wMm": 45.9,
       "hMm": 47.9,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-15-pro-max-white.png",
-      "black": "/assets/cases/integrated-iphone-15-pro-max-black.png"
     },
     "gelRender": true
   },
@@ -2720,10 +2660,6 @@
       "hMm": 39.2,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-16-white.png",
-      "black": "/assets/cases/integrated-iphone-16-black.png"
-    },
     "gelRender": true
   },
   {
@@ -2820,10 +2756,6 @@
       "wMm": 33.9,
       "hMm": 42.6,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-16-plus-white.png",
-      "black": "/assets/cases/integrated-iphone-16-plus-black.png"
     },
     "gelRender": true
   },
@@ -2922,10 +2854,6 @@
       "hMm": 45.8,
       "rMm": 13
     },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-16-pro-white.png",
-      "black": "/assets/cases/integrated-iphone-16-pro-black.png"
-    },
     "gelRender": true
   },
   {
@@ -3022,10 +2950,6 @@
       "wMm": 46.6,
       "hMm": 48.5,
       "rMm": 13
-    },
-    "blankImage": {
-      "white": "/assets/cases/integrated-iphone-16-pro-max-white.png",
-      "black": "/assets/cases/integrated-iphone-16-pro-max-black.png"
     },
     "gelRender": true
   },

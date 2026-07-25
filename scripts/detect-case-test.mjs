@@ -1,6 +1,6 @@
 /**
  * detect-case-test.mjs — find the real phone-case rectangle in each reference
- * photo and overlay it, so the crop can be verified by eye.
+ * photo and compare it numerically with the tracked rectangle.
  *
  * The case is segmented from the desk by a flood fill from the photo border
  * through "desk-like" pixels, where desk-like = cool (r-b small) AND bright. The
@@ -11,7 +11,7 @@
  * Run: node scripts/detect-case-test.mjs
  */
 import sharp from 'sharp'
-import { readFile, mkdir, access } from 'node:fs/promises'
+import { readFile, access } from 'node:fs/promises'
 import { constants } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -78,21 +78,14 @@ export async function detectCaseRect(realPath) {
 
 async function main() {
   const tracking = JSON.parse(await readFile(join(REF, 'pieces-tracking.json'), 'utf8'))
-  await mkdir(join(REF, '_verify'), { recursive: true })
   const bases = ['Image_20260618161922_515_813', 'Image_20260618161927_520_813',
     'Image_20260619201028_363_2327', 'Image_20260619201015_355_2327', 'Image_20260619214426_371_2327']
   for (const base of bases) {
     let realPath = join(REF, '1-charms-real-image', base + '.jpg')
     if (!(await exists(realPath))) realPath = realPath.replace(/\.jpg$/, '.png')
-    const { W, H, box } = await detectCaseRect(realPath)
+    const { box } = await detectCaseRect(realPath)
     const meta = tracking.photos.find((p) => p.photo.startsWith(base))
     const old = meta?.caseBoxPx
-    const dispH = 1200, ds = dispH / H, dispW = Math.round(W * ds)
-    const r = (b, col) => b ? `<rect x="${(b.minx * ds) | 0}" y="${(b.miny * ds) | 0}" width="${((b.maxx - b.minx) * ds) | 0}" height="${((b.maxy - b.miny) * ds) | 0}" fill="none" stroke="${col}" stroke-width="3"/>` : ''
-    const cx = box ? ((box.minx + box.maxx) / 2 * ds) | 0 : 0
-    const svg = Buffer.from(`<svg width="${dispW}" height="${dispH}">${r(box, '#00dd00')}${old ? r({ minx: old.minx, miny: old.miny, maxx: old.maxx, maxy: old.maxy }, '#ff0000') : ''}<line x1="${cx}" y1="0" x2="${cx}" y2="${dispH}" stroke="#00dd00" stroke-width="1"/></svg>`)
-    await sharp(realPath).rotate().resize({ height: dispH }).composite([{ input: svg, top: 0, left: 0 }]).png()
-      .toFile(join(REF, '_verify', '_detect_' + base.slice(-10) + '.png'))
     console.log(base.slice(-10), 'NEW', box ? `${box.minx}-${box.maxx} x ${box.miny}-${box.maxy} (w${box.maxx - box.minx})` : 'none', '| OLD', old ? `${old.minx}-${old.maxx} (w${old.w})` : 'n/a') // eslint-disable-line
   }
 }

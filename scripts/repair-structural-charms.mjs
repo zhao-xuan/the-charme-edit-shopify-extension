@@ -12,7 +12,12 @@ const SOURCE_STAGE_DIR = path.join(ROOT, 'reference/charm-repairs/generated')
 const SOURCE_CROP_DIR = path.join(ROOT, 'reference/charm-repairs/source-crops')
 const OUTPUT_DIR = path.join(ROOT, 'reference/charm-repairs/structural-generated')
 const REPORT_PATH = path.join(ROOT, 'reference/charm-repairs/structural-repair-report.json')
+const CATALOG_PATH = path.join(ROOT, 'src/data/catalog.json')
 const APPLY = process.argv.includes('--apply')
+const APPLY_METALS = process.argv.includes('--apply-metals')
+const CATEGORY_BY_ID = new Map(
+  JSON.parse(fs.readFileSync(CATALOG_PATH, 'utf8')).charms.map((charm) => [charm.id, charm.category]),
+)
 
 const TARGETS = [
   {
@@ -26,8 +31,15 @@ const TARGETS = [
     id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-01',
     documentImage: 'image24.png',
     name: 'Silver Sun',
-    method: 'Open the source-backed center at (105, 110) with a 31 px feathered radius.',
-    repair: () => openCenter('52e483c2-c80e-4920-998c-c7bf5aa59b8a-01', 105, 110, 31),
+    method: 'Preserve the solid mirror center shown in the source-backed crop.',
+    repair: () => preserveSourceStage('52e483c2-c80e-4920-998c-c7bf5aa59b8a-01'),
+  },
+  {
+    id: '52e483c2-c80e-4920-998c-c7bf5aa59b8a-04',
+    documentImage: 'image3.png',
+    name: 'Silver Shell',
+    method: 'Clip the source-backed solid shell to the convex envelope of its warm pearl pixels.',
+    repair: repairSilverShell,
   },
   {
     id: 'silver-03',
@@ -61,10 +73,10 @@ async function sourceStage(id) {
     .toBuffer({ resolveWithObject: true })
 }
 
-async function sourceRekey(id, options) {
+async function sourceRekey(id, options, solid = false) {
   const source = path.relative(ROOT, path.join(SOURCE_CROP_DIR, `${id}.png`))
   const current = await sharp(path.join(PIECE_DIR, `${id}.png`)).metadata()
-  const repaired = await rekey(id, source, false, options)
+  const repaired = await rekey(id, source, solid, options)
   return sharp(repaired.buf)
     .resize(current.width, current.height, {
       fit: 'contain',
@@ -90,18 +102,56 @@ async function removeTopRing(id, cutY) {
   return encode(output, info)
 }
 
-async function openCenter(id, centerX, centerY, radius) {
+async function preserveSourceStage(id) {
   const { data, info } = await sourceStage(id)
-  const output = Buffer.from(data)
+  return encode(data, info)
+}
+
+function convexHull(points) {
+  const cross = (origin, left, right) =>
+    (left.x - origin.x) * (right.y - origin.y) -
+    (left.y - origin.y) * (right.x - origin.x)
+  points.sort((left, right) => left.x - right.x || left.y - right.y)
+  const lower = []
+  for (const point of points) {
+    while (lower.length >= 2 && cross(lower.at(-2), lower.at(-1), point) <= 0) lower.pop()
+    lower.push(point)
+  }
+  const upper = []
+  for (let index = points.length - 1; index >= 0; index--) {
+    const point = points[index]
+    while (upper.length >= 2 && cross(upper.at(-2), upper.at(-1), point) <= 0) upper.pop()
+    upper.push(point)
+  }
+  return lower.slice(0, -1).concat(upper.slice(0, -1))
+}
+
+async function repairSilverShell() {
+  const { data, info } = await sourceStage('52e483c2-c80e-4920-998c-c7bf5aa59b8a-04')
+  const points = []
   for (let y = 0; y < info.height; y++) {
     for (let x = 0; x < info.width; x++) {
-      const distance = Math.hypot(x - centerX, y - centerY)
-      const alphaOffset = (y * info.width + x) * 4 + 3
-      if (distance <= radius - 1) output[alphaOffset] = 0
-      else if (distance < radius + 1) {
-        output[alphaOffset] = Math.round(output[alphaOffset] * ((distance - radius + 1) / 2))
-      }
+      const offset = (y * info.width + x) * 4
+      const chroma = Math.max(data[offset], data[offset + 1], data[offset + 2]) -
+        Math.min(data[offset], data[offset + 1], data[offset + 2])
+      if (data[offset + 3] >= 64 && chroma >= 10) points.push({ x, y })
     }
+  }
+  if (points.length < 3) throw new Error('Silver Shell warm envelope has fewer than three points')
+
+  const hull = convexHull(points)
+  const polygon = hull.map(({ x, y }) => `${x},${y}`).join(' ')
+  const maskSvg = Buffer.from(
+    `<svg width="${info.width}" height="${info.height}">` +
+    '<rect width="100%" height="100%" fill="black"/>' +
+    `<polygon points="${polygon}" fill="white"/>` +
+    '</svg>',
+  )
+  const mask = await sharp(maskSvg).removeAlpha().greyscale().blur(0.6).raw().toBuffer()
+  const output = Buffer.from(data)
+  for (let point = 0; point < info.width * info.height; point++) {
+    const alphaOffset = point * 4 + 3
+    output[alphaOffset] = Math.min(output[alphaOffset], mask[point])
   }
   return encode(output, info)
 }
@@ -111,7 +161,11 @@ async function repairSilverHeart() {
     softLo: 30,
     softHi: 72,
     binT: 48,
-  })
+    edgeAwareBackground: true,
+    removeNeutralShadow: true,
+    maxShadowChroma: 8,
+    edgeMode: 'silver',
+  }, true)
   const output = Buffer.from(data)
   const mirrorAxis = 89
   const bandLeft = 84
@@ -262,7 +316,13 @@ async function main() {
     const output = await target.repair()
     const outputPath = path.join(OUTPUT_DIR, `${target.id}.png`)
     fs.writeFileSync(outputPath, output)
-    if (APPLY) {
+    const category = CATEGORY_BY_ID.get(target.id)
+    const applied = APPLY || (
+      APPLY_METALS &&
+      target.applyMetals !== false &&
+      (category === 'gold' || category === 'silver')
+    )
+    if (applied) {
       fs.writeFileSync(path.join(PIECE_DIR, `${target.id}.png`), output)
       fs.writeFileSync(path.join(PUBLIC_DIR, `${target.id}.png`), output)
     }
@@ -276,12 +336,14 @@ async function main() {
       sha256: crypto.createHash('sha256').update(output).digest('hex'),
       width: metadata.width,
       height: metadata.height,
-      applied: APPLY,
+      applied,
     })
   }
   fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
   console.log(JSON.stringify(report, null, 2))
-  if (!APPLY) console.log('\nGenerated staging artwork only. Re-run with --apply after visual QA.')
+  if (!APPLY && !APPLY_METALS) {
+    console.log('\nGenerated staging artwork only. Re-run with --apply after visual QA.')
+  }
 }
 
 main()

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "node --test src/lib/charmPricing.test.js",
+    "test": "node --test src/lib/*.test.js",
     "preview": "vite preview",
     "assets": "node scripts/process-assets.mjs && node scripts/calibrate-charm-sizes.mjs",
     "calibrate": "node scripts/calibrate-charm-sizes.mjs",

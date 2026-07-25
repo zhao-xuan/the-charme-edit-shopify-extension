@@ -7,6 +7,7 @@ import { charmChargeLines } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
+import { observeMediaQuery } from '../lib/mediaQuery'
 
 const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
@@ -49,9 +50,9 @@ function useMedia(query) {
   useEffect(() => {
     const m = window.matchMedia(query)
     const fn = (e) => setMatch(e.matches)
-    m.addEventListener('change', fn)
+    const stop = observeMediaQuery(m, fn)
     setMatch(m.matches)
-    return () => m.removeEventListener('change', fn)
+    return stop
   }, [query])
   return match
 }

@@ -1,0 +1,1558 @@
+{
+  "schemaVersion": 1,
+  "campaign": "iphone-14-16-final-review",
+  "generatedBy": "scripts/build-iphone-14-16-final-review.mjs",
+  "assembledFromProvenanceThrough": "2026-07-24T16:47:33.965Z",
+  "publish": false,
+  "setCurrent": false,
+  "candidateOnly": true,
+  "reviewStatus": "pending-user-paired-review",
+  "policy": "Candidate aggregation and QA evidence only. Do not publish, deploy, seed, sync or replace current assets before explicit user approval.",
+  "qaPolicy": {
+    "iphone14And15MinimumWidthFill": 0.97,
+    "iphone14And15MinimumHeightFill": 0.98,
+    "strictSourceCanvasRatioDrift": 0.01,
+    "otherIphone16SourceCanvasRatioDrift": 0.02,
+    "maximumRedGuideLikePixels": 0,
+    "hardwareIdentity": "Requires final paired visual review against the recorded hardware authority image"
+  },
+  "summary": {
+    "selectedCandidates": 21,
+    "blackWhiteReviewPairs": 10,
+    "additionalSelections": 1,
+    "supersededCandidates": 15,
+    "explicitlyFailedCandidates": 4,
+    "exactIphone17Restorations": 4
+  },
+  "provenancePaths": [
+    "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+    "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json",
+    "reference/case-history/generated/iphone-16-shape-grid-retries/candidate-provenance.json",
+    "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json"
+  ],
+  "reviewPairs": [
+    {
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-14-plus:black:v4-gpt",
+      "whiteSelectionKey": "iphone-14-plus:white:v3-gpt"
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-14-pro:black:v5-gpt",
+      "whiteSelectionKey": "iphone-14-pro:white:v3-gpt"
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-14-pro-max:black:v5-gpt",
+      "whiteSelectionKey": "iphone-14-pro-max:white:v2-gpt"
+    },
+    {
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-15:black:v2-gpt",
+      "whiteSelectionKey": "iphone-15:white:v4-gpt"
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-15-plus:black:v4-gpt",
+      "whiteSelectionKey": "iphone-15-plus:white:v3-gpt"
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-15-pro:black:v8-gpt",
+      "whiteSelectionKey": "iphone-15-pro:white:v3-gpt"
+    },
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-16:black:v6-gpt",
+      "whiteSelectionKey": "iphone-16:white:v3-gpt"
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-16-plus:black:v1-gpt",
+      "whiteSelectionKey": "iphone-16-plus:white:v2-gpt"
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-16-pro:black:v1-gpt",
+      "whiteSelectionKey": "iphone-16-pro:white:v1-gpt"
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "reviewStatus": "pending-user-paired-review",
+      "blackSelectionKey": "iphone-16-pro-max:black:v1-gpt",
+      "whiteSelectionKey": "iphone-16-pro-max:white:v1-gpt"
+    }
+  ],
+  "additionalSelections": [
+    {
+      "selectionKey": "iphone-16:glitter:v1-gpt",
+      "reason": "Requested iPhone 16 geometry-only correction; reviewed separately from Black/White pair"
+    }
+  ],
+  "protectedNonTargets": [
+    {
+      "target": "iphone-15-pro-max:*",
+      "reason": "Not requested in the iPhone 14/15 size-correction scope"
+    },
+    {
+      "target": "iphone-16-plus:glitter",
+      "reason": "Authoritative geometry benchmark; preserve without regeneration"
+    },
+    {
+      "target": "iphone-16-pro:glitter",
+      "reason": "Only Black and White were requested for full regeneration"
+    },
+    {
+      "target": "iphone-16-pro-max:glitter",
+      "reason": "Only Black and White were requested for full regeneration"
+    }
+  ],
+  "selections": [
+    {
+      "selectionKey": "iphone-14-plus:black:v4-gpt",
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v4-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-plus-black-v4-gpt.png",
+      "sha256": "96da8b6858378b600ac051861dc78e67df99747c2e49f6e951ec53f988a471ba",
+      "widthPx": 887,
+      "heightPx": 1773,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "61810349d3ecd482aa86194eb46969a0e17de2a5d374dd7450a67c13da75844f",
+        "conversationUrl": "https://chatgpt.com/c/6a6385cf-39cc-83ed-a349-e0bfccb905b7",
+        "recordedAt": "2026-07-24T15:34:53.576Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "96da8b6858378b600ac051861dc78e67df99747c2e49f6e951ec53f988a471ba",
+          "widthPx": 887,
+          "heightPx": 1773
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000564,
+          "sourceWidthPx": 918,
+          "sourceHeightPx": 1836,
+          "sourceRatio": 0.5,
+          "candidateRatio": 0.500282
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            8,
+            6,
+            877,
+            1772
+          ],
+          "widthFill": 0.980834,
+          "heightFill": 0.996616
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-14-plus:white:v3-gpt",
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-plus-white-v3-gpt.png",
+      "sha256": "c957a90ed0ad43ceb78f62f7c5e9b5e452595440452819ddd4214c27026c4e2e",
+      "widthPx": 887,
+      "heightPx": 1774,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "2354c0bbc68dc64b78c33586153a73f0f0280ba73c954aed85c90e39e63a3200",
+        "conversationUrl": "https://chatgpt.com/c/6a638688-dec8-83ed-9298-839f48faade5",
+        "recordedAt": "2026-07-24T15:41:12.807Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "c957a90ed0ad43ceb78f62f7c5e9b5e452595440452819ddd4214c27026c4e2e",
+          "widthPx": 887,
+          "heightPx": 1774
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 887,
+          "sourceHeightPx": 1774,
+          "sourceRatio": 0.5,
+          "candidateRatio": 0.5
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            0,
+            0,
+            886,
+            1773
+          ],
+          "widthFill": 1,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-14-pro:black:v5-gpt",
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v5-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-black-v5-gpt.png",
+      "sha256": "eb8ec0b5279edc79386b2e3ba409eb62e9aef22ce3f98703e0901d9937410ff7",
+      "widthPx": 887,
+      "heightPx": 1774,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "d08a9a206610b43dc8ec31118ecb670e7699298f4b857042c1b63934c4656a04",
+        "conversationUrl": "https://chatgpt.com/c/6a638817-2038-83eb-a070-57f3415100d5",
+        "recordedAt": "2026-07-24T16:13:06.840Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "eb8ec0b5279edc79386b2e3ba409eb62e9aef22ce3f98703e0901d9937410ff7",
+          "widthPx": 887,
+          "heightPx": 1774
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000546,
+          "sourceWidthPx": 915,
+          "sourceHeightPx": 1831,
+          "sourceRatio": 0.499727,
+          "candidateRatio": 0.5
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            10,
+            8,
+            875,
+            1762
+          ],
+          "widthFill": 0.976325,
+          "heightFill": 0.98929
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-14-pro:white:v3-gpt",
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-white-v3-gpt.png",
+      "sha256": "c5b129b1bd01e7cee38955a71b1ff167e5447a3c6adcd1fab30b0bfe3e5335a6",
+      "widthPx": 888,
+      "heightPx": 1772,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "f6e030cb9656f65d0420f6882b2f2cfef5897bced4fae9d7764e5c3d297c1bc4",
+        "conversationUrl": "https://chatgpt.com/c/6a6378f6-6bd8-83ed-975a-2e48911edf23",
+        "recordedAt": "2026-07-24T14:40:38.087Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "c5b129b1bd01e7cee38955a71b1ff167e5447a3c6adcd1fab30b0bfe3e5335a6",
+          "widthPx": 888,
+          "heightPx": 1772
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 888,
+          "sourceHeightPx": 1772,
+          "sourceRatio": 0.501129,
+          "candidateRatio": 0.501129
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            12,
+            2,
+            876,
+            1768
+          ],
+          "widthFill": 0.974099,
+          "heightFill": 0.997178
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-14-pro-max:black:v5-gpt",
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v5-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-max-black-v5-gpt.png",
+      "sha256": "014b9c346ff0835626d9e9afa0e6872f235cb40d02c58335381814e3d474fdac",
+      "widthPx": 885,
+      "heightPx": 1777,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "7778e555c059d361ec60b385ee9365cbc05dd979f1b160e7e7071d30b7578551",
+        "conversationUrl": "https://chatgpt.com/c/6a637a39-c7f8-83eb-a88f-883b69535102",
+        "recordedAt": "2026-07-24T14:45:44.152Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "014b9c346ff0835626d9e9afa0e6872f235cb40d02c58335381814e3d474fdac",
+          "widthPx": 885,
+          "heightPx": 1777
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000117,
+          "sourceWidthPx": 912,
+          "sourceHeightPx": 1831,
+          "sourceRatio": 0.498088,
+          "candidateRatio": 0.49803
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            7,
+            3,
+            876,
+            1775
+          ],
+          "widthFill": 0.983051,
+          "heightFill": 0.997749
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-14-pro-max:white:v2-gpt",
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-max-white-v2-gpt.png",
+      "sha256": "42648e58864fa5aec4d6e1f3944a70a531e907138dd670f887edae275ece018c",
+      "widthPx": 878,
+      "heightPx": 1792,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "796180e8e1a427ac537450a1bae4133add05e77dbb73da56b05a5025ee229ac9",
+        "conversationUrl": "https://chatgpt.com/c/6a637aac-fd94-83eb-990d-08031295af4b",
+        "recordedAt": "2026-07-24T14:47:29.989Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "42648e58864fa5aec4d6e1f3944a70a531e907138dd670f887edae275ece018c",
+          "widthPx": 878,
+          "heightPx": 1792
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 878,
+          "sourceHeightPx": 1792,
+          "sourceRatio": 0.489955,
+          "candidateRatio": 0.489955
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            8,
+            7,
+            867,
+            1781
+          ],
+          "widthFill": 0.979499,
+          "heightFill": 0.990513
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15:black:v2-gpt",
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-black-v2-gpt.png",
+      "sha256": "c1c09ad4d2b3d377f771f31721b3760daf1b44863153360ac13cd8480af4fbf6",
+      "widthPx": 888,
+      "heightPx": 1771,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "a1648a341f485740acaaa207e1ca9fcc72b1ab393776367f696ddc0bf7a63082",
+        "conversationUrl": "https://chatgpt.com/c/6a637b26-9454-83eb-b31f-38152b960264",
+        "recordedAt": "2026-07-24T14:50:43.789Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "c1c09ad4d2b3d377f771f31721b3760daf1b44863153360ac13cd8480af4fbf6",
+          "widthPx": 888,
+          "heightPx": 1771
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000086,
+          "sourceWidthPx": 916,
+          "sourceHeightPx": 1827,
+          "sourceRatio": 0.501368,
+          "candidateRatio": 0.501412
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            0,
+            0,
+            887,
+            1770
+          ],
+          "widthFill": 1,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15:white:v4-gpt",
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v4-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-white-v4-gpt.png",
+      "sha256": "3931351b002f3225b8493ddd04dc7b0d97990706fdcba5554148ac1d4b51128e",
+      "widthPx": 887,
+      "heightPx": 1774,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "642512348fd1409e2cb0dd40390405466b30446c8b90f5ef8cdee05210af1c24",
+        "conversationUrl": "https://chatgpt.com/c/6a637bd7-9efc-83eb-9df2-ca3a7f84d10a",
+        "recordedAt": "2026-07-24T16:29:03.145Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "3931351b002f3225b8493ddd04dc7b0d97990706fdcba5554148ac1d4b51128e",
+          "widthPx": 887,
+          "heightPx": 1774
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 887,
+          "sourceHeightPx": 1774,
+          "sourceRatio": 0.5,
+          "candidateRatio": 0.5
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            0,
+            0,
+            880,
+            1773
+          ],
+          "widthFill": 0.993236,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15-plus:black:v4-gpt",
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v4-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-plus-black-v4-gpt.png",
+      "sha256": "325dad1fe677871fb917fa46e73730e941ed7cd2c38265e23eeb65632579c047",
+      "widthPx": 884,
+      "heightPx": 1778,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "43f677ba040a776e93f55cfa2a8eeb22aba497063c0c94898b50fd4385b77111",
+        "conversationUrl": "https://chatgpt.com/c/6a637c3e-8a38-83eb-93b9-d9080488b8f1",
+        "recordedAt": "2026-07-24T16:42:06.965Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "325dad1fe677871fb917fa46e73730e941ed7cd2c38265e23eeb65632579c047",
+          "widthPx": 884,
+          "heightPx": 1778
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.001812,
+          "sourceWidthPx": 913,
+          "sourceHeightPx": 1833,
+          "sourceRatio": 0.498091,
+          "candidateRatio": 0.497188
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            0,
+            0,
+            883,
+            1777
+          ],
+          "widthFill": 1,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15-plus:white:v3-gpt",
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-plus-white-v3-gpt.png",
+      "sha256": "b5adb63f4b22502cef7186fdc3179d038266c196c90492cd73795bb2c468bf6a",
+      "widthPx": 883,
+      "heightPx": 1781,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "6318f49aa7702c5ce57c68d66ee5f73468826edd719a5c0fbe3f78e3b1126030",
+        "conversationUrl": "https://chatgpt.com/c/6a637c88-da44-83eb-a60f-fa5e02618597",
+        "recordedAt": "2026-07-24T14:55:25.444Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "b5adb63f4b22502cef7186fdc3179d038266c196c90492cd73795bb2c468bf6a",
+          "widthPx": 883,
+          "heightPx": 1781
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 883,
+          "sourceHeightPx": 1781,
+          "sourceRatio": 0.495789,
+          "candidateRatio": 0.495789
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            5,
+            1,
+            877,
+            1758
+          ],
+          "widthFill": 0.988675,
+          "heightFill": 0.987086
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15-pro:black:v8-gpt",
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "finish": "black",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v8-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-pro-black-v8-gpt.png",
+      "sha256": "68f8f0491f5b5033da2bcae9264516de5be24280ef74d206ab8eb015d27e551e",
+      "widthPx": 885,
+      "heightPx": 1778,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-14-15-grid-retries",
+        "promptSha256": "4dbb3d8e6057f1da8a5f0a9355914e29e52a05cfadf46fb892f210ac08e9037f",
+        "conversationUrl": "https://chatgpt.com/c/6a637d02-47c0-83ed-b8ea-c6bd16db4174",
+        "recordedAt": "2026-07-24T16:47:33.965Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "68f8f0491f5b5033da2bcae9264516de5be24280ef74d206ab8eb015d27e551e",
+          "widthPx": 885,
+          "heightPx": 1778
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000124,
+          "sourceWidthPx": 910,
+          "sourceHeightPx": 1828,
+          "sourceRatio": 0.497812,
+          "candidateRatio": 0.49775
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            0,
+            0,
+            884,
+            1777
+          ],
+          "widthFill": 1,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-15-pro:white:v3-gpt",
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "finish": "white",
+      "correctionType": "source-grid-size-correction",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-pro-white-v3-gpt.png",
+      "sha256": "0758be782eb9c059af18f4ae8bee5d060fe1c73b324b66e99917312844ac9964",
+      "widthPx": 885,
+      "heightPx": 1777,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "0e0b28d26f4e2dfe67e5a209e656165403aa407b71d2e8120bbb02a2dc95a950",
+        "conversationUrl": "https://chatgpt.com/c/6a637d53-3584-83eb-8d8c-2ef408adf78f",
+        "recordedAt": "2026-07-24T14:58:39.781Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "0758be782eb9c059af18f4ae8bee5d060fe1c73b324b66e99917312844ac9964",
+          "widthPx": 885,
+          "heightPx": 1777
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 885,
+          "sourceHeightPx": 1777,
+          "sourceRatio": 0.49803,
+          "candidateRatio": 0.49803
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "productFill": {
+          "pass": true,
+          "minimumWidthFill": 0.97,
+          "minimumHeightFill": 0.98,
+          "productBounds": [
+            1,
+            0,
+            882,
+            1776
+          ],
+          "widthFill": 0.99661,
+          "heightFill": 1
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16:black:v6-gpt",
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "black",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v6-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-black-v6-gpt.png",
+      "sha256": "eb02ba330bf72423152f82f1230cf0cccffaef5efe85378fc64ec5b4f694d08f",
+      "widthPx": 871,
+      "heightPx": 1806,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-16-shape-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-16-shape-grid-retries",
+        "promptSha256": "551ae6e404ca0c9e311b4c6328ab5c89538454ad8a5ea1ffe4b0f839b3fb5d2e",
+        "conversationUrl": "https://chatgpt.com/c/6a638403-8e5c-83eb-938d-8d30eb65ffeb",
+        "recordedAt": "2026-07-24T15:27:36.663Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "eb02ba330bf72423152f82f1230cf0cccffaef5efe85378fc64ec5b4f694d08f",
+          "widthPx": 871,
+          "heightPx": 1806
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0.000931,
+          "sourceWidthPx": 305,
+          "sourceHeightPx": 633,
+          "sourceRatio": 0.481833,
+          "candidateRatio": 0.482281
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16:white:v3-gpt",
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "white",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-white-v3-gpt.png",
+      "sha256": "6ef9b1a16d9c78fcce92842a04fb88139c61efcee78907051240d5cff93fd294",
+      "widthPx": 871,
+      "heightPx": 1806,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-16-shape-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-16-shape-grid-retries",
+        "promptSha256": "dd9d43dac2705998328a22e05935805ba359b2c2f97864a2116034b4675e9f4b",
+        "conversationUrl": "https://chatgpt.com/c/6a63847a-9c7c-83eb-b06e-01aee8334c4a",
+        "recordedAt": "2026-07-24T15:29:27.492Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "6ef9b1a16d9c78fcce92842a04fb88139c61efcee78907051240d5cff93fd294",
+          "widthPx": 871,
+          "heightPx": 1806
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 871,
+          "sourceHeightPx": 1806,
+          "sourceRatio": 0.482281,
+          "candidateRatio": 0.482281
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16:glitter:v1-gpt",
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "glitter",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-glitter-v1-gpt.png",
+      "sha256": "73e7983606a6d4e3a138860acf80cee011afc883c0e8bc35353ca8b9fd6bb06a",
+      "widthPx": 870,
+      "heightPx": 1808,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json",
+        "campaign": "iphone-16-logo-safe-shape-corrections",
+        "promptSha256": "60a405e953aa4217e11f835a1d6c17f545b70c9b9f11ea4b27805a891259f6e4",
+        "conversationUrl": "https://chatgpt.com/c/6a6380c0-924c-83eb-826f-1dda5798329e",
+        "recordedAt": "2026-07-24T15:13:47.208Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-accepted-glitter-geometry.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "73e7983606a6d4e3a138860acf80cee011afc883c0e8bc35353ca8b9fd6bb06a",
+          "widthPx": 870,
+          "heightPx": 1808
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0,
+          "sourceWidthPx": 870,
+          "sourceHeightPx": 1808,
+          "sourceRatio": 0.481195,
+          "candidateRatio": 0.481195
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-plus:black:v1-gpt",
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "finish": "black",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-plus-black-v1-gpt.png",
+      "sha256": "6657c404b6072eccb5a3f20d31825926849a6118536dc8ca93230381b285a4f4",
+      "widthPx": 872,
+      "heightPx": 1804,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json",
+        "campaign": "iphone-16-logo-safe-shape-corrections",
+        "promptSha256": "5719420652120c9e06fa8e1b2b3272cd9150834c3966ff0991ee2c8849c6bd91",
+        "conversationUrl": "https://chatgpt.com/c/6a63814f-61e4-83ed-a432-2a477bc51b29",
+        "recordedAt": "2026-07-24T15:15:39.721Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "6657c404b6072eccb5a3f20d31825926849a6118536dc8ca93230381b285a4f4",
+          "widthPx": 872,
+          "heightPx": 1804
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0.012342,
+          "sourceWidthPx": 318,
+          "sourceHeightPx": 666,
+          "sourceRatio": 0.477477,
+          "candidateRatio": 0.48337
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-plus:white:v2-gpt",
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "finish": "white",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-plus-white-v2-gpt.png",
+      "sha256": "8f52cf8bf145499007c6e8143f8b216859dee51b4cd4666e2c6ff27adab2e092",
+      "widthPx": 866,
+      "heightPx": 1817,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-16-shape-grid-retries/candidate-provenance.json",
+        "campaign": "iphone-16-shape-grid-retries",
+        "promptSha256": "72db270d77e3dad23a3dc545c1aa49867306c78b90f2b985f209fc1580761f24",
+        "conversationUrl": "https://chatgpt.com/c/6a6384ea-d6f4-83eb-ba30-9ddae5985a11",
+        "recordedAt": "2026-07-24T15:32:00.872Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "8f52cf8bf145499007c6e8143f8b216859dee51b4cd4666e2c6ff27adab2e092",
+          "widthPx": 866,
+          "heightPx": 1817
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.01,
+          "relativeDrift": 0,
+          "sourceWidthPx": 866,
+          "sourceHeightPx": 1817,
+          "sourceRatio": 0.47661,
+          "candidateRatio": 0.47661
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-pro:black:v1-gpt",
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "finish": "black",
+      "correctionType": "full-black-white-regeneration",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-pro-black-v1-gpt.png",
+      "sha256": "ea96d704335aca586224553850cc96ac24f981c7eb3548a1b3ff3d6ea8734cb9",
+      "widthPx": 853,
+      "heightPx": 1844,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "426c96a66592356e41c924b4badee091699259fd247e6ebb84a1565a559944e9",
+        "conversationUrl": "https://chatgpt.com/c/6a63822d-05bc-83ed-9574-07dd49ecf60b",
+        "recordedAt": "2026-07-24T15:19:14.013Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "ea96d704335aca586224553850cc96ac24f981c7eb3548a1b3ff3d6ea8734cb9",
+          "widthPx": 853,
+          "heightPx": 1844
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0.014171,
+          "sourceWidthPx": 305,
+          "sourceHeightPx": 650,
+          "sourceRatio": 0.469231,
+          "candidateRatio": 0.462581
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-pro:white:v1-gpt",
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "finish": "white",
+      "correctionType": "full-black-white-regeneration",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-pro-white-v1-gpt.png",
+      "sha256": "90acba4c04f2f12b0333028cd93e813680574a55ca2885b3bf723fb762c8ce6e",
+      "widthPx": 899,
+      "heightPx": 1750,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "c573b79a8b855efe8b01c1b0d8a7f03b5a854be0e6ee67fd66e2d8898cc905d7",
+        "conversationUrl": "https://chatgpt.com/c/6a638288-ec88-83ed-ba4f-2c34aee2348e",
+        "recordedAt": "2026-07-24T15:21:27.034Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "90acba4c04f2f12b0333028cd93e813680574a55ca2885b3bf723fb762c8ce6e",
+          "widthPx": 899,
+          "heightPx": 1750
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0.015097,
+          "sourceWidthPx": 906,
+          "sourceHeightPx": 1737,
+          "sourceRatio": 0.521589,
+          "candidateRatio": 0.513714
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-pro-max:black:v1-gpt",
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "finish": "black",
+      "correctionType": "full-black-white-regeneration",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-pro-max-black-v1-gpt.png",
+      "sha256": "d21b5ea67ad782fd50e01b40d42ca60915531239a4ea6bfe5534329596f22b57",
+      "widthPx": 885,
+      "heightPx": 1777,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "aefdc63aebfc4da447e2cf469eaac231343fb9054aeedb23fdc0190f6aef7243",
+        "conversationUrl": "https://chatgpt.com/c/6a638309-73b8-83eb-aeac-59ad6b25c621",
+        "recordedAt": "2026-07-24T15:22:47.077Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "d21b5ea67ad782fd50e01b40d42ca60915531239a4ea6bfe5534329596f22b57",
+          "widthPx": 885,
+          "heightPx": 1777
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0.016026,
+          "sourceWidthPx": 898,
+          "sourceHeightPx": 1832,
+          "sourceRatio": 0.490175,
+          "candidateRatio": 0.49803
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-camera-lock.png"
+        }
+      }
+    },
+    {
+      "selectionKey": "iphone-16-pro-max:white:v1-gpt",
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "finish": "white",
+      "correctionType": "full-black-white-regeneration",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-pro-max-white-v1-gpt.png",
+      "sha256": "634ad4575f7194bd0f43e002773d5514a7c8f1916986e12384e86e0440b41321",
+      "widthPx": 884,
+      "heightPx": 1780,
+      "publish": false,
+      "setCurrent": false,
+      "reviewStatus": "pending-user-paired-review",
+      "provenance": {
+        "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json",
+        "campaign": "iphone-14-16-user-corrections",
+        "promptSha256": "c2762a2edd274c2f2414933c746a6f82560059626b6e6ae24ca576dc28f75cd9",
+        "conversationUrl": "https://chatgpt.com/c/6a638359-39b4-83ed-ae89-f9c8a56c78fd",
+        "recordedAt": "2026-07-24T15:24:32.140Z"
+      },
+      "authority": {
+        "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-source.png",
+        "hardwarePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-camera-lock.png"
+      },
+      "qa": {
+        "byteIntegrity": {
+          "pass": true,
+          "sha256": "634ad4575f7194bd0f43e002773d5514a7c8f1916986e12384e86e0440b41321",
+          "widthPx": 884,
+          "heightPx": 1780
+        },
+        "sourceCanvasRatio": {
+          "pass": true,
+          "maximumRelativeDrift": 0.02,
+          "relativeDrift": 0.001695,
+          "sourceWidthPx": 883,
+          "sourceHeightPx": 1781,
+          "sourceRatio": 0.495789,
+          "candidateRatio": 0.496629
+        },
+        "redGuideResidue": {
+          "pass": true,
+          "pixels": 0
+        },
+        "hardwareIdentity": {
+          "status": "pending-user-paired-review",
+          "authorityPath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-camera-lock.png"
+        }
+      }
+    }
+  ],
+  "supersededCandidates": [
+    {
+      "target": "iphone-14-plus:black",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-plus-black-v3-gpt.png",
+      "sha256": "b80c99539fac6d7135143f8b5e685c7bf4e793f00b20b27c0daaca55a2a35c7e",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-14-plus:white",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-plus-white-v2-gpt.png",
+      "sha256": "d1dab5b2e1f7004f12ab80538409079a0c98dbab38de8ad4e26ee02d436d96f0",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-14-pro:black",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-black-v2-gpt.png",
+      "sha256": "e252dbfafa79ad13aba0846070e9db6f5573ec858a52baeae9a988e94f418fb1",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-15:white",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-white-v2-gpt.png",
+      "sha256": "bd1dc7e5b7d754e9bb6dbedd6e280e22aa711d0a293278fb453c8fe910fc842e",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-15-plus:black",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-plus-black-v2-gpt.png",
+      "sha256": "686f6bfb9e2225a8fe9c882a8b67d9499317cb3c09721343f1273fc4f1cabcf8",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-15-pro:black",
+      "candidateVersion": "v7-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-pro-black-v7-gpt.png",
+      "sha256": "3d7de67d68a1fd960db3d02e658de0fd96c456f9978d12ade5e5493b7de71bde",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-16:black",
+      "candidateVersion": "v4-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-black-v4-gpt.png",
+      "sha256": "aeea23e22f64cdc8dcc33ff66aeea238cb33faed75cf07b02f1882c2bab2ce54",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-16:white",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-white-v1-gpt.png",
+      "sha256": "0c6d11f587fe6e50b73f10020a14a355ab63e1284830855254da944167a351a3",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-14-16-user-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-16:black",
+      "candidateVersion": "v5-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-black-v5-gpt.png",
+      "sha256": "892fbb533ce6c41aa19e38533cb9b19b8d7764653b48ae18d51ea0de688ce913",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-16:white",
+      "candidateVersion": "v2-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-white-v2-gpt.png",
+      "sha256": "4f1587f1753d6d6ed7f9fe7776d3d9e98304cec8f633ec05982df237d8df6eab",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-16-plus:white",
+      "candidateVersion": "v1-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-plus-white-v1-gpt.png",
+      "sha256": "cc70274c68b7a7577253c6c480c898f23b8a311268851fdfbf7a25751f327265",
+      "reviewStatus": "pending-review",
+      "provenancePath": "reference/case-history/generated/iphone-16-logo-safe-shape-corrections/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-14-pro:black",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-black-v3-gpt.png",
+      "sha256": "4572c3f7a776c61b0bb2270c1d4b5da29be867962888bfa92cf810ec45097b3e",
+      "reviewStatus": "failed-size-gate",
+      "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-14-pro:black",
+      "candidateVersion": "v4-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-14-pro-black-v4-gpt.png",
+      "sha256": "173f2bc2b165be066d1dd1e1e36a774fb8c60d26923ce9391635c77436ab1b99",
+      "reviewStatus": "failed-hardware-gate",
+      "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-15:white",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-white-v3-gpt.png",
+      "sha256": "1ecaddeb7a37add3822ca126aa505986884bd9e7c3b4c47a6e50cb9020bc51fb",
+      "reviewStatus": "failed-size-gate",
+      "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json"
+    },
+    {
+      "target": "iphone-15-plus:black",
+      "candidateVersion": "v3-gpt",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-15-plus-black-v3-gpt.png",
+      "sha256": "a2b352661787a77fe5126a806a76e5caf1067706ad832328a187ea03c59e4938",
+      "reviewStatus": "failed-size-gate",
+      "provenancePath": "reference/case-history/generated/iphone-14-15-grid-retries/candidate-provenance.json"
+    }
+  ],
+  "iphone17Restorations": [
+    {
+      "modelId": "iphone-17-pro",
+      "modelName": "iPhone 17 Pro",
+      "finish": "black",
+      "destinationPath": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-black.png",
+      "sha256": "e2fa58daca606a5093a24d527264288404659b8973decd88d3450f0d26a6dd8b",
+      "widthPx": 784,
+      "heightPx": 1659,
+      "restorationStatus": "exact-git-blob-match",
+      "deploymentStatus": "local-only-unpublished",
+      "source": {
+        "type": "git-blob",
+        "commit": "d29eaa7560f7a071ecccabe6facc35ed22f878ea",
+        "commitDate": "2026-07-09T16:40:14+01:00",
+        "commitSubject": "organize case files",
+        "path": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-black.png",
+        "sha256": "e2fa58daca606a5093a24d527264288404659b8973decd88d3450f0d26a6dd8b"
+      }
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "modelName": "iPhone 17 Pro",
+      "finish": "white",
+      "destinationPath": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-white.png",
+      "sha256": "60984c87a65c3e5938ad576cf001c8e6d3afc7f6b4cb36ef5a2620c60f52dd77",
+      "widthPx": 784,
+      "heightPx": 1659,
+      "restorationStatus": "exact-git-blob-match",
+      "deploymentStatus": "local-only-unpublished",
+      "source": {
+        "type": "git-blob",
+        "commit": "d29eaa7560f7a071ecccabe6facc35ed22f878ea",
+        "commitDate": "2026-07-09T16:40:14+01:00",
+        "commitSubject": "organize case files",
+        "path": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-white.png",
+        "sha256": "60984c87a65c3e5938ad576cf001c8e6d3afc7f6b4cb36ef5a2620c60f52dd77"
+      }
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "modelName": "iPhone 17 Pro Max",
+      "finish": "black",
+      "destinationPath": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-max-black.png",
+      "sha256": "e1cb233191d169ec6845bdd926fb26b4762c7163c04baf478ec57b2a932d625c",
+      "widthPx": 780,
+      "heightPx": 1643,
+      "restorationStatus": "exact-git-blob-match",
+      "deploymentStatus": "local-only-unpublished",
+      "source": {
+        "type": "git-blob",
+        "commit": "d29eaa7560f7a071ecccabe6facc35ed22f878ea",
+        "commitDate": "2026-07-09T16:40:14+01:00",
+        "commitSubject": "organize case files",
+        "path": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-max-black.png",
+        "sha256": "e1cb233191d169ec6845bdd926fb26b4762c7163c04baf478ec57b2a932d625c"
+      }
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "modelName": "iPhone 17 Pro Max",
+      "finish": "white",
+      "destinationPath": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-max-white.png",
+      "sha256": "b8e7460a4cd8387b71d3f35ece5d328aa02e9f17f6dd656e53f7c496b8c4ca1c",
+      "widthPx": 780,
+      "heightPx": 1643,
+      "restorationStatus": "exact-git-blob-match",
+      "deploymentStatus": "local-only-unpublished",
+      "source": {
+        "type": "git-blob",
+        "commit": "d29eaa7560f7a071ecccabe6facc35ed22f878ea",
+        "commitDate": "2026-07-09T16:40:14+01:00",
+        "commitSubject": "organize case files",
+        "path": "public/assets/cases/case-with-gel/integrated-iphone-17-pro-max-white.png",
+        "sha256": "b8e7460a4cd8387b71d3f35ece5d328aa02e9f17f6dd656e53f7c496b8c4ca1c"
+      }
+    }
+  ]
+}

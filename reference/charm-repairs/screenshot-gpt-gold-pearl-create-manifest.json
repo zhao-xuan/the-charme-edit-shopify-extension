@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-07-25",
+  "status": "published_verified",
+  "publishedAt": "2026-07-25T12:58:55.902Z",
+  "publicationReport": "reference/charm-repairs/screenshot-gpt-gold-pearl-shopify-publication-report.json",
+  "sourceManifest": "reference/charm-repairs/screenshot-gpt-manifest.json",
+  "candidateReport": "reference/charm-repairs/screenshot-gpt-candidate-report.json",
+  "manualReview": "reference/charm-repairs/screenshot-gpt-manual-review.json",
+  "liveSnapshotRecords": 328,
+  "artworkUpdateIds": [],
+  "acceptedArtworkSha256": {
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34": "fc75e01bfd346c8902a45211ffb695e2eac2375795360b1b8c039ae5c98814c6"
+  },
+  "metadataUpdates": [],
+  "newRecordIds": [
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34"
+  ],
+  "publicationRule": "Create exactly one new charme_charm metaobject for the accepted Gold Pearl artwork; do not update existing records or unrelated metadata."
+}

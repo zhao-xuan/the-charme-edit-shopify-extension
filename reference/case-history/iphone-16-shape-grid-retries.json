@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "campaign": "iphone-16-shape-grid-retries",
+  "generatedBy": "scripts/build-iphone-16-shape-grid-retries.mjs",
+  "sourceManifestPath": "reference/case-history/iphone-16-logo-safe-shape-corrections.json",
+  "publish": false,
+  "candidateOnly": true,
+  "generationPolicy": "Retry only the three logo-safe shape candidates whose canvas/product proportions drifted beyond strict tolerance. Preserve geometry, material, hardware and unbranded centres; never publish before user review.",
+  "prompts": [
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "black",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v6-gpt",
+      "publish": false,
+      "setCurrent": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "EXACT SOURCE-GRID RETRY - HIGHEST PRIORITY: the previous logo-safe candidate correctly removed all branding, but it is rejected because the complete phone/case width-to-height proportion drifted from IMAGE 1. Regenerate from the authoritative attachments; do not edit, trace or reuse that rejected candidate.\n\nIMAGE 1 is exactly 305x633px, with canvas width/height ratio 0.481833. Its visible product bounds are x=0..304, y=0..632, measuring 305x633px. The final full canvas and complete visible product MUST use that same portrait ratio and the same normalized four-side coordinates. Preserve the exact width relative to height. Do not make the phone narrower, taller, shorter, wider, zoomed out, padded or recentered. Do not substitute a common portrait aspect ratio. IMAGE 3, material crops and camera crops have ZERO canvas-ratio authority.\n\nThe opaque red guide is registered to IMAGE 1's exact grid. It remains the sole Gel boundary authority and must continue to hide all branding. Preserve the blank unbranded Gel centre achieved by the logo-safe contract: no Apple logo, ghost, icon, text or symbol. Only correct the rejected product/canvas proportion while performing the same Gel-shape transfer.\n\nFINAL GRID PASS/FAIL: reject the result unless its canvas width/height ratio is within 1% of 0.481833 and the complete product lands at IMAGE 1's normalized left, top, right and bottom bounds. Output exactly ONE image only.\n\nLOGO-SAFE RETRY - the prior generated candidate failed because it exposed a central Apple logo. Discard that result completely and start again from the authoritative attachments.\n\nThe opaque solid-red geometry attachment intentionally replaces the earlier translucent guide. It has SHAPE AND POSITION authority only. Its solid interior deliberately hides all source branding so no logo can leak through the Gel. Replace every red pixel with the requested unchanged Gel material and leave the entire broad Gel centre blank and unbranded: no Apple logo, silhouette, ghost, embossing, debossing, tonal mark, icon, text or symbol. Never infer hidden content beneath the opaque red region. All original attachment-authority rules still apply, and only the Gel footprint may change.\n\nGenerate exactly ONE NEW full-canvas iPhone 16 Black Gel product image from the SIX attachments.\n\nATTACHMENT AUTHORITY:\nIMAGE 1 = the exact bare BLACK iPhone 16 source. It alone controls the complete phone, shell, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, scale, proportions, framing, buttons, corners, bottom edge, shadows and pure-white exterior background.\nIMAGE 2 = a camera-free crop from the current accepted Black result. It controls ONLY the existing Black Gel visual details: colour, opacity, centre finish, raised-bead thickness, folds and highlight language. Its crop and old edge route have no geometry authority.\nIMAGE 3 = the accepted iPhone 16 Plus Glitter v2 benchmark. It controls ONLY the complete normalized Gel SHAPE AND POSITION. Never copy its phone scale, hardware, shell, Glitter particles, colour or material.\nIMAGE 4 = IMAGE 1 with the iPhone 16 Plus Glitter v2 footprint mapped into IMAGE 1 coordinates as a closed red guide. It is the final Gel boundary authority.\nIMAGE 5 = the exact same-model camera hardware crop from IMAGE 1. It locks lens count, arrangement, flash and sensors.\nIMAGE 6 = the existing Black material reference. It reinforces material only and has zero product or geometry authority.\n\nUSER CORRECTION - ONLY SHAPE AND POSITION MAY CHANGE: preserve the current Black Gel colour, opacity, texture, centre treatment, gloss, folds, edge thickness, highlights and every other visual detail defined by IMAGE 2 and IMAGE 6. Change only the Gel footprint so it matches IMAGE 3 and IMAGE 4. Do not redesign, smooth, intensify, flatten, recolour or otherwise alter the material.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1's exact iPhone 16, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, shell colour and texture, silhouette, native width-to-height ratio, product scale, position, framing, buttons, all four corners, complete bottom edge and shadows. Keep the whole phone straight-on, centred, fully visible and uncropped. Never zoom, crop, reframe, rotate, resize, widen, shorten, redraw, substitute hardware, change lens count or add a logo.\n\nPLUS-GLITTER-V2 GEOMETRY LOCK: transfer IMAGE 3's footprint into the target coordinates exactly as resolved by IMAGE 4. Fill the complete red-tinted interior with one continuous Black Gel slab. Put the centreline of the OUTERMOST raised bead directly on the complete closed red route, then remove every red pixel. Do not inset, shrink, lower, centre, straighten, simplify or approximate it.\n\nCAMERA-SIDE ROUTE: keep the narrow clean strip beneath the complete vertical camera housing, follow the short under-camera shoulder, begin one broad early up-and-right rise beside the camera/flash area, form one wide high soft crown, then descend the right edge. Do not trace individual lenses, create a moat, notch, keyhole, narrow neck, flat top or detached patch. Keep the complete camera hardware outside the Gel.\n\nOUTER FIT: along the complete left, bottom and right sides, reproduce IMAGE 3's ultra-close fit to the inner silicone wall. Leave only the same continuous shell-colour hairline and tiny contact shadow. Do not widen the gap, touch the wall, fuse Gel into silicone or create a double rim.\n\nFINAL QA: exact source phone and framing; existing Black material unchanged; only Gel shape/position changed; iPhone 16 Plus Glitter v2 footprint copied exactly; no Glitter, red residue, logo, text or symbol. Output exactly ONE photorealistic full back-view image only.",
+      "promptSha256": "551ae6e404ca0c9e311b4c6328ab5c89538454ad8a5ea1ffe4b0f839b3fb5d2e",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-current-style.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-accepted-glitter-geometry.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-plus-glitter-logo-safe-shape-guide.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-camera-lock.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-black-material.png"
+      ],
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-black-v6-gpt.png",
+      "localImagePath": "public/assets/cases/case-history/gpt-conversation-attempts/iphone-16-black-v6-gpt.png",
+      "imagePath": "/assets/cases/case-history/gpt-conversation-attempts/iphone-16-black-v6-gpt.png",
+      "reviewStatus": "pending-generation",
+      "generationAttempt": "logo-safe-source-grid-retry",
+      "retryOf": {
+        "candidateVersion": "v5-gpt",
+        "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-black-v5-gpt.png",
+        "sha256": "892fbb533ce6c41aa19e38533cb9b19b8d7764653b48ae18d51ea0de688ce913",
+        "reason": "Canvas/product width-to-height proportion drifted beyond strict shape-only tolerance"
+      },
+      "sourceGrid": {
+        "canvasWidth": 305,
+        "canvasHeight": 633,
+        "canvasRatio": 0.481833,
+        "productBounds": [
+          0,
+          0,
+          304,
+          632
+        ]
+      }
+    },
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "white",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v3-gpt",
+      "publish": false,
+      "setCurrent": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "EXACT SOURCE-GRID RETRY - HIGHEST PRIORITY: the previous logo-safe candidate correctly removed all branding, but it is rejected because the complete phone/case width-to-height proportion drifted from IMAGE 1. Regenerate from the authoritative attachments; do not edit, trace or reuse that rejected candidate.\n\nIMAGE 1 is exactly 871x1806px, with canvas width/height ratio 0.482281. Its visible product bounds are x=0..870, y=0..1805, measuring 871x1806px. The final full canvas and complete visible product MUST use that same portrait ratio and the same normalized four-side coordinates. Preserve the exact width relative to height. Do not make the phone narrower, taller, shorter, wider, zoomed out, padded or recentered. Do not substitute a common portrait aspect ratio. IMAGE 3, material crops and camera crops have ZERO canvas-ratio authority.\n\nThe opaque red guide is registered to IMAGE 1's exact grid. It remains the sole Gel boundary authority and must continue to hide all branding. Preserve the blank unbranded Gel centre achieved by the logo-safe contract: no Apple logo, ghost, icon, text or symbol. Only correct the rejected product/canvas proportion while performing the same Gel-shape transfer.\n\nFINAL GRID PASS/FAIL: reject the result unless its canvas width/height ratio is within 1% of 0.482281 and the complete product lands at IMAGE 1's normalized left, top, right and bottom bounds. Output exactly ONE image only.\n\nLOGO-SAFE RETRY - the prior generated candidate failed because it exposed a central Apple logo. Discard that result completely and start again from the authoritative attachments.\n\nThe opaque solid-red geometry attachment intentionally replaces the earlier translucent guide. It has SHAPE AND POSITION authority only. Its solid interior deliberately hides all source branding so no logo can leak through the Gel. Replace every red pixel with the requested unchanged Gel material and leave the entire broad Gel centre blank and unbranded: no Apple logo, silhouette, ghost, embossing, debossing, tonal mark, icon, text or symbol. Never infer hidden content beneath the opaque red region. All original attachment-authority rules still apply, and only the Gel footprint may change.\n\nGenerate exactly ONE NEW full-canvas iPhone 16 White Gel product image from the SIX attachments.\n\nATTACHMENT AUTHORITY:\nIMAGE 1 = the exact bare OFF-WHITE iPhone 16 source. It alone controls the complete phone, shell, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, scale, proportions, framing, buttons, corners, bottom edge, shadows and pure-white exterior background.\nIMAGE 2 = a camera-free crop from the current accepted White result. It controls ONLY the existing White Gel visual details: colour, opacity, centre finish, raised-bead thickness, folds and highlight language. Its crop and old edge route have no geometry authority.\nIMAGE 3 = the accepted iPhone 16 Plus Glitter v2 benchmark. It controls ONLY the complete normalized Gel SHAPE AND POSITION. Never copy its phone scale, hardware, shell, Glitter particles, colour or material.\nIMAGE 4 = IMAGE 1 with the iPhone 16 Plus Glitter v2 footprint mapped into IMAGE 1 coordinates as a closed red guide. It is the final Gel boundary authority.\nIMAGE 5 = the exact same-model camera hardware crop from IMAGE 1. It locks lens count, arrangement, flash and sensors.\nIMAGE 6 = the existing White material reference. It reinforces material only and has zero product or geometry authority.\n\nUSER CORRECTION - ONLY SHAPE AND POSITION MAY CHANGE: preserve the current White Gel colour, opacity, texture, centre treatment, gloss, folds, edge thickness, highlights and every other visual detail defined by IMAGE 2 and IMAGE 6. Change only the Gel footprint so it matches IMAGE 3 and IMAGE 4. Do not redesign, smooth, intensify, flatten, recolour or otherwise alter the material.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1's exact iPhone 16, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, shell colour and texture, silhouette, native width-to-height ratio, product scale, position, framing, buttons, all four corners, complete bottom edge and shadows. Keep the whole phone straight-on, centred, fully visible and uncropped. Never zoom, crop, reframe, rotate, resize, widen, shorten, redraw, substitute hardware, change lens count or add a logo.\n\nPLUS-GLITTER-V2 GEOMETRY LOCK: transfer IMAGE 3's footprint into the target coordinates exactly as resolved by IMAGE 4. Fill the complete red-tinted interior with one continuous White Gel slab. Put the centreline of the OUTERMOST raised bead directly on the complete closed red route, then remove every red pixel. Do not inset, shrink, lower, centre, straighten, simplify or approximate it.\n\nCAMERA-SIDE ROUTE: keep the narrow clean strip beneath the complete vertical camera housing, follow the short under-camera shoulder, begin one broad early up-and-right rise beside the camera/flash area, form one wide high soft crown, then descend the right edge. Do not trace individual lenses, create a moat, notch, keyhole, narrow neck, flat top or detached patch. Keep the complete camera hardware outside the Gel.\n\nOUTER FIT: along the complete left, bottom and right sides, reproduce IMAGE 3's ultra-close fit to the inner silicone wall. Leave only the same continuous shell-colour hairline and tiny contact shadow. Do not widen the gap, touch the wall, fuse Gel into silicone or create a double rim.\n\nFINAL QA: exact source phone and framing; existing White material unchanged; only Gel shape/position changed; iPhone 16 Plus Glitter v2 footprint copied exactly; no Glitter, red residue, logo, text or symbol. Output exactly ONE photorealistic full back-view image only.",
+      "promptSha256": "dd9d43dac2705998328a22e05935805ba359b2c2f97864a2116034b4675e9f4b",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-current-style.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-accepted-glitter-geometry.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-plus-glitter-logo-safe-shape-guide.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-camera-lock.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-white-material.png"
+      ],
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-white-v3-gpt.png",
+      "localImagePath": "public/assets/cases/case-history/gpt-conversation-attempts/iphone-16-white-v3-gpt.png",
+      "imagePath": "/assets/cases/case-history/gpt-conversation-attempts/iphone-16-white-v3-gpt.png",
+      "reviewStatus": "pending-generation",
+      "generationAttempt": "logo-safe-source-grid-retry",
+      "retryOf": {
+        "candidateVersion": "v2-gpt",
+        "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-white-v2-gpt.png",
+        "sha256": "4f1587f1753d6d6ed7f9fe7776d3d9e98304cec8f633ec05982df237d8df6eab",
+        "reason": "Canvas/product width-to-height proportion drifted beyond strict shape-only tolerance"
+      },
+      "sourceGrid": {
+        "canvasWidth": 871,
+        "canvasHeight": 1806,
+        "canvasRatio": 0.482281,
+        "productBounds": [
+          0,
+          0,
+          870,
+          1805
+        ]
+      }
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "finish": "white",
+      "correctionType": "iphone-16-plus-glitter-v2-geometry-only",
+      "candidateVersion": "v2-gpt",
+      "publish": false,
+      "setCurrent": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "EXACT SOURCE-GRID RETRY - HIGHEST PRIORITY: the previous logo-safe candidate correctly removed all branding, but it is rejected because the complete phone/case width-to-height proportion drifted from IMAGE 1. Regenerate from the authoritative attachments; do not edit, trace or reuse that rejected candidate.\n\nIMAGE 1 is exactly 866x1817px, with canvas width/height ratio 0.476610. Its visible product bounds are x=0..865, y=0..1816, measuring 866x1817px. The final full canvas and complete visible product MUST use that same portrait ratio and the same normalized four-side coordinates. Preserve the exact width relative to height. Do not make the phone narrower, taller, shorter, wider, zoomed out, padded or recentered. Do not substitute a common portrait aspect ratio. IMAGE 3, material crops and camera crops have ZERO canvas-ratio authority.\n\nThe opaque red guide is registered to IMAGE 1's exact grid. It remains the sole Gel boundary authority and must continue to hide all branding. Preserve the blank unbranded Gel centre achieved by the logo-safe contract: no Apple logo, ghost, icon, text or symbol. Only correct the rejected product/canvas proportion while performing the same Gel-shape transfer.\n\nFINAL GRID PASS/FAIL: reject the result unless its canvas width/height ratio is within 1% of 0.476610 and the complete product lands at IMAGE 1's normalized left, top, right and bottom bounds. Output exactly ONE image only.\n\nLOGO-SAFE GEOMETRY PRECAUTION - use the authoritative attachments to create this new candidate.\n\nThe opaque solid-red geometry attachment intentionally replaces the earlier translucent guide. It has SHAPE AND POSITION authority only. Its solid interior deliberately hides all source branding so no logo can leak through the Gel. Replace every red pixel with the requested unchanged Gel material and leave the entire broad Gel centre blank and unbranded: no Apple logo, silhouette, ghost, embossing, debossing, tonal mark, icon, text or symbol. Never infer hidden content beneath the opaque red region. All original attachment-authority rules still apply, and only the Gel footprint may change.\n\nGenerate exactly ONE NEW full-canvas iPhone 16 Plus White Gel product image from the SIX attachments.\n\nATTACHMENT AUTHORITY:\nIMAGE 1 = the exact bare OFF-WHITE iPhone 16 Plus source. It alone controls the complete phone, shell, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, scale, proportions, framing, buttons, corners, bottom edge, shadows and pure-white exterior background.\nIMAGE 2 = a camera-free crop from the current accepted White result. It controls ONLY the existing White Gel visual details: colour, opacity, centre finish, raised-bead thickness, folds and highlight language. Its crop and old edge route have no geometry authority.\nIMAGE 3 = the accepted iPhone 16 Plus Glitter v2 benchmark. It controls ONLY the complete normalized Gel SHAPE AND POSITION. Never copy its phone scale, hardware, shell, Glitter particles, colour or material.\nIMAGE 4 = IMAGE 1 with the iPhone 16 Plus Glitter v2 footprint mapped into IMAGE 1 coordinates as a closed red guide. It is the final Gel boundary authority.\nIMAGE 5 = the exact same-model camera hardware crop from IMAGE 1. It locks lens count, arrangement, flash and sensors.\nIMAGE 6 = the existing White material reference. It reinforces material only and has zero product or geometry authority.\n\nUSER CORRECTION - ONLY SHAPE AND POSITION MAY CHANGE: preserve the current White Gel colour, opacity, texture, centre treatment, gloss, folds, edge thickness, highlights and every other visual detail defined by IMAGE 2 and IMAGE 6. Change only the Gel footprint so it matches IMAGE 3 and IMAGE 4. Do not redesign, smooth, intensify, flatten, recolour or otherwise alter the material.\n\nABSOLUTE PRODUCT LOCK: preserve IMAGE 1's exact iPhone 16 Plus, exactly TWO large lenses stacked VERTICALLY in the original narrow vertical camera housing, with the original separate circular flash to its right, shell colour and texture, silhouette, native width-to-height ratio, product scale, position, framing, buttons, all four corners, complete bottom edge and shadows. Keep the whole phone straight-on, centred, fully visible and uncropped. Never zoom, crop, reframe, rotate, resize, widen, shorten, redraw, substitute hardware, change lens count or add a logo.\n\nPLUS-GLITTER-V2 GEOMETRY LOCK: transfer IMAGE 3's footprint into the target coordinates exactly as resolved by IMAGE 4. Fill the complete red-tinted interior with one continuous White Gel slab. Put the centreline of the OUTERMOST raised bead directly on the complete closed red route, then remove every red pixel. Do not inset, shrink, lower, centre, straighten, simplify or approximate it.\n\nCAMERA-SIDE ROUTE: keep the narrow clean strip beneath the complete vertical camera housing, follow the short under-camera shoulder, begin one broad early up-and-right rise beside the camera/flash area, form one wide high soft crown, then descend the right edge. Do not trace individual lenses, create a moat, notch, keyhole, narrow neck, flat top or detached patch. Keep the complete camera hardware outside the Gel.\n\nOUTER FIT: along the complete left, bottom and right sides, reproduce IMAGE 3's ultra-close fit to the inner silicone wall. Leave only the same continuous shell-colour hairline and tiny contact shadow. Do not widen the gap, touch the wall, fuse Gel into silicone or create a double rim.\n\nFINAL QA: exact source phone and framing; existing White material unchanged; only Gel shape/position changed; iPhone 16 Plus Glitter v2 footprint copied exactly; no Glitter, red residue, logo, text or symbol. Output exactly ONE photorealistic full back-view image only.",
+      "promptSha256": "72db270d77e3dad23a3dc545c1aa49867306c78b90f2b985f209fc1580761f24",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-current-style.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-accepted-glitter-geometry.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-logo-safe-shape-guide.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-camera-lock.png",
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-white-material.png"
+      ],
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+      "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-plus-white-v2-gpt.png",
+      "localImagePath": "public/assets/cases/case-history/gpt-conversation-attempts/iphone-16-plus-white-v2-gpt.png",
+      "imagePath": "/assets/cases/case-history/gpt-conversation-attempts/iphone-16-plus-white-v2-gpt.png",
+      "reviewStatus": "pending-generation",
+      "generationAttempt": "logo-safe-source-grid-retry",
+      "sourceGrid": {
+        "canvasWidth": 866,
+        "canvasHeight": 1817,
+        "canvasRatio": 0.47661,
+        "productBounds": [
+          0,
+          0,
+          865,
+          1816
+        ]
+      },
+      "retryOf": {
+        "candidateVersion": "v1-gpt",
+        "candidatePath": "reference/case-history/generated/black-white-glitter-shape-trials/candidates/iphone-16-plus-white-v1-gpt.png",
+        "sha256": "cc70274c68b7a7577253c6c480c898f23b8a311268851fdfbf7a25751f327265",
+        "reason": "Canvas/product width-to-height proportion drifted beyond strict shape-only tolerance"
+      }
+    }
+  ]
+}

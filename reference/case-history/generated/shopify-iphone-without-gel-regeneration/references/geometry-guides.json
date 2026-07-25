@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/build-shopify-iphone-without-gel-geometry-guides.mjs",
+  "sourceAuditPath": "reference/shopify-iphone-case-size-audit.json",
+  "sourceCameraKeepoutsPath": "src/data/camera-keepouts.json",
+  "policy": "Standalone schematic references only. No source or candidate product pixels.",
+  "guides": [
+    {
+      "modelId": "iphone-13-mini",
+      "modelName": "iPhone 13 mini",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-mini-size-camera-guide.png",
+      "sha256": "0d247cad05438afde49135ae164db8d72b62483a372584ac7a98031719fb7a1f",
+      "targetMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "targetAspect": 0.488213,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 969,
+        "height": 1984,
+        "left": 28,
+        "top": 32,
+        "right": 996,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.488407,
+      "renderedBodyAspectDriftPercent": 0.04,
+      "cameraNormalized": {
+        "x": 0,
+        "y": 0.007,
+        "w": 0.498,
+        "h": 0.273
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 28,
+        "top": 46,
+        "width": 483,
+        "height": 542,
+        "right": 510,
+        "bottom": 587
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-13",
+      "modelName": "iPhone 13",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-size-camera-guide.png",
+      "sha256": "3c1184c37ed4fe295257a9ef8acbc847f11834a5dc9a9e37a162c82ee5ba752b",
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 967,
+        "height": 1984,
+        "left": 29,
+        "top": 32,
+        "right": 995,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.487399,
+      "renderedBodyAspectDriftPercent": 0.002,
+      "cameraNormalized": {
+        "x": 0.065,
+        "y": 0.03,
+        "w": 0.403,
+        "h": 0.203
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 92,
+        "top": 92,
+        "width": 390,
+        "height": 403,
+        "right": 481,
+        "bottom": 494
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "modelName": "iPhone 13 Pro",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-size-camera-guide.png",
+      "sha256": "647e80099a93c81976cb606788a13f661720b8bf152ff4a68cd60864150490b6",
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 967,
+        "height": 1984,
+        "left": 29,
+        "top": 32,
+        "right": 995,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.487399,
+      "renderedBodyAspectDriftPercent": 0.002,
+      "cameraNormalized": {
+        "x": 0.055,
+        "y": 0.036,
+        "w": 0.499,
+        "h": 0.258
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 82,
+        "top": 103,
+        "width": 483,
+        "height": 512,
+        "right": 564,
+        "bottom": 614
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "modelName": "iPhone 13 Pro Max",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-max-size-camera-guide.png",
+      "sha256": "218e17891b289e4b6792a5d3a1fee6d014f7888a22666f541415eeb086e1542e",
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 964,
+        "height": 1984,
+        "left": 30,
+        "top": 32,
+        "right": 993,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.485887,
+      "renderedBodyAspectDriftPercent": 0.039,
+      "cameraNormalized": {
+        "x": 0.047,
+        "y": 0.031,
+        "w": 0.467,
+        "h": 0.24
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 75,
+        "top": 94,
+        "width": 450,
+        "height": 476,
+        "right": 524,
+        "bottom": 569
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-14",
+      "modelName": "iPhone 14",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-size-camera-guide.png",
+      "sha256": "392b4bce4b5e4e5baa770cb30d2ca3c576387387035f192af01617722a3d4985",
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 967,
+        "height": 1984,
+        "left": 29,
+        "top": 32,
+        "right": 995,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.487399,
+      "renderedBodyAspectDriftPercent": 0.002,
+      "cameraNormalized": {
+        "x": 0,
+        "y": 0.025,
+        "w": 0.515,
+        "h": 0.245
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 29,
+        "top": 82,
+        "width": 498,
+        "height": 486,
+        "right": 526,
+        "bottom": 567
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-plus-size-camera-guide.png",
+      "sha256": "0458d8e2f0f967c003bdd36be12e2424246e0d1cafed052a4e7fe9bc4590facf",
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 964,
+        "height": 1984,
+        "left": 30,
+        "top": 32,
+        "right": 993,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.485887,
+      "renderedBodyAspectDriftPercent": 0.039,
+      "cameraNormalized": {
+        "x": 0,
+        "y": 0.026,
+        "w": 0.486,
+        "h": 0.227
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 30,
+        "top": 84,
+        "width": 469,
+        "height": 450,
+        "right": 498,
+        "bottom": 533
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-size-camera-guide.png",
+      "sha256": "c86998eecd51fb6acbc4dc14b143be988cc223128f046a24ce8ae89381b9ccbd",
+      "targetMm": {
+        "width": 71.5,
+        "height": 147.5
+      },
+      "targetAspect": 0.484746,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 962,
+        "height": 1984,
+        "left": 31,
+        "top": 32,
+        "right": 992,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.484879,
+      "renderedBodyAspectDriftPercent": 0.027,
+      "cameraNormalized": {
+        "x": 0.017,
+        "y": 0.025,
+        "w": 0.601,
+        "h": 0.308
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 47,
+        "top": 82,
+        "width": 578,
+        "height": 611,
+        "right": 624,
+        "bottom": 692
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-max-size-camera-guide.png",
+      "sha256": "4fb110f93c4792ccc73e3b2bcae89b75258e6fc03c13ec8356d41b1979cae8a3",
+      "targetMm": {
+        "width": 77.6,
+        "height": 160.7
+      },
+      "targetAspect": 0.482887,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 958,
+        "height": 1984,
+        "left": 33,
+        "top": 32,
+        "right": 990,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.482863,
+      "renderedBodyAspectDriftPercent": 0.005,
+      "cameraNormalized": {
+        "x": 0.012,
+        "y": 0.021,
+        "w": 0.562,
+        "h": 0.287
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 44,
+        "top": 74,
+        "width": 538,
+        "height": 569,
+        "right": 581,
+        "bottom": 642
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-size-camera-guide.png",
+      "sha256": "e247810d12293763289843857b68f3b44b78bfebd6eb13e498477c07dfdf3ff9",
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 962,
+        "height": 1984,
+        "left": 31,
+        "top": 32,
+        "right": 992,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.484879,
+      "renderedBodyAspectDriftPercent": 0.044,
+      "cameraNormalized": {
+        "x": 0,
+        "y": 0.015,
+        "w": 0.515,
+        "h": 0.263
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 31,
+        "top": 62,
+        "width": 495,
+        "height": 522,
+        "right": 525,
+        "bottom": 583
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-plus-size-camera-guide.png",
+      "sha256": "e1b890ce02f0f23f07fa4d4ea207d81d9184de8729ba4acf4735497ec0068b47",
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 959,
+        "height": 1984,
+        "left": 33,
+        "top": 32,
+        "right": 991,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.483367,
+      "renderedBodyAspectDriftPercent": 0.034,
+      "cameraNormalized": {
+        "x": 0,
+        "y": 0.013,
+        "w": 0.48,
+        "h": 0.245
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 33,
+        "top": 58,
+        "width": 460,
+        "height": 486,
+        "right": 492,
+        "bottom": 543
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-size-camera-guide.png",
+      "sha256": "5eee2292f15bf8de91f8672e7a598f3ce1a8b188288e2f88f94156e64ce0f642",
+      "targetMm": {
+        "width": 70.6,
+        "height": 146.6
+      },
+      "targetAspect": 0.481583,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 955,
+        "height": 1984,
+        "left": 35,
+        "top": 32,
+        "right": 989,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.481351,
+      "renderedBodyAspectDriftPercent": 0.048,
+      "cameraNormalized": {
+        "x": 0.016,
+        "y": 0.018,
+        "w": 0.62,
+        "h": 0.317
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 50,
+        "top": 68,
+        "width": 592,
+        "height": 629,
+        "right": 641,
+        "bottom": 696
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "modelName": "iPhone 15 Pro Max",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-max-size-camera-guide.png",
+      "sha256": "7f5da22f040bda7d8ddeb8225160165eac4d65927dde05fad64c116f8629e7a9",
+      "targetMm": {
+        "width": 76.7,
+        "height": 159.9
+      },
+      "targetAspect": 0.479675,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 952,
+        "height": 1984,
+        "left": 36,
+        "top": 32,
+        "right": 987,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.479839,
+      "renderedBodyAspectDriftPercent": 0.034,
+      "cameraNormalized": {
+        "x": 0.012,
+        "y": 0.015,
+        "w": 0.576,
+        "h": 0.294
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 47,
+        "top": 62,
+        "width": 548,
+        "height": 583,
+        "right": 594,
+        "bottom": 644
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-size-camera-guide.png",
+      "sha256": "6e960baedceebe4fd1f155ba097729916f1949a1a74dd3a0bdaea391e9a4e1d4",
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 962,
+        "height": 1984,
+        "left": 31,
+        "top": 32,
+        "right": 992,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.484879,
+      "renderedBodyAspectDriftPercent": 0.044,
+      "cameraNormalized": {
+        "x": 0.03,
+        "y": 0.013,
+        "w": 0.48,
+        "h": 0.282
+      },
+      "cameraGeometrySource": "measured from the same-model Black source image",
+      "cameraBoundsPx": {
+        "left": 60,
+        "top": 58,
+        "width": 462,
+        "height": 559,
+        "right": 521,
+        "bottom": 616
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-plus-size-camera-guide.png",
+      "sha256": "30c96eb0ac3cbbdbb5d3134263723d9c581932098364f62d78af47d3cc17be5e",
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 959,
+        "height": 1984,
+        "left": 33,
+        "top": 32,
+        "right": 991,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.483367,
+      "renderedBodyAspectDriftPercent": 0.034,
+      "cameraNormalized": {
+        "x": 0.03,
+        "y": 0.015,
+        "w": 0.47,
+        "h": 0.27
+      },
+      "cameraGeometrySource": "measured from the same-model Black source image",
+      "cameraBoundsPx": {
+        "left": 62,
+        "top": 62,
+        "width": 451,
+        "height": 536,
+        "right": 512,
+        "bottom": 597
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-size-camera-guide.png",
+      "sha256": "95f1d0ee333536434e7c77d0936faa7bd89b5c6929e6d0d80d92dee5b2827cc1",
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 948,
+        "height": 1984,
+        "left": 38,
+        "top": 32,
+        "right": 985,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.477823,
+      "renderedBodyAspectDriftPercent": 0.025,
+      "cameraNormalized": {
+        "x": 0.02,
+        "y": 0.018,
+        "w": 0.62,
+        "h": 0.3
+      },
+      "cameraGeometrySource": "measured from the same-model Black source image",
+      "cameraBoundsPx": {
+        "left": 57,
+        "top": 68,
+        "width": 588,
+        "height": 595,
+        "right": 644,
+        "bottom": 662
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-max-size-camera-guide.png",
+      "sha256": "17dff8e65802f67ab2ff2c5709403d088a8a4eea36e7a1c710640bc19f8dfdcd",
+      "targetMm": {
+        "width": 77.6,
+        "height": 163
+      },
+      "targetAspect": 0.476074,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 945,
+        "height": 1984,
+        "left": 40,
+        "top": 32,
+        "right": 984,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.47631,
+      "renderedBodyAspectDriftPercent": 0.05,
+      "cameraNormalized": {
+        "x": 0.028,
+        "y": 0.011,
+        "w": 0.578,
+        "h": 0.292
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 66,
+        "top": 54,
+        "width": 546,
+        "height": 579,
+        "right": 611,
+        "bottom": 632
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-17",
+      "modelName": "iPhone 17",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-size-camera-guide.png",
+      "sha256": "e4e722732d30ed401b6200461809301740cc2689a1a0c6629fa80844bba01c30",
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 948,
+        "height": 1984,
+        "left": 38,
+        "top": 32,
+        "right": 985,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.477823,
+      "renderedBodyAspectDriftPercent": 0.025,
+      "cameraNormalized": {
+        "x": 0.029,
+        "y": 0.012,
+        "w": 0.382,
+        "h": 0.303
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 65,
+        "top": 56,
+        "width": 362,
+        "height": 601,
+        "right": 426,
+        "bottom": 656
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "modelName": "iPhone 17 Pro",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-size-camera-guide.png",
+      "sha256": "9103d37b3b6dc1d5ec42e38668d50cc261f95d8bd5b9d9df770ee1a7faa354cb",
+      "targetMm": {
+        "width": 71.9,
+        "height": 150
+      },
+      "targetAspect": 0.479333,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 951,
+        "height": 1984,
+        "left": 37,
+        "top": 32,
+        "right": 987,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.479335,
+      "renderedBodyAspectDriftPercent": 0,
+      "cameraNormalized": {
+        "x": 0.063,
+        "y": 0.032,
+        "w": 0.912,
+        "h": 0.297
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 97,
+        "top": 95,
+        "width": 867,
+        "height": 589,
+        "right": 963,
+        "bottom": 683
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "modelName": "iPhone 17 Pro Max",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-max-size-camera-guide.png",
+      "sha256": "38f175fb3b042e6e92e0cf2fd8533a60a327ea25fc4b0392b0dca870cf774155",
+      "targetMm": {
+        "width": 78,
+        "height": 163.4
+      },
+      "targetAspect": 0.477356,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 947,
+        "height": 1984,
+        "left": 39,
+        "top": 32,
+        "right": 985,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.477319,
+      "renderedBodyAspectDriftPercent": 0.008,
+      "cameraNormalized": {
+        "x": 0.05,
+        "y": 0.026,
+        "w": 0.931,
+        "h": 0.279
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 86,
+        "top": 84,
+        "width": 882,
+        "height": 554,
+        "right": 967,
+        "bottom": 637
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    },
+    {
+      "modelId": "iphone-air",
+      "modelName": "iPhone Air",
+      "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-air-size-camera-guide.png",
+      "sha256": "2c89ad7eba8a64179d7618c9163fda458efa2f85415569cb2d5a07f82cd8830a",
+      "targetMm": {
+        "width": 74.7,
+        "height": 156.2
+      },
+      "targetAspect": 0.478233,
+      "canvasPx": {
+        "width": 1024,
+        "height": 2048
+      },
+      "bodyBoundsPx": {
+        "width": 949,
+        "height": 1984,
+        "left": 38,
+        "top": 32,
+        "right": 986,
+        "bottom": 2015
+      },
+      "renderedBodyAspect": 0.478327,
+      "renderedBodyAspectDriftPercent": 0.02,
+      "cameraNormalized": {
+        "x": 0.09,
+        "y": 0.04,
+        "w": 0.79,
+        "h": 0.15
+      },
+      "cameraGeometrySource": "src/data/camera-keepouts.json",
+      "cameraBoundsPx": {
+        "left": 123,
+        "top": 111,
+        "width": 750,
+        "height": 298,
+        "right": 872,
+        "bottom": 408
+      },
+      "authority": {
+        "redOutline": "device-body width-to-height proportion only",
+        "blueRegion": "camera position and occupied region only"
+      }
+    }
+  ]
+}

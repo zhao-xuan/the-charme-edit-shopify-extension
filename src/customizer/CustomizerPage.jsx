@@ -25,6 +25,7 @@ import { settings } from '../lib/settings'
 import { charmPricingGroupFor } from '../lib/charmPricing'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
+import { observeMediaQuery } from '../lib/mediaQuery'
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -33,9 +34,9 @@ function useMedia(query) {
   useEffect(() => {
     const m = window.matchMedia(query)
     const fn = (e) => setMatch(e.matches)
-    m.addEventListener('change', fn)
+    const stop = observeMediaQuery(m, fn)
     setMatch(m.matches)
-    return () => m.removeEventListener('change', fn)
+    return stop
   }, [query])
   return match
 }

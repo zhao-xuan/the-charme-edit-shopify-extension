@@ -9,10 +9,9 @@
  * minus optional keep-out obstacles (e.g. the iPhone camera island). Boundary
  * detection uses this region.
  *
- * iPhone models use REAL Apple case product photos where available (codes for
- * older models recovered from the Internet Archive Wayback Machine — see
- * scripts/process-cases.mjs → cases.json). Models without a photo fall back to a
- * parametric gel render in White (Glitter gel) / Black (Black gel).
+ * iPhone models use the prebuilt case product photos listed in cases.json where
+ * available. Models without a photo fall back to a parametric gel render in
+ * White (Glitter gel) / Black (Black gel).
  */
 import CASES_DATA from './cases.json'
 import CAMERA_KEEPOUTS from './camera-keepouts.json'
@@ -38,7 +37,7 @@ const GEL_COLOURS = [
 
 // The poured gel is a real translucent-liquid-glass overlay laid on top of the
 // case photo. Each iPhone maps to a representative gel shape that fits its camera
-// layout + footprint (built by scripts/build-gels.mjs from reference/gels-source).
+// layout + footprint for the prebuilt gel overlay assets.
 // Every 11–16 iPhone shares the top-left "17" gel; older single/dual-camera models
 // and the wide-bar 17 Pro / Pro Max / Air each have their own.
 const GEL_REP = {
@@ -54,10 +53,9 @@ function gelOverlaySrc(id) {
 
 // The models with bespoke "integrated gel" renders — a single cohesive product
 // photo per finish with the poured gel already fused onto the case
-// (public/assets/cases/integrated-<id>-<white|black>.png, produced by
-// scripts/crop-integrated-renders.mjs from GPT renders). The list is generated
-// by that script (src/data/integrated-models.json) so it stays in sync as more
-// models are rendered. For these models the gel colour drives the whole render —
+// (public/assets/cases/case-with-gel/integrated-<id>-<white|black>.png).
+// src/data/integrated-models.json identifies the models with these static assets.
+// For these models the gel colour drives the whole render —
 // White/Glitter gel sits on a White case, Black gel on a Black case — so we swap
 // the render in as the case photo and mark the product `gelRender` so the
 // customizer derives the case finish from the gel and skips the gel overlay.
@@ -176,8 +174,7 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
  * that colour. `blankImage` may hold a `black` photo, a `white` photo, both, or
  * neither — any finish without a photo renders as gel. Apple part-codes for the
  * older models were recovered from the Internet Archive Wayback Machine and
- * fetched fresh from Apple's CDN; the 17 family is from the live store (see
- * scripts/process-cases.mjs → cases.json).
+ * fetched from Apple's CDN; the 17 family is from the live store.
  *
  * Every Apple case photo shares the same framing, so the camera keep-out is one
  * calibration per camera kind, expressed as fractions of the case footprint.

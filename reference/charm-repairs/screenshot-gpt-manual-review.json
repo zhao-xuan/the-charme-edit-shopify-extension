@@ -1,0 +1,164 @@
+{
+  "reviewedAt": "2026-07-25",
+  "status": "accepted",
+  "candidateReport": "reference/charm-repairs/screenshot-gpt-candidate-report.json",
+  "scope": {
+    "uniqueCharms": 11,
+    "screenshotOccurrences": 13
+  },
+  "reviewChecks": [
+    "Matched each generated charm against its SHA-locked authentic source for identity, silhouette, proportions, material, and details.",
+    "Inspected each normalized PNG over black and white backgrounds for external shadows, glow, halo, background remnants, and unrelated solid regions.",
+    "Inspected each alpha mask for one connected charm body and only the authentic physical through-openings.",
+    "Locked every accepted GPT source and normalized PNG by SHA-256 before canonical or Shopify writes."
+  ],
+  "targets": [
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+      "name": "Gold Moon",
+      "status": "accepted",
+      "sourceSha256": "b94cc5a4bfe21016e2b37bf7e18f598cd7418a27e043adc9f6de9f2950082718",
+      "gptSourceSha256": "13869e5cff995704402bf018fbb9dbebc2ee2e8fcafe1166d19697bed410d485",
+      "normalizedSha256": "a851fed3ea41249c7361646a70c346b70be1ce92e21c4e57f5aa1b8296509342",
+      "conversationUrl": "https://chatgpt.com/c/6a641356-83d4-83ed-859c-7fec32814b56",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20-v3-chroma.png",
+      "reviewNotes": "Identity and crescent geometry match; the centre and attachment loop are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25",
+      "name": "Gold Moon",
+      "status": "accepted",
+      "sourceSha256": "2bc0c1a26cc45e2a025e72e3010cfa1b7082537c82dbddced22b85f8e7dfcc80",
+      "gptSourceSha256": "4831397218d568c15d691e57a8a0e1d34a54969f80a9cdd4b31a1c60499183cb",
+      "normalizedSha256": "ab2ab24de99635fc24003af2e5defa848e4b74b80bc102359cddfc6cb2b4b03c",
+      "conversationUrl": "https://chatgpt.com/c/6a6416a6-d664-83ed-bcfa-98f8bf2e725c",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25-v1-chroma.png",
+      "reviewNotes": "Identity and moon-star silhouette match; the crescent interior and attachment loop are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20",
+      "name": "Gold Bow Arrow",
+      "status": "accepted",
+      "sourceSha256": "0b78600a7e404161d292e9c7f1fc1c782815e9dbb6ee315ac1086d5be2be03c6",
+      "gptSourceSha256": "9e822be38533d9b81565ecaa34aaa038c63092af62100a811eb229f4377403dd",
+      "normalizedSha256": "964a194fc5589a7ab551fedc0d5bca9f8564b280056f025cda5a0c157f2bf8ff",
+      "conversationUrl": "https://chatgpt.com/c/6a64177e-e998-83ed-a921-4d0c187cec80",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20-v1-chroma.png",
+      "reviewNotes": "Bow, arrow, and end loops match; both bow interiors and genuine end-loop openings are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34",
+      "name": "Gold Pearl",
+      "status": "accepted",
+      "sourceSha256": "2612e072eec6187029cf3e5416cf9129f89cab0640135c9e23726c7b7da76eb8",
+      "gptSourceSha256": "f4a67b99a01cecc2167788840dd104e08f32ec2ffb17b323e9e627d952693c13",
+      "normalizedSha256": "fc75e01bfd346c8902a45211ffb695e2eac2375795360b1b8c039ae5c98814c6",
+      "conversationUrl": "https://chatgpt.com/c/6a641860-9a14-83ed-9f53-fdf5ee369da5",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34-v1-chroma.png",
+      "reviewNotes": "Pearl and ornamental gold details remain solid and match the source; only the attachment loop is transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31",
+      "name": "Gold Star",
+      "status": "accepted",
+      "sourceSha256": "32c13463bfd39d866604acf5a1b49a3c2fd92e743cdf49b588baf21297ffa28b",
+      "gptSourceSha256": "7d0066298a25a5dc216b301703c7c4045b92df3138c0578fc2d3dad9c08d17b7",
+      "normalizedSha256": "b3ee5589a92120a91205677a3a94b31186ccc4219da95a102e6eb3b917e4a352",
+      "conversationUrl": "https://chatgpt.com/c/6a64192c-2538-83eb-9bdf-cf7a970f6449",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31-v1-chroma.png",
+      "reviewNotes": "Star frame and gold finish match; the star centre and attachment loop are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "silver-02",
+      "name": "Silver Key",
+      "status": "accepted",
+      "sourceSha256": "a4e6b776b1d3c394d4e1502d3a512bf6ad6a4608c4bb2c81c69f4dfdfce64f13",
+      "gptSourceSha256": "8374f27203f38fcb0d08a0bfd4b9f7195ff71929f39bbaded80c1298e374250f",
+      "normalizedSha256": "1490e72dbad4fdb15763bb16c10999f07fa2551c3b48e76712291645575a7378",
+      "conversationUrl": "https://chatgpt.com/c/6a641a01-98c8-83eb-850f-a260ce7feaf6",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-02-v1-chroma.png",
+      "reviewNotes": "Key identity and ornate head match; the authentic head opening and attachment loop are transparent; engravings remain solid with no external shadow or extra region."
+    },
+    {
+      "id": "silver-04",
+      "name": "Silver Bow Arrow",
+      "status": "accepted",
+      "sourceSha256": "47cdef1d61262aade2b15a06500de2dab543df2fc3222470a4607a363ba0226b",
+      "gptSourceSha256": "25d1606878cf67918fbc7690fbb0f131ead796169a3cd4a428818590cf931e99",
+      "normalizedSha256": "6739cc62d361d55303f9917916c532ea5851b654d5233201c5f24fb9357cf0ab",
+      "conversationUrl": "https://chatgpt.com/c/6a64a860-8904-83ed-ad78-f71347b3e3c0",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-04-v1-chroma.png",
+      "reviewNotes": "Bow, arrow, and end loops match; both bow interiors and genuine end-loop openings are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "silver-24",
+      "name": "Silver Cards",
+      "status": "accepted",
+      "sourceSha256": "a348ff4bab9661e3845adb8696c14354be38dec3a16ed8abe28b90dd238bf497",
+      "gptSourceSha256": "fac55d8ce75e0bb95f1cbf5fcb915942667affb34668be21a5e857c49b4cf605",
+      "normalizedSha256": "b2d7b93c714757414f0f7e3c035f241f80169a75a8018a2128004ca3bf6cf935",
+      "conversationUrl": "https://chatgpt.com/c/6a64a7e4-8a80-83eb-a379-4e6ef309262b",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-24-v2-chroma.png",
+      "reviewNotes": "Card stack and large authentic heart opening match; the heart and left attachment loop are transparent; no external shadow or extra solid region appears on black or white."
+    },
+    {
+      "id": "silver-18",
+      "name": "Silver Key",
+      "status": "accepted",
+      "sourceSha256": "5b0cf855d87d61e8c9595e9d07bae30e692cc842b5ffdcd24431409436c6973d",
+      "gptSourceSha256": "a2f50766490fa9b6eeb4c0fe2db36baff2648e0bb3f080b50673e67393a48122",
+      "normalizedSha256": "14276cf11a5b1ea19bb733be93602e466d939b62e8b23744b68da97bc8819c1a",
+      "conversationUrl": "https://chatgpt.com/c/6a64a8bc-c858-83ed-a42e-323253c7c4c5",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-18-v1-chroma.png",
+      "reviewNotes": "Key silhouette and scrollwork match; all six authentic head, loop, and lower-scroll openings are transparent; no invented opening, shadow, or extra solid region is present."
+    },
+    {
+      "id": "silver-23",
+      "name": "Silver Planet",
+      "status": "accepted",
+      "sourceSha256": "7ea7e140224b50333fe8f8eb7eaab083799c323e03e7005fbf8a9fa4178bcc6f",
+      "gptSourceSha256": "b18e31e04ece29fedb30313ea8872968f9351a7a5fe36f98be6d5f18bafea2a8",
+      "normalizedSha256": "fca0caaf70f0dd30965adabc3062935d30821ce990b62e90703ee8c2e1ff42d7",
+      "conversationUrl": "https://chatgpt.com/c/6a64a96d-97c8-83eb-8a04-518efccef743",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-23-v1-chroma.png",
+      "reviewNotes": "Planet, rings, and authentic negative spaces match; the centre and attachment loop are transparent; no shadow, halo, or unrelated solid region appears on black or white."
+    },
+    {
+      "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+      "name": "Silver Handle",
+      "status": "accepted",
+      "sourceSha256": "56389442458bf78a98ab284f86081bbef20a408c986032c3095c1f0547b4e7d8",
+      "gptSourceSha256": "04a3bf8fe99ef46a34ab0efe6645c54be99aa9f87ae0b4d0b6642ea171f8d091",
+      "normalizedSha256": "b4dc1b90293f07ad78408d7b8241c4f153dcac4904d0a83f4d7f808c445c517e",
+      "conversationUrl": "https://chatgpt.com/c/6a64aabf-9194-83eb-9ade-4e0edddee9f9",
+      "acceptedAttempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/f1551077-9a1d-4e7c-bf0a-000000000abc-03-v2-chroma.png",
+      "reviewNotes": "Broad end ornaments, handle proportions, and recessed scroll engravings match; exactly the two large end holes are transparent; black and white views contain no external shadow or extra region."
+    }
+  ],
+  "rejectedAttempts": [
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+      "attempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20-v1-rejected-glow.png",
+      "sha256": "83dca9887594e4e0b7597411483161f47c99b77fc5d8e18d3d64b33010c75b92",
+      "reason": "Connected gold glow extended outside the physical silhouette."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+      "attempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20-v2-rejected-background-glow.png",
+      "sha256": "52c0f174fef3d07c9e7a8b2ef6011a5c2b88973bcabc02c1b1d5722e457eea41",
+      "reason": "Semi-transparent background and high-alpha protrusions remained outside the charm."
+    },
+    {
+      "id": "silver-24",
+      "attempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/silver-24-v1-chroma.png",
+      "sha256": "e2d8668b62c23228f2869929a3fb9b78a9c006f7bae1ba606a4e2134399e9b4d",
+      "reason": "The heart opening was materially smaller than the authentic source."
+    },
+    {
+      "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+      "attempt": "reference/charm-repairs/screenshot-gpt-generated/attempts/f1551077-9a1d-4e7c-bf0a-000000000abc-03-v1-chroma.png",
+      "sha256": "38037824f8a4da401dec8faa5252206ccd82d1d9543cfc91f1d14f2e0f673d02",
+      "reason": "The broad ornamental ends were narrowed; silhouette aspect 0.2426 differed from the authentic source aspect 0.3229."
+    }
+  ]
+}

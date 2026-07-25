@@ -12,11 +12,10 @@
  * tray on a neutral-white desk) live in reference/case-rects.overrides.json as
  * { "<photoBase>": { "minx":..,"miny":..,"maxx":..,"maxy":.. } } in DET_H space.
  *
- * Exports detectCaseRect(realPath, base?) and, when run directly, overlays all
- * photos for visual verification.
+ * Exports detectCaseRect(realPath, base?).
  */
 import sharp from 'sharp'
-import { readFile, readdir, mkdir, access } from 'node:fs/promises'
+import { readFile, access } from 'node:fs/promises'
 import { constants } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -112,40 +111,11 @@ export async function detectCaseRect(realPath, base) {
     for (let y = box.miny; y < box.maxy; y += 6) for (let x = box.minx; x < box.maxx; x += 6) la.push(lumAt((y * W + x) * C))
     boxLum = med(la)
   }
-  return { W, H, box, boxLum, source: 'profile' }
-}
-
-async function main() {
-  const files = (await readdir(join(REF, '1-charms-real-image'))).filter((f) => /\.(jpe?g|png)$/i.test(f)).sort()
-  await mkdir(join(REF, '_verify'), { recursive: true })
-  const tiles = []
-  for (const file of files) {
-    const base = file.replace(/\.(jpe?g|png)$/i, '')
-    const realPath = join(REF, '1-charms-real-image', file)
-    const { W, H, box, source } = await detectCaseRect(realPath, base)
-    const dispH = 560, ds = dispH / H, dispW = Math.round(W * ds)
-    let svg = `<svg width="${dispW}" height="${dispH}">`
-    if (box) {
-      const rx = (box.minx * ds) | 0, ry = (box.miny * ds) | 0, rw = ((box.maxx - box.minx) * ds) | 0, rh = ((box.maxy - box.miny) * ds) | 0
-      const cx = ((box.minx + box.maxx) / 2 * ds) | 0
-      svg += `<rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" fill="none" stroke="${source === 'override' ? '#ffaa00' : '#00dd00'}" stroke-width="3"/><line x1="${cx}" y1="0" x2="${cx}" y2="${dispH}" stroke="#00dd00" stroke-width="1"/>`
-    } else {
-      svg += `<rect x="2" y="2" width="${dispW - 4}" height="${dispH - 4}" fill="none" stroke="#ff0000" stroke-width="4"/>`
-    }
-    svg += `</svg>`
-    const tile = await sharp(realPath).rotate().resize({ height: dispH }).composite([{ input: Buffer.from(svg), top: 0, left: 0 }]).png().toBuffer()
-    tiles.push({ base, tile, ok: !!box })
-    console.log(base.slice(-10), source, box ? `x ${box.minx}-${box.maxx}  y ${box.miny}-${box.maxy}` : 'FAILED') // eslint-disable-line
+  return {
+    W,
+    H,
+    box,
+    boxLum,
+    source: 'profile',
   }
-  // montage 6 cols
-  const cols = 6, pad = 6
-  let cw = 0, chh = 0
-  for (const t of tiles) { const m = await sharp(t.tile).metadata(); cw = Math.max(cw, m.width); chh = Math.max(chh, m.height) }
-  const rows = Math.ceil(tiles.length / cols)
-  const comp = tiles.map((t, i) => ({ input: t.tile, left: pad + (i % cols) * (cw + pad), top: pad + ((i / cols) | 0) * (chh + pad) }))
-  await sharp({ create: { width: cols * cw + (cols + 1) * pad, height: rows * chh + (rows + 1) * pad, channels: 4, background: '#222' } })
-    .composite(comp).png().toFile(join(REF, '_verify', '_ALL_casedetect.png'))
-  console.log('\nmontage: reference/_verify/_ALL_casedetect.png') // eslint-disable-line
 }
-
-if (process.argv[1] && process.argv[1].endsWith('detect-case-rect.mjs')) main()

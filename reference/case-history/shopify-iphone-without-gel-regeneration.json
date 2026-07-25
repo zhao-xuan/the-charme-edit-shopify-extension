@@ -1,0 +1,3708 @@
+{
+  "schemaVersion": 1,
+  "campaign": "shopify-iphone-without-gel-size-regeneration",
+  "generatedAt": "2026-07-25T21:14:11.167Z",
+  "generatedBy": "scripts/build-shopify-iphone-without-gel-regeneration.mjs",
+  "sourceAuditPath": "reference/shopify-iphone-case-size-audit.json",
+  "geometryGuidesPath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/geometry-guides.json",
+  "scope": "The 20 live Shopify iPhone records whose width_mm or height_mm differs from verified Apple device-body dimensions.",
+  "policy": "Candidate-only. Correct only device-body size and camera placement. Preserve exact GPT bytes and provenance. Never publish until automated size QA and visual camera QA pass and publish is explicitly set true.",
+  "summary": {
+    "models": 20,
+    "finishes": 2,
+    "prompts": 40,
+    "acceptedCandidates": 16,
+    "pendingGeneration": 24,
+    "publishable": 0
+  },
+  "prompts": [
+    {
+      "modelId": "iphone-13-mini",
+      "modelName": "iPhone 13 mini",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v8-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "targetAspect": 0.488213,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-mini-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "63cdebe4c50be75400a1c72e9034574d0638d8861be5ade62195a41bfec96d2a",
+        "format": "png",
+        "canvasPx": {
+          "width": 930,
+          "height": 1845
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 928,
+          "bottom": 1836,
+          "width": 928,
+          "height": 1837
+        },
+        "visibleAspect": 0.505171,
+        "widthFill": 0.997849,
+        "heightFill": 0.995664,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "source-first",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-mini-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-mini-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-mini-size-camera-guide.png",
+        "sha256": "0d247cad05438afde49135ae164db8d72b62483a372584ac7a98031719fb7a1f",
+        "bodyBoundsPx": {
+          "width": 969,
+          "height": 1984,
+          "left": 28,
+          "top": 32,
+          "right": 996,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 28,
+          "top": 46,
+          "width": 483,
+          "height": 542,
+          "right": 510,
+          "bottom": 587
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.007,
+          "w": 0.498,
+          "h": 0.273
+        }
+      },
+      "promptText": "RETRY AFTER REJECTED V7-GPT: discard the previous generated result. Its central body measured 780x1656px and missed the required ratio by 3.52%. Start again from IMAGE 1 and follow IMAGE 2 visually; do not reuse the rejected result.\n\nGenerate exactly ONE new full-canvas product image now.\n\nIMAGE 1 is the authoritative bare BLACK iPhone 13 mini source. Preserve its existing material, colour, lighting, shadows, logo if present, buttons, corners and all other appearance. This remains a WITHOUT-GEL image.\n\nIMAGE 2 is a schematic geometry template only. Its RED outer outline controls only the central phone-body width-to-height proportion. Its BLUE rounded region controls only the camera hardware's occupied region and position relative to that body. Do not render the red, blue or grey guide colours in the product.\n\nMAKE ONLY THESE TWO GEOMETRY CORRECTIONS:\n1. SIZE: fit the central body silhouette to IMAGE 2's red outline at the verified Apple proportion 64.2 mm wide x 131.5 mm high. Excluding side-button protrusions, width/height must be 0.488213 within 1%.\n2. CAMERA: keep IMAGE 1's exact camera island, lens count, lens arrangement, flash and sensors, but place and scale that unchanged hardware to occupy IMAGE 2's blue region at the same relative position.\n\nDo not intentionally adjust anything else. Preserve IMAGE 1 as closely as possible outside those two corrections. Keep the product straight-on, centred, complete and uncropped on its existing background. Do not add or remove a logo, alter the finish, redesign the shell, substitute another model or invent camera openings.\n\nKeep the case bare: no Gel, resin, adhesive, glitter, charms or decoration. Do not output a comparison, guide, grid, crop or explanation.\n\nFINAL PASS/FAIL: central body ratio 0.488213 within 1%; exact iPhone 13 mini camera hardware in IMAGE 2's blue relative position; otherwise unchanged bare BLACK source; exactly one image.",
+      "promptSha256": "7a49f48d4bc5823aa8a094e5c2f9a28da3e1f7ab7ea368b3f3cde9e14cc4e88a",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-mini-black-v8-gpt.png",
+      "candidate": {
+        "sha256": "16636939d8e48f14aa65b8cf641487ca97f58729194e479983a63d1f350dcde3",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "16636939d8e48f14aa65b8cf641487ca97f58729194e479983a63d1f350dcde3",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 886,
+            "bottom": 1773,
+            "width": 887,
+            "height": 1774
+          },
+          "widthFill": 1,
+          "heightFill": 1,
+          "visibleAspect": 0.5,
+          "targetAspect": 0.488213,
+          "aspectDriftPercent": 2.41,
+          "bodyWidthPx": 870,
+          "bodyHeightPx": 1774,
+          "bodyAspect": 0.490417,
+          "bodyAspectDriftPercent": 0.45,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            0,
+            0,
+            0
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13-mini",
+      "modelName": "iPhone 13 mini",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v7-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "targetAspect": 0.488213,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-mini-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "4e238098c2bb7825c15db0fc7bb0d2dd6c6cf357bf73d559d7448ad4e5702863",
+        "format": "png",
+        "canvasPx": {
+          "width": 894,
+          "height": 1760
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 893,
+          "bottom": 1751,
+          "width": 893,
+          "height": 1752
+        },
+        "visibleAspect": 0.509703,
+        "widthFill": 0.998881,
+        "heightFill": 0.995455,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "source-first",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-mini-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-mini-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-mini-size-camera-guide.png",
+        "sha256": "0d247cad05438afde49135ae164db8d72b62483a372584ac7a98031719fb7a1f",
+        "bodyBoundsPx": {
+          "width": 969,
+          "height": 1984,
+          "left": 28,
+          "top": 32,
+          "right": 996,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 28,
+          "top": 46,
+          "width": 483,
+          "height": 542,
+          "right": 510,
+          "bottom": 587
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.007,
+          "w": 0.498,
+          "h": 0.273
+        }
+      },
+      "promptText": "RETRY AFTER REJECTED V3-GPT: discard the previous generated result. Its central body measured 846x1752px and missed the required ratio by 1.09%. At that same body height, the target body width is approximately 855px: WIDEN the central body by approximately 9px (1.06%) without changing its height. Correct the physical body proportion itself, not merely the canvas margins. Start again from IMAGE 1 and follow IMAGE 2 visually; do not reuse the rejected result.\n\nGenerate exactly ONE new full-canvas product image now.\n\nIMAGE 1 is the authoritative bare OFF-WHITE iPhone 13 mini source. Preserve its existing material, colour, lighting, shadows, logo if present, buttons, corners and all other appearance. This remains a WITHOUT-GEL image.\n\nIMAGE 2 is a schematic geometry template only. Its RED outer outline controls only the central phone-body width-to-height proportion. Its BLUE rounded region controls only the camera hardware's occupied region and position relative to that body. Do not render the red, blue or grey guide colours in the product.\n\nMAKE ONLY THESE TWO GEOMETRY CORRECTIONS:\n1. SIZE: fit the central body silhouette to IMAGE 2's red outline at the verified Apple proportion 64.2 mm wide x 131.5 mm high. Excluding side-button protrusions, width/height must be 0.488213 within 1%.\n2. CAMERA: keep IMAGE 1's exact camera island, lens count, lens arrangement, flash and sensors, but place and scale that unchanged hardware to occupy IMAGE 2's blue region at the same relative position.\n\nDo not intentionally adjust anything else. Preserve IMAGE 1 as closely as possible outside those two corrections. Keep the product straight-on, centred, complete and uncropped on its existing background. Do not add or remove a logo, alter the finish, redesign the shell, substitute another model or invent camera openings.\n\nKeep the case bare: no Gel, resin, adhesive, glitter, charms or decoration. Do not output a comparison, guide, grid, crop or explanation.\n\nFINAL PASS/FAIL: central body ratio 0.488213 within 1%; exact iPhone 13 mini camera hardware in IMAGE 2's blue relative position; otherwise unchanged bare OFF-WHITE source; exactly one image.",
+      "promptSha256": "1155365f9acc34cf31953907489297046074380e0d096979a810cd5f3f9885af",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-mini-white-v7-gpt.png",
+      "candidate": {
+        "sha256": "2946eb721075569bc8a05d5dbc88e1a8232e4a7e2eaeb76d266129c181141ba7",
+        "widthPx": 957,
+        "heightPx": 1644
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "2946eb721075569bc8a05d5dbc88e1a8232e4a7e2eaeb76d266129c181141ba7",
+          "format": "png",
+          "canvasPx": {
+            "width": 957,
+            "height": 1644
+          },
+          "visibleBoundsPx": {
+            "left": 105,
+            "top": 73,
+            "right": 848,
+            "bottom": 1572,
+            "width": 744,
+            "height": 1500
+          },
+          "widthFill": 0.777429,
+          "heightFill": 0.912409,
+          "visibleAspect": 0.496,
+          "targetAspect": 0.488213,
+          "aspectDriftPercent": 1.6,
+          "bodyWidthPx": 730,
+          "bodyHeightPx": 1500,
+          "bodyAspect": 0.486667,
+          "bodyAspectDriftPercent": 0.32,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13",
+      "modelName": "iPhone 13",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v19-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "06ec1f027fd026d1e4bae0bd6abcee9115353b6ebce499393234935f4a70be65",
+        "format": "png",
+        "canvasPx": {
+          "width": 920,
+          "height": 1835
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 919,
+          "bottom": 1827,
+          "width": 920,
+          "height": 1828
+        },
+        "visibleAspect": 0.503282,
+        "widthFill": 1,
+        "heightFill": 0.996185,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-size-camera-guide.png",
+        "sha256": "3c1184c37ed4fe295257a9ef8acbc847f11834a5dc9a9e37a162c82ee5ba752b",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 92,
+          "top": 92,
+          "width": 390,
+          "height": 403,
+          "right": 481,
+          "bottom": 494
+        },
+        "cameraNormalized": {
+          "x": 0.065,
+          "y": 0.03,
+          "w": 0.403,
+          "h": 0.203
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 13 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 95.9% of canvas width. On an 887x1774 canvas this is approximately 851x1746px, with about 2.0% canvas margin on each side and 0.8% on top and bottom. The physical body width/height ratio must be 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: render exact iPhone 13 hardware in IMAGE 2's blue relative position: upper-left camera island, diagonal dual lenses, upper-right flash and lower-left microphone. Preserve that hardware count and arrangement exactly.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "a36b96f88a17f84c86e25a60cc7c17341adc3ad97b9a456578cbddf6dabba151",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-black-v19-gpt.png",
+      "candidate": {
+        "sha256": "279388dd10b00231ce07af8b98a475e9e243d19d2cabc1c4982b21863202db5a",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "279388dd10b00231ce07af8b98a475e9e243d19d2cabc1c4982b21863202db5a",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 12,
+            "top": 17,
+            "right": 872,
+            "bottom": 1753,
+            "width": 861,
+            "height": 1737
+          },
+          "widthFill": 0.970688,
+          "heightFill": 0.979143,
+          "visibleAspect": 0.495682,
+          "targetAspect": 0.487389,
+          "aspectDriftPercent": 1.7,
+          "bodyWidthPx": 850,
+          "bodyHeightPx": 1736,
+          "bodyAspect": 0.489631,
+          "bodyAspectDriftPercent": 0.46,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            243,
+            243,
+            243
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13",
+      "modelName": "iPhone 13",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v11-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "d758809db814d1ea5af3b71fb8d82d3040447fb494c4cc86572aa100866ee7ad",
+        "format": "png",
+        "canvasPx": {
+          "width": 884,
+          "height": 1779
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 883,
+          "bottom": 1771,
+          "width": 884,
+          "height": 1772
+        },
+        "visibleAspect": 0.498871,
+        "widthFill": 1,
+        "heightFill": 0.996065,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-size-camera-guide.png",
+        "sha256": "3c1184c37ed4fe295257a9ef8acbc847f11834a5dc9a9e37a162c82ee5ba752b",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 92,
+          "top": 92,
+          "width": 390,
+          "height": 403,
+          "right": 481,
+          "bottom": 494
+        },
+        "cameraNormalized": {
+          "x": 0.065,
+          "y": 0.03,
+          "w": 0.403,
+          "h": 0.203
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V10-GPT measured 831x1726px at aspect 0.481460, 1.22% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.487389 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 13 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "2a1bcad8cdde48d161a47f080af838ffd309079dc074791bd29229011379e6f1",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-white-v11-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "modelName": "iPhone 13 Pro",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v2-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "048f66636b45388d118ce1f9af85e75e103ab758ecd679dc9418ce6d53ca742c",
+        "format": "png",
+        "canvasPx": {
+          "width": 920,
+          "height": 1833
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 919,
+          "bottom": 1825,
+          "width": 920,
+          "height": 1826
+        },
+        "visibleAspect": 0.503834,
+        "widthFill": 1,
+        "heightFill": 0.996181,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-size-camera-guide.png",
+        "sha256": "647e80099a93c81976cb606788a13f661720b8bf152ff4a68cd60864150490b6",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 82,
+          "top": 103,
+          "width": 483,
+          "height": 512,
+          "right": 564,
+          "bottom": 614
+        },
+        "cameraNormalized": {
+          "x": 0.055,
+          "y": 0.036,
+          "w": 0.499,
+          "h": 0.258
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V1-GPT measured 736x1579px at aspect 0.466118, 4.36% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.487389 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare BLACK iPhone 13 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "a9544cf73b07829c63dad338ad9fb34e12945ff5765ccb169432f2b8c35f1789",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-pro-black-v2-gpt.png",
+      "candidate": {
+        "sha256": "39fcca3e5cce0019015f32d660858b51fba723882b6acc42107f92c1a48cb71c",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "39fcca3e5cce0019015f32d660858b51fba723882b6acc42107f92c1a48cb71c",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 9,
+            "top": 16,
+            "right": 877,
+            "bottom": 1759,
+            "width": 869,
+            "height": 1744
+          },
+          "widthFill": 0.979707,
+          "heightFill": 0.983089,
+          "visibleAspect": 0.49828,
+          "targetAspect": 0.487389,
+          "aspectDriftPercent": 2.23,
+          "bodyWidthPx": 853,
+          "bodyHeightPx": 1742,
+          "bodyAspect": 0.489667,
+          "bodyAspectDriftPercent": 0.47,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "modelName": "iPhone 13 Pro",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v2-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "4cc18eaee90fa0dd4ca20668e881df2db6f55d8359603d5c42774353cba9ef70",
+        "format": "png",
+        "canvasPx": {
+          "width": 868,
+          "height": 1811
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 867,
+          "bottom": 1803,
+          "width": 868,
+          "height": 1804
+        },
+        "visibleAspect": 0.481153,
+        "widthFill": 1,
+        "heightFill": 0.996135,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-size-camera-guide.png",
+        "sha256": "647e80099a93c81976cb606788a13f661720b8bf152ff4a68cd60864150490b6",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 82,
+          "top": 103,
+          "width": 483,
+          "height": 512,
+          "right": 564,
+          "bottom": 614
+        },
+        "cameraNormalized": {
+          "x": 0.055,
+          "y": 0.036,
+          "w": 0.499,
+          "h": 0.258
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V1-GPT measured 787x1681px at aspect 0.468174, 3.94% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.487389 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 13 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "cc521c3520e8778582eff239645f50371ecd9177119eaae42f430d42125280da",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-pro-white-v2-gpt.png",
+      "candidate": {
+        "sha256": "6d9c0e606fa6df7e25aef287733ae513211095e0521a7e533ae51fc4a94320a2",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "6d9c0e606fa6df7e25aef287733ae513211095e0521a7e533ae51fc4a94320a2",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 8,
+            "top": 0,
+            "right": 878,
+            "bottom": 1773,
+            "width": 871,
+            "height": 1774
+          },
+          "widthFill": 0.981962,
+          "heightFill": 1,
+          "visibleAspect": 0.490981,
+          "targetAspect": 0.487389,
+          "aspectDriftPercent": 0.74,
+          "bodyWidthPx": 856,
+          "bodyHeightPx": 1765,
+          "bodyAspect": 0.484986,
+          "bodyAspectDriftPercent": 0.49,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "modelName": "iPhone 13 Pro Max",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v3-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-max-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "4b21ccf09ba2a6991cc21cd0930ec7ce130b97ed2cb030ec0f3c7b4559004114",
+        "format": "png",
+        "canvasPx": {
+          "width": 918,
+          "height": 1840
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 916,
+          "bottom": 1832,
+          "width": 916,
+          "height": 1833
+        },
+        "visibleAspect": 0.499727,
+        "widthFill": 0.997821,
+        "heightFill": 0.996196,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-max-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-max-size-camera-guide.png",
+        "sha256": "218e17891b289e4b6792a5d3a1fee6d014f7888a22666f541415eeb086e1542e",
+        "bodyBoundsPx": {
+          "width": 964,
+          "height": 1984,
+          "left": 30,
+          "top": 32,
+          "right": 993,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 75,
+          "top": 94,
+          "width": 450,
+          "height": 476,
+          "right": 524,
+          "bottom": 569
+        },
+        "cameraNormalized": {
+          "x": 0.047,
+          "y": 0.031,
+          "w": 0.467,
+          "h": 0.24
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V2-GPT measured 812x1715px at aspect 0.473469, 2.52% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.485697 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare BLACK iPhone 13 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485697 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "45e559f18853b79a6bfe5ffa5a65e4ebe06e728eabf65cc19d16675b459e6235",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-pro-max-black-v3-gpt.png",
+      "candidate": {
+        "sha256": "46b1d90e514c7b0ae75cc91882d51fae26ecbadbafa075c77435754b0a48426e",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "46b1d90e514c7b0ae75cc91882d51fae26ecbadbafa075c77435754b0a48426e",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 6,
+            "top": 7,
+            "right": 875,
+            "bottom": 1766,
+            "width": 870,
+            "height": 1760
+          },
+          "widthFill": 0.980834,
+          "heightFill": 0.992108,
+          "visibleAspect": 0.494318,
+          "targetAspect": 0.485697,
+          "aspectDriftPercent": 1.78,
+          "bodyWidthPx": 858,
+          "bodyHeightPx": 1759,
+          "bodyAspect": 0.487777,
+          "bodyAspectDriftPercent": 0.43,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "modelName": "iPhone 13 Pro Max",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-max-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "05ffa8599bd7164ad1dd47e7abf1b4878a346c07885c874c0bedb100394109ec",
+        "format": "png",
+        "canvasPx": {
+          "width": 886,
+          "height": 1776
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 884,
+          "bottom": 1768,
+          "width": 884,
+          "height": 1769
+        },
+        "visibleAspect": 0.499717,
+        "widthFill": 0.997743,
+        "heightFill": 0.996059,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-13-pro-max-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-13-pro-max-size-camera-guide.png",
+        "sha256": "218e17891b289e4b6792a5d3a1fee6d014f7888a22666f541415eeb086e1542e",
+        "bodyBoundsPx": {
+          "width": 964,
+          "height": 1984,
+          "left": 30,
+          "top": 32,
+          "right": 993,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 75,
+          "top": 94,
+          "width": 450,
+          "height": 476,
+          "right": 524,
+          "bottom": 569
+        },
+        "cameraNormalized": {
+          "x": 0.047,
+          "y": 0.031,
+          "w": 0.467,
+          "h": 0.24
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 13 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.4% of canvas width. On an 887x1774 canvas this is approximately 882x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485697 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "611e33c8ebed896f5183265243a4729c4a1538b789cde4bac650a0b5daa7fde9",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-13-pro-max-white-v1-gpt.png",
+      "candidate": {
+        "sha256": "5cca986da4d422f98a3521c2ec650da72ceebd3bf67dc858c97a16ed7da0dc0f",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "5cca986da4d422f98a3521c2ec650da72ceebd3bf67dc858c97a16ed7da0dc0f",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 21,
+            "top": 26,
+            "right": 864,
+            "bottom": 1748,
+            "width": 844,
+            "height": 1723
+          },
+          "widthFill": 0.951522,
+          "heightFill": 0.971251,
+          "visibleAspect": 0.489843,
+          "targetAspect": 0.485697,
+          "aspectDriftPercent": 0.85,
+          "bodyWidthPx": 833,
+          "bodyHeightPx": 1722,
+          "bodyAspect": 0.48374,
+          "bodyAspectDriftPercent": 0.4,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14",
+      "modelName": "iPhone 14",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-black-source.png",
+      "sourceOrigin": "git:HEAD:public/assets/cases/case-without-gel/iphone-14-black.png",
+      "sourceEvidence": {
+        "sha256": "e37e951d28fb7987808a9906b2135589cea1eca27c6f2e4442c48537241d0a93",
+        "format": "png",
+        "canvasPx": {
+          "width": 920,
+          "height": 1831
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 919,
+          "bottom": 1825,
+          "width": 920,
+          "height": 1826
+        },
+        "visibleAspect": 0.503834,
+        "widthFill": 1,
+        "heightFill": 0.997269,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-size-camera-guide.png",
+        "sha256": "392b4bce4b5e4e5baa770cb30d2ca3c576387387035f192af01617722a3d4985",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 29,
+          "top": 82,
+          "width": 498,
+          "height": 486,
+          "right": 526,
+          "bottom": 567
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.025,
+          "w": 0.515,
+          "h": 0.245
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 14 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "194ca4e01413aabdc7b902ddbfef828898d7cb7e58676a6357544916e0f06be9",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-black-v1-gpt.png",
+      "candidate": {
+        "sha256": "47d007580e5eeeff1e1e5a1c4925734810be43fbc090762b4781ce56f54d7cb7",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "47d007580e5eeeff1e1e5a1c4925734810be43fbc090762b4781ce56f54d7cb7",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 46,
+            "top": 66,
+            "right": 838,
+            "bottom": 1656,
+            "width": 793,
+            "height": 1591
+          },
+          "widthFill": 0.894025,
+          "heightFill": 0.896843,
+          "visibleAspect": 0.498429,
+          "targetAspect": 0.487389,
+          "aspectDriftPercent": 2.27,
+          "bodyWidthPx": 780,
+          "bodyHeightPx": 1591,
+          "bodyAspect": 0.490258,
+          "bodyAspectDriftPercent": 0.59,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            248,
+            247,
+            250
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14",
+      "modelName": "iPhone 14",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v4-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "targetAspect": 0.487389,
+      "sourcePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-white-source.png",
+      "sourceOrigin": "git:HEAD:public/assets/cases/case-without-gel/iphone-14-white.png",
+      "sourceEvidence": {
+        "sha256": "c344aec5975c057e369613b525c13ce6c69d1d653ea61ec800a7664074c72fc2",
+        "format": "png",
+        "canvasPx": {
+          "width": 941,
+          "height": 1672
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 940,
+          "bottom": 1667,
+          "width": 941,
+          "height": 1668
+        },
+        "visibleAspect": 0.564149,
+        "widthFill": 1,
+        "heightFill": 0.997608,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-size-camera-guide.png",
+        "sha256": "392b4bce4b5e4e5baa770cb30d2ca3c576387387035f192af01617722a3d4985",
+        "bodyBoundsPx": {
+          "width": 967,
+          "height": 1984,
+          "left": 29,
+          "top": 32,
+          "right": 995,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 29,
+          "top": 82,
+          "width": 498,
+          "height": 486,
+          "right": 526,
+          "bottom": 567
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.025,
+          "w": 0.515,
+          "h": 0.245
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V1-GPT measured 828x1734px at aspect 0.477509, 2.03% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.487389 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 14 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.487389 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "0e8974afee9bd8bd80012daf58593b9ce17cd478d6a3969a4bcbc5a15dc96193",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-white-v4-gpt.png",
+      "candidate": {
+        "sha256": "911522d883963c5f0311d7958e3b87519e90980821433b5dd8af518050a4a442",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "911522d883963c5f0311d7958e3b87519e90980821433b5dd8af518050a4a442",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 21,
+            "top": 17,
+            "right": 864,
+            "bottom": 1756,
+            "width": 844,
+            "height": 1740
+          },
+          "widthFill": 0.951522,
+          "heightFill": 0.980834,
+          "visibleAspect": 0.485057,
+          "targetAspect": 0.487389,
+          "aspectDriftPercent": 0.48,
+          "bodyWidthPx": 843,
+          "bodyHeightPx": 1740,
+          "bodyAspect": 0.484483,
+          "bodyAspectDriftPercent": 0.6,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "b82e8fb60a588fbcc066b961cb82e4e4d906cbda0b0fedbb22ed67daa9a49cc0",
+        "format": "png",
+        "canvasPx": {
+          "width": 918,
+          "height": 1836
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 916,
+          "bottom": 1830,
+          "width": 916,
+          "height": 1831
+        },
+        "visibleAspect": 0.500273,
+        "widthFill": 0.997821,
+        "heightFill": 0.997277,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-plus-size-camera-guide.png",
+        "sha256": "0458d8e2f0f967c003bdd36be12e2424246e0d1cafed052a4e7fe9bc4590facf",
+        "bodyBoundsPx": {
+          "width": 964,
+          "height": 1984,
+          "left": 30,
+          "top": 32,
+          "right": 993,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 30,
+          "top": 84,
+          "width": 469,
+          "height": 450,
+          "right": 498,
+          "bottom": 533
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.026,
+          "w": 0.486,
+          "h": 0.227
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 14 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.4% of canvas width. On an 887x1774 canvas this is approximately 882x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485697 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "997afbec653e420cd35d7f135ab25dd1f1393fc0943510b96536caf57acbf9f7",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-plus-black-v1-gpt.png",
+      "candidate": {
+        "sha256": "7ff327c9bb1f6298258c2493b6db8b745bf7697bf2abfda29c42af313d36a76c",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "7ff327c9bb1f6298258c2493b6db8b745bf7697bf2abfda29c42af313d36a76c",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 12,
+            "top": 12,
+            "right": 876,
+            "bottom": 1756,
+            "width": 865,
+            "height": 1745
+          },
+          "widthFill": 0.975197,
+          "heightFill": 0.983653,
+          "visibleAspect": 0.495702,
+          "targetAspect": 0.485697,
+          "aspectDriftPercent": 2.06,
+          "bodyWidthPx": 852,
+          "bodyHeightPx": 1745,
+          "bodyAspect": 0.488252,
+          "bodyAspectDriftPercent": 0.53,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "modelName": "iPhone 14 Plus",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v2-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "targetAspect": 0.485697,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "1f79e2b7e3e00ce52dfc7116dfd5319780f2d77d538f55f481fd29983c755265",
+        "format": "png",
+        "canvasPx": {
+          "width": 887,
+          "height": 1774
+        },
+        "visibleBoundsPx": {
+          "left": 1,
+          "top": 0,
+          "right": 885,
+          "bottom": 1769,
+          "width": 885,
+          "height": 1770
+        },
+        "visibleAspect": 0.5,
+        "widthFill": 0.997745,
+        "heightFill": 0.997745,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-plus-size-camera-guide.png",
+        "sha256": "0458d8e2f0f967c003bdd36be12e2424246e0d1cafed052a4e7fe9bc4590facf",
+        "bodyBoundsPx": {
+          "width": 964,
+          "height": 1984,
+          "left": 30,
+          "top": 32,
+          "right": 993,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 30,
+          "top": 84,
+          "width": 469,
+          "height": 450,
+          "right": 498,
+          "bottom": 533
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.026,
+          "w": 0.486,
+          "h": 0.227
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V1-GPT measured 785x1674px at aspect 0.468937, 3.45% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.505589. This is an instruction overcorrection only; final acceptance still uses the real 0.485697 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 14 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.5% of canvas width. On an 887x1774 canvas this is approximately 883x1746px, with about 0.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485697 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "4463695684b3c5d58b7181fad1a2fcdaf6a7e7e98b1d8e1325c72c7862e84849",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-plus-white-v2-gpt.png",
+      "candidate": {
+        "sha256": "6d643639695ff18973e5c375abfe3cdefb2928d9615d970d71e5849fef7f71fe",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "6d643639695ff18973e5c375abfe3cdefb2928d9615d970d71e5849fef7f71fe",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 20,
+            "top": 29,
+            "right": 866,
+            "bottom": 1747,
+            "width": 847,
+            "height": 1719
+          },
+          "widthFill": 0.954904,
+          "heightFill": 0.968997,
+          "visibleAspect": 0.492728,
+          "targetAspect": 0.485697,
+          "aspectDriftPercent": 1.45,
+          "bodyWidthPx": 836,
+          "bodyHeightPx": 1719,
+          "bodyAspect": 0.486329,
+          "bodyAspectDriftPercent": 0.13,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v6-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 147.5
+      },
+      "targetAspect": 0.484746,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "2a6d53c56dccd4b65a351bb20e8054ed5abb1165993d56656cece20bf7f2f739",
+        "format": "png",
+        "canvasPx": {
+          "width": 915,
+          "height": 1831
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 914,
+          "bottom": 1825,
+          "width": 915,
+          "height": 1826
+        },
+        "visibleAspect": 0.501095,
+        "widthFill": 1,
+        "heightFill": 0.997269,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-size-camera-guide.png",
+        "sha256": "c86998eecd51fb6acbc4dc14b143be988cc223128f046a24ce8ae89381b9ccbd",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 47,
+          "top": 82,
+          "width": 578,
+          "height": 611,
+          "right": 624,
+          "bottom": 692
+        },
+        "cameraNormalized": {
+          "x": 0.017,
+          "y": 0.025,
+          "w": 0.601,
+          "h": 0.308
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V5-GPT measured 865x1762px at aspect 0.490919, 1.27% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.492963. This is an instruction overcorrection only; final acceptance still uses the real 0.484746 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare BLACK iPhone 14 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.0% of canvas width. On an 887x1774 canvas this is approximately 861x1746px, with about 1.5% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.484746 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "199669a9ac9eef6c4d969c13bd421dabf90e45f0a79c2c4b140b4d87a5282e41",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-pro-black-v6-gpt.png",
+      "candidate": {
+        "sha256": "3d9c4a6542d2424d9f1b06d28068a6041696368bfc0d1d9941e86dc7b23e6eac",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "3d9c4a6542d2424d9f1b06d28068a6041696368bfc0d1d9941e86dc7b23e6eac",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 17,
+            "top": 27,
+            "right": 868,
+            "bottom": 1749,
+            "width": 852,
+            "height": 1723
+          },
+          "widthFill": 0.960541,
+          "heightFill": 0.971251,
+          "visibleAspect": 0.494486,
+          "targetAspect": 0.484746,
+          "aspectDriftPercent": 2.01,
+          "bodyWidthPx": 842,
+          "bodyHeightPx": 1721,
+          "bodyAspect": 0.48925,
+          "bodyAspectDriftPercent": 0.93,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "modelName": "iPhone 14 Pro",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v4-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 147.5
+      },
+      "targetAspect": 0.484746,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "5e51507cff34b8d85b1ca49276c9aef931f862b1c1ff2e197adc8cb37b5ffc8a",
+        "format": "png",
+        "canvasPx": {
+          "width": 888,
+          "height": 1772
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 887,
+          "bottom": 1766,
+          "width": 888,
+          "height": 1767
+        },
+        "visibleAspect": 0.502547,
+        "widthFill": 1,
+        "heightFill": 0.997178,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-size-camera-guide.png",
+        "sha256": "c86998eecd51fb6acbc4dc14b143be988cc223128f046a24ce8ae89381b9ccbd",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 47,
+          "top": 82,
+          "width": 578,
+          "height": 611,
+          "right": 624,
+          "bottom": 692
+        },
+        "cameraNormalized": {
+          "x": 0.017,
+          "y": 0.025,
+          "w": 0.601,
+          "h": 0.308
+        }
+      },
+      "promptText": "GENERATION CALIBRATION: V3-GPT measured 835x1742px at aspect 0.479334, 1.12% from the real target. Compensate for that measured rendering bias by aiming for a generation silhouette aspect of 0.504540. This is an instruction overcorrection only; final acceptance still uses the real 0.484746 ratio within 1%.\n\nGenerate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 14 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.3% of canvas width. On an 887x1774 canvas this is approximately 881x1746px, with about 0.4% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.484746 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "d7fed0b8dc546870ffb17ca61e1a4fc74158275f015b9682e0e09df75fa3ef95",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-pro-white-v4-gpt.png",
+      "candidate": {
+        "sha256": "26464e26f3dd8a8e9c450b8868caa18c8496a58c9b700a4077636dc4960c4d94",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "26464e26f3dd8a8e9c450b8868caa18c8496a58c9b700a4077636dc4960c4d94",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 11,
+            "top": 6,
+            "right": 875,
+            "bottom": 1763,
+            "width": 865,
+            "height": 1758
+          },
+          "widthFill": 0.975197,
+          "heightFill": 0.990981,
+          "visibleAspect": 0.492036,
+          "targetAspect": 0.484746,
+          "aspectDriftPercent": 1.5,
+          "bodyWidthPx": 851,
+          "bodyHeightPx": 1757,
+          "bodyAspect": 0.484348,
+          "bodyAspectDriftPercent": 0.08,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 77.6,
+        "height": 160.7
+      },
+      "targetAspect": 0.482887,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "894bc6b330676dbd3f1e9ae4184c6c53387ff1907fe061caa464d9dc348d40dc",
+        "format": "png",
+        "canvasPx": {
+          "width": 912,
+          "height": 1831
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 911,
+          "bottom": 1827,
+          "width": 912,
+          "height": 1828
+        },
+        "visibleAspect": 0.498906,
+        "widthFill": 1,
+        "heightFill": 0.998362,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-max-size-camera-guide.png",
+        "sha256": "4fb110f93c4792ccc73e3b2bcae89b75258e6fc03c13ec8356d41b1979cae8a3",
+        "bodyBoundsPx": {
+          "width": 958,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 990,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 44,
+          "top": 74,
+          "width": 538,
+          "height": 569,
+          "right": 581,
+          "bottom": 642
+        },
+        "cameraNormalized": {
+          "x": 0.012,
+          "y": 0.021,
+          "w": 0.562,
+          "h": 0.287
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 14 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.8% of canvas width. On an 887x1774 canvas this is approximately 877x1746px, with about 0.6% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.482887 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "46d665ea28b88dffb2805839fc8eb8d744db0537d94fe27795382d1d2b9d5bca",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-pro-max-black-v1-gpt.png",
+      "candidate": {
+        "sha256": "d5243d6bd5a15ada50aa6f6005f14fba0517d1499cdf45d64d2da00f21b541a6",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "d5243d6bd5a15ada50aa6f6005f14fba0517d1499cdf45d64d2da00f21b541a6",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 55,
+            "top": 85,
+            "right": 831,
+            "bottom": 1674,
+            "width": 777,
+            "height": 1590
+          },
+          "widthFill": 0.875986,
+          "heightFill": 0.89628,
+          "visibleAspect": 0.488679,
+          "targetAspect": 0.482887,
+          "aspectDriftPercent": 1.2,
+          "bodyWidthPx": 765,
+          "bodyHeightPx": 1589,
+          "bodyAspect": 0.481435,
+          "bodyAspectDriftPercent": 0.3,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            245,
+            245,
+            245
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "modelName": "iPhone 14 Pro Max",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 77.6,
+        "height": 160.7
+      },
+      "targetAspect": 0.482887,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "f5c7bfb6ffe6e3f4944ffbe017ce6f166e1054cfbf8d1a9e5eca29c229318131",
+        "format": "png",
+        "canvasPx": {
+          "width": 878,
+          "height": 1792
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 877,
+          "bottom": 1788,
+          "width": 878,
+          "height": 1789
+        },
+        "visibleAspect": 0.490777,
+        "widthFill": 1,
+        "heightFill": 0.998326,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-14-pro-max-size-camera-guide.png",
+        "sha256": "4fb110f93c4792ccc73e3b2bcae89b75258e6fc03c13ec8356d41b1979cae8a3",
+        "bodyBoundsPx": {
+          "width": 958,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 990,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 44,
+          "top": 74,
+          "width": 538,
+          "height": 569,
+          "right": 581,
+          "bottom": 642
+        },
+        "cameraNormalized": {
+          "x": 0.012,
+          "y": 0.021,
+          "w": 0.562,
+          "h": 0.287
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 14 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.8% of canvas width. On an 887x1774 canvas this is approximately 877x1746px, with about 0.6% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.482887 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "c9aaa86b226da0c4da6bd5da29d972bdd90882aca0e5ba699ea4f5600083bf29",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-14-pro-max-white-v1-gpt.png",
+      "candidate": {
+        "sha256": "53e44d8d1c07754b91fd2c1e8ae63cfff3408f7184ead6e369440c6c86a9ee88",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "53e44d8d1c07754b91fd2c1e8ae63cfff3408f7184ead6e369440c6c86a9ee88",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 18,
+            "top": 17,
+            "right": 868,
+            "bottom": 1757,
+            "width": 851,
+            "height": 1741
+          },
+          "widthFill": 0.959414,
+          "heightFill": 0.981398,
+          "visibleAspect": 0.4888,
+          "targetAspect": 0.482887,
+          "aspectDriftPercent": 1.22,
+          "bodyWidthPx": 838,
+          "bodyHeightPx": 1740,
+          "bodyAspect": 0.481609,
+          "bodyAspectDriftPercent": 0.26,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "accepted",
+      "publish": false,
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "d35d4a1691de7fd8d6bcbc629d32d508348c1d9865f7c2676b10f6e62af14ea4",
+        "format": "png",
+        "canvasPx": {
+          "width": 916,
+          "height": 1827
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 915,
+          "bottom": 1823,
+          "width": 916,
+          "height": 1824
+        },
+        "visibleAspect": 0.502193,
+        "widthFill": 1,
+        "heightFill": 0.998358,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-size-camera-guide.png",
+        "sha256": "e247810d12293763289843857b68f3b44b78bfebd6eb13e498477c07dfdf3ff9",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 31,
+          "top": 62,
+          "width": 495,
+          "height": 522,
+          "right": 525,
+          "bottom": 583
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.015,
+          "w": 0.515,
+          "h": 0.263
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 15 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.3% of canvas width. On an 887x1774 canvas this is approximately 881x1746px, with about 0.4% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485095 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "97ad5723f0aaf2c8918fce7a9379f342a650b1e86f6217b4383e3be8d83eab44",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-black-v1-gpt.png",
+      "candidate": {
+        "sha256": "4a11876bec8c6b36058f9b133291919be679fbcd4999f35e86d8d3b883809f00",
+        "widthPx": 887,
+        "heightPx": 1774
+      },
+      "review": {
+        "automatedSizeQa": {
+          "sha256": "4a11876bec8c6b36058f9b133291919be679fbcd4999f35e86d8d3b883809f00",
+          "format": "png",
+          "canvasPx": {
+            "width": 887,
+            "height": 1774
+          },
+          "visibleBoundsPx": {
+            "left": 9,
+            "top": 9,
+            "right": 878,
+            "bottom": 1760,
+            "width": 870,
+            "height": 1752
+          },
+          "widthFill": 0.980834,
+          "heightFill": 0.987599,
+          "visibleAspect": 0.496575,
+          "targetAspect": 0.485095,
+          "aspectDriftPercent": 2.37,
+          "bodyWidthPx": 855,
+          "bodyHeightPx": 1752,
+          "bodyAspect": 0.488014,
+          "bodyAspectDriftPercent": 0.6,
+          "hasTransparentBackground": false,
+          "opaqueBackgroundRgb": [
+            254,
+            254,
+            254
+          ],
+          "subjectThreshold": 8,
+          "analyzerVersion": "background-adaptive-v2",
+          "acceptanceScope": "device-body aspect ratio only; camera placement requires visual review",
+          "passed": true,
+          "failures": []
+        },
+        "visualCameraQa": "passed-by-review",
+        "approved": true
+      }
+    },
+    {
+      "modelId": "iphone-15",
+      "modelName": "iPhone 15",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "fda8d17ce340aea48048d551bdcd2cd3c4fa15ab1e195e9d5922f049c8aaf48c",
+        "format": "png",
+        "canvasPx": {
+          "width": 887,
+          "height": 1774
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 886,
+          "bottom": 1770,
+          "width": 887,
+          "height": 1771
+        },
+        "visibleAspect": 0.500847,
+        "widthFill": 1,
+        "heightFill": 0.998309,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-size-camera-guide.png",
+        "sha256": "e247810d12293763289843857b68f3b44b78bfebd6eb13e498477c07dfdf3ff9",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 31,
+          "top": 62,
+          "width": 495,
+          "height": 522,
+          "right": 525,
+          "bottom": 583
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.015,
+          "w": 0.515,
+          "h": 0.263
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 15 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.3% of canvas width. On an 887x1774 canvas this is approximately 881x1746px, with about 0.4% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485095 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "44fa65d7983aa453e711a03114c686ce860686479cd0575f6b0cf2070c8aaa07",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "94da196b4246dab58881970949bad5e737030c222068a8c40c51b3b1844c5da3",
+        "format": "png",
+        "canvasPx": {
+          "width": 913,
+          "height": 1833
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 912,
+          "bottom": 1829,
+          "width": 913,
+          "height": 1830
+        },
+        "visibleAspect": 0.498907,
+        "widthFill": 1,
+        "heightFill": 0.998363,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-plus-size-camera-guide.png",
+        "sha256": "e1b890ce02f0f23f07fa4d4ea207d81d9184de8729ba4acf4735497ec0068b47",
+        "bodyBoundsPx": {
+          "width": 959,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 991,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 33,
+          "top": 58,
+          "width": 460,
+          "height": 486,
+          "right": 492,
+          "bottom": 543
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.013,
+          "w": 0.48,
+          "h": 0.245
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 15 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.0% of canvas width. On an 887x1774 canvas this is approximately 878x1746px, with about 0.5% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.483530 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "963d6f3b9929e7d1b8b9242f8b0c4001ef7960da473818f8a5466b9a20b1f803",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-plus-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "modelName": "iPhone 15 Plus",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "cd002cdb7078fcb0f897558e685c0659f3c60c2cf8240118be234aea4ac6169b",
+        "format": "png",
+        "canvasPx": {
+          "width": 883,
+          "height": 1781
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 882,
+          "bottom": 1777,
+          "width": 883,
+          "height": 1778
+        },
+        "visibleAspect": 0.496625,
+        "widthFill": 1,
+        "heightFill": 0.998316,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-plus-size-camera-guide.png",
+        "sha256": "e1b890ce02f0f23f07fa4d4ea207d81d9184de8729ba4acf4735497ec0068b47",
+        "bodyBoundsPx": {
+          "width": 959,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 991,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 33,
+          "top": 58,
+          "width": 460,
+          "height": 486,
+          "right": 492,
+          "bottom": 543
+        },
+        "cameraNormalized": {
+          "x": 0,
+          "y": 0.013,
+          "w": 0.48,
+          "h": 0.245
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 15 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.0% of canvas width. On an 887x1774 canvas this is approximately 878x1746px, with about 0.5% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.483530 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "1d37148d3ad54098e6671e46f7b64e16aa1753684f8a9f225d28fdfecdd6ec98",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-plus-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 70.6,
+        "height": 146.6
+      },
+      "targetAspect": 0.481583,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "4c3b901628c53b237862ff2c494b58531507d90e1e8bdc57cf851647a8b62711",
+        "format": "png",
+        "canvasPx": {
+          "width": 910,
+          "height": 1828
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 909,
+          "bottom": 1824,
+          "width": 910,
+          "height": 1825
+        },
+        "visibleAspect": 0.49863,
+        "widthFill": 1,
+        "heightFill": 0.998359,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-size-camera-guide.png",
+        "sha256": "5eee2292f15bf8de91f8672e7a598f3ce1a8b188288e2f88f94156e64ce0f642",
+        "bodyBoundsPx": {
+          "width": 955,
+          "height": 1984,
+          "left": 35,
+          "top": 32,
+          "right": 989,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 50,
+          "top": 68,
+          "width": 592,
+          "height": 629,
+          "right": 641,
+          "bottom": 696
+        },
+        "cameraNormalized": {
+          "x": 0.016,
+          "y": 0.018,
+          "w": 0.62,
+          "h": 0.317
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 15 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.6% of canvas width. On an 887x1774 canvas this is approximately 874x1746px, with about 0.7% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.481583 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "045d41254ee7a24a4aabea9993cc317d87c33da84f61972c61aad33b8eedca59",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-pro-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "modelName": "iPhone 15 Pro",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 70.6,
+        "height": 146.6
+      },
+      "targetAspect": 0.481583,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "fe1363454a00daeb365acd957843b1f0571ef447784edabdb7dd4846b8ec423a",
+        "format": "png",
+        "canvasPx": {
+          "width": 885,
+          "height": 1777
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 884,
+          "bottom": 1773,
+          "width": 885,
+          "height": 1774
+        },
+        "visibleAspect": 0.498873,
+        "widthFill": 1,
+        "heightFill": 0.998312,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-size-camera-guide.png",
+        "sha256": "5eee2292f15bf8de91f8672e7a598f3ce1a8b188288e2f88f94156e64ce0f642",
+        "bodyBoundsPx": {
+          "width": 955,
+          "height": 1984,
+          "left": 35,
+          "top": 32,
+          "right": 989,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 50,
+          "top": 68,
+          "width": 592,
+          "height": 629,
+          "right": 641,
+          "bottom": 696
+        },
+        "cameraNormalized": {
+          "x": 0.016,
+          "y": 0.018,
+          "w": 0.62,
+          "h": 0.317
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 15 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.6% of canvas width. On an 887x1774 canvas this is approximately 874x1746px, with about 0.7% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.481583 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "125ea26a2898146fa0c578220be11e8893baa5841a4a7b999b687bd411de2e40",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-pro-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "modelName": "iPhone 15 Pro Max",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 76.7,
+        "height": 159.9
+      },
+      "targetAspect": 0.479675,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "59ca65a5e25b33da6986deedfe09d9e27f98dc79302da1a1facabb1f88af52ae",
+        "format": "png",
+        "canvasPx": {
+          "width": 906,
+          "height": 1832
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 905,
+          "bottom": 1828,
+          "width": 906,
+          "height": 1829
+        },
+        "visibleAspect": 0.495353,
+        "widthFill": 1,
+        "heightFill": 0.998362,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-max-size-camera-guide.png",
+        "sha256": "7f5da22f040bda7d8ddeb8225160165eac4d65927dde05fad64c116f8629e7a9",
+        "bodyBoundsPx": {
+          "width": 952,
+          "height": 1984,
+          "left": 36,
+          "top": 32,
+          "right": 987,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 47,
+          "top": 62,
+          "width": 548,
+          "height": 583,
+          "right": 594,
+          "bottom": 644
+        },
+        "cameraNormalized": {
+          "x": 0.012,
+          "y": 0.015,
+          "w": 0.576,
+          "h": 0.294
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 15 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.2% of canvas width. On an 887x1774 canvas this is approximately 871x1746px, with about 0.9% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.479675 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "e06a2236940538bf2f2c4ff23b1bbfbcfaaa22f60f863bd36698d8fc4ea51d02",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-pro-max-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "modelName": "iPhone 15 Pro Max",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 76.7,
+        "height": 159.9
+      },
+      "targetAspect": 0.479675,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "05d929c974aec3dd76b3ec54d27900f99bcbda271ed2d6e55425e2404b33bf3e",
+        "format": "png",
+        "canvasPx": {
+          "width": 884,
+          "height": 1779
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 883,
+          "bottom": 1775,
+          "width": 884,
+          "height": 1776
+        },
+        "visibleAspect": 0.497748,
+        "widthFill": 1,
+        "heightFill": 0.998314,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-15-pro-max-size-camera-guide.png",
+        "sha256": "7f5da22f040bda7d8ddeb8225160165eac4d65927dde05fad64c116f8629e7a9",
+        "bodyBoundsPx": {
+          "width": 952,
+          "height": 1984,
+          "left": 36,
+          "top": 32,
+          "right": 987,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 47,
+          "top": 62,
+          "width": 548,
+          "height": 583,
+          "right": 594,
+          "bottom": 644
+        },
+        "cameraNormalized": {
+          "x": 0.012,
+          "y": 0.015,
+          "w": 0.576,
+          "h": 0.294
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 15 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.2% of canvas width. On an 887x1774 canvas this is approximately 871x1746px, with about 0.9% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.479675 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "e93ad309c7a86f4b5849f922c4f6ab7c91bbc4ab40af0d2ce23b82fa03be1a4e",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-15-pro-max-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "071ee1ebcb7587417b8b601d40f3eca48b536e9078b11136eefdfaddf7001d78",
+        "format": "png",
+        "canvasPx": {
+          "width": 305,
+          "height": 633
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 304,
+          "bottom": 632,
+          "width": 305,
+          "height": 633
+        },
+        "visibleAspect": 0.481833,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-size-camera-guide.png",
+        "sha256": "6e960baedceebe4fd1f155ba097729916f1949a1a74dd3a0bdaea391e9a4e1d4",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 60,
+          "top": 58,
+          "width": 462,
+          "height": 559,
+          "right": 521,
+          "bottom": 616
+        },
+        "cameraNormalized": {
+          "x": 0.03,
+          "y": 0.013,
+          "w": 0.48,
+          "h": 0.282
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 16 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.3% of canvas width. On an 887x1774 canvas this is approximately 881x1746px, with about 0.4% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485095 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "8ac0b542f9262fba535d0d1aaa9e2a1baea76e7638e07a8d1c69f00dfa1eacbb",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16",
+      "modelName": "iPhone 16",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "targetAspect": 0.485095,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "9a5f17d27bd865857ef572706b43c52bff5c59f9e333893a88265cd45ceb8eb7",
+        "format": "png",
+        "canvasPx": {
+          "width": 871,
+          "height": 1806
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 870,
+          "bottom": 1805,
+          "width": 871,
+          "height": 1806
+        },
+        "visibleAspect": 0.482281,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-size-camera-guide.png",
+        "sha256": "6e960baedceebe4fd1f155ba097729916f1949a1a74dd3a0bdaea391e9a4e1d4",
+        "bodyBoundsPx": {
+          "width": 962,
+          "height": 1984,
+          "left": 31,
+          "top": 32,
+          "right": 992,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 60,
+          "top": 58,
+          "width": 462,
+          "height": 559,
+          "right": 521,
+          "bottom": 616
+        },
+        "cameraNormalized": {
+          "x": 0.03,
+          "y": 0.013,
+          "w": 0.48,
+          "h": 0.282
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 16 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.3% of canvas width. On an 887x1774 canvas this is approximately 881x1746px, with about 0.4% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.485095 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "37b42311b9c5c2a518ab61f9524a0677ac8ea267cc7885422f6e597b3cad60d7",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "8caa5d1a88304625fa713927c6ef0747f4d21b441869df3a7b652d010003f3ed",
+        "format": "png",
+        "canvasPx": {
+          "width": 318,
+          "height": 666
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 317,
+          "bottom": 665,
+          "width": 318,
+          "height": 666
+        },
+        "visibleAspect": 0.477477,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-plus-size-camera-guide.png",
+        "sha256": "30c96eb0ac3cbbdbb5d3134263723d9c581932098364f62d78af47d3cc17be5e",
+        "bodyBoundsPx": {
+          "width": 959,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 991,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 62,
+          "top": 62,
+          "width": 451,
+          "height": 536,
+          "right": 512,
+          "bottom": 597
+        },
+        "cameraNormalized": {
+          "x": 0.03,
+          "y": 0.015,
+          "w": 0.47,
+          "h": 0.27
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 16 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.0% of canvas width. On an 887x1774 canvas this is approximately 878x1746px, with about 0.5% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.483530 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "0d671e740e1d71fb006470af4908d6229c5ef6a7b8c2747047a2cf666e1dd629",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-plus-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "modelName": "iPhone 16 Plus",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "targetAspect": 0.48353,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "e452dd38a305375ea3228bee8767adbe355501c327fe1449e12d8a14b8e3d889",
+        "format": "png",
+        "canvasPx": {
+          "width": 866,
+          "height": 1817
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 865,
+          "bottom": 1816,
+          "width": 866,
+          "height": 1817
+        },
+        "visibleAspect": 0.47661,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-plus-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-plus-size-camera-guide.png",
+        "sha256": "30c96eb0ac3cbbdbb5d3134263723d9c581932098364f62d78af47d3cc17be5e",
+        "bodyBoundsPx": {
+          "width": 959,
+          "height": 1984,
+          "left": 33,
+          "top": 32,
+          "right": 991,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 62,
+          "top": 62,
+          "width": 451,
+          "height": 536,
+          "right": 512,
+          "bottom": 597
+        },
+        "cameraNormalized": {
+          "x": 0.03,
+          "y": 0.015,
+          "w": 0.47,
+          "h": 0.27
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 16 Plus case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 99.0% of canvas width. On an 887x1774 canvas this is approximately 878x1746px, with about 0.5% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.483530 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "980981fe5936d2ae82203447d254c2b5a4467ee2082ceae470f080347bc28f91",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-plus-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "82ee5e2c5a99728de4a73ea27139cfd2bedef81723db3e2955d6835d3b46d1da",
+        "format": "png",
+        "canvasPx": {
+          "width": 305,
+          "height": 650
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 304,
+          "bottom": 649,
+          "width": 305,
+          "height": 650
+        },
+        "visibleAspect": 0.469231,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-size-camera-guide.png",
+        "sha256": "95f1d0ee333536434e7c77d0936faa7bd89b5c6929e6d0d80d92dee5b2827cc1",
+        "bodyBoundsPx": {
+          "width": 948,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 57,
+          "top": 68,
+          "width": 588,
+          "height": 595,
+          "right": 644,
+          "bottom": 662
+        },
+        "cameraNormalized": {
+          "x": 0.02,
+          "y": 0.018,
+          "w": 0.62,
+          "h": 0.3
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 16 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.8% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477941 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "b70a608a8093399d08399b039a86db2ff5838fdc08826f6f5e1d38544b6102d8",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-pro-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "modelName": "iPhone 16 Pro",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "8ad2d2799b1696b1618b5a32440402a06b4508b79ff3318f7f4102dc9bde0c2b",
+        "format": "png",
+        "canvasPx": {
+          "width": 906,
+          "height": 1737
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 905,
+          "bottom": 1736,
+          "width": 906,
+          "height": 1737
+        },
+        "visibleAspect": 0.521589,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-size-camera-guide.png",
+        "sha256": "95f1d0ee333536434e7c77d0936faa7bd89b5c6929e6d0d80d92dee5b2827cc1",
+        "bodyBoundsPx": {
+          "width": 948,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 57,
+          "top": 68,
+          "width": 588,
+          "height": 595,
+          "right": 644,
+          "bottom": 662
+        },
+        "cameraNormalized": {
+          "x": 0.02,
+          "y": 0.018,
+          "w": 0.62,
+          "h": 0.3
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 16 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.8% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477941 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "69fc73f1c6dcef6b0fa93ee737edc1eb16797cb7eba7308d8776dd60c6780b6f",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-pro-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.6,
+        "height": 163
+      },
+      "targetAspect": 0.476074,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "a4d335ddde4de00ec61f1c099c6232ad49eda1ba87c65cc4cc94e3edb1bfc1bf",
+        "format": "png",
+        "canvasPx": {
+          "width": 898,
+          "height": 1832
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 897,
+          "bottom": 1828,
+          "width": 898,
+          "height": 1829
+        },
+        "visibleAspect": 0.490979,
+        "widthFill": 1,
+        "heightFill": 0.998362,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-max-size-camera-guide.png",
+        "sha256": "17dff8e65802f67ab2ff2c5709403d088a8a4eea36e7a1c710640bc19f8dfdcd",
+        "bodyBoundsPx": {
+          "width": 945,
+          "height": 1984,
+          "left": 40,
+          "top": 32,
+          "right": 984,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 66,
+          "top": 54,
+          "width": 546,
+          "height": 579,
+          "right": 611,
+          "bottom": 632
+        },
+        "cameraNormalized": {
+          "x": 0.028,
+          "y": 0.011,
+          "w": 0.578,
+          "h": 0.292
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 16 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.4% of canvas width. On an 887x1774 canvas this is approximately 864x1746px, with about 1.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.476074 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "670253f9eccbc3fc544839688d4260c1cc9c7fe9d72b72c232dd8cea8f891de4",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-pro-max-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "modelName": "iPhone 16 Pro Max",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 77.6,
+        "height": 163
+      },
+      "targetAspect": 0.476074,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "217645effaad4d2d134c44d4565387020be4a3fe05e062432a3d57ac9c41670e",
+        "format": "png",
+        "canvasPx": {
+          "width": 883,
+          "height": 1781
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 882,
+          "bottom": 1777,
+          "width": 883,
+          "height": 1778
+        },
+        "visibleAspect": 0.496625,
+        "widthFill": 1,
+        "heightFill": 0.998316,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-16-pro-max-size-camera-guide.png",
+        "sha256": "17dff8e65802f67ab2ff2c5709403d088a8a4eea36e7a1c710640bc19f8dfdcd",
+        "bodyBoundsPx": {
+          "width": 945,
+          "height": 1984,
+          "left": 40,
+          "top": 32,
+          "right": 984,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 66,
+          "top": 54,
+          "width": 546,
+          "height": 579,
+          "right": 611,
+          "bottom": 632
+        },
+        "cameraNormalized": {
+          "x": 0.028,
+          "y": 0.011,
+          "w": 0.578,
+          "h": 0.292
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 16 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.4% of canvas width. On an 887x1774 canvas this is approximately 864x1746px, with about 1.3% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.476074 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "444dddc4817cb400adec0141cbe9d114e4095379839fbb5c0534fe91b3ea8488",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-16-pro-max-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17",
+      "modelName": "iPhone 17",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "47b863a4f2577d853f47287760085fb169b5bdd4adf1b5f646bd5d6c8b33156d",
+        "format": "png",
+        "canvasPx": {
+          "width": 900,
+          "height": 1806
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 899,
+          "bottom": 1805,
+          "width": 900,
+          "height": 1806
+        },
+        "visibleAspect": 0.498339,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-size-camera-guide.png",
+        "sha256": "e4e722732d30ed401b6200461809301740cc2689a1a0c6629fa80844bba01c30",
+        "bodyBoundsPx": {
+          "width": 948,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 65,
+          "top": 56,
+          "width": 362,
+          "height": 601,
+          "right": 426,
+          "bottom": 656
+        },
+        "cameraNormalized": {
+          "x": 0.029,
+          "y": 0.012,
+          "w": 0.382,
+          "h": 0.303
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 17 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.8% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477941 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "0e76224ec52614dea2ebd93930587b6b5da9db9ba6211acf051ead7c6df1bcdd",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17",
+      "modelName": "iPhone 17",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "targetAspect": 0.477941,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "e86a998f28de4aa213f0f9da4b0db3615543c04fbf5f7a1f83ecd1ff231e3115",
+        "format": "png",
+        "canvasPx": {
+          "width": 885,
+          "height": 1777
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 884,
+          "bottom": 1776,
+          "width": 885,
+          "height": 1777
+        },
+        "visibleAspect": 0.49803,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-size-camera-guide.png",
+        "sha256": "e4e722732d30ed401b6200461809301740cc2689a1a0c6629fa80844bba01c30",
+        "bodyBoundsPx": {
+          "width": 948,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 65,
+          "top": 56,
+          "width": 362,
+          "height": 601,
+          "right": 426,
+          "bottom": 656
+        },
+        "cameraNormalized": {
+          "x": 0.029,
+          "y": 0.012,
+          "w": 0.382,
+          "h": 0.303
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 17 case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.8% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477941 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "ee0b9fd9e25a864ff79d68324272384a9c56c7933e6e92357e9d3a7a60fffff3",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "modelName": "iPhone 17 Pro",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.9,
+        "height": 150
+      },
+      "targetAspect": 0.479333,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "463a71655950836603b6846e5ccf31f31b2bbca29b16324de49cbefb92a15701",
+        "format": "png",
+        "canvasPx": {
+          "width": 904,
+          "height": 1807
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 903,
+          "bottom": 1806,
+          "width": 904,
+          "height": 1807
+        },
+        "visibleAspect": 0.500277,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-size-camera-guide.png",
+        "sha256": "9103d37b3b6dc1d5ec42e38668d50cc261f95d8bd5b9d9df770ee1a7faa354cb",
+        "bodyBoundsPx": {
+          "width": 951,
+          "height": 1984,
+          "left": 37,
+          "top": 32,
+          "right": 987,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 97,
+          "top": 95,
+          "width": 867,
+          "height": 589,
+          "right": 963,
+          "bottom": 683
+        },
+        "cameraNormalized": {
+          "x": 0.063,
+          "y": 0.032,
+          "w": 0.912,
+          "h": 0.297
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 17 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.1% of canvas width. On an 887x1774 canvas this is approximately 870x1746px, with about 0.9% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.479333 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "a3250c0b433a456dc1f47339e5dc22e3bf25ccbf21e2151d89f9f879c7b2e58f",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-pro-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "modelName": "iPhone 17 Pro",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 71.9,
+        "height": 150
+      },
+      "targetAspect": 0.479333,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "1b9ab445e297edfe621aea404ade2ec79021cb66b819733743f77827b67a4af6",
+        "format": "png",
+        "canvasPx": {
+          "width": 877,
+          "height": 1792
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 876,
+          "bottom": 1791,
+          "width": 877,
+          "height": 1792
+        },
+        "visibleAspect": 0.489397,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-size-camera-guide.png",
+        "sha256": "9103d37b3b6dc1d5ec42e38668d50cc261f95d8bd5b9d9df770ee1a7faa354cb",
+        "bodyBoundsPx": {
+          "width": 951,
+          "height": 1984,
+          "left": 37,
+          "top": 32,
+          "right": 987,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 97,
+          "top": 95,
+          "width": 867,
+          "height": 589,
+          "right": 963,
+          "bottom": 683
+        },
+        "cameraNormalized": {
+          "x": 0.063,
+          "y": 0.032,
+          "w": 0.912,
+          "h": 0.297
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 17 Pro case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 98.1% of canvas width. On an 887x1774 canvas this is approximately 870x1746px, with about 0.9% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.479333 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "14906e46aa32becb16f5e7ddb8f979cc7dff3ff0de0dab5278268224870f437f",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-pro-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "modelName": "iPhone 17 Pro Max",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 78,
+        "height": 163.4
+      },
+      "targetAspect": 0.477356,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-max-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "fced118e8841923b5f2abccd5f8f2069ee6611ccc32b6348fa5d82ff5b6bf1bb",
+        "format": "png",
+        "canvasPx": {
+          "width": 902,
+          "height": 1817
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 901,
+          "bottom": 1816,
+          "width": 902,
+          "height": 1817
+        },
+        "visibleAspect": 0.496423,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-max-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-max-size-camera-guide.png",
+        "sha256": "38f175fb3b042e6e92e0cf2fd8533a60a327ea25fc4b0392b0dca870cf774155",
+        "bodyBoundsPx": {
+          "width": 947,
+          "height": 1984,
+          "left": 39,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 86,
+          "top": 84,
+          "width": 882,
+          "height": 554,
+          "right": 967,
+          "bottom": 637
+        },
+        "cameraNormalized": {
+          "x": 0.05,
+          "y": 0.026,
+          "w": 0.931,
+          "h": 0.279
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone 17 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.7% of canvas width. On an 887x1774 canvas this is approximately 867x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477356 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "81dfe2be46cd9eb727f69077ce31537a86abe1773cc807ca389e5b2c3c08e88f",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-pro-max-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "modelName": "iPhone 17 Pro Max",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 78,
+        "height": 163.4
+      },
+      "targetAspect": 0.477356,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-max-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "2124d13da9221a0e02c6230a56cd750698fafdecd20523f20c66758d4baee028",
+        "format": "png",
+        "canvasPx": {
+          "width": 880,
+          "height": 1788
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 879,
+          "bottom": 1787,
+          "width": 880,
+          "height": 1788
+        },
+        "visibleAspect": 0.49217,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-17-pro-max-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-max-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-17-pro-max-size-camera-guide.png",
+        "sha256": "38f175fb3b042e6e92e0cf2fd8533a60a327ea25fc4b0392b0dca870cf774155",
+        "bodyBoundsPx": {
+          "width": 947,
+          "height": 1984,
+          "left": 39,
+          "top": 32,
+          "right": 985,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 86,
+          "top": 84,
+          "width": 882,
+          "height": 554,
+          "right": 967,
+          "bottom": 637
+        },
+        "cameraNormalized": {
+          "x": 0.05,
+          "y": 0.026,
+          "w": 0.931,
+          "h": 0.279
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone 17 Pro Max case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.7% of canvas width. On an 887x1774 canvas this is approximately 867x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.477356 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "7e78d1e01bf80a73243222759bded5ec54613864b00565203bbe7581ac8ee17f",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-17-pro-max-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-air",
+      "modelName": "iPhone Air",
+      "finish": "black",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 74.7,
+        "height": 156.2
+      },
+      "targetAspect": 0.478233,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-air-black-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "f69fe6660cf27e0e4b5bd5899582609bfd9723df1e9f0ef4fa38c50d95111f06",
+        "format": "png",
+        "canvasPx": {
+          "width": 318,
+          "height": 650
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 317,
+          "bottom": 649,
+          "width": 318,
+          "height": 650
+        },
+        "visibleAspect": 0.489231,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-air-black-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-air-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-air-size-camera-guide.png",
+        "sha256": "2c89ad7eba8a64179d7618c9163fda458efa2f85415569cb2d5a07f82cd8830a",
+        "bodyBoundsPx": {
+          "width": 949,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 986,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 123,
+          "top": 111,
+          "width": 750,
+          "height": 298,
+          "right": 872,
+          "bottom": 408
+        },
+        "cameraNormalized": {
+          "x": 0.09,
+          "y": 0.04,
+          "w": 0.79,
+          "h": 0.15
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare BLACK iPhone Air case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.9% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.478233 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "abac41dda19d8e10c8cc74165fa9400b992cf135f839791facdebd469d5de27b",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-air-black-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    },
+    {
+      "modelId": "iphone-air",
+      "modelName": "iPhone Air",
+      "finish": "white",
+      "generator": "ChatGPT image generation",
+      "candidateVersion": "v1-gpt",
+      "status": "pending-generation",
+      "publish": false,
+      "targetMm": {
+        "width": 74.7,
+        "height": 156.2
+      },
+      "targetAspect": 0.478233,
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-air-white-source.png",
+      "sourceOrigin": "campaign-trial-reference",
+      "sourceEvidence": {
+        "sha256": "d6bfdfa764fbc5361b3cb7027761b47ef0f96d45e307de2a1960bcbf04891d83",
+        "format": "png",
+        "canvasPx": {
+          "width": 877,
+          "height": 1793
+        },
+        "visibleBoundsPx": {
+          "left": 0,
+          "top": 0,
+          "right": 876,
+          "bottom": 1792,
+          "width": 877,
+          "height": 1793
+        },
+        "visibleAspect": 0.489124,
+        "widthFill": 1,
+        "heightFill": 1,
+        "hasTransparentBackground": true
+      },
+      "inputStrategy": "placement-calibrated",
+      "transformBase": null,
+      "referenceImages": [
+        "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-air-white-source.png",
+        "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-air-size-camera-guide.png"
+      ],
+      "geometryGuide": {
+        "filePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/references/iphone-air-size-camera-guide.png",
+        "sha256": "2c89ad7eba8a64179d7618c9163fda458efa2f85415569cb2d5a07f82cd8830a",
+        "bodyBoundsPx": {
+          "width": 949,
+          "height": 1984,
+          "left": 38,
+          "top": 32,
+          "right": 986,
+          "bottom": 2015
+        },
+        "cameraBoundsPx": {
+          "left": 123,
+          "top": 111,
+          "width": 750,
+          "height": 298,
+          "right": 872,
+          "bottom": 408
+        },
+        "cameraNormalized": {
+          "x": 0.09,
+          "y": 0.04,
+          "w": 0.79,
+          "h": 0.15
+        }
+      },
+      "promptText": "Generate exactly ONE complete, straight-on, bare OFF-WHITE iPhone Air case. Only TWO things determine pass or fail: body size and camera hardware position. All other cosmetic details may vary.\n\nIMAGE 1 is the same-model source. IMAGE 2 is the size/camera geometry guide.\n\n1. BODY SIZE: use a portrait 1:2 canvas. Centre the complete uncropped body. The central body excluding side-button protrusions must occupy 98.4% of canvas height and 97.9% of canvas width. On an 887x1774 canvas this is approximately 868x1746px, with about 1.1% canvas margin on each side and 0.8% on top and bottom. The accepted physical body width/height ratio remains 0.478233 within 1%. Do not fake the ratio with extra background margin.\n\n2. CAMERA: copy the exact same-model hardware from IMAGE 1: the same camera island or opening, lens count, lens arrangement, flash, microphone and sensors. Place and scale that unchanged hardware so its occupied region and relative position match IMAGE 2's blue region. Do not add, remove or rearrange any opening.\n\nNo Gel, resin, glitter, charms or decoration. Do not output a guide, comparison, crop or explanation.",
+      "promptSha256": "b9cd1252f3e01373043145f263d813e8366ff962aef91d444395833f81800bf2",
+      "candidatePath": "reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates/iphone-air-white-v1-gpt.png",
+      "candidate": null,
+      "review": {
+        "automatedSizeQa": "pending",
+        "visualCameraQa": "pending",
+        "approved": false
+      }
+    }
+  ]
+}

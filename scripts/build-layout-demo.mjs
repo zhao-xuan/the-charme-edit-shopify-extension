@@ -7,13 +7,9 @@
  * measured size on an iPhone 16 Pro Max. The charm art is the piece's
  * nearestCutout cut-out (already copied to public/assets/charms/ref); pieces
  * with no link fall back to the catalogue charm of the closest long-edge size.
- *
- * Also crops the case region out of the real photo for side-by-side compare.
- *
  * Run: node scripts/build-layout-demo.mjs [photoFileName]
  * -------------------------------------------------------------------------
  */
-import sharp from 'sharp'
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises'
 import { constants } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -90,17 +86,9 @@ async function main() {
   await mkdir(join(ROOT, 'public', '_demo'), { recursive: true })
   await writeFile(join(ROOT, 'public', '_demo', 'layout.json'), JSON.stringify(layout, null, 2))
 
-  // crop the case region out of the real photo for comparison
-  await mkdir(join(REF, '_compare'), { recursive: true })
-  const realPath = join(REF, '1-charms-real-image', target)
-  await sharp(realPath)
-    .extract({ left: box.minx, top: box.miny, width: box.w, height: box.h })
-    .resize({ height: 1200 })
-    .toFile(join(REF, '_compare', 'real.png'))
-
   console.log(`\nchosen photo: ${target}`) // eslint-disable-line
   console.log(`charms: ${charms.length} (linked art: ${charms.filter((c) => !c.name.includes('size-match')).length})`) // eslint-disable-line
   console.log(`case box px: ${box.w}x${box.h}  -> product ${PRODUCT_W}x${PRODUCT_H}mm`) // eslint-disable-line
-  console.log('wrote public/_demo/layout.json and reference/_compare/real.png') // eslint-disable-line
+  console.log('wrote public/_demo/layout.json') // eslint-disable-line
 }
 main()

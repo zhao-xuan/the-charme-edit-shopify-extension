@@ -12,6 +12,7 @@ import {
   Input,
   InputNumber,
   Popover,
+  Segmented,
   Select,
   Slider,
   Space,
@@ -26,11 +27,13 @@ import {
   AppstoreAddOutlined,
   AppstoreOutlined,
   CloudUploadOutlined,
+  CopyOutlined,
   DeleteOutlined,
   DownOutlined,
   EditOutlined,
   HolderOutlined,
   InboxOutlined,
+  LinkOutlined,
   PlusOutlined,
   PercentageOutlined,
   OrderedListOutlined,
@@ -48,7 +51,7 @@ import { DEFAULT_SETTINGS } from '../lib/settings'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
-import { extractPieces, loadImageData } from '../lib/segment'
+import { extractPieces, extractTransparentPieces, loadImageData, tierFromMm } from '../lib/segment'
 import {
   addCharms,
   addProduct,
@@ -78,6 +81,27 @@ const slug = (s) =>
     .replace(/^-|-$/g, '')
     .slice(0, 40) || 'item'
 const rid = () => Math.random().toString(36).slice(2, 7)
+
+const gptCutoutPrompt = ({ productName, widthMm, heightMm, photoMode, standaloneLongMm }) => {
+  const standalone = photoMode === 'standalone'
+  return `Edit the attached source photograph into a technical cut-out mask for catalogue import.
+
+Keep ${standalone ? 'the single physical charm' : 'every physical charm'} exactly as photographed. Remove ${standalone ? 'the plain background and surface' : 'the phone case/product body, camera opening, table/background'}, dust, labels, cast shadows, reflections that are not part of ${standalone ? 'the charm' : 'a charm'}, and every other non-charm pixel.
+
+OUTPUT CONTRACT — all points are mandatory:
+1. Return one PNG with a genuinely transparent background (alpha channel), not white, checkerboard, or a screenshot.
+2. Preserve the source canvas aspect ratio, framing, orientation, and composition exactly.
+3. Keep each charm in its original position and at its original pixel scale. Do not move, rearrange, resize, rotate, redraw, beautify, repair, recolour, sharpen, simplify, add, or remove any charm.
+4. Keep natural holes and transparent/translucent areas. Remove only the background around and between the charms.
+5. Do not add text, numbers, borders, guides, shadows, or a new background.
+6. Each separate physical charm must remain a separate alpha component; do not join neighbouring pieces.
+
+${standalone
+  ? `Charm reference: ${productName?.trim() || 'unnamed charm'}, ${Number(standaloneLongMm) || 0} mm on its real long side.`
+  : `Product reference: ${productName?.trim() || 'unnamed product'}, ${Number(widthMm) || 0} mm × ${Number(heightMm) || 0} mm.`}
+
+Before returning the PNG, verify that overlaying it on the source photograph at 100% would put every retained charm back in exactly the same place and at exactly the same size.`
+}
 
 /** Move an item within an array (returns a new array). */
 const moveInArray = (arr, from, to) => {
@@ -699,6 +723,38 @@ function CharmsTab({ draft, set, cloud }) {
     bundleMax: 8,
   })
   const [query, setQuery] = useState('')
+  const [extracting, setExtracting] = useState(false)
+
+  const autoExtractCharm = async () => {
+    if (!form.image?.src) return message.warning('Upload the charm photo first.')
+    setExtracting(true)
+    try {
+      const imageData = await loadImageData(form.image.src, 1200)
+      const result = extractPieces(imageData, {
+        mode: 'standalone',
+        standaloneLongMm: Math.max(0.1, Number(form.widthMm) || 16),
+      })
+      const piece = result.pieces[0]
+      if (!piece?.dataUrl) {
+        message.info('No isolated charm detected. Use a clean, plain background with the whole charm visible.')
+        return
+      }
+      setForm((current) => ({
+        ...current,
+        image: {
+          src: piece.dataUrl,
+          w: piece.pxW,
+          h: piece.pxH,
+          autoExtracted: true,
+        },
+      }))
+      message.success('Background removed. The transparent cut-out is ready to add.')
+    } catch {
+      message.error('Could not auto-extract this charm photo.')
+    } finally {
+      setExtracting(false)
+    }
+  }
 
   const addCharm = () => {
     if (!form.name.trim()) return message.warning('Give the charm a name.')
@@ -906,6 +962,15 @@ function CharmsTab({ draft, set, cloud }) {
               <label style={{ gridColumn: '1 / -1' }}>
                 <span>Artwork (transparent cut-out)</span>
                 <ImageDrop value={form.image} onChange={(image) => setForm((f) => ({ ...f, image }))} />
+                <Button
+                  icon={<ScissorOutlined />}
+                  loading={extracting}
+                  disabled={!form.image?.src || form.image?.autoExtracted}
+                  onClick={autoExtractCharm}
+                  style={{ marginTop: 8 }}
+                >
+                  {form.image?.autoExtracted ? 'Background extracted' : 'Auto-extract uploaded charm'}
+                </Button>
               </label>
               <label className="admin-check" style={{ gridColumn: '1 / -1' }}>
                 <Checkbox
@@ -2373,19 +2438,38 @@ function BatchExtractTab({ draft, set }) {
   const { message } = App.useApp()
   const [photo, setPhoto] = useState(null) // group shot: charms laid on the product
   const [body, setBody] = useState(null) // blank product body (becomes the product)
+  const [gptPhoto, setGptPhoto] = useState(null)
+  const [gptOpen, setGptOpen] = useState(false)
   const [form, setForm] = useState({
+    photoMode: 'product',
     productName: '',
     kind: 'phone',
     widthMm: 81,
     heightMm: 167,
+    standaloneLongMm: 15,
     category: 'gold',
     makeProduct: true,
   })
-  const [tune, setTune] = useState({ pieceTol: 58, minPieceMm: 5, warmOnly: false })
+  const [tune, setTune] = useState({ pieceTol: 58, minPieceMm: 3, warmOnly: false })
   const [busy, setBusy] = useState(false)
   const [result, setResult] = useState(null) // { overlay, mmPerPx, product }
   const [pieces, setPieces] = useState([]) // editable extracted pieces
   const runSeq = useRef(0)
+  const standalone = form.photoMode === 'standalone'
+  const gptPrompt = useMemo(() => gptCutoutPrompt(form), [form])
+
+  const onPhoto = (img) => {
+    setPhoto(img)
+    setResult(null)
+    setPieces([])
+  }
+
+  const onPhotoMode = (photoMode) => {
+    setForm((current) => ({ ...current, photoMode }))
+    setResult(null)
+    setPieces([])
+    setGptPhoto(null)
+  }
 
   // Derive product height from the body image aspect when one is supplied.
   const onBody = (img) => {
@@ -2394,31 +2478,40 @@ function BatchExtractTab({ draft, set }) {
   }
 
   const detect = async () => {
-    if (!photo?.src) return message.warning('Upload the charms-on-product photo first.')
+    if (!photo?.src) return message.warning(standalone ? 'Upload the single-charm photo first.' : 'Upload the charms-on-product photo first.')
     const widthMm = Number(form.widthMm) || 0
     const heightMm = Number(form.heightMm) || 0
-    if (!widthMm || !heightMm) return message.warning('Enter the product width and height in mm.')
+    const standaloneLongMm = Number(form.standaloneLongMm) || 0
+    if (standalone && !standaloneLongMm) return message.warning('Enter the charm’s real long-side size in mm.')
+    if (!standalone && (!widthMm || !heightMm)) return message.warning('Enter the product width and height in mm.')
     const seq = ++runSeq.current
     setBusy(true)
     try {
       const imageData = await loadImageData(photo.src, 1200)
       const out = extractPieces(imageData, {
+        mode: form.photoMode,
         productLongMm: Math.max(widthMm, heightMm),
+        standaloneLongMm,
         pieceTol: tune.pieceTol,
         minPieceMm: tune.minPieceMm,
         warmOnly: tune.warmOnly,
       })
       if (seq !== runSeq.current) return // a newer run superseded this one
-      setResult({ overlay: out.overlay, mmPerPx: out.mmPerPx, product: out.product })
+      setResult({ overlay: out.overlay, mmPerPx: out.mmPerPx, product: out.product, mode: 'auto' })
       setPieces(
         out.pieces.map((p, i) => ({
           ...p,
           include: true,
-          name: `${form.productName.trim() || 'Charm'} ${i + 1}`,
+          name: standalone
+            ? form.productName.trim() || 'Charm'
+            : `${form.productName.trim() || 'Charm'} ${i + 1}`,
           category: form.category,
         })),
       )
-      if (!out.pieces.length) message.info('No pieces detected — try raising piece sensitivity or lowering the min size.')
+      if (standalone && !out.pieces.length) message.info('No isolated charm detected — use a clean, plain background with the whole charm visible.')
+      else if (standalone) message.success('Detected and cut out 1 charm. Verify its real size below.')
+      else if (!out.product.detected) message.warning('Could not find the product outline. Use a clean, contrasting background and keep the whole product visible.')
+      else if (!out.pieces.length) message.info('No pieces detected — try lowering the colour-difference threshold or the min size.')
       else message.success(`Detected ${out.pieces.length} pieces.`)
     } catch (e) {
       message.error('Could not process that photo.')
@@ -2427,13 +2520,96 @@ function BatchExtractTab({ draft, set }) {
     }
   }
 
+  const copyGptPrompt = async () => {
+    try {
+      await navigator.clipboard.writeText(gptPrompt)
+      message.success('GPT prompt copied.')
+    } catch {
+      message.error('Could not copy the prompt. Select the prompt text and copy it manually.')
+    }
+  }
+
+  const importGpt = async () => {
+    if (!photo?.src) return message.warning(standalone ? 'Upload the original single-charm photo first.' : 'Upload the original charms-on-product photo first.')
+    if (!gptPhoto?.src) return message.warning('Upload the transparent PNG returned by GPT.')
+    const widthMm = Number(form.widthMm) || 0
+    const heightMm = Number(form.heightMm) || 0
+    const standaloneLongMm = Number(form.standaloneLongMm) || 0
+    if (standalone && !standaloneLongMm) return message.warning('Enter the charm’s real long-side size in mm.')
+    if (!standalone && (!widthMm || !heightMm)) return message.warning('Enter the product width and height in mm.')
+    const seq = ++runSeq.current
+    setBusy(true)
+    try {
+      const sourceData = await loadImageData(photo.src, 1200)
+      const gptData = await loadImageData(gptPhoto.src, 1200)
+      const sourceAspect = sourceData.width / sourceData.height
+      const gptAspect = gptData.width / gptData.height
+      if (Math.abs(sourceAspect / gptAspect - 1) > 0.03) {
+        throw new Error('The GPT PNG changed the canvas aspect ratio. Ask GPT to preserve the source canvas and try again.')
+      }
+      let product
+      let out
+      if (standalone) {
+        product = { detected: false, mode: 'standalone', pxW: 0, pxH: 0, longMm: 0, detector: 'gpt-alpha' }
+        out = extractTransparentPieces(gptData, { standaloneLongMm })
+      } else {
+        const source = extractPieces(sourceData, {
+          productLongMm: Math.max(widthMm, heightMm),
+          pieceTol: tune.pieceTol,
+          minPieceMm: tune.minPieceMm,
+          warmOnly: tune.warmOnly,
+        })
+        if (!source.product.detected) {
+          message.warning('Could not find the product outline in the original photo, so its real-world scale cannot be calculated.')
+          return
+        }
+        const mmPerPx = source.mmPerPx * (sourceData.width / gptData.width)
+        product = source.product
+        out = extractTransparentPieces(gptData, {
+          mmPerPx,
+          minPieceMm: tune.minPieceMm,
+          maxPieceMm: 55,
+        })
+      }
+      if (seq !== runSeq.current) return
+      setResult({ overlay: out.overlay, mmPerPx: out.mmPerPx, product, mode: 'gpt' })
+      setPieces(out.pieces.map((piece, index) => ({
+        ...piece,
+        include: true,
+        name: standalone
+          ? form.productName.trim() || 'Charm'
+          : `${form.productName.trim() || 'Charm'} ${index + 1}`,
+        category: form.category,
+      })))
+      if (!out.pieces.length) message.info('No transparent charm components were found in the GPT PNG.')
+      else if (standalone) message.success('Imported 1 GPT cut-out. Verify its real size before adding.')
+      else message.success(`Imported ${out.pieces.length} GPT cut-out${out.pieces.length === 1 ? '' : 's'}. Verify every piece and size before adding.`)
+    } catch (error) {
+      message.error(error.message || 'Could not import the GPT PNG.')
+    } finally {
+      if (seq === runSeq.current) setBusy(false)
+    }
+  }
+
   const patchPiece = (idx, patch) =>
     setPieces((ps) => ps.map((p, i) => (i === idx ? { ...p, ...patch } : p)))
+
+  const patchPieceSize = (idx, key, value) => {
+    const size = Math.max(0.1, Number(value) || 0.1)
+    setPieces((current) => current.map((piece, index) => {
+      if (index !== idx) return piece
+      const next = { ...piece, [key]: size }
+      const longMm = Math.max(next.widthMm, next.heightMm)
+      const classified = tierFromMm(longMm)
+      return { ...next, longMm, tier: classified.tier, type: classified.type }
+    }))
+  }
 
   const selected = pieces.filter((p) => p.include)
 
   const commit = () => {
-    if (form.makeProduct && !body?.src) return message.warning('Upload the product body photo, or turn off “Also add the product”.')
+    const addProduct = !standalone && form.makeProduct
+    if (addProduct && !body?.src) return message.warning('Upload the product body photo, or turn off “Also add the product”.')
     if (!selected.length) return message.warning('Select at least one detected piece.')
     const widthMm = Number(form.widthMm) || 81
     const heightMm = Number(form.heightMm) || 167
@@ -2455,7 +2631,7 @@ function BatchExtractTab({ draft, set }) {
     }))
     set((d) => {
       const next = { ...d, customCharms: [...charms, ...(d.customCharms || [])] }
-      if (form.makeProduct && body?.src) {
+      if (addProduct && body?.src) {
         const product = {
           id: `custom-prod-${slug(form.productName || 'product')}-${rid()}`,
           name: form.productName.trim() || 'Custom product',
@@ -2471,11 +2647,12 @@ function BatchExtractTab({ draft, set }) {
       return next
     })
     message.success(
-      `Added ${charms.length} charm${charms.length > 1 ? 's' : ''}${form.makeProduct ? ' + 1 product' : ''} — Save changes to publish.`,
+      `Added ${charms.length} charm${charms.length > 1 ? 's' : ''}${addProduct ? ' + 1 product' : ''} — Save changes to publish.`,
     )
     setPieces([])
     setResult(null)
     setPhoto(null)
+    setGptPhoto(null)
   }
 
   return (
@@ -2483,68 +2660,90 @@ function BatchExtractTab({ draft, set }) {
       <Alert
         type="info"
         showIcon
-        message="Auto-extract charms from one photo"
-        description="Lay the real charms on the product (like a phone case) and photograph them on a clean, contrasting surface. Upload that photo, tell us the product's real size, and the studio cuts out every piece and works out its true size — no manual cropping."
+        message="Auto-extract charms from a photo"
+        description="Choose a group photo with charms laid on a known-size product, or a single charm photographed on a clean plain background. The studio removes the background and prepares transparent catalogue artwork."
       />
 
-      <Card size="small" title="1 · Photos & product size">
+      <Card size="small" title="1 · Photo & size">
+        <label>
+          <span>Photo type</span>
+          <Segmented
+            block
+            value={form.photoMode}
+            onChange={onPhotoMode}
+            options={[
+              { value: 'product', label: 'Multiple charms on a product' },
+              { value: 'standalone', label: 'Single charm on a plain background' },
+            ]}
+            style={{ marginTop: 6, marginBottom: 14 }}
+          />
+        </label>
         <div className="admin-grid">
           <label>
-            <span>Charms-on-product photo</span>
+            <span>{standalone ? 'Single-charm photo' : 'Charms-on-product photo'}</span>
             <ImageDrop
               value={photo}
-              onChange={setPhoto}
+              onChange={onPhoto}
               maxDim={1600}
-              hint="Click or drop the photo of charms laid on the product"
+              hint={standalone
+                ? 'Click or drop one charm on a clean plain background'
+                : 'Click or drop the photo of charms laid on the product'}
             />
           </label>
+          {!standalone && (
+            <label>
+              <span>Product body photo (blank)</span>
+              <ImageDrop
+                value={body}
+                onChange={onBody}
+                maxDim={1200}
+                hint="Click or drop the bare product photo"
+              />
+            </label>
+          )}
           <label>
-            <span>Product body photo (blank)</span>
-            <ImageDrop
-              value={body}
-              onChange={onBody}
-              maxDim={1200}
-              hint="Click or drop the bare product photo"
-            />
-          </label>
-          <label>
-            <span>Product name</span>
+            <span>{standalone ? 'Charm name' : 'Product name'}</span>
             <Input
               value={form.productName}
               onChange={(e) => setForm((f) => ({ ...f, productName: e.target.value }))}
-              placeholder="e.g. Cottagecore set"
+              placeholder={standalone ? 'e.g. Gold star' : 'e.g. Cottagecore set'}
             />
           </label>
+          {!standalone && (
+            <label>
+              <span>Decoration set</span>
+              <Select
+                value={form.kind}
+                onChange={(v) => setForm((f) => ({ ...f, kind: v }))}
+                options={[
+                  { value: 'phone', label: 'Charms' },
+                  { value: 'tote', label: 'Patches' },
+                ]}
+                style={{ width: '100%' }}
+              />
+            </label>
+          )}
           <label>
-            <span>Decoration set</span>
-            <Select
-              value={form.kind}
-              onChange={(v) => setForm((f) => ({ ...f, kind: v }))}
-              options={[
-                { value: 'phone', label: 'Charms' },
-                { value: 'tote', label: 'Patches' },
-              ]}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>Product real width (mm)</span>
+            <span>{standalone ? 'Charm real long side (mm)' : 'Product real width (mm)'}</span>
             <InputNumber
-              min={10}
-              value={form.widthMm}
-              onChange={(v) => setForm((f) => ({ ...f, widthMm: v }))}
+              min={standalone ? 0.1 : 10}
+              step={standalone ? 0.1 : 1}
+              value={standalone ? form.standaloneLongMm : form.widthMm}
+              onChange={(v) => setForm((f) => ({ ...f, [standalone ? 'standaloneLongMm' : 'widthMm']: v }))}
               style={{ width: '100%' }}
             />
           </label>
-          <label>
-            <span>Product real height (mm)</span>
-            <InputNumber
-              min={10}
-              value={form.heightMm}
-              onChange={(v) => setForm((f) => ({ ...f, heightMm: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
+          {!standalone && (
+            <label>
+              <span>Product real height (mm)</span>
+              <InputNumber
+                min={10}
+                value={form.heightMm}
+                onChange={(v) => setForm((f) => ({ ...f, heightMm: v }))}
+                style={{ width: '100%' }}
+              />
+            </label>
+          )}
           <label>
             <span>Default charm category</span>
             <Select
@@ -2554,32 +2753,38 @@ function BatchExtractTab({ draft, set }) {
               style={{ width: '100%' }}
             />
           </label>
-          <label className="admin-check">
-            <Checkbox
-              checked={form.makeProduct}
-              onChange={(e) => setForm((f) => ({ ...f, makeProduct: e.target.checked }))}
-            >
-              Also add the product (from the body photo)
-            </Checkbox>
-          </label>
+          {!standalone && (
+            <label className="admin-check">
+              <Checkbox
+                checked={form.makeProduct}
+                onChange={(e) => setForm((f) => ({ ...f, makeProduct: e.target.checked }))}
+              >
+                Also add the product (from the body photo)
+              </Checkbox>
+            </label>
+          )}
         </div>
 
         <Divider style={{ margin: '14px 0' }} />
         <p className="eyebrow" style={{ marginBottom: 10 }}>Detection tuning</p>
         <div className="admin-tune">
           <label>
-            <span>Piece sensitivity ({tune.pieceTol})</span>
+            <span>{standalone ? 'Background' : 'Product'} colour difference ({tune.pieceTol} · lower catches subtler edges)</span>
             <Slider min={25} max={110} value={tune.pieceTol} onChange={(v) => setTune((t) => ({ ...t, pieceTol: v }))} />
           </label>
-          <label>
-            <span>Min piece size ({tune.minPieceMm} mm)</span>
-            <Slider min={2} max={20} value={tune.minPieceMm} onChange={(v) => setTune((t) => ({ ...t, minPieceMm: v }))} />
-          </label>
-          <label className="admin-check">
-            <Checkbox checked={tune.warmOnly} onChange={(e) => setTune((t) => ({ ...t, warmOnly: e.target.checked }))}>
-              Metallic only (reject non-gold/silver specks)
-            </Checkbox>
-          </label>
+          {!standalone && (
+            <label>
+              <span>Min piece size ({tune.minPieceMm} mm)</span>
+              <Slider min={2} max={20} value={tune.minPieceMm} onChange={(v) => setTune((t) => ({ ...t, minPieceMm: v }))} />
+            </label>
+          )}
+          {!standalone && (
+            <label className="admin-check">
+              <Checkbox checked={tune.warmOnly} onChange={(e) => setTune((t) => ({ ...t, warmOnly: e.target.checked }))}>
+                Metallic only (reject non-gold/silver specks)
+              </Checkbox>
+            </label>
+          )}
         </div>
         <Button
           type="primary"
@@ -2590,12 +2795,66 @@ function BatchExtractTab({ draft, set }) {
         >
           Detect & cut pieces
         </Button>
+
+        <Divider style={{ margin: '18px 0 14px' }} />
+        <div className="gpt-extract__toggle">
+          <Switch size="small" checked={gptOpen} onChange={setGptOpen} aria-label="Use GPT-assisted cut-outs" />
+          <div>
+            <strong>Optional · GPT-assisted cut-outs</strong>
+            <p className="hint">
+              {standalone
+                ? 'Use this when a subtle or transparent charm needs cleaner background removal.'
+                : 'Use this when subtle, transparent or crowded pieces need a cleaner background removal.'}
+            </p>
+          </div>
+        </div>
+        {gptOpen && (
+          <div className="gpt-extract">
+            <Alert
+              type="warning"
+              showIcon
+              message="GPT is a fallback, not a measurement authority"
+              description={standalone
+                ? 'Upload the same original photo to GPT. The returned PNG must keep the original canvas and charm scale. Its long side will use the real millimetre size entered above; review the result before adding it.'
+                : 'Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding it.'}
+            />
+            <label>
+              <span>1 · Copy this prompt and send it with the original photo</span>
+              <Input.TextArea aria-label="GPT cut-out prompt" value={gptPrompt} readOnly autoSize={{ minRows: 8, maxRows: 12 }} />
+            </label>
+            <Space wrap>
+              <Button icon={<CopyOutlined />} onClick={copyGptPrompt}>Copy prompt</Button>
+              <Button icon={<LinkOutlined />} href="https://chatgpt.com/" target="_blank">Open ChatGPT</Button>
+            </Space>
+            <label>
+              <span>2 · Upload GPT’s transparent PNG result</span>
+              <ImageDrop
+                value={gptPhoto}
+                onChange={setGptPhoto}
+                maxDim={1600}
+                hint="Click or drop the transparent PNG returned by GPT"
+              />
+            </label>
+            <Button
+              icon={<ScissorOutlined />}
+              loading={busy}
+              disabled={!photo?.src || !gptPhoto?.src}
+              onClick={importGpt}
+            >
+              {standalone ? 'Import GPT cut-out' : 'Import GPT cut-outs'}
+            </Button>
+          </div>
+        )}
       </Card>
 
       {result && (
         <Card
           size="small"
-          title={`2 · Review (${selected.length}/${pieces.length} selected · ${result.mmPerPx.toFixed(3)} mm/px)`}
+          title={result.product.detected
+            ? `2 · Review (${selected.length}/${pieces.length} selected · ${result.mmPerPx.toFixed(3)} mm/px${result.mode === 'gpt' ? ' · GPT cut-outs' : ''})`
+            : result.product.mode === 'standalone'
+              ? `2 · Review (${selected.length}/${pieces.length} selected · single charm${result.mode === 'gpt' ? ' · GPT cut-out' : ''})`
+              : '2 · Review · Product not found'}
         >
           <Spin spinning={busy}>
             <div className="admin-extract">
@@ -2603,7 +2862,13 @@ function BatchExtractTab({ draft, set }) {
                 <p className="eyebrow" style={{ marginBottom: 6 }}>Detection preview</p>
                 <Image src={result.overlay} alt="detection preview" />
                 <p className="hint" style={{ marginTop: 6 }}>
-                  Cyan = product outline (the ruler). Magenta = each detected charm.
+                  {result.mode === 'gpt'
+                    ? result.product.mode === 'standalone'
+                      ? 'Magenta = the transparent GPT cut-out. Its millimetre size uses the real long side entered above; compare it with the original photo.'
+                      : 'Magenta = each transparent GPT component. Compare every cut-out with the original photo.'
+                    : result.product.mode === 'standalone'
+                      ? 'Magenta = the isolated charm. Its millimetre size uses the real long side entered above; adjust width or height below if needed.'
+                    : 'Cyan = product outline (the ruler). Magenta = each detected charm.'}
                 </p>
               </div>
               <div className="admin-extract__pieces">
@@ -2631,7 +2896,26 @@ function BatchExtractTab({ draft, set }) {
                             options={CAT_OPTS}
                             style={{ width: 100 }}
                           />
-                          <Tag>{p.widthMm}×{p.heightMm} mm</Tag>
+                          <span className="extract-piece__size">
+                            <InputNumber
+                              size="small"
+                              min={0.1}
+                              step={0.1}
+                              value={p.widthMm}
+                              aria-label={`${p.name} width in millimetres`}
+                              onChange={(value) => patchPieceSize(i, 'widthMm', value)}
+                            />
+                            <span>×</span>
+                            <InputNumber
+                              size="small"
+                              min={0.1}
+                              step={0.1}
+                              value={p.heightMm}
+                              aria-label={`${p.name} height in millimetres`}
+                              onChange={(value) => patchPieceSize(i, 'heightMm', value)}
+                            />
+                            <span>mm</span>
+                          </span>
                           <Tag color="gold">{p.tier}</Tag>
                           <span className="extract-piece__price">
                             £
@@ -2656,7 +2940,7 @@ function BatchExtractTab({ draft, set }) {
           <Divider style={{ margin: '14px 0' }} />
           <Button type="primary" icon={<ThunderboltOutlined />} onClick={commit} disabled={!selected.length}>
             Add {selected.length} charm{selected.length === 1 ? '' : 's'}
-            {form.makeProduct ? ' + product' : ''}
+            {!standalone && form.makeProduct ? ' + product' : ''}
           </Button>
         </Card>
       )}

@@ -139,6 +139,227 @@ function label(mask, w, h) {
   return { lab, areas, count: next }
 }
 
+function bleedForegroundColours(output, alpha, distance, filled, width, height, softHigh, background, edgeMode) {
+  const pixelCount = width * height
+  const claimed = new Uint8Array(pixelCount)
+  const bleed = new Uint8Array(pixelCount)
+  const queue = new Int32Array(pixelCount)
+  let queueHead = 0
+  let queueTail = 0
+  const backgroundLuminance = 0.299 * background[0] + 0.587 * background[1] + 0.114 * background[2]
+
+  const trustedMetal = (point) => {
+    const offset = point * 4
+    const red = output[offset]
+    const green = output[offset + 1]
+    const blue = output[offset + 2]
+    if (edgeMode === 'gold') return red - blue >= 20 && Math.max(red, green, blue) - Math.min(red, green, blue) >= 22
+    if (edgeMode === 'silver') {
+      const lightness = 0.299 * red + 0.587 * green + 0.114 * blue
+      return lightness <= backgroundLuminance - 20 || Math.max(red, green, blue) - Math.min(red, green, blue) >= 28
+    }
+    return distance[point] >= softHigh
+  }
+
+  const nearTransparent = (point) => {
+    const x = point % width
+    const y = Math.floor(point / width)
+    for (let offsetY = -2; offsetY <= 2; offsetY++) {
+      for (let offsetX = -2; offsetX <= 2; offsetX++) {
+        const nextX = x + offsetX
+        const nextY = y + offsetY
+        if (nextX < 0 || nextY < 0 || nextX >= width || nextY >= height) return true
+        if (!alpha[nextY * width + nextX]) return true
+      }
+    }
+    return false
+  }
+
+  for (let point = 0; point < pixelCount; point++) {
+    if (!alpha[point]) continue
+    const metalEdge = edgeMode && nearTransparent(point)
+    const needsBleed = filled[point] ||
+      (metalEdge ? alpha[point] < 250 || !trustedMetal(point) : alpha[point] < 250 && distance[point] < softHigh)
+    if (needsBleed) {
+      bleed[point] = 1
+      continue
+    }
+    claimed[point] = 1
+    queue[queueTail++] = point
+  }
+
+  const claim = (from, next) => {
+    if (next < 0 || next >= pixelCount || claimed[next] || !alpha[next]) return
+    if (Math.abs((next % width) - (from % width)) > 1) return
+    const fromOffset = from * 4
+    const nextOffset = next * 4
+    output[nextOffset] = output[fromOffset]
+    output[nextOffset + 1] = output[fromOffset + 1]
+    output[nextOffset + 2] = output[fromOffset + 2]
+    claimed[next] = 1
+    queue[queueTail++] = next
+  }
+
+  while (queueHead < queueTail) {
+    const point = queue[queueHead++]
+    claim(point, point - 1)
+    claim(point, point + 1)
+    claim(point, point - width)
+    claim(point, point + width)
+  }
+
+  for (let point = 0; point < pixelCount; point++) {
+    if (!bleed[point] || claimed[point]) continue
+    const offset = point * 4
+    output[offset] = 0
+    output[offset + 1] = 0
+    output[offset + 2] = 0
+  }
+}
+
+function removeBorderConnectedNeutral(alpha, source, width, height, maxChroma) {
+  const pixelCount = width * height
+  const reachable = new Uint8Array(pixelCount)
+  const queue = new Int32Array(pixelCount)
+  let queueHead = 0
+  let queueTail = 0
+
+  const push = (point) => {
+    if (point < 0 || point >= pixelCount || reachable[point]) return
+    const offset = point * 4
+    const red = source[offset]
+    const green = source[offset + 1]
+    const blue = source[offset + 2]
+    if (Math.max(red, green, blue) - Math.min(red, green, blue) > maxChroma) return
+    reachable[point] = 1
+    queue[queueTail++] = point
+  }
+
+  for (let x = 0; x < width; x++) {
+    push(x)
+    push((height - 1) * width + x)
+  }
+  for (let y = 0; y < height; y++) {
+    push(y * width)
+    push(y * width + width - 1)
+  }
+
+  while (queueHead < queueTail) {
+    const point = queue[queueHead++]
+    const x = point % width
+    if (x > 0) push(point - 1)
+    if (x < width - 1) push(point + 1)
+    push(point - width)
+    push(point + width)
+  }
+
+  for (let point = 0; point < pixelCount; point++) {
+    if (reachable[point]) alpha[point] = 0
+  }
+}
+
+function fillSmallAlphaHoles(alpha, filled, width, height, maxArea) {
+  const pixelCount = width * height
+  const background = new Uint8Array(pixelCount)
+  const reachable = new Uint8Array(pixelCount)
+  const stack = []
+  for (let point = 0; point < pixelCount; point++) {
+    if (alpha[point] <= 12) background[point] = 1
+  }
+
+  const push = (point) => {
+    if (point < 0 || point >= pixelCount || reachable[point] || !background[point]) return
+    reachable[point] = 1
+    stack.push(point)
+  }
+  for (let x = 0; x < width; x++) {
+    push(x)
+    push((height - 1) * width + x)
+  }
+  for (let y = 0; y < height; y++) {
+    push(y * width)
+    push(y * width + width - 1)
+  }
+  while (stack.length) {
+    const point = stack.pop()
+    const x = point % width
+    if (x > 0) push(point - 1)
+    if (x < width - 1) push(point + 1)
+    push(point - width)
+    push(point + width)
+  }
+
+  const holeMask = new Uint8Array(pixelCount)
+  for (let point = 0; point < pixelCount; point++) {
+    if (background[point] && !reachable[point]) holeMask[point] = 1
+  }
+  const holes = label(holeMask, width, height)
+  for (let point = 0; point < pixelCount; point++) {
+    const component = holes.lab[point]
+    if (component < 0 || holes.areas[component] > maxArea) continue
+    alpha[point] = 255
+    filled[point] = 1
+  }
+}
+
+function exteriorBackgroundMask(source, distance, width, height, opts) {
+  const safeDistance = opts.backgroundSafeDistance ?? 12
+  const maxDistance = opts.backgroundMaxDistance ?? 82
+  const maxEdge = opts.backgroundMaxEdge ?? 14
+  const pixelCount = width * height
+  const edge = new Float32Array(pixelCount)
+  const reachable = new Uint8Array(pixelCount)
+  const queue = new Int32Array(pixelCount)
+  let queueHead = 0
+  let queueTail = 0
+
+  const colourDifference = (left, right) => {
+    const leftOffset = left * 4
+    const rightOffset = right * 4
+    const red = source[leftOffset] - source[rightOffset]
+    const green = source[leftOffset + 1] - source[rightOffset + 1]
+    const blue = source[leftOffset + 2] - source[rightOffset + 2]
+    return Math.sqrt(red * red + green * green + blue * blue)
+  }
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const point = y * width + x
+      if (x > 0) edge[point] = Math.max(edge[point], colourDifference(point, point - 1))
+      if (x < width - 1) edge[point] = Math.max(edge[point], colourDifference(point, point + 1))
+      if (y > 0) edge[point] = Math.max(edge[point], colourDifference(point, point - width))
+      if (y < height - 1) edge[point] = Math.max(edge[point], colourDifference(point, point + width))
+    }
+  }
+
+  const push = (point) => {
+    if (point < 0 || point >= pixelCount || reachable[point]) return
+    if (distance[point] > maxDistance) return
+    if (distance[point] > safeDistance && edge[point] > maxEdge) return
+    reachable[point] = 1
+    queue[queueTail++] = point
+  }
+
+  for (let x = 0; x < width; x++) {
+    push(x)
+    push((height - 1) * width + x)
+  }
+  for (let y = 0; y < height; y++) {
+    push(y * width)
+    push(y * width + width - 1)
+  }
+
+  while (queueHead < queueTail) {
+    const point = queue[queueHead++]
+    const x = point % width
+    if (x > 0) push(point - 1)
+    if (x < width - 1) push(point + 1)
+    push(point - width)
+    push(point + width)
+  }
+  return reachable
+}
+
 export async function rekey(id, srcRel, solid = false, opts = {}) {
   const src = path.join(ROOT, srcRel)
   const binT = opts.binT ?? BIN_T
@@ -156,7 +377,12 @@ export async function rekey(id, srcRel, solid = false, opts = {}) {
     const dr = data[i] - bg[0], dg = data[i + 1] - bg[1], db = data[i + 2] - bg[2]
     const d = Math.sqrt(dr * dr + dg * dg + db * db)
     dist[p] = d
-    if (d >= binT) fg[p] = 1
+  }
+  const exteriorBackground = opts.edgeAwareBackground
+    ? exteriorBackgroundMask(data, dist, w, h, opts)
+    : null
+  for (let p = 0; p < N; p++) {
+    if (exteriorBackground ? !exteriorBackground[p] : dist[p] >= binT) fg[p] = 1
   }
 
   // morphological close (bridge internal dark gaps so a piece stays whole) then
@@ -202,8 +428,12 @@ export async function rekey(id, srcRel, solid = false, opts = {}) {
   const holes = label(holeMask, w, h)
   const holeCap = solid ? Infinity : pieceArea * (opts.holeMaxFrac ?? HOLE_MAX_FRAC)
   const fillHole = new Uint8Array(holes.count)
+  const filled = new Uint8Array(N)
   for (let c = 0; c < holes.count; c++) if (holes.areas[c] <= holeCap) fillHole[c] = 1
-  for (let p = 0; p < N; p++) if (holeMask[p] && fillHole[holes.lab[p]]) kept[p] = 1
+  for (let p = 0; p < N; p++) if (holeMask[p] && fillHole[holes.lab[p]]) {
+    kept[p] = 1
+    filled[p] = 1
+  }
 
   // build final RGBA
   const alpha = new Uint8Array(N)
@@ -224,21 +454,33 @@ export async function rekey(id, srcRel, solid = false, opts = {}) {
       if (!kept[p]) continue
       const d = dist[p]
       let a = d >= softHi ? 255 : d <= softLo ? 0 : Math.round(((d - softLo) / (softHi - softLo)) * 255)
-      if (dist[p] < binT && a < 8) a = 255 // forced-fill holes opaque
+      if (filled[p] && a < 8) a = 255
       alpha[p] = a
     }
+  }
+  if (opts.removeNeutralShadow) {
+    removeBorderConnectedNeutral(alpha, data, w, h, opts.maxShadowChroma ?? 24)
+    const postShadowHoleMaxArea = opts.postShadowHoleMaxArea ?? Math.max(
+      12,
+      Math.round(pieceArea * (opts.postShadowHoleMaxFrac ?? 0.003)),
+    )
+    fillSmallAlphaHoles(alpha, filled, w, h, postShadowHoleMaxArea)
   }
   const out = Buffer.alloc(N * 4)
   let minx = w, miny = h, maxx = -1, maxy = -1
   for (let p = 0; p < N; p++) {
     const i = p * 4
-    out[i] = data[i]; out[i + 1] = data[i + 1]; out[i + 2] = data[i + 2]; out[i + 3] = alpha[p]
+    if (alpha[p]) {
+      out[i] = data[i]; out[i + 1] = data[i + 1]; out[i + 2] = data[i + 2]
+    }
+    out[i + 3] = alpha[p]
     if (alpha[p] > 12) {
       const x = p % w, y = (p / w) | 0
       if (x < minx) minx = x; if (x > maxx) maxx = x
       if (y < miny) miny = y; if (y > maxy) maxy = y
     }
   }
+  bleedForegroundColours(out, alpha, dist, filled, w, h, softHi, bg, opts.edgeMode)
   if (maxx < 0) throw new Error('empty result for ' + id)
 
   // trim with 2px transparent margin

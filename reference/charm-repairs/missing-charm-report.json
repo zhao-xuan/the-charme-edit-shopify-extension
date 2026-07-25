@@ -13,7 +13,7 @@
     "widthMm": 15.2,
     "heightMm": 14.4,
     "existingArtwork": true,
-    "applied": true
+    "applied": false
   },
   {
     "documentImage": "image2.png",
@@ -29,7 +29,7 @@
     "widthMm": 19.9,
     "heightMm": 20,
     "existingArtwork": false,
-    "applied": true
+    "applied": false
   },
   {
     "documentImage": "image3.png",
@@ -45,7 +45,7 @@
     "widthMm": 20.7,
     "heightMm": 20,
     "existingArtwork": true,
-    "applied": true
+    "applied": false
   },
   {
     "documentImage": "image4.png",
@@ -61,7 +61,7 @@
     "widthMm": 14.9,
     "heightMm": 19.4,
     "existingArtwork": true,
-    "applied": true
+    "applied": false
   },
   {
     "documentImage": "image5.png",
@@ -71,7 +71,7 @@
     "method": "Re-key the exact document reference while preserving every designed wing opening.",
     "sizeBasis": "Estimated from the measured 30 mm large-butterfly family and constrained to the final artwork aspect ratio.",
     "output": "reference/charm-repairs/missing-generated/f1554077-9a1d-4e7c-bf0a-000000000abc-02.png",
-    "sha256": "211f478fae4a5b5623fc4d9ab5d43810223bb1d41c74d104138be26b81eb1c18",
+    "sha256": "744d8ecf38fdea1e3381cec1ca9896e7fe1383360bdf752224d0fc9742fec5f0",
     "width": 318,
     "height": 288,
     "widthMm": 30,
@@ -93,7 +93,7 @@
     "widthMm": 39,
     "heightMm": 21,
     "existingArtwork": false,
-    "applied": true
+    "applied": false
   },
   {
     "documentImage": "image7.png",
@@ -103,7 +103,7 @@
     "method": "Re-key the exact document reference while preserving the sculpted ribbon and negative spaces.",
     "sizeBasis": "Estimated from the measured 20 mm bow family and constrained to the final artwork aspect ratio.",
     "output": "reference/charm-repairs/missing-generated/f1554077-9a1d-4e7c-bf0a-000000000abc-04.png",
-    "sha256": "e713009b6cc294ca96de0ca67beadb0ef0c184511f7cf6080d81c5a43733337b",
+    "sha256": "ce0173fb5d1a8174be075565f41c80df46d0b4718e9f76129d3b42b52c4428b3",
     "width": 287,
     "height": 274,
     "widthMm": 20,

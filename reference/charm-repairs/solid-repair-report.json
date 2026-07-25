@@ -7,6 +7,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-08.png",
+    "sha256": "acd2b32c3e6a82f8cbaa43b1e9356b87333ac0c222173a53b17ca79b1b125831",
     "dimensions": "120x117",
     "applied": true
   },
@@ -18,6 +19,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-32.png",
+    "sha256": "be150615adf897f25302f0dd9de27606096192088d647f048e91c39066c09e4a",
     "dimensions": "175x195",
     "applied": true
   },
@@ -29,6 +31,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/7561dd4b-da89-4f19-a1ff-d75ff5b41698-15.png",
+    "sha256": "88b6ef92f10be2998ce85e4e2a9dc7357ebd0d074c6ae1c0ebdec4580d3f0b4f",
     "dimensions": "155x197",
     "applied": true
   },
@@ -40,6 +43,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/7561dd4b-da89-4f19-a1ff-d75ff5b41698-03.png",
+    "sha256": "e8898827501b16afa34558e975f88d5434140633d1b838bb055abca40db3f824",
     "dimensions": "197x212",
     "applied": true
   },
@@ -51,6 +55,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/silver-21.png",
+    "sha256": "8ee749bb6bf4b0161a500ad1bcf88040b09c7a6dc26164755d44729289171d6e",
     "dimensions": "192x215",
     "applied": true
   },
@@ -62,8 +67,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-27.png",
+    "sha256": "c4efc25a829fe00c957e73c0dbd4c3d88a4ad487d811bcd94a9e4bbbdcba672f",
     "dimensions": "147x145",
-    "applied": true
+    "applied": false
   },
   {
     "id": "e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29",
@@ -73,8 +79,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/e7e403b5-ce76-47e7-808b-f552fdf2b7e9-29.png",
+    "sha256": "7d9c4cdf7044ee2d33aca052b8e92142a3b787f4a108910260860008a71dc7d7",
     "dimensions": "119x141",
-    "applied": true
+    "applied": false
   },
   {
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-35",
@@ -84,8 +91,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-35.png",
+    "sha256": "9a35ed84d078e6f0cdb7f2caeab965c7dc107ce7f2d248f7270364800dd137aa",
     "dimensions": "215x264",
-    "applied": true
+    "applied": false
   },
   {
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-50",
@@ -95,8 +103,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-50.png",
+    "sha256": "2912b28d22fa4ab4f9bd375a52dd27e3d40f85b648961eb58f511f8a2e3326e8",
     "dimensions": "264x219",
-    "applied": true
+    "applied": false
   },
   {
     "id": "f1552077-9a1d-4e7c-bf0a-000000000abc-07",
@@ -106,8 +115,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/f1552077-9a1d-4e7c-bf0a-000000000abc-07.png",
+    "sha256": "6b225ad33fee8a1e64e6b506b831405026ea17ef28cab66179cc2eac1252ff08",
     "dimensions": "101x154",
-    "applied": true
+    "applied": false
   },
   {
     "id": "e540ac60-3ca6-447f-833a-9234eec3b235-10",
@@ -117,8 +127,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/e540ac60-3ca6-447f-833a-9234eec3b235-10.png",
+    "sha256": "20c036f88faab49fcf13e793416cd9ac430537e13b21f769c8ded175e6089d7c",
     "dimensions": "100x103",
-    "applied": true
+    "applied": false
   },
   {
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-04",
@@ -128,8 +139,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-04.png",
+    "sha256": "b2a09b32aa8511814c63f73ca48f77d01e1d8bccd5bf718e7ae0a47416ee843b",
     "dimensions": "117x113",
-    "applied": true
+    "applied": false
   },
   {
     "id": "52e483c2-c80e-4920-998c-c7bf5aa59b8a-11",
@@ -139,8 +151,9 @@
     "sourceCropReused": false,
     "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-11.png",
+    "sha256": "e16bbc0be06b3e79b3512becb3db6704fce341665545397cff297dd8f494b6e6",
     "dimensions": "171x161",
-    "applied": true
+    "applied": false
   },
   {
     "id": "2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03",
@@ -150,6 +163,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-03.png",
+    "sha256": "0fb10cc73cf780d0e9633b3c089274f10ce1d78457c746b9f469dc52a4280b86",
     "dimensions": "232x205",
     "applied": true
   },
@@ -161,8 +175,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-28.png",
-    "dimensions": "164x304",
-    "applied": true
+    "sha256": "74e8cacb52e3ca1b5542866a7031fee56465923d33819daf97addc3607edb7ee",
+    "dimensions": "234x304",
+    "applied": false
   },
   {
     "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01",
@@ -172,8 +187,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-01.png",
-    "dimensions": "125x247",
-    "applied": true
+    "sha256": "ec1dae12c373dfc2e2e4ff26f69342b98c6f426cae3ba1069d203b639512795a",
+    "dimensions": "139x247",
+    "applied": false
   },
   {
     "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15",
@@ -183,6 +199,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-15.png",
+    "sha256": "87492e4b27f53ef503bfa3d151777b905987f66553c34c802b68705d0a5101ed",
     "dimensions": "108x161",
     "applied": false
   },
@@ -194,6 +211,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/52e483c2-c80e-4920-998c-c7bf5aa59b8a-01.png",
+    "sha256": "f73d797f80ca23b4904dc1c9f6bdf85ac5ec12be918b14d3820994dc4323d410",
     "dimensions": "225x215",
     "applied": false
   },
@@ -205,6 +223,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/silver-03.png",
+    "sha256": "a2d379f896b1c8f5bc4eff0cb0dc768807101d104fd0016053374e46cbc42603",
     "dimensions": "178x185",
     "applied": false
   },
@@ -216,6 +235,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/silver-02.png",
+    "sha256": "0f5a36f009bceead370866c6f207453059ad4d7ce11b8c68f903356008fbc092",
     "dimensions": "140x277",
     "applied": true
   },
@@ -227,6 +247,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/image2-02.png",
+    "sha256": "d05c982690738a33054298411b54ea940836b18dac9023bb8b9f1ef4e35e3fac",
     "dimensions": "109x130",
     "applied": false
   },
@@ -238,6 +259,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/image2-24.png",
+    "sha256": "b2b904c4075e5997c164e022a3f8d8631969058251536cbcb6a8f76f0edf4225",
     "dimensions": "167x190",
     "applied": false
   },
@@ -249,8 +271,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/image2-20.png",
+    "sha256": "81477460bf068f20e47a05d8ce466431f4be0f2d3e65f6fdf9c86bf61e29f1ee",
     "dimensions": "111x117",
-    "applied": true
+    "applied": false
   },
   {
     "id": "image2-22",
@@ -260,8 +283,9 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/image2-22.png",
+    "sha256": "e69e87c03c0c13bf65dcddfc2577774c0bf635b697f842722f959026717326ae",
     "dimensions": "118x118",
-    "applied": true
+    "applied": false
   },
   {
     "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02",
@@ -271,6 +295,7 @@
     "sourceCropReused": true,
     "match": null,
     "output": "reference/charm-repairs/generated/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-02.png",
+    "sha256": "4287461d86ce54eb8a56203ead97b0501d01ddd7d5d6a67aa44d1380ee3cd46a",
     "dimensions": "213x227",
     "applied": true
   }

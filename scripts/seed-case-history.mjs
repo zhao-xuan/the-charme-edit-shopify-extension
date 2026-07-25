@@ -58,8 +58,8 @@ for (const prompt of manifest.prompts) {
   if (!/^v[1-9][0-9]*$/.test(imageVersion)) {
     throw new Error(`${modelId}:${finish} imageVersion must look like v1, v2, ...`)
   }
-  const imagePath = `/assets/cases/case-history/${modelId}/${finish}/${imageVersion}.png`
-  const localImagePath = path.join('public', imagePath)
+  const imagePath = prompt.imagePath || `/assets/cases/case-history/${modelId}/${finish}/${imageVersion}.png`
+  const localImagePath = prompt.localImagePath || path.join('public', imagePath)
   const metadata = await imageMetadata(localImagePath)
   const historyUrl = new URL('/api/admin/case-history', baseUrl)
   historyUrl.searchParams.set('modelId', modelId)
@@ -89,7 +89,7 @@ for (const prompt of manifest.prompts) {
       generator: prompt.generator || 'ChatGPT',
       conversationUrl: prompt.conversationUrl || manifest.conversationUrl || '',
       sourceUrl: prompt.sourceUrl || '',
-      setCurrent: true,
+      setCurrent: prompt.setCurrent !== false,
     }),
   })
   const result = await response.json().catch(() => ({}))

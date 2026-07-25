@@ -8,17 +8,30 @@ import sharp from 'sharp'
 
 const ROOT = process.cwd()
 const API_VERSION = '2025-01'
+const args = process.argv.slice(2)
+const valueAfter = (flag, fallback) => {
+  const index = args.indexOf(flag)
+  return index === -1 ? fallback : args[index + 1]
+}
 const APPLY = process.argv.includes('--apply')
 const VERIFY = process.argv.includes('--verify')
 const store = process.env.SHOPIFY_STORE
 const clientId = process.env.SHOPIFY_CLIENT_ID
 const clientSecret = process.env.SHOPIFY_CLIENT_SECRET
 const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/catalog.json'), 'utf8')).charms
-const acceptance = JSON.parse(
-  fs.readFileSync(path.join(ROOT, 'reference/charm-repairs/final-acceptance-report.json'), 'utf8'),
+const charmOverrides = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'src/data/charm-overrides.generated.json'), 'utf8'),
 )
-const publication = acceptance.shopifyPublication
-const reportPath = path.join(ROOT, 'reference/charm-repairs/shopify-publication-report.json')
+const manifestPath = path.resolve(
+  ROOT,
+  valueAfter('--manifest', 'reference/charm-repairs/final-acceptance-report.json'),
+)
+const acceptance = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+const publication = acceptance.shopifyPublication || acceptance
+const reportPath = path.resolve(
+  ROOT,
+  valueAfter('--report', 'reference/charm-repairs/shopify-publication-report.json'),
+)
 
 if (!store || !clientId || !clientSecret) {
   throw new Error('Missing SHOPIFY_STORE / SHOPIFY_CLIENT_ID / SHOPIFY_CLIENT_SECRET')
@@ -29,6 +42,12 @@ if (!VERIFY && !APPLY) {
 if (VERIFY && APPLY) {
   throw new Error('Specify only one of --verify or --apply')
 }
+if (!['accepted_for_shopify', 'published_verified'].includes(publication.status)) {
+  throw new Error(`Publication manifest is not accepted for Shopify: ${publication.status || 'missing status'}`)
+}
+for (const key of ['artworkUpdateIds', 'metadataUpdates', 'newRecordIds']) {
+  if (!Array.isArray(publication[key])) throw new Error(`Publication manifest is missing ${key}`)
+}
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds))
 const sha256 = (buffer) => crypto.createHash('sha256').update(buffer).digest('hex')
@@ -38,10 +57,10 @@ const updateIds = publication.artworkUpdateIds
 const dimensionUpdates = publication.metadataUpdates
 const newIds = publication.newRecordIds
 
-function fieldsForNewCharm(charm, fileId) {
-  const fields = {
+function catalogueFieldsForNewCharm(charm) {
+  const variantId = charmOverrides[charm.id]?.variantId
+  return {
     name: charm.name,
-    image: fileId,
     category: charm.category,
     tier: charm.tier,
     collection: charm.collection,
@@ -55,8 +74,15 @@ function fieldsForNewCharm(charm, fileId) {
     max_scale: String(charm.maxScale),
     hidden: 'false',
     legacy_id: charm.id,
+    shopify_variant_id: variantId == null ? undefined : String(variantId),
   }
-  return Object.entries(fields).map(([key, value]) => ({ key, value }))
+}
+
+function fieldsForNewCharm(charm, fileId) {
+  const fields = { ...catalogueFieldsForNewCharm(charm), image: fileId }
+  return Object.entries(fields)
+    .filter(([, value]) => value != null)
+    .map(([key, value]) => ({ key, value }))
 }
 
 let token
@@ -138,6 +164,7 @@ async function listCharms() {
       const byKey = new Map(node.fields.map((field) => [field.key, field]))
       const id = byKey.get('legacy_id')?.value
       if (!id) continue
+      if (charms.has(id)) throw new Error(`Duplicate Shopify legacy_id: ${id}`)
       charms.set(id, { node, fields: byKey })
     }
     after = data.metaobjects.pageInfo.hasNextPage ? data.metaobjects.pageInfo.endCursor : null
@@ -183,8 +210,15 @@ async function verifyLocalManifest() {
     seen.add(id)
     const charm = allCatalogById.get(id)
     if (!charm) throw new Error(`Local catalogue record missing for ${id}`)
+    if (newIds.includes(id) && charmOverrides[id]?.variantId == null) {
+      throw new Error(`Local Shopify variant mapping missing for new record ${id}`)
+    }
     const file = localPath(id)
     if (!fs.existsSync(file)) throw new Error(`Local artwork missing for ${id}`)
+    const expectedHash = publication.acceptedArtworkSha256?.[id]
+    if (expectedHash && sha256(fs.readFileSync(file)) !== expectedHash) {
+      throw new Error(`${id}: local artwork SHA-256 differs from the accepted publication manifest`)
+    }
     const metadata = await sharp(file).metadata()
     if (metadata.width !== charm.pxW || metadata.height !== charm.pxH) {
       throw new Error(`${id}: local PNG ${metadata.width}x${metadata.height} differs from catalogue ${charm.pxW}x${charm.pxH}`)
@@ -243,6 +277,17 @@ async function verifyPublishedState(charms) {
       throw new Error(`${patch.id}: Shopify physical dimensions did not persist`)
     }
   }
+  const numericFieldKeys = new Set(['price', 'width_mm', 'height_mm', 'px_w', 'px_h', 'min_scale', 'max_scale'])
+  for (const id of newIds) {
+    const remote = charms.get(id)
+    if (!remote) throw new Error(`${id}: newly published Shopify record is missing`)
+    for (const [key, expected] of Object.entries(catalogueFieldsForNewCharm(allCatalogById.get(id)))) {
+      if (expected == null) continue
+      const actual = remote.fields.get(key)?.value
+      const matches = numericFieldKeys.has(key) ? Number(actual) === Number(expected) : actual === expected
+      if (!matches) throw new Error(`${id}: Shopify field ${key} is ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`)
+    }
+  }
 
   const verifiedImages = {}
   let current = charms
@@ -265,6 +310,7 @@ async function verifyPublishedState(charms) {
     expectedCount,
     actualCount: current.size,
     applied: { artwork: updateIds, dimensions: dimensionUpdates.map((patch) => patch.id), created: newIds },
+    newRecordFieldVerification: newIds,
     decodedImageVerification: Object.keys(verifiedImages),
     imageUrls: verifiedImages,
   }

@@ -370,7 +370,7 @@ const ProductStage = forwardRef(function ProductStage(
           )}
 
           {/* Poured-gel overlay for the chosen gel colour, drawn in register on
-              top of the case photo (built by scripts/build-gels.mjs). */}
+              top of the case photo. */}
           {color.gelSrc && (
             <img
               className="stage-gel"

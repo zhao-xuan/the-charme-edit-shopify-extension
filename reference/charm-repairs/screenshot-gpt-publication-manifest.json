@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-07-25T12:28:28.548Z",
+  "status": "published_verified",
+  "publishedAt": "2026-07-25T12:33:44.319Z",
+  "publicationReport": "reference/charm-repairs/screenshot-gpt-shopify-publication-report.json",
+  "sourceManifest": "reference/charm-repairs/screenshot-gpt-manifest.json",
+  "candidateReport": "reference/charm-repairs/screenshot-gpt-candidate-report.json",
+  "manualReview": "reference/charm-repairs/screenshot-gpt-manual-review.json",
+  "liveSnapshotRecords": 328,
+  "artworkUpdateIds": [
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25",
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20",
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31",
+    "silver-02",
+    "silver-04",
+    "silver-24",
+    "silver-18",
+    "silver-23",
+    "f1551077-9a1d-4e7c-bf0a-000000000abc-03"
+  ],
+  "acceptedArtworkSha256": {
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20": "a851fed3ea41249c7361646a70c346b70be1ce92e21c4e57f5aa1b8296509342",
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25": "ab2ab24de99635fc24003af2e5defa848e4b74b80bc102359cddfc6cb2b4b03c",
+    "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20": "964a194fc5589a7ab551fedc0d5bca9f8564b280056f025cda5a0c157f2bf8ff",
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34": "fc75e01bfd346c8902a45211ffb695e2eac2375795360b1b8c039ae5c98814c6",
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31": "b3ee5589a92120a91205677a3a94b31186ccc4219da95a102e6eb3b917e4a352",
+    "silver-02": "1490e72dbad4fdb15763bb16c10999f07fa2551c3b48e76712291645575a7378",
+    "silver-04": "6739cc62d361d55303f9917916c532ea5851b654d5233201c5f24fb9357cf0ab",
+    "silver-24": "b2d7b93c714757414f0f7e3c035f241f80169a75a8018a2128004ca3bf6cf935",
+    "silver-18": "14276cf11a5b1ea19bb733be93602e466d939b62e8b23744b68da97bc8819c1a",
+    "silver-23": "fca0caaf70f0dd30965adabc3062935d30821ce990b62e90703ee8c2e1ff42d7",
+    "f1551077-9a1d-4e7c-bf0a-000000000abc-03": "b4dc1b90293f07ad78408d7b8241c4f153dcac4904d0a83f4d7f808c445c517e"
+  },
+  "metadataUpdates": [],
+  "newRecordIds": [
+    "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34"
+  ],
+  "liveScopeDrift": {
+    "previousSnapshotRecords": 327,
+    "observedRecords": 328,
+    "externalRecordsNotTouched": [
+      "custom-charm-test-hod4f",
+      "custom-charm-white-star-iu34s"
+    ]
+  },
+  "publicationRule": "The completed publication updated artwork for 10 existing legacy IDs and created exactly one new charme_charm metaobject for ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34; no unrelated records or metadata were changed."
+}

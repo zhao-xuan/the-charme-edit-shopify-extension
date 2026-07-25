@@ -15,7 +15,9 @@ const SOURCE_CROP_DIR = path.join(ROOT, 'reference/charm-repairs/missing-source-
 const OUTPUT_DIR = path.join(ROOT, 'reference/charm-repairs/missing-generated')
 const REPORT_PATH = path.join(ROOT, 'reference/charm-repairs/missing-charm-report.json')
 const APPLY = process.argv.includes('--apply')
+const APPLY_METALS = process.argv.includes('--apply-metals')
 const SET_ID = 'f1554077-9a1d-4e7c-bf0a-000000000abc'
+const METAL_EDGE_TARGETS = new Set([`${SET_ID}-02`, `${SET_ID}-04`])
 
 const TARGETS = [
   {
@@ -80,6 +82,7 @@ const TARGETS = [
       binT: 18,
       closeR: 1,
       holeMaxFrac: 0,
+      edgeMode: 'silver',
     }),
   },
   {
@@ -119,6 +122,7 @@ const TARGETS = [
       binT: 18,
       closeR: 1,
       holeMaxFrac: 0,
+      edgeMode: 'gold',
     }),
   },
 ]
@@ -383,6 +387,7 @@ async function main() {
   for (const target of TARGETS) {
     const referencePath = path.join(REFERENCE_DIR, target.documentImage)
     const reference = fs.readFileSync(referencePath)
+    const applied = APPLY || (APPLY_METALS && METAL_EDGE_TARGETS.has(target.id))
     let output
     let metadata
 
@@ -394,7 +399,7 @@ async function main() {
       if (!piece.equals(publicCopy)) throw new Error(`${target.id}: local mirrors differ`)
       output = piece
       metadata = await sharp(output).metadata()
-      if (APPLY) {
+      if (applied) {
         const record = byId.get(target.id)
         if (!record) throw new Error(`${target.id}: catalogue record not found`)
         record.widthMm = target.widthMm
@@ -405,7 +410,7 @@ async function main() {
       metadata = await sharp(output).metadata()
       const outputPath = path.join(OUTPUT_DIR, `${target.id}.png`)
       fs.writeFileSync(outputPath, output)
-      if (APPLY) {
+      if (applied) {
         fs.writeFileSync(path.join(PIECE_DIR, `${target.id}.png`), output)
         fs.writeFileSync(path.join(PUBLIC_DIR, `${target.id}.png`), output)
         const existing = byId.get(target.id)
@@ -435,7 +440,7 @@ async function main() {
       widthMm: target.widthMm,
       heightMm: target.heightMm,
       existingArtwork: !!target.existing,
-      applied: APPLY,
+      applied,
     })
   }
 
@@ -446,7 +451,9 @@ async function main() {
   }
   fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
   console.log(JSON.stringify(report, null, 2))
-  if (!APPLY) console.log('\nGenerated staging artwork and metadata proposals only. Re-run with --apply after visual QA.')
+  if (!APPLY && !APPLY_METALS) {
+    console.log('\nGenerated staging artwork and metadata proposals only. Re-run with --apply after visual QA.')
+  }
 }
 
 main()

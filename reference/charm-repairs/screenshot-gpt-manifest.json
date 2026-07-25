@@ -1,0 +1,133 @@
+{
+  "createdAt": "2026-07-25",
+  "status": "prepared_for_gpt",
+  "alphaCoreThreshold": 224,
+  "chromaKey": {
+    "minimumMagentaExcess": 120,
+    "erodeRadius": 2
+  },
+  "commonPrompt": "Use image generation to recreate exactly the single charm in the attached authentic product photo as a high-resolution e-commerce cutout. Preserve its exact identity, front-facing geometry, proportions, metal colour, engraving, stones, connector, and every original physical detail. Show exactly one centered charm with generous padding. Render the entire background and every physical through-hole as one flat chroma-key magenta colour #FF00FF. Use no transparency, floor, cast shadow, contact shadow, glow, bloom, halo, outline, reflection outside the charm, vignette, texture, lighting gradient, or background colour variation. Every pixel outside the physical charm must be #FF00FF. Keep all charm pixels strictly inside the real physical silhouette. Do not add, remove, redesign, rotate, crop, or invent anything.",
+  "targets": [
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+      "name": "Gold Moon",
+      "screenshotOccurrences": 2,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20.png",
+      "sourceSha256": "b94cc5a4bfe21016e2b37bf7e18f598cd7418a27e043adc9f6de9f2950082718",
+      "expectedAspectRatio": 0.7432,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 30],
+      "requiredTransparentOpenings": "The large circular centre and the top attachment-loop hole."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25",
+      "name": "Gold Moon",
+      "screenshotOccurrences": 2,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25.png",
+      "sourceSha256": "2bc0c1a26cc45e2a025e72e3010cfa1b7082537c82dbddced22b85f8e7dfcc80",
+      "expectedAspectRatio": 0.7574,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 20],
+      "requiredTransparentOpenings": "The open crescent interior around the star and the top attachment-loop hole."
+    },
+    {
+      "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20",
+      "name": "Gold Bow Arrow",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
+      "sourceSha256": "0b78600a7e404161d292e9c7f1fc1c782815e9dbb6ee315ac1086d5be2be03c6",
+      "expectedAspectRatio": 0.9867,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [300, 300],
+      "requiredTransparentOpenings": "Both large openings inside the bow and the small genuine openings in the end loops."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34",
+      "name": "Gold Pearl",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34.png",
+      "sourceSha256": "2612e072eec6187029cf3e5416cf9129f89cab0640135c9e23726c7b7da76eb8",
+      "expectedAspectRatio": 0.6584,
+      "minimumTransparentOpenings": 1,
+      "minimumOpeningAreas": [15],
+      "requiredTransparentOpenings": "The top attachment-loop hole; preserve the pearl and all solid ornamental gold details."
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31",
+      "name": "Gold Star",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31.png",
+      "sourceSha256": "32c13463bfd39d866604acf5a1b49a3c2fd92e743cdf49b588baf21297ffa28b",
+      "expectedAspectRatio": 0.7333,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 20],
+      "requiredTransparentOpenings": "The large star-shaped centre and the top attachment-loop hole."
+    },
+    {
+      "id": "silver-02",
+      "name": "Silver Key",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/silver-02.png",
+      "sourceSha256": "a4e6b776b1d3c394d4e1502d3a512bf6ad6a4608c4bb2c81c69f4dfdfce64f13",
+      "expectedAspectRatio": 0.4526,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 80],
+      "requiredTransparentOpenings": "The large ornate opening in the key head and the top attachment-loop hole."
+    },
+    {
+      "id": "silver-04",
+      "name": "Silver Bow Arrow",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/silver-04.png",
+      "sourceSha256": "47cdef1d61262aade2b15a06500de2dab543df2fc3222470a4607a363ba0226b",
+      "expectedAspectRatio": 0.9358,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [300, 300],
+      "requiredTransparentOpenings": "Both large openings inside the bow and the small genuine openings in the end loops."
+    },
+    {
+      "id": "silver-24",
+      "name": "Silver Cards",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/silver-24.png",
+      "sourceSha256": "a348ff4bab9661e3845adb8696c14354be38dec3a16ed8abe28b90dd238bf497",
+      "expectedAspectRatio": 1.6869,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 80],
+      "requiredTransparentOpenings": "The heart-shaped cut-out and the left attachment-loop hole."
+    },
+    {
+      "id": "silver-18",
+      "name": "Silver Key",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/silver-18.png",
+      "sourceSha256": "5b0cf855d87d61e8c9595e9d07bae30e692cc842b5ffdcd24431409436c6973d",
+      "expectedAspectRatio": 0.4815,
+      "minimumTransparentOpenings": 6,
+      "minimumOpeningAreas": [70, 35, 35, 8, 8, 8],
+      "requiredTransparentOpenings": "The top attachment-loop hole, the left and right large head openings, the central head opening, and both small lower scroll openings."
+    },
+    {
+      "id": "silver-23",
+      "name": "Silver Planet",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/silver-23.png",
+      "sourceSha256": "7ea7e140224b50333fe8f8eb7eaab083799c323e03e7005fbf8a9fa4178bcc6f",
+      "expectedAspectRatio": 1.2891,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [1000, 150],
+      "requiredTransparentOpenings": "The large circular centre inside the planet and the top attachment-loop hole."
+    },
+    {
+      "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+      "name": "Silver Handle",
+      "screenshotOccurrences": 1,
+      "input": "reference/charm-repairs/screenshot-gpt-inputs/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "sourceSha256": "56389442458bf78a98ab284f86081bbef20a408c986032c3095c1f0547b4e7d8",
+      "expectedAspectRatio": 0.3229,
+      "minimumTransparentOpenings": 2,
+      "minimumOpeningAreas": [500, 500],
+      "requiredTransparentOpenings": "Exactly the large circular through-hole at each decorative end; keep the handle body and recessed scroll engravings solid."
+    }
+  ]
+}

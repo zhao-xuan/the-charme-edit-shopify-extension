@@ -13,6 +13,9 @@ const catalogPath = valueAfter('--catalog', '/tmp/charme-production-audit/catalo
 const imageDir = valueAfter('--images', '/tmp/charme-production-audit/images')
 const outputPath = valueAfter('--output', '/tmp/charme-production-audit/alpha-audit.json')
 
+const luminance = (red, green, blue) => 0.299 * red + 0.587 * green + 0.114 * blue
+const chroma = (red, green, blue) => Math.max(red, green, blue) - Math.min(red, green, blue)
+
 function components(mask, width, height, value) {
   const seen = new Uint8Array(width * height)
   const found = []
@@ -52,12 +55,59 @@ async function analyseCharm(charm) {
   const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true })
   const { width, height, channels } = info
   const mask = new Uint8Array(width * height)
+  const alpha = new Uint8Array(width * height)
   let visiblePixels = 0
 
   for (let point = 0; point < mask.length; point++) {
-    if (data[point * channels + 3] < 32) continue
+    alpha[point] = data[point * channels + 3]
+    if (alpha[point] < 32) continue
     mask[point] = 1
     visiblePixels++
+  }
+
+  let outerEdgePixels = 0
+  let fringePixels = 0
+  let whiteFringePixels = 0
+  let neutralFringePixels = 0
+  let neutralSolidEdgePixels = 0
+  let warmEdgePixels = 0
+  for (let point = 0; point < alpha.length; point++) {
+    if (alpha[point] < 8) continue
+    const x = point % width
+    const y = Math.floor(point / width)
+    let isOuterEdge = false
+    for (let offsetY = -2; offsetY <= 2 && !isOuterEdge; offsetY++) {
+      for (let offsetX = -2; offsetX <= 2; offsetX++) {
+        const nextX = x + offsetX
+        const nextY = y + offsetY
+        if (nextX < 0 || nextY < 0 || nextX >= width || nextY >= height) {
+          isOuterEdge = true
+          break
+        }
+        if (alpha[nextY * width + nextX] < 8) {
+          isOuterEdge = true
+          break
+        }
+      }
+    }
+    if (!isOuterEdge) continue
+
+    outerEdgePixels++
+    const offset = point * channels
+    const red = data[offset]
+    const green = data[offset + 1]
+    const blue = data[offset + 2]
+    const lightness = luminance(red, green, blue)
+    const colourRange = chroma(red, green, blue)
+    if (red - blue >= 12) warmEdgePixels++
+    if (alpha[point] >= 224 && colourRange <= 22 && lightness >= 95) {
+      neutralSolidEdgePixels++
+    }
+    if (alpha[point] >= 248) continue
+
+    fringePixels++
+    if (colourRange <= 28 && lightness >= 220) whiteFringePixels++
+    if (colourRange <= 22 && lightness >= 110) neutralFringePixels++
   }
 
   const foreground = components(mask, width, height, 1)
@@ -82,6 +132,17 @@ async function analyseCharm(charm) {
     holeArea: holes.reduce((total, hole) => total + hole.area, 0),
     holeRatio: Number((holes.reduce((total, hole) => total + hole.area, 0) / (mainArea || 1)).toFixed(4)),
     extraComponentCount: extras.length,
+    edge: {
+      outerPixels: outerEdgePixels,
+      fringePixels,
+      whiteFringePixels,
+      whiteFringeRatio: Number((whiteFringePixels / (fringePixels || 1)).toFixed(4)),
+      whiteFringeCoverage: Number((whiteFringePixels / (visiblePixels || 1)).toFixed(4)),
+      neutralFringePixels,
+      neutralFringeRatio: Number((neutralFringePixels / (fringePixels || 1)).toFixed(4)),
+      neutralSolidRatio: Number((neutralSolidEdgePixels / (outerEdgePixels || 1)).toFixed(4)),
+      warmRatio: Number((warmEdgePixels / (outerEdgePixels || 1)).toFixed(4)),
+    },
   }
 }
 
@@ -91,7 +152,7 @@ const results = []
 
 for (const charm of charms) results.push(await analyseCharm(charm))
 
-const suspects = results
+const topologySuspects = results
   .filter(
     (result) =>
       result.holeCount ||
@@ -105,10 +166,31 @@ const suspects = results
       (left.holeRatio + left.extraComponentCount * 0.2),
   )
 
+const edgeSuspects = results
+  .filter(
+    (result) =>
+      result.edge.whiteFringePixels >= 8 &&
+      (result.edge.whiteFringeRatio >= 0.3 || result.edge.whiteFringeCoverage >= 0.01),
+  )
+  .sort(
+    (left, right) =>
+      right.edge.whiteFringeCoverage - left.edge.whiteFringeCoverage ||
+      right.edge.whiteFringeRatio - left.edge.whiteFringeRatio,
+  )
+
 await mkdir(path.dirname(outputPath), { recursive: true })
 await writeFile(
   outputPath,
-  `${JSON.stringify({ generatedAt: new Date().toISOString(), total: results.length, suspects }, null, 2)}\n`,
+  `${JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    total: results.length,
+    topologySuspects,
+    edgeSuspects,
+    results,
+  }, null, 2)}\n`,
 )
 
-console.log(`Audited ${results.length} charms; ${suspects.length} topology suspects -> ${outputPath}`)
+console.log(
+  `Audited ${results.length} charms; ${topologySuspects.length} topology suspects; ` +
+  `${edgeSuspects.length} white-edge suspects -> ${outputPath}`,
+)

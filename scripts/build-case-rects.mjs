@@ -229,26 +229,7 @@ async function main() {
   await writeFile(join(REF, 'case-rects.json'), JSON.stringify(out, null, 2))
   for (const r of recs) { const c = out[r.base]; console.log(r.base.slice(-12), c.source.padEnd(8), `x ${c.minx}-${c.maxx} (w${c.maxx - c.minx})  tilt ${c.tilt || 0}°  sess ${r.session}`) } // eslint-disable-line
   console.log('\nsession widths:', JSON.stringify(sessionWidth), 'global', globalW) // eslint-disable-line
-
-  await mkdir(join(REF, '_verify'), { recursive: true })
-  const tiles = []
-  for (const r of recs) {
-    const c = out[r.base]
-    const dispH = 560, ds = dispH / r.H, dispW = Math.round(r.W * ds)
-    const rx = (c.minx * ds) | 0, ry = (c.miny * ds) | 0, rw = ((c.maxx - c.minx) * ds) | 0, rh = ((c.maxy - c.miny) * ds) | 0
-    const cx = ((c.minx + c.maxx) / 2 * ds) | 0
-    const col = c.source === 'override' ? '#ffaa00' : c.source === 'black' ? '#00dd00' : c.source === 'session' ? '#33aaff' : '#ff4444'
-    const svg = Buffer.from(`<svg width="${dispW}" height="${dispH}"><rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" fill="none" stroke="${col}" stroke-width="3"/><line x1="${cx}" y1="0" x2="${cx}" y2="${dispH}" stroke="${col}" stroke-width="1"/></svg>`)
-    tiles.push(await sharp(join(REF, '1-charms-real-image', r.file)).rotate().resize({ height: dispH }).composite([{ input: svg, top: 0, left: 0 }]).png().toBuffer())
-  }
-  const cols = 6, pad = 6
-  let cw = 0, chh = 0
-  for (const t of tiles) { const m = await sharp(t).metadata(); cw = Math.max(cw, m.width); chh = Math.max(chh, m.height) }
-  const rows = Math.ceil(tiles.length / cols)
-  const comp = tiles.map((t, i) => ({ input: t, left: pad + (i % cols) * (cw + pad), top: pad + ((i / cols) | 0) * (chh + pad) }))
-  await sharp({ create: { width: cols * cw + (cols + 1) * pad, height: rows * chh + (rows + 1) * pad, channels: 4, background: '#222' } })
-    .composite(comp).png().toFile(join(REF, '_verify', '_ALL_caserects.png'))
-  console.log('wrote reference/case-rects.json + reference/_verify/_ALL_caserects.png') // eslint-disable-line
+  console.log('wrote reference/case-rects.json') // eslint-disable-line
 }
 
 main()

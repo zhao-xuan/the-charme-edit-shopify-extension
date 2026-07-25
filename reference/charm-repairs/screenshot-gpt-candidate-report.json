@@ -1,0 +1,1118 @@
+{
+  "generatedAt": "2026-07-25T12:26:26.634Z",
+  "mode": "apply",
+  "manifest": "reference/charm-repairs/screenshot-gpt-manifest.json",
+  "inputDirectory": "reference/charm-repairs/screenshot-gpt-generated/original",
+  "outputDirectory": "reference/charm-repairs/screenshot-gpt-generated/normalized",
+  "manualReviewRequired": true,
+  "summary": {
+    "total": 11,
+    "readyForManualReview": 11,
+    "missing": 0,
+    "rejected": 0
+  },
+  "results": [
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20",
+      "name": "Gold Moon",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-20.png",
+      "requiredTransparentOpenings": "The large circular centre and the top attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "13869e5cff995704402bf018fbb9dbebc2ee2e8fcafe1166d19697bed410d485",
+      "original": {
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 261,
+            "top": 92,
+            "width": 723,
+            "height": 975
+          },
+          "transparentRatio": 0.8351,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1649,
+          "visibleRatio": 0.1649,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            259382
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            194588,
+            8404
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "a851fed3ea41249c7361646a70c346b70be1ce92e21c4e57f5aa1b8296509342",
+      "normalized": {
+        "width": 130,
+        "height": 168,
+        "alpha": {
+          "bbox": {
+            "left": 8,
+            "top": 7,
+            "width": 114,
+            "height": 154
+          },
+          "transparentRatio": 0.6849,
+          "semiTransparentRatio": 0.0387,
+          "opaqueRatio": 0.2764,
+          "visibleRatio": 0.3151,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            6772
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            4733,
+            190
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 845,
+          "whiteFringePixels": 3,
+          "whiteFringeRatio": 0.0036,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25",
+      "name": "Gold Moon",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-25.png",
+      "requiredTransparentOpenings": "The open crescent interior around the star and the top attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "4831397218d568c15d691e57a8a0e1d34a54969f80a9cdd4b31a1c60499183cb",
+      "original": {
+        "width": 1122,
+        "height": 1402,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 278,
+            "top": 245,
+            "width": 599,
+            "height": 793
+          },
+          "transparentRatio": 0.9075,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.0925,
+          "visibleRatio": 0.0925,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            145542
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            107780,
+            5282
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "ab2ab24de99635fc24003af2e5defa848e4b74b80bc102359cddfc6cb2b4b03c",
+      "normalized": {
+        "width": 125,
+        "height": 156,
+        "alpha": {
+          "bbox": {
+            "left": 9,
+            "top": 7,
+            "width": 107,
+            "height": 142
+          },
+          "transparentRatio": 0.7354,
+          "semiTransparentRatio": 0.0509,
+          "opaqueRatio": 0.2137,
+          "visibleRatio": 0.2646,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            5027
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            3312,
+            148
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 992,
+          "whiteFringePixels": 6,
+          "whiteFringeRatio": 0.006,
+          "neutralShadowPixels": 1,
+          "neutralShadowRatio": 0.001
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "7561dd4b-da89-4f19-a1ff-d75ff5b41698-20",
+      "name": "Gold Bow Arrow",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/7561dd4b-da89-4f19-a1ff-d75ff5b41698-20.png",
+      "requiredTransparentOpenings": "Both large openings inside the bow and the small genuine openings in the end loops.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "9e822be38533d9b81565ecaa34aaa038c63092af62100a811eb229f4377403dd",
+      "original": {
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 382,
+            "top": 348,
+            "width": 535,
+            "height": 548
+          },
+          "transparentRatio": 0.9638,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.0362,
+          "visibleRatio": 0.0362,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            56925
+          ],
+          "significantHoleCount": 4,
+          "significantHoleAreas": [
+            16144,
+            16053,
+            877,
+            786
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "964a194fc5589a7ab551fedc0d5bca9f8564b280056f025cda5a0c157f2bf8ff",
+      "normalized": {
+        "width": 243,
+        "height": 246,
+        "alpha": {
+          "bbox": {
+            "left": 11,
+            "top": 10,
+            "width": 221,
+            "height": 226
+          },
+          "transparentRatio": 0.8252,
+          "semiTransparentRatio": 0.026,
+          "opaqueRatio": 0.1488,
+          "visibleRatio": 0.1748,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            10266
+          ],
+          "significantHoleCount": 4,
+          "significantHoleAreas": [
+            2657,
+            2646,
+            130,
+            117
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 1550,
+          "whiteFringePixels": 32,
+          "whiteFringeRatio": 0.0206,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34",
+      "name": "Gold Pearl",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-34.png",
+      "requiredTransparentOpenings": "The top attachment-loop hole; preserve the pearl and all solid ornamental gold details.",
+      "minimumTransparentOpenings": 1,
+      "originalSha256": "f4a67b99a01cecc2167788840dd104e08f32ec2ffb17b323e9e627d952693c13",
+      "original": {
+        "width": 1086,
+        "height": 1448,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 228,
+            "top": 215,
+            "width": 614,
+            "height": 944
+          },
+          "transparentRatio": 0.8016,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1984,
+          "visibleRatio": 0.1984,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            311968
+          ],
+          "significantHoleCount": 1,
+          "significantHoleAreas": [
+            5815
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "fc75e01bfd346c8902a45211ffb695e2eac2375795360b1b8c039ae5c98814c6",
+      "normalized": {
+        "width": 126,
+        "height": 182,
+        "alpha": {
+          "bbox": {
+            "left": 8,
+            "top": 7,
+            "width": 109,
+            "height": 168
+          },
+          "transparentRatio": 0.5535,
+          "semiTransparentRatio": 0.0323,
+          "opaqueRatio": 0.4142,
+          "visibleRatio": 0.4465,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            10127
+          ],
+          "significantHoleCount": 1,
+          "significantHoleAreas": [
+            165
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 740,
+          "whiteFringePixels": 14,
+          "whiteFringeRatio": 0.0189,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31",
+      "name": "Gold Star",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/ddcc0c89-ac31-4abb-b784-1406f89c9bbb-31.png",
+      "requiredTransparentOpenings": "The large star-shaped centre and the top attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "7d0066298a25a5dc216b301703c7c4045b92df3138c0578fc2d3dad9c08d17b7",
+      "original": {
+        "width": 1147,
+        "height": 1371,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 364,
+            "top": 365,
+            "width": 422,
+            "height": 582
+          },
+          "transparentRatio": 0.9612,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.0388,
+          "visibleRatio": 0.0388,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            61007
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            42755,
+            5995
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "b3ee5589a92120a91205677a3a94b31186ccc4219da95a102e6eb3b917e4a352",
+      "normalized": {
+        "width": 119,
+        "height": 156,
+        "alpha": {
+          "bbox": {
+            "left": 8,
+            "top": 7,
+            "width": 103,
+            "height": 142
+          },
+          "transparentRatio": 0.7814,
+          "semiTransparentRatio": 0.0462,
+          "opaqueRatio": 0.1725,
+          "visibleRatio": 0.2186,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            3952
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            2437,
+            329
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 857,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "silver-02",
+      "name": "Silver Key",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/silver-02.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/silver-02.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/silver-02.png",
+      "requiredTransparentOpenings": "The large ornate opening in the key head and the top attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "8374f27203f38fcb0d08a0bfd4b9f7195ff71929f39bbaded80c1298e374250f",
+      "original": {
+        "width": 1024,
+        "height": 1536,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 212,
+            "top": 92,
+            "width": 594,
+            "height": 1338
+          },
+          "transparentRatio": 0.876,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.124,
+          "visibleRatio": 0.124,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            195111
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            73807,
+            15271
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "1490e72dbad4fdb15763bb16c10999f07fa2551c3b48e76712291645575a7378",
+      "normalized": {
+        "width": 140,
+        "height": 277,
+        "alpha": {
+          "bbox": {
+            "left": 12,
+            "top": 8,
+            "width": 116,
+            "height": 261
+          },
+          "transparentRatio": 0.7932,
+          "semiTransparentRatio": 0.0296,
+          "opaqueRatio": 0.1772,
+          "visibleRatio": 0.2068,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            7902
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            2719,
+            547
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 1149,
+          "whiteFringePixels": 29,
+          "whiteFringeRatio": 0.0252,
+          "neutralShadowPixels": 117,
+          "neutralShadowRatio": 0.1018
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "silver-04",
+      "name": "Silver Bow Arrow",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/silver-04.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/silver-04.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/silver-04.png",
+      "requiredTransparentOpenings": "Both large openings inside the bow and the small genuine openings in the end loops.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "25d1606878cf67918fbc7690fbb0f131ead796169a3cd4a428818590cf931e99",
+      "original": {
+        "width": 1254,
+        "height": 1254,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 103,
+            "top": 49,
+            "width": 1048,
+            "height": 1123
+          },
+          "transparentRatio": 0.8634,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1366,
+          "visibleRatio": 0.1366,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            214852
+          ],
+          "significantHoleCount": 4,
+          "significantHoleAreas": [
+            60700,
+            59245,
+            2473,
+            2198
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "6739cc62d361d55303f9917916c532ea5851b654d5233201c5f24fb9357cf0ab",
+      "normalized": {
+        "width": 195,
+        "height": 207,
+        "alpha": {
+          "bbox": {
+            "left": 10,
+            "top": 10,
+            "width": 175,
+            "height": 187
+          },
+          "transparentRatio": 0.8368,
+          "semiTransparentRatio": 0.0315,
+          "opaqueRatio": 0.1317,
+          "visibleRatio": 0.1632,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            6416
+          ],
+          "significantHoleCount": 4,
+          "significantHoleAreas": [
+            1616,
+            1580,
+            58,
+            49
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 1272,
+          "whiteFringePixels": 91,
+          "whiteFringeRatio": 0.0715,
+          "neutralShadowPixels": 518,
+          "neutralShadowRatio": 0.4072
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "silver-24",
+      "name": "Silver Cards",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/silver-24.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/silver-24.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/silver-24.png",
+      "requiredTransparentOpenings": "The heart-shaped cut-out and the left attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "fac55d8ce75e0bb95f1cbf5fcb915942667affb34668be21a5e857c49b4cf605",
+      "original": {
+        "width": 1448,
+        "height": 1086,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 126,
+            "top": 178,
+            "width": 1229,
+            "height": 715
+          },
+          "transparentRatio": 0.6527,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.3473,
+          "visibleRatio": 0.3473,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            546173
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            26918,
+            7661
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "b2d7b93c714757414f0f7e3c035f241f80169a75a8018a2128004ca3bf6cf935",
+      "normalized": {
+        "width": 187,
+        "height": 119,
+        "alpha": {
+          "bbox": {
+            "left": 7,
+            "top": 9,
+            "width": 173,
+            "height": 101
+          },
+          "transparentRatio": 0.4992,
+          "semiTransparentRatio": 0.0294,
+          "opaqueRatio": 0.4714,
+          "visibleRatio": 0.5008,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            11067
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            500,
+            131
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 655,
+          "whiteFringePixels": 33,
+          "whiteFringeRatio": 0.0504,
+          "neutralShadowPixels": 206,
+          "neutralShadowRatio": 0.3145
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "silver-18",
+      "name": "Silver Key",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/silver-18.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/silver-18.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/silver-18.png",
+      "requiredTransparentOpenings": "The top attachment-loop hole, the left and right large head openings, the central head opening, and both small lower scroll openings.",
+      "minimumTransparentOpenings": 6,
+      "originalSha256": "a2f50766490fa9b6eeb4c0fe2db36baff2648e0bb3f080b50673e67393a48122",
+      "original": {
+        "width": 898,
+        "height": 1752,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 132,
+            "top": 80,
+            "width": 627,
+            "height": 1470
+          },
+          "transparentRatio": 0.8105,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1895,
+          "visibleRatio": 0.1895,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            298141
+          ],
+          "significantHoleCount": 6,
+          "significantHoleAreas": [
+            27749,
+            27475,
+            11473,
+            4151,
+            2917,
+            2873
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "14276cf11a5b1ea19bb733be93602e466d939b62e8b23744b68da97bc8819c1a",
+      "normalized": {
+        "width": 98,
+        "height": 182,
+        "alpha": {
+          "bbox": {
+            "left": 12,
+            "top": 5,
+            "width": 73,
+            "height": 172
+          },
+          "transparentRatio": 0.7489,
+          "semiTransparentRatio": 0.0502,
+          "opaqueRatio": 0.2009,
+          "visibleRatio": 0.2511,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            4359
+          ],
+          "significantHoleCount": 6,
+          "significantHoleAreas": [
+            351,
+            344,
+            140,
+            46,
+            31,
+            29
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 895,
+          "whiteFringePixels": 20,
+          "whiteFringeRatio": 0.0223,
+          "neutralShadowPixels": 359,
+          "neutralShadowRatio": 0.4011
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "silver-23",
+      "name": "Silver Planet",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/silver-23.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/silver-23.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/silver-23.png",
+      "requiredTransparentOpenings": "The large circular centre inside the planet and the top attachment-loop hole.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "b18e31e04ece29fedb30313ea8872968f9351a7a5fe36f98be6d5f18bafea2a8",
+      "original": {
+        "width": 1448,
+        "height": 1086,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 195,
+            "top": 106,
+            "width": 1064,
+            "height": 833
+          },
+          "transparentRatio": 0.8532,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1468,
+          "visibleRatio": 0.1468,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            230777
+          ],
+          "significantHoleCount": 7,
+          "significantHoleAreas": [
+            153922,
+            55588,
+            9063,
+            4949,
+            4604,
+            2471,
+            292
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "fca0caaf70f0dd30965adabc3062935d30821ce990b62e90703ee8c2e1ff42d7",
+      "normalized": {
+        "width": 185,
+        "height": 148,
+        "alpha": {
+          "bbox": {
+            "left": 8,
+            "top": 8,
+            "width": 169,
+            "height": 132
+          },
+          "transparentRatio": 0.7632,
+          "semiTransparentRatio": 0.0519,
+          "opaqueRatio": 0.1849,
+          "visibleRatio": 0.2368,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            6300
+          ],
+          "significantHoleCount": 7,
+          "significantHoleAreas": [
+            3761,
+            1321,
+            153,
+            109,
+            86,
+            44,
+            3
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 1418,
+          "whiteFringePixels": 66,
+          "whiteFringeRatio": 0.0465,
+          "neutralShadowPixels": 194,
+          "neutralShadowRatio": 0.1368
+        }
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "f1551077-9a1d-4e7c-bf0a-000000000abc-03",
+      "name": "Silver Handle",
+      "status": "ready_for_manual_review",
+      "input": "reference/charm-repairs/screenshot-gpt-generated/original/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "output": "reference/charm-repairs/screenshot-gpt-generated/normalized/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "sourceReference": "reference/charm-repairs/screenshot-gpt-inputs/f1551077-9a1d-4e7c-bf0a-000000000abc-03.png",
+      "requiredTransparentOpenings": "Exactly the large circular through-hole at each decorative end; keep the handle body and recessed scroll engravings solid.",
+      "minimumTransparentOpenings": 2,
+      "originalSha256": "04a3bf8fe99ef46a34ab0efe6645c54be99aa9f87ae0b4d0b6642ea171f8d091",
+      "original": {
+        "width": 941,
+        "height": 1672,
+        "hasAlpha": false
+      },
+      "prepared": {
+        "mode": "chroma",
+        "keying": {
+          "minimumMagentaExcess": 120,
+          "erodeRadius": 2
+        },
+        "alpha": {
+          "bbox": {
+            "left": 261,
+            "top": 91,
+            "width": 412,
+            "height": 1419
+          },
+          "transparentRatio": 0.8313,
+          "semiTransparentRatio": 0,
+          "opaqueRatio": 0.1687,
+          "visibleRatio": 0.1687,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            265490
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            7241,
+            7076
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 0,
+          "whiteFringePixels": 0,
+          "whiteFringeRatio": 0,
+          "neutralShadowPixels": 0,
+          "neutralShadowRatio": 0
+        }
+      },
+      "normalizedSha256": "b4dc1b90293f07ad78408d7b8241c4f153dcac4904d0a83f4d7f808c445c517e",
+      "normalized": {
+        "width": 228,
+        "height": 700,
+        "alpha": {
+          "bbox": {
+            "left": 15,
+            "top": 10,
+            "width": 197,
+            "height": 680
+          },
+          "transparentRatio": 0.6113,
+          "semiTransparentRatio": 0.0143,
+          "opaqueRatio": 0.3745,
+          "visibleRatio": 0.3887,
+          "significantComponentCount": 1,
+          "significantComponentAreas": [
+            61697
+          ],
+          "significantHoleCount": 2,
+          "significantHoleAreas": [
+            1615,
+            1571
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "edge": {
+          "edgePixels": 2277,
+          "whiteFringePixels": 37,
+          "whiteFringeRatio": 0.0162,
+          "neutralShadowPixels": 444,
+          "neutralShadowRatio": 0.195
+        }
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

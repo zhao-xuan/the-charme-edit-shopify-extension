@@ -1,0 +1,3550 @@
+{
+  "generatedAt": "2026-07-25T13:19:21.785Z",
+  "catalogUrl": "https://charme-customizer.pages.dev/api/catalog",
+  "scope": "All live Shopify-backed iPhone products. Apple width x height means device body only; case-wall thickness is excluded.",
+  "caveat": "Shopify body_image_white/body_image_black currently point to case-review Gel renders. Their outer shell is measured, but they are marked as the wrong source for a without-gel audit.",
+  "officialSources": [
+    "https://support.apple.com/en-gb/108044",
+    "https://www.apple.com/uk/iphone-16/specs/",
+    "https://www.apple.com/uk/iphone-17/specs/",
+    "https://www.apple.com/uk/iphone-17-pro/specs/",
+    "https://www.apple.com/uk/iphone-air/specs/"
+  ],
+  "thresholds": {
+    "dimensionToleranceMm": 0.15,
+    "minimumWidthFill": 0.97,
+    "minimumHeightFill": 0.98,
+    "maximumAspectDriftPercent": 2,
+    "maximumFinishAspectDeltaPercent": 1
+  },
+  "summary": {
+    "total": 34,
+    "issues": 34,
+    "dimensionIssues": 20,
+    "imageSourceIssues": 34,
+    "imageGeometryIssues": 6,
+    "passes": 0
+  },
+  "products": [
+    {
+      "id": "iphone-7",
+      "name": "iPhone 7",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 67.1,
+        "height": 138.3
+      },
+      "appleDeviceMm": {
+        "width": 67.1,
+        "height": 138.3
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-white-case-review.png?v=1784413447"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-black-case-review.png?v=1784413445"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-white-case-review.png?v=1784413447",
+          "sha256": "d5e6c65f8bb0234bd89779bdfae1b022f15c3398d37e008bca2cea42a281f320",
+          "format": "png",
+          "canvasPx": {
+            "width": 820,
+            "height": 1700
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 817,
+            "bottom": 1697,
+            "width": 816,
+            "height": 1696
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4811,
+          "expectedDeviceAspect": 0.4852,
+          "aspectDriftPercent": 0.83,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-black-case-review.png?v=1784413445",
+          "sha256": "e98dd1047b128d226097c7eacf146c99483b81807a26c4a4d3ad8eed2851649b",
+          "format": "png",
+          "canvasPx": {
+            "width": 820,
+            "height": 1700
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 817,
+            "bottom": 1697,
+            "width": 816,
+            "height": 1696
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4811,
+          "expectedDeviceAspect": 0.4852,
+          "aspectDriftPercent": 0.83,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-8",
+      "name": "iPhone 8",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 67.3,
+        "height": 138.4
+      },
+      "appleDeviceMm": {
+        "width": 67.3,
+        "height": 138.4
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-white-case-review.png?v=1784413458"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-black-case-review.png?v=1784413455"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-white-case-review.png?v=1784413458",
+          "sha256": "559c3d72c2c2ec95a134799d7dca00069d805b4482e5badc3e5d35e2e67a73da",
+          "format": "png",
+          "canvasPx": {
+            "width": 811,
+            "height": 1695
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 808,
+            "bottom": 1692,
+            "width": 807,
+            "height": 1691
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4772,
+          "expectedDeviceAspect": 0.4863,
+          "aspectDriftPercent": 1.86,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-black-case-review.png?v=1784413455",
+          "sha256": "7b3e39b84b30b59a6ce5d4cc19a532953ea0439ac61d949be62fa66512bf37bb",
+          "format": "png",
+          "canvasPx": {
+            "width": 811,
+            "height": 1695
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 808,
+            "bottom": 1692,
+            "width": 807,
+            "height": 1691
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4772,
+          "expectedDeviceAspect": 0.4863,
+          "aspectDriftPercent": 1.86,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-7-plus",
+      "name": "iPhone 7 Plus",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 77.9,
+        "height": 158.2
+      },
+      "appleDeviceMm": {
+        "width": 77.9,
+        "height": 158.2
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-white-case-review.png?v=1784413453"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-black-case-review.png?v=1784413450"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-white-case-review.png?v=1784413453",
+          "sha256": "aae17948819bae1fe7912d8dda0c07b9681dfd58e817ba7c63263c63d48392b1",
+          "format": "png",
+          "canvasPx": {
+            "width": 870,
+            "height": 1753
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 867,
+            "bottom": 1750,
+            "width": 866,
+            "height": 1749
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4951,
+          "expectedDeviceAspect": 0.4924,
+          "aspectDriftPercent": 0.55,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-black-case-review.png?v=1784413450",
+          "sha256": "42a066a9b7b0cfbdd70a0f36e3addeac61ee0abadbc74a031febddaee17798b4",
+          "format": "png",
+          "canvasPx": {
+            "width": 870,
+            "height": 1753
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 867,
+            "bottom": 1750,
+            "width": 866,
+            "height": 1749
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4951,
+          "expectedDeviceAspect": 0.4924,
+          "aspectDriftPercent": 0.55,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-8-plus",
+      "name": "iPhone 8 Plus",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 78.1,
+        "height": 158.4
+      },
+      "appleDeviceMm": {
+        "width": 78.1,
+        "height": 158.4
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-white-case-review.png?v=1784413462"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-black-case-review.png?v=1784413460"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-white-case-review.png?v=1784413462",
+          "sha256": "bfd4cf3e793ff556f3d87abad3cdba8f558c3269bb06599f425e769463be1719",
+          "format": "png",
+          "canvasPx": {
+            "width": 792,
+            "height": 1574
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 789,
+            "bottom": 1571,
+            "width": 788,
+            "height": 1570
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.5019,
+          "expectedDeviceAspect": 0.4931,
+          "aspectDriftPercent": 1.8,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-black-case-review.png?v=1784413460",
+          "sha256": "46f3a22ea7fdba3d657d9d1e5453021fe7478cb218b80d64b6e94202f4cb2976",
+          "format": "png",
+          "canvasPx": {
+            "width": 792,
+            "height": 1574
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 789,
+            "bottom": 1571,
+            "width": 788,
+            "height": 1570
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.5019,
+          "expectedDeviceAspect": 0.4931,
+          "aspectDriftPercent": 1.8,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-x",
+      "name": "iPhone X",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 70.9,
+        "height": 143.6
+      },
+      "appleDeviceMm": {
+        "width": 70.9,
+        "height": 143.6
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-white-case-review.png?v=1784413472"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-black-case-review.png?v=1784413470"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-white-case-review.png?v=1784413472",
+          "sha256": "8c1cda75bfa9b87df8331da9a177f0967a6262b0ed712f2ae2d1e86561f00aff",
+          "format": "png",
+          "canvasPx": {
+            "width": 801,
+            "height": 1653
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 798,
+            "bottom": 1650,
+            "width": 797,
+            "height": 1649
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4833,
+          "expectedDeviceAspect": 0.4937,
+          "aspectDriftPercent": 2.11,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.11%",
+              "evidence": {
+                "actual": 0.4833,
+                "expected": 0.4937,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-black-case-review.png?v=1784413470",
+          "sha256": "d83e49b0ed3e88122628e087cb43e00605f5a84dc4efaf59822ec1f90c7666b6",
+          "format": "png",
+          "canvasPx": {
+            "width": 801,
+            "height": 1653
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 798,
+            "bottom": 1650,
+            "width": 797,
+            "height": 1649
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4833,
+          "expectedDeviceAspect": 0.4937,
+          "aspectDriftPercent": 2.11,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.11%",
+              "evidence": {
+                "actual": 0.4833,
+                "expected": 0.4937,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-xs",
+      "name": "iPhone XS",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 70.9,
+        "height": 143.6
+      },
+      "appleDeviceMm": {
+        "width": 70.9,
+        "height": 143.6
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-white-case-review.png?v=1784413478"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-black-case-review.png?v=1784413475"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-white-case-review.png?v=1784413478",
+          "sha256": "c2196fb152c915de69ff17940e7f2ae8ea8499c1502ac46538a21bf5debdaf5b",
+          "format": "png",
+          "canvasPx": {
+            "width": 867,
+            "height": 1752
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 864,
+            "bottom": 1749,
+            "width": 863,
+            "height": 1748
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4937,
+          "expectedDeviceAspect": 0.4937,
+          "aspectDriftPercent": 0.01,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-black-case-review.png?v=1784413475",
+          "sha256": "aff24b50e9ada211147c073c27ca98a4c4826439e4fa3e54998de7879e53cb79",
+          "format": "png",
+          "canvasPx": {
+            "width": 867,
+            "height": 1752
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 864,
+            "bottom": 1749,
+            "width": 863,
+            "height": 1748
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4937,
+          "expectedDeviceAspect": 0.4937,
+          "aspectDriftPercent": 0.01,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-xs-max",
+      "name": "iPhone XS Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 77.4,
+        "height": 157.5
+      },
+      "appleDeviceMm": {
+        "width": 77.4,
+        "height": 157.5
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-white-case-review.png?v=1784413483"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-black-case-review.png?v=1784413480"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-white-case-review.png?v=1784413483",
+          "sha256": "1b2cfe609f6e5e079909eb9cabda85e9fdaa9deab92483f86bd60b9ca327c7a1",
+          "format": "png",
+          "canvasPx": {
+            "width": 809,
+            "height": 1613
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 806,
+            "bottom": 1610,
+            "width": 805,
+            "height": 1609
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.5003,
+          "expectedDeviceAspect": 0.4914,
+          "aspectDriftPercent": 1.81,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-black-case-review.png?v=1784413480",
+          "sha256": "96d78b7e41043e4886d0d0a932cdefa0cfb630243f500c7cb2fad67d56af8052",
+          "format": "png",
+          "canvasPx": {
+            "width": 809,
+            "height": 1613
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 806,
+            "bottom": 1610,
+            "width": 805,
+            "height": 1609
+          },
+          "widthFill": 0.9951,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.5003,
+          "expectedDeviceAspect": 0.4914,
+          "aspectDriftPercent": 1.81,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-11",
+      "name": "iPhone 11",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 75.7,
+        "height": 150.9
+      },
+      "appleDeviceMm": {
+        "width": 75.7,
+        "height": 150.9
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-white-case-review.png?v=1784413259"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-black-case-review.png?v=1784413256"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-white-case-review.png?v=1784413259",
+          "sha256": "f5e2e113979d54ff449cb52c8f54fa589ee93716b64f39695a20fbfa07e953b4",
+          "format": "png",
+          "canvasPx": {
+            "width": 830,
+            "height": 1661
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 827,
+            "bottom": 1658,
+            "width": 826,
+            "height": 1657
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4985,
+          "expectedDeviceAspect": 0.5017,
+          "aspectDriftPercent": 0.63,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-black-case-review.png?v=1784413256",
+          "sha256": "819bd4cc501c7003c9d4199f8dba1f2894d54d0869944a3eae23c5ae4ba20489",
+          "format": "png",
+          "canvasPx": {
+            "width": 830,
+            "height": 1661
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 827,
+            "bottom": 1658,
+            "width": 826,
+            "height": 1657
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4985,
+          "expectedDeviceAspect": 0.5017,
+          "aspectDriftPercent": 0.63,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-11-pro",
+      "name": "iPhone 11 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 71.4,
+        "height": 144
+      },
+      "appleDeviceMm": {
+        "width": 71.4,
+        "height": 144
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-white-case-review.png?v=1784413266"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-black-case-review.png?v=1784413263"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-white-case-review.png?v=1784413266",
+          "sha256": "cf42786c1db0f47e46fb0c32d86c5afb0d933a3d4292e03e6e3a3349ef83c5a4",
+          "format": "png",
+          "canvasPx": {
+            "width": 798,
+            "height": 1606
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 795,
+            "bottom": 1603,
+            "width": 794,
+            "height": 1602
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4956,
+          "expectedDeviceAspect": 0.4958,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-black-case-review.png?v=1784413263",
+          "sha256": "0c53acc991011ad917e2a00c0bdf4cf3b8b7eb2baa9239ab08088c67204ff08c",
+          "format": "png",
+          "canvasPx": {
+            "width": 798,
+            "height": 1606
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 795,
+            "bottom": 1603,
+            "width": 794,
+            "height": 1602
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4956,
+          "expectedDeviceAspect": 0.4958,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-11-pro-max",
+      "name": "iPhone 11 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 77.8,
+        "height": 158
+      },
+      "appleDeviceMm": {
+        "width": 77.8,
+        "height": 158
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-white-case-review.png?v=1784413273"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-black-case-review.png?v=1784413269"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-white-case-review.png?v=1784413273",
+          "sha256": "5e62ba2899dc72dadbd97df70276440db7036d030e4cc402948223bd699fe136",
+          "format": "png",
+          "canvasPx": {
+            "width": 876,
+            "height": 1747
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 873,
+            "bottom": 1744,
+            "width": 872,
+            "height": 1743
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.5003,
+          "expectedDeviceAspect": 0.4924,
+          "aspectDriftPercent": 1.6,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-black-case-review.png?v=1784413269",
+          "sha256": "5e2f9c38cb9c3d577f8bc23add7d056907ae674996f84a06dd45b0163ce2d47b",
+          "format": "png",
+          "canvasPx": {
+            "width": 876,
+            "height": 1747
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 873,
+            "bottom": 1744,
+            "width": 872,
+            "height": 1743
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.5003,
+          "expectedDeviceAspect": 0.4924,
+          "aspectDriftPercent": 1.6,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-12-mini",
+      "name": "iPhone 12 mini",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "appleDeviceMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-white-case-review.png?v=1784413288"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-black-case-review.png?v=1784413285"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-white-case-review.png?v=1784413288",
+          "sha256": "0e213b624f75277b41f07256064eae13473b081a44d861c7ca68b69652cf4e49",
+          "format": "png",
+          "canvasPx": {
+            "width": 740,
+            "height": 1511
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 737,
+            "bottom": 1508,
+            "width": 736,
+            "height": 1507
+          },
+          "widthFill": 0.9946,
+          "heightFill": 0.9974,
+          "visibleAspect": 0.4884,
+          "expectedDeviceAspect": 0.4882,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-black-case-review.png?v=1784413285",
+          "sha256": "068343e74b2eb87284581321496c6dea2115d0713c8bda733ce9c29ba3efaeed",
+          "format": "png",
+          "canvasPx": {
+            "width": 740,
+            "height": 1511
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 737,
+            "bottom": 1508,
+            "width": 736,
+            "height": 1507
+          },
+          "widthFill": 0.9946,
+          "heightFill": 0.9974,
+          "visibleAspect": 0.4884,
+          "expectedDeviceAspect": 0.4882,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-12",
+      "name": "iPhone 12",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-white-case-review.png?v=1784413281"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-black-case-review.png?v=1784413277"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-white-case-review.png?v=1784413281",
+          "sha256": "8a47933be2d48532d41e6b9fb3701fce3a7af1dafa82aa97ea1a877cdba7e8c7",
+          "format": "png",
+          "canvasPx": {
+            "width": 790,
+            "height": 1654
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 787,
+            "bottom": 1651,
+            "width": 786,
+            "height": 1650
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4764,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 2.26,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.26%",
+              "evidence": {
+                "actual": 0.4764,
+                "expected": 0.4874,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-black-case-review.png?v=1784413277",
+          "sha256": "88a337c689c49021ccdf34ecc38e3768828858b19f71245dacc7c22474031859",
+          "format": "png",
+          "canvasPx": {
+            "width": 790,
+            "height": 1654
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 787,
+            "bottom": 1651,
+            "width": 786,
+            "height": 1650
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4764,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 2.26,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.26%",
+              "evidence": {
+                "actual": 0.4764,
+                "expected": 0.4874,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-12-pro",
+      "name": "iPhone 12 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-white-case-review.png?v=1784413297"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-black-case-review.png?v=1784413293"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-white-case-review.png?v=1784413297",
+          "sha256": "c1e214cf787bf24c536d96f11ce43d8125637dad5380c98669733d16964e5953",
+          "format": "png",
+          "canvasPx": {
+            "width": 871,
+            "height": 1796
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 868,
+            "bottom": 1793,
+            "width": 867,
+            "height": 1792
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4838,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 0.73,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-black-case-review.png?v=1784413293",
+          "sha256": "f6aebf2bf3738c107eef7c1b3f320bd4e14a0924d0748a07ec13f257090e77bd",
+          "format": "png",
+          "canvasPx": {
+            "width": 871,
+            "height": 1796
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 868,
+            "bottom": 1793,
+            "width": 867,
+            "height": 1792
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4838,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 0.73,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-12-pro-max",
+      "name": "iPhone 12 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "appleDeviceMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "deltaMm": {
+        "width": 0,
+        "height": 0
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "pass",
+      "dimensionIssues": [],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-white-case-review.png?v=1784413303"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-black-case-review.png?v=1784413300"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-white-case-review.png?v=1784413303",
+          "sha256": "e071e4f935d1e848890351ee6aec103296b48b9afc2c31955b1b717f3ee2f5c2",
+          "format": "png",
+          "canvasPx": {
+            "width": 843,
+            "height": 1773
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 840,
+            "bottom": 1770,
+            "width": 839,
+            "height": 1769
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4743,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 2.35,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.35%",
+              "evidence": {
+                "actual": 0.4743,
+                "expected": 0.4857,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-black-case-review.png?v=1784413300",
+          "sha256": "052382ed702f501626e60e24fa00a66c015345a654356f05e5155b009aaac983",
+          "format": "png",
+          "canvasPx": {
+            "width": 843,
+            "height": 1773
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 840,
+            "bottom": 1770,
+            "width": 839,
+            "height": 1769
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4743,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 2.35,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 2.35%",
+              "evidence": {
+                "actual": 0.4743,
+                "expected": 0.4857,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-13-mini",
+      "name": "iPhone 13 mini",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 67.5,
+        "height": 134.5
+      },
+      "appleDeviceMm": {
+        "width": 64.2,
+        "height": 131.5
+      },
+      "deltaMm": {
+        "width": 3.3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 67.5,
+            "appleMm": 64.2
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 134.5,
+            "appleMm": 131.5
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-white-case-review.png?v=1784413327"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-black-case-review.png?v=1784413324"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-white-case-review.png?v=1784413327",
+          "sha256": "ee284f12a608e930de1667890b6bc6050ac25c9ffd0d62969468996445d34104",
+          "format": "png",
+          "canvasPx": {
+            "width": 838,
+            "height": 1713
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 835,
+            "bottom": 1710,
+            "width": 834,
+            "height": 1709
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.488,
+          "expectedDeviceAspect": 0.4882,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-black-case-review.png?v=1784413324",
+          "sha256": "54f75e7b364d5e25f68127ed35240215fc3a9253009ecc3933889013b50ac046",
+          "format": "png",
+          "canvasPx": {
+            "width": 838,
+            "height": 1713
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 835,
+            "bottom": 1710,
+            "width": 834,
+            "height": 1709
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.488,
+          "expectedDeviceAspect": 0.4882,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-13",
+      "name": "iPhone 13",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.9,
+        "height": 149.7
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "deltaMm": {
+        "width": 3.4,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.4 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.9,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 149.7,
+            "appleMm": 146.7
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-white-case-review.png?v=1784413316"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-black-case-review.png?v=1784413308"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-white-case-review.png?v=1784413316",
+          "sha256": "8d0b4109989c73872f3a188d36d803e79b76b642f7a6e836ddb5a29986425f54",
+          "format": "png",
+          "canvasPx": {
+            "width": 920,
+            "height": 1835
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 919,
+            "bottom": 1827,
+            "width": 920,
+            "height": 1828
+          },
+          "widthFill": 1,
+          "heightFill": 0.9962,
+          "visibleAspect": 0.5033,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 3.26,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.26%",
+              "evidence": {
+                "actual": 0.5033,
+                "expected": 0.4874,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-black-case-review.png?v=1784413308",
+          "sha256": "319a9b8847618c8cc34b1f103013e0c2e2ca773dea6f9adb7825c892c4e18b85",
+          "format": "png",
+          "canvasPx": {
+            "width": 920,
+            "height": 1835
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 919,
+            "bottom": 1827,
+            "width": 920,
+            "height": 1828
+          },
+          "widthFill": 1,
+          "heightFill": 0.9962,
+          "visibleAspect": 0.5033,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 3.26,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.26%",
+              "evidence": {
+                "actual": 0.5033,
+                "expected": 0.4874,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-13-pro",
+      "name": "iPhone 13 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.9,
+        "height": 149.7
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "deltaMm": {
+        "width": 3.4,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.4 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.9,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 149.7,
+            "appleMm": 146.7
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-white-case-review.png?v=1784413334"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-black-case-review.png?v=1784413330"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-white-case-review.png?v=1784413334",
+          "sha256": "905b1518fbda62987309d5f05bef10483381d82e94db654a8300a18427b0c626",
+          "format": "png",
+          "canvasPx": {
+            "width": 765,
+            "height": 1562
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 762,
+            "bottom": 1559,
+            "width": 761,
+            "height": 1558
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9974,
+          "visibleAspect": 0.4884,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 0.22,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-black-case-review.png?v=1784413330",
+          "sha256": "ceec51704fc2666eacee6e3a473bf5c03ad89e9996b8e92dbc145ea227f8051c",
+          "format": "png",
+          "canvasPx": {
+            "width": 765,
+            "height": 1562
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 762,
+            "bottom": 1559,
+            "width": 761,
+            "height": 1558
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9974,
+          "visibleAspect": 0.4884,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 0.22,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-13-pro-max",
+      "name": "iPhone 13 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 81.4,
+        "height": 163.8
+      },
+      "appleDeviceMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "deltaMm": {
+        "width": 3.3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 81.4,
+            "appleMm": 78.1
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 163.8,
+            "appleMm": 160.8
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-white-case-review.png?v=1784413339"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-black-case-review.png?v=1784413336"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-white-case-review.png?v=1784413339",
+          "sha256": "cd95b8d4d376df7343e8cab421c894df8297cf70f428e5c995e74d2e2e3708a4",
+          "format": "png",
+          "canvasPx": {
+            "width": 788,
+            "height": 1624
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 785,
+            "bottom": 1621,
+            "width": 784,
+            "height": 1620
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.484,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 0.36,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-black-case-review.png?v=1784413336",
+          "sha256": "f4e8ff4c996006c62d55073abf7b949ab9556f01b472f21ec10117c7ec85a803",
+          "format": "png",
+          "canvasPx": {
+            "width": 788,
+            "height": 1624
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 785,
+            "bottom": 1621,
+            "width": 784,
+            "height": 1620
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.484,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 0.36,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-14",
+      "name": "iPhone 14",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.9,
+        "height": 149.7
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 146.7
+      },
+      "deltaMm": {
+        "width": 3.4,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.4 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.9,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 149.7,
+            "appleMm": 146.7
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-white-case-review.png?v=1784413346"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-black-case-review.png?v=1784413342"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-white-case-review.png?v=1784413346",
+          "sha256": "1d1b7ce047e70dd39774343e4cabc82fe7d926e7e6c014b3b9c4c20cfc2f433e",
+          "format": "png",
+          "canvasPx": {
+            "width": 857,
+            "height": 1725
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 854,
+            "bottom": 1722,
+            "width": 853,
+            "height": 1721
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4956,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 1.69,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-black-case-review.png?v=1784413342",
+          "sha256": "1522accc51af97fc7dab8db65bbd13f79df916b486f0fa249f895eabd33490f1",
+          "format": "png",
+          "canvasPx": {
+            "width": 857,
+            "height": 1725
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 854,
+            "bottom": 1722,
+            "width": 853,
+            "height": 1721
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4956,
+          "expectedDeviceAspect": 0.4874,
+          "aspectDriftPercent": 1.69,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-14-plus",
+      "name": "iPhone 14 Plus",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 81.4,
+        "height": 163.8
+      },
+      "appleDeviceMm": {
+        "width": 78.1,
+        "height": 160.8
+      },
+      "deltaMm": {
+        "width": 3.3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 81.4,
+            "appleMm": 78.1
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 163.8,
+            "appleMm": 160.8
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-white-case-review.png?v=1784413353"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-black-case-review.png?v=1784413350"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-white-case-review.png?v=1784413353",
+          "sha256": "4062584ba173f554bbac09d89938815f9ea000be0d6126d876eec2aa70754fd9",
+          "format": "png",
+          "canvasPx": {
+            "width": 831,
+            "height": 1706
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 828,
+            "bottom": 1703,
+            "width": 827,
+            "height": 1702
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4859,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-black-case-review.png?v=1784413350",
+          "sha256": "d1ab7d65e4cb5aad9ef95e664a1dbafede84cff065da49c89ae9f4273732fa6f",
+          "format": "png",
+          "canvasPx": {
+            "width": 831,
+            "height": 1706
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 828,
+            "bottom": 1703,
+            "width": 827,
+            "height": 1702
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4859,
+          "expectedDeviceAspect": 0.4857,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-14-pro",
+      "name": "iPhone 14 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.9,
+        "height": 150.5
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 147.5
+      },
+      "deltaMm": {
+        "width": 3.4,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.4 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.9,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 150.5,
+            "appleMm": 147.5
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-white-case-review.png?v=1784413370"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-black-case-review.png?v=1784413358"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-white-case-review.png?v=1784413370",
+          "sha256": "9ec701af117d333fbf18d8d8a5ace7522b7a15fb9416fecb6950a58a4f2cfbbf",
+          "format": "png",
+          "canvasPx": {
+            "width": 915,
+            "height": 1831
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 914,
+            "bottom": 1825,
+            "width": 915,
+            "height": 1826
+          },
+          "widthFill": 1,
+          "heightFill": 0.9973,
+          "visibleAspect": 0.5011,
+          "expectedDeviceAspect": 0.4847,
+          "aspectDriftPercent": 3.37,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.37%",
+              "evidence": {
+                "actual": 0.5011,
+                "expected": 0.4847,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-black-case-review.png?v=1784413358",
+          "sha256": "6e87f92a4ba32771a8161df0a4ad18111bd92d44286f71179e46e21bef59a3f6",
+          "format": "png",
+          "canvasPx": {
+            "width": 915,
+            "height": 1831
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 914,
+            "bottom": 1825,
+            "width": 915,
+            "height": 1826
+          },
+          "widthFill": 1,
+          "heightFill": 0.9973,
+          "visibleAspect": 0.5011,
+          "expectedDeviceAspect": 0.4847,
+          "aspectDriftPercent": 3.37,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.37%",
+              "evidence": {
+                "actual": 0.5011,
+                "expected": 0.4847,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-14-pro-max",
+      "name": "iPhone 14 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 81,
+        "height": 163.7
+      },
+      "appleDeviceMm": {
+        "width": 77.6,
+        "height": 160.7
+      },
+      "deltaMm": {
+        "width": 3.4,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3.4 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 81,
+            "appleMm": 77.6
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 163.7,
+            "appleMm": 160.7
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-white-case-review.png?v=1784413375"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-black-case-review.png?v=1784413373"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-white-case-review.png?v=1784413375",
+          "sha256": "deb11b0faaa27384e63c8926220f98711a6bd7d028c975ff54f4cdd9884cbb9b",
+          "format": "png",
+          "canvasPx": {
+            "width": 825,
+            "height": 1705
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 822,
+            "bottom": 1702,
+            "width": 821,
+            "height": 1701
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4827,
+          "expectedDeviceAspect": 0.4829,
+          "aspectDriftPercent": 0.05,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-black-case-review.png?v=1784413373",
+          "sha256": "4bdb34bf600d80fbec17b0f31b8a1397571a304be69e256b997578fa1570ec78",
+          "format": "png",
+          "canvasPx": {
+            "width": 825,
+            "height": 1705
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 822,
+            "bottom": 1702,
+            "width": 821,
+            "height": 1701
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4827,
+          "expectedDeviceAspect": 0.4829,
+          "aspectDriftPercent": 0.05,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-15",
+      "name": "iPhone 15",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.6,
+        "height": 150.6
+      },
+      "appleDeviceMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.6,
+            "appleMm": 71.6
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 150.6,
+            "appleMm": 147.6
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-white-case-review.png?v=1784413380"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-black-case-review.png?v=1784413377"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-white-case-review.png?v=1784413380",
+          "sha256": "092b56d9245d3fb57453d1d1be9968e38ba6af38b63e016674722592238fe2dd",
+          "format": "png",
+          "canvasPx": {
+            "width": 789,
+            "height": 1649
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 786,
+            "bottom": 1646,
+            "width": 785,
+            "height": 1645
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4772,
+          "expectedDeviceAspect": 0.4851,
+          "aspectDriftPercent": 1.63,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-black-case-review.png?v=1784413377",
+          "sha256": "92922c473e211df809351c33d685ad18643baccc44979f4befdc795c3ba3bf4e",
+          "format": "png",
+          "canvasPx": {
+            "width": 789,
+            "height": 1649
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 786,
+            "bottom": 1646,
+            "width": 785,
+            "height": 1645
+          },
+          "widthFill": 0.9949,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4772,
+          "expectedDeviceAspect": 0.4851,
+          "aspectDriftPercent": 1.63,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-15-plus",
+      "name": "iPhone 15 Plus",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 80.8,
+        "height": 163.9
+      },
+      "appleDeviceMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 80.8,
+            "appleMm": 77.8
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 163.9,
+            "appleMm": 160.9
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-white-case-review.png?v=1784413385"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-black-case-review.png?v=1784413382"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-white-case-review.png?v=1784413385",
+          "sha256": "5e26fc08f3f7eff80e0ec7d8d076a478eb60aaded9fd808ee8f4176bd00e3c67",
+          "format": "png",
+          "canvasPx": {
+            "width": 808,
+            "height": 1654
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 805,
+            "bottom": 1651,
+            "width": 804,
+            "height": 1650
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4873,
+          "expectedDeviceAspect": 0.4835,
+          "aspectDriftPercent": 0.77,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-black-case-review.png?v=1784413382",
+          "sha256": "06918994f1363cb7028455c5226a836c751e6352747bc403ac0f63d9861acc85",
+          "format": "png",
+          "canvasPx": {
+            "width": 808,
+            "height": 1654
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 805,
+            "bottom": 1651,
+            "width": 804,
+            "height": 1650
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4873,
+          "expectedDeviceAspect": 0.4835,
+          "aspectDriftPercent": 0.77,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-15-pro",
+      "name": "iPhone 15 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 73.6,
+        "height": 149.6
+      },
+      "appleDeviceMm": {
+        "width": 70.6,
+        "height": 146.6
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 73.6,
+            "appleMm": 70.6
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 149.6,
+            "appleMm": 146.6
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-white-case-review.png?v=1784413390"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-black-case-review.png?v=1784413388"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-white-case-review.png?v=1784413390",
+          "sha256": "6e7ebb2e0177dacf25a56a3284ce5aa0a48f46696e572e412143732ac0a51118",
+          "format": "png",
+          "canvasPx": {
+            "width": 793,
+            "height": 1642
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 790,
+            "bottom": 1639,
+            "width": 789,
+            "height": 1638
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4817,
+          "expectedDeviceAspect": 0.4816,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-black-case-review.png?v=1784413388",
+          "sha256": "b4fd0091a2470fd9d76de547f10115375f4874891caca385054d3217b9874d13",
+          "format": "png",
+          "canvasPx": {
+            "width": 793,
+            "height": 1642
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 790,
+            "bottom": 1639,
+            "width": 789,
+            "height": 1638
+          },
+          "widthFill": 0.995,
+          "heightFill": 0.9976,
+          "visibleAspect": 0.4817,
+          "expectedDeviceAspect": 0.4816,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-15-pro-max",
+      "name": "iPhone 15 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 79.7,
+        "height": 162.9
+      },
+      "appleDeviceMm": {
+        "width": 76.7,
+        "height": 159.9
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 79.7,
+            "appleMm": 76.7
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 162.9,
+            "appleMm": 159.9
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-white-case-review.png?v=1784413395"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-black-case-review.png?v=1784413393"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-white-case-review.png?v=1784413395",
+          "sha256": "d7cef36f880e013b5d87b4aca723a0355b8448aa7eb447955170963312f73c03",
+          "format": "png",
+          "canvasPx": {
+            "width": 830,
+            "height": 1726
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 827,
+            "bottom": 1723,
+            "width": 826,
+            "height": 1722
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4797,
+          "expectedDeviceAspect": 0.4797,
+          "aspectDriftPercent": 0,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-black-case-review.png?v=1784413393",
+          "sha256": "e9757090c1fa989a6cd49462ee0521e4b30a7d0c94baf6d5d41185bedb33be3b",
+          "format": "png",
+          "canvasPx": {
+            "width": 830,
+            "height": 1726
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 827,
+            "bottom": 1723,
+            "width": 826,
+            "height": 1722
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4797,
+          "expectedDeviceAspect": 0.4797,
+          "aspectDriftPercent": 0,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-16",
+      "name": "iPhone 16",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.6,
+        "height": 150.6
+      },
+      "appleDeviceMm": {
+        "width": 71.6,
+        "height": 147.6
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.6,
+            "appleMm": 71.6
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 150.6,
+            "appleMm": 147.6
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-white-case-review.png?v=1784413403"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-black-case-review.png?v=1784413399"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-white-case-review.png?v=1784413403",
+          "sha256": "f1f8836f8669edf81693a14baad3c83b0ddd5f6e642ebcd0dee3fa5a8638e166",
+          "format": "png",
+          "canvasPx": {
+            "width": 867,
+            "height": 1806
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 864,
+            "bottom": 1803,
+            "width": 863,
+            "height": 1802
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4789,
+          "expectedDeviceAspect": 0.4851,
+          "aspectDriftPercent": 1.27,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-black-case-review.png?v=1784413399",
+          "sha256": "5d55d05644666aa7f859b50277dbb621e140df6cc3f8c5b0e15453353560dc6e",
+          "format": "png",
+          "canvasPx": {
+            "width": 867,
+            "height": 1806
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 864,
+            "bottom": 1803,
+            "width": 863,
+            "height": 1802
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4789,
+          "expectedDeviceAspect": 0.4851,
+          "aspectDriftPercent": 1.27,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-16-plus",
+      "name": "iPhone 16 Plus",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 80.8,
+        "height": 163.9
+      },
+      "appleDeviceMm": {
+        "width": 77.8,
+        "height": 160.9
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 80.8,
+            "appleMm": 77.8
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 163.9,
+            "appleMm": 160.9
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-white-case-review.png?v=1784413411"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-black-case-review.png?v=1784413406"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-white-case-review.png?v=1784413411",
+          "sha256": "5e92865cd77c334a64fe21633cd5a09d4498b082be94080223cd4c656f7e1364",
+          "format": "png",
+          "canvasPx": {
+            "width": 879,
+            "height": 1814
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 876,
+            "bottom": 1811,
+            "width": 875,
+            "height": 1810
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4834,
+          "expectedDeviceAspect": 0.4835,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-black-case-review.png?v=1784413406",
+          "sha256": "d3fe1445e0d38fcd7c1a6c2df45f370c3334a089f9f5ce210efafc5dc22ffd67",
+          "format": "png",
+          "canvasPx": {
+            "width": 879,
+            "height": 1814
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 876,
+            "bottom": 1811,
+            "width": 875,
+            "height": 1810
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4834,
+          "expectedDeviceAspect": 0.4835,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-16-pro",
+      "name": "iPhone 16 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.5,
+        "height": 152.6
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.5,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 152.6,
+            "appleMm": 149.6
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-white-case-review.png?v=1784413418"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-black-case-review.png?v=1784413414"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-white-case-review.png?v=1784413418",
+          "sha256": "1c2505fa9ee072e087cd9c3e300c1cc5fc10984bb8da22f2765ff089c187709a",
+          "format": "png",
+          "canvasPx": {
+            "width": 865,
+            "height": 1805
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 862,
+            "bottom": 1802,
+            "width": 861,
+            "height": 1801
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4781,
+          "expectedDeviceAspect": 0.4779,
+          "aspectDriftPercent": 0.03,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-black-case-review.png?v=1784413414",
+          "sha256": "c2655fd2fd43d3a68351219dd9e6bc15626c7b5ff423ad3dfe15267979908ea3",
+          "format": "png",
+          "canvasPx": {
+            "width": 865,
+            "height": 1805
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 862,
+            "bottom": 1802,
+            "width": 861,
+            "height": 1801
+          },
+          "widthFill": 0.9954,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4781,
+          "expectedDeviceAspect": 0.4779,
+          "aspectDriftPercent": 0.03,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-16-pro-max",
+      "name": "iPhone 16 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 80.6,
+        "height": 166
+      },
+      "appleDeviceMm": {
+        "width": 77.6,
+        "height": 163
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 80.6,
+            "appleMm": 77.6
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 166,
+            "appleMm": 163
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-white-case-review.png?v=1784413427"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-black-case-review.png?v=1784413421"
+          }
+        }
+      ],
+      "imageGeometryStatus": "issue",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-white-case-review.png?v=1784413427",
+          "sha256": "4b70b2085af6425abdf60412444a6a27b51fb3c123b8a205b3e51bd79249a9f3",
+          "format": "png",
+          "canvasPx": {
+            "width": 898,
+            "height": 1832
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 897,
+            "bottom": 1828,
+            "width": 898,
+            "height": 1829
+          },
+          "widthFill": 1,
+          "heightFill": 0.9984,
+          "visibleAspect": 0.491,
+          "expectedDeviceAspect": 0.4761,
+          "aspectDriftPercent": 3.13,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.13%",
+              "evidence": {
+                "actual": 0.491,
+                "expected": 0.4761,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-black-case-review.png?v=1784413421",
+          "sha256": "b4bfb3cb57037244991951160cdd2734c94e5cb797e37c0d8b4c42b7afa62327",
+          "format": "png",
+          "canvasPx": {
+            "width": 898,
+            "height": 1832
+          },
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 0,
+            "right": 897,
+            "bottom": 1828,
+            "width": 898,
+            "height": 1829
+          },
+          "widthFill": 1,
+          "heightFill": 0.9984,
+          "visibleAspect": 0.491,
+          "expectedDeviceAspect": 0.4761,
+          "aspectDriftPercent": 3.13,
+          "alphaHasBackground": true,
+          "status": "issue",
+          "issues": [
+            {
+              "code": "image-aspect-ratio",
+              "message": "Visible case ratio differs from the Apple device ratio by 3.13%",
+              "evidence": {
+                "actual": 0.491,
+                "expected": 0.4761,
+                "maximumDriftPercent": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "iphone-17",
+      "name": "iPhone 17",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 74.5,
+        "height": 152.6
+      },
+      "appleDeviceMm": {
+        "width": 71.5,
+        "height": 149.6
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 74.5,
+            "appleMm": 71.5
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 152.6,
+            "appleMm": 149.6
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-white-case-review.png?v=1784413432"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-black-case-review.png?v=1784413430"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-white-case-review.png?v=1784413432",
+          "sha256": "ed92b900e40b573fd0e7e0a8f0393259c245370507db0f21dd137df853382482",
+          "format": "png",
+          "canvasPx": {
+            "width": 825,
+            "height": 1733
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 822,
+            "bottom": 1730,
+            "width": 821,
+            "height": 1729
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4748,
+          "expectedDeviceAspect": 0.4779,
+          "aspectDriftPercent": 0.65,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-black-case-review.png?v=1784413430",
+          "sha256": "3c7a72fc18540f63a97429338616435320ea335c58d83de574539beb989cc80f",
+          "format": "png",
+          "canvasPx": {
+            "width": 825,
+            "height": 1733
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 822,
+            "bottom": 1730,
+            "width": 821,
+            "height": 1729
+          },
+          "widthFill": 0.9952,
+          "heightFill": 0.9977,
+          "visibleAspect": 0.4748,
+          "expectedDeviceAspect": 0.4779,
+          "aspectDriftPercent": 0.65,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-17-pro",
+      "name": "iPhone 17 Pro",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 76,
+        "height": 153
+      },
+      "appleDeviceMm": {
+        "width": 71.9,
+        "height": 150
+      },
+      "deltaMm": {
+        "width": 4.1,
+        "height": 3
+      },
+      "likelyCaseWallOffset": false,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 4.1 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 76,
+            "appleMm": 71.9
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 153,
+            "appleMm": 150
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-white-case-review.png?v=1784413437"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-black-case-review.png?v=1784413435"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-white-case-review.png?v=1784413437",
+          "sha256": "a780ca839d9365553225732553f6268af5055aa4ca3b87e08beb1d60f4a9c7d0",
+          "format": "png",
+          "canvasPx": {
+            "width": 762,
+            "height": 1585
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 759,
+            "bottom": 1582,
+            "width": 758,
+            "height": 1581
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4794,
+          "expectedDeviceAspect": 0.4793,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-black-case-review.png?v=1784413435",
+          "sha256": "19038c54d0c7dc47131319e0305e7e73c9511357a77454b65dfb4a55ae40f6d4",
+          "format": "png",
+          "canvasPx": {
+            "width": 762,
+            "height": 1585
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 759,
+            "bottom": 1582,
+            "width": 758,
+            "height": 1581
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4794,
+          "expectedDeviceAspect": 0.4793,
+          "aspectDriftPercent": 0.02,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-17-pro-max",
+      "name": "iPhone 17 Pro Max",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 80.6,
+        "height": 166
+      },
+      "appleDeviceMm": {
+        "width": 78,
+        "height": 163.4
+      },
+      "deltaMm": {
+        "width": 2.6,
+        "height": 2.6
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 2.6 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 80.6,
+            "appleMm": 78
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 2.6 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 166,
+            "appleMm": 163.4
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-white-case-review.png?v=1784413442"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-black-case-review.png?v=1784413440"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-white-case-review.png?v=1784413442",
+          "sha256": "cac851c2f3823ff4439689c825ba280d3fc7778d084a1c1d8559c71874442fbd",
+          "format": "png",
+          "canvasPx": {
+            "width": 769,
+            "height": 1606
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 766,
+            "bottom": 1603,
+            "width": 765,
+            "height": 1602
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4775,
+          "expectedDeviceAspect": 0.4774,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-black-case-review.png?v=1784413440",
+          "sha256": "ce7a52e13730906592ee39346e389e65d1921fed9adc5e8d979a08e182e89183",
+          "format": "png",
+          "canvasPx": {
+            "width": 769,
+            "height": 1606
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 766,
+            "bottom": 1603,
+            "width": 765,
+            "height": 1602
+          },
+          "widthFill": 0.9948,
+          "heightFill": 0.9975,
+          "visibleAspect": 0.4775,
+          "expectedDeviceAspect": 0.4774,
+          "aspectDriftPercent": 0.04,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    },
+    {
+      "id": "iphone-air",
+      "name": "iPhone Air",
+      "status": "issue",
+      "shopifyMm": {
+        "width": 77.7,
+        "height": 159.2
+      },
+      "appleDeviceMm": {
+        "width": 74.7,
+        "height": 156.2
+      },
+      "deltaMm": {
+        "width": 3,
+        "height": 3
+      },
+      "likelyCaseWallOffset": true,
+      "dimensionStatus": "issue",
+      "dimensionIssues": [
+        {
+          "code": "stored-width",
+          "message": "Shopify width is 3 mm above Apple device width",
+          "evidence": {
+            "shopifyMm": 77.7,
+            "appleMm": 74.7
+          }
+        },
+        {
+          "code": "stored-height",
+          "message": "Shopify height is 3 mm above Apple device height",
+          "evidence": {
+            "shopifyMm": 159.2,
+            "appleMm": 156.2
+          }
+        }
+      ],
+      "imageSourceStatus": "issue",
+      "imageSourceIssues": [
+        {
+          "code": "not-without-gel-source",
+          "message": "white body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-white-case-review.png?v=1784413467"
+          }
+        },
+        {
+          "code": "not-without-gel-source",
+          "message": "black body image points to a case-review Gel render, not a without-gel asset",
+          "evidence": {
+            "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-black-case-review.png?v=1784413465"
+          }
+        }
+      ],
+      "imageGeometryStatus": "pass",
+      "images": {
+        "white": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-white-case-review.png?v=1784413467",
+          "sha256": "1559f8ea5de67f49ab855d94000e7698d3bc52fca35fdad79628a26ebc0a6f30",
+          "format": "png",
+          "canvasPx": {
+            "width": 859,
+            "height": 1791
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 856,
+            "bottom": 1788,
+            "width": 855,
+            "height": 1787
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4785,
+          "expectedDeviceAspect": 0.4782,
+          "aspectDriftPercent": 0.05,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        },
+        "black": {
+          "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-black-case-review.png?v=1784413465",
+          "sha256": "aa46de709f9812ca35f740384bf6e7ef77483533329087f75f66bd375cbc1156",
+          "format": "png",
+          "canvasPx": {
+            "width": 859,
+            "height": 1791
+          },
+          "visibleBoundsPx": {
+            "left": 2,
+            "top": 2,
+            "right": 856,
+            "bottom": 1788,
+            "width": 855,
+            "height": 1787
+          },
+          "widthFill": 0.9953,
+          "heightFill": 0.9978,
+          "visibleAspect": 0.4785,
+          "expectedDeviceAspect": 0.4782,
+          "aspectDriftPercent": 0.05,
+          "alphaHasBackground": true,
+          "status": "pass",
+          "issues": []
+        }
+      }
+    }
+  ]
+}
