@@ -121,6 +121,11 @@ export default function ProductPicker({
       <Select
         value={productId}
         onChange={onProductChange}
+        showSearch
+        filterOption={(input, option) =>
+          `${option?.name || ''} ${option?.label || ''}`.toLowerCase().includes(input.trim().toLowerCase())
+        }
+        placeholder="Search phone models"
         size="large"
         style={{ width: '100%', marginBottom: 18 }}
         popupMatchSelectWidth
@@ -146,25 +151,12 @@ export default function ProductPicker({
       />
 
       {gelColours ? (
-        <>
-          {/* Integrated-gel models bake the gel onto the case, so the gel colour
-              alone drives the finish — the separate case-colour control would be
-              redundant and is hidden for them. */}
-          {!product.gelRender && (
-            <ColourGroup
-              title={t('picker.caseColour')}
-              colours={caseColours}
-              value={caseColourId}
-              onChange={onCaseColourChange}
-            />
-          )}
-          <ColourGroup
-            title={t('picker.gelColour')}
-            colours={gelColours}
-            value={gelColourId}
-            onChange={onGelColourChange}
-          />
-        </>
+        <ColourGroup
+          title={t('picker.gelColour')}
+          colours={gelColours}
+          value={gelColourId}
+          onChange={onGelColourChange}
+        />
       ) : (
         <ColourGroup
           title={t('picker.colour')}

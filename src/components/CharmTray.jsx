@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
+import { charmPricingGroupFor } from '../lib/charmPricing'
+import { settings } from '../lib/settings'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
@@ -62,6 +64,7 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
   const [wordText, setWordText] = useState('')
   const [wordPlace, setWordPlace] = useState('middle')
   const [wordArc, setWordArc] = useState(false)
+  const pricingGroups = settings().charmPricingGroups
   if (!charms.length) return <Empty description={t('charm.empty')} />
   const collections = groupByCollection(charms)
   const submitWord = (collection) => {
@@ -92,6 +95,16 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
             <span>{g.collection}</span>
             <span>{g.items.length}</span>
           </div>
+          {pricingGroups
+            .filter((rule) =>
+              g.items.some((charm) => charmPricingGroupFor(charm, pricingGroups)?.id === rule.id),
+            )
+            .map((rule) => (
+              <NoteBox
+                key={rule.id}
+                text={`${rule.label}: ${t('pricing.groupNotice', { n: rule.quantity })}`}
+              />
+            ))}
           {onTypeWord && isTextCollection(g.collection) && normalizedCollection(g.collection) !== 'numbers' && (
             <div className="charm-word">
               {wordFor === g.collection ? (

@@ -8,8 +8,10 @@ import { shopifyAdmin, uploadImageFile } from '../functions/api/_lib.js'
 const PROVENANCE_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidate-provenance.json'
 const REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-upload-report.json'
 const CASE_REVIEW_REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-case-review-source-upload-report.json'
+const ALL_CASE_REVIEW_REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-all-case-review-source-upload-report.json'
 const INVENTORY_PATH = 'public/assets/cases/case-inventory.json'
 const METAOBJECT_TYPE = 'charme_product'
+const CASE_HANDLE = argumentValue('case-handle', 'custom-charm-phone-case')
 const FINISH_FIELDS = {
   black: 'body_image_black',
   white: 'body_image_white',
@@ -22,6 +24,8 @@ const SHOPIFY_PIXEL_TOLERANCE = {
 const apply = process.argv.includes('--apply')
 const verify = process.argv.includes('--verify')
 const fillCaseReviewSources = process.argv.includes('--fill-case-review-sources')
+const allCaseReviewSources = process.argv.includes('--all-case-review-sources')
+const syncProductMedia = process.argv.includes('--sync-product-media')
 const caseReviewBaseUrl = argumentValue('case-review-base-url', 'https://charme-customizer.pages.dev')
 const modelIds = new Set(argumentValues('model'))
 const finishes = new Set(argumentValues('finish').map((value) => value.toLowerCase()))
@@ -139,6 +143,23 @@ const Q_FILES = `
     }
   }`
 
+const Q_CASE_PRODUCT = `
+  query($query: String!, $after: String) {
+    products(first: 1, query: $query) {
+      nodes {
+        id
+        options { name }
+        variants(first: 250, after: $after) {
+          nodes { id selectedOptions { name value } }
+          pageInfo { hasNextPage endCursor }
+        }
+        media(first: 250) {
+          nodes { id alt }
+        }
+      }
+    }
+  }`
+
 const M_PRODUCT = `
   mutation($id: ID!, $metaobject: MetaobjectUpdateInput!) {
     metaobjectUpdate(id: $id, metaobject: $metaobject) {
@@ -146,6 +167,126 @@ const M_PRODUCT = `
       userErrors { field message code }
     }
   }`
+
+const M_MEDIA = `
+  mutation($productId: ID!, $media: [CreateMediaInput!]!) {
+    productCreateMedia(productId: $productId, media: $media) {
+      media { ... on MediaImage { id alt } }
+      mediaUserErrors { field message }
+    }
+  }`
+
+const M_VARIANTS = `
+  mutation($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+    productVariantsBulkUpdate(productId: $productId, variants: $variants) {
+      userErrors { field message }
+    }
+  }`
+
+const COLOUR_HINTS = ['colour', 'color', 'gel', 'finish']
+const MODEL_HINTS = ['model', 'phone', 'device']
+
+function slugModel(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\+/g, ' plus ')
+    .replace(/\//g, ' ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+function matchesOption(name, hints) {
+  return hints.some((hint) => String(name || '').toLowerCase().includes(hint))
+}
+
+function optionRoles(options) {
+  const colour = options.find((option) => matchesOption(option.name, COLOUR_HINTS))
+  const model = options.find((option) => option !== colour && matchesOption(option.name, MODEL_HINTS))
+    || options.find((option) => option !== colour)
+  return { colour, model }
+}
+
+function selectedOption(variant, optionName) {
+  return variant.selectedOptions.find((option) => option.name === optionName)?.value || ''
+}
+
+function variantFinish(value) {
+  const normalized = String(value || '').trim().toLowerCase()
+  if (normalized.startsWith('black')) return 'black'
+  if (normalized.startsWith('white') && !normalized.includes('glitter')) return 'white'
+  return null
+}
+
+async function caseProductTargets(entries) {
+  let product = null
+  let after = null
+  do {
+    const data = await admin(Q_CASE_PRODUCT, { query: `handle:${CASE_HANDLE}`, after })
+    const page = data.products.nodes[0]
+    if (!page) throw new Error(`Shopify product ${CASE_HANDLE} was not found`)
+    if (!product) product = { ...page, variants: { nodes: [] } }
+    product.variants.nodes.push(...page.variants.nodes)
+    after = page.variants.pageInfo.hasNextPage ? page.variants.pageInfo.endCursor : null
+  } while (after)
+  const { colour, model } = optionRoles(product.options || [])
+  if (!colour || !model) throw new Error(`Could not identify model and colour options on ${CASE_HANDLE}`)
+
+  const variantsByKey = new Map()
+  for (const variant of product.variants.nodes) {
+    const modelId = slugModel(selectedOption(variant, model.name))
+    const finish = variantFinish(selectedOption(variant, colour.name))
+    if (!modelId || !finish) continue
+    const key = `${modelId}\u0000${finish}`
+    variantsByKey.set(key, [...(variantsByKey.get(key) || []), variant.id])
+  }
+
+  const targets = entries.map((entry) => ({
+    entry,
+    variantIds: variantsByKey.get(`${entry.candidate.modelId}\u0000${entry.candidate.finish}`) || [],
+  }))
+  const missing = targets.filter((target) => !target.variantIds.length)
+  if (missing.length) {
+    throw new Error(`Shopify has no matching variants for: ${missing.map(({ entry }) => `${entry.candidate.modelId}/${entry.candidate.finish}`).join(', ')}`)
+  }
+  return { product, targets }
+}
+
+function productMediaAlt(result) {
+  return `Charme without gel ${result.modelId} ${result.finish} ${result.sha256.slice(0, 12)}`
+}
+
+async function syncResultToProduct(product, target, result) {
+  const alt = productMediaAlt(result)
+  let mediaId = product.media.nodes.find((media) => media.alt === alt)?.id || null
+  let mediaStatus = 'reused'
+  if (!mediaId) {
+    const created = await admin(M_MEDIA, {
+      productId: product.id,
+      media: [{ originalSource: result.url, mediaContentType: 'IMAGE', alt }],
+    })
+    const errors = created.productCreateMedia.mediaUserErrors || []
+    if (errors.length) throw new Error(JSON.stringify(errors))
+    mediaId = created.productCreateMedia.media[0]?.id || null
+    if (!mediaId) throw new Error(`Shopify created no product media for ${result.modelId}/${result.finish}`)
+    product.media.nodes.push({ id: mediaId, alt })
+    mediaStatus = 'created'
+  }
+
+  for (let offset = 0; offset < target.variantIds.length; offset += 100) {
+    const variants = target.variantIds.slice(offset, offset + 100).map((id) => ({ id, mediaId }))
+    const updated = await admin(M_VARIANTS, { productId: product.id, variants })
+    const errors = updated.productVariantsBulkUpdate.userErrors || []
+    if (errors.length) throw new Error(JSON.stringify(errors))
+  }
+  return {
+    modelId: result.modelId,
+    finish: result.finish,
+    mediaId,
+    mediaStatus,
+    variantIds: target.variantIds,
+  }
+}
 
 async function candidateEvidence(candidate) {
   const bytes = await readFile(candidate.candidatePath)
@@ -167,9 +308,11 @@ async function imageEvidence(bytes, label) {
   const pixels = await decodePixels(bytes)
   return {
     bytes,
+    sha256: sha256(bytes),
     widthPx: metadata.width,
     heightPx: metadata.height,
     ...pixelIdentity(pixels),
+    ...alphaIdentity(pixels),
     pixelData: pixels.data,
   }
 }
@@ -184,6 +327,63 @@ function pixelIdentity({ data, info }) {
     pixelWidth: info.width,
     pixelHeight: info.height,
     pixelChannels: info.channels,
+  }
+}
+
+function alphaIdentity({ data, info }) {
+  let transparentPixels = 0
+  let semiTransparentPixels = 0
+  let left = info.width
+  let top = info.height
+  let right = -1
+  let bottom = -1
+  for (let y = 0; y < info.height; y += 1) {
+    for (let x = 0; x < info.width; x += 1) {
+      const alpha = data[(y * info.width + x) * 4 + 3]
+      if (alpha < 255) transparentPixels += 1
+      if (alpha > 0 && alpha < 255) semiTransparentPixels += 1
+      if (!alpha) continue
+      left = Math.min(left, x)
+      top = Math.min(top, y)
+      right = Math.max(right, x)
+      bottom = Math.max(bottom, y)
+    }
+  }
+  const alphaBounds = right < 0 ? null : {
+    left,
+    top,
+    right,
+    bottom,
+    width: right - left + 1,
+    height: bottom - top + 1,
+  }
+  return {
+    hasTransparentBackground: transparentPixels > 0,
+    transparentPixels,
+    semiTransparentPixels,
+    alphaBounds,
+    alphaPadding: alphaBounds ? [left, top, info.width - 1 - right, info.height - 1 - bottom] : null,
+  }
+}
+
+async function tightTransparentEvidence(bytes, label) {
+  const original = await imageEvidence(bytes, label)
+  if (!original.hasTransparentBackground || !original.alphaBounds) {
+    throw new Error(`${label} is not a transparent cut-out`)
+  }
+  if (original.alphaPadding.every((padding) => padding === 0)) {
+    return { ...original, trimmed: false, sourceWidthPx: original.widthPx, sourceHeightPx: original.heightPx }
+  }
+  const trimmedBytes = await sharp(bytes).extract(original.alphaBounds).png().toBuffer()
+  const trimmed = await imageEvidence(trimmedBytes, label)
+  if (!trimmed.hasTransparentBackground || !trimmed.alphaPadding.every((padding) => padding === 0)) {
+    throw new Error(`${label} could not be trimmed to its alpha bounds`)
+  }
+  return {
+    ...trimmed,
+    trimmed: true,
+    sourceWidthPx: original.widthPx,
+    sourceHeightPx: original.heightPx,
   }
 }
 
@@ -301,30 +501,34 @@ async function caseReviewSourceImages() {
   const entries = []
   for (const model of models) {
     for (const finish of Object.keys(FINISH_FIELDS)) {
-      if (acceptedKeys.has(`${model.id}\u0000${finish}`)) continue
+      if (!allCaseReviewSources && acceptedKeys.has(`${model.id}\u0000${finish}`)) continue
       if (modelIds.size && !modelIds.has(model.id)) continue
       if (finishes.size && !finishes.has(finish)) continue
       if (!model.withoutGel?.[finish]) throw new Error(`${model.id}/${finish} is missing from the case-review Without gel inventory`)
 
       const sourceUrl = new URL(`/assets/cases/case-without-gel/${model.id}-${finish}.png`, caseReviewBaseUrl).toString()
-      const bytes = await caseReviewBytes(sourceUrl)
-      const sourceSha256 = sha256(bytes)
+      const sourceBytes = await caseReviewBytes(sourceUrl)
+      const sourceSha256 = sha256(sourceBytes)
       const local = await optionalLocalSource(model.id, finish)
       if (local && sha256(local.bytes) !== sourceSha256) {
         throw new Error(`${model.id}/${finish} local source differs from the live case-review source`)
       }
-      const evidence = await imageEvidence(bytes, sourceUrl)
+      const evidence = await tightTransparentEvidence(sourceBytes, sourceUrl)
       const candidate = {
         modelId: model.id,
         modelName: model.name,
         finish,
         candidateVersion: 'case-review-source',
-        sha256: sourceSha256,
+        sha256: evidence.sha256,
         widthPx: evidence.widthPx,
         heightPx: evidence.heightPx,
         sourceKind: 'case-review-without-gel',
         sourcePath: local?.filePath || null,
         sourceUrl,
+        sourceSha256,
+        trimmed: evidence.trimmed,
+        sourceWidthPx: evidence.sourceWidthPx,
+        sourceHeightPx: evidence.sourceHeightPx,
       }
       entries.push({ candidate, fieldKey: FINISH_FIELDS[finish], evidence })
     }
@@ -490,13 +694,15 @@ async function upload(entry) {
 }
 
 async function main() {
-  const { campaign, entries } = fillCaseReviewSources
+  const useCaseReviewSources = fillCaseReviewSources || allCaseReviewSources
+  const { campaign, entries } = useCaseReviewSources
     ? await caseReviewSourceImages()
     : await acceptedCandidates()
-  const selectionLabel = fillCaseReviewSources
-    ? 'remaining case-review Without gel product images'
+  const selectionLabel = useCaseReviewSources
+    ? `${allCaseReviewSources ? 'all' : 'remaining'} case-review Without gel product images`
     : 'accepted no-Gel product images'
-  console.log(`${apply ? 'APPLY' : verify ? 'VERIFY' : 'DRY RUN'}: ${entries.length} ${selectionLabel}`)
+  const mediaLabel = syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : ''
+  console.log(`${apply ? 'APPLY' : verify ? 'VERIFY' : 'DRY RUN'}: ${entries.length} ${selectionLabel}${mediaLabel}`)
   for (const { candidate, fieldKey } of entries) {
     console.log(`- ${candidate.modelId} / ${candidate.finish} / ${candidate.candidateVersion} -> ${fieldKey} (${candidate.sha256})${candidate.sourceUrl ? ` <- ${candidate.sourceUrl}` : ''}`)
   }
@@ -520,6 +726,11 @@ async function main() {
     }
   })
   console.log(`Verified Shopify target coverage: ${targets.length}/${entries.length}`)
+  const productCoverage = syncProductMedia ? await caseProductTargets(entries) : null
+  if (productCoverage) {
+    const variantCount = productCoverage.targets.reduce((count, target) => count + target.variantIds.length, 0)
+    console.log(`Verified Shopify product-media coverage: ${productCoverage.targets.length}/${entries.length} images -> ${variantCount} variants`)
+  }
   if (verify) return
 
   const results = []
@@ -530,15 +741,27 @@ async function main() {
     await sleep(250)
   }
 
+  const productMedia = []
+  if (productCoverage) {
+    const resultByKey = new Map(results.map((result) => [`${result.modelId}\u0000${result.finish}`, result]))
+    for (const target of productCoverage.targets) {
+      const key = `${target.entry.candidate.modelId}\u0000${target.entry.candidate.finish}`
+      const productResult = await syncResultToProduct(productCoverage.product, target, resultByKey.get(key))
+      productMedia.push(productResult)
+      console.log(`${productResult.mediaStatus === 'created' ? 'Created' : 'Reused'} product media: ${productResult.modelId} / ${productResult.finish} -> ${productResult.variantIds.length} variants`)
+      await sleep(250)
+    }
+  }
+
   const report = {
     schemaVersion: 1,
     campaign,
     appliedAt: new Date().toISOString(),
     provenancePath: PROVENANCE_PATH,
-    sourceMode: fillCaseReviewSources ? 'case-review-without-gel' : 'accepted-generated-candidates',
-    sourceBaseUrl: fillCaseReviewSources ? caseReviewBaseUrl : null,
-    scope: fillCaseReviewSources
-      ? 'Existing case-review Without gel sources for fields not covered by accepted generated candidates; Shopify Files plus charme_product body image fields; no variant media updates.'
+    sourceMode: useCaseReviewSources ? 'case-review-without-gel' : 'accepted-generated-candidates',
+    sourceBaseUrl: useCaseReviewSources ? caseReviewBaseUrl : null,
+    scope: useCaseReviewSources
+      ? `${allCaseReviewSources ? 'All' : 'Existing'} case-review Without gel sources; Shopify Files plus charme_product body image fields${syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : '; no variant media updates'}.`
       : 'Accepted no-Gel candidates only; Shopify Files plus charme_product body image fields; no variant media updates.',
     summary: {
       selected: results.length,
@@ -552,10 +775,16 @@ async function main() {
         && result.cdn.pixelDifference.maximumChannelDelta <= SHOPIFY_PIXEL_TOLERANCE.maximumChannelDelta
         && result.cdn.pixelDifference.changedPixelFraction <= SHOPIFY_PIXEL_TOLERANCE.maximumChangedPixelFraction
       )).length,
+      productMediaCreated: productMedia.filter((result) => result.mediaStatus === 'created').length,
+      productMediaReused: productMedia.filter((result) => result.mediaStatus === 'reused').length,
+      productVariantsUpdated: productMedia.reduce((count, result) => count + result.variantIds.length, 0),
     },
     results,
+    productMedia,
   }
-  const reportPath = fillCaseReviewSources ? CASE_REVIEW_REPORT_PATH : REPORT_PATH
+  const reportPath = allCaseReviewSources
+    ? ALL_CASE_REVIEW_REPORT_PATH
+    : fillCaseReviewSources ? CASE_REVIEW_REPORT_PATH : REPORT_PATH
   await mkdir(path.dirname(reportPath), { recursive: true })
   await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`)
   console.log(`Completed: ${report.summary.updated} updated, ${report.summary.alreadyCurrent} already current, ${report.summary.exactPixelMatches} exact pixel matches, ${report.summary.boundedShopifyRoundingMatches} bounded Shopify rounding matches.`)

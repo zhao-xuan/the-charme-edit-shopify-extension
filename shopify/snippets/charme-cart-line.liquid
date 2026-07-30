@@ -21,6 +21,8 @@
   {%- endif -%}
 {%- endfor -%}
 {%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
+{%- assign charme_layout = item.properties['_layout'] -%}
+{%- assign charme_cart_url = 'https://thecharmeedit.com/cart?preview_theme_id=185473892730' -%}
 
 <tr
   role="row"
@@ -43,6 +45,8 @@
         <img
           src="{{ charme_proof }}"
           alt="Custom charm case design preview"
+          width="250"
+          height="500"
           class="cart-items__media-image charme-proof-img"
           loading="lazy"
         >
@@ -91,12 +95,23 @@
       </li>
     </ul>
 
-    <a
-      class="charme-edit-btn"
-      href="/products/{{ item.product.handle }}?charme_edit={{ item.key | url_encode }}"
-    >
-      Edit design
-    </a>
+    {%- if charme_layout != blank -%}
+      <a
+        class="charme-edit-btn"
+        href="/products/{{ item.product.handle }}?charme_edit={{ item.key | url_encode }}"
+        data-charme-edit-token="{{ charme_token | escape }}"
+        data-charme-edit-url="https://1562ce8a.charme-customizer.pages.dev/editor?cart_url={{ charme_cart_url | url_encode }}&amp;cart_bridge=1&amp;return_to={{ charme_cart_url | url_encode }}"
+      >
+        Edit design
+      </a>
+    {%- else -%}
+      <a
+        class="charme-edit-btn"
+        href="/products/{{ item.product.handle }}?charme_edit={{ item.key | url_encode }}"
+      >
+        Edit design
+      </a>
+    {%- endif -%}
   </td>
 
   <td

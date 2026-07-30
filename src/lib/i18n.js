@@ -120,6 +120,7 @@ const DICT = {
     'action.zoomOut': 'Zoom out',
     'action.clearAll': 'Clear all',
     'action.dismiss': 'Dismiss',
+    'action.rotate': 'Drag to rotate in either direction',
 
     'step1.mobile': 'Step 1: Select Model',
     'label.case': 'Case',
@@ -130,6 +131,9 @@ const DICT = {
     'step2.recommend': 'We recommend {min}–{max} charms for a balanced look.',
     'step2.added': ' {n} added.',
     'step2.desktopHint': 'We recommend {min}–{max} charms for a balanced look. Minimum {min2} charms required.',
+    'notice.mockup': 'This tool is for charms mock-up only, gel will be added during production.',
+    'notice.mockupShort': 'Mock-up only',
+    'pricing.groupNotice': 'Price is for {n} items — select {n} items.',
     'charms.label': 'Charms',
     'charms.selected': '{n} selected',
     'charms.shrink': 'Shrink charm picker',

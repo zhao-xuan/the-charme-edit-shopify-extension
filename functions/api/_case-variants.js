@@ -23,8 +23,25 @@ const Q_PRODUCT = `
             image { url }
             selectedOptions { name value }
           } }
+          pageInfo { hasNextPage endCursor }
         }
       } }
+    }
+  }`
+
+const Q_VARIANTS_PAGE = `
+  query($id: ID!, $after: String!) {
+    product: node(id: $id) {
+      ... on Product {
+        variants(first: 250, after: $after) {
+          edges { node {
+            id title price availableForSale inventoryPolicy
+            image { url }
+            selectedOptions { name value }
+          } }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
     }
   }`
 
@@ -79,11 +96,19 @@ export async function getCaseProduct(env, handle = CASE_HANDLE) {
   const data = await shopifyAdmin(env, Q_PRODUCT, { q: `handle:${handle}` })
   const node = data.products?.edges?.[0]?.node
   if (!node) return null
+  const variantEdges = [...(node.variants?.edges || [])]
+  let pageInfo = node.variants?.pageInfo
+  while (pageInfo?.hasNextPage && pageInfo.endCursor) {
+    const page = await shopifyAdmin(env, Q_VARIANTS_PAGE, { id: node.id, after: pageInfo.endCursor })
+    const connection = page.product?.variants
+    variantEdges.push(...(connection?.edges || []))
+    pageInfo = connection?.pageInfo
+  }
   const options = node.options || []
   const { colour, model } = roles(options)
   const colourName = colour?.name || 'Case & Gel Colour'
   const modelName = model?.name || 'iPhone Model'
-  const variants = (node.variants?.edges || []).map((e) => {
+  const variants = variantEdges.map((e) => {
     const v = e.node
     return {
       id: v.id,
@@ -100,7 +125,7 @@ export async function getCaseProduct(env, handle = CASE_HANDLE) {
   const order = modelValues.map((x) => x.name)
   const seen = new Set(variants.map((v) => v.model).filter(Boolean))
   const modelNames = [
-    ...order.filter((m) => seen.has(m)),
+    ...order,
     ...[...seen].filter((m) => !order.includes(m)),
   ]
   const models = modelNames.map((m) => ({ name: m, variants: variants.filter((v) => v.model === m) }))

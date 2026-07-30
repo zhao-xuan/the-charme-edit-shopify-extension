@@ -33,6 +33,14 @@ test('mini and midi stones start another block at their boundaries', () => {
   assert.equal(charmPricingTotal(placed(4, midi)), 4)
 })
 
+test('50p natural shells use the live three-piece pack', () => {
+  const shell = { collection: 'Shells', name: 'Natural Shell', price: 0.5 }
+
+  assert.equal(charmPricingTotal(placed(3, shell)), 2)
+  assert.equal(charmPricingTotal(placed(4, shell)), 4)
+  assert.equal(charmChargeLines(placed(3, shell))[0].quantity, 1)
+})
+
 test('pricing groups accumulate independently', () => {
   const charms = [
     ...placed(7, { collection: 'Filling Stones', name: 'Smoky' }),

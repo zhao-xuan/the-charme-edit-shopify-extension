@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined, SyncOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
@@ -68,8 +68,8 @@ const ProductStage = forwardRef(function ProductStage(
       const r = el.getBoundingClientRect()
       setSize((s) => (s.w === r.width && s.h === r.height ? s : { w: r.width, h: r.height }))
     }
-    const ro = new ResizeObserver(measure)
-    ro.observe(el)
+    const ro = typeof ResizeObserver === 'function' ? new ResizeObserver(measure) : null
+    ro?.observe(el)
     measure()
     // Safety net for when the widget mounts into a container that only gets its
     // real size a frame or two later (e.g. a modal that just became visible, or
@@ -78,11 +78,13 @@ const ProductStage = forwardRef(function ProductStage(
     const raf1 = requestAnimationFrame(measure)
     const raf2 = requestAnimationFrame(() => requestAnimationFrame(measure))
     window.addEventListener('resize', measure)
+    window.addEventListener('orientationchange', measure)
     return () => {
-      ro.disconnect()
+      ro?.disconnect()
       cancelAnimationFrame(raf1)
       cancelAnimationFrame(raf2)
       window.removeEventListener('resize', measure)
+      window.removeEventListener('orientationchange', measure)
     }
   }, [])
 
@@ -335,7 +337,9 @@ const ProductStage = forwardRef(function ProductStage(
 
   // Real product photo (e.g. the Apple iPhone case render) for the chosen finish.
   const blankPhoto = resolveAsset(
-    (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)) || null,
+    color.imageSrc ||
+      (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)) ||
+      null,
   )
 
   return (
@@ -599,7 +603,9 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         className="charm-dial__svg"
         width={size}
         height={size}
+        aria-label={t('action.rotate')}
       >
+        <circle className="charm-dial__contrast" cx={c} cy={c} r={R} />
         <circle className="charm-dial__track" cx={c} cy={c} r={R} />
         <circle
           className="charm-dial__hit"
@@ -614,6 +620,9 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
         <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
       </svg>
+      <span className="charm-dial__rotate-hint" aria-hidden="true">
+        <SyncOutlined />
+      </span>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>
       <button
         type="button"

@@ -45,7 +45,8 @@ async function drawProduct(ctx, product, color, S) {
 
   // Real product photo (e.g. the Apple iPhone case render) for this finish.
   const photoSrc = resolveAsset(
-    product.blankImage && (product.blankImage[color.id] || product.blankImage.default),
+    color.imageSrc ||
+      (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)),
   )
   if (photoSrc) {
     const img = await loadImage(photoSrc).catch(() => null)

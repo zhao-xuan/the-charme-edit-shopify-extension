@@ -10,6 +10,8 @@ import {
   InfoCircleOutlined,
   ExpandOutlined,
   CompressOutlined,
+  DownOutlined,
+  UpOutlined,
 } from '@ant-design/icons'
 import ProductStage from '../components/ProductStage'
 import ProductPicker from '../components/ProductPicker'
@@ -24,7 +26,7 @@ import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
 import { charmPricingGroupFor } from '../lib/charmPricing'
 import { formatMoney } from '../lib/money'
-import { t } from '../lib/i18n'
+import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 
 function useMedia(query) {
@@ -42,7 +44,8 @@ function useMedia(query) {
 }
 
 const uid = () =>
-  (crypto.randomUUID && crypto.randomUUID()) || `c${Date.now()}${Math.random().toString(16).slice(2)}`
+  (typeof globalThis.crypto?.randomUUID === 'function' && globalThis.crypto.randomUUID()) ||
+  `c${Date.now()}${Math.random().toString(16).slice(2)}`
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
@@ -56,6 +59,16 @@ function crossSellImage(option, groups) {
 
 // Max characters accepted by "Type a word" (letters + digits combined).
 const MAX_WORD_LEN = 14
+const MOBILE_SPLITTER_GUIDE_KEY = 'charme.mobileSplitterGuide.v1'
+
+function hasSeenMobileSplitterGuide() {
+  if (typeof window === 'undefined') return true
+  try {
+    return window.localStorage.getItem(MOBILE_SPLITTER_GUIDE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
 
 // Built-in phone categories have hand-tuned swatch gradients in styles.css; any
 // custom merchant category gets a stable generated hue so its tab still shows a
@@ -81,31 +94,26 @@ function deriveColor(product, caseColourId, gelColourId) {
   const caseList = product.caseColours || product.colors
   const gels = product.gelColours
   const gel = gels ? gels.find((g) => g.id === gelColourId) || gels[0] : null
-  // Integrated-gel models (the 2025 line) bake the poured gel into a single
-  // render, so the gel colour drives the case finish: White/Glitter gel sits on
-  // a White case, Black gel on a Black case. Other models keep the customer's
-  // explicit case-colour choice and layer a translucent gel overlay on top.
+  // Models without an independent case-colour choice use the gel colour to pick
+  // a matching bare shell. The gel remains order metadata but is never drawn in
+  // the editor: preview and proof both stay on the Without gel source.
   const effectiveCaseId =
-    product.gelRender && gel ? (gel.id === 'black' ? 'black' : 'white') : caseColourId
+    (product.gelRender || product.linkedFinish) && gel
+      ? (gel.id === 'black' ? 'black' : 'white')
+      : caseColourId
   const base = caseList.find((c) => c.id === effectiveCaseId) || caseList[0]
-  // Poured-gel overlay src for the chosen gel colour (Glitter reuses the White
-  // gel render); null for products without gel art (Androids, totes, frames) and
-  // for integrated-gel models whose render already contains the gel.
-  let gelSrc = null
-  if (gel && product.gelImages && !product.gelRender) {
-    gelSrc = product.gelImages[gel.id === 'black' ? 'black' : 'white'] || null
-  }
   return {
     id: base.id,
     label: gel ? `${base.label} case · ${gel.label} gel` : base.label,
     shell: base.shell,
     edge: base.edge,
-    glitter: gel ? !!gel.glitter : !!base.glitter,
+    glitter: !!base.glitter,
     caseId: base.id,
     caseLabel: base.label,
     gelId: gel ? gel.id : null,
     gelLabel: gel ? gel.label : null,
-    gelSrc,
+    gelSrc: null,
+    imageSrc: null,
   }
 }
 
@@ -187,6 +195,7 @@ export default function CustomizerPage({
     const timer = setTimeout(() => setStep2Open(false), 5000)
     return () => clearTimeout(timer)
   }, [])
+  const [mockupNoticeOpen, setMockupNoticeOpen] = useState(false)
 
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
@@ -195,6 +204,17 @@ export default function CustomizerPage({
   const [trayPct, setTrayPct] = useState(14)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
+  const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(
+    () => !hasSeenMobileSplitterGuide(),
+  )
+  const dismissMobileSplitterGuide = useCallback(() => {
+    setMobileSplitterGuideOpen(false)
+    try {
+      window.localStorage.setItem(MOBILE_SPLITTER_GUIDE_KEY, '1')
+    } catch {
+      // Storage can be unavailable in private browsing; dismissal still works.
+    }
+  }, [])
 
   // Desktop only: the charm tray column width (px). A draggable divider on its
   // left edge lets the customer widen the tray (more, smaller charm cards per
@@ -1016,13 +1036,14 @@ export default function CustomizerPage({
   // ---- mobile splitter: drag to resize the preview vs. tray split ----
   const onSplitDown = useCallback((e) => {
     e.preventDefault()
+    dismissMobileSplitterGuide()
     try {
       e.currentTarget.setPointerCapture(e.pointerId)
     } catch {
       // Some browsers throw if the pointer is no longer active — safe to ignore.
     }
     splitDrag.current = { pointerId: e.pointerId }
-  }, [])
+  }, [dismissMobileSplitterGuide])
   const onSplitMove = useCallback((e) => {
     const d = splitDrag.current
     if (!d || d.pointerId !== e.pointerId) return
@@ -1120,6 +1141,18 @@ export default function CustomizerPage({
         </button>
       </div>
     ) : null
+  const mockupNotice = (
+    <button
+      type="button"
+      className={`mockup-notice${mockupNoticeOpen ? ' is-open' : ''}`}
+      aria-expanded={mockupNoticeOpen}
+      onClick={() => setMockupNoticeOpen((open) => !open)}
+    >
+      <InfoCircleOutlined className="mockup-notice__icon" />
+      <span>{t(mockupNoticeOpen ? 'notice.mockup' : 'notice.mockupShort')}</span>
+      {mockupNoticeOpen ? <UpOutlined /> : <DownOutlined />}
+    </button>
+  )
 
   return (
     <>
@@ -1145,11 +1178,15 @@ export default function CustomizerPage({
                   size="small"
                   value={productId}
                   onChange={handleProduct}
+                  showSearch
+                  filterOption={(input, option) =>
+                    String(option?.label || '').toLowerCase().includes(input.trim().toLowerCase())
+                  }
                   options={modelOptions}
                   popupMatchSelectWidth={false}
                 />
               </label>
-              {!product.gelRender && (
+              {!product.gelRender && !product.linkedFinish && (
                 <label className="mobile-head__field">
                   <span className="mobile-head__label">{t('label.case')}</span>
                   <Select
@@ -1192,10 +1229,13 @@ export default function CustomizerPage({
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
             >
               <div className="mobile-step-overlay__body">
-                <span className="mobile-step-overlay__hint">{stepTwoHint}</span>
                 <span className="mobile-step-overlay__hint">
                   {t('step2.mobileHint')}
                 </span>
+              </div>
+              <div className="mobile-stage-notices">
+                {mockupNotice}
+                <span className="mobile-stage-recommend">{stepTwoHint}</span>
               </div>
               <div className="mobile-step2-bar">
                 <button
@@ -1231,6 +1271,29 @@ export default function CustomizerPage({
             onPointerCancel={onSplitUp}
           >
             <span className="mobile-splitter__grip" />
+            {mobileSplitterGuideOpen && (
+              <div className="mobile-split-guide" role="status" aria-live="polite">
+                <div className="mobile-split-guide__card">
+                  <InfoCircleOutlined className="mobile-split-guide__info" />
+                  <span>{t('aria.splitter')}</span>
+                  <button
+                    type="button"
+                    className="mobile-split-guide__close"
+                    aria-label={t('action.dismiss')}
+                    onPointerDown={(event) => event.stopPropagation()}
+                    onClick={dismissMobileSplitterGuide}
+                  >
+                    <CloseOutlined />
+                  </button>
+                </div>
+                <div className="mobile-split-guide__motion" aria-hidden="true">
+                  <UpOutlined className="mobile-split-guide__arrow mobile-split-guide__arrow--up" />
+                  <span className="mobile-split-guide__track" />
+                  <span className="mobile-split-guide__sample-grip" />
+                  <DownOutlined className="mobile-split-guide__arrow mobile-split-guide__arrow--down" />
+                </div>
+              </div>
+            )}
           </div>
           <div className="mobile-tray" style={{ flexBasis: `${trayPct}%` }}>
             <div className="mobile-tray-body">
@@ -1261,6 +1324,7 @@ export default function CustomizerPage({
             <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
+            {mockupNotice}
             {stageNode}
             {zoomDock}
             {overlapAlert}

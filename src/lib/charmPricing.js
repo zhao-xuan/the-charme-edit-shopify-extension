@@ -29,6 +29,17 @@ export const DEFAULT_CHARM_PRICING_GROUPS = [
     price: 2,
     shopifyVariantId: '56014395212154',
   },
+  {
+    id: 'natural-shells',
+    label: 'Natural Shells',
+    enabled: true,
+    collection: 'Shells',
+    nameEquals: 'Natural Shell',
+    priceEquals: 0.5,
+    quantity: 3,
+    price: 2,
+    shopifyVariantId: '55868894216570',
+  },
 ]
 
 const clean = (value) => String(value || '').trim().toLowerCase()
@@ -43,6 +54,10 @@ export function normalizeCharmPricingGroups(groups) {
       enabled: group.enabled !== false,
       collection: String(group.collection || '').trim(),
       nameEquals: String(group.nameEquals || '').trim(),
+      priceEquals:
+        group.priceEquals === '' || group.priceEquals == null
+          ? null
+          : Number(group.priceEquals),
       quantity: Math.max(1, Math.round(Number(group.quantity) || 1)),
       price: Math.max(0, Number(group.price) || 0),
       shopifyVariantId: String(group.shopifyVariantId || '').trim(),
@@ -58,6 +73,7 @@ export function charmPricingGroupFor(charm, groups = DEFAULT_CHARM_PRICING_GROUP
     if (!group.enabled) return false
     if (group.collection && clean(group.collection) !== collection) return false
     if (group.nameEquals && clean(group.nameEquals) !== name) return false
+    if (group.priceEquals != null && Number(charm?.price) !== group.priceEquals) return false
     return true
   }) || null
 }

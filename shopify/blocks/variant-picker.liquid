@@ -1,0 +1,154 @@
+{% liquid
+  assign product_resource = closest.product
+  assign show_add_charms_step = false
+  assign use_charme_variant_selector = false
+
+  if request.visual_preview_mode and product_resource == blank
+    assign product_resource = collections.all.products.first
+  endif
+
+  if product_resource.handle == 'custom-charm-phone-case'
+    assign use_charme_variant_selector = true
+  endif
+
+  for collection in product_resource.collections
+    if collection.handle == 'customphonecases' or collection.handle == 'diyphonecasekits' or collection.handle == 'made-to-order-phone-case-only'
+      assign show_add_charms_step = true
+      break
+    endif
+  endfor
+-%}
+
+{% if use_charme_variant_selector %}
+  {% render 'charme-variant-selector', product_resource: product_resource %}
+{% elsif show_add_charms_step %}
+  <div class="product-options-step-one">Step 1: Select your phone model and gel</div>
+{% endif %}
+
+{% render 'variant-main-picker', product_resource: product_resource %}
+
+{% stylesheet %}
+  .product-options-step-one:not([data-charme-variant-selector]) {
+    color: var(--color-foreground);
+    font-family: var(--font-body--family);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-block-start: -14px;
+    margin-block-end: 0;
+  }
+
+  .product-options-step-one + .variant-picker {
+    margin-block-start: -18px;
+  }
+
+  .product-options-step-one ~ .buy-buttons-block {
+    margin-block-start: -12px;
+  }
+
+  .product-options-step-one ~ .buy-buttons-block .product-form-step:not(.product-form-step--two) {
+    display: none !important;
+  }
+
+  .product-options-step-one ~ .buy-buttons-block .product-form-step--two {
+    border-top: 1px solid var(--color-border);
+    font-size: 1.0625rem;
+    margin-block-start: var(--margin-lg);
+    padding-block-start: var(--padding-lg);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.product_variant_picker",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.resource_reference_product_variant_picker"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.edit_variants_in_theme_settings"
+    },
+    {
+      "type": "select",
+      "id": "variant_style",
+      "label": "t:settings.style",
+      "options": [
+        {
+          "value": "dropdowns",
+          "label": "t:options.dropdowns"
+        },
+        {
+          "value": "buttons",
+          "label": "t:options.buttons"
+        }
+      ],
+      "default": "buttons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatches",
+      "label": "t:settings.swatches",
+      "default": true
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "t:settings.alignment",
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_variant_picker",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

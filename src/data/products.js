@@ -15,7 +15,7 @@
  */
 import CASES_DATA from './cases.json'
 import CAMERA_KEEPOUTS from './camera-keepouts.json'
-import INTEGRATED_MODELS from './integrated-models.json'
+import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import { loadAdmin } from '../lib/adminStore'
 import { remoteCatalog } from '../lib/remoteCatalog'
 
@@ -51,25 +51,55 @@ function gelOverlaySrc(id) {
   return { white: `/assets/cases/gel-alone/gel-${rep}-white.png`, black: `/assets/cases/gel-alone/gel-${rep}-black.png` }
 }
 
-// The models with bespoke "integrated gel" renders — a single cohesive product
-// photo per finish with the poured gel already fused onto the case
-// (public/assets/cases/case-with-gel/integrated-<id>-<white|black>.png).
-// src/data/integrated-models.json identifies the models with these static assets.
-// For these models the gel colour drives the whole render —
-// White/Glitter gel sits on a White case, Black gel on a Black case — so we swap
-// the render in as the case photo and mark the product `gelRender` so the
-// customizer derives the case finish from the gel and skips the gel overlay.
-const INTEGRATED_GEL_MODELS = new Set(INTEGRATED_MODELS)
-function applyIntegratedGel(p) {
-  if (!INTEGRATED_GEL_MODELS.has(p.id)) return p
+const PLAIN_IPHONE_MODELS = new Set([
+  'iphone-7', 'iphone-7-plus', 'iphone-8', 'iphone-8-plus',
+  'iphone-x', 'iphone-xs', 'iphone-xs-max',
+  'iphone-11', 'iphone-11-pro', 'iphone-11-pro-max',
+  'iphone-12', 'iphone-12-mini', 'iphone-12-pro', 'iphone-12-pro-max',
+  'iphone-13', 'iphone-13-mini', 'iphone-13-pro', 'iphone-13-pro-max',
+  'iphone-14', 'iphone-14-plus', 'iphone-14-pro', 'iphone-14-pro-max',
+  'iphone-15', 'iphone-15-plus', 'iphone-15-pro', 'iphone-15-pro-max',
+  'iphone-16', 'iphone-16-plus', 'iphone-16-pro', 'iphone-16-pro-max',
+  'iphone-17', 'iphone-17-pro', 'iphone-17-pro-max', 'iphone-air',
+])
+function applyPlainIphoneCase(product) {
+  if (!PLAIN_IPHONE_MODELS.has(product.id)) return product
+  return {
+    ...product,
+    gelRender: false,
+    blankImage: {
+      white: `/assets/cases/case-without-gel/${product.id}-white.png`,
+      black: `/assets/cases/case-without-gel/${product.id}-black.png`,
+    },
+  }
+}
+
+// Android blank-case art must never contain poured gel. Use only verified files
+// from case-without-gel; every other finish falls back to ProductCanvas.
+const PLAIN_CASE_IMAGES = {
+  'pixel-6-pro': ['black', 'white'],
+  'pixel-7-pro': ['black', 'white'],
+  'pixel-8-pro': ['black', 'white'],
+  'pixel-9-pro': ['black', 'white'],
+  'pixel-10-pro': ['black', 'white'],
+  'galaxy-s22-ultra': ['black'],
+  'galaxy-s23-ultra': ['black', 'white'],
+  'galaxy-s24-ultra': ['black', 'white'],
+  'galaxy-s25-ultra': ['black', 'white'],
+  'galaxy-s26-ultra': ['black', 'white'],
+}
+function applyPlainCase(p) {
+  const colours = PLAIN_CASE_IMAGES[p.id] || []
+  const blankImage = Object.fromEntries(
+    colours.map((colour) => [colour, `/assets/cases/case-without-gel/${p.id}-${colour}.png`]),
+  )
   return {
     ...p,
-    gelRender: true,
-    gelImages: null, // the gel is baked into the render — no separate overlay
-    blankImage: {
-      white: `/assets/cases/case-with-gel/integrated-${p.id}-white.png`,
-      black: `/assets/cases/case-with-gel/integrated-${p.id}-black.png`,
-    },
+    gelRender: false,
+    gelImages: null,
+    plainCaseOnly: true,
+    linkedFinish: true,
+    ...(colours.length ? { blankImage } : {}),
   }
 }
 
@@ -102,6 +132,12 @@ function buildCamera(cameraKind, widthMm) {
       return { kind: 'samsungV3', xMm: 8, yMm: 8, wMm: 15, hMm: 40, rMm: 7 }
     case 'samsungV4': // Samsung Ultra — taller lens column
       return { kind: 'samsungV4', xMm: 8, yMm: 8, wMm: 16, hMm: 52, rMm: 8 }
+    case 'pixelBar':
+      return { kind: 'bar', xMm: 5, yMm: 8, wMm: +(widthMm - 10).toFixed(1), hMm: 20, rMm: 10 }
+    case 'pixelPill':
+      return { kind: 'bar', xMm: 9, yMm: 8, wMm: +(widthMm - 18).toFixed(1), hMm: 20, rMm: 10 }
+    case 'pixelOval':
+      return { kind: 'bar', xMm: 8, yMm: 8, wMm: 27, hMm: 17, rMm: 8.5 }
     case 'circle': { // Huawei round island, top-centre
       const d = 48
       return { kind: 'circle', xMm: +((widthMm - d) / 2).toFixed(1), yMm: 9, wMm: d, hMm: d, rMm: d / 2 }
@@ -262,6 +298,10 @@ const IPHONES = [
   ['iphone-x', 'iPhone X', 70.9, 143.6, 'squareDual', 26],
   ['iphone-xs', 'iPhone XS', 70.9, 143.6, 'squareDual', 26],
   ['iphone-xs-max', 'iPhone XS Max', 77.4, 157.5, 'squareDual', 26],
+  ['iphone-xr', 'iPhone XR', 75.7, 150.9, 'squareDual', 26],
+  ['iphone-se-2020', 'iPhone SE (2020)', 67.3, 138.4, 'squareDual', 26],
+  ['iphone-se-2022', 'iPhone SE (2022)', 67.3, 138.4, 'squareDual', 26],
+  ['iphone-6-6s', 'iPhone 6 / 6s', 67.1, 138.3, 'squareDual', 26],
   ['iphone-11', 'iPhone 11', 75.7, 150.9, 'squareDual', 26],
   ['iphone-11-pro', 'iPhone 11 Pro', 71.4, 144, 'squareTriple', 26],
   ['iphone-11-pro-max', 'iPhone 11 Pro Max', 77.8, 158, 'squareTriple', 26],
@@ -285,9 +325,11 @@ const IPHONES = [
   ['iphone-16-plus', 'iPhone 16 Plus', 80.8, 163.9, 'squareDual', 48],
   ['iphone-16-pro', 'iPhone 16 Pro', 74.5, 152.6, 'squareTriple', 48],
   ['iphone-16-pro-max', 'iPhone 16 Pro Max', 80.6, 166, 'squareTriple', 50],
+  ['iphone-16e', 'iPhone 16e', 71.5, 146.7, 'squareDual', 46],
   ['iphone-17', 'iPhone 17', 74.5, 152.6, 'bar', 46],
   ['iphone-17-pro', 'iPhone 17 Pro', 76, 153, 'bar', 48],
   ['iphone-17-pro-max', 'iPhone 17 Pro Max', 80.6, 166, 'bar', 50],
+  ['iphone-17e', 'iPhone 17e', 71.5, 146.7, 'squareDual', 46],
   // Case-outer footprint (bare 74.7×156.2 + ~3mm silicone wall) to match the
   // case-outer basis used by the rest of the line, so charms stay the same real
   // size across every model.
@@ -295,7 +337,7 @@ const IPHONES = [
 ]
   .map((a) => makePhone(...a))
   .map(applyPhotoCase)
-  .map(applyIntegratedGel)
+  .map(applyPlainIphoneCase)
   // Every phone case shares one base price; charms are added on top.
   .map((p) => ({ ...p, basePrice: PHONE_BASE_PRICE, brand: 'apple' }))
 
@@ -305,7 +347,7 @@ const IPHONES = [
  * uses the parametric gel render — a black gel = black case, white gel = white
  * case — matched to each device's real footprint + camera layout.
  */
-const ANDROIDS = [
+const LEGACY_ANDROIDS = [
   // id, name, widthMm, heightMm, cameraKind, basePrice, brand
   // — Samsung Galaxy S (floating vertical lens column) —
   ['galaxy-s24-ultra', 'Galaxy S24 Ultra', 79.0, 162.3, 'samsungV4', 26, 'samsung'],
@@ -328,18 +370,78 @@ const ANDROIDS = [
   ['huawei-p60-pro', 'Huawei P60 Pro', 74.5, 161.0, 'circle', 26, 'huawei'],
 ]
   .map((a) => makePhone(...a))
-  .map(applyIntegratedGel)
   // Every Android model is surfaced. Models with a generated integrated-gel
   // render use that baked photo; the rest fall back to the parametric gel render
   // (a black gel = black case, white gel = white case) drawn by ProductCanvas,
   // whose PhoneShell already knows each brand's camera layout (Samsung vertical
   // column, Huawei round island, Xiaomi square island), so no model is hidden
   // just for lacking a render.
-  .map((p) => ({ ...p, basePrice: PHONE_BASE_PRICE }))
+  .map((p) => ({ ...applyPlainCase(p), basePrice: PHONE_BASE_PRICE }))
+
+const LIVE_MODEL_IDS = [...new Set(Object.keys(BASE_PRODUCT_VARIANTS).map((key) => key.split(':')[0]))]
+const titleToken = (token) => {
+  if (token === 'plus') return '+'
+  if (/^[as]\d+s?$/i.test(token)) return token.toUpperCase()
+  if (/^\d+g$/i.test(token) || token === 'fe' || token === 'xl') return token.toUpperCase()
+  if (token === 'z') return 'Z'
+  return token.charAt(0).toUpperCase() + token.slice(1)
+}
+function liveModelName(id) {
+  const isPixel = id.startsWith('pixel-')
+  const prefix = isPixel ? 'Pixel ' : 'Galaxy '
+  let name = id.replace(isPixel ? /^pixel-/ : /^galaxy-/, '').split('-').map(titleToken).join(' ')
+  name = name.replace(/ (4G) (5G)$/, ' $1 / $2').replace(/^(A52) (A52S)/, '$1 / $2')
+  return prefix + name
+}
+
+const PIXEL_SPECS = {
+  'pixel-5': [70.4, 144.7, 'squareDual'],
+  'pixel-6': [74.8, 158.6, 'pixelBar'],
+  'pixel-6-pro': [75.9, 163.9, 'pixelBar'],
+  'pixel-6a': [71.8, 152.2, 'pixelBar'],
+  'pixel-7': [73.2, 155.6, 'pixelBar'],
+  'pixel-7-pro': [76.6, 162.9, 'pixelBar'],
+  'pixel-7a': [72.9, 152, 'pixelBar'],
+  'pixel-8': [70.8, 150.5, 'pixelBar'],
+  'pixel-8-pro': [76.5, 162.6, 'pixelBar'],
+  'pixel-8a': [72.7, 152.1, 'pixelBar'],
+  'pixel-9': [72, 152.8, 'pixelPill'],
+  'pixel-9-pro': [72, 152.8, 'pixelPill'],
+  'pixel-9-pro-xl': [76.6, 162.8, 'pixelPill'],
+  'pixel-9a': [73.3, 154.7, 'pixelOval'],
+  'pixel-10': [72, 152.8, 'pixelPill'],
+  'pixel-10-pro': [72, 152.8, 'pixelPill'],
+  'pixel-10-pro-xl': [76.6, 162.8, 'pixelPill'],
+}
+
+function samsungSpec(id) {
+  if (/z-fold/.test(id)) return [68, 155, 'samsungV3']
+  if (/z-flip/.test(id)) return [72, 165, 'squareDual']
+  if (/ultra|note/.test(id)) return [78, 163, 'samsungV4']
+  if (/plus/.test(id)) return [76, 158, 'samsungV3']
+  if (/^galaxy-s\d+-fe/.test(id)) return [77, 160, 'samsungV3']
+  if (/^galaxy-s/.test(id)) return [71, 148, 'samsungV3']
+  return [77, 164, 'samsungV3']
+}
+
+const LIVE_ANDROIDS = LIVE_MODEL_IDS
+  .filter((id) => id.startsWith('galaxy-') || id.startsWith('pixel-'))
+  .map((id) => {
+    const brand = id.startsWith('pixel-') ? 'google' : 'samsung'
+    const [widthMm, heightMm, cameraKind] = brand === 'google' ? PIXEL_SPECS[id] : samsungSpec(id)
+    return applyPlainCase(makePhone(id, liveModelName(id), widthMm, heightMm, cameraKind, PHONE_BASE_PRICE, brand))
+  })
+
+const liveAndroidIds = new Set(LIVE_ANDROIDS.map((product) => product.id))
+const ANDROIDS = [
+  ...LIVE_ANDROIDS,
+  ...LEGACY_ANDROIDS.filter((product) => !liveAndroidIds.has(product.id)),
+]
 
 /** Sub-brand display labels (used to group the Android model dropdown). */
 export const BRAND_LABELS = {
   apple: 'Apple',
+  google: 'Google',
   samsung: 'Samsung',
   xiaomi: 'Xiaomi',
   huawei: 'Huawei',
@@ -412,7 +514,7 @@ const BASE_PRODUCT_GROUPS = [
     key: 'android',
     label: 'Android',
     platform: 'android',
-    blurb: 'Samsung, Xiaomi & Huawei flagships in matched black or white gel.',
+    blurb: 'Google Pixel, Samsung, Xiaomi & Huawei cases in black or white.',
     products: ANDROIDS,
   },
   {
@@ -512,40 +614,18 @@ function applyAdminOverrides(groups) {
   const admin = loadAdmin()
   const remote = remoteCatalog() || {}
   const remotePrices = (remote.overrides && remote.overrides.productPrices) || {}
-  // A merchant product edited in Shopify (charme_product) carries its own
-  // base_price AND its uploaded body render(s); apply both to the matching
-  // built-in model by id so admin re-pricing shows up on the storefront and the
-  // case picture is served from the merchant's own Shopify Files (cdn.shopify.com)
-  // rather than the bundled Cloudflare art.
+  // A merchant product edited in Shopify (charme_product) carries its own base
+  // price. Built-in case art remains on the customizer's static asset host so
+  // the editor always uses the reviewed gel-free source images.
   const remoteProductPrice = {}
-  const remoteProductImg = {}
   for (const p of remote.products || []) {
     if (p.basePrice != null) remoteProductPrice[p.id] = p.basePrice
-    if (p.src) remoteProductImg[p.id] = { white: p.src, black: p.srcBlack || null }
   }
   const priceOf = (id, fallback) =>
     admin.productPrices[id] ?? remoteProductPrice[id] ?? remotePrices[id] ?? fallback
-  // Swap a built-in model's case render for the merchant's Shopify-hosted image
-  // when one exists (keeping the bundled render as a per-finish fallback). The
-  // migrated Shopify file holds each model's real render — the integrated-gel
-  // photo for gel-render models, the plain case otherwise — so the look is
-  // unchanged, only the host (Shopify) differs.
-  const withRemoteImage = (p) => {
-    const img = remoteProductImg[p.id]
-    if (!img || !p.blankImage) return p
-    return {
-      ...p,
-      blankImage: {
-        ...p.blankImage,
-        white: img.white || p.blankImage.white,
-        black: img.black || p.blankImage.black || img.white,
-        default: img.white || p.blankImage.default,
-      },
-    }
-  }
   const priced = groups.map((g) => ({
     ...g,
-    products: g.products.map((p) => withRemoteImage({
+    products: g.products.map((p) => ({
       ...p,
       basePrice: priceOf(p.id, p.basePrice),
     })),

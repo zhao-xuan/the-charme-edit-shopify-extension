@@ -41,8 +41,9 @@
 {%- capture cfg_variant_map -%}
 {%- if variant_map -%}{{ variant_map }}{%- else -%}
 {
-  "products": { "iphone-16-pro:white": 0, "iphone-16-pro:black": 0 },
-  "charmByPrice": { "2": 0, "3": 0, "5": 0 }
+  "products": {},
+  "charms": {},
+  "charmByPrice": {}
 }
 {%- endif -%}
 {%- endcapture -%}
@@ -54,7 +55,7 @@
       <div class="charme-modal__topbar">
         <button type="button" class="charme-back" data-charme-close aria-label="Back to product">
           <span class="charme-back__arrow" aria-hidden="true">&#8592;</span>
-          <span>{{ back_label | default: 'Back' | escape }}</span>
+          <span class="charme-back__label">{{ back_label | default: 'Back' | escape }}</span>
         </button>
         {%- if cfg_logo -%}
           <img class="charme-logo-img" src="{{ cfg_logo }}" alt="{{ shop.name | escape }}">
@@ -85,6 +86,7 @@
   .charme-logo-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-height:40px;width:auto;pointer-events:none}
   .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
   body.charme-modal-open{overflow:hidden}
+  @media (max-width:480px){.charme-back__label{display:none}}
 </style>
 
 <script>
@@ -150,8 +152,13 @@
     };
     function slugModel(model) {
       if (!model) return '';
-      var s = String(model).trim().toLowerCase().replace(/\s+/g, '-');
-      return /^iphone-(1[3-7](-(plus|pro-max|pro))?|air)$/.test(s) ? s : '';
+      var s = String(model).trim().toLowerCase();
+      if (/^any other/.test(s)) return 'other';
+      return s
+        .replace(/\+/g, ' plus ')
+        .replace(/\//g, ' ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
     }
     function mapVariant(caseGel, model) {
       var out = { product: slugModel(model) };

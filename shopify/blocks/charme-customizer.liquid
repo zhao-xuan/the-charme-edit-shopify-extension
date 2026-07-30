@@ -1,0 +1,16 @@
+{% if product.handle == 'custom-charm-phone-case' %}
+  {% render 'charme-customizer', id: 'product-page' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Charme customizer",
+  "tag": null,
+  "settings": [],
+  "presets": [
+    {
+      "name": "Charme customizer"
+    }
+  ]
+}
+{% endschema %}

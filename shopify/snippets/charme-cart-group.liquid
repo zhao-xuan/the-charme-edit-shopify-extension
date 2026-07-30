@@ -35,6 +35,140 @@
 <script>
 (function () {
 
+  var latestCart = null;
+  var refreshTimer;
+
+  function base64UrlEncode(value) {
+    var bytes = new TextEncoder().encode(value);
+    var binary = '';
+    for (var i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+
+  function hydrateEditLinks(cart) {
+    var layouts = {};
+    (cart.items || []).forEach(function (item) {
+      var properties = item.properties || {};
+      var token = properties._design_token;
+      var layout = properties._layout;
+      if (!token || properties._role === 'charm' || typeof layout !== 'string' || !layout || layout.length > 120000) return;
+      try { JSON.parse(layout); } catch (error) { return; }
+      layouts[token] = layout;
+    });
+    document.querySelectorAll('[data-charme-edit-token][data-charme-edit-url]').forEach(function (link) {
+      var token = link.getAttribute('data-charme-edit-token') || '';
+      var layout = layouts[token];
+      if (!/^[A-Za-z0-9_-]{1,128}$/.test(token) || !layout) return;
+      try {
+        var url = new URL(link.getAttribute('data-charme-edit-url'), window.location.origin);
+        var hash = new URLSearchParams();
+        hash.set('charme_layout', base64UrlEncode(layout));
+        hash.set('charme_edit_token', token);
+        url.hash = hash.toString();
+        link.href = url.toString();
+        link.setAttribute('data-charme-edit-ready', '1');
+      } catch (error) {}
+    });
+  }
+
+  function decodeBridgePayload(encoded) {
+    if (!encoded || encoded.length > 200000) throw new Error('Invalid cart payload');
+    var base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) base64 += '=';
+    var binary = atob(base64);
+    var bytes = new Uint8Array(binary.length);
+    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+
+  function bridgeItems(payload) {
+    if (!payload || payload.version !== 1 || !Array.isArray(payload.items) || payload.items.length > 100) {
+      throw new Error('Invalid cart payload');
+    }
+    return payload.items.map(function (raw) {
+      var id = Number(raw && raw.id);
+      var quantity = Number(raw && raw.quantity) || 1;
+      if (!Number.isSafeInteger(id) || id <= 0 || !Number.isSafeInteger(quantity) || quantity <= 0) {
+        throw new Error('Invalid cart item');
+      }
+      var properties = {};
+      Object.keys((raw && raw.properties) || {}).forEach(function (key) {
+        var value = raw.properties[key];
+        if (typeof key !== 'string' || key.length > 255 || value == null || String(value).length > 120000) {
+          throw new Error('Invalid cart properties');
+        }
+        properties[key] = String(value);
+      });
+      return { id: id, quantity: quantity, properties: properties };
+    });
+  }
+
+  async function applyCartBridge() {
+    var params = new URLSearchParams(location.hash.replace(/^#/, ''));
+    var encoded = params.get('charme-cart');
+    if (!encoded) return false;
+    if (window.__charmeAdding) return true;
+    window.__charmeAdding = true;
+    try {
+      var payload = decodeBridgePayload(encoded);
+      var items = bridgeItems(payload);
+      var cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) {
+        if (!r.ok) throw new Error('Could not read cart');
+        return r.json();
+      });
+      var existingTokens = {};
+      (cart.items || []).forEach(function (item) {
+        var token = item.properties && item.properties._design_token;
+        if (token) existingTokens[token] = true;
+      });
+      var missing = items.filter(function (item) {
+        var token = item.properties && item.properties._design_token;
+        return !token || !existingTokens[token];
+      });
+      if (missing.length) {
+        var addResponse = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ items: missing }),
+        });
+        if (!addResponse.ok) throw new Error('Could not add design to cart');
+      }
+
+      var replaceToken = String(payload.replaceDesignToken || '');
+      var incomingTokens = {};
+      items.forEach(function (item) {
+        var token = item.properties && item.properties._design_token;
+        if (token) incomingTokens[token] = true;
+      });
+      if (/^[A-Za-z0-9_-]{1,128}$/.test(replaceToken) && !incomingTokens[replaceToken]) {
+        var refreshed = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) {
+          if (!r.ok) throw new Error('Could not verify cart');
+          return r.json();
+        });
+        var updates = {};
+        (refreshed.items || []).forEach(function (item) {
+          if (item.properties && item.properties._design_token === replaceToken) updates[item.key] = 0;
+        });
+        if (Object.keys(updates).length) {
+          var updateResponse = await fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ updates: updates }),
+          });
+          if (!updateResponse.ok) throw new Error('Could not replace old design');
+        }
+      }
+
+      history.replaceState(null, '', location.pathname + location.search);
+      window.location.reload();
+    } catch (error) {
+      window.__charmeAdding = false;
+      console.error('[Charmé] cart bridge failed', error);
+      window.alert('We could not update your cart. Please refresh this page to try again.');
+    }
+    return true;
+  }
+
   // If a base case line is removed, its charm lines are orphaned — remove them
   // too so the cart stays consistent (charm rows are hidden and can't be removed
   // on their own). Detects any _design_token group that has charms but no base.
@@ -63,9 +197,15 @@
   }
 
   async function applyAll() {
+    if (await applyCartBridge()) return;
     var cart;
-    try { cart = await fetch('/cart.js', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }); }
+    try { cart = await fetch('/cart.js', { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('Could not read cart');
+      return r.json();
+    }); }
     catch (e) { return; }
+    latestCart = cart;
+    hydrateEditLinks(cart);
     // Visual folding is now done SERVER-SIDE (snippets/charme-cart-line.liquid),
     // so it works in the cart page AND the drawer with no timing issues. Here we
     // only clean up orphaned charm lines when the base case is removed.
@@ -75,7 +215,16 @@
   function boot() {
     applyAll();
     var t;
-    var reapply = function () { clearTimeout(t); t = setTimeout(applyAll, 120); };
+    var reapply = function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        if (latestCart) hydrateEditLinks(latestCart);
+      }, 120);
+    };
+    var refresh = function () {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(applyAll, 250);
+    };
 
     // Re-check for orphaned charm lines whenever the cart re-renders in the cart
     // page or the drawer (the drawer is re-rendered wholesale on add-to-cart — a
@@ -88,14 +237,20 @@
     document.addEventListener('click', function (e) {
       var t2 = e.target;
       if (t2 && t2.closest && t2.closest('[data-testid="cart-drawer-trigger"], cart-drawer-component, .cart-drawer, a[href$="/cart"]')) reapply();
+      if (t2 && t2.closest && t2.closest('.cart-items__remove')) refresh();
     }, true);
 
     ['cart:refresh', 'cart:updated', 'cart:change', 'cart:add', 'on:cart:update'].forEach(function (ev) {
-      document.addEventListener(ev, applyAll);
+      document.addEventListener(ev, refresh);
     });
 
     // A couple of delayed passes for late-hydrating drawers.
-    [400, 1200].forEach(function (d) { setTimeout(applyAll, d); });
+    [400, 1200].forEach(function (d) {
+      setTimeout(function () {
+        if (latestCart) hydrateEditLinks(latestCart);
+        else applyAll();
+      }, d);
+    });
   }
   if (document.readyState !== 'loading') boot();
   else document.addEventListener('DOMContentLoaded', boot);

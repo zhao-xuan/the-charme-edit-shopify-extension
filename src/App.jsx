@@ -2,10 +2,145 @@ import CustomizerPage from './customizer/CustomizerPage'
 import MerchantStudio from './components/MerchantStudio'
 import AdminPage from './components/AdminPage'
 import CaseReviewPage from './components/CaseReviewPage'
+import { ArrowLeftOutlined } from '@ant-design/icons'
+import { createStorefrontCartHandler } from '../shopify/widget/shopifyCart'
+import { t } from './lib/i18n'
+
+const STOREFRONT_ORIGIN = 'https://thecharmeedit.com'
+const STOREFRONT_HOSTS = new Set([
+  'thecharmeedit.com',
+  'www.thecharmeedit.com',
+  '7ftyeu-0m.myshopify.com',
+])
+
+function editorCartUrl() {
+  const fallback = new URL('/cart', STOREFRONT_ORIGIN)
+  if (typeof window === 'undefined') return fallback
+
+  const candidate = new URLSearchParams(window.location.search).get('cart_url')
+  if (!candidate) return fallback
+
+  try {
+    const url = new URL(candidate, STOREFRONT_ORIGIN)
+    const pathname = url.pathname.replace(/\/+$/, '') || '/'
+    if (
+      STOREFRONT_HOSTS.has(url.hostname) &&
+      /^https?:$/.test(url.protocol) &&
+      pathname === '/cart'
+    ) {
+      return url
+    }
+  } catch {
+    // Ignore malformed or untrusted cart targets.
+  }
+
+  return fallback
+}
+
+const editorCartDestination = editorCartUrl()
+
+function decodeEditorLayout(encoded) {
+  if (!encoded || encoded.length > 120000) return null
+  try {
+    const base64 = encoded.replace(/-/g, '+').replace(/_/g, '/')
+    const binary = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='))
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0))
+    const saved = JSON.parse(new TextDecoder().decode(bytes))
+    const product = saved?.product || {}
+    if (!product.id || !Array.isArray(saved?.charms)) return null
+    return {
+      productId: product.id,
+      caseColourId: product.caseColour?.id || product.colorId,
+      gelColourId: product.gelId || product.gelColour?.id || undefined,
+      charms: saved.charms.map((charm) => ({
+        charmId: charm.charmId,
+        shopifyVariantId: charm.shopifyVariantId,
+        src: charm.src,
+        name: charm.name,
+        category: charm.category,
+        collection: charm.collection,
+        type: charm.type,
+        price: charm.price,
+        bundle: charm.bundle,
+        cxMm: charm.xMm,
+        cyMm: charm.yMm,
+        wMm: charm.wMm,
+        hMm: charm.hMm,
+        rot: charm.rotDeg,
+        scale: charm.scale,
+      })),
+    }
+  } catch {
+    return null
+  }
+}
+
+function editorEditState() {
+  if (typeof window === 'undefined') return {}
+  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''))
+  const token = params.get('charme_edit_token') || ''
+  const layout = decodeEditorLayout(params.get('charme_layout'))
+  return {
+    layout,
+    replaceDesignToken: /^[A-Za-z0-9_-]{1,128}$/.test(token) ? token : undefined,
+  }
+}
+
+const editorEdit = editorEditState()
+
+const editorCart =
+  typeof window === 'undefined'
+    ? null
+    : createStorefrontCartHandler({
+        storeUrl: editorCartDestination.origin,
+        cartUrl: editorCartDestination.href,
+        cartBridge: new URLSearchParams(window.location.search).get('cart_bridge') === '1',
+        replaceDesignToken: editorEdit.replaceDesignToken,
+        uploadEndpoint: `${window.location.origin}/api/upload-proof`,
+      })
 
 function isCaseReviewView() {
   if (typeof window === 'undefined') return false
   return /^\/case-review\/?$/i.test(window.location.pathname)
+}
+
+function editorInitialState() {
+  if (typeof window === 'undefined') return {}
+  const params = new URLSearchParams(window.location.search)
+  const requested = {
+    initialProductId: params.get('product') || undefined,
+    initialCaseColourId: params.get('case') || undefined,
+    initialGelColourId: params.get('gel') || undefined,
+  }
+  if (!editorEdit.layout) return requested
+  return {
+    initialProductId: editorEdit.layout.productId,
+    initialCaseColourId: editorEdit.layout.caseColourId,
+    initialGelColourId: editorEdit.layout.gelColourId,
+    initialLayout: editorEdit.layout,
+  }
+}
+
+function editorReturnUrl() {
+  if (typeof window === 'undefined') return STOREFRONT_ORIGIN
+  const params = new URLSearchParams(window.location.search)
+  const candidates = [params.get('return_to'), document.referrer]
+
+  for (const candidate of candidates) {
+    if (!candidate) continue
+    try {
+      const url = new URL(candidate, STOREFRONT_ORIGIN)
+      if (STOREFRONT_HOSTS.has(url.hostname) && /^https?:$/.test(url.protocol)) return url.href
+    } catch {
+      // Ignore malformed or untrusted return targets.
+    }
+  }
+
+  return STOREFRONT_ORIGIN
+}
+
+function leaveEditor() {
+  if (typeof window !== 'undefined') window.location.assign(editorReturnUrl())
 }
 
 /**
@@ -63,14 +198,30 @@ export default function App() {
     )
   }
 
+  const editorProps = editorInitialState()
+
   return (
     <div className="app-shell">
-      <header className="topbar">
+      <header className="topbar topbar--editor">
+        <button
+          type="button"
+          className="topbar-back"
+          onClick={leaveEditor}
+          aria-label={t('action.back')}
+          title={t('action.back')}
+        >
+          <ArrowLeftOutlined aria-hidden="true" />
+          <span>{t('action.back')}</span>
+        </button>
         <div className="brand">
           <span className="mark">The Charmé Edit</span>
         </div>
       </header>
-      <CustomizerPage />
+      <CustomizerPage
+        {...editorProps}
+        onPlaceOrder={editorCart?.onPlaceOrder}
+        onGoToCart={editorCart?.goToCart}
+      />
     </div>
   )
 }

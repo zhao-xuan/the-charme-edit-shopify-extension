@@ -87,15 +87,20 @@ export function settings() {
 /** Shallow-merge stored settings over the defaults so missing keys are safe. */
 function mergeDefaults(data) {
   const d = data && typeof data === 'object' ? data : {}
+  const storedPricingGroups = normalizeCharmPricingGroups(
+    d.charmPricingGroups || DEFAULT_SETTINGS.charmPricingGroups,
+  )
+  const storedPricingIds = new Set(storedPricingGroups.map((group) => group.id))
   return {
     ...DEFAULT_SETTINGS,
     ...d,
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
-    charmPricingGroups: normalizeCharmPricingGroups(
-      d.charmPricingGroups || DEFAULT_SETTINGS.charmPricingGroups,
-    ),
+    charmPricingGroups: [
+      ...storedPricingGroups,
+      ...DEFAULT_CHARM_PRICING_GROUPS.filter((group) => !storedPricingIds.has(group.id)),
+    ],
     variantSelector: {
       ...DEFAULT_SETTINGS.variantSelector,
       ...(d.variantSelector || {}),

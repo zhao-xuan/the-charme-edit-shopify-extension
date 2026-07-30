@@ -11,6 +11,7 @@ import {
   Image,
   Input,
   InputNumber,
+  Modal,
   Popover,
   Segmented,
   Select,
@@ -82,11 +83,9 @@ const slug = (s) =>
     .slice(0, 40) || 'item'
 const rid = () => Math.random().toString(36).slice(2, 7)
 
-const gptCutoutPrompt = ({ productName, widthMm, heightMm, photoMode, standaloneLongMm }) => {
-  const standalone = photoMode === 'standalone'
-  return `Edit the attached source photograph into a technical cut-out mask for catalogue import.
+const gptCutoutPrompt = ({ productName, widthMm, heightMm }) => `Edit the attached source photograph into a technical cut-out mask for catalogue import.
 
-Keep ${standalone ? 'the single physical charm' : 'every physical charm'} exactly as photographed. Remove ${standalone ? 'the plain background and surface' : 'the phone case/product body, camera opening, table/background'}, dust, labels, cast shadows, reflections that are not part of ${standalone ? 'the charm' : 'a charm'}, and every other non-charm pixel.
+Keep every physical charm exactly as photographed. Remove the phone case/product body, camera opening, table/background, dust, labels, cast shadows, reflections that are not part of a charm, and every other non-charm pixel.
 
 OUTPUT CONTRACT — all points are mandatory:
 1. Return one PNG with a genuinely transparent background (alpha channel), not white, checkerboard, or a screenshot.
@@ -96,12 +95,9 @@ OUTPUT CONTRACT — all points are mandatory:
 5. Do not add text, numbers, borders, guides, shadows, or a new background.
 6. Each separate physical charm must remain a separate alpha component; do not join neighbouring pieces.
 
-${standalone
-  ? `Charm reference: ${productName?.trim() || 'unnamed charm'}, ${Number(standaloneLongMm) || 0} mm on its real long side.`
-  : `Product reference: ${productName?.trim() || 'unnamed product'}, ${Number(widthMm) || 0} mm × ${Number(heightMm) || 0} mm.`}
+Product reference: ${productName?.trim() || 'unnamed product'}, ${Number(widthMm) || 0} mm × ${Number(heightMm) || 0} mm.
 
 Before returning the PNG, verify that overlaying it on the source photograph at 100% would put every retained charm back in exactly the same place and at exactly the same size.`
-}
 
 /** Move an item within an array (returns a new array). */
 const moveInArray = (arr, from, to) => {
@@ -1019,6 +1015,126 @@ function CharmsTab({ draft, set, cloud }) {
 // ---------------------------------------------------------------------------
 const vsNode = (label) => ({ id: rid(), label: label || 'New group', children: [], models: [] })
 
+function VariantModelList({ groupLabel, models, value, onChange }) {
+  const assigned = value || []
+  const available = Array.from(new Set([...(models || []), ...assigned]))
+  const [open, setOpen] = useState(false)
+  const [draft, setDraft] = useState([])
+  const [query, setQuery] = useState('')
+  const normalizedQuery = query.trim().toLowerCase()
+  const visible = available.filter((model) => !normalizedQuery || model.toLowerCase().includes(normalizedQuery))
+  const selected = new Set(draft)
+
+  const openEditor = () => {
+    setDraft(assigned)
+    setQuery('')
+    setOpen(true)
+  }
+  const toggle = (model) => {
+    setDraft((current) => (current.includes(model) ? current.filter((item) => item !== model) : [...current, model]))
+  }
+  const apply = () => {
+    const ordered = available.filter((model) => selected.has(model))
+    onChange(ordered)
+    setOpen(false)
+  }
+
+  return (
+    <div style={{ marginTop: 8, border: '1px solid var(--line)', borderRadius: 6, overflow: 'hidden', background: '#fff' }}>
+      <div style={{ minHeight: 38, padding: '7px 8px 7px 10px', display: 'flex', alignItems: 'center', gap: 6, borderBottom: assigned.length ? '1px solid var(--line)' : 0, background: '#faf8f3' }}>
+        <span style={{ minWidth: 0, flex: 1, fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Phone models</span>
+        <Tag style={{ margin: 0 }}>{assigned.length}</Tag>
+        <Button size="small" type="text" icon={<EditOutlined />} onClick={openEditor}>
+          Manage
+        </Button>
+      </div>
+
+      {assigned.length ? (
+        <div style={{ maxHeight: 210, overflowY: 'auto', padding: 4 }}>
+          {assigned.map((model) => (
+            <button
+              key={model}
+              type="button"
+              onClick={openEditor}
+              style={{
+                width: '100%',
+                minHeight: 34,
+                padding: '6px 8px',
+                border: 0,
+                borderBottom: '1px solid #f0ece4',
+                background: 'transparent',
+                color: 'var(--ink)',
+                fontFamily: 'inherit',
+                fontSize: 13,
+                textAlign: 'left',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{model}</span>
+              <EditOutlined style={{ color: 'var(--ink-soft)', fontSize: 12 }} />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={openEditor}
+          style={{ width: '100%', padding: '14px 10px', border: 0, background: '#fff', color: 'var(--ink-soft)', fontFamily: 'inherit', fontSize: 13, textAlign: 'left', cursor: 'pointer' }}
+        >
+          No phone models assigned
+        </button>
+      )}
+
+      <Modal
+        open={open}
+        title={`Phone models · ${groupLabel || 'Unnamed group'}`}
+        okText="Apply models"
+        cancelText="Cancel"
+        width={620}
+        onOk={apply}
+        onCancel={() => setOpen(false)}
+      >
+        <Input
+          allowClear
+          placeholder="Search phone models"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          style={{ marginBottom: 10 }}
+        />
+        <div style={{ minHeight: 30, display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+          <span style={{ flex: 1, color: 'var(--ink-soft)', fontSize: 13 }}>{draft.length} selected</span>
+          <Button
+            size="small"
+            type="text"
+            disabled={!visible.length}
+            onClick={() => setDraft((current) => Array.from(new Set([...current, ...visible])))}
+          >
+            Select shown
+          </Button>
+          <Button size="small" type="text" disabled={!draft.length} onClick={() => setDraft([])}>
+            Clear
+          </Button>
+        </div>
+        <div style={{ maxHeight: 390, overflowY: 'auto', border: '1px solid var(--line)', borderRadius: 6, background: '#fff' }}>
+          {visible.length ? visible.map((model) => (
+            <label
+              key={model}
+              style={{ minHeight: 40, padding: '8px 12px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #f0ece4', cursor: 'pointer' }}
+            >
+              <Checkbox checked={selected.has(model)} onChange={() => toggle(model)}>{model}</Checkbox>
+            </label>
+          )) : (
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No matching phone models" style={{ margin: '28px 0' }} />
+          )}
+        </div>
+      </Modal>
+    </div>
+  )
+}
+
 // One recursive node of the model hierarchy (brand → sub-brand → … → models).
 function VariantTreeNode({ node, models, depth, onChange, onDelete, onMove, canUp, canDown }) {
   const set = (patch) => onChange({ ...node, ...patch })
@@ -1034,16 +1150,11 @@ function VariantTreeNode({ node, models, depth, onChange, onDelete, onMove, canU
         <Button size="small" type="text" danger icon={<DeleteOutlined />} onClick={onDelete} />
       </div>
       {kids.length === 0 && (
-        <Select
-          mode="multiple"
-          size="small"
-          allowClear
-          placeholder="Phone models in this group"
+        <VariantModelList
+          groupLabel={node.label}
+          models={models}
           value={node.models || []}
-          onChange={(v) => set({ models: v })}
-          options={models.map((m) => ({ value: m, label: m }))}
-          style={{ width: '100%', marginTop: 6 }}
-          maxTagCount="responsive"
+          onChange={(nextModels) => set({ models: nextModels })}
         />
       )}
       {kids.map((c, i) => (
@@ -2530,59 +2641,46 @@ function BatchExtractTab({ draft, set }) {
   }
 
   const importGpt = async () => {
-    if (!photo?.src) return message.warning(standalone ? 'Upload the original single-charm photo first.' : 'Upload the original charms-on-product photo first.')
+    if (!photo?.src) return message.warning('Upload the original charms-on-product photo first.')
     if (!gptPhoto?.src) return message.warning('Upload the transparent PNG returned by GPT.')
     const widthMm = Number(form.widthMm) || 0
     const heightMm = Number(form.heightMm) || 0
-    const standaloneLongMm = Number(form.standaloneLongMm) || 0
-    if (standalone && !standaloneLongMm) return message.warning('Enter the charm’s real long-side size in mm.')
-    if (!standalone && (!widthMm || !heightMm)) return message.warning('Enter the product width and height in mm.')
+    if (!widthMm || !heightMm) return message.warning('Enter the product width and height in mm.')
     const seq = ++runSeq.current
     setBusy(true)
     try {
       const sourceData = await loadImageData(photo.src, 1200)
+      const source = extractPieces(sourceData, {
+        productLongMm: Math.max(widthMm, heightMm),
+        pieceTol: tune.pieceTol,
+        minPieceMm: tune.minPieceMm,
+        warmOnly: tune.warmOnly,
+      })
+      if (!source.product.detected) {
+        message.warning('Could not find the product outline in the original photo, so its real-world scale cannot be calculated.')
+        return
+      }
       const gptData = await loadImageData(gptPhoto.src, 1200)
       const sourceAspect = sourceData.width / sourceData.height
       const gptAspect = gptData.width / gptData.height
       if (Math.abs(sourceAspect / gptAspect - 1) > 0.03) {
         throw new Error('The GPT PNG changed the canvas aspect ratio. Ask GPT to preserve the source canvas and try again.')
       }
-      let product
-      let out
-      if (standalone) {
-        product = { detected: false, mode: 'standalone', pxW: 0, pxH: 0, longMm: 0, detector: 'gpt-alpha' }
-        out = extractTransparentPieces(gptData, { standaloneLongMm })
-      } else {
-        const source = extractPieces(sourceData, {
-          productLongMm: Math.max(widthMm, heightMm),
-          pieceTol: tune.pieceTol,
-          minPieceMm: tune.minPieceMm,
-          warmOnly: tune.warmOnly,
-        })
-        if (!source.product.detected) {
-          message.warning('Could not find the product outline in the original photo, so its real-world scale cannot be calculated.')
-          return
-        }
-        const mmPerPx = source.mmPerPx * (sourceData.width / gptData.width)
-        product = source.product
-        out = extractTransparentPieces(gptData, {
-          mmPerPx,
-          minPieceMm: tune.minPieceMm,
-          maxPieceMm: 55,
-        })
-      }
+      const mmPerPx = source.mmPerPx * (sourceData.width / gptData.width)
+      const out = extractTransparentPieces(gptData, {
+        mmPerPx,
+        minPieceMm: tune.minPieceMm,
+        maxPieceMm: 55,
+      })
       if (seq !== runSeq.current) return
-      setResult({ overlay: out.overlay, mmPerPx: out.mmPerPx, product, mode: 'gpt' })
+      setResult({ overlay: out.overlay, mmPerPx, product: source.product, mode: 'gpt' })
       setPieces(out.pieces.map((piece, index) => ({
         ...piece,
         include: true,
-        name: standalone
-          ? form.productName.trim() || 'Charm'
-          : `${form.productName.trim() || 'Charm'} ${index + 1}`,
+        name: `${form.productName.trim() || 'Charm'} ${index + 1}`,
         category: form.category,
       })))
       if (!out.pieces.length) message.info('No transparent charm components were found in the GPT PNG.')
-      else if (standalone) message.success('Imported 1 GPT cut-out. Verify its real size before adding.')
       else message.success(`Imported ${out.pieces.length} GPT cut-out${out.pieces.length === 1 ? '' : 's'}. Verify every piece and size before adding.`)
     } catch (error) {
       message.error(error.message || 'Could not import the GPT PNG.')
@@ -2796,27 +2894,21 @@ function BatchExtractTab({ draft, set }) {
           Detect & cut pieces
         </Button>
 
-        <Divider style={{ margin: '18px 0 14px' }} />
-        <div className="gpt-extract__toggle">
+        {!standalone && <Divider style={{ margin: '18px 0 14px' }} />}
+        {!standalone && <div className="gpt-extract__toggle">
           <Switch size="small" checked={gptOpen} onChange={setGptOpen} aria-label="Use GPT-assisted cut-outs" />
           <div>
             <strong>Optional · GPT-assisted cut-outs</strong>
-            <p className="hint">
-              {standalone
-                ? 'Use this when a subtle or transparent charm needs cleaner background removal.'
-                : 'Use this when subtle, transparent or crowded pieces need a cleaner background removal.'}
-            </p>
+            <p className="hint">Use this when subtle, transparent or crowded pieces need a cleaner background removal.</p>
           </div>
-        </div>
-        {gptOpen && (
+        </div>}
+        {!standalone && gptOpen && (
           <div className="gpt-extract">
             <Alert
               type="warning"
               showIcon
               message="GPT is a fallback, not a measurement authority"
-              description={standalone
-                ? 'Upload the same original photo to GPT. The returned PNG must keep the original canvas and charm scale. Its long side will use the real millimetre size entered above; review the result before adding it.'
-                : 'Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding it.'}
+              description="Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding it."
             />
             <label>
               <span>1 · Copy this prompt and send it with the original photo</span>
@@ -2841,7 +2933,7 @@ function BatchExtractTab({ draft, set }) {
               disabled={!photo?.src || !gptPhoto?.src}
               onClick={importGpt}
             >
-              {standalone ? 'Import GPT cut-out' : 'Import GPT cut-outs'}
+              Import GPT cut-outs
             </Button>
           </div>
         )}
@@ -2853,7 +2945,7 @@ function BatchExtractTab({ draft, set }) {
           title={result.product.detected
             ? `2 · Review (${selected.length}/${pieces.length} selected · ${result.mmPerPx.toFixed(3)} mm/px${result.mode === 'gpt' ? ' · GPT cut-outs' : ''})`
             : result.product.mode === 'standalone'
-              ? `2 · Review (${selected.length}/${pieces.length} selected · single charm${result.mode === 'gpt' ? ' · GPT cut-out' : ''})`
+              ? `2 · Review (${selected.length}/${pieces.length} selected · single charm)`
               : '2 · Review · Product not found'}
         >
           <Spin spinning={busy}>
@@ -2863,9 +2955,7 @@ function BatchExtractTab({ draft, set }) {
                 <Image src={result.overlay} alt="detection preview" />
                 <p className="hint" style={{ marginTop: 6 }}>
                   {result.mode === 'gpt'
-                    ? result.product.mode === 'standalone'
-                      ? 'Magenta = the transparent GPT cut-out. Its millimetre size uses the real long side entered above; compare it with the original photo.'
-                      : 'Magenta = each transparent GPT component. Compare every cut-out with the original photo.'
+                    ? 'Magenta = each transparent GPT component. Compare every cut-out with the original photo.'
                     : result.product.mode === 'standalone'
                       ? 'Magenta = the isolated charm. Its millimetre size uses the real long side entered above; adjust width or height below if needed.'
                     : 'Cyan = product outline (the ruler). Magenta = each detected charm.'}

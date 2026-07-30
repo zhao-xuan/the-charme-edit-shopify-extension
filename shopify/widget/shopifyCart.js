@@ -16,6 +16,20 @@
 import baseProducts from './variantmap-products.generated.json'
 import { charmChargeLines } from '../../src/lib/charmPricing'
 import { settings } from '../../src/lib/settings'
+import { fetchVariantDetails, resolvePricedVariant } from '../../src/lib/shopifyVariant'
+import {
+  submitStorefrontCartBridge,
+  submitStorefrontCartForm,
+} from '../../src/lib/storefrontCart'
+
+const DEFAULT_CHARM_BY_PRICE = {
+  1: '56027931935098',
+  1.5: '56450822701434',
+  2: '55870432903546',
+  3: '56014459765114',
+}
+
+const variantDetailsCache = new Map()
 
 function token() {
   return 'cd_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
@@ -53,6 +67,125 @@ function resolveProductVariant(variantMap, payload) {
     p[`other:${gel}`] ||
     null
   )
+}
+
+function cartVariantMap(cfg) {
+  const configured = cfg.variantMap || {}
+  return {
+    ...configured,
+    products: { ...baseProducts, ...(configured.products || {}) },
+    charms: { ...(configured.charms || {}) },
+  }
+}
+
+function firstMappedVariant(candidates) {
+  return [...new Set(candidates.filter(Boolean).map(String))][0] || null
+}
+
+async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
+  const baseVariant = resolveProductVariant(variantMap, payload)
+  if (!baseVariant) {
+    throw new Error(
+      `No Shopify variant mapped for "${payload.product.id}". Add it to the block's Variant map.`,
+    )
+  }
+
+  const designToken = token()
+  const proofUrl = await uploadProof(cfg.uploadEndpoint, payload.proofs?.sampleUrl, designToken)
+
+  const byPrice = { ...DEFAULT_CHARM_BY_PRICE, ...(variantMap.charmByPrice || {}) }
+  const charmVariant = (charm) =>
+    resolveVariant(
+      [
+        (variantMap.charms || {})[charm.charmId],
+        charm.shopifyVariantId,
+        byPrice[String(charm.price)] || byPrice[charm.price],
+      ],
+      charm.price,
+    )
+
+  const groupVariant = (line) => {
+    const byGroup = variantMap.charmPricingGroups || {}
+    return resolveVariant(
+      [
+        byGroup[line.rule.id],
+        line.rule.shopifyVariantId,
+        byPrice[String(line.unitPrice)] || byPrice[line.unitPrice],
+      ],
+      line.unitPrice,
+    )
+  }
+
+  const unmapped = []
+  const chargeLines = charmChargeLines(payload.charms, settings().charmPricingGroups)
+  const resolvedLines = await Promise.all(
+    chargeLines.map(async (line) => {
+      const first = line.items[0]
+      const variantId =
+        line.kind === 'group' ? await groupVariant(line) : await charmVariant(first)
+      return { line, variantId }
+    }),
+  )
+  for (const { line, variantId } of resolvedLines) {
+    const first = line.items[0]
+    if (!variantId) {
+      unmapped.push(line.kind === 'group' ? line.rule.label : first.name)
+    }
+  }
+  if (unmapped.length) {
+    throw new Error(
+      `These charms aren’t mapped to a Shopify variant yet: ${[...new Set(unmapped)].join(', ')}. ` +
+        `Set each group’s billing variant in Admin → Charms → Grouped pricing, ` +
+        `or add a variant map entry by group or price.`,
+    )
+  }
+
+  const items = [
+    {
+      id: Number(baseVariant),
+      quantity: 1,
+      properties: {
+        _design_token: designToken,
+        Design: `${payload.charms.length} charms`,
+        Finish: payload.product.color,
+        ...(proofUrl ? { Proof: proofUrl } : {}),
+        _layout: JSON.stringify({
+          product: payload.product,
+          charms: payload.charms,
+          total: payload.total,
+        }),
+      },
+    },
+    ...resolvedLines.map(({ line, variantId }) => {
+      const selected = new Map()
+      line.items.forEach((charm) => {
+        const key = `${charm.name || 'Charm'}|${charm.charmId || charm.id || ''}`
+        const entry = selected.get(key) || { name: charm.name || 'Charm', count: 0 }
+        entry.count += 1
+        selected.set(key, entry)
+      })
+      const selection = [...selected.values()]
+        .map(({ name, count }) => `${name}${count > 1 ? ` × ${count}` : ''}`)
+        .join(', ')
+        .slice(0, 240)
+      return {
+        id: Number(variantId),
+        quantity: line.quantity,
+        properties: {
+          _design_token: designToken,
+          _role: 'charm',
+          'Charm selection': selection,
+          '_Customizer charm IDs': line.items
+            .map((charm) => charm.charmId || charm.id)
+            .filter(Boolean)
+            .join(',')
+            .slice(0, 240),
+        },
+      }
+    }),
+  ]
+
+  return { designToken, items }
 }
 
 /**
@@ -116,12 +249,25 @@ async function removeDesignGroup(routesRoot, key) {
 }
 
 function createNativeCartHandler(cfg) {
-  const variantMap = cfg.variantMap || { products: {}, charms: {} }
-  // The base-case variant map (model × gel → variant) is bundled, so the
-  // merchant needs no products config; any cfg.variantMap.products still wins.
-  variantMap.products = { ...baseProducts, ...(variantMap.products || {}) }
+  const variantMap = cartVariantMap(cfg)
   const routesRoot = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/'
   const addUrl = `${routesRoot}cart/add.js`.replace('//', '/')
+  const loadVariant = (id) => {
+    const cacheKey = `${routesRoot}:${id}`
+    if (!variantDetailsCache.has(cacheKey)) {
+      const url = `${routesRoot}variants/${id}.js`.replace('//', '/')
+      const request = fetchVariantDetails(url, {
+        timeoutMs: cfg.variantRequestTimeoutMs ?? 3000,
+      }).then((variant) => {
+        if (!variant) variantDetailsCache.delete(cacheKey)
+        return variant
+      })
+      variantDetailsCache.set(cacheKey, request)
+    }
+    return variantDetailsCache.get(cacheKey)
+  }
+  const resolveVariant = (candidates, expectedPrice) =>
+    resolvePricedVariant(candidates, expectedPrice, loadVariant)
 
   return async function onPlaceOrder(payload) {
     // Editing an existing design (?charme_edit): remove the original cart group
@@ -130,85 +276,12 @@ function createNativeCartHandler(cfg) {
       await removeDesignGroup(routesRoot, cfg.editKey).catch(() => {})
       cfg.editKey = null
     }
-    const baseVariant = resolveProductVariant(variantMap, payload)
-    if (!baseVariant) {
-      throw new Error(
-        `No Shopify variant mapped for "${payload.product.id}". Add it to the block's Variant map.`,
-      )
-    }
-
-    const designToken = token()
-    const proofUrl = await uploadProof(cfg.uploadEndpoint, payload.proofs?.sampleUrl, designToken)
-
-    // merge charms of the same variant into quantities
-    // Resolve each placed charm to a Shopify variant — by explicit id first,
-    // else by a price-point map (variantMap.charmByPrice: { "2": id, "3": id }),
-    // so the merchant can get away with a couple of generic "Charm" variants
-    // instead of one per charm.
-    const charmVariant = (c) => {
-      // The charm carries its mapped Shopify variant id straight from the
-      // catalogue (charm.shopifyVariantId), so no per-charm merchant map needed.
-      if (c.shopifyVariantId) return c.shopifyVariantId
-      const byId = (variantMap.charms || {})[c.charmId]
-      if (byId) return byId
-      const byPrice = variantMap.charmByPrice || {}
-      return byPrice[String(c.price)] || byPrice[c.price] || null
-    }
-
-    const groupVariant = (line) => {
-      const byGroup = variantMap.charmPricingGroups || {}
-      const byPrice = variantMap.charmByPrice || {}
-      return (
-        line.rule.shopifyVariantId ||
-        byGroup[line.rule.id] ||
-        byPrice[String(line.unitPrice)] ||
-        byPrice[line.unitPrice] ||
-        null
-      )
-    }
-
-    const charmCounts = {}
-    const unmapped = []
-    const chargeLines = charmChargeLines(payload.charms, settings().charmPricingGroups)
-    for (const line of chargeLines) {
-      const first = line.items[0]
-      const vid = line.kind === 'group' ? groupVariant(line) : charmVariant(first)
-      if (!vid) {
-        unmapped.push(line.kind === 'group' ? line.rule.label : first.name)
-        continue
-      }
-      charmCounts[vid] = (charmCounts[vid] || 0) + line.quantity
-    }
-    if (unmapped.length) {
-      throw new Error(
-        `These charms aren’t mapped to a Shopify variant yet: ${[...new Set(unmapped)].join(', ')}. ` +
-          `Set each group’s billing variant in Admin → Charms → Grouped pricing, ` +
-          `or add a variant map entry by group or price.`,
-      )
-    }
-
-    const items = [
-      {
-        id: Number(baseVariant),
-        quantity: 1,
-        properties: {
-          _design_token: designToken,
-          Design: `${payload.charms.length} charms`,
-          Finish: payload.product.color,
-          ...(proofUrl ? { Proof: proofUrl } : {}),
-          _layout: JSON.stringify({
-            product: payload.product,
-            charms: payload.charms,
-            total: payload.total,
-          }),
-        },
-      },
-      ...Object.entries(charmCounts).map(([id, quantity]) => ({
-        id: Number(id),
-        quantity,
-        properties: { _design_token: designToken, _role: 'charm' },
-      })),
-    ]
+    const { designToken, items } = await buildCartItems(
+      cfg,
+      variantMap,
+      payload,
+      resolveVariant,
+    )
 
     // Ask the theme to re-render its cart-drawer sections (Section Rendering API)
     // so the drawer reflects the new lines without a full page reload.
@@ -230,6 +303,48 @@ function createNativeCartHandler(cfg) {
 
     surfaceCart(cfg, routesRoot, designToken, payload.deferSurface)
     return { designToken }
+  }
+}
+
+export function createStorefrontCartHandler(cfg = {}) {
+  const storeUrl = new URL(cfg.storeUrl || cfg.storeOrigin || 'https://thecharmeedit.com').origin
+  const requestedCartUrl = new URL(cfg.cartUrl || '/cart', storeUrl)
+  const cartUrl =
+    requestedCartUrl.origin === storeUrl ? requestedCartUrl : new URL('/cart', storeUrl)
+  const variantMap = cartVariantMap(cfg)
+  const pendingItems = []
+  const resolveVariant = (candidates) => firstMappedVariant(candidates)
+
+  const goToCart = () => {
+    const items = pendingItems.slice()
+    if (cfg.cartBridge) {
+      submitStorefrontCartBridge(
+        storeUrl,
+        items,
+        cartUrl,
+        cfg.replaceDesignToken,
+      )
+      return
+    }
+    submitStorefrontCartForm(storeUrl, items, cartUrl)
+  }
+
+  const onPlaceOrder = async (payload) => {
+    const { designToken, items } = await buildCartItems(
+      cfg,
+      variantMap,
+      payload,
+      resolveVariant,
+    )
+    pendingItems.push(...items)
+    if (!payload.deferSurface) goToCart()
+    return { designToken }
+  }
+
+  return {
+    cartUrl: cartUrl.href,
+    goToCart,
+    onPlaceOrder,
   }
 }
 

@@ -1,39 +1,30 @@
 {%- comment -%}
-  charme-variant-selector.liquid — hierarchical BRAND → MODEL variant picker for
-  the "Custom phone case" product page (replaces the theme's native model/colour
-  <select>s with the Charmé-styled selector).
+  Admin-driven selector for the Custom phone case product.
 
-  Install: on the product template, add a Custom Liquid block with:
-      {% render 'charme-variant-selector' %}
-  and hide the theme's native variant picker for this product.
-
-  Optional params:
-      {% render 'charme-variant-selector',
-         api_base: 'https://charme-customizer.pages.dev',
-         design_url: '' %}   {%- comment -%} link/anchor for "Design your own" {%- endcomment -%}
-
-  Look & feel + the brand/sub-brand hierarchy are controlled from the app admin
-  (Admin → Products → Variant selector); this snippet fetches them at runtime from
-  {api_base}/api/settings (variantSelector.style + variantSelector.tree). When the
-  tree is empty it auto-groups models by brand (Apple / Samsung / Google / Other).
+  The visible controls are styled and grouped by /api/settings.variantSelector.
+  Shopify's native Horizon variant-picker remains mounted as the source of truth:
+  this snippet reads its current option values and dispatches changes back to it,
+  so price, availability, URL, media, add-to-cart and extra options stay native.
 {%- endcomment -%}
 
+{%- assign cvs_product = product_resource | default: product -%}
 {%- assign cvs_api = api_base | default: 'https://charme-customizer.pages.dev' -%}
-{%- assign uid = 'cvs-' | append: product.id -%}
+{%- assign uid = 'cvs-' | append: section.id | append: '-' | append: block.id -%}
 
-<div id="{{ uid }}" class="cvs" data-charme-variant-selector>
-  <div class="cvs__head">
-    <div class="cvs__title">{{ product.title }}</div>
-    <div class="cvs__price" data-cvs-price>{{ product.selected_or_first_available_variant.price | money }}</div>
+<div id="{{ uid }}" class="cvs product-options-step-one" data-charme-variant-selector hidden>
+  <div class="cvs__heading" data-cvs-heading>Step 1: Select your phone model and gel</div>
+
+  <div class="cvs__group" data-cvs-colours hidden>
+    <div class="cvs__label">Case &amp; Gel Colour <span class="cvs__label-value" data-cvs-colour-label></span></div>
+    <div class="cvs__btns" data-cvs-colour-btns></div>
   </div>
-  <div class="cvs__heading" data-cvs-heading>1. Select your case</div>
 
   <div class="cvs__group" data-cvs-brands hidden>
     <div class="cvs__label" data-cvs-brand-label>Brand</div>
-    <div class="cvs__btns" data-cvs-brand-btns></div>
+    <div class="cvs__btns cvs__brand-btns" data-cvs-brand-btns></div>
+    <select class="cvs__select cvs__brand-select" data-cvs-brand-select aria-label="Brand"></select>
   </div>
 
-  {%- comment -%} One row per extra hierarchy level (sub-brand, sub-sub-brand…) {%- endcomment -%}
   <div class="cvs__levels" data-cvs-levels></div>
 
   <div class="cvs__group" data-cvs-models hidden>
@@ -41,255 +32,578 @@
     <select class="cvs__select" data-cvs-model></select>
   </div>
 
-  <div class="cvs__group" data-cvs-colours hidden>
-    <div class="cvs__label">Case &amp; Gel Colour <span class="cvs__label-value" data-cvs-colour-label></span></div>
-    <div class="cvs__btns" data-cvs-colour-btns></div>
-  </div>
-
   <button type="button" class="cvs__design" data-cvs-design hidden>Design your own</button>
 </div>
 
 <style>
-  #{{ uid }}{--cvs-accent:#34312e;--cvs-accent-ink:#fff;--cvs-btn-bg:#fff;--cvs-btn-ink:#34312e;--cvs-border:#aaa69f;--cvs-radius:0px;box-sizing:border-box;display:flex;flex-direction:column;width:100%;max-width:570px;margin-top:26px;padding-top:34px;border-top:1px solid #cfcbc4;color:#34312e;font-family:inherit;letter-spacing:0}
-  #{{ uid }} *{box-sizing:border-box;letter-spacing:0}
-  #{{ uid }} .cvs__head,#{{ uid }} .cvs__heading{display:none}
-  #{{ uid }} [data-cvs-colours]{order:1}
-  #{{ uid }} [data-cvs-brands]{order:2}
-  #{{ uid }} .cvs__levels{order:3}
-  #{{ uid }} [data-cvs-models]{order:4}
-  #{{ uid }} .cvs__design{order:5}
-  #{{ uid }} .cvs__group{margin:0 0 22px}
-  #{{ uid }} .cvs__label{margin:0 0 9px;color:#383430;font-size:17px;font-weight:400;line-height:1.35}
-  #{{ uid }} .cvs__label-value{margin-left:5px;color:#4b4742}
-  #{{ uid }} .cvs__btns{display:flex;flex-wrap:wrap;gap:9px}
-  #{{ uid }} .cvs__btn{min-height:44px;padding:9px 18px;border:1px solid var(--cvs-border);border-radius:0;background:var(--cvs-btn-bg);color:var(--cvs-btn-ink);font:inherit;font-size:16px;line-height:1.2;cursor:pointer;transition:border-color .12s ease,background-color .12s ease,color .12s ease}
+  #{{ uid }}{--cvs-accent:#3d3530;--cvs-accent-ink:#f7f0df;--cvs-btn-bg:#f7f0df;--cvs-btn-ink:#3d3530;--cvs-border:#3d3530;box-sizing:border-box;display:flex;flex-direction:column;width:100%;max-width:570px;margin:0 0 -12px;color:var(--color-foreground,#3d3530);font-family:Amiri,serif!important;font-size:14px;font-weight:400;letter-spacing:0;line-height:1.4}
+  #{{ uid }}[hidden]{display:none!important}
+  #{{ uid }} *{box-sizing:border-box;font-family:Amiri,serif!important;letter-spacing:0}
+  #{{ uid }} .cvs__heading{margin:0 0 10px;color:var(--color-foreground,#3d3530);font-family:inherit;font-size:17px;font-weight:600;line-height:1.2}
+  #{{ uid }} .cvs__group{margin:0}
+  #{{ uid }} [data-cvs-colours]{margin-bottom:16px}
+  #{{ uid }} .cvs__label{margin:0 0 8px;color:var(--color-foreground,#3d3530);font-size:14px;font-weight:400;line-height:1.4}
+  #{{ uid }} [data-cvs-brands] .cvs__label{margin-bottom:4.8px}
+  #{{ uid }} [data-cvs-model-label]{display:none}
+  #{{ uid }} .cvs__label-value{margin-left:5px;color:inherit}
+  #{{ uid }} .cvs__btns{display:flex;flex-wrap:wrap;gap:10px}
+  #{{ uid }} .cvs__btn{min-height:43.994px;padding:10px 22px;border:.625px solid var(--cvs-border);border-radius:999px;background:transparent;color:var(--cvs-btn-ink);font:inherit;font-size:14px;line-height:1.1;cursor:pointer;transition:none}
   #{{ uid }} .cvs__btn:hover{border-color:var(--cvs-accent)}
   #{{ uid }} .cvs__btn:focus-visible,#{{ uid }} .cvs__select:focus-visible,#{{ uid }} .cvs__design:focus-visible{outline:2px solid var(--cvs-accent);outline-offset:2px}
   #{{ uid }} .cvs__btn.is-active{border-color:var(--cvs-accent);background:var(--cvs-accent);color:var(--cvs-accent-ink)}
   #{{ uid }} .cvs__btn.is-out{opacity:.42}
-  #{{ uid }} [data-cvs-colour-btns]{gap:10px}
-  #{{ uid }} [data-cvs-colour-value].is-swatch{position:relative;width:76px;min-width:76px;height:40px;min-height:40px;padding:4px;overflow:hidden;border-color:#ddd9d3;background:#fff;color:transparent;font-size:0}
-  #{{ uid }} [data-cvs-colour-value].is-swatch::before{content:'';display:block;width:100%;height:100%;border:1px solid #e2dfda;background:#d8d5cf}
-  #{{ uid }} [data-cvs-colour-value*='white'].is-swatch::before{border-color:#ece9e4;background:#faf9f7}
-  #{{ uid }} [data-cvs-colour-value*='glitter'].is-swatch::before{border-color:#dedbd5;background-color:#efeeeb;background-image:radial-gradient(circle at 18% 32%,rgba(255,255,255,.95) 0 1px,transparent 1.5px),radial-gradient(circle at 72% 66%,rgba(190,187,181,.6) 0 1px,transparent 1.5px),radial-gradient(circle at 48% 20%,rgba(255,255,255,.9) 0 1px,transparent 1.5px)}
-  #{{ uid }} [data-cvs-colour-value*='black'].is-swatch::before{border-color:#494649;background:#494649}
-  #{{ uid }} [data-cvs-colour-value*='clear'].is-swatch::before{border-color:#dedbd5;background:#f4f3f0}
-  #{{ uid }} [data-cvs-colour-value*='pink'].is-swatch::before{border-color:#d5aeb6;background:#d5aeb6}
-  #{{ uid }} [data-cvs-colour-value*='red'].is-swatch::before{border-color:#a53b3e;background:#a53b3e}
-  #{{ uid }} [data-cvs-colour-value*='blue'].is-swatch::before{border-color:#728da8;background:#728da8}
-  #{{ uid }} [data-cvs-colour-value*='green'].is-swatch::before{border-color:#728a72;background:#728a72}
-  #{{ uid }} [data-cvs-colour-value*='gold'].is-swatch::before{border-color:#b99a54;background:#b99a54}
-  #{{ uid }} [data-cvs-colour-value*='silver'].is-swatch::before{border-color:#aaa9a5;background:#c8c7c3}
-  #{{ uid }} [data-cvs-colour-value*='purple'].is-swatch::before{border-color:#826f8c;background:#826f8c}
-  #{{ uid }} [data-cvs-colour-value*='yellow'].is-swatch::before{border-color:#d5bc63;background:#d5bc63}
-  #{{ uid }} [data-cvs-colour-value].is-swatch.is-active{padding:3px;border:2px solid var(--cvs-accent);background:#fff;color:transparent}
-  #{{ uid }} .cvs__select{display:block;width:100%;max-width:none;min-height:66px;margin:0;padding:0 52px 0 23px;border:1px solid var(--cvs-border);border-radius:0;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,#625e59 50%),linear-gradient(135deg,#625e59 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 17px) 50%;background-repeat:no-repeat;background-size:5px 5px;color:#34312e;font:inherit;font-size:17px;line-height:1.3;cursor:pointer;appearance:none;-webkit-appearance:none}
-  #{{ uid }} .cvs__design{width:100%;min-height:62px;margin:2px 0 0;padding:13px 24px;border:1px solid #56524d;border-radius:0;background:#cbd7e5;color:#34312e;font:inherit;font-size:17px;cursor:pointer}
+  #{{ uid }} [data-cvs-colour-btns]{gap:11.2px}
+  #{{ uid }} [data-cvs-colour-value].is-swatch{position:relative;width:50px;min-width:50px;height:20px;min-height:20px;padding:0;overflow:visible;border:0;border-radius:0;background:var(--cvs-btn-bg);color:transparent;font-size:0;line-height:0}
+  #{{ uid }} [data-cvs-colour-value].is-swatch::before{content:'';display:block;width:50px;height:20px;border:.625px solid rgb(61 53 48/.1);border-radius:0;background-color:#d8d5cf;background-image:var(--cvs-swatch-background,none);background-position:var(--cvs-swatch-focal-point,50% 50%);background-repeat:repeat;background-size:50px 20px}
+  #{{ uid }} [data-cvs-colour-value*='white'].is-swatch::before{border-color:#ece9e4;background-color:#faf9f7}
+  #{{ uid }} [data-cvs-colour-value*='glitter'].is-swatch::before{border-color:rgb(61 53 48/.1);background-color:#efeeeb}
+  #{{ uid }} [data-cvs-colour-value*='black'].is-swatch::before{border-color:#494649;background-color:#494649}
+  #{{ uid }} [data-cvs-colour-value*='clear'].is-swatch::before{border-color:#dedbd5;background-color:#f4f3f0}
+  #{{ uid }} [data-cvs-colour-value*='pink'].is-swatch::before{border-color:#d5aeb6;background-color:#d5aeb6}
+  #{{ uid }} [data-cvs-colour-value*='red'].is-swatch::before{border-color:#a53b3e;background-color:#a53b3e}
+  #{{ uid }} [data-cvs-colour-value*='blue'].is-swatch::before{border-color:#728da8;background-color:#728da8}
+  #{{ uid }} [data-cvs-colour-value*='green'].is-swatch::before{border-color:#728a72;background-color:#728a72}
+  #{{ uid }} [data-cvs-colour-value*='gold'].is-swatch::before{border-color:#b99a54;background-color:#b99a54}
+  #{{ uid }} [data-cvs-colour-value*='silver'].is-swatch::before{border-color:#aaa9a5;background-color:#c8c7c3}
+  #{{ uid }} [data-cvs-colour-value*='purple'].is-swatch::before{border-color:#826f8c;background-color:#826f8c}
+  #{{ uid }} [data-cvs-colour-value*='yellow'].is-swatch::before{border-color:#d5bc63;background-color:#d5bc63}
+  #{{ uid }} [data-cvs-colour-value].is-swatch.is-active{padding:0;border:0;border-radius:0;background:var(--cvs-btn-bg);color:transparent;outline:1.25px solid var(--cvs-accent);outline-offset:0}
+  #{{ uid }} .cvs__select{display:block;width:100%;max-width:none;height:46.435px;min-height:46.435px;margin:8px 0 0;padding:12.8px 25.6px 12.8px 16px;border:.625px solid rgb(0 0 0/.28);border-radius:0;background-color:var(--cvs-btn-bg);color:var(--cvs-btn-ink);font:inherit;font-size:14px;line-height:19.6px!important;cursor:pointer;appearance:auto}
+  #{{ uid }} .cvs__brand-select{display:none}
+  #{{ uid }}.cvs--dropdowns .cvs__brand-btns{display:none}
+  #{{ uid }}.cvs--dropdowns .cvs__brand-select{display:block}
   #{{ uid }} .cvs__levels:empty{display:none}
-  #{{ uid }} [data-cvs-brands]:has(.cvs__btn:only-child),#{{ uid }} .cvs__levels .cvs__group:has(.cvs__btn:only-child){display:none}
-  @media(max-width:749px){#{{ uid }}{max-width:none;margin-top:22px;padding-top:28px}#{{ uid }} .cvs__group{margin-bottom:20px}#{{ uid }} .cvs__label{font-size:16px}#{{ uid }} .cvs__btn{min-height:42px;padding:8px 15px;font-size:15px}#{{ uid }} [data-cvs-colour-value].is-swatch{width:68px;min-width:68px;height:38px;min-height:38px}#{{ uid }} .cvs__select{min-height:60px;padding-left:18px;font-size:16px}#{{ uid }} .cvs__design{min-height:58px;font-size:16px}}
+  #{{ uid }} .cvs__design{width:100%;min-height:46.435px;margin:16px 0 0;padding:12.8px 25.6px;border:.625px solid var(--cvs-accent);border-radius:0;background:var(--cvs-accent);color:var(--cvs-accent-ink);font:inherit;font-size:14px;cursor:pointer}
+  .charme-native-option--hidden{display:none!important}
+  [data-phone-family-buttons].charme-legacy-family-bridge{display:none!important}
+  @media(max-width:749px){#{{ uid }}{max-width:none}}
 </style>
 
 <script>
   (function () {
     var root = document.getElementById({{ uid | json }});
     if (!root) return;
+
     var API = {{ cvs_api | json }};
     var DESIGN_URL = {{ design_url | default: '' | json }};
+    var PRODUCT_ID = String({{ cvs_product.id | json }});
+    var syncTimer = null;
+    var commitTimer = null;
+    var unlockTimer = null;
+    var pendingNativeInput = null;
+    var pendingSelection = null;
+    var observer = null;
+    var baseTree = [];
+    var MODELS = [];
+    var COLOURS = [];
+    var state = { style: {}, tree: [], path: [], colour: null, model: null };
+    var $ = function (selector) { return root.querySelector(selector); };
 
-    // Variants inlined from Liquid (option1 = colour, option2 = model).
-    var VARIANTS = [
-      {%- for v in product.variants -%}
-      { id: {{ v.id | json }}, colour: {{ v.option1 | json }}, model: {{ v.option2 | json }},
-        available: {{ v.available | json }}, price: {{ v.price | json }},
-        image: {{ v.featured_image | default: product.featured_image | image_url: width: 400 | json }} }{%- unless forloop.last -%},{%- endunless -%}
-      {%- endfor -%}
-    ];
+    function nativePicker() {
+      var selector = 'variant-picker[data-product-id="' + PRODUCT_ID + '"]';
+      var local = root.parentElement && root.parentElement.querySelector(selector);
+      return local || document.querySelector(selector);
+    }
 
-    var $ = function (sel) { return root.querySelector(sel); };
-    var money = function (cents) {
-      try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: {{ shop.currency | json }} }).format((cents || 0) / 100); }
-      catch (e) { return '£' + ((cents || 0) / 100).toFixed(2); }
-    };
+    function suppressLegacyFamily() {
+      var picker = nativePicker();
+      if (!picker) return;
+      Array.prototype.forEach.call(picker.querySelectorAll('[data-phone-family-buttons]'), function (buttons) {
+        buttons.classList.add('charme-legacy-family-bridge');
+      });
+      var modelSelect = picker.querySelector('select[name*="Phone Model"]');
+      if (modelSelect) {
+        Array.prototype.forEach.call(modelSelect.options, function (option) {
+          option.hidden = false;
+          option.disabled = false;
+        });
+      }
+    }
 
-    // Distinct option values, in first-seen order.
-    function distinct(key) { var seen = {}, out = []; VARIANTS.forEach(function (v) { if (v[key] && !seen[v[key]]) { seen[v[key]] = 1; out.push(v[key]); } }); return out; }
-    var COLOURS = distinct('colour');
-    var MODELS = distinct('model');
+    suppressLegacyFamily();
 
-    // Auto brand grouping used when the admin hasn't defined a tree.
+    function optionName(block) {
+      var label = block && block.querySelector('legend, label');
+      return label ? String(label.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    }
+
+    function optionBlock(picker, pattern) {
+      var blocks = picker ? Array.prototype.slice.call(picker.querySelectorAll('.variant-option')) : [];
+      return blocks.filter(function (block) { return pattern.test(optionName(block)); })[0] || null;
+    }
+
+    function optionsOf(block) {
+      if (!block) return [];
+      var select = block.querySelector('select');
+      if (select) {
+        return Array.prototype.map.call(select.options, function (option) {
+          return { value: option.value, out: option.disabled || /\s+-\s+Unavailable$/i.test(option.textContent || '') };
+        });
+      }
+      return Array.prototype.map.call(block.querySelectorAll('input[type="radio"]'), function (input) {
+        var swatch = input.parentElement && input.parentElement.querySelector('.swatch');
+        return {
+          value: input.value,
+          out: input.disabled || input.getAttribute('aria-disabled') === 'true' || input.dataset.optionAvailable === 'false',
+          swatchBackground: swatch ? swatch.style.getPropertyValue('--swatch-background') : '',
+          swatchFocalPoint: swatch ? swatch.style.getPropertyValue('--swatch-focal-point') : '',
+        };
+      });
+    }
+
+    function selectedOf(block) {
+      if (!block) return null;
+      var select = block.querySelector('select');
+      if (select) return select.value || null;
+      var checked = block.querySelector('input[type="radio"]:checked');
+      return checked ? checked.value : null;
+    }
+
+    function nativeData() {
+      var picker = nativePicker();
+      if (!picker) return null;
+      var colourBlock = optionBlock(picker, /case.*gel.*colou?r|gel.*colou?r/i);
+      var modelBlock = optionBlock(picker, /phone\s*model/i);
+      if (!colourBlock || !modelBlock) return null;
+      return {
+        picker: picker,
+        colourBlock: colourBlock,
+        modelBlock: modelBlock,
+        colours: optionsOf(colourBlock),
+        models: optionsOf(modelBlock),
+        colour: selectedOf(colourBlock),
+        model: selectedOf(modelBlock),
+      };
+    }
+
+    function showNative() {
+      var picker = nativePicker();
+      if (!picker) return;
+      Array.prototype.forEach.call(picker.querySelectorAll('.charme-native-option--hidden'), function (block) {
+        block.classList.remove('charme-native-option--hidden');
+      });
+    }
+
+    function hideNative(data) {
+      data.colourBlock.classList.add('charme-native-option--hidden');
+      data.modelBlock.classList.add('charme-native-option--hidden');
+      suppressLegacyFamily();
+    }
+
+    function selectedVariant(data) {
+      try {
+        return JSON.parse(data.picker.querySelector('script[type="application/json"]').textContent || 'null');
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function syncVariantInputs(data) {
+      var variant = selectedVariant(data);
+      if (!variant || !variant.id) return;
+      var scope = data.picker.closest('[id^="shopify-section-"]') || data.picker.parentElement;
+      Array.prototype.forEach.call(scope.querySelectorAll('form[action*="/cart/add"] [name="id"]'), function (input) {
+        input.value = String(variant.id);
+      });
+    }
+
+    function distinct(values) {
+      var seen = {};
+      return values.filter(function (item) {
+        if (!item.value || seen[item.value]) return false;
+        seen[item.value] = true;
+        return true;
+      });
+    }
+
     function brandOf(model) {
-      var m = String(model || '').toLowerCase();
-      if (/iphone|ipad/.test(m)) return 'Apple';
-      if (/galaxy|samsung/.test(m)) return 'Samsung';
-      if (/pixel/.test(m)) return 'Google';
-      if (/huawei|xiaomi|oneplus|oppo|android|other phone/.test(m)) return 'Android';
+      var value = String(model || '').toLowerCase();
+      if (/iphone|ipad/.test(value)) return 'iPhone';
+      if (/galaxy|samsung/.test(value)) return 'Samsung';
+      if (/pixel/.test(value)) return 'Pixel';
       return 'Other';
     }
-    function autoTree() {
-      var groups = {}, order = [];
-      MODELS.forEach(function (m) { var b = brandOf(m); if (!groups[b]) { groups[b] = []; order.push(b); } groups[b].push(m); });
-      return order.map(function (b) { return { label: b, children: [], models: groups[b] }; });
+
+    function autoTree(models) {
+      var groups = {};
+      var order = [];
+      models.forEach(function (model) {
+        var brand = brandOf(model);
+        if (!groups[brand]) { groups[brand] = []; order.push(brand); }
+        groups[brand].push(model);
+      });
+      return order.map(function (brand) {
+        return { id: 'auto-' + brand.toLowerCase(), label: brand, children: [], models: groups[brand] };
+      });
     }
 
-    var state = { style: {}, tree: [], path: [], colour: COLOURS[0] || null, model: null };
-
-    // ---- resolve the selected variant + push it into the theme's form -------
-    function variantFor(colour, model) {
-      return VARIANTS.filter(function (v) { return v.model === model && v.colour === colour; })[0] ||
-             VARIANTS.filter(function (v) { return v.model === model; })[0] || null;
-    }
-    function applyVariant() {
-      var v = variantFor(state.colour, state.model);
-      if (!v) return;
-      var form = document.querySelector('form[action*="/cart/add"]');
-      var input = form && (form.querySelector('[name="id"]') );
-      if (form && !input) { input = document.createElement('input'); input.type = 'hidden'; input.name = 'id'; form.appendChild(input); }
-      if (input) { input.value = v.id; input.dispatchEvent(new Event('change', { bubbles: true })); }
-      try { var u = new URL(location.href); u.searchParams.set('variant', v.id); history.replaceState({}, '', u); } catch (e) {}
-      var priceEl = $('[data-cvs-price]'); if (priceEl) priceEl.textContent = money(v.price);
+    function cloneTree(tree) {
+      try { return JSON.parse(JSON.stringify(tree || [])); }
+      catch (error) { return []; }
     }
 
-    // ---- rendering ----------------------------------------------------------
-    function nodesAtPath() {
-      var level = state.tree, node = null;
-      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; level = node ? (node.children || []) : []; }
-      return { siblings: state.path.length ? (parentChildren()) : state.tree, node: node };
+    function completeTree(tree) {
+      var result = cloneTree(tree);
+      if (!result.length) return autoTree(MODELS);
+      var assigned = {};
+      (function collect(nodes) {
+        (nodes || []).forEach(function (node) {
+          (node.models || []).forEach(function (model) { if (MODELS.indexOf(model) !== -1) assigned[model] = true; });
+          collect(node.children || []);
+        });
+      })(result);
+      autoTree(MODELS.filter(function (model) { return !assigned[model]; })).forEach(function (group) {
+        var target = result.filter(function (node) {
+          return String(node.label || '').toLowerCase() === group.label.toLowerCase() && !(node.children || []).length;
+        })[0];
+        if (target) target.models = (target.models || []).concat(group.models);
+        else result.push(group);
+      });
+      return result;
     }
-    function parentChildren() {
-      var level = state.tree, node = null;
-      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; if (i < state.path.length - 1) level = node ? (node.children || []) : []; }
-      return level;
+
+    function collectModels(node) {
+      var values = (node.models || []).slice();
+      (node.children || []).forEach(function (child) { values = values.concat(collectModels(child)); });
+      return values.filter(function (model) { return MODELS.indexOf(model) !== -1; });
     }
-    // Models available for the current path (leaf models, or all under the branch).
+
+    function nodeAtPath(path) {
+      var level = state.tree;
+      var node = null;
+      for (var index = 0; index < path.length; index++) {
+        node = (level || []).filter(function (item) { return item.label === path[index]; })[0];
+        if (!node) return null;
+        level = node.children || [];
+      }
+      return node;
+    }
+
     function modelsForPath() {
-      var level = state.tree, node = null;
-      for (var i = 0; i < state.path.length; i++) { node = (level || []).filter(function (n) { return n.label === state.path[i]; })[0]; level = node ? (node.children || []) : []; }
-      function collect(n) { var out = (n.models || []).slice(); (n.children || []).forEach(function (c) { out = out.concat(collect(c)); }); return out; }
-      if (!node) return [];
-      var all = collect(node);
-      // keep only models that actually exist as variants
-      return all.filter(function (m) { return MODELS.indexOf(m) !== -1; });
+      var node = nodeAtPath(state.path);
+      return node ? collectModels(node) : MODELS.slice();
     }
 
-    function btn(label, active, out, onClick) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'cvs__btn' + (active ? ' is-active' : '') + (out ? ' is-out' : '');
-      b.textContent = label;
-      b.addEventListener('click', onClick);
-      return b;
+    function pathForModel(nodes, model, prefix) {
+      for (var index = 0; index < (nodes || []).length; index++) {
+        var node = nodes[index];
+        var path = (prefix || []).concat([node.label]);
+        if ((node.models || []).indexOf(model) !== -1) return path;
+        var nested = pathForModel(node.children || [], model, path);
+        if (nested) return nested;
+      }
+      return null;
+    }
+
+    function legacyFamilyFor(model) {
+      var value = String(model || '').toLowerCase();
+      if (/iphone|ipad/.test(value)) return 'iPhone';
+      if (/galaxy|samsung/.test(value)) return 'Samsung';
+      if (/pixel/.test(value)) return 'Pixel';
+      return 'Other';
+    }
+
+    function syncLegacyFamily(block, model) {
+      var family = legacyFamilyFor(model);
+      var button = Array.prototype.filter.call(block.querySelectorAll('button[data-phone-family]'), function (item) {
+        return item.dataset.phoneFamily === family;
+      })[0];
+      if (button) button.click();
+    }
+
+    function setBusy(busy) {
+      root.toggleAttribute('aria-busy', busy);
+      Array.prototype.forEach.call(root.querySelectorAll('button, select'), function (control) {
+        control.disabled = busy;
+      });
+    }
+
+    function commitNative() {
+      var input = pendingNativeInput;
+      pendingNativeInput = null;
+      if (!input || !input.isConnected) return scheduleSync();
+      setBusy(true);
+      pendingSelection = { colour: state.colour, model: state.model };
+      if (input.tagName === 'SELECT') input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+      clearTimeout(unlockTimer);
+      unlockTimer = setTimeout(function () {
+        pendingSelection = null;
+        setBusy(false);
+        syncFromNative();
+      }, 5000);
+      scheduleSync(700);
+    }
+
+    function queueNative(input) {
+      pendingNativeInput = input;
+      clearTimeout(commitTimer);
+      commitTimer = setTimeout(commitNative, 180);
+    }
+
+    function setNative(block, value) {
+      if (!block || !value) return;
+      var select = block.querySelector('select');
+      if (select) {
+        var option = Array.prototype.filter.call(select.options, function (item) { return item.value === value; })[0];
+        if (!option) return;
+        option.hidden = false;
+        option.disabled = false;
+        if (select.value === value) return;
+        select.value = value;
+        option.selected = true;
+        if (/phone\s*model/i.test(optionName(block))) syncLegacyFamily(block, value);
+        queueNative(select);
+      } else {
+        var input = Array.prototype.filter.call(block.querySelectorAll('input[type="radio"]'), function (item) {
+          return item.value === value;
+        })[0];
+        if (!input || input.checked) return;
+        input.checked = true;
+        queueNative(input);
+      }
+    }
+
+    function applyColour(value) {
+      state.colour = value;
+      var data = nativeData();
+      if (data) setNative(data.colourBlock, value);
+      render();
+    }
+
+    function applyModel(value) {
+      state.model = value;
+      state.path = pathForModel(state.tree, value, []) || state.path;
+      var data = nativeData();
+      if (data) setNative(data.modelBlock, value);
+      render();
+    }
+
+    function choice(label, active, out, onClick) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'cvs__btn' + (active ? ' is-active' : '') + (out ? ' is-out' : '');
+      button.textContent = label;
+      if (out) button.setAttribute('aria-disabled', 'true');
+      button.addEventListener('click', onClick);
+      return button;
+    }
+
+    function renderLevels(dropdowns) {
+      var levels = $('[data-cvs-levels]');
+      levels.innerHTML = '';
+      var cursor = state.tree;
+      for (var depth = 0; depth < state.path.length; depth++) {
+        var node = (cursor || []).filter(function (item) { return item.label === state.path[depth]; })[0];
+        var children = node ? (node.children || []) : [];
+        if (children.length) {
+          var row = document.createElement('div');
+          row.className = 'cvs__group';
+          var label = document.createElement('div');
+          label.className = 'cvs__label';
+          label.textContent = node.label;
+          row.appendChild(label);
+          if (dropdowns) {
+            var select = document.createElement('select');
+            select.className = 'cvs__select';
+            children.forEach(function (child) {
+              var option = document.createElement('option');
+              option.value = child.label;
+              option.textContent = child.label;
+              option.selected = state.path[depth + 1] === child.label;
+              select.appendChild(option);
+            });
+            (function (levelDepth) {
+              select.addEventListener('change', function (event) {
+                state.path = state.path.slice(0, levelDepth + 1).concat([event.target.value]);
+                ensureModel();
+              });
+            })(depth);
+            row.appendChild(select);
+          } else {
+            var buttons = document.createElement('div');
+            buttons.className = 'cvs__btns';
+            (function (levelDepth) {
+              children.forEach(function (child) {
+                buttons.appendChild(choice(child.label, state.path[levelDepth + 1] === child.label, false, function () {
+                  state.path = state.path.slice(0, levelDepth + 1).concat([child.label]);
+                  ensureModel();
+                }));
+              });
+            })(depth);
+            row.appendChild(buttons);
+          }
+          levels.appendChild(row);
+        }
+        cursor = children;
+      }
+    }
+
+    function ensureModel() {
+      var models = modelsForPath();
+      if (models.indexOf(state.model) === -1) applyModel(models[0] || MODELS[0] || null);
+      else render();
     }
 
     function render() {
-      var st = state.style || {};
-      root.style.setProperty('--cvs-accent', st.accent || '#34312e');
-      root.style.setProperty('--cvs-accent-ink', st.accentInk || '#fff');
-      root.style.setProperty('--cvs-btn-bg', st.buttonBg || '#fff');
-      root.style.setProperty('--cvs-btn-ink', st.buttonInk || '#34312e');
-      root.style.setProperty('--cvs-border', st.border || '#aaa69f');
-      root.style.setProperty('--cvs-radius', (st.radius != null ? st.radius : 0) + 'px');
-      $('[data-cvs-heading]').textContent = st.heading || '1. Select your case';
-      $('[data-cvs-brand-label]').textContent = st.brandLabel || 'Brand';
-      $('[data-cvs-model-label]').textContent = st.modelLabel || 'Model';
-      $('[data-cvs-price]').style.display = st.showPrice === false ? 'none' : '';
+      var style = state.style || {};
+      var dropdowns = style.layout === 'dropdown';
+      root.classList.toggle('cvs--dropdowns', dropdowns);
+      root.style.setProperty('--cvs-accent', style.accent || '#3d3530');
+      root.style.setProperty('--cvs-accent-ink', style.accentInk || '#f7f0df');
+      root.style.setProperty('--cvs-btn-bg', style.buttonBg || '#f7f0df');
+      root.style.setProperty('--cvs-btn-ink', style.buttonInk || '#3d3530');
+      root.style.setProperty('--cvs-border', style.border || '#3d3530');
+      $('[data-cvs-heading]').textContent = style.heading || 'Step 1: Select your phone model and gel';
+      $('[data-cvs-brand-label]').textContent = style.brandLabel || 'Phone Model';
+      $('[data-cvs-model-label]').textContent = style.modelLabel || '';
 
-      // Top-level brands.
-      var brands = $('[data-cvs-brand-btns]');
-      brands.innerHTML = '';
-      (state.tree || []).forEach(function (n) {
-        brands.appendChild(btn(n.label, state.path[0] === n.label, false, function () {
-          state.path = [n.label]; ensureModel(); render();
+      var brandButtons = $('[data-cvs-brand-btns]');
+      var brandSelect = $('[data-cvs-brand-select]');
+      brandButtons.innerHTML = '';
+      brandSelect.innerHTML = '';
+      state.tree.forEach(function (node) {
+        brandButtons.appendChild(choice(node.label, state.path[0] === node.label, false, function () {
+          state.path = [node.label];
+          ensureModel();
         }));
+        var option = document.createElement('option');
+        option.value = node.label;
+        option.textContent = node.label;
+        option.selected = state.path[0] === node.label;
+        brandSelect.appendChild(option);
       });
-      $('[data-cvs-brands]').hidden = !(state.tree && state.tree.length);
+      $('[data-cvs-brands]').hidden = state.tree.length < 2;
+      renderLevels(dropdowns);
 
-      // Intermediate levels (children of the chosen node, recursively).
-      var levels = $('[data-cvs-levels]');
-      levels.innerHTML = '';
-      var cursor = state.tree, depth = 0;
-      while (depth < state.path.length) {
-        var node = (cursor || []).filter(function (n) { return n.label === state.path[depth]; })[0];
-        var kids = node ? (node.children || []) : [];
-        if (kids.length) {
-          var row = document.createElement('div');
-          row.className = 'cvs__group';
-          var lbl = document.createElement('div'); lbl.className = 'cvs__label'; lbl.textContent = node.label; row.appendChild(lbl);
-          var wrap = document.createElement('div'); wrap.className = 'cvs__btns';
-          (function (dpth) {
-            kids.forEach(function (k) {
-              wrap.appendChild(btn(k.label, state.path[dpth + 1] === k.label, false, function () {
-                state.path = state.path.slice(0, dpth + 1).concat([k.label]); ensureModel(); render();
-              }));
-            });
-          })(depth);
-          row.appendChild(wrap); levels.appendChild(row);
-        }
-        cursor = kids; depth++;
-      }
-
-      // Model dropdown for the current branch.
-      var models = state.path.length ? modelsForPath() : MODELS;
-      var sel = $('[data-cvs-model]');
-      sel.innerHTML = '';
-      models.forEach(function (m) {
-        var o = document.createElement('option'); o.value = m; o.textContent = m; if (m === state.model) o.selected = true; sel.appendChild(o);
+      var models = modelsForPath();
+      var modelSelect = $('[data-cvs-model]');
+      modelSelect.innerHTML = '';
+      models.forEach(function (model) {
+        var option = document.createElement('option');
+        option.value = model;
+        option.textContent = model;
+        option.selected = model === state.model;
+        modelSelect.appendChild(option);
       });
       $('[data-cvs-models]').hidden = models.length === 0;
 
-      // Colours.
-      var cwrap = $('[data-cvs-colour-btns]');
-      cwrap.innerHTML = '';
-      COLOURS.forEach(function (c) {
-        var v = variantFor(c, state.model);
-        var colourButton = btn(c, state.colour === c, v && !v.available, function () { state.colour = c; applyVariant(); render(); });
-        var colourKey = String(c || '').toLowerCase();
-        colourButton.setAttribute('data-cvs-colour-value', colourKey);
-        colourButton.title = c;
-        if (/black|white|glitter|clear|pink|red|blue|green|gold|silver|purple|yellow/.test(colourKey)) colourButton.classList.add('is-swatch');
-        cwrap.appendChild(colourButton);
+      var colourButtons = $('[data-cvs-colour-btns]');
+      colourButtons.innerHTML = '';
+      COLOURS.forEach(function (colour) {
+        var button = choice(colour.value, colour.value === state.colour, colour.out, function () { applyColour(colour.value); });
+        var colourKey = String(colour.value || '').toLowerCase();
+        button.setAttribute('data-cvs-colour-value', colourKey);
+        button.title = colour.value;
+        if (colour.swatchBackground) button.style.setProperty('--cvs-swatch-background', colour.swatchBackground);
+        if (colour.swatchFocalPoint) button.style.setProperty('--cvs-swatch-focal-point', colour.swatchFocalPoint);
+        if (colour.swatchBackground || /black|white|glitter|clear|pink|red|blue|green|gold|silver|purple|yellow/.test(colourKey)) button.classList.add('is-swatch');
+        colourButtons.appendChild(button);
       });
       $('[data-cvs-colour-label]').textContent = state.colour || '';
       $('[data-cvs-colours]').hidden = COLOURS.length === 0;
 
-      if (DESIGN_URL) { var d = $('[data-cvs-design]'); d.hidden = false; }
+      var design = $('[data-cvs-design]');
+      design.hidden = !DESIGN_URL;
     }
 
-    function ensureModel() {
-      var models = state.path.length ? modelsForPath() : MODELS;
-      if (models.indexOf(state.model) === -1) state.model = models[0] || MODELS[0] || null;
-      applyVariant();
-    }
-
-    $('[data-cvs-model]').addEventListener('change', function (e) { state.model = e.target.value; applyVariant(); render(); });
-    var design = $('[data-cvs-design]');
-    if (design) design.addEventListener('click', function () { if (DESIGN_URL) { if (DESIGN_URL.charAt(0) === '#') { var t = document.querySelector(DESIGN_URL); if (t) t.scrollIntoView({ behavior: 'smooth' }); } else location.href = DESIGN_URL; } });
-
-    // Preselect from the current URL / form, else first values.
-    (function preselect() {
-      var vid = new URLSearchParams(location.search).get('variant');
-      var cur = vid && VARIANTS.filter(function (v) { return String(v.id) === String(vid); })[0];
-      if (cur) { state.colour = cur.colour; state.model = cur.model; }
-      else { state.model = MODELS[0] || null; }
-    })();
-
-    // Load admin style + hierarchy, then render.
-    fetch(API + '/api/settings', { headers: { accept: 'application/json' } })
-      .then(function (r) { return r.ok ? r.json() : {}; })
-      .then(function (s) {
-        var vs = (s && s.variantSelector) || {};
-        state.style = vs.style || {};
-        state.tree = (vs.tree && vs.tree.length) ? vs.tree : autoTree();
-        // set the initial path to the brand that contains the preselected model
-        if (state.model) {
-          for (var i = 0; i < state.tree.length; i++) {
-            var flat = []; (function walk(n) { (n.models || []).forEach(function (m) { flat.push(m); }); (n.children || []).forEach(walk); })(state.tree[i]);
-            if (flat.indexOf(state.model) !== -1) { state.path = [state.tree[i].label]; break; }
-          }
+    function syncFromNative() {
+      var data = nativeData();
+      if (!data || !data.models.length) return false;
+      if (pendingSelection) {
+        var variant = selectedVariant(data);
+        var values = variant && Array.isArray(variant.options) ? variant.options : [];
+        var settled = data.colour === pendingSelection.colour
+          && data.model === pendingSelection.model
+          && values.indexOf(pendingSelection.colour) !== -1
+          && values.indexOf(pendingSelection.model) !== -1;
+        if (!settled) {
+          hideNative(data);
+          root.hidden = false;
+          scheduleSync(120);
+          return true;
         }
-        render();
-        applyVariant();
-      })
-      .catch(function () { state.tree = autoTree(); render(); applyVariant(); });
+        pendingSelection = null;
+      }
+      MODELS = distinct(data.models).map(function (item) { return item.value; });
+      COLOURS = distinct(data.colours);
+      state.tree = completeTree(baseTree);
+      state.model = MODELS.indexOf(data.model) !== -1 ? data.model : (state.model || MODELS[0] || null);
+      state.colour = COLOURS.some(function (item) { return item.value === data.colour; }) ? data.colour : (state.colour || (COLOURS[0] && COLOURS[0].value));
+      state.path = pathForModel(state.tree, state.model, []) || (state.tree[0] ? [state.tree[0].label] : []);
+      hideNative(data);
+      syncVariantInputs(data);
+      root.hidden = false;
+      render();
+      clearTimeout(unlockTimer);
+      setBusy(false);
+      return true;
+    }
+
+    function scheduleSync(delay) {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(syncFromNative, delay == null ? 80 : delay);
+    }
+
+    function start(config) {
+      var selector = config || {};
+      if (selector.enabled === false) {
+        root.hidden = true;
+        showNative();
+        return;
+      }
+      state.style = selector.style || {};
+      baseTree = selector.tree || [];
+      var attempts = 0;
+      (function waitForPicker() {
+        if (syncFromNative()) {
+          var host = root.parentElement || document.body;
+          observer = new MutationObserver(function (mutations) {
+            var needsSync = mutations.some(function (mutation) {
+              var target = mutation.target;
+              if (root.contains(target)) return false;
+              if (mutation.type === 'childList') return true;
+              if (target.matches && target.matches('.variant-option')) {
+                return !target.classList.contains('charme-native-option--hidden');
+              }
+              if (target.matches && target.matches('[data-phone-family-buttons]')) {
+                return !target.classList.contains('charme-legacy-family-bridge');
+              }
+              return false;
+            });
+            if (needsSync) scheduleSync();
+          });
+          observer.observe(host, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class'],
+          });
+          return;
+        }
+        attempts += 1;
+        if (attempts < 40) setTimeout(waitForPicker, 50);
+      })();
+    }
+
+    $('[data-cvs-brand-select]').addEventListener('change', function (event) {
+      state.path = [event.target.value];
+      ensureModel();
+    });
+    $('[data-cvs-model]').addEventListener('change', function (event) { applyModel(event.target.value); });
+    $('[data-cvs-design]').addEventListener('click', function () {
+      if (!DESIGN_URL) return;
+      if (DESIGN_URL.charAt(0) === '#') {
+        var target = document.querySelector(DESIGN_URL);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        location.href = DESIGN_URL;
+      }
+    });
+
+    fetch(API + '/api/settings', { headers: { accept: 'application/json' }, cache: 'no-store' })
+      .then(function (response) { return response.ok ? response.json() : {}; })
+      .then(function (settings) { start(settings && settings.variantSelector); })
+      .catch(function () { start({ enabled: true, style: {}, tree: [] }); });
   })();
 </script>
