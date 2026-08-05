@@ -266,6 +266,10 @@ function CameraIsland({ cam, scale, uid, isDark }) {
     ]
     lenses.push(<circle key="flash" cx={x + w * 0.72} cy={y + h * 0.27} r={w * 0.06} fill={isDark ? '#d9dde0' : '#b9b09a'} opacity={0.9} />)
     lenses.push(<rect key="leica" x={x + w * 0.58} y={y + h * 0.6} width={w * 0.3} height={h * 0.16} rx={h * 0.07} fill={isDark ? '#2a2c2f' : '#a59c86'} opacity={0.8} />)
+  } else if (cam.kind === 'single') {
+    const lr = w * 0.24
+    lenses = [lens(x + w * 0.46, y + h * 0.46, lr, 'a')]
+    lenses.push(<circle key="flash" cx={x + w * 0.76} cy={y + h * 0.76} r={w * 0.08} fill={isDark ? '#d9dde0' : '#b9b09a'} opacity={0.9} />)
   } else {
     // squareDual — two lenses on a diagonal
     const lr = w * 0.17

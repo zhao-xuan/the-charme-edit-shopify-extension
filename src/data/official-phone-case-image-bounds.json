@@ -1,0 +1,132 @@
+{
+  "galaxy-s24": {
+    "black": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 532,
+      "top": 34,
+      "width": 472,
+      "height": 956
+    },
+    "white": {
+      "sourceWidth": 1920,
+      "sourceHeight": 1280,
+      "left": 664,
+      "top": 42,
+      "width": 592,
+      "height": 1196
+    }
+  },
+  "galaxy-s24-plus": {
+    "black": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 532,
+      "top": 35,
+      "width": 469,
+      "height": 953
+    },
+    "white": {
+      "sourceWidth": 1920,
+      "sourceHeight": 1280,
+      "left": 665,
+      "top": 42,
+      "width": 590,
+      "height": 1196
+    }
+  },
+  "galaxy-s24-ultra": {
+    "black": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 525,
+      "top": 35,
+      "width": 485,
+      "height": 955
+    }
+  },
+  "galaxy-s25": {
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 533,
+      "top": 36,
+      "width": 468,
+      "height": 957
+    }
+  },
+  "galaxy-s25-plus": {
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 533,
+      "top": 35,
+      "width": 469,
+      "height": 958
+    }
+  },
+  "galaxy-s25-ultra": {
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 532,
+      "top": 32,
+      "width": 470,
+      "height": 958
+    }
+  },
+  "galaxy-s26": {
+    "black": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 530,
+      "top": 33,
+      "width": 459,
+      "height": 960
+    },
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 532,
+      "top": 35,
+      "width": 468,
+      "height": 956
+    }
+  },
+  "galaxy-s26-plus": {
+    "black": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 530,
+      "top": 35,
+      "width": 471,
+      "height": 961
+    },
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 530,
+      "top": 43,
+      "width": 470,
+      "height": 947
+    }
+  },
+  "galaxy-s26-ultra": {
+    "black": {
+      "sourceWidth": 622,
+      "sourceHeight": 1370,
+      "left": 2,
+      "top": 2,
+      "width": 618,
+      "height": 1366
+    },
+    "white": {
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "left": 535,
+      "top": 35,
+      "width": 464,
+      "height": 954
+    }
+  }
+}

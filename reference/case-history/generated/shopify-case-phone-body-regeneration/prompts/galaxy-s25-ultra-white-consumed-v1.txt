@@ -1,0 +1,13 @@
+Generate exactly ONE new downloadable transparent PNG image now.
+
+Both uploaded images are official RhinoShield renders for the exact same Samsung Galaxy S25 Ultra SolidSuit case and are pixel-registered. IMAGE 1 is the official Black SKU SST0334552. IMAGE 2 is the official Shell Beige SKU SST033450B.
+
+Use IMAGE 2 as the sole pixel-level structure, lighting, and material source. Change ONLY the Shell Beige case material to a smooth neutral matte WHITE finish. IMAGE 1 may be used only to cross-check the unchanged silhouette, camera-opening geometry, side buttons, highlights, shadows, and edge detail.
+
+LOCKED GEOMETRY: preserve the exact complete straight-on outer silhouette, rounded corners, raised asymmetric upper-left camera-opening frame, inner opening shape, all side-button positions, bevels, lighting direction, and proportions. Do not add a phone, lenses, flash, camera hardware, logos, text, or any object inside the opening. Do not move, resize, redraw, simplify, or reinterpret the camera opening or case body.
+
+CANVAS AND ALPHA ARE HARD REQUIREMENTS: output one square transparent PNG. Preserve IMAGE 2's composition: the alpha-visible complete case occupies approximately x=30.55%..69.35% and y=11.25%..89.10% of the square canvas, with width/height approximately 0.499. Keep it centered, complete, uncropped, and surrounded by transparent padding. Every pixel outside the case and its one-pixel antialiased edge must have alpha 0. All four corners and all four canvas edges must be fully transparent. No white, grey, or checkerboard background; no backdrop rectangle; no halo, haze, glow, floor, drop shadow, or edge leak.
+
+WHITE FINISH: neutral matte white, not beige, cream, ivory, grey, silver, transparent, glossy, or blown out. Preserve realistic soft shading and bevel contrast so the white case remains legible.
+
+Return exactly ONE image file, not text, not two alternatives, not a grid, collage, comparison, or mockup.

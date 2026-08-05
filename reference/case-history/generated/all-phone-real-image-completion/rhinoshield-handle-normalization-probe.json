@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:18:55.599Z",
+  "catalogUrl": "https://charme-customizer.pages.dev/api/catalog",
+  "source": "RHINOSHIELD public SolidSuit product-page Nuxt data",
+  "scope": "Explicitly requested Samsung and Google Pixel models; no image bytes downloaded.",
+  "summary": {
+    "black-and-white": 0,
+    "black-and-light-neutral": 0,
+    "black-only": 1,
+    "textured-dark-and-white": 0,
+    "textured-dark-and-light-neutral": 0,
+    "textured-dark-only": 0,
+    "variants-without-black": 0,
+    "unsupported": 0,
+    "error": 0
+  },
+  "categories": {
+    "black-and-white": [],
+    "black-and-light-neutral": [],
+    "black-only": [
+      "galaxy-s10-4g"
+    ],
+    "textured-dark-and-white": [],
+    "textured-dark-and-light-neutral": [],
+    "textured-dark-only": [],
+    "variants-without-black": [],
+    "unsupported": [],
+    "error": []
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s10-4g",
+      "deviceHandle": "samsung-galaxy-s10",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s10-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s10",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+          "variants": 1
+        }
+      ],
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S10 (4G) SolidSuit Black",
+        "sku": "SSA0309952",
+        "mainBodySku": "SSA0309952",
+        "shopifyVariantId": 39609879036165
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S10 (4G) SolidSuit Black",
+          "sku": "SSA0309952",
+          "mainBodySku": "SSA0309952",
+          "shopifyVariantId": 39609879036165
+        }
+      ]
+    }
+  ]
+}

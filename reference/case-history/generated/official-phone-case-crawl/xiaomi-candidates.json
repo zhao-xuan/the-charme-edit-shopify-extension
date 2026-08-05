@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "campaign": "official-phone-case-crawl",
+  "brand": "xiaomi",
+  "reviewedAt": "2026-08-03",
+  "sourcePolicy": "Xiaomi-owned store pages and Xiaomi-owned image CDN only. Publication requires an exact-model, complete, straight-on rear phone-in-case image with visible camera hardware.",
+  "summary": {
+    "targets": 4,
+    "approved": 1,
+    "publishedEditorAssets": 1,
+    "rejectedOfficialGallery": 3
+  },
+  "candidates": [
+    {
+      "modelId": "xiaomi-14",
+      "targetFinish": "white",
+      "sourceColour": "other",
+      "sourcePageUrl": "https://www.mi.com/shop/buy/detail?product_id=19344",
+      "sourceProductId": 19344,
+      "sourceGoodsId": 2230000633,
+      "sourceProductName": "Xiaomi 14 菱格素皮保护壳 雪粉色",
+      "sourceUrl": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1698304637.59922032.png",
+      "sourceMirrorUrl": "https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202310251041_23b2dd5dc540378743ef9273d265d47b.png",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "finishFallback": true,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/xiaomi-14-other-da976308e59e.png",
+      "sha256": "da976308e59e9feb4c815325a6e4fd3cbbe854853574e5f083643207fa31807b",
+      "format": "png",
+      "widthPx": 800,
+      "heightPx": 800,
+      "channels": 4,
+      "hasAlpha": true,
+      "visibleBounds": {
+        "left": 240,
+        "top": 66,
+        "right": 556,
+        "bottom": 728,
+        "width": 317,
+        "height": 663,
+        "visiblePixels": 207238,
+        "canvasWidth": 800,
+        "canvasHeight": 800
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete straight-on rear phone-in-case render; the camera hardware is visible. Pink is used as the permitted non-black/non-white fallback for the White editor finish.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/xiaomi-14-white-da976308e59e.png",
+        "sha256": "bec5c371031cb5d57ffa97fb5abc5a5dd9b7c98812bd92062661c96a6af0669a",
+        "pixelSha256": "8cb3a7a74817ccbf2940a36dbff14714bfe70a9be1306df6efe1ced402fec01a",
+        "widthPx": 317,
+        "heightPx": 663,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "xiaomi-13",
+      "sourcePageUrl": "https://www.mi.com/shop/buy/detail?product_id=10050023",
+      "sourceProductName": "Xiaomi 13/Xiaomi 13 Pro 硅胶保护壳",
+      "rejectionReason": "The official product gallery contains straight rear renders of empty cases with blank camera openings; no complete phone-in-case image is available.",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible"
+    },
+    {
+      "modelId": "xiaomi-13-pro",
+      "sourcePageUrl": "https://www.mi.com/shop/buy/detail?product_id=10050023",
+      "sourceProductName": "Xiaomi 13/Xiaomi 13 Pro 硅胶保护壳",
+      "rejectionReason": "The official product gallery contains straight rear renders of empty cases with blank camera openings; no complete phone-in-case image is available.",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible"
+    },
+    {
+      "modelId": "xiaomi-14-pro",
+      "sourcePageUrl": "https://www.mi.com/shop/buy/detail?product_id=19346",
+      "sourceProductName": "Xiaomi 14 Pro-AlwaySmart 多彩透亮保护壳",
+      "rejectionReason": "All three official-store gallery renders show empty cases with blank camera openings; no complete phone-in-case image is available.",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible"
+    }
+  ],
+  "rejectedSources": [
+    {
+      "modelId": "xiaomi-14",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://www.mi.com/shop/buy/detail?product_id=19343",
+      "sourceProductName": "Xiaomi 14 透明保护壳",
+      "sourceImageUrl": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1698304670.02843942.png",
+      "rejectionReason": "The official render contains a complete phone in the case but is an angled three-quarter view rather than a straight-on rear view."
+    }
+  ]
+}

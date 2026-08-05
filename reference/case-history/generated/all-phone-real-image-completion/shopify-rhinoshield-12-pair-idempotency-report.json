@@ -1,0 +1,1106 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-01T09:32:09.952Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 24,
+    "updated": 0,
+    "alreadyCurrent": 24,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 24,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 24,
+    "productVariantsUpdated": 48,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a14-5g",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "6aa9fcf2346c186c0ab0d6c2f023f3c3ae63dd29ead39711eb078a99c4d985f4",
+      "pixelSha256": "1770259719611f85dd420f4cff66582cd2c915b05c9a4c2417eb578a8c39a7f2",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709417850",
+      "fileId": "gid://shopify/MediaImage/71384123343226",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a14-5g-black-without-gel-official-source-6aa9fcf2346c.png?v=1785576431",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-a14-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a14-5g-official-black-rhinoshield-SST0330352.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1247815,
+        "sha256": "e2f82e2d17b5c68e2e32998aaf2a8123b59482d7061f358b656f4df3d2da00f3",
+        "pixelSha256": "1770259719611f85dd420f4cff66582cd2c915b05c9a4c2417eb578a8c39a7f2",
+        "pixelWidth": 777,
+        "pixelHeight": 1588,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1233876,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a54",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "bff2ad5544e9374398106dfab215a352139a371ac44e92e90091f3763dcdec20",
+      "pixelSha256": "61daa0e48f190c2c137084e14aadb44f02c48597eb5b82d25a60597697e3d8c7",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709450618",
+      "fileId": "gid://shopify/MediaImage/71384123474298",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a54-black-without-gel-official-source-bff2ad5544e9.png?v=1785576438",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-a54",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a54-official-black-rhinoshield-SST0327952.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 637674,
+        "sha256": "a48fae2ef1a7ee94c826276458379460467522ab8bb9240104af271533bb98d8",
+        "pixelSha256": "61daa0e48f190c2c137084e14aadb44f02c48597eb5b82d25a60597697e3d8c7",
+        "pixelWidth": 811,
+        "pixelHeight": 1592,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1291112,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a73",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "cd1c400c878935feb24bbe647f0c0068af3e10cd133cffedff0356468a0052fe",
+      "pixelSha256": "aca65989699c4219e3acb5e184b51f3e8d6a51be5e565f31febf7ed10e5603ad",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709483386",
+      "fileId": "gid://shopify/MediaImage/71384123834746",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a73-black-without-gel-official-source-cd1c400c8789.png?v=1785576445",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-a73",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a73-official-black-rhinoshield-SSA0324752.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1306177,
+        "sha256": "8439444667187e99a06873f7730e0356bb6acae5d4bf3de25414b77594cdbc2b",
+        "pixelSha256": "aca65989699c4219e3acb5e184b51f3e8d6a51be5e565f31febf7ed10e5603ad",
+        "pixelWidth": 776,
+        "pixelHeight": 1585,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1229960,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-fe",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "235a4d1f9211c5f53cc74f31dae787396fff8cbe3c8eea1198883a2b60947725",
+      "pixelSha256": "cd81055f3478e6223d609e4cb3550dfbce4bbb6c5aac61e7911d49f1c0b9703c",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709516154",
+      "fileId": "gid://shopify/MediaImage/71384123933050",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-fe-black-without-gel-official-source-235a4d1f9211.png?v=1785576452",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s21-fe",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-fe-official-black-rhinoshield-SSA0322552.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 962388,
+        "sha256": "07b2ff0136830cf668f6886cfb9b8e9ac9b3a36bd7b205800988c152551acd61",
+        "pixelSha256": "cd81055f3478e6223d609e4cb3550dfbce4bbb6c5aac61e7911d49f1c0b9703c",
+        "pixelWidth": 802,
+        "pixelHeight": 1592,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1276784,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-plus",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "8dbb517e68d02b695b32f6d2736948aedb65bd7f07a661cf28c99c1d07b2978c",
+      "pixelSha256": "520d7d2c5ce382b3290f997dd8a0bd001cf689df6d7a1dd02c7724d154301a29",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709548922",
+      "fileId": "gid://shopify/MediaImage/71384123965818",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-plus-black-without-gel-official-source-8dbb517e68d0.png?v=1785576459",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s21-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-plus-official-black-rhinoshield-SSA0320052.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 807111,
+        "sha256": "f92f0210a27809104d90620754321b8b73281d426d9b063e150942c8681ed47b",
+        "pixelSha256": "520d7d2c5ce382b3290f997dd8a0bd001cf689df6d7a1dd02c7724d154301a29",
+        "pixelWidth": 777,
+        "pixelHeight": 1576,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1224552,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-ultra",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "bad8b43c1974c782ff892f2ead4b474a2553cb358a0997512d0cbc273620c843",
+      "pixelSha256": "9f673d7b62be8a54b810298465034c758565af0936364c799473564c290ae309",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709581690",
+      "fileId": "gid://shopify/MediaImage/71384124031354",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-ultra-black-without-gel-official-source-bad8b43c1974.png?v=1785576466",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s21-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-ultra-official-black-rhinoshield-SSA0320152.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 759105,
+        "sha256": "3f13e5160bb39c23ba01418e4a1f18d7d6b4a663697e66cd9a086f645e74cde3",
+        "pixelSha256": "9f673d7b62be8a54b810298465034c758565af0936364c799473564c290ae309",
+        "pixelWidth": 757,
+        "pixelHeight": 1572,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1190004,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-6",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "6a172dc3e358b47ab8ba8126e79620aab394470cb713d218110a09e3ffb65025",
+      "pixelSha256": "bbc49706209de520cb0007178fc047ef62ddbe4b361319bc4e825ad5c4ea14bd",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709614458",
+      "fileId": "gid://shopify/MediaImage/71384124293498",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-black-without-gel-official-source-6a172dc3e358.png?v=1785576472",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-6",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6-official-black-rhinoshield-SSA0223352.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1008668,
+        "sha256": "e92050bf995f45587beb296af5127258627943ea8cc17873961e0f6303de86a5",
+        "pixelSha256": "bbc49706209de520cb0007178fc047ef62ddbe4b361319bc4e825ad5c4ea14bd",
+        "pixelWidth": 804,
+        "pixelHeight": 1618,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1300872,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-6-pro",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "a364baf142e6efffe6d32f602c33ed77b71f38a5df2e0da505dbc373676672e4",
+      "pixelSha256": "4afd2875e242a7e429a9a2e03ffcb965ed0c7c7af5164163ff8f07f95e9e9b22",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709647226",
+      "fileId": "gid://shopify/MediaImage/71384124522874",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-pro-black-without-gel-official-source-a364baf142e6.png?v=1785576480",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-6-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6-pro-official-black-rhinoshield-SSA0223452.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1289290,
+        "sha256": "225639705e9bf75591a71a9e4e01b02d51bb83fb89418a0b10a9eea77072e44d",
+        "pixelSha256": "4afd2875e242a7e429a9a2e03ffcb965ed0c7c7af5164163ff8f07f95e9e9b22",
+        "pixelWidth": 780,
+        "pixelHeight": 1599,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1247220,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "c40d581bebf6bc5b078b530549793955548ad4c0e7ea4a719b72358db2617527",
+      "pixelSha256": "fc846ffa85217ea616314ae0fcc38bb4572a4f9041e159f81aa4f281e24a396f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709679994",
+      "fileId": "gid://shopify/MediaImage/71384124621178",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-black-without-gel-official-source-c40d581bebf6.png?v=1785576487",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-7",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7-official-black-rhinoshield-SST0225852.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1553766,
+        "sha256": "e5ba0e9b0b99ff301cda53eae4ba24914ddc8ca8c4a1787028065218366186cc",
+        "pixelSha256": "fc846ffa85217ea616314ae0fcc38bb4572a4f9041e159f81aa4f281e24a396f",
+        "pixelWidth": 800,
+        "pixelHeight": 1614,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1291200,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7-pro",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "74f6d933ca1fc95ba709edad2a99bd38d4b5015323e1286b897941ef57061f26",
+      "pixelSha256": "10026f1ac6a36be9c3fa932453f98f94158ecf59d9c04fcecddd2a4941e1a59a",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709712762",
+      "fileId": "gid://shopify/MediaImage/71384124817786",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-pro-black-without-gel-official-source-74f6d933ca1f.png?v=1785576493",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-7-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7-pro-official-black-rhinoshield-SST0225952.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1414881,
+        "sha256": "b5fcdbc55180458c5e0e7148812e61e6f4490dc4962207b24ce65b199c3f17b1",
+        "pixelSha256": "10026f1ac6a36be9c3fa932453f98f94158ecf59d9c04fcecddd2a4941e1a59a",
+        "pixelWidth": 794,
+        "pixelHeight": 1606,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1275164,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7a",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "3edd3b9cc9beb1e0be8ee80551793300667e6b74e0d4eae0306574c88ec4cb0d",
+      "pixelSha256": "6aa5473bb37b013ea7b103cf431766f7a36a08b7e2856ad4cd2831286dfed558",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709745530",
+      "fileId": "gid://shopify/MediaImage/71384125014394",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7a-black-without-gel-official-source-3edd3b9cc9be.png?v=1785576501",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-7a",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7a-official-black-rhinoshield-SST0228152.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 674122,
+        "sha256": "b8c168d7eb7c8352fbc65c75dd1eb6502bec9ce67050f468773cd38955fec776",
+        "pixelSha256": "6aa5473bb37b013ea7b103cf431766f7a36a08b7e2856ad4cd2831286dfed558",
+        "pixelWidth": 810,
+        "pixelHeight": 1610,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1304100,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-8",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "83e678626bd34c64f93632699e6fb375e9acd6b925e83bf11a0251b949f75e4b",
+      "pixelSha256": "042efa4168136066b873db08f11027e17692bf5d42cd823d1b5c763d8e863b86",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471709778298",
+      "fileId": "gid://shopify/MediaImage/71384125145466",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-black-without-gel-official-source-83e678626bd3.png?v=1785576508",
+      "sourceKind": "official-source",
+      "sourceModelId": "pixel-8",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-8-official-black-rhinoshield-SST0230152.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 804984,
+        "sha256": "00ced55901f46fbd4e730cf896df00f3bc112adf23e364057331f21f413613af",
+        "pixelSha256": "042efa4168136066b873db08f11027e17692bf5d42cd823d1b5c763d8e863b86",
+        "pixelWidth": 794,
+        "pixelHeight": 1600,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1270400,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a14-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "b80e2bf1fd1a349f942c89a7d55e3479e75717527edfad03add2cb6ced888148",
+      "pixelSha256": "7bb415644419df5d6754d3f1fe45c0af545476d5d1147927c4b264c8221cdb19",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709417850",
+      "fileId": "gid://shopify/MediaImage/71384125473146",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a14-5g-white-without-gel-derived-official-source-b80e2bf1fd1a.png?v=1785576515",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a14-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a14-5g-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 900757,
+        "sha256": "36672f83868646e129e2f22b7402ff45bcbd241b6caa7e14d4910f8aa0fe0540",
+        "pixelSha256": "7bb415644419df5d6754d3f1fe45c0af545476d5d1147927c4b264c8221cdb19",
+        "pixelWidth": 777,
+        "pixelHeight": 1588,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1233876,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a54",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "07572f19631c68a5c2c6b4053a46a8cf4b1077b7bba83f1e3491f27ca62c0dfc",
+      "pixelSha256": "b0f8ea7be58299f5190d3f0c3e678fcccb3d6c06461a22c253e6c159efeec381",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709450618",
+      "fileId": "gid://shopify/MediaImage/71384125505914",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a54-white-without-gel-derived-official-source-07572f19631c.png?v=1785576522",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a54",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a54-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 612452,
+        "sha256": "0b3251232306aa8f331ebe50bd4b9fe07ca4d5cfa8eac2ab00fffd9af5c934cc",
+        "pixelSha256": "b0f8ea7be58299f5190d3f0c3e678fcccb3d6c06461a22c253e6c159efeec381",
+        "pixelWidth": 811,
+        "pixelHeight": 1592,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1291112,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a73",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "8c47d4589aecd126bdd5962b5946d900e67cf0aa73ecee6d6d26f50b2e992228",
+      "pixelSha256": "440264d9bf82e43273311df7549fceff9db5d9bc11a37ff76bc0aa611c9f5848",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709483386",
+      "fileId": "gid://shopify/MediaImage/71384125669754",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a73-white-without-gel-derived-official-source-8c47d4589aec.png?v=1785576528",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a73",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a73-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 795061,
+        "sha256": "5b110831f12af4b780b28245c1b4b2c64f3f67cf1310b663b98a65786e16f63e",
+        "pixelSha256": "440264d9bf82e43273311df7549fceff9db5d9bc11a37ff76bc0aa611c9f5848",
+        "pixelWidth": 776,
+        "pixelHeight": 1585,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1229960,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-fe",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "f01c20b10dbf4e9886f03ee65f05f729f64c815215befecb125b331e7ae6de9c",
+      "pixelSha256": "8c7bb53f6596843e3a69cd755a3fb9bfc88b8c1d8d0d8f3d6025b4791e5caace",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709516154",
+      "fileId": "gid://shopify/MediaImage/71384125833594",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-fe-white-without-gel-derived-official-source-f01c20b10dbf.png?v=1785576535",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s21-fe",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-fe-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 678082,
+        "sha256": "87f7f22361b3a40a7c57795ae9e08f8eecd58944f4a31a9ee6d227000e6e6bbb",
+        "pixelSha256": "8c7bb53f6596843e3a69cd755a3fb9bfc88b8c1d8d0d8f3d6025b4791e5caace",
+        "pixelWidth": 802,
+        "pixelHeight": 1592,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1276784,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "a0898c50c62762cdde72e7b4638d2f1d0373162073db42d387422b83dfb06473",
+      "pixelSha256": "0532f48ca3d4599bd821429009b3b1ff61aae6f3a5badeed96b0d4f037275e87",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709548922",
+      "fileId": "gid://shopify/MediaImage/71384125866362",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-plus-white-without-gel-derived-official-source-a0898c50c627.png?v=1785576541",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s21-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-plus-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 529783,
+        "sha256": "6e6741e4db310c9e8d2f61da69af9c3f204b820fcb9159ddf952ed599f3a73a0",
+        "pixelSha256": "0532f48ca3d4599bd821429009b3b1ff61aae6f3a5badeed96b0d4f037275e87",
+        "pixelWidth": 777,
+        "pixelHeight": 1576,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1224552,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s21-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "79362a7ff3dffeffa550a16ca7a280b372a7f559bd71242d16d8acf246847d0d",
+      "pixelSha256": "8f1ef6ad6d1480e4e92b3ddc58f69e9dd20206e142ed92ca6aef050e8976de78",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709581690",
+      "fileId": "gid://shopify/MediaImage/71384125899130",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-ultra-white-without-gel-derived-official-source-79362a7ff3df.png?v=1785576548",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s21-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 429986,
+        "sha256": "f503dc4a4d161be6146ba8f3b74eb48100297117ef3dbaeba76e100700e169ef",
+        "pixelSha256": "8f1ef6ad6d1480e4e92b3ddc58f69e9dd20206e142ed92ca6aef050e8976de78",
+        "pixelWidth": 757,
+        "pixelHeight": 1572,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1190004,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-6",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "f412fca36eade09797af6f40f36fc580436eae7b8df4784cd7e5b6ae96ef91c6",
+      "pixelSha256": "4510963bb0535bc877adb99e435a2cbfa382172fb99bc6137df0596bc09fc800",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709614458",
+      "fileId": "gid://shopify/MediaImage/71384125931898",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-white-without-gel-derived-official-source-f412fca36ead.png?v=1785576555",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-6",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 718813,
+        "sha256": "e7b4bb4800f905d2cf03a8216f236613d2fd0e3e0e4843a9fd3efb96e9ae3e9b",
+        "pixelSha256": "4510963bb0535bc877adb99e435a2cbfa382172fb99bc6137df0596bc09fc800",
+        "pixelWidth": 804,
+        "pixelHeight": 1618,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1300872,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-6-pro",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "3b7e30c211c5483dcc816c212a255e74382a8da72c1a475a571e1d2914637250",
+      "pixelSha256": "0de052b4c8687954aa0f02c7fc95dd71f500187396d9787bfa5f82454163dd75",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709647226",
+      "fileId": "gid://shopify/MediaImage/71384125997434",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-pro-white-without-gel-derived-official-source-3b7e30c211c5.png?v=1785576561",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-6-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6-pro-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 742272,
+        "sha256": "ae37970a8fe6b133234d94e14e50eb119cd0225d7e1cee6c673d5a815050cab5",
+        "pixelSha256": "0de052b4c8687954aa0f02c7fc95dd71f500187396d9787bfa5f82454163dd75",
+        "pixelWidth": 780,
+        "pixelHeight": 1599,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1247220,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "1b5c9906ff8add1421371656168c1544b7ec6fc6eef2805c5bf9b61202a02160",
+      "pixelSha256": "5455c41807e6a919837f54369f6fdb1c2725a37fd195ceaf6afacf5f7c5bef4b",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709679994",
+      "fileId": "gid://shopify/MediaImage/71384126062970",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-white-without-gel-derived-official-source-1b5c9906ff8a.png?v=1785576568",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-7",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 861933,
+        "sha256": "0a74c730859f2330290058748f3a24d254431733aac4aaada5e93bbe8bafef78",
+        "pixelSha256": "5455c41807e6a919837f54369f6fdb1c2725a37fd195ceaf6afacf5f7c5bef4b",
+        "pixelWidth": 800,
+        "pixelHeight": 1614,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1291200,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7-pro",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "1cb15abb159770ea0e9ad0957a7ee9e842e6aa725b66bedf065650f67d957cc8",
+      "pixelSha256": "ba26ffb7839d0ca583a04fb2d3c9ef0f02ebb0dfb4aee9f0fe87f48f9a15e223",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709712762",
+      "fileId": "gid://shopify/MediaImage/71384126226810",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-pro-white-without-gel-derived-official-source-1cb15abb1597.png?v=1785576575",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-7-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7-pro-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 846152,
+        "sha256": "3830578b6eb302028a2b5e430800921bbc858c074f064b341bd996fbf5ebe3a6",
+        "pixelSha256": "ba26ffb7839d0ca583a04fb2d3c9ef0f02ebb0dfb4aee9f0fe87f48f9a15e223",
+        "pixelWidth": 794,
+        "pixelHeight": 1606,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1275164,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-7a",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "156564288da49992997b91e39e655fd9045bbf0ab097d8d58bda4216a6c3985a",
+      "pixelSha256": "3737d8dfdab8db174991036754ef1da8fdca71f9f13cf49622a48b3ed75ef7d7",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709745530",
+      "fileId": "gid://shopify/MediaImage/71384126325114",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7a-white-without-gel-derived-official-source-156564288da4.png?v=1785576581",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-7a",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7a-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 634395,
+        "sha256": "f13ac295b6c97f051a7838800bd7213d6442f2756cee4ffc43a99fdbebce91e3",
+        "pixelSha256": "3737d8dfdab8db174991036754ef1da8fdca71f9f13cf49622a48b3ed75ef7d7",
+        "pixelWidth": 810,
+        "pixelHeight": 1610,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1304100,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-8",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "2b7dbdf3b40d4eb625721193f8fb16d28a4f3bfb9f65dde07454519376af4115",
+      "pixelSha256": "bc3483762b8e7147cad1d7235c7aaa8857f98cd60201cc3b7d69b46f251cecf8",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471709778298",
+      "fileId": "gid://shopify/MediaImage/71384126456186",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-white-without-gel-derived-official-source-2b7dbdf3b40d.png?v=1785576588",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-8",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-8-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 772793,
+        "sha256": "b825b0fb12087925287e39bdbb8775236af0d0a1366da323327dda0d9e4f9442",
+        "pixelSha256": "bc3483762b8e7147cad1d7235c7aaa8857f98cd60201cc3b7d69b46f251cecf8",
+        "pixelWidth": 794,
+        "pixelHeight": 1600,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1270400,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-a14-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384126882170",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101304791418",
+        "gid://shopify/ProductVariant/57101304922490"
+      ]
+    },
+    {
+      "modelId": "galaxy-a54",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127046010",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301055866",
+        "gid://shopify/ProductVariant/57101301186938"
+      ]
+    },
+    {
+      "modelId": "galaxy-a73",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127209850",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299876218",
+        "gid://shopify/ProductVariant/57101300007290"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-fe",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127373690",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101296533882",
+        "gid://shopify/ProductVariant/57101296664954"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127471994",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101296140666",
+        "gid://shopify/ProductVariant/57101296271738"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-ultra",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127635834",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101295944058",
+        "gid://shopify/ProductVariant/57101296075130"
+      ]
+    },
+    {
+      "modelId": "pixel-6",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127734138",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308330362",
+        "gid://shopify/ProductVariant/57101308461434"
+      ]
+    },
+    {
+      "modelId": "pixel-6-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384127897978",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308133754",
+        "gid://shopify/ProductVariant/57101308264826"
+      ]
+    },
+    {
+      "modelId": "pixel-7",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384128061818",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307740538",
+        "gid://shopify/ProductVariant/57101307871610"
+      ]
+    },
+    {
+      "modelId": "pixel-7-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384128225658",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307543930",
+        "gid://shopify/ProductVariant/57101307675002"
+      ]
+    },
+    {
+      "modelId": "pixel-7a",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384128258426",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307347322",
+        "gid://shopify/ProductVariant/57101307478394"
+      ]
+    },
+    {
+      "modelId": "pixel-8",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384128389498",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307150714",
+        "gid://shopify/ProductVariant/57101307281786"
+      ]
+    },
+    {
+      "modelId": "galaxy-a14-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128422266",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101304824186",
+        "gid://shopify/ProductVariant/57101304889722"
+      ]
+    },
+    {
+      "modelId": "galaxy-a54",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128520570",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301088634",
+        "gid://shopify/ProductVariant/57101301154170"
+      ]
+    },
+    {
+      "modelId": "galaxy-a73",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128553338",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299908986",
+        "gid://shopify/ProductVariant/57101299974522"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-fe",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128618874",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101296566650",
+        "gid://shopify/ProductVariant/57101296632186"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128717178",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101296173434",
+        "gid://shopify/ProductVariant/57101296238970"
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-ultra",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128749946",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101295976826",
+        "gid://shopify/ProductVariant/57101296042362"
+      ]
+    },
+    {
+      "modelId": "pixel-6",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128782714",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308363130",
+        "gid://shopify/ProductVariant/57101308428666"
+      ]
+    },
+    {
+      "modelId": "pixel-6-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128913786",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308166522",
+        "gid://shopify/ProductVariant/57101308232058"
+      ]
+    },
+    {
+      "modelId": "pixel-7",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384128979322",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307773306",
+        "gid://shopify/ProductVariant/57101307838842"
+      ]
+    },
+    {
+      "modelId": "pixel-7-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384129110394",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307576698",
+        "gid://shopify/ProductVariant/57101307642234"
+      ]
+    },
+    {
+      "modelId": "pixel-7a",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384129208698",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307380090",
+        "gid://shopify/ProductVariant/57101307445626"
+      ]
+    },
+    {
+      "modelId": "pixel-8",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384129307002",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101307183482",
+        "gid://shopify/ProductVariant/57101307249018"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T19:47:27.371Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/samsung-icecat-case-pair-asset-provenance.json",
+  "source": "Exact-model Samsung black/white accessory photographs with deterministic geometry extraction",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "pairGeometryPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "sourceKind": "derived-official-source",
+      "sourceAssets": [
+        {
+          "finish": "black",
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-black-samsung-EF-PG770TBEGEU.jpg",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500858_3829847329.jpg",
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500858",
+          "mpn": "EF-PG770TBEGEU",
+          "gtin": "8806090273803",
+          "encodedSha256": "d027e688d14d38f73a1ac5f4cc19907398e68518e896d7ae5c6da36f5a79a5f3"
+        },
+        {
+          "finish": "white",
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-white-samsung-EF-PG770TWEGEU.jpg",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500860_0374373524.jpg",
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500860",
+          "mpn": "EF-PG770TWEGEU",
+          "gtin": "8806090273773",
+          "encodedSha256": "521774bf2d1c93adeae78dc368ed6d5e906a58968e18d20082e607c5298c19a7"
+        }
+      ],
+      "sourcePairGeometry": {
+        "threshold": 3,
+        "pairMaskIou": 0.9997034663674261,
+        "minimumPairMaskIou": 0.999,
+        "boundsMatch": true,
+        "black": {
+          "bounds": {
+            "minX": 1041,
+            "minY": 32,
+            "maxX": 1959,
+            "maxY": 1967
+          },
+          "pixels": 1625432
+        },
+        "white": {
+          "bounds": {
+            "minX": 1041,
+            "minY": 32,
+            "maxX": 1959,
+            "maxY": 1967
+          },
+          "pixels": 1624982
+        }
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official black Samsung accessory photograph",
+        "pairValidationSource": "independently segmented official white Samsung accessory photograph",
+        "spatialTransform": "centered square crop only",
+        "crop": {
+          "left": 500,
+          "top": 0,
+          "width": 2000,
+          "height": 2000
+        },
+        "alphaTransform": "foreground connected-component extraction at fixed white-background threshold",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "9a448c1677ccb153fb4f14758097195f4a12e86174cfec0b06202e893c38eec2",
+        "bounds": {
+          "minX": 541,
+          "minY": 32,
+          "maxX": 1459,
+          "maxY": 1967
+        },
+        "significantHoles": [
+          {
+            "pixels": 123444,
+            "bounds": {
+              "minX": 662,
+              "minY": 132,
+              "maxX": 968,
+              "maxY": 548
+            }
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-black-v1-samsung-silicone-alpha-matte.png",
+          "outputEncodedSha256": "b0da31c2f047f17486259663f893056e4082149cb7f2ba648e38e2cadc6f505e",
+          "outputPixelSha256": "a4cc80e7216b4916e7a224b29cde88b2e057356fdf9175506d105830c9603df5",
+          "outputAlphaSha256": "9a448c1677ccb153fb4f14758097195f4a12e86174cfec0b06202e893c38eec2",
+          "bounds": {
+            "minX": 541,
+            "minY": 32,
+            "maxX": 1459,
+            "maxY": 1967
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-white-v1-samsung-silicone-alpha-matte.png",
+          "outputEncodedSha256": "0da4eb366aa157efc595d5b69b486f68744c1c369d513bc356674eccc212c5d8",
+          "outputPixelSha256": "88e82ada03b7112199d1259eb6f44000fbc8e35355c01f2cc3e97ea44e012b3d",
+          "outputAlphaSha256": "9a448c1677ccb153fb4f14758097195f4a12e86174cfec0b06202e893c38eec2",
+          "bounds": {
+            "minX": 541,
+            "minY": 32,
+            "maxX": 1459,
+            "maxY": 1967
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

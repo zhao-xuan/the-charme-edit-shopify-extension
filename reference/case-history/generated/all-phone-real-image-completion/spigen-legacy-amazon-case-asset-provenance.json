@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T09:03:12.185Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-legacy-amazon-case-sources.json",
+  "source": "Verified Amazon Belgium exact-ASIN product records and original Amazon gallery images for discontinued Spigen cases",
+  "summary": {
+    "candidates": 2,
+    "geometryAccepted": 2,
+    "publicationEligible": 2,
+    "repeatedFetchByteIdentical": 2,
+    "productRecordsVerified": 2,
+    "written": 2,
+    "alreadyCurrent": 0
+  },
+  "assets": [
+    {
+      "targetModelId": "galaxy-a40",
+      "targetModelName": "Galaxy A40",
+      "sourceModelId": "galaxy-a40",
+      "product": "galaxy-a40-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy A40 target and exact-ASIN Amazon title match; the selected gallery image belongs to that product record.",
+      "galleryImageId": "41DX7wWmzEL",
+      "galleryPosition": 2,
+      "sourceUrl": "https://m.media-amazon.com/images/I/41DX7wWmzEL.jpg",
+      "expectedEncodedSha256": "1ba817a3d450f5c0b405edde55f5577fc56bc74d201ac601b5700fc73e22bde3",
+      "expectedWidth": 500,
+      "expectedHeight": 500,
+      "geometryReview": "accepted-orthogonal-installed-device-shell-and-opening-recesses-unobstructed",
+      "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+      "derivedSourceKind": "derived-verified-retail-source",
+      "primaryThreshold": 14,
+      "stabilityThresholds": [
+        13,
+        14,
+        15
+      ],
+      "sourceVisibleOpenings": [
+        {
+          "id": "camera",
+          "shape": "rounded-rect",
+          "bounds": {
+            "left": 150,
+            "top": 43,
+            "right": 205,
+            "bottom": 185
+          },
+          "radius": 24
+        },
+        {
+          "id": "fingerprint",
+          "shape": "rounded-rect",
+          "bounds": {
+            "left": 218,
+            "top": 88,
+            "right": 288,
+            "bottom": 164
+          },
+          "radius": 26
+        }
+      ],
+      "sourceKind": "verified-amazon-spigen-product-image",
+      "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07PP996WM",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a40-verified-amazon-B07PP996WM-41DX7wWmzEL.jpg",
+      "encodedSha256": "1ba817a3d450f5c0b405edde55f5577fc56bc74d201ac601b5700fc73e22bde3",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "retailer": "Amazon Belgium",
+        "asin": "B07PP996WM",
+        "productTitle": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A40 - Black : Amazon.com.be: Electronics",
+        "galleryImageId": "41DX7wWmzEL",
+        "galleryPosition": 2
+      },
+      "format": "jpeg",
+      "width": 500,
+      "height": 500,
+      "channels": 3,
+      "writeStatus": "written"
+    },
+    {
+      "targetModelId": "galaxy-a70",
+      "targetModelName": "Galaxy A70",
+      "sourceModelId": "galaxy-a70",
+      "product": "galaxy-a70-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy A70 target and exact-ASIN Amazon title match; the selected gallery image belongs to that product record.",
+      "galleryImageId": "41kKx496UDL",
+      "galleryPosition": 2,
+      "sourceUrl": "https://m.media-amazon.com/images/I/41kKx496UDL.jpg",
+      "expectedEncodedSha256": "dc27756decb208aa42c92f7db4b5bc253be43673fb7ed877aabc319c92770d24",
+      "expectedWidth": 500,
+      "expectedHeight": 500,
+      "geometryReview": "accepted-orthogonal-installed-device-shell-and-opening-recess-unobstructed",
+      "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+      "derivedSourceKind": "derived-verified-retail-source",
+      "sourceVisibleOpenings": [
+        {
+          "id": "camera",
+          "shape": "rounded-rect",
+          "bounds": {
+            "left": 153,
+            "top": 39,
+            "right": 205,
+            "bottom": 180
+          },
+          "radius": 23
+        }
+      ],
+      "sourceKind": "verified-amazon-spigen-product-image",
+      "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07QKGR1DG",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a70-verified-amazon-B07QKGR1DG-41kKx496UDL.jpg",
+      "encodedSha256": "dc27756decb208aa42c92f7db4b5bc253be43673fb7ed877aabc319c92770d24",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "retailer": "Amazon Belgium",
+        "asin": "B07QKGR1DG",
+        "productTitle": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A70 - Metal Slate : Amazon.com.be: Electronics",
+        "galleryImageId": "41kKx496UDL",
+        "galleryPosition": 2
+      },
+      "format": "jpeg",
+      "width": 500,
+      "height": 500,
+      "channels": 3,
+      "writeStatus": "written"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T13:30:51.481Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-insignia-note9-bestbuy-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 2,
+    "recordedSourceFileHashFallbacks": 0,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-note-9",
+      "metaobjectId": "gid://shopify/Metaobject/471854743930",
+      "expected": {
+        "modelId": "galaxy-note-9",
+        "name": "Galaxy Note 9",
+        "widthMm": 76.4,
+        "heightMm": 161.9,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy Note 9",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 76.4,
+        "heightMm": 161.9,
+        "legacyId": "galaxy-note-9"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-note-9",
+      "finish": "black",
+      "expectedPixelSource": "local-publication-source",
+      "localPixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+      "sourceFileId": "gid://shopify/MediaImage/71392770294138",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471854743930",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "02d7173e84912cf94bd85207938131d3685151a44b62cb05c15dc79eedf29eb1",
+        "pixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+        "width": 2414,
+        "height": 5000,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-9",
+      "finish": "white",
+      "expectedPixelSource": "local-publication-source",
+      "localPixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+      "sourceFileId": "gid://shopify/MediaImage/71392771047802",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471854743930",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "820ed2995a05c0de430feb54eaab6fcc18827f640681e39a815efc263829ac52",
+        "pixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+        "width": 2414,
+        "height": 5000,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

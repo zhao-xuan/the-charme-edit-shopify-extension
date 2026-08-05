@@ -1,0 +1,2563 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:16:44.819Z",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": false,
+  "summary": {
+    "platform": "all",
+    "models": 135,
+    "appleModels": 40,
+    "androidModels": 95,
+    "completeModels": 75,
+    "modelsWithGaps": 60,
+    "finishTargets": 270,
+    "completeFinishTargets": 150,
+    "readyProvenBodyImages": 150,
+    "readyProductMedia": 150,
+    "expectedVariantAssociations": 540,
+    "matchedVariantAssociations": 300
+  },
+  "gapModels": [
+    {
+      "modelId": "any-other-phone-model-incl-android-please-write-down-your-model-in-the-checkout-note",
+      "modelName": "Any other phone model incl. Android - please write down your model in the checkout note",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/56525335953786",
+            "gid://shopify/ProductVariant/57062372508026"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/56787636060538",
+            "gid://shopify/ProductVariant/57062371852666"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a12-4g",
+      "modelName": "Galaxy A12 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305184634",
+            "gid://shopify/ProductVariant/57101305315706"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305217402",
+            "gid://shopify/ProductVariant/57101305282938"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a13-4g",
+      "modelName": "Galaxy A13 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304988026",
+            "gid://shopify/ProductVariant/57101305119098"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305020794",
+            "gid://shopify/ProductVariant/57101305086330"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "modelName": "Galaxy A15 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304594810",
+            "gid://shopify/ProductVariant/57101304725882"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304627578",
+            "gid://shopify/ProductVariant/57101304693114"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a16",
+      "modelName": "Galaxy A16",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304398202",
+            "gid://shopify/ProductVariant/57101304529274"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304430970",
+            "gid://shopify/ProductVariant/57101304496506"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a17",
+      "modelName": "Galaxy A17",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304201594",
+            "gid://shopify/ProductVariant/57101304332666"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304234362",
+            "gid://shopify/ProductVariant/57101304299898"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "modelName": "Galaxy A21s 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304004986",
+            "gid://shopify/ProductVariant/57101304136058"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101304037754",
+            "gid://shopify/ProductVariant/57101304103290"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a22-5g",
+      "modelName": "Galaxy A22 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303808378",
+            "gid://shopify/ProductVariant/57101303939450"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303841146",
+            "gid://shopify/ProductVariant/57101303906682"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a23-4g-5g",
+      "modelName": "Galaxy A23 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303611770",
+            "gid://shopify/ProductVariant/57101303742842"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303644538",
+            "gid://shopify/ProductVariant/57101303710074"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a25",
+      "modelName": "Galaxy A25",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303415162",
+            "gid://shopify/ProductVariant/57101303546234"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303447930",
+            "gid://shopify/ProductVariant/57101303513466"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "modelName": "Galaxy A26 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303218554",
+            "gid://shopify/ProductVariant/57101303349626"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303251322",
+            "gid://shopify/ProductVariant/57101303316858"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "modelName": "Galaxy A32 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303021946",
+            "gid://shopify/ProductVariant/57101303153018"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101303054714",
+            "gid://shopify/ProductVariant/57101303120250"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "modelName": "Galaxy A33",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302825338",
+            "gid://shopify/ProductVariant/57101302956410"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302858106",
+            "gid://shopify/ProductVariant/57101302923642"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a34",
+      "modelName": "Galaxy A34",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302628730",
+            "gid://shopify/ProductVariant/57101302759802"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302661498",
+            "gid://shopify/ProductVariant/57101302727034"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "modelName": "Galaxy A35",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302432122",
+            "gid://shopify/ProductVariant/57101302563194"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302464890",
+            "gid://shopify/ProductVariant/57101302530426"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "modelName": "Galaxy A36 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302235514",
+            "gid://shopify/ProductVariant/57101302366586"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302268282",
+            "gid://shopify/ProductVariant/57101302333818"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a40",
+      "modelName": "Galaxy A40",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302038906",
+            "gid://shopify/ProductVariant/57101302169978"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101302071674",
+            "gid://shopify/ProductVariant/57101302137210"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a50",
+      "modelName": "Galaxy A50",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301842298",
+            "gid://shopify/ProductVariant/57101301973370"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301875066",
+            "gid://shopify/ProductVariant/57101301940602"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "modelName": "Galaxy A51 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301645690",
+            "gid://shopify/ProductVariant/57101301776762"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301678458",
+            "gid://shopify/ProductVariant/57101301743994"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a52-a52s-4g-5g",
+      "modelName": "Galaxy A52 / A52S 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301449082",
+            "gid://shopify/ProductVariant/57101301580154"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101301481850",
+            "gid://shopify/ProductVariant/57101301547386"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "modelName": "Galaxy A56 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300662650",
+            "gid://shopify/ProductVariant/57101300793722"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300695418",
+            "gid://shopify/ProductVariant/57101300760954"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a70",
+      "modelName": "Galaxy A70",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300466042",
+            "gid://shopify/ProductVariant/57101300597114"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300498810",
+            "gid://shopify/ProductVariant/57101300564346"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "modelName": "Galaxy A71 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300269434",
+            "gid://shopify/ProductVariant/57101300400506"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300302202",
+            "gid://shopify/ProductVariant/57101300367738"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a72-4g-5g",
+      "modelName": "Galaxy A72 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300072826",
+            "gid://shopify/ProductVariant/57101300203898"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101300105594",
+            "gid://shopify/ProductVariant/57101300171130"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-10",
+      "modelName": "Galaxy Note 10",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297910138",
+            "gid://shopify/ProductVariant/57101298041210"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297942906",
+            "gid://shopify/ProductVariant/57101298008442"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-10-plus",
+      "modelName": "Galaxy Note 10 Plus",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298106746",
+            "gid://shopify/ProductVariant/57101298237818"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298139514",
+            "gid://shopify/ProductVariant/57101298205050"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "modelName": "Galaxy Note 20 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297516922",
+            "gid://shopify/ProductVariant/57101297647994"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297549690",
+            "gid://shopify/ProductVariant/57101297615226"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "modelName": "Galaxy Note 20 Ultra 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297713530",
+            "gid://shopify/ProductVariant/57101297844602"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297746298",
+            "gid://shopify/ProductVariant/57101297811834"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-9",
+      "modelName": "Galaxy Note 9",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299089786",
+            "gid://shopify/ProductVariant/57101299220858"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299122554",
+            "gid://shopify/ProductVariant/57101299188090"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "modelName": "Galaxy S10 4G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298499962",
+            "gid://shopify/ProductVariant/57101298631034"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298532730",
+            "gid://shopify/ProductVariant/57101298598266"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298303354",
+            "gid://shopify/ProductVariant/57101298434426"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298336122",
+            "gid://shopify/ProductVariant/57101298401658"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "modelName": "Galaxy S10 Plus",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298696570",
+            "gid://shopify/ProductVariant/57101298827642"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298729338",
+            "gid://shopify/ProductVariant/57101298794874"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10e",
+      "modelName": "Galaxy S10e",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298893178",
+            "gid://shopify/ProductVariant/57101299024250"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101298925946",
+            "gid://shopify/ProductVariant/57101298991482"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "modelName": "Galaxy S20 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297123706",
+            "gid://shopify/ProductVariant/57101297254778"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297156474",
+            "gid://shopify/ProductVariant/57101297222010"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "modelName": "Galaxy S20 FE 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297320314",
+            "gid://shopify/ProductVariant/57101297451386"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101297353082",
+            "gid://shopify/ProductVariant/57101297418618"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "modelName": "Galaxy S20+ 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101296927098",
+            "gid://shopify/ProductVariant/57101297058170"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101296959866",
+            "gid://shopify/ProductVariant/57101297025402"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "modelName": "Galaxy S20 Ultra 4G / 5G",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101296730490",
+            "gid://shopify/ProductVariant/57101296861562"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101296763258",
+            "gid://shopify/ProductVariant/57101296828794"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25-edge",
+      "modelName": "Galaxy S25 Edge",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101292208506",
+            "gid://shopify/ProductVariant/57101292339578"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101292241274",
+            "gid://shopify/ProductVariant/57101292306810"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s26",
+      "modelName": "Galaxy S26",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919443322",
+            "gid://shopify/ProductVariant/57105919476090"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919181178",
+            "gid://shopify/ProductVariant/57105919213946"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s26-edge",
+      "modelName": "Galaxy S26 Edge",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919246714",
+            "gid://shopify/ProductVariant/57105919279482"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105918984570",
+            "gid://shopify/ProductVariant/57105919017338"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s26-plus",
+      "modelName": "Galaxy S26+",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919377786",
+            "gid://shopify/ProductVariant/57105919410554"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919115642",
+            "gid://shopify/ProductVariant/57105919148410"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s26-ultra",
+      "modelName": "Galaxy S26 Ultra",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919312250",
+            "gid://shopify/ProductVariant/57105919345018"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57105919050106",
+            "gid://shopify/ProductVariant/57105919082874"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s8",
+      "modelName": "Galaxy S8",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299679610",
+            "gid://shopify/ProductVariant/57101299810682"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299712378",
+            "gid://shopify/ProductVariant/57101299777914"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9",
+      "modelName": "Galaxy S9",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299286394",
+            "gid://shopify/ProductVariant/57101299417466"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299319162",
+            "gid://shopify/ProductVariant/57101299384698"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "modelName": "Galaxy S9 Plus",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299483002",
+            "gid://shopify/ProductVariant/57101299614074"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101299515770",
+            "gid://shopify/ProductVariant/57101299581306"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-flip-3",
+      "modelName": "Galaxy Z Flip 3",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295747450",
+            "gid://shopify/ProductVariant/57101295878522"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295780218",
+            "gid://shopify/ProductVariant/57101295845754"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-flip-4",
+      "modelName": "Galaxy Z Flip 4",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295157626",
+            "gid://shopify/ProductVariant/57101295288698"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295190394",
+            "gid://shopify/ProductVariant/57101295255930"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-flip-5",
+      "modelName": "Galaxy Z Flip 5",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294961018",
+            "gid://shopify/ProductVariant/57101295092090"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294993786",
+            "gid://shopify/ProductVariant/57101295059322"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-flip-6",
+      "modelName": "Galaxy Z Flip 6",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294567802",
+            "gid://shopify/ProductVariant/57101294698874"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294600570",
+            "gid://shopify/ProductVariant/57101294666106"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-flip-7",
+      "modelName": "Galaxy Z Flip 7",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101293977978",
+            "gid://shopify/ProductVariant/57101294109050"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294010746",
+            "gid://shopify/ProductVariant/57101294076282"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-fold-3",
+      "modelName": "Galaxy Z Fold 3",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295550842",
+            "gid://shopify/ProductVariant/57101295681914"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295583610",
+            "gid://shopify/ProductVariant/57101295649146"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-fold-4",
+      "modelName": "Galaxy Z Fold 4",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295354234",
+            "gid://shopify/ProductVariant/57101295485306"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101295387002",
+            "gid://shopify/ProductVariant/57101295452538"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-fold-5",
+      "modelName": "Galaxy Z Fold 5",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294764410",
+            "gid://shopify/ProductVariant/57101294895482"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294797178",
+            "gid://shopify/ProductVariant/57101294862714"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-fold-6",
+      "modelName": "Galaxy Z Fold 6",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294371194",
+            "gid://shopify/ProductVariant/57101294502266"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294403962",
+            "gid://shopify/ProductVariant/57101294469498"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-z-fold-7",
+      "modelName": "Galaxy Z Fold 7",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294174586",
+            "gid://shopify/ProductVariant/57101294305658"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101294207354",
+            "gid://shopify/ProductVariant/57101294272890"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10",
+      "modelName": "Pixel 10",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305774458",
+            "gid://shopify/ProductVariant/57101305905530"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305807226",
+            "gid://shopify/ProductVariant/57101305872762"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "modelName": "Pixel 10 Pro",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305577850",
+            "gid://shopify/ProductVariant/57101305708922"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305610618",
+            "gid://shopify/ProductVariant/57101305676154"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "modelName": "Pixel 10 Pro XL",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305381242",
+            "gid://shopify/ProductVariant/57101305512314"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305414010",
+            "gid://shopify/ProductVariant/57101305479546"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "pixel-5",
+      "modelName": "Pixel 5",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101308526970",
+            "gid://shopify/ProductVariant/57101308658042"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101308559738",
+            "gid://shopify/ProductVariant/57101308625274"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9a",
+      "modelName": "Pixel 9a",
+      "platform": "android",
+      "metaobjectId": null,
+      "complete": false,
+      "finishes": {
+        "black": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101305971066",
+            "gid://shopify/ProductVariant/57101306102138"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        },
+        "white": {
+          "variantIds": [
+            "gid://shopify/ProductVariant/57101306003834",
+            "gid://shopify/ProductVariant/57101306069370"
+          ],
+          "bodyImage": null,
+          "productMedia": [],
+          "matchedVariantIds": [],
+          "complete": false,
+          "gaps": [
+            "missing-metaobject",
+            "missing-body-image",
+            "missing-product-media",
+            "missing-variant-media:2"
+          ]
+        }
+      }
+    }
+  ],
+  "completeModelIds": [
+    "galaxy-a14-5g",
+    "galaxy-a53",
+    "galaxy-a54",
+    "galaxy-a55",
+    "galaxy-a73",
+    "galaxy-s21",
+    "galaxy-s21-fe",
+    "galaxy-s21-plus",
+    "galaxy-s21-ultra",
+    "galaxy-s22",
+    "galaxy-s22-plus",
+    "galaxy-s22-ultra",
+    "galaxy-s23",
+    "galaxy-s23-fe",
+    "galaxy-s23-plus",
+    "galaxy-s23-ultra",
+    "galaxy-s24",
+    "galaxy-s24-fe",
+    "galaxy-s24-plus",
+    "galaxy-s24-ultra",
+    "galaxy-s25",
+    "galaxy-s25-plus",
+    "galaxy-s25-ultra",
+    "iphone-11",
+    "iphone-11-pro",
+    "iphone-11-pro-max",
+    "iphone-12",
+    "iphone-12-mini",
+    "iphone-12-pro",
+    "iphone-12-pro-max",
+    "iphone-13",
+    "iphone-13-mini",
+    "iphone-13-pro",
+    "iphone-13-pro-max",
+    "iphone-14",
+    "iphone-14-plus",
+    "iphone-14-pro",
+    "iphone-14-pro-max",
+    "iphone-15",
+    "iphone-15-plus",
+    "iphone-15-pro",
+    "iphone-15-pro-max",
+    "iphone-16",
+    "iphone-16-plus",
+    "iphone-16-pro",
+    "iphone-16-pro-max",
+    "iphone-16e",
+    "iphone-17",
+    "iphone-17-pro",
+    "iphone-17-pro-max",
+    "iphone-17e",
+    "iphone-6-6s",
+    "iphone-7",
+    "iphone-7-plus",
+    "iphone-8",
+    "iphone-8-plus",
+    "iphone-air",
+    "iphone-se-2020",
+    "iphone-se-2022",
+    "iphone-x",
+    "iphone-xr",
+    "iphone-xs",
+    "iphone-xs-max",
+    "pixel-6",
+    "pixel-6-pro",
+    "pixel-6a",
+    "pixel-7",
+    "pixel-7-pro",
+    "pixel-7a",
+    "pixel-8",
+    "pixel-8-pro",
+    "pixel-8a",
+    "pixel-9",
+    "pixel-9-pro",
+    "pixel-9-pro-xl"
+  ]
+}

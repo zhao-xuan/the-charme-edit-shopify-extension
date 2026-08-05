@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "targetModelId": "galaxy-a23-4g-5g",
+  "targetModelName": "Galaxy A23 4G / 5G",
+  "sourceModelId": "galaxy-a23-4g-5g",
+  "catalogIdentity": {
+    "coverageAuditPath": "reference/case-history/generated/all-phone-real-image-completion/shopify-case-coverage-audit.json",
+    "stateAtQualification": "gap",
+    "platform": "android"
+  },
+  "product": {
+    "retailer": "Amazon US",
+    "asin": "B0BMFRJYLG",
+    "brand": "SUPCASE",
+    "productPageUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+    "title": "SUPCASE for Samsung Galaxy A23 4G / 5G Case with Kickstand, Black | Built-in Screen Protector, Rotatable Belt-Clip, Military-Grade Drop Protection, Full-Body Rugged, Unicorn Beetle Pro",
+    "compatibilityStatement": "Designed exclusively for the Galaxy A23 4G/5G 2022 release"
+  },
+  "video": {
+    "pageUrl": "https://www.amazon.com/live/video/078e1f444883490eaeecd4b0e0353edd",
+    "title": "Product Overview Video",
+    "structuredName": "Watch Product Overview Video on Amazon Live",
+    "creator": "Amazon Product Imaging",
+    "creatorType": "Person",
+    "description": "Shop with expert advice from Amazon Product Imaging in their latest video Product Overview Video",
+    "uploadDate": "2024-12-06T18:22:39.949Z",
+    "duration": "PT0M57S",
+    "marketplaceId": "ATVPDKIKX0DER",
+    "aciContentId": "amzn1.ive.seller.video.078e1f444883490eaeecd4b0e0353edd",
+    "mediaObjectId": "078e1f444883490eaeecd4b0e0353edd",
+    "mediaAsin": "B0BMFRJYLG",
+    "parentAsin": "B0BMFRJYLG",
+    "transcodingArtifactId": "74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a",
+    "amazonDurationSeconds": 57,
+    "durationTimestamp": "00:57",
+    "hlsUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8",
+    "expectedHlsSha256": "f8d59a2e98bbeba93f17347d8e8975266187e2072fc310f7bcd1293f922b5d49",
+    "variantUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080.m3u8",
+    "expectedVariantSha256": "f7bd05827698987c821f0ba8710e3acc3b710ff888cdbd657e15187d7a96d6af",
+    "expectedWidth": 1080,
+    "expectedHeight": 1920,
+    "expectedFrameRate": "30000/1001",
+    "expectedPlaylistDurationSeconds": 58,
+    "segments": [
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00001.ts",
+        "expectedBytes": 1290244,
+        "expectedSha256": "e20e3f3d0cbe8b1681c15982d82bbc172307cd589414d9d25e8ee2161e1ae806"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00002.ts",
+        "expectedBytes": 2073640,
+        "expectedSha256": "00b4a67bafa60206c0dda53efdfe3975c27cc508ecdd7fb718346ce90a3a3355"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00003.ts",
+        "expectedBytes": 1864584,
+        "expectedSha256": "aa4946ba8dfedc16e862e137072b927545f7ce26e0620ca0fae66f3bd0da5aad"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00004.ts",
+        "expectedBytes": 1805552,
+        "expectedSha256": "75d709cf41d7ccbb12074fac7c15344cf021db06ad0756498512268426fe2c73"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00005.ts",
+        "expectedBytes": 1893724,
+        "expectedSha256": "8e2962019ebe9ee16e67be59d7f8158f87e91002d551b94f350c1be7dca6d5f5"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00006.ts",
+        "expectedBytes": 2010660,
+        "expectedSha256": "26f021d31f7905916e3290be33740c250907d533bcce2c939ddda4bcddebf62f"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00007.ts",
+        "expectedBytes": 2471072,
+        "expectedSha256": "ac1a15671fe1b1b31a3a26a52d41efa5dea17fcfd9da653c92b73a4cda71b60f"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00008.ts",
+        "expectedBytes": 1629584,
+        "expectedSha256": "14d2b0f0d7fb81b00c07a92aac2becbfa6c5d6396ada94a6a62ec2c6efafdd10"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00009.ts",
+        "expectedBytes": 1034376,
+        "expectedSha256": "5360c5a93c0c8b40ea5ab445406783ce06e4c263cb695684fc861a6e46b941fa"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00010.ts",
+        "expectedBytes": 422624,
+        "expectedSha256": "3329fc3be9ce7ef1ec367b2b5766e2be067e896fb87c9f936851ff7edec2463b"
+      }
+    ],
+    "frameTimestampSeconds": 52,
+    "expectedFrameWidth": 1080,
+    "expectedFrameHeight": 1920,
+    "expectedFrameChannels": 3,
+    "expectedFrameEncodedBytes": 2094762,
+    "expectedFrameEncodedSha256": "da6ba6dfc29ab6ac064ddd4a565211bdf1392e96f48108cd365b9dad47598064",
+    "expectedFramePixelSha256": "0f28a2adccf45a63006fcc4fb9f16c9daf01f22b25af04ac40764d0d3a2db3e7",
+    "frameExtraction": "ffmpeg -ss 52 against a local copy of the twice-fetched, hash-verified 1080x1920 HLS playlist and all ten segments",
+    "frameSelectionReview": "accepted-real-product-video-frame-complete-empty-rear-shell-separately-visible-with-no-phone-inserted",
+    "geometryUse": "complete rear shell only",
+    "excludedPhysicalComponents": [
+      "front frame",
+      "belt holster"
+    ]
+  },
+  "segmentation": {
+    "method": "seeded-max-rgb-connected-dark-component-with-enclosed-surface-artifact-fill",
+    "seed": {
+      "x": 650,
+      "y": 1100
+    },
+    "primaryThreshold": 120,
+    "stabilityThresholds": [118, 119, 120, 121, 122],
+    "minimumThresholdIou": 0.995,
+    "maximumBoundsDrift": 4,
+    "observedMinimumThresholdIou": 0.9967833861717664,
+    "observedMaximumBoundsDrift": 0,
+    "expectedBounds": {
+      "minX": [140, 140],
+      "minY": [748, 748],
+      "maxX": [958, 958],
+      "maxY": [1436, 1436]
+    },
+    "expectedForegroundPixels": [279827, 281148],
+    "expectedSignificantInternalComponents": 1,
+    "minimumSignificantInternalPixels": 10000,
+    "cameraOpening": {
+      "primaryPixels": 15973,
+      "expectedPixels": [15828, 16204],
+      "expectedBounds": {
+        "minX": [200, 200],
+        "minY": [964, 964],
+        "maxX": [379, 381],
+        "maxY": [1121, 1121]
+      }
+    },
+    "surfaceArtifactPolicy": "Fill enclosed threshold gaps below the significant-component cutoff; preserve the sole significant camera opening; reject any additional significant enclosed component.",
+    "morphologyOperations": 0,
+    "inferredBoundaryPixels": 0,
+    "inferredOpeningPixels": 0
+  },
+  "officialModels": [
+    {
+      "network": "4G LTE",
+      "modelName": "Galaxy A23",
+      "productCode": "SM-A235FZKGXSA",
+      "supportModel": "SM-A235F/DS",
+      "sourcePageUrl": "https://www.samsung.com/au/support/model/SM-A235FZKGXSA/",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "au",
+        "modelCode": "SM-A235FZKGXSA",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "165.4 x 76.9 x 8.4",
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+      "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD",
+      "expectedInfraExcludes": "5G"
+    },
+    {
+      "network": "5G",
+      "modelName": "Galaxy A23 5G",
+      "productCode": "SM-A236BZKUEUB",
+      "supportModel": "SM-A236B/DSN",
+      "sourcePageUrl": "https://www.samsung.com/uk/support/model/SM-A236BZKUEUB/",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "uk",
+        "modelCode": "SM-A236BZKUEUB",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "165.4 x 76.9 x 8.4",
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+      "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD, 5G Sub6 FDD, 5G Sub6 TDD"
+    }
+  ],
+  "compatibilityPolicy": {
+    "controllingEvidence": "The exact SUPCASE ASIN explicitly names Galaxy A23 4G / 5G in its title and states that it is designed exclusively for the Galaxy A23 4G/5G 2022 release.",
+    "supportingEvidence": "Samsung independently identifies SM-A235F/DS as Galaxy A23 4G LTE and SM-A236B/DSN as Galaxy A23 5G and reports identical 165.4 x 76.9 x 8.4 mm dimensions.",
+    "excludedModel": "Galaxy A23 5G UW",
+    "dimensionsAloneAuthorizeCompatibility": false
+  },
+  "publicationPolicy": {
+    "sourceVerificationPublishesNothing": true,
+    "productMediaAllowed": false,
+    "variantMediaAssociationsAllowed": false,
+    "allowedDestinationsAfterIndependentReview": [
+      "Shopify Files",
+      "charme_product.body_image_black",
+      "charme_product.body_image_white"
+    ]
+  }
+}

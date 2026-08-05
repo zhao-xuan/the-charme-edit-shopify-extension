@@ -1,0 +1,586 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-01T09:41:19.026Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 10,
+    "updated": 10,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 10,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 10,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 20,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-s22-ultra",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "7871e7ea0b7fe356861ecd3d6252e4a6f1913065bbc712d6c93108a178926dec",
+      "pixelSha256": "d883a9efca7bf18cc2ad7a1fdded3d9a5f12bc536d12923d85b7c942f6fe503f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963881850",
+      "previousFileId": "gid://shopify/MediaImage/71268432118138",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-black-case-review.png?v=1784413209",
+      "fileId": "gid://shopify/MediaImage/71384146968954",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-black-without-gel-official-source-7871e7ea0b7f.png?v=1785577185",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s22-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-ultra-official-black-rhinoshield-SSA0324452.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 608,
+        "top": 216,
+        "width": 782,
+        "height": 1559,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1258507,
+        "sha256": "2c792a1cb284ee688750fcb790768ba167829022c993cb197557918928b7fc3a",
+        "pixelSha256": "d883a9efca7bf18cc2ad7a1fdded3d9a5f12bc536d12923d85b7c942f6fe503f",
+        "pixelWidth": 782,
+        "pixelHeight": 1559,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1219138,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "4ea9dead81e2209f546d76d6183ce44952f6231021c41f61f69e7806cee22c90",
+      "pixelSha256": "cf674bba4ee2b0ffd7cc0fd2c216bdf29f8a3f37d97e02589cd4108b0b8ad7aa",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963849082",
+      "previousFileId": "gid://shopify/MediaImage/71268432249210",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-black-case-review.png?v=1784413220",
+      "fileId": "gid://shopify/MediaImage/71384147100026",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-black-without-gel-official-source-4ea9dead81e2.png?v=1785577193",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s23",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-official-black-rhinoshield-SST0327352.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 592,
+        "top": 208,
+        "width": 810,
+        "height": 1588,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 689082,
+        "sha256": "eab2efef7b8c7c83eead9d41e6eea68dfe47ac9ed09d021b8d0e8926fed5b467",
+        "pixelSha256": "cf674bba4ee2b0ffd7cc0fd2c216bdf29f8a3f37d97e02589cd4108b0b8ad7aa",
+        "pixelWidth": 810,
+        "pixelHeight": 1588,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1286280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23-plus",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "34c27b2868de3206825e81bf1cc0924fb1c8672687b6155ba6abc33fa3b8a00c",
+      "pixelSha256": "9cb72c8e2c342eedc526e8256b1b69d571e4b1ec591d8d77220688764492160f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963783546",
+      "previousFileId": "gid://shopify/MediaImage/71268432413050",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-black-case-review.png?v=1784413231",
+      "fileId": "gid://shopify/MediaImage/71384147263866",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-black-without-gel-official-source-34c27b2868de.png?v=1785577200",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s23-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-plus-official-black-rhinoshield-SST0327452.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 595,
+        "top": 208,
+        "width": 805,
+        "height": 1585,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 831904,
+        "sha256": "55e3b0eb9e0f25fe3d5cd9bcbc0bcc1cc8bfa621f658cc0a8b1401c2e8e2b3f1",
+        "pixelSha256": "9cb72c8e2c342eedc526e8256b1b69d571e4b1ec591d8d77220688764492160f",
+        "pixelWidth": 805,
+        "pixelHeight": 1585,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1275925,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23-ultra",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "bcd65554b4f46af08dd101ed434606ef361c3777e725519d1fdc982190d1a3f9",
+      "pixelSha256": "1c2422c3790fc7635cbd87532f738eb67ba8d6f81bf8cdec6196eb17185cc400",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963750778",
+      "previousFileId": "gid://shopify/MediaImage/71268432314746",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-black-case-review.png?v=1784413225",
+      "fileId": "gid://shopify/MediaImage/71384147362170",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-black-without-gel-official-source-bcd65554b4f4.png?v=1785577208",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s23-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-ultra-official-black-rhinoshield-SST0327552.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 602,
+        "top": 214,
+        "width": 792,
+        "height": 1574,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 352351,
+        "sha256": "d2211cd59d33a3ad38daa4952f3d0980d27d5de1360293d71c36368202a7a379",
+        "pixelSha256": "1c2422c3790fc7635cbd87532f738eb67ba8d6f81bf8cdec6196eb17185cc400",
+        "pixelWidth": 792,
+        "pixelHeight": 1574,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1246608,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s24-ultra",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "a0220fd471882e4832d3c3c226f56f1b1138b4c2d2c6620ce721a474ee2a7189",
+      "pixelSha256": "8bfd0aee939156b1fd395daaf2349f026ac4b5fa92610bf072c467c95b06aa3b",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963652474",
+      "previousFileId": "gid://shopify/MediaImage/71268432544122",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-black-case-review.png?v=1784413242",
+      "fileId": "gid://shopify/MediaImage/71384147394938",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-black-without-gel-official-source-a0220fd47188.png?v=1785577214",
+      "sourceKind": "official-source",
+      "sourceModelId": "galaxy-s24-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-ultra-official-black-rhinoshield-SST0331652.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 597,
+        "top": 216,
+        "width": 801,
+        "height": 1569,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 561839,
+        "sha256": "10910a828cba1e61c05460f6df407fcf986c03b23273f922dfadd1569ee42e31",
+        "pixelSha256": "8bfd0aee939156b1fd395daaf2349f026ac4b5fa92610bf072c467c95b06aa3b",
+        "pixelWidth": 801,
+        "pixelHeight": 1569,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1256769,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s22-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "b74f204496b93646d20ec7553043f55a3dabe7ebd639c8493ee1d11873a1565f",
+      "pixelSha256": "c1850fb26488a0b4a51c2fbcaf4b8f85f553f4aeac15e4560fb2055c81e65647",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963881850",
+      "previousFileId": "gid://shopify/MediaImage/71268432150906",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-white-case-review.png?v=1784413212",
+      "fileId": "gid://shopify/MediaImage/71384147591546",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-white-without-gel-derived-official-source-b74f204496b9.png?v=1785577222",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s22-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s22-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 608,
+        "top": 216,
+        "width": 782,
+        "height": 1559,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 806680,
+        "sha256": "96a8c08f91773a56758886fe3b67f7a955a211eded55ab306a35cdba398b3739",
+        "pixelSha256": "c1850fb26488a0b4a51c2fbcaf4b8f85f553f4aeac15e4560fb2055c81e65647",
+        "pixelWidth": 782,
+        "pixelHeight": 1559,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1219138,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "0592da5d84332654cf5573850510529ac7c25c4039110547ea6b7b5642aa5931",
+      "pixelSha256": "8a1b2c1f6979002637c7d84641e4e59ac2b246ace132b183c09a2f876854f554",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963849082",
+      "previousFileId": "gid://shopify/MediaImage/71268432281978",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-white-case-review.png?v=1784413222",
+      "fileId": "gid://shopify/MediaImage/71384147657082",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-white-without-gel-derived-official-source-0592da5d8433.png?v=1785577229",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s23",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 592,
+        "top": 208,
+        "width": 810,
+        "height": 1588,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 662851,
+        "sha256": "2aa0606e1247c8552807a9fc3c0e0eeb109fbbc648e043026291e6368baf4593",
+        "pixelSha256": "8a1b2c1f6979002637c7d84641e4e59ac2b246ace132b183c09a2f876854f554",
+        "pixelWidth": 810,
+        "pixelHeight": 1588,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1286280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "34c718b58f78f8de1eddb167fa4e7bf1af26049d3987458f59c758b69a600b06",
+      "pixelSha256": "134dff62ba2063ad3aecd87e6f278cc3103b17fe4f52d996059dbcd0e2d31771",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963783546",
+      "previousFileId": "gid://shopify/MediaImage/71268432445818",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-white-case-review.png?v=1784413234",
+      "fileId": "gid://shopify/MediaImage/71384147722618",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-white-without-gel-derived-official-source-34c718b58f78.png?v=1785577237",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s23-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-plus-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 595,
+        "top": 208,
+        "width": 805,
+        "height": 1585,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 714316,
+        "sha256": "75ee36756951d757b3103145258d1ce7652e2642b01e5f39b45027bec0cd752b",
+        "pixelSha256": "134dff62ba2063ad3aecd87e6f278cc3103b17fe4f52d996059dbcd0e2d31771",
+        "pixelWidth": 805,
+        "pixelHeight": 1585,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1275925,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s23-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "53e68f5e3370d9d21dede0ac5f430d2cbf30b2df52a7117802f866a4fe51b0f4",
+      "pixelSha256": "f7995f3e4df957ad2d26553b06f63a5c69131968605e8d59dfab547db6363570",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963750778",
+      "previousFileId": "gid://shopify/MediaImage/71268432347514",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-white-case-review.png?v=1784413229",
+      "fileId": "gid://shopify/MediaImage/71384147755386",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-white-without-gel-derived-official-source-53e68f5e3370.png?v=1785577243",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s23-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 602,
+        "top": 214,
+        "width": 792,
+        "height": 1574,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 352344,
+        "sha256": "ec8b95bde180bd3bcad360d617f714825afbd3982409317645d43648741fad52",
+        "pixelSha256": "f7995f3e4df957ad2d26553b06f63a5c69131968605e8d59dfab547db6363570",
+        "pixelWidth": 792,
+        "pixelHeight": 1574,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1246608,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s24-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "18f14468a456099bbf49f0fc9d7939e06c89caf4aefe0d08f41c6236ec459567",
+      "pixelSha256": "f10db5c34b14cba760b882b891ad29c6f6457e873dd73c05c2e9d062dac12996",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963652474",
+      "previousFileId": "gid://shopify/MediaImage/71268432642426",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-white-case-review.png?v=1784413247",
+      "fileId": "gid://shopify/MediaImage/71384147820922",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-white-without-gel-derived-official-source-18f14468a456.png?v=1785577250",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s24-ultra",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s24-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "sourceCrop": {
+        "left": 597,
+        "top": 216,
+        "width": 801,
+        "height": 1569,
+        "alphaThreshold": 128,
+        "padding": 4
+      },
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 557595,
+        "sha256": "053105aa69453f299a24831b7de0ab9b74be30c2433f4335a34161bc7fed1bd3",
+        "pixelSha256": "f10db5c34b14cba760b882b891ad29c6f6457e873dd73c05c2e9d062dac12996",
+        "pixelWidth": 801,
+        "pixelHeight": 1569,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1256769,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-s22-ultra",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384147919226",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101293388154",
+        "gid://shopify/ProductVariant/57101293519226"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384147984762",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497785210",
+        "gid://shopify/ProductVariant/57062375260538"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384148017530",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497686906",
+        "gid://shopify/ProductVariant/57062375162234"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384148148602",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497588602",
+        "gid://shopify/ProductVariant/57062375063930"
+      ]
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384148181370",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497260922",
+        "gid://shopify/ProductVariant/57062374769018"
+      ]
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384148214138",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101293420922",
+        "gid://shopify/ProductVariant/57101293486458"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384148246906",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497752442",
+        "gid://shopify/ProductVariant/57062375227770"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384148279674",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497654138",
+        "gid://shopify/ProductVariant/57062375129466"
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384148312442",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497555834",
+        "gid://shopify/ProductVariant/57062375031162"
+      ]
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384148345210",
+      "mediaStatus": "created",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497228154",
+        "gid://shopify/ProductVariant/57062374736250"
+      ]
+    }
+  ]
+}

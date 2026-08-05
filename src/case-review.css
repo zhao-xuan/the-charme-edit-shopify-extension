@@ -52,6 +52,16 @@
 .case-review-images figcaption { margin-bottom: 6px; color: #82766b; font-size: 11px; text-transform: uppercase; }
 .case-review-images .ant-image { display: block; width: 100%; }
 .case-review-images img { width: 100%; height: 260px; object-fit: contain; background: #faf8f4; }
+.case-review-image-frame { display: grid; height: 260px; place-items: center; overflow: hidden; background: #faf8f4; }
+.case-review-image-crop { position: relative; width: min(100%, calc(260px * var(--case-crop-aspect-value))); aspect-ratio: var(--case-crop-aspect); overflow: hidden; }
+.case-review-image-crop .ant-image {
+  position: absolute;
+  top: calc(-100% * var(--case-source-top-ratio));
+  left: calc(-100% * var(--case-source-left-ratio));
+  width: calc(100% * var(--case-source-width-ratio));
+  height: calc(100% * var(--case-source-height-ratio));
+}
+.case-review-image-crop img { width: 100%; height: 100%; object-fit: fill; background: transparent; }
 .case-review-image-missing { display: grid; height: 260px; place-items: center; background: #faf8f4; color: #9a8e83; font-size: 12px; }
 .case-review-controls { display: grid; gap: 12px; margin-top: 14px; }
 .case-review-controls__row { display: flex; gap: 8px; }

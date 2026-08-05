@@ -7,6 +7,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
@@ -40,7 +41,7 @@ const PIXEL_REQUESTED = [
 // Models the user explicitly requested for collection (28 Galaxy + 18 Pixel).
 const REQUESTED = new Set([...Object.keys(GALAXY_NAMES), ...PIXEL_REQUESTED])
 // Extra target models to always include even if no asset yet (catalog-defined).
-const EXTRA_TARGETS = Object.keys(OTHER_NAMES)
+const EXTRA_TARGETS = [...Object.keys(OTHER_NAMES), 'iphone-16e', 'iphone-17e']
 
 function brandOf(id) {
   if (id.startsWith('iphone')) return 'Apple'
@@ -76,8 +77,45 @@ function scan(dir, prefix) {
   }
   return map
 }
+
+async function scanAlphaBounds(dir) {
+  const map = {}
+  if (!fs.existsSync(dir)) return map
+  for (const fileName of fs.readdirSync(dir)) {
+    const match = fileName.match(/^(.*)-(black|white)\.png$/)
+    if (!match) continue
+    const { data, info } = await sharp(path.join(dir, fileName))
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true })
+    let left = info.width
+    let top = info.height
+    let right = -1
+    let bottom = -1
+    for (let y = 0; y < info.height; y += 1) {
+      for (let x = 0; x < info.width; x += 1) {
+        if (data[(y * info.width + x) * info.channels + 3] < 8) continue
+        left = Math.min(left, x)
+        top = Math.min(top, y)
+        right = Math.max(right, x)
+        bottom = Math.max(bottom, y)
+      }
+    }
+    if (right < left || bottom < top) continue
+    ;(map[match[1]] ||= {})[match[2]] = {
+      sourceWidth: info.width,
+      sourceHeight: info.height,
+      left,
+      top,
+      width: right - left + 1,
+      height: bottom - top + 1,
+    }
+  }
+  return map
+}
 const wo = scan(WITHOUT, '')
 const wg = scan(WITH, 'integrated-')
+const withoutGelBounds = await scanAlphaBounds(WITHOUT)
 
 let catalog = new Set()
 try { catalog = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'data', 'integrated-models.json'), 'utf8'))) } catch {}
@@ -106,7 +144,11 @@ const rows = [...ids].map((id) => {
     id, brand: brandOf(id), name: nameOf(id),
     requested: REQUESTED.has(id),
     liveInCatalog: catalog.has(id),
-    withoutGel, withGel, status, needs,
+    withoutGel,
+    withoutGelBounds: withoutGelBounds[id] || {},
+    withGel,
+    status,
+    needs,
   }
 }).sort((a, b) => (BRAND_ORDER[a.brand] - BRAND_ORDER[b.brand]) || a.id.localeCompare(b.id))
 

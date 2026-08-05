@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T18:46:47.451Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a23-4g-5g",
+      "name": "Galaxy A23 4G / 5G",
+      "widthMm": 76.9,
+      "heightMm": 165.4,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a23-4g-5g",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "fa6142a22cb9abacacdd6760fd858cf22a7d876b364739bdddb26f45baf61cba",
+      "pixelSha256": "5a2575a89ab9c57a4b019d7b528f363b5f6966e4ee2b1ef83281aabb1e25bd45",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471891083642",
+      "fileId": "gid://shopify/MediaImage/71394940715386",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a23-4g-5g-black-without-gel-derived-verified-retail-source-fa6142a22cb9.png?v=1785696380",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a23-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a23-4g-5g-black-v1-supcase-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18234,
+        "sha256": "168b130dd8ecdaf9c3ff7a2d47c433d146cf2a42b3d685e3ae21f9c64529eae9",
+        "pixelSha256": "5a2575a89ab9c57a4b019d7b528f363b5f6966e4ee2b1ef83281aabb1e25bd45",
+        "pixelWidth": 394,
+        "pixelHeight": 802,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 315988,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a23-4g-5g",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "41bb72677d83aa791d31111c00ae0bcbbbc940de1889241c6a0e502b9714fcfe",
+      "pixelSha256": "820a8437f420f20655634780fbdef3e689688d34170e406f111c2a2c1167ee1b",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471891083642",
+      "fileId": "gid://shopify/MediaImage/71394940780922",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a23-4g-5g-white-without-gel-derived-verified-retail-source-41bb72677d83.png?v=1785696384",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a23-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a23-4g-5g-white-v1-supcase-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 13116,
+        "sha256": "518923a248eac33c3d79d3d73ead1e3a6d186229c48735b1b31395e960586b7e",
+        "pixelSha256": "820a8437f420f20655634780fbdef3e689688d34170e406f111c2a2c1167ee1b",
+        "pixelWidth": 394,
+        "pixelHeight": 802,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 315988,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

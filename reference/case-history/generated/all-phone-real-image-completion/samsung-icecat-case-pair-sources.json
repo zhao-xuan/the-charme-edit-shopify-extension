@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "source": "Samsung-branded accessory records and original product images mirrored by Open Icecat",
+  "models": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "compatibility": "Galaxy S10 Lite",
+      "officialDeviceDimensions": {
+        "widthMm": 75.6,
+        "heightMm": 162.5,
+        "depthMm": 8.1,
+        "sourceUrl": "https://www.samsungmobilepress.com/media-assets/galaxy_s10_lite?tab=specs"
+      },
+      "sources": [
+        {
+          "finish": "black",
+          "manufacturer": "Samsung",
+          "icecatId": 77500858,
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500858",
+          "mpn": "EF-PG770TBEGEU",
+          "gtin": "8806090273803",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500858_3829847329.jpg",
+          "galleryNumber": "5",
+          "expectedWidth": 3000,
+          "expectedHeight": 2000
+        },
+        {
+          "finish": "white",
+          "manufacturer": "Samsung",
+          "icecatId": 77500860,
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500860",
+          "mpn": "EF-PG770TWEGEU",
+          "gtin": "8806090273773",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500860_0374373524.jpg",
+          "galleryNumber": "5",
+          "expectedWidth": 3000,
+          "expectedHeight": 2000
+        }
+      ]
+    }
+  ]
+}

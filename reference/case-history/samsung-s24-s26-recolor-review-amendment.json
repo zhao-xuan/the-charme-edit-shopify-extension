@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "campaign": "samsung-s24-s26-recolors-v1-review-amendment",
+  "sourceManifest": "reference/case-history/samsung-s24-s26-recolors.json",
+  "sourceProvenance": "reference/case-history/generated/samsung-s24-s26-recolors/candidate-provenance.json",
+  "approvedAt": "2026-08-05",
+  "approvedBy": "user-direct-visual-review",
+  "publish": true,
+  "policy": "This amendment supersedes only the review decisions, not the immutable candidate provenance. Accepted candidates must pass corrected visible-alpha QA and be published byte-for-byte without cropping, resizing, recolouring, compositing, retouching or re-encoding.",
+  "qaCorrection": {
+    "visibleAlphaThreshold": 8,
+    "maximumHaloPixels": 100,
+    "maximumAspectDriftPercent": 3,
+    "reason": "Alpha values below 8/255 are imperceptible encoder noise. The previous alpha > 0 rule incorrectly treated that noise as a visible background haze."
+  },
+  "summary": {
+    "targets": 12,
+    "accepted": 11,
+    "rejected": 1
+  },
+  "reviews": [
+    {
+      "key": "galaxy-s24:black",
+      "sha256": "112facc67f69664df88ef7e3f64165596ea08aa236226df832c7845d1dc660d9",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s24-plus:black",
+      "sha256": "661322f91d882ac8df6b27c326e32054432f5fb5532f6e920351b8406cb72232",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s24-ultra:black",
+      "sha256": "25dfa7708561d53ed94c0294bce1c72a9742d3922f3a1b3a74485c83fdd714d8",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s25:white",
+      "sha256": "5696355f1ecf92497f93534c9e4b703da5e82825fcc0d820dc00ac13fb3e0439",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s25-plus:white",
+      "sha256": "3b13e7428e60064f07832a2baca1f48c107929ed5123ef966e06ee24fd421536",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s25-ultra:white",
+      "sha256": "9acb642511693b5fd730ed220fe3831ac8568ae7931f13a104e1aa23647efbfc",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s26:black",
+      "sha256": "4c91a500bef882ec9f61685fb2ecf8e164e2222a69257d7ef5c9cc92cd439f2f",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s26:white",
+      "sha256": "3919023b1c56b8a2d454015c9c4235191d6f33f4f3132f6eff5c95e7cd0e3c98",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s26-plus:black",
+      "sha256": "47fd41f8aac6ca8e2470b23c1192e5030669d773e17d01dd8d4c492de9b6ec77",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s26-plus:white",
+      "sha256": "b6b9124620c998673a9d00bcdf0276ee4dec49f6fb8eb8802cad75485480fade",
+      "reviewStatus": "accepted",
+      "publish": true
+    },
+    {
+      "key": "galaxy-s26-ultra:black",
+      "sha256": "9011e0efb92d2bf945264f3d24efd6bc1166b429440e4dfce0a9a934a9b32380",
+      "reviewStatus": "rejected",
+      "publish": false,
+      "reviewNotes": "Case body is visibly translucent grey instead of opaque deep Black and remains excluded from publication."
+    },
+    {
+      "key": "galaxy-s26-ultra:white",
+      "sha256": "2c57e230a6158e0afd0e811795102d7c3f3ed79874794e358ea66fec5a1c3fe4",
+      "reviewStatus": "accepted",
+      "publish": true
+    }
+  ]
+}

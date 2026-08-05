@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T09:24:55.334Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-note10-gomibo-case-asset-provenance.json",
+  "source": "Verified Gomibo exact-SKU product record and signed gallery image for the discontinued Spigen Galaxy Note 10 case",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "thresholdStabilityPassed": 1,
+    "cameraOpeningQaPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "galaxy-note-10",
+      "modelName": "Galaxy Note 10",
+      "sourceModelId": "galaxy-note-10",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-10-verified-gomibo-628CS27374-gallery-8.jpg",
+        "sourceUrl": "https://bsimg.nl/images/spigen-rugged-armor-case-zwart-samsung-galaxy-note-10_8.jpg/3jE98bEfeOFfcXO_UZi15CFmflw%3D/fit-in/0x0/filters%3Aupscale%28%29",
+        "productRecordUrl": "https://www.gomibo.be/nl/accessoire-detail/spigen-rugged-armor-case-zwart-samsung-galaxy-note-10",
+        "sku": "628CS27374",
+        "gtin": "8809671012198",
+        "productTitle": "Spigen Rugged Armor Case Black Samsung Galaxy Note 10 - Gomibo.be",
+        "galleryImageId": "spigen-rugged-armor-case-zwart-samsung-galaxy-note-10_8.jpg",
+        "encodedSha256": "e8e4f51d1ec0740e54ce4b96f973720e675288b5bddaf294287eb74c8abb18d8"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9997032977581528,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9997295505304299,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 130,
+              "minY": 6,
+              "maxX": 374,
+              "maxY": 499
+            },
+            "pixels": 114624
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 130,
+              "minY": 6,
+              "maxX": 374,
+              "maxY": 499
+            },
+            "pixels": 114593
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9997032977581528,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 130,
+              "minY": 6,
+              "maxX": 374,
+              "maxY": 499
+            },
+            "pixels": 114559
+          }
+        ],
+        "primaryBounds": {
+          "minX": 130,
+          "minY": 6,
+          "maxX": 374,
+          "maxY": 499
+        },
+        "primaryPixels": 114593
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Verified Gomibo Spigen orthogonal empty-case inner photograph with directly visible shell and camera-opening boundaries",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 114,
+          "top": 0,
+          "width": 277,
+          "height": 505
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "sourceVisibleOpeningTransform": {
+          "openings": [],
+          "clearedPixels": 0
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-note-10-upper-right-single",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "666ef67bcbabef8923056417988c5d652842fbcc464ea50cc25d7cee5952e869",
+        "width": 277,
+        "height": 505,
+        "bounds": {
+          "minX": 16,
+          "minY": 6,
+          "maxX": 260,
+          "maxY": 499
+        },
+        "pixels": 114593,
+        "significantHoles": [
+          {
+            "pixels": 4650,
+            "bounds": {
+              "minX": 166,
+              "minY": 33,
+              "maxX": 232,
+              "maxY": 143
+            },
+            "centerX": 0.746938775510204,
+            "centerY": 0.1659919028340081,
+            "width": 0.27346938775510204,
+            "height": 0.22469635627530365,
+            "aspect": 0.6036036036036037,
+            "componentIndex": 0,
+            "openingId": "camera-and-flash"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-note-10-upper-right-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-flash",
+              "minPixels": 3500,
+              "centerX": [
+                0.7,
+                0.8
+              ],
+              "centerY": [
+                0.12,
+                0.22
+              ],
+              "width": [
+                0.23,
+                0.31
+              ],
+              "height": [
+                0.19,
+                0.26
+              ],
+              "aspect": [
+                0.5,
+                0.7
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 0,
+        "filledArtifactPixels": 0,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-10-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "07153e5810389a232c8ff07891d2dca6d891872d30b280cd847cda4c35eb7ede",
+          "outputPixelSha256": "37577aebdcb83bab4d6d46030e278874b3d07055161905953ed6e5b7b6139fb9",
+          "outputAlphaSha256": "666ef67bcbabef8923056417988c5d652842fbcc464ea50cc25d7cee5952e869",
+          "bounds": {
+            "minX": 16,
+            "minY": 6,
+            "maxX": 260,
+            "maxY": 499
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-10-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "376ac954ac404342e3dde8bde82eae857c681b851983b86e2b901f73df85d265",
+          "outputPixelSha256": "123f862886aeee4e3697092869749e75a754ada8dd80400f44037de6ccb4a524",
+          "outputAlphaSha256": "666ef67bcbabef8923056417988c5d652842fbcc464ea50cc25d7cee5952e869",
+          "bounds": {
+            "minX": 16,
+            "minY": 6,
+            "maxX": 260,
+            "maxY": 499
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:33:54.723Z",
+  "catalogUrl": "https://charme-customizer.pages.dev/api/catalog",
+  "source": "RHINOSHIELD public SolidSuit product-page Nuxt data",
+  "scope": "Explicitly requested Samsung and Google Pixel models; no image bytes downloaded.",
+  "summary": {
+    "black-and-white": 0,
+    "black-and-light-neutral": 3,
+    "black-only": 5,
+    "textured-dark-and-white": 0,
+    "textured-dark-and-light-neutral": 0,
+    "textured-dark-only": 1,
+    "variants-without-black": 0,
+    "unsupported": 0,
+    "error": 0
+  },
+  "categories": {
+    "black-and-white": [],
+    "black-and-light-neutral": [
+      "galaxy-s24",
+      "galaxy-s24-plus",
+      "galaxy-s24-ultra"
+    ],
+    "black-only": [
+      "galaxy-s22",
+      "galaxy-s22-ultra",
+      "galaxy-s23",
+      "galaxy-s23-plus",
+      "galaxy-s23-ultra"
+    ],
+    "textured-dark-and-white": [],
+    "textured-dark-and-light-neutral": [],
+    "textured-dark-only": [
+      "galaxy-s22-plus"
+    ],
+    "variants-without-black": [],
+    "unsupported": [],
+    "error": []
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s22",
+      "deviceHandle": "samsung-galaxy-s22",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22",
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S22 SolidSuit Black",
+        "sku": "SSA0324252",
+        "mainBodySku": "SSA0324252",
+        "shopifyVariantId": 39609879789829
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S22 SolidSuit Black",
+          "sku": "SSA0324252",
+          "mainBodySku": "SSA0324252",
+          "shopifyVariantId": 39609879789829
+        },
+        {
+          "title": "Galaxy S22 SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0324249",
+          "mainBodySku": "SSA0324249",
+          "shopifyVariantId": 39589596397829
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "deviceHandle": "samsung-galaxy-s22-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-plus",
+      "category": "textured-dark-only",
+      "black": null,
+      "texturedDark": {
+        "title": "Galaxy S22+ SolidSuit Carbon Fiber / Black",
+        "sku": "SSA0324349",
+        "mainBodySku": "SSA0324349",
+        "shopifyVariantId": 39589596266757
+      },
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S22+ SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0324349",
+          "mainBodySku": "SSA0324349",
+          "shopifyVariantId": 39589596266757
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "deviceHandle": "samsung-galaxy-s22-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-ultra",
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S22 Ultra SolidSuit Black",
+        "sku": "SSA0324452",
+        "mainBodySku": "SSA0324452",
+        "shopifyVariantId": 39609879855365
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S22 Ultra SolidSuit Black",
+          "sku": "SSA0324452",
+          "mainBodySku": "SSA0324452",
+          "shopifyVariantId": 39609879855365
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s23",
+      "deviceHandle": "samsung-galaxy-s23",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23",
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S23 SolidSuit Black",
+        "sku": "SST0327352",
+        "mainBodySku": "SST0327352",
+        "shopifyVariantId": 39611199062277
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S23 SolidSuit Black",
+          "sku": "SST0327352",
+          "mainBodySku": "SST0327352",
+          "shopifyVariantId": 39611199062277
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "deviceHandle": "samsung-galaxy-s23-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-plus",
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S23+ SolidSuit Black",
+        "sku": "SST0327452",
+        "mainBodySku": "SST0327452",
+        "shopifyVariantId": 39611198865669
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S23+ SolidSuit Black",
+          "sku": "SST0327452",
+          "mainBodySku": "SST0327452",
+          "shopifyVariantId": 39611198865669
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "deviceHandle": "samsung-galaxy-s23-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-ultra",
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S23 Ultra SolidSuit Black",
+        "sku": "SST0327552",
+        "mainBodySku": "SST0327552",
+        "shopifyVariantId": 39611198963973
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S23 Ultra SolidSuit Black",
+          "sku": "SST0327552",
+          "mainBodySku": "SST0327552",
+          "shopifyVariantId": 39611198963973
+        },
+        {
+          "title": "Galaxy S23 Ultra SolidSuit Carbon Fiber / Black",
+          "sku": "SST0327549",
+          "mainBodySku": "SST0327549",
+          "shopifyVariantId": 39611198996741
+        },
+        {
+          "title": "Galaxy S23 Ultra SolidSuit Violet",
+          "sku": "SST03275P1",
+          "mainBodySku": "SST03275P1",
+          "shopifyVariantId": 39611199029509
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s24",
+      "deviceHandle": "samsung-galaxy-s24",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24",
+      "category": "black-and-light-neutral",
+      "black": {
+        "title": "Galaxy S24 SolidSuit Black",
+        "sku": "SST0331452",
+        "mainBodySku": "SST0331452",
+        "shopifyVariantId": 39673676202245
+      },
+      "texturedDark": null,
+      "light": {
+        "title": "Galaxy S24 SolidSuit Shell Beige",
+        "sku": "SST033140B",
+        "mainBodySku": "SST033140B",
+        "shopifyVariantId": 39673676136709
+      },
+      "variants": [
+        {
+          "title": "Galaxy S24 SolidSuit Ocean Blue",
+          "sku": "SST033140A",
+          "mainBodySku": "SST033140A",
+          "shopifyVariantId": 39673676103941
+        },
+        {
+          "title": "Galaxy S24 SolidSuit Shell Beige",
+          "sku": "SST033140B",
+          "mainBodySku": "SST033140B",
+          "shopifyVariantId": 39673676136709
+        },
+        {
+          "title": "Galaxy S24 SolidSuit Carbon Fiber / Black",
+          "sku": "SST0331449",
+          "mainBodySku": "SST0331449",
+          "shopifyVariantId": 39673676169477
+        },
+        {
+          "title": "Galaxy S24 SolidSuit Black",
+          "sku": "SST0331452",
+          "mainBodySku": "SST0331452",
+          "shopifyVariantId": 39673676202245
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "deviceHandle": "samsung-galaxy-s24-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-plus",
+      "category": "black-and-light-neutral",
+      "black": {
+        "title": "Galaxy S24+ SolidSuit Black",
+        "sku": "SST0331552",
+        "mainBodySku": "SST0331552",
+        "shopifyVariantId": 39673676628229
+      },
+      "texturedDark": null,
+      "light": {
+        "title": "Galaxy S24+ SolidSuit Shell Beige",
+        "sku": "SST033150B",
+        "mainBodySku": "SST033150B",
+        "shopifyVariantId": 39673676562693
+      },
+      "variants": [
+        {
+          "title": "Galaxy S24+ SolidSuit Ocean Blue",
+          "sku": "SST033150A",
+          "mainBodySku": "SST033150A",
+          "shopifyVariantId": 39673676529925
+        },
+        {
+          "title": "Galaxy S24+ SolidSuit Shell Beige",
+          "sku": "SST033150B",
+          "mainBodySku": "SST033150B",
+          "shopifyVariantId": 39673676562693
+        },
+        {
+          "title": "Galaxy S24+ SolidSuit Carbon Fiber / Black",
+          "sku": "SST0331549",
+          "mainBodySku": "SST0331549",
+          "shopifyVariantId": 39673676595461
+        },
+        {
+          "title": "Galaxy S24+ SolidSuit Black",
+          "sku": "SST0331552",
+          "mainBodySku": "SST0331552",
+          "shopifyVariantId": 39673676628229
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "deviceHandle": "samsung-galaxy-s24-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-ultra",
+      "category": "black-and-light-neutral",
+      "black": {
+        "title": "Galaxy S24 Ultra SolidSuit Black",
+        "sku": "SST0331652",
+        "mainBodySku": "SST0331652",
+        "shopifyVariantId": 39673676988677
+      },
+      "texturedDark": null,
+      "light": {
+        "title": "Galaxy S24 Ultra SolidSuit Shell Beige",
+        "sku": "SST033160B",
+        "mainBodySku": "SST033160B",
+        "shopifyVariantId": 39673676923141
+      },
+      "variants": [
+        {
+          "title": "Galaxy S24 Ultra SolidSuit Ocean Blue",
+          "sku": "SST033160A",
+          "mainBodySku": "SST033160A",
+          "shopifyVariantId": 39673676890373
+        },
+        {
+          "title": "Galaxy S24 Ultra SolidSuit Shell Beige",
+          "sku": "SST033160B",
+          "mainBodySku": "SST033160B",
+          "shopifyVariantId": 39673676923141
+        },
+        {
+          "title": "Galaxy S24 Ultra SolidSuit Carbon Fiber / Black",
+          "sku": "SST0331649",
+          "mainBodySku": "SST0331649",
+          "shopifyVariantId": 39673676955909
+        },
+        {
+          "title": "Galaxy S24 Ultra SolidSuit Black",
+          "sku": "SST0331652",
+          "mainBodySku": "SST0331652",
+          "shopifyVariantId": 39673676988677
+        }
+      ]
+    }
+  ]
+}

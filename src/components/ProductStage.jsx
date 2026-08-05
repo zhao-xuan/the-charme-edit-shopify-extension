@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { DeleteOutlined, SyncOutlined } from '@ant-design/icons'
+import { DeleteOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
@@ -341,6 +341,15 @@ const ProductStage = forwardRef(function ProductStage(
       (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)) ||
       null,
   )
+  const blankPhotoBounds = product.caseImageBounds?.[color.id]
+  const blankPhotoCropStyle = blankPhotoBounds ? {
+    width: wPx * blankPhotoBounds.sourceWidth / blankPhotoBounds.width,
+    height: hPx * blankPhotoBounds.sourceHeight / blankPhotoBounds.height,
+    left: -wPx * blankPhotoBounds.left / blankPhotoBounds.width,
+    top: -hPx * blankPhotoBounds.top / blankPhotoBounds.height,
+    right: 'auto',
+    bottom: 'auto',
+  } : null
 
   return (
     <div
@@ -361,7 +370,17 @@ const ProductStage = forwardRef(function ProductStage(
             transform: `translate3d(${pan.x}px, ${pan.y}px, 0)`,
           }}
         >
-          {blankPhoto ? (
+          {blankPhotoBounds ? (
+            <div className="stage-blank-frame">
+              <img
+                className="stage-blank"
+                src={blankPhoto}
+                alt={`${product.name} ${color.label}`}
+                draggable={false}
+                style={blankPhotoCropStyle}
+              />
+            </div>
+          ) : blankPhoto ? (
             <img
               className="stage-blank"
               src={blankPhoto}
@@ -620,9 +639,6 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
         <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
       </svg>
-      <span className="charm-dial__rotate-hint" aria-hidden="true">
-        <SyncOutlined />
-      </span>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>
       <button
         type="button"

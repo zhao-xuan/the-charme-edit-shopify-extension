@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T08:15:12.668Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/pixel-5-case-asset-provenance.json",
+  "source": "Exact-model Spigen Thin Fit real-product photograph from a verified reseller listing, with manufacturer catalog corroboration",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "thresholdStabilityPassed": 1,
+    "cameraOpeningQaPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "pixel-5",
+      "modelName": "Pixel 5",
+      "sourceModelId": "pixel-5",
+      "sourceKind": "derived-verified-real-product-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-5-official-spigen-ACS01894-back.jpg",
+        "sourceUrl": "https://cdn.gsmpunt.nl/product/90000/83890/spigen-thin-fit-google-pixel-5-hoesje-zwart_2.jpg?class=imageview",
+        "productRecordUrl": "https://www.gsmpunt.nl/hoesjes/spigen-thin-fit-google-pixel-5-hoesje-zwart",
+        "sku": "ACS01894",
+        "gtin": null,
+        "encodedSha256": "81351ae4b365b187b673928d3684d9512ea88d4ff5425c42aa67579e1dba012e"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9998921498577726,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9999438312060339,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 4,
+              "minY": 5,
+              "maxX": 482,
+              "maxY": 955
+            },
+            "pixels": 445087
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 4,
+              "minY": 5,
+              "maxX": 482,
+              "maxY": 955
+            },
+            "pixels": 445062
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9998921498577726,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 4,
+              "minY": 5,
+              "maxX": 481,
+              "maxY": 955
+            },
+            "pixels": 445014
+          }
+        ],
+        "primaryBounds": {
+          "minX": 4,
+          "minY": 5,
+          "maxX": 482,
+          "maxY": 955
+        },
+        "primaryPixels": 445062
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Exact-model orthogonal Spigen Thin Fit product photograph; installed-phone pixels inside both visibly bounded apertures are explicitly excluded from alpha",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "width": 487,
+          "height": 960
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "sourceVisibleOpeningTransform": {
+          "openings": [
+            {
+              "id": "camera",
+              "shape": "rounded-rect",
+              "bounds": {
+                "left": 59,
+                "top": 62,
+                "right": 206,
+                "bottom": 218
+              },
+              "radius": 28,
+              "basis": "Visible inner edge of the camera aperture in source pixels"
+            },
+            {
+              "id": "fingerprint",
+              "shape": "ellipse",
+              "bounds": {
+                "left": 217,
+                "top": 239,
+                "right": 282,
+                "bottom": 307
+              },
+              "basis": "Visible inner edge of the circular fingerprint aperture in source pixels"
+            }
+          ],
+          "clearedPixels": 25717
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching pixel-5-camera-and-fingerprint",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+        "width": 487,
+        "height": 960,
+        "bounds": {
+          "minX": 4,
+          "minY": 5,
+          "maxX": 482,
+          "maxY": 955
+        },
+        "pixels": 419349,
+        "significantHoles": [
+          {
+            "pixels": 22268,
+            "bounds": {
+              "minX": 59,
+              "minY": 62,
+              "maxX": 205,
+              "maxY": 217
+            },
+            "centerX": 0.267223382045929,
+            "centerY": 0.14143007360672977,
+            "width": 0.3068893528183716,
+            "height": 0.1640378548895899,
+            "aspect": 0.9423076923076923,
+            "componentIndex": 0,
+            "openingId": "camera"
+          },
+          {
+            "pixels": 3476,
+            "bounds": {
+              "minX": 217,
+              "minY": 239,
+              "maxX": 281,
+              "maxY": 306
+            },
+            "centerX": 0.511482254697286,
+            "centerY": 0.2812828601472135,
+            "width": 0.13569937369519833,
+            "height": 0.07150368033648791,
+            "aspect": 0.9558823529411765,
+            "componentIndex": 2,
+            "openingId": "fingerprint"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "pixel-5-camera-and-fingerprint",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 15000,
+              "centerX": [
+                0.23,
+                0.3
+              ],
+              "centerY": [
+                0.11,
+                0.18
+              ],
+              "width": [
+                0.27,
+                0.35
+              ],
+              "height": [
+                0.13,
+                0.19
+              ],
+              "aspect": [
+                0.85,
+                1.1
+              ]
+            },
+            {
+              "id": "fingerprint",
+              "minPixels": 2000,
+              "centerX": [
+                0.47,
+                0.55
+              ],
+              "centerY": [
+                0.24,
+                0.32
+              ],
+              "width": [
+                0.1,
+                0.16
+              ],
+              "height": [
+                0.05,
+                0.09
+              ],
+              "aspect": [
+                0.85,
+                1.15
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 4,
+        "filledArtifactPixels": 4,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "c59a66fc69b051c93a1fbf770a9f2b2039b8e48c0d8d398eb2bdc1c01baae586",
+          "outputPixelSha256": "88a8c39d3ffee3da2f843fcd801341c3e4ef98c289cd61c57643192bc90bdd22",
+          "outputAlphaSha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+          "bounds": {
+            "minX": 4,
+            "minY": 5,
+            "maxX": 482,
+            "maxY": 955
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "badd71663046fabfe010076c00b2825223b336daa5e0f9712d858f34828ab58f",
+          "outputPixelSha256": "417b316cfdb4ad3dc3e43f99b93e34da4df140f374451350a29bcdd982229386",
+          "outputAlphaSha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+          "bounds": {
+            "minX": 4,
+            "minY": 5,
+            "maxX": 482,
+            "maxY": 955
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

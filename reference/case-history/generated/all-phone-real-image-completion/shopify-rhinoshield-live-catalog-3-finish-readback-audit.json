@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T09:42:56.151Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-rhinoshield-live-catalog-3-finish-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 3,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 3,
+    "sourceFilesReady": 3,
+    "metaobjectReferencesMatched": 3,
+    "productMediaReady": 3,
+    "productMediaAltsMatched": 3,
+    "variantAssociationsMatched": 6,
+    "expectedVariantAssociations": 6,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 3,
+    "productMediaExactPixelMatches": 3,
+    "sourceFileAcceptablePixelMatches": 3,
+    "productMediaAcceptablePixelMatches": 3
+  },
+  "images": [
+    {
+      "modelId": "galaxy-s24",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "0d43e47e667307f280069e916184efe120d7cfb8e78ac687745985bbc901d2c0",
+      "sourceFileId": "gid://shopify/MediaImage/71384148574586",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963718010",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149066106",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "7fa31c43e7a30d043d928559a817398a8f7db3680234575a63d08cfae018f182",
+        "pixelSha256": "5f062c877fcdbf52b30c86c5c9a42563078b563b9845f27f5518479e3ecd8f51",
+        "width": 785,
+        "height": 1559,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "7fa31c43e7a30d043d928559a817398a8f7db3680234575a63d08cfae018f182",
+        "pixelSha256": "5f062c877fcdbf52b30c86c5c9a42563078b563b9845f27f5518479e3ecd8f51",
+        "width": 785,
+        "height": 1559,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "fc66e1a73ab81e11c90938eadfe75ee22898f673598d5ae1d606fcd89b6fe5dd",
+      "sourceFileId": "gid://shopify/MediaImage/71384148705658",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963685242",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149131642",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "0aa9ae5978d5757279b2ac6873e17766ce92d303b65d7b16e2c0ab675ff1dcb0",
+        "pixelSha256": "b71bfc73f892f92237f79a67ab90a8ba5c368b8d37380740258dd9c5cbfd2661",
+        "width": 782,
+        "height": 1559,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "0aa9ae5978d5757279b2ac6873e17766ce92d303b65d7b16e2c0ab675ff1dcb0",
+        "pixelSha256": "b71bfc73f892f92237f79a67ab90a8ba5c368b8d37380740258dd9c5cbfd2661",
+        "width": 782,
+        "height": 1559,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s22",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "1e1106e1d72c55f8ae3b1928d5693cf3814c810aabf9effdeb1a2461118d508d",
+      "sourceFileId": "gid://shopify/MediaImage/71384148738426",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963947386",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149459322",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "984f53ffad87e9132c9d4db203f7c8edb9f29095c28631af593ec7015abdbdfb",
+        "pixelSha256": "06a4b755037a3e1ce8af393975ef45daf3ff0211f1a0b9b2ff680090448078b3",
+        "width": 776,
+        "height": 1533,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "984f53ffad87e9132c9d4db203f7c8edb9f29095c28631af593ec7015abdbdfb",
+        "pixelSha256": "06a4b755037a3e1ce8af393975ef45daf3ff0211f1a0b9b2ff680090448078b3",
+        "width": 776,
+        "height": 1533,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

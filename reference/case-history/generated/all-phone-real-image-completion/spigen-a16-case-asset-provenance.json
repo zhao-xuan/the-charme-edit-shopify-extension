@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T16:13:47.935Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-sources.json",
+  "source": "Canonical Galaxy A16 5G catalog identity, repeated-byte official Spigen empty-shell image, and first-party Samsung model API dimensions",
+  "summary": {
+    "assets": 1,
+    "catalogIdentitiesVerified": 1,
+    "productRecordsVerified": 1,
+    "repeatedSourceFetchesByteIdentical": 1,
+    "sourceImagesPixelVerified": 1,
+    "officialDimensionsVerified": 1,
+    "publicationEligible": 1
+  },
+  "assets": [
+    {
+      "targetModelId": "galaxy-a16",
+      "targetModelName": "Galaxy A16 5G",
+      "sourceModelId": "galaxy-a16-5g",
+      "sourceKind": "official-spigen-empty-case-image",
+      "derivedSourceKind": "derived-official-source",
+      "publicationEligible": true,
+      "eligibilityReason": "The canonical case inventory explicitly identifies galaxy-a16 as Galaxy A16 5G; the official Spigen variant, SKU ACS08891, GTIN, and media identify the complete real Galaxy A16 5G Rugged Armor shell; Samsung independently identifies SM-A166BZKDEUB and reports 164.4 x 77.9 x 7.9 mm.",
+      "geometryReview": "accepted-complete-orthogonal-real-empty-shell-with-directly-visible-outer-boundary-and-camera-openings",
+      "geometrySource": "The byte-locked official Spigen inner-case image directly supplies the complete physical outer silhouette and every visible camera opening of the empty Galaxy A16 5G shell.",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a16-5g-official-spigen-ACS08891-inner.jpg",
+      "encodedSha256": "8ac3fecb2c38b0ec7b80d480322444b93e2e3e1f7ded2cebe5eeadc049e6c9ee",
+      "decodedPixelSha256": "657eafc77f41002bc1ab133c3273ac9be0d4c4336c7c3695972f84d79b14b2b6",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "productId": "7295548358703",
+        "productTitle": "Galaxy A Series - Rugged Armor",
+        "variantTitle": "Galaxy A16 5G / Matte Black / In Stock",
+        "sku": "ACS08891",
+        "gtin": "8809971237215",
+        "mediaAlt": "ACS08891 - Galaxy A16 5G Case Rugged Armor in Matte Black showing the inner case with spider web pattern"
+      },
+      "format": "jpeg",
+      "width": 1430,
+      "height": 1430,
+      "channels": 3,
+      "writeStatus": "already-current",
+      "catalogIdentityEvidence": {
+        "inventoryPath": "public/assets/cases/case-inventory.json",
+        "inventoryModelId": "galaxy-a16",
+        "inventoryModelName": "Galaxy A16 5G",
+        "reason": "The canonical case inventory explicitly defines galaxy-a16 as Galaxy A16 5G; the unsuffixed internal ID does not represent Galaxy A16 4G.",
+        "matchedModel": {
+          "id": "galaxy-a16",
+          "name": "Galaxy A16 5G",
+          "brand": "Samsung"
+        },
+        "verified": true
+      },
+      "onlineSourceEvidence": {
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "productRecordFinalUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "productRecordHttpStatus": 200,
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+        "sourceFinalUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+        "sourceHttpStatus": 200,
+        "repeatedFetchByteIdentical": true,
+        "productRecordVerified": true,
+        "productRecord": {
+          "productId": "7295548358703",
+          "productTitle": "Galaxy A Series - Rugged Armor",
+          "variantTitle": "Galaxy A16 5G / Matte Black / In Stock",
+          "sku": "ACS08891",
+          "gtin": "8809971237215",
+          "mediaAlt": "ACS08891 - Galaxy A16 5G Case Rugged Armor in Matte Black showing the inner case with spider web pattern"
+        },
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a16-5g-official-spigen-ACS08891-inner.jpg",
+        "encodedSha256": "8ac3fecb2c38b0ec7b80d480322444b93e2e3e1f7ded2cebe5eeadc049e6c9ee",
+        "decodedPixelSha256": "657eafc77f41002bc1ab133c3273ac9be0d4c4336c7c3695972f84d79b14b2b6",
+        "format": "jpeg",
+        "width": 1430,
+        "height": 1430,
+        "channels": 3,
+        "writeStatus": "already-current"
+      },
+      "officialDimensionEvidence": {
+        "manufacturer": "Samsung",
+        "modelName": "Galaxy A16 5G",
+        "modelCode": "SM-A166BZKDEUB",
+        "modelFamilyCode": "SM-A166B",
+        "supportModel": "SM-A166B/DS",
+        "sourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a16-5g-blue-black-128gb-sm-a166bzkdeub/",
+        "apiEndpoint": "https://api.samsung.com/model",
+        "apiQuery": {
+          "key": "56FE13336ABF4709AFCF7704B24D83F0",
+          "siteCode": "uk",
+          "modelCode": "SM-A166BZKDEUB",
+          "type": "json",
+          "option": "16",
+          "disclaimer": ""
+        },
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "164.4 x 77.9 x 7.9",
+        "heightMm": 164.4,
+        "widthMm": 77.9,
+        "depthMm": 7.9,
+        "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+        "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+        "plmItems": [
+          {
+            "itemPath": "General > Dimension (Height, mm)",
+            "userKey": "ITM01039",
+            "value": "164.4"
+          },
+          {
+            "itemPath": "General > Dimension (Width, mm)",
+            "userKey": "ITM01038",
+            "value": "77.9"
+          },
+          {
+            "itemPath": "General > Dimension (Depth, mm)",
+            "userKey": "ITM01040",
+            "value": "7.9"
+          }
+        ],
+        "sourcePageFinalUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a16-5g-blue-black-128gb-sm-a166bzkdeub/",
+        "sourcePageHttpStatus": 200,
+        "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A166BZKDEUB&type=json&option=16&disclaimer=",
+        "apiHttpStatus": 200,
+        "apiStatusCode": 200,
+        "reportedValueFound": true,
+        "plmDimensionsVerified": true
+      }
+    }
+  ]
+}

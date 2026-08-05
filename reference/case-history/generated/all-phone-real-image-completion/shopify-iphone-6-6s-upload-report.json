@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-07-31T13:10:25.612Z",
+  "provenancePath": null,
+  "sourceMode": "official-source",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-6-6s",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "733c07d668951931b320c379bf6c50db391ec3c1732c71f06c9d2ab5eafa6748",
+      "pixelSha256": "2c789c91c8ccd62f71c55bc1365aa750e5c3e8bd732e1833386e5fad161a1ad6",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471556522362",
+      "fileId": "gid://shopify/MediaImage/71377560273274",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-black-without-gel-official-source-733c07d66895.png?v=1785503403",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-6-6s",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-charcoal-gray-apple-MKY02.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1737086,
+        "sha256": "fe97f92a15fa905a52015a86a378240b2d8226773bf43a10b8f452ad38332d4f",
+        "pixelSha256": "2c789c91c8ccd62f71c55bc1365aa750e5c3e8bd732e1833386e5fad161a1ad6",
+        "pixelWidth": 979,
+        "pixelHeight": 1949,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1908071,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-6-6s",
+      "finish": "white",
+      "candidateVersion": "official-source",
+      "sha256": "2192214ac39b896b6ffb6609b0d77c8a5feed354a8feb28c4ae76a72423a426d",
+      "pixelSha256": "43807a6586d1215878fb2c88079b4e527a6dc12cfd3e45d4d254a4a3864f464a",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471556522362",
+      "fileId": "gid://shopify/MediaImage/71377561911674",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-white-without-gel-official-source-2192214ac39b.png?v=1785503411",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-6-6s",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-white-apple-MKY12.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1642998,
+        "sha256": "6b434c0e495a38645208a81defeb115af25a00a71ae30b25f751022c63f04dc1",
+        "pixelSha256": "43807a6586d1215878fb2c88079b4e527a6dc12cfd3e45d4d254a4a3864f464a",
+        "pixelWidth": 979,
+        "pixelHeight": 1949,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1908071,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

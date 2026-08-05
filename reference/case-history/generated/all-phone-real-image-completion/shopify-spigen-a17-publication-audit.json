@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T16:27:39.577Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-a17-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-a17",
+      "metaobjectId": "gid://shopify/Metaobject/471876174202",
+      "expected": {
+        "modelId": "galaxy-a17",
+        "name": "Galaxy A17",
+        "widthMm": 77.9,
+        "heightMm": 164.4,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A17",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 77.9,
+        "heightMm": 164.4,
+        "legacyId": "galaxy-a17"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-a17",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f32d0617c62f3ab018121e73ad4f881ae19bc01d6990ecf6f473a2c1c5f31990",
+      "sourceFileId": "gid://shopify/MediaImage/71393719976314",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471876174202",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ba38ded1ff08f393e91c12be8e93bb9eb3b98a7ba3a38160480f0fa55435d3e2",
+        "pixelSha256": "c5b8ef8b316f89473334be8d29411a1839c934670bc522017a68a0989868db4f",
+        "width": 744,
+        "height": 1509,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a17",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "207111a28dd7a11e5dde67873c45f7b2c3e306bdf830c46ef263904e55c0a183",
+      "sourceFileId": "gid://shopify/MediaImage/71393720598906",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471876174202",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "17fea055758c6f14f7ede9d27fb9e8443fc094d432c48930dc45e24e533ed32d",
+        "pixelSha256": "3ad2c68b2649e21ebc48c5edf61d7dfaecc442d70fc719b7bbcf2dce31617d73",
+        "width": 744,
+        "height": 1509,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

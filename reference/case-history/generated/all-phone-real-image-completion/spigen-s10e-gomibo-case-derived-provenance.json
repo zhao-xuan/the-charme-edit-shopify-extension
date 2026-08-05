@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T10:27:46.646Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-s10e-gomibo-case-asset-provenance.json",
+  "source": "Verified Gomibo exact-SKU product record and signed gallery image for the discontinued Spigen Galaxy S10e case",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "thresholdStabilityPassed": 1,
+    "cameraOpeningQaPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s10e",
+      "modelName": "Galaxy S10e",
+      "sourceModelId": "galaxy-s10e",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10e-verified-gomibo-609CS25836-gallery-6.jpg",
+        "sourceUrl": "https://bsimg.nl/images/spigen-liquid-air-case-zwart-samsung-galaxy-s10e_6.jpg/FL1Itp-9xpNwlhIT59t2szj-9oY%3D/fit-in/0x0/filters%3Aupscale%28%29",
+        "productRecordUrl": "https://www.gomibo.be/nl/accessoire-detail/spigen-liquid-air-case-zwart-samsung-galaxy-s10e",
+        "sku": "609CS25836",
+        "gtin": "8809640252631",
+        "productTitle": "Spigen Liquid Air Case Black Samsung Galaxy S10e - Gomibo.be",
+        "galleryImageId": "spigen-liquid-air-case-zwart-samsung-galaxy-s10e_6.jpg",
+        "encodedSha256": "81aa93bf29dd661514941988fb8ac93e011270bf18fde1c2e530f0c56e867712"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9997504217012634,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9997504217012634,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 125,
+              "minY": 5,
+              "maxX": 378,
+              "maxY": 498
+            },
+            "pixels": 116196
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 125,
+              "minY": 5,
+              "maxX": 378,
+              "maxY": 498
+            },
+            "pixels": 116167
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9997589676930626,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 125,
+              "minY": 5,
+              "maxX": 378,
+              "maxY": 498
+            },
+            "pixels": 116139
+          }
+        ],
+        "primaryBounds": {
+          "minX": 125,
+          "minY": 5,
+          "maxX": 378,
+          "maxY": 498
+        },
+        "primaryPixels": 116167
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Verified Gomibo Spigen orthogonal empty-case inner photograph with directly visible shell and camera-opening boundaries",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 109,
+          "top": 0,
+          "width": 286,
+          "height": 505
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "sourceVisibleOpeningTransform": {
+          "openings": [],
+          "clearedPixels": 0
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-s10e-centered-top-single",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "fa44906d354a9dbaf0a46d11b99c9e682d7e99a3be09ddac39e4249b9c042bef",
+        "width": 286,
+        "height": 505,
+        "bounds": {
+          "minX": 16,
+          "minY": 5,
+          "maxX": 269,
+          "maxY": 498
+        },
+        "pixels": 116167,
+        "significantHoles": [
+          {
+            "pixels": 5308,
+            "bounds": {
+              "minX": 85,
+              "minY": 76,
+              "maxX": 203,
+              "maxY": 122
+            },
+            "centerX": 0.5039370078740157,
+            "centerY": 0.1902834008097166,
+            "width": 0.468503937007874,
+            "height": 0.0951417004048583,
+            "aspect": 2.5319148936170213,
+            "componentIndex": 0,
+            "openingId": "wide-camera"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-s10e-centered-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "wide-camera",
+              "minPixels": 4500,
+              "centerX": [
+                0.48,
+                0.53
+              ],
+              "centerY": [
+                0.17,
+                0.21
+              ],
+              "width": [
+                0.44,
+                0.5
+              ],
+              "height": [
+                0.08,
+                0.11
+              ],
+              "aspect": [
+                2.3,
+                2.8
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 0,
+        "filledArtifactPixels": 0,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10e-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "0d3f6cebb48f630374b4adea35861031e238028024927efc81468bdcad9db3b4",
+          "outputPixelSha256": "d33ae0fd29a214a932061a20708d7a0b70b3b01ee044c8edfd17ed84d891778c",
+          "outputAlphaSha256": "fa44906d354a9dbaf0a46d11b99c9e682d7e99a3be09ddac39e4249b9c042bef",
+          "bounds": {
+            "minX": 16,
+            "minY": 5,
+            "maxX": 269,
+            "maxY": 498
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10e-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "d5e00f3a257ba430a6347681fc019321e352097d7ee3e9b07c15b450732e804f",
+          "outputPixelSha256": "dcbc3a944c3b5ac65aef3692a4e6304f3447ca9144bef338847f598fee5fcdd0",
+          "outputAlphaSha256": "fa44906d354a9dbaf0a46d11b99c9e682d7e99a3be09ddac39e4249b9c042bef",
+          "bounds": {
+            "minX": 16,
+            "minY": 5,
+            "maxX": 269,
+            "maxY": 498
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

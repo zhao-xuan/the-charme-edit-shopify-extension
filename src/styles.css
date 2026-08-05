@@ -227,6 +227,41 @@ h4,
   border-bottom: 1px solid var(--line);
   flex: none;
 }
+.topbar--editor {
+  position: relative;
+  min-height: 48px;
+}
+.topbar-back {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.topbar-back:hover {
+  border-color: var(--line);
+  background: var(--cream-deep);
+}
+.topbar-back:focus-visible {
+  outline: 2px solid var(--rouge);
+  outline-offset: 2px;
+}
+.topbar-back .anticon {
+  font-size: 15px;
+}
 .brand {
   display: flex;
   align-items: baseline;
@@ -447,6 +482,12 @@ h4,
   -webkit-user-drag: none;
   user-select: none;
 }
+.stage-blank-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 /* Poured-gel overlay: sits in register on top of the case photo, below charms. */
 .stage-gel {
   position: absolute;
@@ -542,23 +583,6 @@ h4,
   pointer-events: none;
   filter: drop-shadow(0 0 1px #fff) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
 }
-.charm-dial__rotate-hint {
-  position: absolute;
-  left: 50%;
-  top: calc(50% - var(--dial-radius) - 22px);
-  transform: translateX(-50%);
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border: 2px solid #2e2a26;
-  border-radius: 50%;
-  background: #fff;
-  color: #2e2a26;
-  font-size: 15px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 5px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-}
 .charm-dial__deg {
   position: absolute;
   left: 50%;
@@ -601,7 +625,7 @@ h4,
   background: #fffdf8;
   color: #2e2a26;
   text-align: center;
-  font-family: Jost, sans-serif;
+  font-family: inherit;
 }
 .customizer-error strong {
   font: 600 24px/1.2 'Cormorant Garamond', serif;
@@ -636,7 +660,10 @@ h4,
   backdrop-filter: blur(5px);
   color: #2e2a26;
   box-shadow: 0 3px 12px rgba(46, 42, 38, 0.1);
-  font: 500 12px/1.35 Jost, sans-serif;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
   letter-spacing: 0;
   text-align: left;
   cursor: pointer;

@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T09:06:42.878Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 4,
+    "updated": 4,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 4,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 2
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a40",
+      "name": "Galaxy A40",
+      "widthMm": 69.2,
+      "heightMm": 144.4,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "galaxy-a70",
+      "name": "Galaxy A70",
+      "widthMm": 76.7,
+      "heightMm": 164.3,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-a40",
+      "name": "Galaxy A40",
+      "widthMm": 69.2,
+      "heightMm": 144.4,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471829873018"
+    },
+    {
+      "modelId": "galaxy-a70",
+      "name": "Galaxy A70",
+      "widthMm": 76.7,
+      "heightMm": 164.3,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471829905786"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-a40",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "bcae81b6fbc324c6240cc9b0c79daa11411cc633cd197e77d94596f5659a260d",
+      "pixelSha256": "8c864189f02cb2786abfa10477574399e717ec38d7cbee94172e313d880dc6b5",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471829873018",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71391787483514",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a40-black-without-gel-derived-verified-retail-source-bcae81b6fbc3.png?v=1785661586",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a40",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a40-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 8810,
+        "sha256": "b59e3bd2505317c69ff2dd39bb7c19639d4d7c77eb70fd4c8381c3d0e70486ce",
+        "pixelSha256": "8c864189f02cb2786abfa10477574399e717ec38d7cbee94172e313d880dc6b5",
+        "pixelWidth": 237,
+        "pixelHeight": 475,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 112575,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a40",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "ebb9d12e3635d01cf3da33ea6fe54994715cddf28bcbe2a8301641ac0c754e6b",
+      "pixelSha256": "95addf830ddc28cbd07e20d73fe50b48d0fae85912cfb831b78a84b8e3c966c4",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471829873018",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71391787942266",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a40-white-without-gel-derived-verified-retail-source-ebb9d12e3635.png?v=1785661593",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a40",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a40-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 6024,
+        "sha256": "67ba83cd314d9adce9ef59c7690a3c6df09ca2142167fbae0bbda2da8287b00d",
+        "pixelSha256": "95addf830ddc28cbd07e20d73fe50b48d0fae85912cfb831b78a84b8e3c966c4",
+        "pixelWidth": 237,
+        "pixelHeight": 475,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 112575,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a70",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "9d789679899d35c93bb341b1fa4fea6080ff2e9c4567ac59dd00d64071c2af25",
+      "pixelSha256": "b27aa42ad53b292359acb6331079e7ce075b8d2af1725a4b226acc070bf9b694",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471829905786",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71391789154682",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a70-black-without-gel-derived-verified-retail-source-9d789679899d.png?v=1785661596",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a70",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a70-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 6953,
+        "sha256": "14c8d732cab7870f77b30b8d37b2ca27109a1124cd2d541405eb00fcd159c17b",
+        "pixelSha256": "b27aa42ad53b292359acb6331079e7ce075b8d2af1725a4b226acc070bf9b694",
+        "pixelWidth": 229,
+        "pixelHeight": 475,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 108775,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a70",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "e601f0a72d15c2f5702a841f77a6c642c875b2358d644a31174b6477ba2930c7",
+      "pixelSha256": "54cbcb646c994e53eb606103fc0b4a085080d09dfc7596a154d8ca0d9ea3a423",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471829905786",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71391789187450",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a70-white-without-gel-derived-verified-retail-source-e601f0a72d15.png?v=1785661601",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a70",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a70-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 4531,
+        "sha256": "ab0934521d07fc25415497da609c9efbfcb765091cabb8b8da63bb713c55c3ac",
+        "pixelSha256": "54cbcb646c994e53eb606103fc0b4a085080d09dfc7596a154d8ca0d9ea3a423",
+        "pixelWidth": 229,
+        "pixelHeight": 475,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 108775,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

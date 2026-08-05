@@ -15,20 +15,31 @@ let cache = null
 // Pages base URL (explicit `CharmeConfig.apiBase`, else the production Pages URL
 // as a fallback; empty when the widget is already served from Pages). The API
 // replies with `access-control-allow-origin: *` so the cross-origin fetch works.
-import { API_BASE } from './apiBase'
+import { API_BASE, PROD_API_BASE } from './apiBase'
+
+function catalogUrls() {
+  const primary = `${API_BASE}/api/catalog`
+  if (API_BASE || typeof location === 'undefined') return [primary]
+  const host = String(location.hostname || '').toLowerCase()
+  return host === 'localhost' || host === '127.0.0.1'
+    ? [primary, `${PROD_API_BASE}/api/catalog`]
+    : [primary]
+}
 
 export async function loadRemoteCatalog() {
   if (typeof fetch === 'undefined') return null
-  try {
-    const res = await fetch(`${API_BASE}/api/catalog`, { headers: { accept: 'application/json' } })
-    if (res.ok) {
+  for (const url of catalogUrls()) {
+    try {
+      const res = await fetch(url, { headers: { accept: 'application/json' } })
+      if (!res.ok) continue
       cache = await res.json()
       if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
+      return cache
+    } catch {
+      /* Try the production catalogue after a missing local Functions route. */
     }
-  } catch {
-    /* offline / no Functions → bundled fallback */
   }
-  return cache
+  return null
 }
 
 /** The remote catalogue snapshot, or null if not loaded. */

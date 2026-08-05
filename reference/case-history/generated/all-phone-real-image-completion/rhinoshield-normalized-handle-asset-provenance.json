@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:20:40.156Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-source-audit-normalized-handles.json",
+  "source": "Official RhinoShield SolidSuit product metadata and materials/body PNG service",
+  "summary": {
+    "total": 11,
+    "black": 6,
+    "darkStructure": 3,
+    "lightNeutral": 1,
+    "white": 1,
+    "written": 11,
+    "alreadyCurrent": 0
+  },
+  "assets": [
+    {
+      "modelId": "galaxy-a13-4g",
+      "deviceHandle": "samsung-galaxy-a13",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy A13 (4G) SolidSuit Black",
+      "sku": "SST0327852",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327852?device-handle=samsung-galaxy-a13&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a13-4g-official-black-rhinoshield-SST0327852.png",
+      "encodedSha256": "b81a6bf9e152c8e49ef67935197d02954f6d12b1f5dbd358ff90a0abb5d28c93",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 612,
+        "minY": 207,
+        "maxX": 1381,
+        "maxY": 1791
+      },
+      "visiblePixelCount": 1118746,
+      "opaquePixelCount": 1109619,
+      "meanOpaqueRgb": [
+        66.065,
+        65.496,
+        65.486
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "deviceHandle": "samsung-galaxy-a56",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy A56 SolidSuit Black",
+      "sku": "SST0334652",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0334652?device-handle=samsung-galaxy-a56&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a56-5g-official-black-rhinoshield-SST0334652.png",
+      "encodedSha256": "6b5873c162eb9cf89d3011e43f7f1090673a12c9f6f71aafb763b77f33f0c3f0",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 613,
+        "minY": 226,
+        "maxX": 1385,
+        "maxY": 1776
+      },
+      "visiblePixelCount": 1105861,
+      "opaquePixelCount": 1095442,
+      "meanOpaqueRgb": [
+        68.711,
+        68.666,
+        68.682
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "deviceHandle": "samsung-galaxy-a56",
+      "role": "light-neutral",
+      "finish": "Shell Beige",
+      "officialTitle": "Galaxy A56 SolidSuit Shell Beige",
+      "sku": "SST033460B",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST033460B?device-handle=samsung-galaxy-a56&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a56-5g-official-shell-beige-rhinoshield-SST033460B.png",
+      "encodedSha256": "58b2f2e30cc29d8c17c3f4d34e9bcee4a4383e74564faba6f1a8a948b5eeaf9c",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 613,
+        "minY": 226,
+        "maxX": 1385,
+        "maxY": 1776
+      },
+      "visiblePixelCount": 1105865,
+      "opaquePixelCount": 1095439,
+      "meanOpaqueRgb": [
+        208.49,
+        202.227,
+        192.917
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "deviceHandle": "samsung-galaxy-a71",
+      "role": "dark-structure",
+      "finish": "Carbon Fiber / Black",
+      "officialTitle": "Galaxy A71 (4G) SolidSuit Carbon Fiber / Black",
+      "sku": "SSA0317349",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0317349?device-handle=samsung-galaxy-a71&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a71-4g-official-carbon-fiber-black-rhinoshield-SSA0317349.png",
+      "encodedSha256": "749c032ed7ea5b0e7a8d6d4f5661d439a81c4a4c94b3daa4f0fbb4fa269fc176",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 619,
+        "minY": 221,
+        "maxX": 1375,
+        "maxY": 1781
+      },
+      "visiblePixelCount": 1092345,
+      "opaquePixelCount": 1086082,
+      "meanOpaqueRgb": [
+        48.381,
+        48.852,
+        50.505
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-a72-4g-5g",
+      "deviceHandle": "samsung-galaxy-a72",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy A72 SolidSuit Black",
+      "sku": "SSA0320852",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0320852?device-handle=samsung-galaxy-a72&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a72-4g-5g-official-black-rhinoshield-SSA0320852.png",
+      "encodedSha256": "364f2d0ca5101b478d97800763cafdebfe2eb2cf73b4166adb7df9cda659525f",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 622,
+        "minY": 235,
+        "maxX": 1371,
+        "maxY": 1764
+      },
+      "visiblePixelCount": 1046439,
+      "opaquePixelCount": 1040188,
+      "meanOpaqueRgb": [
+        41.903,
+        42.193,
+        42.218
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "deviceHandle": "samsung-galaxy-s10",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S10 (4G) SolidSuit Black",
+      "sku": "SSA0309952",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0309952?device-handle=samsung-galaxy-s10&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-4g-official-black-rhinoshield-SSA0309952.png",
+      "encodedSha256": "2992ef720d04bf58d1d79a2228e8fe8b02ec249e04010ec22621a4e596836654",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 612,
+        "minY": 223,
+        "maxX": 1386,
+        "maxY": 1779
+      },
+      "visiblePixelCount": 1111580,
+      "opaquePixelCount": 1105760,
+      "meanOpaqueRgb": [
+        45.834,
+        45.834,
+        45.834
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S20 (4G/5G) SolidSuit Black",
+      "sku": "SSA0316052",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0316052?device-handle=samsung-galaxy-s20&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-4g-5g-official-black-rhinoshield-SSA0316052.png",
+      "encodedSha256": "baa0a8bc76ce0f531821eea31cb5b096b0fc17af5f9418e2614fc91f4d84ae76",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 620,
+        "minY": 215,
+        "maxX": 1371,
+        "maxY": 1785
+      },
+      "visiblePixelCount": 1098142,
+      "opaquePixelCount": 1091842,
+      "meanOpaqueRgb": [
+        47.988,
+        47.988,
+        47.988
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-fe",
+      "role": "dark-structure",
+      "finish": "Carbon Fiber / Black",
+      "officialTitle": "Galaxy S20 FE (4G/5G) SolidSuit Carbon Fiber / Black",
+      "sku": "SSA0319549",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0319549?device-handle=samsung-galaxy-s20-fe&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-fe-4g-5g-official-carbon-fiber-black-rhinoshield-SSA0319549.png",
+      "encodedSha256": "c634bb1c4be05f73431c51927ac32bd4e49537655cc0b0ab2c1967d4967ab6af",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 619,
+        "minY": 219,
+        "maxX": 1379,
+        "maxY": 1780
+      },
+      "visiblePixelCount": 1098214,
+      "opaquePixelCount": 1092154,
+      "meanOpaqueRgb": [
+        56.766,
+        56.841,
+        56.705
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-plus",
+      "role": "dark-structure",
+      "finish": "Leather / Black",
+      "officialTitle": "Galaxy S20+ (4G/5G) SolidSuit Leather / Black",
+      "sku": "SSA0315861",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0315861?device-handle=samsung-galaxy-s20-plus&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-plus-4g-5g-official-leather-black-rhinoshield-SSA0315861.png",
+      "encodedSha256": "621a1f21f4de58dd8423d571a1d9fedc19dccf4a747a6bedebf4fb18ad6f9fe7",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 619,
+        "minY": 211,
+        "maxX": 1372,
+        "maxY": 1790
+      },
+      "visiblePixelCount": 1102609,
+      "opaquePixelCount": 1097733,
+      "meanOpaqueRgb": [
+        46.488,
+        46.265,
+        46.166
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-ultra",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S20 Ultra (4G) SolidSuit Black",
+      "sku": "SSA0315952",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0315952?device-handle=samsung-galaxy-s20-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-ultra-4g-5g-official-black-rhinoshield-SSA0315952.png",
+      "encodedSha256": "6011e90ab4743b6af5d99e4547b7052909c0dc68ca9903573ea9154965aea741",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 620,
+        "minY": 211,
+        "maxX": 1372,
+        "maxY": 1790
+      },
+      "visiblePixelCount": 1037194,
+      "opaquePixelCount": 1030123,
+      "meanOpaqueRgb": [
+        47.496,
+        47.496,
+        47.496
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-ultra",
+      "role": "white",
+      "finish": "White",
+      "officialTitle": "Galaxy S20 Ultra (4G) SolidSuit White",
+      "sku": "SSA0315953",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0315953?device-handle=samsung-galaxy-s20-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-ultra-4g-5g-official-white-rhinoshield-SSA0315953.png",
+      "encodedSha256": "02b35b14f1bf640d5c92c5019ef171e358d45e08a1cbbb023ad8cc8b19fd6046",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 620,
+        "minY": 211,
+        "maxX": 1372,
+        "maxY": 1790
+      },
+      "visiblePixelCount": 1037191,
+      "opaquePixelCount": 1030132,
+      "meanOpaqueRgb": [
+        219.502,
+        219.337,
+        219.337
+      ],
+      "writeStatus": "written"
+    }
+  ]
+}

@@ -1,0 +1,845 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T10:43:25.652Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-rhinoshield-normalized-handle-8-pair-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 16,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 16,
+    "sourceFilesReady": 16,
+    "metaobjectReferencesMatched": 16,
+    "productMediaReady": 16,
+    "productMediaAltsMatched": 16,
+    "variantAssociationsMatched": 32,
+    "expectedVariantAssociations": 32,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 16,
+    "productMediaExactPixelMatches": 16,
+    "sourceFileAcceptablePixelMatches": 16,
+    "productMediaAcceptablePixelMatches": 16
+  },
+  "images": [
+    {
+      "modelId": "galaxy-a13-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "c890389ddd3665ef87ab62e5f483cd77f5d94f1d4847606557c4934142da012f",
+      "sourceFileId": "gid://shopify/MediaImage/71384399282554",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717544314",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384403607930",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b865cc2c0fbdc6487e87b2b4ff4f9d709aadadb8f7c15171394ac3f84d67feb7",
+        "pixelSha256": "cabdde72960d1ff4bae7b7664aa62e97a30610af9612c9504d1922a6801fc1e9",
+        "width": 776,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b865cc2c0fbdc6487e87b2b4ff4f9d709aadadb8f7c15171394ac3f84d67feb7",
+        "pixelSha256": "cabdde72960d1ff4bae7b7664aa62e97a30610af9612c9504d1922a6801fc1e9",
+        "width": 776,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "30a5f74f6a62185b08b50363105fe707432ca837b3e6599f682051544cbb143a",
+      "sourceFileId": "gid://shopify/MediaImage/71384399610234",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717577082",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384403739002",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ed8447906fb5c2f0ea0c487ea30044fb5f077731b37b989091339b119dcaee34",
+        "pixelSha256": "d9b091ce4e3ed6d7984579582fb61713dc5363cd2e9291c57f9a4f558b57eca9",
+        "width": 777,
+        "height": 1555,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ed8447906fb5c2f0ea0c487ea30044fb5f077731b37b989091339b119dcaee34",
+        "pixelSha256": "d9b091ce4e3ed6d7984579582fb61713dc5363cd2e9291c57f9a4f558b57eca9",
+        "width": 777,
+        "height": 1555,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "5b7ab0928fcae32e46c0fb0c2739f9d386352156c1f01449199bb70d7f7f4e60",
+      "sourceFileId": "gid://shopify/MediaImage/71384399839610",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717609850",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384403902842",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "41e5926c913f892ce7ffa37349d95ed942aee9db29a177e42f8a8dc7e5e679bd",
+        "pixelSha256": "030b6d525f1fc550dd99ce08bd248a3e5fb0627a574f9f0ad63468f0c749e828",
+        "width": 782,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "41e5926c913f892ce7ffa37349d95ed942aee9db29a177e42f8a8dc7e5e679bd",
+        "pixelSha256": "030b6d525f1fc550dd99ce08bd248a3e5fb0627a574f9f0ad63468f0c749e828",
+        "width": 782,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "bcbce72d8dc8867642b1759dff212abb3419642142fa0627319251ad63c2c69a",
+      "sourceFileId": "gid://shopify/MediaImage/71384400167290",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717642618",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404001146",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f6aa40310822edb582f08774531cd2330eab62f27384fed736696573820b6174",
+        "pixelSha256": "e74e5a2d402634ed8b6abcb4036dbaef8a322b6dcba3b2c6ea39eaa4ac11cef2",
+        "width": 760,
+        "height": 1579,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f6aa40310822edb582f08774531cd2330eab62f27384fed736696573820b6174",
+        "pixelSha256": "e74e5a2d402634ed8b6abcb4036dbaef8a322b6dcba3b2c6ea39eaa4ac11cef2",
+        "width": 760,
+        "height": 1579,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "31f5ce1643e39e15275066c12a9f061b3131ea4fd9e2f4a6fac09b6b69c53354",
+      "sourceFileId": "gid://shopify/MediaImage/71384400396666",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717675386",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404033914",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bf990589b7024362d23792514589f99ca458afdd73db8a4278a14605777db038",
+        "pixelSha256": "06d47b166b76e199d089b414e837a5999faf067e1d5ae6cf727e2604a825ab86",
+        "width": 760,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bf990589b7024362d23792514589f99ca458afdd73db8a4278a14605777db038",
+        "pixelSha256": "06d47b166b76e199d089b414e837a5999faf067e1d5ae6cf727e2604a825ab86",
+        "width": 760,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "172eed58b919c70469ad36e12a779e1d14bff4f1dc15c0298207b97c39a9cca1",
+      "sourceFileId": "gid://shopify/MediaImage/71384400691578",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717675386",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404197754",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "73b2b54370f47fc76b416d06f10c1e153ddd09f77bd65c7f6f49ebb075afa887",
+        "pixelSha256": "ed1a20cbf949823ae93968f131a21bae683b555540945f94fefe13fc3fb6d8d2",
+        "width": 760,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "73b2b54370f47fc76b416d06f10c1e153ddd09f77bd65c7f6f49ebb075afa887",
+        "pixelSha256": "ed1a20cbf949823ae93968f131a21bae683b555540945f94fefe13fc3fb6d8d2",
+        "width": 760,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a13-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "0d3d76953b4bee5b86d9c6da98de59f2b5ad6fd931e6b8ffcfda8efe34715e1e",
+      "sourceFileId": "gid://shopify/MediaImage/71384401248634",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717544314",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404328826",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "258ef21c7bdd6deb9b9f0b120218ce05124255da6fc0462efddec8c388c9be10",
+        "pixelSha256": "e7c69039e0bce8b6f49403c02d8391741bb0b3b0680b3d0caff91799a1123192",
+        "width": 776,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "258ef21c7bdd6deb9b9f0b120218ce05124255da6fc0462efddec8c388c9be10",
+        "pixelSha256": "e7c69039e0bce8b6f49403c02d8391741bb0b3b0680b3d0caff91799a1123192",
+        "width": 776,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "ac99f3316f2b77bc09132563b4a5cc98bd710169fdc8b705d11dcc55d68eedbe",
+      "sourceFileId": "gid://shopify/MediaImage/71384401346938",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717577082",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404361594",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c153577cb4c472c35332ac8ab58e645212fcc2a983c129b3a35e0b4abbc23428",
+        "pixelSha256": "48e68c41c5096d477d468fa38296fe47e1626fbfca0cec9eed6b9b9dc3d6f8c5",
+        "width": 777,
+        "height": 1555,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c153577cb4c472c35332ac8ab58e645212fcc2a983c129b3a35e0b4abbc23428",
+        "pixelSha256": "48e68c41c5096d477d468fa38296fe47e1626fbfca0cec9eed6b9b9dc3d6f8c5",
+        "width": 777,
+        "height": 1555,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "9d1341a4f5df084c723af9aaf9c00cd0285d89c40cb6fdef7415e5fe2724d2a2",
+      "sourceFileId": "gid://shopify/MediaImage/71384401641850",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717708154",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404623738",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "fa56e6f0ecc458ecfaa53ffad32311c46dfd4f82152558962411ad006cd3e6e7",
+        "pixelSha256": "7bad3f985c3c463f3b231f07689613b3983ca2136d6c9e3fae16ddaeb74f5f32",
+        "width": 764,
+        "height": 1567,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "fa56e6f0ecc458ecfaa53ffad32311c46dfd4f82152558962411ad006cd3e6e7",
+        "pixelSha256": "7bad3f985c3c463f3b231f07689613b3983ca2136d6c9e3fae16ddaeb74f5f32",
+        "width": 764,
+        "height": 1567,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "1356e61094c42df9d14542141a111919f66305afe54d256dc7e8c2ab3de856c2",
+      "sourceFileId": "gid://shopify/MediaImage/71384401772922",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717708154",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404656506",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ac4c3e41972662f27d009d7b726b4fe032ec53a5443729e92cc84d63de78c135",
+        "pixelSha256": "25c5495c4a94bbc0f8e7f00e80c7def41d52b4b84779c47405f67bda6d9ad4c0",
+        "width": 764,
+        "height": 1567,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ac4c3e41972662f27d009d7b726b4fe032ec53a5443729e92cc84d63de78c135",
+        "pixelSha256": "25c5495c4a94bbc0f8e7f00e80c7def41d52b4b84779c47405f67bda6d9ad4c0",
+        "width": 764,
+        "height": 1567,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e5e86b09c200773774b478f2e94ba0884f5fea116fb4a273986e216164b2de6a",
+      "sourceFileId": "gid://shopify/MediaImage/71384401936762",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717609850",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384404787578",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4d75e80953c71779c435291615d14466be6bc8fb9fd07e7e082a6bbcff3facb4",
+        "pixelSha256": "9cad54d263cdec3e0cd3c571bdc0b529381eeaedbfa90d1df1743a0a8bcd9a82",
+        "width": 782,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4d75e80953c71779c435291615d14466be6bc8fb9fd07e7e082a6bbcff3facb4",
+        "pixelSha256": "9cad54d263cdec3e0cd3c571bdc0b529381eeaedbfa90d1df1743a0a8bcd9a82",
+        "width": 782,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "10d1146016d07167e23a6c604a595b9a5872bee17930d0a26118600753003ef9",
+      "sourceFileId": "gid://shopify/MediaImage/71384402329978",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717642618",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384405016954",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "32f47c799562d9e4c309301618a59ade2e5483edb49b04f6c0622bd2a56a4ff6",
+        "pixelSha256": "8b9eacab05d49c34a87d0d5c39dfd33a9440c3e92e6f5a8b521bc5609a7d2555",
+        "width": 760,
+        "height": 1579,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "32f47c799562d9e4c309301618a59ade2e5483edb49b04f6c0622bd2a56a4ff6",
+        "pixelSha256": "8b9eacab05d49c34a87d0d5c39dfd33a9440c3e92e6f5a8b521bc5609a7d2555",
+        "width": 760,
+        "height": 1579,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "4307bf4eb93728647aed7110951aa652c96603459aab5036acc25cfb13f4c422",
+      "sourceFileId": "gid://shopify/MediaImage/71384402624890",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717740922",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384405082490",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "7a4c6a5a9fc2b98467dfae60de7b74f1d95e335a04d096731c268d17cf5262b7",
+        "pixelSha256": "800925f8a1cf1d8af76a5bdf0638266115f025308d67032c1e6378c351311f1c",
+        "width": 769,
+        "height": 1568,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "7a4c6a5a9fc2b98467dfae60de7b74f1d95e335a04d096731c268d17cf5262b7",
+        "pixelSha256": "800925f8a1cf1d8af76a5bdf0638266115f025308d67032c1e6378c351311f1c",
+        "width": 769,
+        "height": 1568,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "1c24c41a91cacc083c24e4f39fa8e31d6d345caa14fbb2d973bf92a785b36136",
+      "sourceFileId": "gid://shopify/MediaImage/71384402788730",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717740922",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384405246330",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f39212ae6f9e10a6bca0386c39e30ddec2a59229b76f23d5e9c9f67412f10155",
+        "pixelSha256": "43eab27f1ccd550408201a2c828a4ff9cd4e2a4913010dc8e7d908b59d7f34f2",
+        "width": 769,
+        "height": 1568,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f39212ae6f9e10a6bca0386c39e30ddec2a59229b76f23d5e9c9f67412f10155",
+        "pixelSha256": "43eab27f1ccd550408201a2c828a4ff9cd4e2a4913010dc8e7d908b59d7f34f2",
+        "width": 769,
+        "height": 1568,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "4a34f325e6b90766a96d72912e986209c8e9bff7240f8ceffb7641bd322b3a26",
+      "sourceFileId": "gid://shopify/MediaImage/71384403149178",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717773690",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384405377402",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a24653b0d5c0c2e3dc48b69df4628325a003c724cfd00abfe78b18ad2250c9be",
+        "pixelSha256": "b38e1786b8d3ee75a75afade3e5691fe3db2ad58f79914d0748c9540d04513f9",
+        "width": 761,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a24653b0d5c0c2e3dc48b69df4628325a003c724cfd00abfe78b18ad2250c9be",
+        "pixelSha256": "b38e1786b8d3ee75a75afade3e5691fe3db2ad58f79914d0748c9540d04513f9",
+        "width": 761,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "fa16dd6adad0d918614f0b76f36d49aa2494e853d704533ed3e083931030e802",
+      "sourceFileId": "gid://shopify/MediaImage/71384403444090",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471717773690",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384405442938",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "508326bbf71124ed2d808a4755ae703cf6c938ec08a62b89106a06783bf3f719",
+        "pixelSha256": "3eb707bd6f64616c5b5885dd0c9f6a288e9dd194b19c7fbd6b12ca0dcaae28d9",
+        "width": 761,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "508326bbf71124ed2d808a4755ae703cf6c938ec08a62b89106a06783bf3f719",
+        "pixelSha256": "3eb707bd6f64616c5b5885dd0c9f6a288e9dd194b19c7fbd6b12ca0dcaae28d9",
+        "width": 761,
+        "height": 1588,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

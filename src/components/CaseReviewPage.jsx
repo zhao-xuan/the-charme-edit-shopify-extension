@@ -40,9 +40,28 @@ function finishesFor(model, history) {
 }
 
 function bareFinish(model, finish) {
-  if (finish !== 'glitter') return finish
+  if (finish !== 'glitter') return model.withoutGel?.[finish] ? finish : null
   if (model.withoutGel?.white) return 'white'
   return model.withoutGel?.black ? 'black' : null
+}
+
+function CroppedCaseImage({ src, alt, bounds }) {
+  if (!bounds) return <Image src={src} alt={alt} />
+  const style = {
+    '--case-crop-aspect': `${bounds.width} / ${bounds.height}`,
+    '--case-crop-aspect-value': bounds.width / bounds.height,
+    '--case-source-width-ratio': bounds.sourceWidth / bounds.width,
+    '--case-source-height-ratio': bounds.sourceHeight / bounds.height,
+    '--case-source-left-ratio': bounds.left / bounds.width,
+    '--case-source-top-ratio': bounds.top / bounds.height,
+  }
+  return (
+    <div className="case-review-image-frame">
+      <div className="case-review-image-crop" style={style}>
+        <Image src={src} alt={alt} />
+      </div>
+    </div>
+  )
 }
 
 function reviewKey(modelId, finish) {
@@ -402,7 +421,16 @@ export default function CaseReviewPage() {
                         <Tag color={statusColor(review.status)}>{STATUS_OPTIONS.find((item) => item.value === review.status)?.label}</Tag>
                       </div>
                       <div className="case-review-images">
-                        <figure><figcaption>{finish === 'glitter' ? '裸壳参考' : 'Without gel'}</figcaption>{shell && <Image src={`/assets/cases/case-without-gel/${model.id}-${shell}.png`} alt="Without gel" />}</figure>
+                        <figure>
+                          <figcaption>{finish === 'glitter' ? '裸壳参考' : 'Without gel'}</figcaption>
+                          {shell
+                            ? <CroppedCaseImage
+                                src={`/assets/cases/case-without-gel/${model.id}-${shell}.png`}
+                                alt="Without gel"
+                                bounds={model.withoutGelBounds?.[shell]}
+                              />
+                            : <div className="case-review-image-missing">尚未找到裸壳</div>}
+                        </figure>
                         <figure>
                           <figcaption>With gel</figcaption>
                           {gelImage

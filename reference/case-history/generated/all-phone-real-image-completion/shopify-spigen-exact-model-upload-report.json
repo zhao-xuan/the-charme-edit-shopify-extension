@@ -1,0 +1,928 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T07:27:34.212Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 18,
+    "updated": 0,
+    "alreadyCurrent": 18,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 18,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 18,
+    "productVariantsUpdated": 36,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "name": "Galaxy Note 20 4G / 5G",
+      "widthMm": 75.2,
+      "heightMm": 161.6,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "name": "Galaxy Note 20 Ultra 4G / 5G",
+      "widthMm": 77.2,
+      "heightMm": 164.8,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "name": "Galaxy S10+",
+      "widthMm": 74.1,
+      "heightMm": 157.6,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "galaxy-s9",
+      "name": "Galaxy S9",
+      "widthMm": 68.7,
+      "heightMm": 147.7,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "name": "Galaxy S9+",
+      "widthMm": 73.8,
+      "heightMm": 158.1,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "pixel-10",
+      "name": "Pixel 10",
+      "widthMm": 72,
+      "heightMm": 152.8,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "name": "Pixel 10 Pro",
+      "widthMm": 72,
+      "heightMm": 152.8,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "name": "Pixel 10 Pro XL",
+      "widthMm": 76.6,
+      "heightMm": 162.8,
+      "kind": "phone",
+      "basePrice": 26
+    },
+    {
+      "modelId": "pixel-9a",
+      "name": "Pixel 9a",
+      "widthMm": 73.3,
+      "heightMm": 154.7,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "9f1b900a7e8e8e2e13d042d9494d867afc18eaf21d560483a6a9fedde3c09788",
+      "pixelSha256": "d4642128aac93655b70d88f99aef076a5659ceaa6dc17ac343585e6ca5818c96",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471782916474",
+      "fileId": "gid://shopify/MediaImage/71387525906810",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-4g-5g-black-without-gel-derived-official-source-9f1b900a7e8e.png?v=1785618790",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-note-20-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-4g-5g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18337,
+        "sha256": "2e8d414b9707d99be19c781af1c513306da03b9a78b6209518af2d88434d89de",
+        "pixelSha256": "d4642128aac93655b70d88f99aef076a5659ceaa6dc17ac343585e6ca5818c96",
+        "pixelWidth": 552,
+        "pixelHeight": 1141,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 629832,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "e2e3a305d076ad0d3e29bd15a0747238677086d6e99f6a4a26ed7413d2da1605",
+      "pixelSha256": "9a509a892a87cf2ec2430da1d495a2a37d338ab787792b73bbfdc4d33914d71f",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471782916474",
+      "fileId": "gid://shopify/MediaImage/71387525939578",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-4g-5g-white-without-gel-derived-official-source-e2e3a305d076.png?v=1785618793",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-note-20-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-4g-5g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 13544,
+        "sha256": "e3049e9f0f93f219ee2ace88740d168bc6ec72298ce3c1eb63852d87281c9f9a",
+        "pixelSha256": "9a509a892a87cf2ec2430da1d495a2a37d338ab787792b73bbfdc4d33914d71f",
+        "pixelWidth": 552,
+        "pixelHeight": 1141,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 629832,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "3bce157677edaffa8d6c84d6b146209b86f8476c1e966fbf581f0681c37cdc69",
+      "pixelSha256": "f9ba646680622b9166ee257c713112afd574f8f75be20f311b8b058838d05374",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471782949242",
+      "fileId": "gid://shopify/MediaImage/71387526005114",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-ultra-4g-5g-black-without-gel-derived-official-source-3bce157677ed.png?v=1785618798",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-note-20-ultra-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-ultra-4g-5g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 20628,
+        "sha256": "66f86508593be32dd04bb7d567bbbde1516bf9fa61e8c2db82df8daacb49673c",
+        "pixelSha256": "f9ba646680622b9166ee257c713112afd574f8f75be20f311b8b058838d05374",
+        "pixelWidth": 557,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 636094,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "7253943d807e75cc46919e6f5b08ecc911498f14ced249f121cd741e918244b8",
+      "pixelSha256": "c09118176a0d8df9e123afc34842513b22133b98427c9ce8af23fd4e5b857a8d",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471782949242",
+      "fileId": "gid://shopify/MediaImage/71387526168954",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-ultra-4g-5g-white-without-gel-derived-official-source-7253943d807e.png?v=1785618802",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-note-20-ultra-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-ultra-4g-5g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 16476,
+        "sha256": "feda9cd85f5a9b601a420327b22b15f919462e7683b0deb8598d3f7a5e518d09",
+        "pixelSha256": "c09118176a0d8df9e123afc34842513b22133b98427c9ce8af23fd4e5b857a8d",
+        "pixelWidth": 557,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 636094,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s10-plus",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "e22046f92baa3a1e9651fe89aba241e46276df16f1ed4b72c514b7b6688338f0",
+      "pixelSha256": "a9f272977c851ed6067f73cb1b0ce159865753874ec76d0a8804a3cc7fddb683",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471782982010",
+      "fileId": "gid://shopify/MediaImage/71387576926586",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-plus-black-without-gel-derived-official-source-e22046f92baa.png?v=1785619620",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s10-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-plus-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 23826,
+        "sha256": "134109718b7e572d8314e2a1c82c3714d52df260703dd4ffc0a445e1778477f3",
+        "pixelSha256": "a9f272977c851ed6067f73cb1b0ce159865753874ec76d0a8804a3cc7fddb683",
+        "pixelWidth": 563,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 643509,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s10-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "6e239e03976ae4e051d46bc81a5eb2ac9011068f43feb245053f5231aa8ce351",
+      "pixelSha256": "4c59287689545eea6e7b16ae6f1888aeb2d7b0b2d3e417141242e26b5c883a68",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471782982010",
+      "fileId": "gid://shopify/MediaImage/71387577352570",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-plus-white-without-gel-derived-official-source-6e239e03976a.png?v=1785619625",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s10-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-plus-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18115,
+        "sha256": "5fb6404955c645aba8aaf04bce22d7a5e07c9103f2666c804e4c824ecc4d0a54",
+        "pixelSha256": "4c59287689545eea6e7b16ae6f1888aeb2d7b0b2d3e417141242e26b5c883a68",
+        "pixelWidth": 563,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 643509,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s9",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "819f961a4acdd9da92f33ca958036e02bc65808c3f33ea901376400fbd8526a5",
+      "pixelSha256": "e661d777f9a36f546e482c5d3ea971a9615fc4426b1b1b3ca53e6769dc71bc70",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783014778",
+      "fileId": "gid://shopify/MediaImage/71387620082042",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-black-without-gel-derived-official-source-819f961a4acd.png?v=1785620501",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s9",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 21155,
+        "sha256": "12d91415fe136c0d7748b434c76247178b6ef1838c561e19c7034827a02049f0",
+        "pixelSha256": "e661d777f9a36f546e482c5d3ea971a9615fc4426b1b1b3ca53e6769dc71bc70",
+        "pixelWidth": 565,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 645230,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s9",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "b04a100d7016ab7a1f40b473ad5f5cf2f8dfa4bdddc0b38d5bfe83c34ac6e13a",
+      "pixelSha256": "0302a8942e4f4d4f3cc9b9357ab71f7e2955a1e1826ecd48ebf24b1986910368",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783014778",
+      "fileId": "gid://shopify/MediaImage/71387621720442",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-white-without-gel-derived-official-source-b04a100d7016.png?v=1785620506",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s9",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 14303,
+        "sha256": "5752a4b0901735b341a5be53494e41304895e155088d77c72fee3ec04a5af683",
+        "pixelSha256": "0302a8942e4f4d4f3cc9b9357ab71f7e2955a1e1826ecd48ebf24b1986910368",
+        "pixelWidth": 565,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 645230,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s9-plus",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "f42dabc57ab6809d20b5a5a2426b42ffc91cbbff90b2a3b1e22b996aa4ad6acf",
+      "pixelSha256": "5b50d7990e973d01598f8003dfe9543914259a76ea0c0fbfd8a7e4e35c15d540",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783047546",
+      "fileId": "gid://shopify/MediaImage/71387621818746",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-plus-black-without-gel-derived-official-source-f42dabc57ab6.png?v=1785620510",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s9-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-plus-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 23006,
+        "sha256": "587c1be4b3f896015facfcb362bc2a8ec014905aac9dd7409dc52e32a3540e37",
+        "pixelSha256": "5b50d7990e973d01598f8003dfe9543914259a76ea0c0fbfd8a7e4e35c15d540",
+        "pixelWidth": 560,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 639520,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s9-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "e19cdbd013691616da9f1bcaf0b8b6e503477d10676c752e1d6b090055a235f1",
+      "pixelSha256": "9e8a5381ead5a94b43c921f8ebe0c94d1c9c4f8a475a6a8d4e8d29f2278c4f71",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783047546",
+      "fileId": "gid://shopify/MediaImage/71387621949818",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-plus-white-without-gel-derived-official-source-e19cdbd01369.png?v=1785620517",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s9-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-plus-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17582,
+        "sha256": "86206354bbf8185052800c6d87b6f157fe2e889b82a8b9887229225ba9f6cd2d",
+        "pixelSha256": "9e8a5381ead5a94b43c921f8ebe0c94d1c9c4f8a475a6a8d4e8d29f2278c4f71",
+        "pixelWidth": 560,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 639520,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "59c898757276524049d9748712a3d5f3e75fe35a232b800f43d3a09e601e367b",
+      "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783080314",
+      "fileId": "gid://shopify/MediaImage/71387644821882",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-black-without-gel-derived-official-source-59c898757276.png?v=1785621392",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 25326,
+        "sha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "fee3effdb2ad33bf5886f7061d9f8c176ebfad51162fa7f30f97808ec72c7295",
+      "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783080314",
+      "fileId": "gid://shopify/MediaImage/71388164948346",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-white-without-gel-derived-official-source-fee3effdb2ad.png?v=1785625554",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18284,
+        "sha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10-pro",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "59c898757276524049d9748712a3d5f3e75fe35a232b800f43d3a09e601e367b",
+      "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783113082",
+      "fileId": "gid://shopify/MediaImage/71388165177722",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-black-without-gel-derived-official-source-59c898757276.png?v=1785625559",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 25326,
+        "sha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10-pro",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "fee3effdb2ad33bf5886f7061d9f8c176ebfad51162fa7f30f97808ec72c7295",
+      "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783113082",
+      "fileId": "gid://shopify/MediaImage/71388165636474",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-white-without-gel-derived-official-source-fee3effdb2ad.png?v=1785625564",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10-pro",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18284,
+        "sha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10-pro-xl",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "59c898757276524049d9748712a3d5f3e75fe35a232b800f43d3a09e601e367b",
+      "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fileId": "gid://shopify/MediaImage/71388165833082",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-black-without-gel-derived-official-source-59c898757276.png?v=1785625568",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10-pro-xl",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-xl-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 25326,
+        "sha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-10-pro-xl",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "fee3effdb2ad33bf5886f7061d9f8c176ebfad51162fa7f30f97808ec72c7295",
+      "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fileId": "gid://shopify/MediaImage/71388170158458",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-white-without-gel-derived-official-source-fee3effdb2ad.png?v=1785625642",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-10-pro-xl",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-xl-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18284,
+        "sha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "pixelWidth": 561,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 641223,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-9a",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "82461dcf1220cb1fbf8d7869240d350b0eee1bad813efaf7db9ff0c805c1081d",
+      "pixelSha256": "cede2fb8822a70cd019f7321592cd6287384b70eee393a7501a5ad1dc262a930",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783178618",
+      "fileId": "gid://shopify/MediaImage/71388170486138",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9a-black-without-gel-derived-official-source-82461dcf1220.png?v=1785625646",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-9a",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-9a-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 25072,
+        "sha256": "b10b6e4fe2ddce8e873f52a71ea1493b85e3421e24fd5df2f2258aacd2ff4250",
+        "pixelSha256": "cede2fb8822a70cd019f7321592cd6287384b70eee393a7501a5ad1dc262a930",
+        "pixelWidth": 566,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 646938,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-9a",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "ce3ebfc6689b87b2c20afcfac57d1e6579ae8fbb3a704f37a9caba059b43a90b",
+      "pixelSha256": "22823886d6086fb26e877a68e06303c3d61d62aa2b3fa95e599058daa21f1b02",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783178618",
+      "fileId": "gid://shopify/MediaImage/71388170781050",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9a-white-without-gel-derived-official-source-ce3ebfc6689b.png?v=1785625652",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-9a",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-9a-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18271,
+        "sha256": "61d4a23c2f15955fd7c693c8deafeda9a7202188d30fa2f6551cc6cce54fe676",
+        "pixelSha256": "22823886d6086fb26e877a68e06303c3d61d62aa2b3fa95e599058daa21f1b02",
+        "pixelWidth": 566,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 646938,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391511085434",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101297516922",
+        "gid://shopify/ProductVariant/57101297647994"
+      ]
+    },
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391511150970",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101297549690",
+        "gid://shopify/ProductVariant/57101297615226"
+      ]
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391511708026",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101297713530",
+        "gid://shopify/ProductVariant/57101297844602"
+      ]
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391511839098",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101297746298",
+        "gid://shopify/ProductVariant/57101297811834"
+      ]
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391511904634",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101298696570",
+        "gid://shopify/ProductVariant/57101298827642"
+      ]
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391512068474",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101298729338",
+        "gid://shopify/ProductVariant/57101298794874"
+      ]
+    },
+    {
+      "modelId": "galaxy-s9",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391512199546",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299286394",
+        "gid://shopify/ProductVariant/57101299417466"
+      ]
+    },
+    {
+      "modelId": "galaxy-s9",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391512330618",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299319162",
+        "gid://shopify/ProductVariant/57101299384698"
+      ]
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391512527226",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299483002",
+        "gid://shopify/ProductVariant/57101299614074"
+      ]
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391512756602",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101299515770",
+        "gid://shopify/ProductVariant/57101299581306"
+      ]
+    },
+    {
+      "modelId": "pixel-10",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391512887674",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305774458",
+        "gid://shopify/ProductVariant/57101305905530"
+      ]
+    },
+    {
+      "modelId": "pixel-10",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391513182586",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305807226",
+        "gid://shopify/ProductVariant/57101305872762"
+      ]
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391513477498",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305577850",
+        "gid://shopify/ProductVariant/57101305708922"
+      ]
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391513641338",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305610618",
+        "gid://shopify/ProductVariant/57101305676154"
+      ]
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71389891658106",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305381242",
+        "gid://shopify/ProductVariant/57101305512314"
+      ]
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71389891985786",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305414010",
+        "gid://shopify/ProductVariant/57101305479546"
+      ]
+    },
+    {
+      "modelId": "pixel-9a",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71390028235130",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305971066",
+        "gid://shopify/ProductVariant/57101306102138"
+      ]
+    },
+    {
+      "modelId": "pixel-9a",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71390028333434",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101306003834",
+        "gid://shopify/ProductVariant/57101306069370"
+      ]
+    }
+  ]
+}

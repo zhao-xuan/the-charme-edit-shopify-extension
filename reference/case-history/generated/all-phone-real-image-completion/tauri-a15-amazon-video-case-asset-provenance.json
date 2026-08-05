@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T14:49:10.918Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/tauri-a15-amazon-video-case-sources.json",
+  "source": "Verified Amazon exact-ASIN real A15 5G unboxing video with separately locked silhouette and opening frames plus first-party Samsung LTE/5G shared-case and dimension evidence",
+  "summary": {
+    "assets": 1,
+    "productRecordsVerified": 1,
+    "videoRecordsVerified": 1,
+    "hlsManifestsRepeatedFetchByteIdentical": 2,
+    "hlsSegmentsRepeatedFetchByteIdentical": 3,
+    "realFramesPixelVerified": 2,
+    "officialCompatibilityVerified": 1,
+    "officialDimensionsVerified": 2,
+    "written": 0,
+    "alreadyCurrent": 2
+  },
+  "assets": [
+    {
+      "targetModelId": "galaxy-a15-4g-5g",
+      "targetModelName": "Galaxy A15 4G / 5G",
+      "sourceModelId": "galaxy-a15-5g",
+      "sourceKind": "verified-amazon-real-product-video-frame",
+      "derivedSourceKind": "derived-verified-retail-source",
+      "publicationEligible": true,
+      "eligibilityReason": "Amazon ASIN B0CRDYG64S identifies the real TAURI Galaxy A15 5G case video, while Samsung accessory EF-QA156CTEGWW explicitly confirms Galaxy A15 5G/LTE shared-case compatibility and both official device records report identical dimensions.",
+      "geometryReview": "accepted-real-product-video-frame-complete-empty-shell-flat-on-table-no-hand-occlusion",
+      "geometrySource": "Verified Amazon exact-ASIN real unboxing video: the 17.8-second flat unobstructed frame supplies the complete physical silhouette and the 6.5-second frame supplies only the four complete brightly backed physical openings",
+      "productRecordUrl": "https://www.amazon.com/dp/B0CRDYG64S",
+      "sourceUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a15-5g-verified-amazon-B0CRDYG64S-real-video-frame-17.8s.png",
+      "encodedSha256": "358f90e50051796a9fac2a2636948925b5e1acf90d7595bb9c9c53fdf428395a",
+      "decodedPixelSha256": "7bc4641bf221f84dd1125e95118f3f7eeaf84b2f1fb91a234e134ec8b1fa91a3",
+      "width": 1920,
+      "height": 1080,
+      "channels": 3,
+      "format": "png",
+      "writeStatus": "already-current",
+      "openingFrame": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a15-5g-verified-amazon-B0CRDYG64S-real-video-opening-frame-6.5s.png",
+        "encodedSha256": "ddfd5a599984eccaa072b7537a493e3ab4c770affc3f13d256f448bede645523",
+        "decodedPixelSha256": "9ea6a6f7e0013c64b356d6a9784cb5d76121a0e3a618b1ec32cec0b24374a923",
+        "width": 1920,
+        "height": 1080,
+        "channels": 3,
+        "format": "png",
+        "writeStatus": "already-current",
+        "geometryReview": "accepted-real-product-video-frame-all-four-physical-openings-complete-brightly-backed-and-unoccluded-opening-geometry-only",
+        "geometryUse": "four physical opening masks only; no outer silhouette pixels are used"
+      },
+      "productRecord": {
+        "retailer": "Amazon US",
+        "asin": "B0CRDYG64S",
+        "brand": "TAURI",
+        "productPageUrl": "https://www.amazon.com/dp/B0CRDYG64S",
+        "title": "TAURI 3 in 1 for Samsung Galaxy A15 5G Case Black, [15 FT Military Grade Protection] with 2X Screen Protector, [Non Slip Textured Back] Slim Shockproof Case for Galaxy A15 5G Case 6.5 Inch",
+        "compatiblePhoneModels": "for A15 5G",
+        "compatibleDevices": "Samsung Galaxy A15 5G (6.5 inches)",
+        "material": "Thermoplastic Polyurethane",
+        "finalUrl": "https://www.amazon.com/dp/B0CRDYG64S",
+        "httpStatus": 200,
+        "productIdentityVerified": true
+      },
+      "videoRecord": {
+        "pageUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+        "finalUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+        "title": "TAURI for Samsung Galaxy A15 5G Case Open Box Video",
+        "creator": "MOKEDE",
+        "uploadDate": "2024-01-18T09:56:31.935Z",
+        "duration": "PT0M18S",
+        "orientation": "HORIZONTAL",
+        "hlsUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls.m3u8",
+        "associatedAsin": "B0CRDYG64S",
+        "httpStatus": 200,
+        "structuredMetadataVerified": true
+      },
+      "hlsEvidence": {
+        "master": {
+          "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls.m3u8",
+          "encodedSha256": "72f669cfc7421b4c457393715866043cfb1609e30d321c34fe1127e7f58962cf",
+          "bytes": 702,
+          "repeatedFetchByteIdentical": true
+        },
+        "variant": {
+          "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080.m3u8",
+          "encodedSha256": "6e5040fc133eef047afbd54ea1accbf363e84c8d7e02602b99415ddab83a4d27",
+          "bytes": 257,
+          "repeatedFetchByteIdentical": true
+        },
+        "segments": [
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00001.ts",
+            "expectedBytes": 2993524,
+            "expectedSha256": "6ae39bdcd692faba988a4a76723610f80638d5a3b4cc248865654120015b14de",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00002.ts",
+            "expectedBytes": 2718668,
+            "expectedSha256": "363a748c8ee794f261985bc04914cbd7b4a380a5e7561451da2aeeb8de172d68",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00003.ts",
+            "expectedBytes": 2288336,
+            "expectedSha256": "db861dcff4fa4565b58dee0fc3e99d73c313e6ed65023eea4744f6e684f1047b",
+            "repeatedFetchByteIdentical": true
+          }
+        ],
+        "frame": {
+          "timestampSeconds": 17.8,
+          "width": 1920,
+          "height": 1080,
+          "channels": 3,
+          "encodedSha256": "358f90e50051796a9fac2a2636948925b5e1acf90d7595bb9c9c53fdf428395a",
+          "pixelSha256": "7bc4641bf221f84dd1125e95118f3f7eeaf84b2f1fb91a234e134ec8b1fa91a3"
+        },
+        "openingFrame": {
+          "timestampSeconds": 6.5,
+          "width": 1920,
+          "height": 1080,
+          "channels": 3,
+          "encodedSha256": "ddfd5a599984eccaa072b7537a493e3ab4c770affc3f13d256f448bede645523",
+          "pixelSha256": "9ea6a6f7e0013c64b356d6a9784cb5d76121a0e3a618b1ec32cec0b24374a923"
+        }
+      },
+      "officialCompatibilityEvidence": {
+        "manufacturer": "Samsung",
+        "accessoryCode": "EF-QA156CTEGWW",
+        "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a15---a15-5g-clear-case-transparent-ef-qa156ctegww/",
+        "sourcePageTitle": "Clear Case for A15 | A15 5G",
+        "reportedLabel": "Compatible Models",
+        "reportedValue": "Galaxy A15 5G/LTE",
+        "finalUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a15---a15-5g-clear-case-transparent-ef-qa156ctegww/",
+        "httpStatus": 200,
+        "compatibilityVerified": true
+      },
+      "officialDimensionEvidence": [
+        {
+          "network": "LTE",
+          "modelName": "Galaxy A15",
+          "modelCode": "SM-A155FZKDEUB",
+          "modelFamilyCode": "SM-A155",
+          "sourcePageUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-blue-black-128gb-sm-a155fzkdeub/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "uk",
+            "modelCode": "SM-A155FZKDEUB",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "160.1 x 76.8 x 8.4",
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "sourcePageFinalUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-blue-black-128gb-sm-a155fzkdeub/",
+          "sourcePageHttpStatus": 200,
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A155FZKDEUB&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "reportedValueFound": true
+        },
+        {
+          "network": "5G",
+          "modelName": "Galaxy A15 5G",
+          "modelCode": "SM-A156BZKDEUB",
+          "modelFamilyCode": "SM-A156",
+          "sourcePageUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-5g-blue-black-128gb-sm-a156bzkdeub/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "uk",
+            "modelCode": "SM-A156BZKDEUB",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "160.1 x 76.8 x 8.4",
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "sourcePageFinalUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-5g-blue-black-128gb-sm-a156bzkdeub/",
+          "sourcePageHttpStatus": 200,
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A156BZKDEUB&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "reportedValueFound": true
+        }
+      ],
+      "segmentation": {
+        "method": "max-rgb-connected-dark-component",
+        "seed": {
+          "x": 1400,
+          "y": 450
+        },
+        "primaryThreshold": 80,
+        "stabilityThresholds": [
+          79,
+          80,
+          81
+        ],
+        "minimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 4,
+        "expectedBounds": {
+          "minX": [
+            1165,
+            1166
+          ],
+          "minY": [
+            226,
+            226
+          ],
+          "maxX": [
+            1599,
+            1599
+          ],
+          "maxY": [
+            902,
+            902
+          ]
+        },
+        "openings": [
+          {
+            "id": "upper-camera",
+            "minimumPixels": 700,
+            "centerX": [
+              0.15,
+              0.18
+            ],
+            "centerY": [
+              0.08,
+              0.11
+            ],
+            "width": [
+              0.11,
+              0.14
+            ],
+            "height": [
+              0.03,
+              0.05
+            ]
+          },
+          {
+            "id": "middle-camera",
+            "minimumPixels": 1800,
+            "centerX": [
+              0.15,
+              0.18
+            ],
+            "centerY": [
+              0.15,
+              0.18
+            ],
+            "width": [
+              0.13,
+              0.15
+            ],
+            "height": [
+              0.055,
+              0.075
+            ]
+          },
+          {
+            "id": "lower-camera",
+            "minimumPixels": 1800,
+            "centerX": [
+              0.15,
+              0.18
+            ],
+            "centerY": [
+              0.22,
+              0.25
+            ],
+            "width": [
+              0.13,
+              0.15
+            ],
+            "height": [
+              0.055,
+              0.075
+            ]
+          },
+          {
+            "id": "flash",
+            "minimumPixels": 250,
+            "centerX": [
+              0.27,
+              0.3
+            ],
+            "centerY": [
+              0.1,
+              0.13
+            ],
+            "width": [
+              0.04,
+              0.08
+            ],
+            "height": [
+              0.02,
+              0.035
+            ]
+          }
+        ]
+      },
+      "openingFrameSegmentation": {
+        "method": "max-rgb-connected-bright-components",
+        "comparison": "greater-than-or-equal",
+        "primaryThreshold": 115,
+        "stabilityThresholds": [
+          114,
+          115,
+          116
+        ],
+        "minimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "openings": [
+          {
+            "id": "upper-camera",
+            "seed": {
+              "x": 427,
+              "y": 95
+            },
+            "minimumPixels": 3000,
+            "expectedBounds": {
+              "minX": [
+                392,
+                392
+              ],
+              "minY": [
+                67,
+                67
+              ],
+              "maxX": [
+                462,
+                462
+              ],
+              "maxY": [
+                123,
+                123
+              ]
+            }
+          },
+          {
+            "id": "middle-camera",
+            "seed": {
+              "x": 415,
+              "y": 162
+            },
+            "minimumPixels": 3400,
+            "expectedBounds": {
+              "minX": [
+                380,
+                380
+              ],
+              "minY": [
+                131,
+                131
+              ],
+              "maxX": [
+                451,
+                451
+              ],
+              "maxY": [
+                193,
+                193
+              ]
+            }
+          },
+          {
+            "id": "lower-camera",
+            "seed": {
+              "x": 403,
+              "y": 231
+            },
+            "minimumPixels": 3400,
+            "expectedBounds": {
+              "minX": [
+                367,
+                367
+              ],
+              "minY": [
+                200,
+                200
+              ],
+              "maxX": [
+                439,
+                439
+              ],
+              "maxY": [
+                262,
+                262
+              ]
+            }
+          },
+          {
+            "id": "flash",
+            "seed": {
+              "x": 487,
+              "y": 130
+            },
+            "minimumPixels": 1000,
+            "expectedBounds": {
+              "minX": [
+                467,
+                467
+              ],
+              "minY": [
+                113,
+                113
+              ],
+              "maxX": [
+                507,
+                507
+              ],
+              "maxY": [
+                146,
+                146
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

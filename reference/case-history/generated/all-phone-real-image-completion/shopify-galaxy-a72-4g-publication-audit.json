@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T20:45:40.506Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-galaxy-a72-4g-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "productMediaReady": 2,
+    "productMediaAltsMatched": 2,
+    "variantAssociationsMatched": 4,
+    "expectedVariantAssociations": 4,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 2,
+    "productMediaExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2,
+    "productMediaAcceptablePixelMatches": 2
+  },
+  "images": [
+    {
+      "modelId": "galaxy-a72-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e1226b309cff3e3424c95bcd4d5faa7965b5f9e6eb01af7a336cb1d9a05f6c21",
+      "sourceFileId": "gid://shopify/MediaImage/71387174895994",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471781278074",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387178926458",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d1d5e407508d9a861ff034f9e3227684e9d89d64b20f698d954e70fd51d7d703",
+        "pixelSha256": "fcf9411010c6dbfdfebf5fcae4524710147903c4f5f9bf0c179b0ebfa6ced4ee",
+        "width": 750,
+        "height": 1530,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d1d5e407508d9a861ff034f9e3227684e9d89d64b20f698d954e70fd51d7d703",
+        "pixelSha256": "fcf9411010c6dbfdfebf5fcae4524710147903c4f5f9bf0c179b0ebfa6ced4ee",
+        "width": 750,
+        "height": 1530,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a72-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "0a8218222ecb871fbf266c4e87f668bb664b144529cb1a7a0025ed500e23c77c",
+      "sourceFileId": "gid://shopify/MediaImage/71387176763770",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471781278074",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387179843962",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4b48f9d044a1efdc9212a81926d5dfd734488a8b75e4099018c23cc33adf1fac",
+        "pixelSha256": "7772170d9786053268d179a9c51c46aec2a87dad927a444b55051fe16183d85c",
+        "width": 750,
+        "height": 1530,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4b48f9d044a1efdc9212a81926d5dfd734488a8b75e4099018c23cc33adf1fac",
+        "pixelSha256": "7772170d9786053268d179a9c51c46aec2a87dad927a444b55051fe16183d85c",
+        "width": 750,
+        "height": 1530,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

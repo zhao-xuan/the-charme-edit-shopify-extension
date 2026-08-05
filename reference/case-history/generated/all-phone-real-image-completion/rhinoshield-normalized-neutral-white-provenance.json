@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:21:33.666Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-handle-asset-provenance.json",
+  "summary": {
+    "derived": 1
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a56-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a56-5g-official-shell-beige-rhinoshield-SST033460B.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST033460B?device-handle=samsung-galaxy-a56&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+      "sourceOfficialTitle": "Galaxy A56 SolidSuit Shell Beige",
+      "sourceSku": "SST033460B",
+      "sourceEncodedSha256": "58b2f2e30cc29d8c17c3f4d34e9bcee4a4383e74564faba6f1a8a948b5eeaf9c",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a56-5g-white-v1-rhinoshield-shell-beige-neutralized.png",
+      "outputEncodedSha256": "5d1ac65e2687582e198b21dd5f4ab3b9745e4b4eee849e784a4d53adb0582aac",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-neutralization",
+        "spatialTransform": "none",
+        "fullyTransparentRgb": "zeroed",
+        "bodyLumaFloor": 150,
+        "sourceControlPoints": [
+          [
+            0,
+            0
+          ],
+          [
+            149,
+            149
+          ],
+          [
+            196.626,
+            235
+          ],
+          [
+            204.626,
+            247
+          ],
+          [
+            209.554,
+            251
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetBodyLuma": {
+          "p5": 235,
+          "p50": 247,
+          "p95": 251
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "d27d125fa6178853b1b619aa02c22ae4d8b4b39ed5c8f63cfc411109421b7d65",
+        "outputSha256": "d27d125fa6178853b1b619aa02c22ae4d8b4b39ed5c8f63cfc411109421b7d65",
+        "changedPixels": 0,
+        "source": {
+          "bounds": {
+            "minX": 613,
+            "minY": 226,
+            "maxX": 1385,
+            "maxY": 1776
+          },
+          "visiblePixelCount": 1105865,
+          "edgeCounts": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "output": {
+          "bounds": {
+            "minX": 613,
+            "minY": 226,
+            "maxX": 1385,
+            "maxY": 1776
+          },
+          "visiblePixelCount": 1105865,
+          "edgeCounts": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "pairedBlackConsistency": {
+        "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a56-5g-official-black-rhinoshield-SST0334652.png",
+        "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0334652?device-handle=samsung-galaxy-a56&size=2000&lossless=1",
+        "sourceOfficialTitle": "Galaxy A56 SolidSuit Black",
+        "sourceSku": "SST0334652",
+        "sourceEncodedSha256": "6b5873c162eb9cf89d3011e43f7f1090673a12c9f6f71aafb763b77f33f0c3f0",
+        "alphaSha256": "8b8550d84a84f13d7b2051c41ecfdada743b4ceff41d79e5c29d45597bc01d04",
+        "exactAlphaIdentity": false,
+        "coreGeometry": {
+          "alphaThreshold": 128,
+          "minimumIoU": 0.9995,
+          "sourceBounds": {
+            "minX": 615,
+            "minY": 228,
+            "maxX": 1383,
+            "maxY": 1774
+          },
+          "pairedBounds": {
+            "minX": 615,
+            "minY": 228,
+            "maxX": 1383,
+            "maxY": 1774
+          },
+          "sourcePixelCount": 1100669,
+          "pairedPixelCount": 1100663,
+          "intersectionPixelCount": 1100653,
+          "unionPixelCount": 1100679,
+          "differingPixelCount": 26,
+          "intersectionOverUnion": 0.999976378,
+          "changedAlphaPixels": 8636,
+          "maximumAlphaDelta": 12,
+          "meanAlphaDelta": 0.004509
+        },
+        "alpha": {
+          "bounds": {
+            "minX": 613,
+            "minY": 226,
+            "maxX": 1385,
+            "maxY": 1776
+          },
+          "visiblePixelCount": 1105861,
+          "edgeCounts": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "sourceColors": {
+        "bodyPixelCount": 1078340,
+        "bodyLuma": {
+          "p5": 196.626,
+          "p50": 204.626,
+          "p95": 209.554
+        },
+        "opaqueLuma": {
+          "p5": 194.554,
+          "p50": 204.554,
+          "p95": 209.554
+        },
+        "darkStructurePixelCount": 0,
+        "darkStructureLuma": null,
+        "maximumChannelSpread": 23,
+        "changedAlphaPixels": 0,
+        "nonzeroRgbFullyTransparentPixels": 2894135
+      },
+      "outputColors": {
+        "bodyPixelCount": 1078564,
+        "bodyLuma": {
+          "p5": 235,
+          "p50": 247,
+          "p95": 251
+        },
+        "opaqueLuma": {
+          "p5": 231,
+          "p50": 247,
+          "p95": 251
+        },
+        "darkStructurePixelCount": 10514,
+        "darkStructureLuma": {
+          "p5": 85,
+          "p50": 99,
+          "p95": 116
+        },
+        "maximumChannelSpread": 0,
+        "changedAlphaPixels": 0,
+        "nonzeroRgbFullyTransparentPixels": 0
+      }
+    }
+  ]
+}

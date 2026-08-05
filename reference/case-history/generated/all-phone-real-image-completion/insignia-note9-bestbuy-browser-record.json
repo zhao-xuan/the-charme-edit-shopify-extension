@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-02T13:21:23.214Z",
+  "captureMethod": "live-browser-bestbuy-graphql",
+  "pageUrl": "https://www.bestbuy.com/product/insignia-soft-shell-case-for-samsung-galaxy-note9-clear/J2FPJKGX96?intl=nosplash",
+  "pageTitle": "Insignia™ Soft shell Case for Samsung Galaxy Note9 Clear NS-MSGN9TC - Best Buy",
+  "request": {
+    "endpoint": "https://www.bestbuy.com/gateway/graphql",
+    "operationName": "Note9Evidence",
+    "variables": {
+      "skuId": "6267400"
+    },
+    "query": "query Note9Evidence($skuId: String!) { productBySkuId(skuId: $skuId) { skuId name { short } manufacturer { modelNumber } images { piscesHref } } }"
+  },
+  "response": {
+    "httpStatus": 200,
+    "contentType": "application/json; charset=utf-8",
+    "product": {
+      "skuId": "6267400",
+      "name": "Insignia™ - Soft shell Case for Samsung Galaxy Note9 - Clear",
+      "modelNumber": "NS-MSGN9TC",
+      "images": [
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400_sd.jpg",
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400_rd.jpg",
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv1d.jpg",
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv3d.jpg",
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv11d.jpg"
+      ]
+    },
+    "canonicalProductSha256": "9e20508ef3b5c506ac8144ccede65ae9de7e119b81f4596d89791c4f4b20a6a9"
+  }
+}

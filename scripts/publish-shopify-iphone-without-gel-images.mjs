@@ -9,6 +9,7 @@ const PROVENANCE_PATH = 'reference/case-history/generated/shopify-iphone-without
 const REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-upload-report.json'
 const CASE_REVIEW_REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-case-review-source-upload-report.json'
 const ALL_CASE_REVIEW_REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-all-case-review-source-upload-report.json'
+const OFFICIAL_SOURCE_REPORT_PATH = 'reference/case-history/generated/samsung-xiaomi-without-gel-completion/shopify-official-source-upload-report.json'
 const INVENTORY_PATH = 'public/assets/cases/case-inventory.json'
 const METAOBJECT_TYPE = 'charme_product'
 const CASE_HANDLE = argumentValue('case-handle', 'custom-charm-phone-case')
@@ -26,6 +27,13 @@ const verify = process.argv.includes('--verify')
 const fillCaseReviewSources = process.argv.includes('--fill-case-review-sources')
 const allCaseReviewSources = process.argv.includes('--all-case-review-sources')
 const syncProductMedia = process.argv.includes('--sync-product-media')
+const pairAlignReviewedSources = process.argv.includes('--pair-align-reviewed-sources')
+const officialSourceSpecs = argumentValues('official-source')
+const derivedSourceSpecs = argumentValues('derived-source')
+const derivedRetailSourceSpecs = argumentValues('derived-retail-source')
+const compatibleSourceSpecs = argumentValues('compatible-source')
+const createTargetSpecs = argumentValues('create-target')
+const reportPathOverride = argumentValue('report', '')
 const caseReviewBaseUrl = argumentValue('case-review-base-url', 'https://charme-customizer.pages.dev')
 const modelIds = new Set(argumentValues('model'))
 const finishes = new Set(argumentValues('finish').map((value) => value.toLowerCase()))
@@ -37,6 +45,23 @@ const env = {
 }
 
 if (apply && verify) throw new Error('Pass either --verify or --apply, not both')
+if (syncProductMedia) {
+  throw new Error('Product/variant media sync is disabled for customizer-only case images; publish Shopify Files and charme_product fields only')
+}
+if ((officialSourceSpecs.length || derivedSourceSpecs.length || derivedRetailSourceSpecs.length || compatibleSourceSpecs.length) && (fillCaseReviewSources || allCaseReviewSources)) {
+  throw new Error('Reviewed sources cannot be combined with a case-review source mode')
+}
+if (createTargetSpecs.length && !(officialSourceSpecs.length || derivedSourceSpecs.length || derivedRetailSourceSpecs.length || compatibleSourceSpecs.length)) {
+  throw new Error('--create-target requires a reviewed source')
+}
+if (pairAlignReviewedSources && !(officialSourceSpecs.length || derivedSourceSpecs.length || derivedRetailSourceSpecs.length || compatibleSourceSpecs.length)) {
+  throw new Error('--pair-align-reviewed-sources requires reviewed sources')
+}
+if (reportPathOverride && (
+  path.isAbsolute(reportPathOverride)
+  || !reportPathOverride.startsWith('reference/case-history/generated/')
+  || path.extname(reportPathOverride) !== '.json'
+)) throw new Error('--report must be a JSON path under reference/case-history/generated')
 if ([...finishes].some((finish) => !FINISH_FIELDS[finish])) {
   throw new Error('Only --finish black and --finish white are supported')
 }
@@ -50,6 +75,23 @@ function argumentValues(name) {
 function argumentValue(name, fallback) {
   const index = process.argv.indexOf(`--${name}`)
   return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : fallback
+}
+
+function createTargetSpec(value) {
+  const [modelId, name, widthValue, heightValue, ...extra] = value.split(':')
+  const widthMm = Number(widthValue)
+  const heightMm = Number(heightValue)
+  if (!modelId || !name || extra.length || !Number.isFinite(widthMm) || !Number.isFinite(heightMm)) {
+    throw new Error('--create-target must be model-id:name:width-mm:height-mm')
+  }
+  return { modelId, name, widthMm, heightMm, kind: 'phone', basePrice: 26 }
+}
+
+const createTargets = new Map()
+for (const value of createTargetSpecs) {
+  const target = createTargetSpec(value)
+  if (createTargets.has(target.modelId)) throw new Error(`Duplicate --create-target for ${target.modelId}`)
+  createTargets.set(target.modelId, target)
 }
 
 function sha256(bytes) {
@@ -150,7 +192,14 @@ const Q_CASE_PRODUCT = `
         id
         options { name }
         variants(first: 250, after: $after) {
-          nodes { id selectedOptions { name value } }
+          nodes {
+            id
+            selectedOptions { name value }
+            media(first: 20) {
+              nodes { id }
+              pageInfo { hasNextPage }
+            }
+          }
           pageInfo { hasNextPage endCursor }
         }
         media(first: 250) {
@@ -160,10 +209,35 @@ const Q_CASE_PRODUCT = `
     }
   }`
 
+const Q_PRODUCT_MEDIA = `
+  query($id: ID!, $after: String) {
+    product(id: $id) {
+      media(first: 250, after: $after) {
+        nodes { id alt }
+        pageInfo { hasNextPage endCursor }
+      }
+    }
+  }`
+
+const Q_MEDIA = `
+  query($id: ID!) {
+    node(id: $id) {
+      ... on MediaImage { id alt status image { url } }
+    }
+  }`
+
 const M_PRODUCT = `
   mutation($id: ID!, $metaobject: MetaobjectUpdateInput!) {
     metaobjectUpdate(id: $id, metaobject: $metaobject) {
       metaobject { id }
+      userErrors { field message code }
+    }
+  }`
+
+const M_CREATE_PRODUCT = `
+  mutation($metaobject: MetaobjectCreateInput!) {
+    metaobjectCreate(metaobject: $metaobject) {
+      metaobject { id handle }
       userErrors { field message code }
     }
   }`
@@ -180,6 +254,14 @@ const M_VARIANTS = `
   mutation($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
     productVariantsBulkUpdate(productId: $productId, variants: $variants) {
       userErrors { field message }
+    }
+  }`
+
+const M_FILE_ALT = `
+  mutation($files: [FileUpdateInput!]!) {
+    fileUpdate(files: $files) {
+      files { id alt }
+      userErrors { field message code }
     }
   }`
 
@@ -237,14 +319,22 @@ async function caseProductTargets(entries) {
     const modelId = slugModel(selectedOption(variant, model.name))
     const finish = variantFinish(selectedOption(variant, colour.name))
     if (!modelId || !finish) continue
+    if (variant.media.pageInfo.hasNextPage) throw new Error(`Variant ${variant.id} has more than 20 media records`)
     const key = `${modelId}\u0000${finish}`
-    variantsByKey.set(key, [...(variantsByKey.get(key) || []), variant.id])
+    const group = variantsByKey.get(key) || { variantIds: [], linkedMediaIds: new Set() }
+    group.variantIds.push(variant.id)
+    for (const media of variant.media.nodes) group.linkedMediaIds.add(media.id)
+    variantsByKey.set(key, group)
   }
 
-  const targets = entries.map((entry) => ({
-    entry,
-    variantIds: variantsByKey.get(`${entry.candidate.modelId}\u0000${entry.candidate.finish}`) || [],
-  }))
+  const targets = entries.map((entry) => {
+    const group = variantsByKey.get(`${entry.candidate.modelId}\u0000${entry.candidate.finish}`)
+    return {
+      entry,
+      variantIds: group?.variantIds || [],
+      linkedMediaIds: [...(group?.linkedMediaIds || [])],
+    }
+  })
   const missing = targets.filter((target) => !target.variantIds.length)
   if (missing.length) {
     throw new Error(`Shopify has no matching variants for: ${missing.map(({ entry }) => `${entry.candidate.modelId}/${entry.candidate.finish}`).join(', ')}`)
@@ -256,10 +346,68 @@ function productMediaAlt(result) {
   return `Charme without gel ${result.modelId} ${result.finish} ${result.sha256.slice(0, 12)}`
 }
 
+async function matchingLinkedProductMedia(target) {
+  const matches = []
+  for (const mediaId of target.linkedMediaIds) {
+    const data = await admin(Q_MEDIA, { id: mediaId })
+    const media = data.node
+    if (media?.status !== 'READY' || !media.image?.url) continue
+    const identity = await remoteIdentity(media.image.url, target.entry.candidate, target.entry.evidence)
+    if (matchesCandidate(identity, target.entry.candidate, target.entry.evidence)) matches.push(media)
+  }
+  if (matches.length > 1) {
+    throw new Error(`Multiple linked Product Media match ${target.entry.candidate.modelId}/${target.entry.candidate.finish}`)
+  }
+  return matches[0] || null
+}
+
+async function ensureProductMediaAlt(mediaId, expectedAlt) {
+  for (let attempt = 1; attempt <= 20; attempt += 1) {
+    const data = await admin(Q_MEDIA, { id: mediaId })
+    const media = data.node
+    if (!media) throw new Error(`Shopify Product Media ${mediaId} was not found`)
+    if (media.status === 'FAILED') throw new Error(`Shopify Product Media ${mediaId} failed processing`)
+    if (media.status !== 'READY') {
+      await sleep(1000)
+      continue
+    }
+    if (media.alt === expectedAlt) return 'current'
+
+    const updated = await admin(M_FILE_ALT, { files: [{ id: mediaId, alt: expectedAlt }] })
+    const errors = updated.fileUpdate.userErrors || []
+    if (errors.length) throw new Error(JSON.stringify(errors))
+    const readback = await admin(Q_MEDIA, { id: mediaId })
+    if (readback.node?.alt !== expectedAlt) {
+      throw new Error(`Shopify Product Media alt readback failed for ${mediaId}`)
+    }
+    return 'updated'
+  }
+  throw new Error(`Shopify Product Media ${mediaId} did not become ready`)
+}
+
+async function refreshProductMedia(product) {
+  const nodes = []
+  let after = null
+  do {
+    const data = await admin(Q_PRODUCT_MEDIA, { id: product.id, after })
+    if (!data.product) throw new Error(`Shopify product ${product.id} was not found`)
+    nodes.push(...data.product.media.nodes)
+    after = data.product.media.pageInfo.hasNextPage ? data.product.media.pageInfo.endCursor : null
+  } while (after)
+  product.media.nodes = nodes
+}
+
 async function syncResultToProduct(product, target, result) {
   const alt = productMediaAlt(result)
   let mediaId = product.media.nodes.find((media) => media.alt === alt)?.id || null
   let mediaStatus = 'reused'
+  if (!mediaId) {
+    const linkedMedia = await matchingLinkedProductMedia(target)
+    mediaId = linkedMedia?.id || null
+    if (linkedMedia && !product.media.nodes.some((media) => media.id === linkedMedia.id)) {
+      product.media.nodes.push(linkedMedia)
+    }
+  }
   if (!mediaId) {
     const created = await admin(M_MEDIA, {
       productId: product.id,
@@ -279,13 +427,32 @@ async function syncResultToProduct(product, target, result) {
     const errors = updated.productVariantsBulkUpdate.userErrors || []
     if (errors.length) throw new Error(JSON.stringify(errors))
   }
+  const altStatus = await ensureProductMediaAlt(mediaId, alt)
   return {
     modelId: result.modelId,
     finish: result.finish,
     mediaId,
     mediaStatus,
+    altStatus,
     variantIds: target.variantIds,
   }
+}
+
+async function syncResultToProductWithRetry(product, target, result, attempts = 4) {
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      if (attempt > 1) await refreshProductMedia(product)
+      return await syncResultToProduct(product, target, result)
+    } catch (error) {
+      lastError = error
+      if (!/fetch failed|ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket/i.test(error.message || String(error)) || attempt === attempts) {
+        throw error
+      }
+      await sleep(attempt * 1000)
+    }
+  }
+  throw lastError
 }
 
 async function candidateEvidence(candidate) {
@@ -451,6 +618,157 @@ async function acceptedCandidates() {
   return { campaign: provenance.campaign, entries }
 }
 
+function reviewedSourceSpec(value, sourceKind) {
+  const firstSeparator = value.indexOf(':')
+  const secondSeparator = value.indexOf(':', firstSeparator + 1)
+  if (firstSeparator < 1 || secondSeparator <= firstSeparator + 1 || secondSeparator === value.length - 1) {
+    throw new Error('Reviewed source must be model-id:finish:path')
+  }
+  return {
+    modelId: value.slice(0, firstSeparator),
+    finish: value.slice(firstSeparator + 1, secondSeparator).toLowerCase(),
+    filePath: value.slice(secondSeparator + 1),
+    sourceKind,
+  }
+}
+
+function compatibleSourceSpec(value) {
+  const firstSeparator = value.indexOf(':')
+  const secondSeparator = value.indexOf(':', firstSeparator + 1)
+  const thirdSeparator = value.indexOf(':', secondSeparator + 1)
+  if (
+    firstSeparator < 1
+    || secondSeparator <= firstSeparator + 1
+    || thirdSeparator <= secondSeparator + 1
+    || thirdSeparator === value.length - 1
+  ) throw new Error('--compatible-source must be model-id:finish:source-model-id:path')
+  return {
+    modelId: value.slice(0, firstSeparator),
+    finish: value.slice(firstSeparator + 1, secondSeparator).toLowerCase(),
+    sourceModelId: value.slice(secondSeparator + 1, thirdSeparator),
+    filePath: value.slice(thirdSeparator + 1),
+    sourceKind: 'compatible-real-source',
+  }
+}
+
+function alphaBoundsAtThreshold(evidence, threshold) {
+  let left = evidence.pixelWidth
+  let top = evidence.pixelHeight
+  let right = -1
+  let bottom = -1
+  for (let y = 0; y < evidence.pixelHeight; y += 1) {
+    for (let x = 0; x < evidence.pixelWidth; x += 1) {
+      const alpha = evidence.pixelData[(y * evidence.pixelWidth + x) * evidence.pixelChannels + 3]
+      if (alpha < threshold) continue
+      left = Math.min(left, x)
+      top = Math.min(top, y)
+      right = Math.max(right, x)
+      bottom = Math.max(bottom, y)
+    }
+  }
+  if (right < 0) throw new Error(`No pixels found at alpha >= ${threshold}`)
+  return { left, top, right, bottom }
+}
+
+function sameBounds(left, right) {
+  return left.left === right.left
+    && left.top === right.top
+    && left.right === right.right
+    && left.bottom === right.bottom
+}
+
+async function reviewedSourceImages() {
+  const seen = new Set()
+  const sources = [
+    ...officialSourceSpecs.map((value) => reviewedSourceSpec(value, 'official-source')),
+    ...derivedSourceSpecs.map((value) => reviewedSourceSpec(value, 'derived-official-source')),
+    ...derivedRetailSourceSpecs.map((value) => reviewedSourceSpec(value, 'derived-verified-retail-source')),
+    ...compatibleSourceSpecs.map(compatibleSourceSpec),
+  ]
+  const prepared = []
+  for (const source of sources) {
+    if (!FINISH_FIELDS[source.finish]) throw new Error(`Unsupported finish: ${source.finish}`)
+    const key = `${source.modelId}\u0000${source.finish}`
+    if (seen.has(key)) throw new Error(`Duplicate official source for ${source.modelId}/${source.finish}`)
+    seen.add(key)
+    const sourceBytes = await readFile(source.filePath)
+    const original = await imageEvidence(sourceBytes, source.filePath)
+    const modelName = createTargets.get(source.modelId)?.name || source.modelId
+      .split('-')
+      .map((token) => token === 'galaxy' ? 'Galaxy' : token === 'plus' ? '+' : token.charAt(0).toUpperCase() + token.slice(1))
+      .join(' ')
+    prepared.push({ source, sourceBytes, original, modelName, sourceCrop: null })
+  }
+
+  if (pairAlignReviewedSources) {
+    for (const [modelId, pair] of Map.groupBy(prepared, (item) => item.source.modelId)) {
+      const finishes = new Set(pair.map((item) => item.source.finish))
+      if (pair.length !== 2 || !finishes.has('black') || !finishes.has('white')) {
+        throw new Error(`${modelId} must provide exactly one reviewed Black and White source for pair alignment`)
+      }
+      if (new Set(pair.map((item) => `${item.original.widthPx}x${item.original.heightPx}`)).size !== 1) {
+        throw new Error(`${modelId} reviewed Black/White source canvases differ`)
+      }
+      const coreBounds = pair.map((item) => alphaBoundsAtThreshold(item.original, 128))
+      if (!sameBounds(coreBounds[0], coreBounds[1])) {
+        throw new Error(`${modelId} reviewed Black/White core bounds differ`)
+      }
+      const padding = 4
+      const bounds = coreBounds[0]
+      const sourceCrop = {
+        left: Math.max(0, bounds.left - padding),
+        top: Math.max(0, bounds.top - padding),
+        width: Math.min(pair[0].original.widthPx - Math.max(0, bounds.left - padding), bounds.right - bounds.left + 1 + padding * 2),
+        height: Math.min(pair[0].original.heightPx - Math.max(0, bounds.top - padding), bounds.bottom - bounds.top + 1 + padding * 2),
+        alphaThreshold: 128,
+        padding,
+      }
+      for (const item of pair) item.sourceCrop = sourceCrop
+    }
+  }
+
+  const entries = []
+  for (const { source, sourceBytes, original, modelName, sourceCrop } of prepared) {
+    let evidence
+    if (sourceCrop) {
+      const croppedBytes = await sharp(sourceBytes).extract(sourceCrop).png().toBuffer()
+      const cropped = await imageEvidence(croppedBytes, source.filePath)
+      if (!cropped.hasTransparentBackground || cropped.alphaPadding.some((padding) => padding < 1)) {
+        throw new Error(`${source.modelId}/${source.finish} pair crop does not preserve transparent edge padding`)
+      }
+      evidence = {
+        ...cropped,
+        trimmed: true,
+        sourceWidthPx: original.widthPx,
+        sourceHeightPx: original.heightPx,
+      }
+    } else {
+      evidence = await tightTransparentEvidence(sourceBytes, source.filePath)
+    }
+    const candidate = {
+      modelId: source.modelId,
+      modelName,
+      finish: source.finish,
+      candidateVersion: source.sourceKind,
+      sha256: evidence.sha256,
+      widthPx: evidence.widthPx,
+      heightPx: evidence.heightPx,
+      sourceKind: source.sourceKind,
+      sourceModelId: source.sourceModelId || source.modelId,
+      sourcePath: source.filePath,
+      sourceUrl: null,
+      sourceSha256: original.sha256,
+      sourceWidthPx: original.widthPx,
+      sourceHeightPx: original.heightPx,
+      trimmed: evidence.trimmed,
+      sourceCrop,
+    }
+    entries.push({ candidate, fieldKey: FINISH_FIELDS[source.finish], evidence })
+  }
+  if (!entries.length) throw new Error('No official sources were supplied')
+  return { campaign: 'reviewed-without-gel-source-publication', entries }
+}
+
 async function optionalLocalSource(modelId, finish) {
   const paths = [
     `public/assets/cases/case-without-gel/${modelId}-${finish}.png`,
@@ -558,6 +876,43 @@ async function productMetaobjects() {
   return results
 }
 
+async function createProductTarget(target) {
+  const result = await admin(M_CREATE_PRODUCT, {
+    metaobject: {
+      type: METAOBJECT_TYPE,
+      handle: target.modelId,
+      fields: [
+        { key: 'name', value: target.name },
+        { key: 'kind', value: target.kind },
+        { key: 'base_price', value: String(target.basePrice) },
+        { key: 'width_mm', value: String(target.widthMm) },
+        { key: 'height_mm', value: String(target.heightMm) },
+        { key: 'legacy_id', value: target.modelId },
+      ],
+    },
+  })
+  const errors = result.metaobjectCreate.userErrors || []
+  if (errors.length) throw new Error(JSON.stringify(errors))
+  if (!result.metaobjectCreate.metaobject?.id) throw new Error(`Shopify created no target for ${target.modelId}`)
+  return { ...target, metaobjectId: result.metaobjectCreate.metaobject.id }
+}
+
+function missingTargetPlan(entries, metaobjects) {
+  const entriesByModel = Map.groupBy(entries, (entry) => entry.candidate.modelId)
+  const missing = []
+  for (const [modelId, modelEntries] of entriesByModel) {
+    if (metaobjects.has(modelId)) continue
+    const target = createTargets.get(modelId)
+    if (!target) throw new Error(`Shopify has no ${METAOBJECT_TYPE} target for ${modelId}; pass --create-target explicitly`)
+    const finishes = new Set(modelEntries.map((entry) => entry.candidate.finish))
+    if (![...Object.keys(FINISH_FIELDS)].every((finish) => finishes.has(finish))) {
+      throw new Error(`${modelId} must provide both black and white reviewed sources before target creation`)
+    }
+    missing.push(target)
+  }
+  return missing
+}
+
 function matchesCandidate(identity, candidate, evidence) {
   return identity?.sha256 === candidate.sha256 || (
     identity?.pixelSha256 === evidence.pixelSha256
@@ -627,6 +982,7 @@ async function upload(entry) {
       fileId: current.id,
       url: current.url,
       sourceKind: candidate.sourceKind || 'accepted-generated-candidate',
+      sourceModelId: candidate.sourceModelId || candidate.modelId,
       sourcePath: candidate.sourcePath || candidate.candidatePath,
       sourceUrl: candidate.sourceKind ? candidate.sourceUrl : null,
       cdn: currentIdentity,
@@ -686,25 +1042,56 @@ async function upload(entry) {
     fileId: file.id,
     url: finalReference.url,
     sourceKind: candidate.sourceKind || 'accepted-generated-candidate',
+    sourceModelId: candidate.sourceModelId || candidate.modelId,
     sourcePath: candidate.sourcePath || candidate.candidatePath,
     sourceUrl: candidate.sourceKind ? candidate.sourceUrl : null,
+    sourceCrop: candidate.sourceCrop || null,
     reusedUpload,
     cdn: finalIdentity,
   }
 }
 
+async function uploadWithRetry(entry, attempts = 4) {
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await upload(entry)
+    } catch (error) {
+      lastError = error
+      if (!/fetch failed|ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket/i.test(error.message || String(error)) || attempt === attempts) {
+        throw error
+      }
+      await sleep(attempt * 1000)
+    }
+  }
+  throw lastError
+}
+
 async function main() {
   const useCaseReviewSources = fillCaseReviewSources || allCaseReviewSources
-  const { campaign, entries } = useCaseReviewSources
-    ? await caseReviewSourceImages()
-    : await acceptedCandidates()
-  const selectionLabel = useCaseReviewSources
-    ? `${allCaseReviewSources ? 'all' : 'remaining'} case-review Without gel product images`
-    : 'accepted no-Gel product images'
+  const useReviewedSources = officialSourceSpecs.length > 0
+    || derivedSourceSpecs.length > 0
+    || derivedRetailSourceSpecs.length > 0
+    || compatibleSourceSpecs.length > 0
+  const { campaign, entries } = useReviewedSources
+    ? await reviewedSourceImages()
+    : useCaseReviewSources ? await caseReviewSourceImages() : await acceptedCandidates()
+  const selectionLabel = useReviewedSources
+    ? 'reviewed real Without gel product images'
+    : useCaseReviewSources
+      ? `${allCaseReviewSources ? 'all' : 'remaining'} case-review Without gel product images`
+      : 'accepted no-Gel product images'
   const mediaLabel = syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : ''
   console.log(`${apply ? 'APPLY' : verify ? 'VERIFY' : 'DRY RUN'}: ${entries.length} ${selectionLabel}${mediaLabel}`)
   for (const { candidate, fieldKey } of entries) {
-    console.log(`- ${candidate.modelId} / ${candidate.finish} / ${candidate.candidateVersion} -> ${fieldKey} (${candidate.sha256})${candidate.sourceUrl ? ` <- ${candidate.sourceUrl}` : ''}`)
+    const source = candidate.sourceUrl || candidate.sourcePath
+    const sourceModel = candidate.sourceModelId && candidate.sourceModelId !== candidate.modelId
+      ? ` [source model: ${candidate.sourceModelId}]`
+      : ''
+    const crop = candidate.sourceCrop
+      ? ` [paired crop: ${candidate.sourceCrop.left},${candidate.sourceCrop.top} ${candidate.sourceCrop.width}x${candidate.sourceCrop.height}]`
+      : ''
+    console.log(`- ${candidate.modelId} / ${candidate.finish} / ${candidate.candidateVersion}${sourceModel}${crop} -> ${fieldKey} (${candidate.sha256})${source ? ` <- ${source}` : ''}`)
   }
   if (!apply && !verify) return
 
@@ -715,14 +1102,28 @@ async function main() {
     if (!definitionKeys.has(key)) throw new Error(`${METAOBJECT_TYPE} definition is missing ${key}`)
   }
 
-  const metaobjects = await productMetaobjects()
+  let metaobjects = await productMetaobjects()
+  const missingTargets = missingTargetPlan(entries, metaobjects)
+  const createdTargets = []
+  if (missingTargets.length && verify) {
+    for (const target of missingTargets) {
+      console.log(`Verified planned target creation: ${target.modelId} / ${target.name} / ${target.widthMm}x${target.heightMm}mm`)
+    }
+  } else if (missingTargets.length) {
+    for (const target of missingTargets) {
+      const created = await createProductTarget(target)
+      createdTargets.push(created)
+      console.log(`Created Shopify target: ${created.modelId} -> ${created.metaobjectId}`)
+    }
+    metaobjects = await productMetaobjects()
+  }
   const targets = entries.map((entry) => {
     const metaobject = metaobjects.get(entry.candidate.modelId)
-    if (!metaobject) throw new Error(`Shopify has no ${METAOBJECT_TYPE} target for ${entry.candidate.modelId}`)
+    if (!metaobject && !verify) throw new Error(`Shopify did not retain the new ${METAOBJECT_TYPE} target for ${entry.candidate.modelId}`)
     return {
       ...entry,
-      metaobject,
-      current: referenceInfo(metaobject, entry.fieldKey),
+      metaobject: metaobject || { id: `planned:${entry.candidate.modelId}`, fields: [] },
+      current: metaobject ? referenceInfo(metaobject, entry.fieldKey) : { id: null, url: null },
     }
   })
   console.log(`Verified Shopify target coverage: ${targets.length}/${entries.length}`)
@@ -735,7 +1136,7 @@ async function main() {
 
   const results = []
   for (const entry of targets) {
-    const result = await upload(entry)
+    const result = await uploadWithRetry(entry)
     results.push(result)
     console.log(`${result.status === 'updated' ? 'Updated' : 'Already current'}: ${result.modelId} / ${result.finish} -> ${result.fileId}`)
     await sleep(250)
@@ -746,7 +1147,7 @@ async function main() {
     const resultByKey = new Map(results.map((result) => [`${result.modelId}\u0000${result.finish}`, result]))
     for (const target of productCoverage.targets) {
       const key = `${target.entry.candidate.modelId}\u0000${target.entry.candidate.finish}`
-      const productResult = await syncResultToProduct(productCoverage.product, target, resultByKey.get(key))
+      const productResult = await syncResultToProductWithRetry(productCoverage.product, target, resultByKey.get(key))
       productMedia.push(productResult)
       console.log(`${productResult.mediaStatus === 'created' ? 'Created' : 'Reused'} product media: ${productResult.modelId} / ${productResult.finish} -> ${productResult.variantIds.length} variants`)
       await sleep(250)
@@ -757,12 +1158,20 @@ async function main() {
     schemaVersion: 1,
     campaign,
     appliedAt: new Date().toISOString(),
-    provenancePath: PROVENANCE_PATH,
-    sourceMode: useCaseReviewSources ? 'case-review-without-gel' : 'accepted-generated-candidates',
+    provenancePath: useReviewedSources ? null : PROVENANCE_PATH,
+    sourceMode: useReviewedSources
+      ? compatibleSourceSpecs.length
+        ? 'reviewed-compatible-real-sources'
+        : derivedRetailSourceSpecs.length
+          ? 'reviewed-derived-retail-real-sources'
+          : derivedSourceSpecs.length ? 'reviewed-official-and-derived-sources' : 'official-source'
+      : useCaseReviewSources ? 'case-review-without-gel' : 'accepted-generated-candidates',
     sourceBaseUrl: useCaseReviewSources ? caseReviewBaseUrl : null,
-    scope: useCaseReviewSources
-      ? `${allCaseReviewSources ? 'All' : 'Existing'} case-review Without gel sources; Shopify Files plus charme_product body image fields${syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : '; no variant media updates'}.`
-      : 'Accepted no-Gel candidates only; Shopify Files plus charme_product body image fields; no variant media updates.',
+    scope: useReviewedSources
+      ? `Explicit reviewed real sources; Shopify Files plus charme_product body image fields${syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : '; no variant media updates'}.`
+      : useCaseReviewSources
+        ? `${allCaseReviewSources ? 'All' : 'Existing'} case-review Without gel sources; Shopify Files plus charme_product body image fields${syncProductMedia ? ` plus ${CASE_HANDLE} product/variant media` : '; no variant media updates'}.`
+        : 'Accepted no-Gel candidates only; Shopify Files plus charme_product body image fields; no variant media updates.',
     summary: {
       selected: results.length,
       updated: results.filter((result) => result.status === 'updated').length,
@@ -778,13 +1187,18 @@ async function main() {
       productMediaCreated: productMedia.filter((result) => result.mediaStatus === 'created').length,
       productMediaReused: productMedia.filter((result) => result.mediaStatus === 'reused').length,
       productVariantsUpdated: productMedia.reduce((count, result) => count + result.variantIds.length, 0),
+      productTargetsCreated: createdTargets.length,
     },
+    requestedTargets: [...createTargets.values()],
+    createdTargets,
     results,
     productMedia,
   }
-  const reportPath = allCaseReviewSources
-    ? ALL_CASE_REVIEW_REPORT_PATH
-    : fillCaseReviewSources ? CASE_REVIEW_REPORT_PATH : REPORT_PATH
+  const reportPath = reportPathOverride || (useReviewedSources
+    ? OFFICIAL_SOURCE_REPORT_PATH
+    : allCaseReviewSources
+      ? ALL_CASE_REVIEW_REPORT_PATH
+      : fillCaseReviewSources ? CASE_REVIEW_REPORT_PATH : REPORT_PATH)
   await mkdir(path.dirname(reportPath), { recursive: true })
   await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`)
   console.log(`Completed: ${report.summary.updated} updated, ${report.summary.alreadyCurrent} already current, ${report.summary.exactPixelMatches} exact pixel matches, ${report.summary.boundedShopifyRoundingMatches} bounded Shopify rounding matches.`)

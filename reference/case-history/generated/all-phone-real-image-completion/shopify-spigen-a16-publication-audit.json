@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T16:19:45.516Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-a16-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-a16",
+      "metaobjectId": "gid://shopify/Metaobject/471874961786",
+      "expected": {
+        "modelId": "galaxy-a16",
+        "name": "Galaxy A16 5G",
+        "widthMm": 77.9,
+        "heightMm": 164.4,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A16 5G",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 77.9,
+        "heightMm": 164.4,
+        "legacyId": "galaxy-a16"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-a16",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "53efedaae81a9aff1c9de6f80f5af0e3b73fe0aebd68052d9d932ba5b034aa02",
+      "sourceFileId": "gid://shopify/MediaImage/71393694286202",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471874961786",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b6d6862150df913ab900c2468136fbd6199568ff7b2ea144f43f270e828944d4",
+        "pixelSha256": "5b04c162447080a36cc44ab7ca596b551fe661dbe2f396f08bb853603b0204a7",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a16",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f2cf0780b285aaf88a64e7e91ccf01ca0f28adb7f2ce1d993ec71062b30afcee",
+      "sourceFileId": "gid://shopify/MediaImage/71393696186746",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471874961786",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "59add7a81b2b54dbc56c9411b0e1f9af4f0e94ff74c9db72fcb51c480ff72d4b",
+        "pixelSha256": "ef8468b51298aefb7136476b0680c51688185f95222af0bfecf80779d14eee58",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

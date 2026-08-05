@@ -1,0 +1,3616 @@
+{
+  "schemaVersion": 1,
+  "campaign": "report-backed-without-gel-product-media-sync",
+  "appliedAt": "2026-08-01T09:13:48.286Z",
+  "sourceReports": [
+    "reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-all-case-review-source-upload-report.json",
+    "reference/case-history/generated/all-phone-real-image-completion/shopify-iphone-6-6s-upload-report.json",
+    "reference/case-history/generated/all-phone-real-image-completion/shopify-iphone-se-compatible-source-upload-report.json",
+    "reference/case-history/generated/all-phone-real-image-completion/shopify-iphone-xr-upload-report.json",
+    "reference/case-history/generated/all-phone-real-image-completion/shopify-iphone-16e-17e-product-media-upload-report.json"
+  ],
+  "scope": "Previously validated Without gel Shopify Files; Product Media and variant associations only; no File or metaobject updates.",
+  "summary": {
+    "selected": 80,
+    "productMediaCreated": 0,
+    "productMediaReused": 80,
+    "productVariantsUpdated": 160,
+    "productTargetsCreated": 0
+  },
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-11-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "db1a57a82dbfeae5761351ef952c53c495d150d878bf28d0b2cffd46c741a6fd",
+      "pixelSha256": "15f96815eb78d027d9c50c5d4526d3cfc8cf92015e917f18dbb025ea2ed9a5ff",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962800506",
+      "fileId": "gid://shopify/MediaImage/71329621574010",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-black-without-gel-case-review-source-db1a57a82dbf.png?v=1785016467",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-pro-max-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-pro-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 958058,
+        "sha256": "afb60c11c3894512db55147039302c088cda31363c94eb3785d1087e6cc54794",
+        "pixelSha256": "15f96815eb78d027d9c50c5d4526d3cfc8cf92015e917f18dbb025ea2ed9a5ff",
+        "pixelWidth": 925,
+        "pixelHeight": 1831,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1693675,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-11-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "8c003dcc13e7c99f9a7b6e3658e2ae2bad34e5e5337da0a3d62fba060deb05ab",
+      "pixelSha256": "cb5bb693c13a9a2812e774dbaf98ce39498653416b759e1bac8f01d756f7beff",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962800506",
+      "fileId": "gid://shopify/MediaImage/71329621737850",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-white-without-gel-case-review-source-8c003dcc13e7.png?v=1785016474",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-pro-max-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-pro-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1479580,
+        "sha256": "de888d0805f2b386ee4d25fb93cafc62bb23b913b0b49b88cf0e1d7b240a06ac",
+        "pixelSha256": "cb5bb693c13a9a2812e774dbaf98ce39498653416b759e1bac8f01d756f7beff",
+        "pixelWidth": 886,
+        "pixelHeight": 1776,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573536,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-11-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "cda7c25f67ea07139579347b7a875390f06ed691b6e45058cc06c98ceef7a187",
+      "pixelSha256": "15686aa894613a6e167050e0e8ba1360c7c50219248749f4b3dbe33a053cb5e5",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962767738",
+      "fileId": "gid://shopify/MediaImage/71329620754810",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-black-without-gel-case-review-source-cda7c25f67ea.png?v=1785016453",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-pro-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-pro-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1024804,
+        "sha256": "4bc9c2d1ad57f659eac3434a7e16896df20c08b3489cc2d8e1effd24965636c0",
+        "pixelSha256": "15686aa894613a6e167050e0e8ba1360c7c50219248749f4b3dbe33a053cb5e5",
+        "pixelWidth": 937,
+        "pixelHeight": 1842,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1725954,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-11-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "fbcf3a42a81813e9c05dbc1ad62ee6626d78d7114afc5f2b4dfe80c95bf7c915",
+      "pixelSha256": "86b1f99a2eed7fb10199e9c83b66e9779784d1d932991efd6474db846eccaa55",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962767738",
+      "fileId": "gid://shopify/MediaImage/71329621442938",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-white-without-gel-case-review-source-fbcf3a42a818.png?v=1785016460",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-pro-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-pro-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1352098,
+        "sha256": "310dcbebb26b54e0809e6d00171071cf7cafabfa4df7791d4b7a86af25794290",
+        "pixelSha256": "86b1f99a2eed7fb10199e9c83b66e9779784d1d932991efd6474db846eccaa55",
+        "pixelWidth": 889,
+        "pixelHeight": 1770,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573530,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-11",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "02f1f2ec617e04806f0beee86433b93e1ec4a3868fd6e45560d1e4f07ec4a488",
+      "pixelSha256": "e5badfa352c30110a2193789b54591558a4d8cf24547702b27e0946dcc5e2f0f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962734970",
+      "fileId": "gid://shopify/MediaImage/71329620459898",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-black-without-gel-case-review-source-02f1f2ec617e.png?v=1785016440",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 852059,
+        "sha256": "6cb98d321d30e8309428700c0ae8bd8051e06026909a27e17e17267239d7dcf8",
+        "pixelSha256": "e5badfa352c30110a2193789b54591558a4d8cf24547702b27e0946dcc5e2f0f",
+        "pixelWidth": 942,
+        "pixelHeight": 1830,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1723860,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-11",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "24b926cec1e26c85038c6335c0b639b6d40a999da92aa4e5b0b5c2a24d8804c7",
+      "pixelSha256": "71b6e064942c7b8b12b0b1879c82627d4d13cb2d8bcc8251d61bf036c4d8ac70",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962734970",
+      "fileId": "gid://shopify/MediaImage/71329620623738",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-white-without-gel-case-review-source-24b926cec1e2.png?v=1785016447",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-11-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-11-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1380023,
+        "sha256": "9a42965776559aef5bc751ac21998365bdf7a1623ca56abe4262c30b799364e4",
+        "pixelSha256": "71b6e064942c7b8b12b0b1879c82627d4d13cb2d8bcc8251d61bf036c4d8ac70",
+        "pixelWidth": 902,
+        "pixelHeight": 1743,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572186,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-mini",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "233ba1d0a6f7876304fcfeb191272842f339841f22e9e334e7743fb6c2a9a1eb",
+      "pixelSha256": "06fcb12f847f47a4a2097f553a2a63783dc6a7c898be212e267d577d5d54acd3",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962833274",
+      "fileId": "gid://shopify/MediaImage/71329622753658",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-black-without-gel-case-review-source-233ba1d0a6f7.png?v=1785016493",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-mini-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-mini-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 965962,
+        "sha256": "48b88b6892349a0aaaa51b780f246c46ee85cf76dd2001f363c809a13bd2ab2a",
+        "pixelSha256": "06fcb12f847f47a4a2097f553a2a63783dc6a7c898be212e267d577d5d54acd3",
+        "pixelWidth": 928,
+        "pixelHeight": 1825,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1693600,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-mini",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "4195ff29a2acf6028be9dcc3a8fce12cf9eece5e070786aa46599b1161917654",
+      "pixelSha256": "caf5aa6737b3ba8b20d388eefe45b8bb307627d9c47a1c999e9d9fc56837ecee",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962833274",
+      "fileId": "gid://shopify/MediaImage/71329623474554",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-white-without-gel-case-review-source-4195ff29a2ac.png?v=1785016501",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-mini-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-mini-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1261715,
+        "sha256": "cbfe8ead236a41c6ed6c0ba46b2c22af139b661ac25b05e861541d66980c38cc",
+        "pixelSha256": "caf5aa6737b3ba8b20d388eefe45b8bb307627d9c47a1c999e9d9fc56837ecee",
+        "pixelWidth": 896,
+        "pixelHeight": 1756,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573376,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "e1fac4d1c4bad593cfe26a4b1ddccace8b5a23c90aa55e7b719288cc7dcfe0a4",
+      "pixelSha256": "37cd1b1d7d33c87e164180912945a9cea8a9f7d087330021989ee7bd7c5a6af9",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962931578",
+      "fileId": "gid://shopify/MediaImage/71329624490362",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-black-without-gel-case-review-source-e1fac4d1c4ba.png?v=1785016519",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-pro-max-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-pro-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 812888,
+        "sha256": "35fc450bd9ef8ce55d79fc54552f8a13717c1251de2bba2f67d595eedadb06c1",
+        "pixelSha256": "37cd1b1d7d33c87e164180912945a9cea8a9f7d087330021989ee7bd7c5a6af9",
+        "pixelWidth": 918,
+        "pixelHeight": 1836,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1685448,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "9b6c3df5fd6a9093ae7f61087bd559589291c1f8fa14efe6c9a0ded4ef88ed8e",
+      "pixelSha256": "8bf6e0c9f059793fd49514c79d5b01dcbc90e4624fae05c959c43d1637448c74",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962931578",
+      "fileId": "gid://shopify/MediaImage/71329624621434",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-white-without-gel-case-review-source-9b6c3df5fd6a.png?v=1785016526",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-pro-max-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-pro-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1312978,
+        "sha256": "cb766c4a498ae7504ec5b17285e689cc27426ef0aab292e31b6ca1b1f700e3ac",
+        "pixelSha256": "8bf6e0c9f059793fd49514c79d5b01dcbc90e4624fae05c959c43d1637448c74",
+        "pixelWidth": 871,
+        "pixelHeight": 1805,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572155,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "b90a6944282d5bdf485370b7e70e2b9914f8c70b632d535e4f6ef3a431e00f39",
+      "pixelSha256": "6077a51e92ce757815222d525d7a7295694604ab98d6dd2c2070b8b171beffa7",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962898810",
+      "fileId": "gid://shopify/MediaImage/71329623605626",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-black-without-gel-case-review-source-b90a6944282d.png?v=1785016506",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-pro-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-pro-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 182469,
+        "sha256": "65651d14dd6a40dc2afd115f00b84861deba8469238e9d8ae791ffe618b29a6e",
+        "pixelSha256": "6077a51e92ce757815222d525d7a7295694604ab98d6dd2c2070b8b171beffa7",
+        "pixelWidth": 308,
+        "pixelHeight": 631,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 194348,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "cbeba2015a4bb0edcd119e4ac0eee7c691ee61bd644bf9608156b0d985626f19",
+      "pixelSha256": "7129950e5b7ad7037ae9b965e3b50763026930adb41e4f40039ce03421defddc",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962898810",
+      "fileId": "gid://shopify/MediaImage/71329623736698",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-white-without-gel-case-review-source-cbeba2015a4b.png?v=1785016513",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-pro-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-pro-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1273019,
+        "sha256": "083458533244944ca101d4e4942dec8fc554926fa22022cc8bf2eb8576144f5f",
+        "pixelSha256": "7129950e5b7ad7037ae9b965e3b50763026930adb41e4f40039ce03421defddc",
+        "pixelWidth": 875,
+        "pixelHeight": 1797,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572375,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "46dde01b390dc1a8abe30521be3a250e91a86c2655c6615487c56ca19d30b6ea",
+      "pixelSha256": "a40c503a5cc7bb8f4c3ae168482092442afd6cd6dd1e4dab7b6c5ed1e788602a",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962866042",
+      "fileId": "gid://shopify/MediaImage/71329621868922",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-black-without-gel-case-review-source-46dde01b390d.png?v=1785016480",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 972313,
+        "sha256": "7912e84ffbb425999f6519c8922b1c17d19b4c22421b7b3cf99a320ee8f314ed",
+        "pixelSha256": "a40c503a5cc7bb8f4c3ae168482092442afd6cd6dd1e4dab7b6c5ed1e788602a",
+        "pixelWidth": 920,
+        "pixelHeight": 1818,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1672560,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-12",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "83f00821fdf83d69826a442e5be267aa14569fd1af46ed18031e475f50ef28ff",
+      "pixelSha256": "121a05196971bb79c480f0030d2c1a146733c4ac901f7681e1c9df2fd42c021a",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962866042",
+      "fileId": "gid://shopify/MediaImage/71329622589818",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-white-without-gel-case-review-source-83f00821fdf8.png?v=1785016486",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-12-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1393166,
+        "sha256": "3f756ccbc64af460000210aab2eadb2fe166e3dc554e515bbc962932155e1e9d",
+        "pixelSha256": "121a05196971bb79c480f0030d2c1a146733c4ac901f7681e1c9df2fd42c021a",
+        "pixelWidth": 887,
+        "pixelHeight": 1774,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573538,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-mini",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "63cdebe4c50be75400a1c72e9034574d0638d8861be5ade62195a41bfec96d2a",
+      "pixelSha256": "390c02c29de9afd5fb378fe0762be4bc8bdb835eb75122e4f3b3c3cfac8ce4dd",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962997114",
+      "previousFileId": "gid://shopify/MediaImage/71329515012474",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-black-without-gel-v8-gpt-16636939d8e4.png?v=1785014467",
+      "fileId": "gid://shopify/MediaImage/71333070897530",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-black-without-gel-case-review-source-63cdebe4c50b.png?v=1785046727",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-mini-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-mini-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 990515,
+        "sha256": "7554f4aa0f3493e88cd1bc1b73c2d315cd356e7493d5ede2b7227a5eb12969a1",
+        "pixelSha256": "390c02c29de9afd5fb378fe0762be4bc8bdb835eb75122e4f3b3c3cfac8ce4dd",
+        "pixelWidth": 930,
+        "pixelHeight": 1845,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1715850,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-mini",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "4e238098c2bb7825c15db0fc7bb0d2dd6c6cf357bf73d559d7448ad4e5702863",
+      "pixelSha256": "36a9f601001fcbeb05002a5af145bc49fc7d557ba94ffb9c0732096494cba106",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962997114",
+      "previousFileId": "gid://shopify/MediaImage/71329519501690",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-white-without-gel-v7-gpt-2946eb721075.png?v=1785014549",
+      "fileId": "gid://shopify/MediaImage/71333070930298",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-white-without-gel-case-review-source-4e238098c2bb.png?v=1785046735",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-mini-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-mini-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1309636,
+        "sha256": "f362f34a453f5c0f726a7bed77e2efe032703ccad6818bb0fa4ce07477c1a856",
+        "pixelSha256": "36a9f601001fcbeb05002a5af145bc49fc7d557ba94ffb9c0732096494cba106",
+        "pixelWidth": 894,
+        "pixelHeight": 1760,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573440,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "4b21ccf09ba2a6991cc21cd0930ec7ce130b97ed2cb030ec0f3c7b4559004114",
+      "pixelSha256": "02f9446087d16020ff57829870c720668f2269e9d6d350dca9ef302a620625f3",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963095418",
+      "previousFileId": "gid://shopify/MediaImage/71329524679034",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-black-without-gel-v3-gpt-46b1d90e514c.png?v=1785014661",
+      "fileId": "gid://shopify/MediaImage/71333073060218",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-black-without-gel-case-review-source-4b21ccf09ba2.png?v=1785046760",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-pro-max-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-pro-max-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 951229,
+        "sha256": "8f81a53d33fabd75ae03a77650e49a3be4248346bad8170cc2969f94e9a39116",
+        "pixelSha256": "02f9446087d16020ff57829870c720668f2269e9d6d350dca9ef302a620625f3",
+        "pixelWidth": 918,
+        "pixelHeight": 1840,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1689120,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "05ffa8599bd7164ad1dd47e7abf1b4878a346c07885c874c0bedb100394109ec",
+      "pixelSha256": "7602794179d5ee8e0378b5b99b50da8a1f5fb579b8856020a140f8fd1a9f8ac2",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963095418",
+      "previousFileId": "gid://shopify/MediaImage/71329524515194",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-white-without-gel-v1-gpt-5cca986da4d4.png?v=1785014654",
+      "fileId": "gid://shopify/MediaImage/71333073289594",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-white-without-gel-case-review-source-05ffa8599bd7.png?v=1785046768",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-pro-max-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-pro-max-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1369796,
+        "sha256": "b42cd54cb5d7d05b4fa01dfa6e7aa8c6d803b87023422ecc1e8d2962aed34882",
+        "pixelSha256": "7602794179d5ee8e0378b5b99b50da8a1f5fb579b8856020a140f8fd1a9f8ac2",
+        "pixelWidth": 886,
+        "pixelHeight": 1776,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573536,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "048f66636b45388d118ce1f9af85e75e103ab758ecd679dc9418ce6d53ca742c",
+      "pixelSha256": "cff2ca954b12ad0beba1f4868c14f4efbe34f52cb15875cead1a3153e6bde672",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963062650",
+      "previousFileId": "gid://shopify/MediaImage/71329523630458",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-black-without-gel-v2-gpt-39fcca3e5cce.png?v=1785014639",
+      "fileId": "gid://shopify/MediaImage/71333071225210",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-black-without-gel-case-review-source-048f66636b45.png?v=1785046743",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-pro-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-pro-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1054090,
+        "sha256": "58afb5e95bd407aeeab088faa4214d8a9b094364cb62b66ab5b0398bc63fbab9",
+        "pixelSha256": "cff2ca954b12ad0beba1f4868c14f4efbe34f52cb15875cead1a3153e6bde672",
+        "pixelWidth": 920,
+        "pixelHeight": 1833,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1686360,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "4cc18eaee90fa0dd4ca20668e881df2db6f55d8359603d5c42774353cba9ef70",
+      "pixelSha256": "687e3f9e166394236d84fb2c4e573b7a21f41775363e9737a70fa4210a32b5e0",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963062650",
+      "previousFileId": "gid://shopify/MediaImage/71329523794298",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-white-without-gel-v2-gpt-6d9c0e606fa6.png?v=1785014646",
+      "fileId": "gid://shopify/MediaImage/71333072863610",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-white-without-gel-case-review-source-4cc18eaee90f.png?v=1785046752",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-pro-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-pro-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1353581,
+        "sha256": "5256def44f1ac19dc258fc2919e759a2852ca72c4e5a0fda09c93e727b8a1380",
+        "pixelSha256": "687e3f9e166394236d84fb2c4e573b7a21f41775363e9737a70fa4210a32b5e0",
+        "pixelWidth": 868,
+        "pixelHeight": 1811,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1571948,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-13",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "06ec1f027fd026d1e4bae0bd6abcee9115353b6ebce499393234935f4a70be65",
+      "pixelSha256": "61fd665fa358a32f58e36714bec50bbcdb4c6c4685273c1bc7bdcbe71126102b",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963029882",
+      "previousFileId": "gid://shopify/MediaImage/71329523499386",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-black-without-gel-v19-gpt-279388dd10b0.png?v=1785014631",
+      "fileId": "gid://shopify/MediaImage/71333070602618",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-black-without-gel-case-review-source-06ec1f027fd0.png?v=1785046718",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 973955,
+        "sha256": "d6024251af4b99e097bc491b816d999897dac34ad8e78173600552a7e2878ed9",
+        "pixelSha256": "61fd665fa358a32f58e36714bec50bbcdb4c6c4685273c1bc7bdcbe71126102b",
+        "pixelWidth": 920,
+        "pixelHeight": 1835,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1688200,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-13",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "d758809db814d1ea5af3b71fb8d82d3040447fb494c4cc86572aa100866ee7ad",
+      "pixelSha256": "b758628c032a8819ec31eec9de49e8f1aad8d6a6ae9a5cd7b150de335d25050d",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963029882",
+      "fileId": "gid://shopify/MediaImage/71329624752506",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-white-without-gel-case-review-source-d758809db814.png?v=1785016533",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-13-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-13-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1347946,
+        "sha256": "bad8442364ae5f347cd42c2cebf18bb00e103da13b9f51a6cbaa06c49eccba97",
+        "pixelSha256": "b758628c032a8819ec31eec9de49e8f1aad8d6a6ae9a5cd7b150de335d25050d",
+        "pixelWidth": 884,
+        "pixelHeight": 1779,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572636,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-plus",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "b82e8fb60a588fbcc066b961cb82e4e4d906cbda0b0fedbb22ed67daa9a49cc0",
+      "pixelSha256": "cdb68ffb46beed223dec47778d8b2e5c65c49c92c6afe6132086f572dfa60abb",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963160954",
+      "previousFileId": "gid://shopify/MediaImage/71329525793146",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-black-without-gel-v1-gpt-7ff327c9bb1f.png?v=1785014682",
+      "fileId": "gid://shopify/MediaImage/71333075157370",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-black-without-gel-case-review-source-b82e8fb60a58.png?v=1785046794",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-plus-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 804247,
+        "sha256": "dcc21ee5ef089795e16e35a68f49eecc7f0e4ee5ba69a295baa2491053987947",
+        "pixelSha256": "cdb68ffb46beed223dec47778d8b2e5c65c49c92c6afe6132086f572dfa60abb",
+        "pixelWidth": 918,
+        "pixelHeight": 1836,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1685448,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-plus",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "1f79e2b7e3e00ce52dfc7116dfd5319780f2d77d538f55f481fd29983c755265",
+      "pixelSha256": "91eec7e48570b3e0f2afcc3cffb1d3d60f592d8a5c6a502808824c4760ba6ea9",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963160954",
+      "previousFileId": "gid://shopify/MediaImage/71329526514042",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-white-without-gel-v2-gpt-6d643639695f.png?v=1785014688",
+      "fileId": "gid://shopify/MediaImage/71333075353978",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-white-without-gel-case-review-source-1f79e2b7e3e0.png?v=1785046801",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-plus-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-plus-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1243128,
+        "sha256": "ff018410b09538f096514aba66f7b5ff1149a40da25948c86db359c55d4aec44",
+        "pixelSha256": "91eec7e48570b3e0f2afcc3cffb1d3d60f592d8a5c6a502808824c4760ba6ea9",
+        "pixelWidth": 887,
+        "pixelHeight": 1774,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573538,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "894bc6b330676dbd3f1e9ae4184c6c53387ff1907fe061caa464d9dc348d40dc",
+      "pixelSha256": "5b9da387cb6a783ed1400695aa02064dd40ae4fdb0fe98f476287fbd46635d4d",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963226490",
+      "previousFileId": "gid://shopify/MediaImage/71329527791994",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-black-without-gel-v1-gpt-d5243d6bd5a1.png?v=1785014709",
+      "fileId": "gid://shopify/MediaImage/71333076074874",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-black-without-gel-case-review-source-894bc6b33067.png?v=1785046826",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-pro-max-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 858863,
+        "sha256": "fa230f4c6d970334e06391e7ce01e83a274aafcecdf6159db7b4c24096d17a0d",
+        "pixelSha256": "5b9da387cb6a783ed1400695aa02064dd40ae4fdb0fe98f476287fbd46635d4d",
+        "pixelWidth": 912,
+        "pixelHeight": 1831,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1669872,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "f5c7bfb6ffe6e3f4944ffbe017ce6f166e1054cfbf8d1a9e5eca29c229318131",
+      "pixelSha256": "56500415ad4bf280379ec2b031d900b111d79431f3eb2eca3a3480231cd73c7f",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963226490",
+      "previousFileId": "gid://shopify/MediaImage/71329528119674",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-white-without-gel-v1-gpt-53e44d8d1c07.png?v=1785014715",
+      "fileId": "gid://shopify/MediaImage/71333076664698",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-white-without-gel-case-review-source-f5c7bfb6ffe6.png?v=1785046834",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-max-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-pro-max-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1366038,
+        "sha256": "acc084ebd7e21c228b9fcf830eae5cf40dda00422c4c4ff8a88b9b1c77fe1178",
+        "pixelSha256": "56500415ad4bf280379ec2b031d900b111d79431f3eb2eca3a3480231cd73c7f",
+        "pixelWidth": 878,
+        "pixelHeight": 1792,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573376,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "2a6d53c56dccd4b65a351bb20e8054ed5abb1165993d56656cece20bf7f2f739",
+      "pixelSha256": "8c1cb1bb06810fbe40f39867866e8d7f9be553d3c9ef82f9418bc784261cc437",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963193722",
+      "previousFileId": "gid://shopify/MediaImage/71329526776186",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-black-without-gel-v6-gpt-3d9c4a6542d2.png?v=1785014695",
+      "fileId": "gid://shopify/MediaImage/71333075485050",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-black-without-gel-case-review-source-2a6d53c56dcc.png?v=1785046809",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-pro-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 917241,
+        "sha256": "79a66845faa54df511479b04a34c9740df83e6a6d8317bc1f0bd1bb83770eacb",
+        "pixelSha256": "8c1cb1bb06810fbe40f39867866e8d7f9be553d3c9ef82f9418bc784261cc437",
+        "pixelWidth": 915,
+        "pixelHeight": 1831,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1675365,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "5e51507cff34b8d85b1ca49276c9aef931f862b1c1ff2e197adc8cb37b5ffc8a",
+      "pixelSha256": "180d20e102bbfba25cc65a4edadd8869ed7c8addba03e74c6e9a4f195f526c92",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963193722",
+      "previousFileId": "gid://shopify/MediaImage/71329527005562",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-white-without-gel-v4-gpt-26464e26f3dd.png?v=1785014702",
+      "fileId": "gid://shopify/MediaImage/71333075747194",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-white-without-gel-case-review-source-5e51507cff34.png?v=1785046817",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-14-pro-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-pro-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1305786,
+        "sha256": "f73ab206fd22fb8dd46d3b18f18f4999b61b67a3f4ae7c235c2c6dd366d10ffa",
+        "pixelSha256": "180d20e102bbfba25cc65a4edadd8869ed7c8addba03e74c6e9a4f195f526c92",
+        "pixelWidth": 888,
+        "pixelHeight": 1772,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573536,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "e37e951d28fb7987808a9906b2135589cea1eca27c6f2e4442c48537241d0a93",
+      "pixelSha256": "e90e88d697306249755c439209326cc6f0a55593230ef83a4f9d29d4a009ec9a",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963128186",
+      "previousFileId": "gid://shopify/MediaImage/71329525498234",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-black-without-gel-v1-gpt-47d007580e5e.png?v=1785014669",
+      "fileId": "gid://shopify/MediaImage/71333073551738",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-black-without-gel-case-review-source-e37e951d28fb.png?v=1785046777",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 661898,
+        "sha256": "6d4b9bd56d9e637b15b59c837958a5f902ec2e26f1c84391210e5d3abb308bb9",
+        "pixelSha256": "e90e88d697306249755c439209326cc6f0a55593230ef83a4f9d29d4a009ec9a",
+        "pixelWidth": 920,
+        "pixelHeight": 1831,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1684520,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-14-black.png"
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-14",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "c344aec5975c057e369613b525c13ce6c69d1d653ea61ec800a7664074c72fc2",
+      "pixelSha256": "e6d4ee23add985d8eaaeda8c0962cbb039ec35aa9eba7b03a9f6cdb1929a2d67",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963128186",
+      "previousFileId": "gid://shopify/MediaImage/71329525662074",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-white-without-gel-v4-gpt-911522d88396.png?v=1785014675",
+      "fileId": "gid://shopify/MediaImage/71333073912186",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-white-without-gel-case-review-source-c344aec5975c.png?v=1785046785",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-14-white.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1388840,
+        "sha256": "e5708722bcc33db21d90a24ae752a18dce64b403ed9fb385b601f7f46f1a5c6e",
+        "pixelSha256": "e6d4ee23add985d8eaaeda8c0962cbb039ec35aa9eba7b03a9f6cdb1929a2d67",
+        "pixelWidth": 941,
+        "pixelHeight": 1672,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573352,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-14-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-plus",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "94da196b4246dab58881970949bad5e737030c222068a8c40c51b3b1844c5da3",
+      "pixelSha256": "9ee69f64249b95f51e87d7d898110d2993ebe59e6d0afda4bfad885e658d34b8",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963292026",
+      "fileId": "gid://shopify/MediaImage/71329625571706",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-black-without-gel-case-review-source-94da196b4246.png?v=1785016546",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-plus-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 924147,
+        "sha256": "2832766374ecef0f3017ad32626a76afde7c24745d716b725d39233c98aebe72",
+        "pixelSha256": "9ee69f64249b95f51e87d7d898110d2993ebe59e6d0afda4bfad885e658d34b8",
+        "pixelWidth": 913,
+        "pixelHeight": 1833,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1673529,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-plus",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "cd002cdb7078fcb0f897558e685c0659f3c60c2cf8240118be234aea4ac6169b",
+      "pixelSha256": "1be0dd88f2d66bd8bb9dfa835448f4568e3d94df10d2438a53d7c2092829cd29",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963292026",
+      "fileId": "gid://shopify/MediaImage/71329625735546",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-white-without-gel-case-review-source-cd002cdb7078.png?v=1785016554",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-plus-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-plus-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1248652,
+        "sha256": "20ff56bbe523e8d4a693c86986fbe02f35c2b7e9eb1e2cc54c5ac84461c2383e",
+        "pixelSha256": "1be0dd88f2d66bd8bb9dfa835448f4568e3d94df10d2438a53d7c2092829cd29",
+        "pixelWidth": 883,
+        "pixelHeight": 1781,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572623,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "59ca65a5e25b33da6986deedfe09d9e27f98dc79302da1a1facabb1f88af52ae",
+      "pixelSha256": "b33404d32f99a520d52b69283038641490cf4885984772139b2b7a796a987c35",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963357562",
+      "fileId": "gid://shopify/MediaImage/71329626947962",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-black-without-gel-case-review-source-59ca65a5e25b.png?v=1785016575",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-pro-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 946926,
+        "sha256": "4fc60e4e5f34ab73bacf2698e936b03c5647daefa157a58c53ee67b34e0e85bb",
+        "pixelSha256": "b33404d32f99a520d52b69283038641490cf4885984772139b2b7a796a987c35",
+        "pixelWidth": 906,
+        "pixelHeight": 1832,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1659792,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "05d929c974aec3dd76b3ec54d27900f99bcbda271ed2d6e55425e2404b33bf3e",
+      "pixelSha256": "53d6ebdae15000080b0af9399709672769e50c2957f321c4ead66dd9365a522d",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963357562",
+      "fileId": "gid://shopify/MediaImage/71329627668858",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-white-without-gel-case-review-source-05d929c974ae.png?v=1785016582",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-max-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-pro-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1501486,
+        "sha256": "2a039ddc641920c731e26b61bf362ee5e7da95e05d936f77d7a8e3f1aaf4d860",
+        "pixelSha256": "53d6ebdae15000080b0af9399709672769e50c2957f321c4ead66dd9365a522d",
+        "pixelWidth": 884,
+        "pixelHeight": 1779,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572636,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "4c3b901628c53b237862ff2c494b58531507d90e1e8bdc57cf851647a8b62711",
+      "pixelSha256": "8f68f65bb3583831e3e3f726dc3ac0cd7e83977977594b32dac6dea4327cb7f9",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963324794",
+      "fileId": "gid://shopify/MediaImage/71329626456442",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-black-without-gel-case-review-source-4c3b901628c5.png?v=1785016560",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-pro-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 997759,
+        "sha256": "a0c74f1a942401e801b57e45afc70164d9d0e3bdcd42c9e599a5693ffd4311c6",
+        "pixelSha256": "8f68f65bb3583831e3e3f726dc3ac0cd7e83977977594b32dac6dea4327cb7f9",
+        "pixelWidth": 910,
+        "pixelHeight": 1828,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1663480,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "fe1363454a00daeb365acd957843b1f0571ef447784edabdb7dd4846b8ec423a",
+      "pixelSha256": "eccc65e66b4d7cfb8f35a51dfc9fb7dc40e2791c682dc19db1e8d977ea9289ff",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963324794",
+      "fileId": "gid://shopify/MediaImage/71329626587514",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-white-without-gel-case-review-source-fe1363454a00.png?v=1785016567",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-pro-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-pro-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1383095,
+        "sha256": "492029e10dc4b3ae2e1484d5e3c24c63d92ac0dbc64b30b205717b1ef5d7657c",
+        "pixelSha256": "eccc65e66b4d7cfb8f35a51dfc9fb7dc40e2791c682dc19db1e8d977ea9289ff",
+        "pixelWidth": 885,
+        "pixelHeight": 1777,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572645,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-15",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "d35d4a1691de7fd8d6bcbc629d32d508348c1d9865f7c2676b10f6e62af14ea4",
+      "pixelSha256": "fe02583a1f425ea170ef18bae18d96a645ea8ad0641bbe75d754cd92775f498e",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963259258",
+      "previousFileId": "gid://shopify/MediaImage/71329528316282",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-black-without-gel-v1-gpt-4a11876bec8c.png?v=1785014722",
+      "fileId": "gid://shopify/MediaImage/71333078172026",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-black-without-gel-case-review-source-d35d4a1691de.png?v=1785046842",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-black.png",
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 887573,
+        "sha256": "ad278b4065e6f287b183bbccd509e6346105a6be9f34e5b67cc222756e6b7878",
+        "pixelSha256": "fe02583a1f425ea170ef18bae18d96a645ea8ad0641bbe75d754cd92775f498e",
+        "pixelWidth": 916,
+        "pixelHeight": 1827,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1673532,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-15",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "fda8d17ce340aea48048d551bdcd2cd3c4fa15ab1e195e9d5922f049c8aaf48c",
+      "pixelSha256": "fcf061efe9138182321209d905f2906c0dc6e6076c4e5eb5d464c6b598a36b56",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963259258",
+      "fileId": "gid://shopify/MediaImage/71329625440634",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-white-without-gel-case-review-source-fda8d17ce340.png?v=1785016539",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-15-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-15-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1307926,
+        "sha256": "f94cd6756a3f2c7553cd270a5e88ba1ad67b7af906517d565e7a9e8f04a372c4",
+        "pixelSha256": "fcf061efe9138182321209d905f2906c0dc6e6076c4e5eb5d464c6b598a36b56",
+        "pixelWidth": 887,
+        "pixelHeight": 1774,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573538,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-plus",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "8caa5d1a88304625fa713927c6ef0747f4d21b441869df3a7b652d010003f3ed",
+      "pixelSha256": "456b05c255a29027400aaecae1a29c1ac6c54ef1a66ae0caf2089c6de2144575",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963423098",
+      "fileId": "gid://shopify/MediaImage/71329628717434",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-black-without-gel-case-review-source-8caa5d1a8830.png?v=1785016599",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-plus-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 195725,
+        "sha256": "59066138864c2f76dfad886371e88e389fd5d5c8dafecdc849026d35ad5cb1e6",
+        "pixelSha256": "456b05c255a29027400aaecae1a29c1ac6c54ef1a66ae0caf2089c6de2144575",
+        "pixelWidth": 318,
+        "pixelHeight": 666,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 211788,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-plus",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "e452dd38a305375ea3228bee8767adbe355501c327fe1449e12d8a14b8e3d889",
+      "pixelSha256": "0001488fda003c630cf60e5db5cba2dc2a2ca00bea9b9ab36797f293d05dbea6",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963423098",
+      "fileId": "gid://shopify/MediaImage/71329628848506",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-white-without-gel-case-review-source-e452dd38a305.png?v=1785016607",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-plus-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-plus-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1521062,
+        "sha256": "d6b69e9e3805726fcc6cc4aa2394361ce3f5e91b1880549fc394153c6aff8379",
+        "pixelSha256": "0001488fda003c630cf60e5db5cba2dc2a2ca00bea9b9ab36797f293d05dbea6",
+        "pixelWidth": 866,
+        "pixelHeight": 1817,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573522,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "a4d335ddde4de00ec61f1c099c6232ad49eda1ba87c65cc4cc94e3edb1bfc1bf",
+      "pixelSha256": "720107e4b109804fecf60cc33516d21cf35f1119624dfced11af6b3be5d083e9",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963488634",
+      "fileId": "gid://shopify/MediaImage/71329629897082",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-black-without-gel-case-review-source-a4d335ddde4d.png?v=1785016626",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-pro-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 657829,
+        "sha256": "579948f79cc91e88b051417a55e150bcb7679245fdaa906f2d6d156852ce033a",
+        "pixelSha256": "720107e4b109804fecf60cc33516d21cf35f1119624dfced11af6b3be5d083e9",
+        "pixelWidth": 898,
+        "pixelHeight": 1832,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1645136,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "217645effaad4d2d134c44d4565387020be4a3fe05e062432a3d57ac9c41670e",
+      "pixelSha256": "464c76993bfca5aa4d2a18f86ff3fd76f6b6a856dab678be9fa593d30b8a11d7",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963488634",
+      "fileId": "gid://shopify/MediaImage/71329629995386",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-white-without-gel-case-review-source-217645effaad.png?v=1785016633",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-max-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-pro-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1364716,
+        "sha256": "cd9976d4b6b6d48accb2a497bd30031b319fa6f59e333f3eae9ab7e6ce3578b5",
+        "pixelSha256": "464c76993bfca5aa4d2a18f86ff3fd76f6b6a856dab678be9fa593d30b8a11d7",
+        "pixelWidth": 883,
+        "pixelHeight": 1781,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572623,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "82ee5e2c5a99728de4a73ea27139cfd2bedef81723db3e2955d6835d3b46d1da",
+      "pixelSha256": "439cf9e4ab078a5e4ef1355f6e99a530c26388b2217038f583d59edafd97f215",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963455866",
+      "fileId": "gid://shopify/MediaImage/71329629012346",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-black-without-gel-case-review-source-82ee5e2c5a99.png?v=1785016612",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-pro-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 190701,
+        "sha256": "0116979b862ecff850e6d0bce0c36b2db7de9483db4143fada26cc0bfbd408c6",
+        "pixelSha256": "439cf9e4ab078a5e4ef1355f6e99a530c26388b2217038f583d59edafd97f215",
+        "pixelWidth": 305,
+        "pixelHeight": 650,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 198250,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "8ad2d2799b1696b1618b5a32440402a06b4508b79ff3318f7f4102dc9bde0c2b",
+      "pixelSha256": "b5da16443601bb1eb28b6de920cd9bbe5ec1a8e8f48636217bf23afdff0beaf3",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963455866",
+      "fileId": "gid://shopify/MediaImage/71329629143418",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-white-without-gel-case-review-source-8ad2d2799b16.png?v=1785016619",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-pro-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-pro-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1372510,
+        "sha256": "121d9c39190fb4101889cc3936667eaed761bb7d49225de9014716145d3be08a",
+        "pixelSha256": "b5da16443601bb1eb28b6de920cd9bbe5ec1a8e8f48636217bf23afdff0beaf3",
+        "pixelWidth": 906,
+        "pixelHeight": 1737,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573722,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "071ee1ebcb7587417b8b601d40f3eca48b536e9078b11136eefdfaddf7001d78",
+      "pixelSha256": "ada056e135851248ffedc478cf79c9b100487a618aee82e05fbfde2e414e03d9",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963390330",
+      "fileId": "gid://shopify/MediaImage/71329627865466",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-black-without-gel-case-review-source-071ee1ebcb75.png?v=1785016587",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-black-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 177566,
+        "sha256": "bfcd813391656fad859ea771dda031e5ec9587d38843ed57ffcd0cff60350a5c",
+        "pixelSha256": "ada056e135851248ffedc478cf79c9b100487a618aee82e05fbfde2e414e03d9",
+        "pixelWidth": 305,
+        "pixelHeight": 633,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 193065,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16e",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "b0d466f822b643766436c2e6c9344314441690cb4c5e673877e0f7e452fca09f",
+      "pixelSha256": "eccc147c5bdc05716f3e3a40fd312c17bda7901cd86c0f3c4c9b6e0f4eb3c9d5",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471547969914",
+      "fileId": "gid://shopify/MediaImage/71377106076026",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-black-without-gel-official-source-b0d466f822b6.png?v=1785499720",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-16e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16e-official-black-apple-MD3N4.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 803881,
+        "sha256": "c91b07dd91dc464d9e0594832446888ab15235ee5ea91b3e2b2641964650d864",
+        "pixelSha256": "eccc147c5bdc05716f3e3a40fd312c17bda7901cd86c0f3c4c9b6e0f4eb3c9d5",
+        "pixelWidth": 914,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1650684,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16e",
+      "finish": "white",
+      "candidateVersion": "official-source",
+      "sha256": "e714a1ea902db4dea8252e9daa85c3acc21c96e2848e7dbdf98307635d6ef8d0",
+      "pixelSha256": "ea277a40cb996ed752518c9ec2eaacb8a96ef94518d666351c5f9e695b1e3a56",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471547969914",
+      "fileId": "gid://shopify/MediaImage/71377106305402",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-white-without-gel-official-source-e714a1ea902d.png?v=1785499726",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-16e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16e-official-white-apple-MD3P4.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 521592,
+        "sha256": "089cf9ddff774f8861161803d33de68282c3784477173a9d2523192cf11fb130",
+        "pixelSha256": "ea277a40cb996ed752518c9ec2eaacb8a96ef94518d666351c5f9e695b1e3a56",
+        "pixelWidth": 914,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1650684,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "9a5f17d27bd865857ef572706b43c52bff5c59f9e333893a88265cd45ceb8eb7",
+      "pixelSha256": "9a496b941bdc97d3e0afc1152f157452fb27812900762a96c0ab3f31b1c0ce94",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963390330",
+      "fileId": "gid://shopify/MediaImage/71329627996538",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-white-without-gel-case-review-source-9a5f17d27bd8.png?v=1785016593",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "reference/case-history/generated/black-white-glitter-shape-trials/references/trial-iphone-16-white-source.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-16-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1357074,
+        "sha256": "127c3a10fbf7e02088f8ffca3bb9200188411e334c3da1baa1fa58e8fa3f2f21",
+        "pixelSha256": "9a496b941bdc97d3e0afc1152f157452fb27812900762a96c0ab3f31b1c0ce94",
+        "pixelWidth": 871,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573026,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17-pro-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "fced118e8841923b5f2abccd5f8f2069ee6611ccc32b6348fa5d82ff5b6bf1bb",
+      "pixelSha256": "37307a6cbbe3353241673bb6890d2b04b990af00b74a572ab2eb5fe40fcfb3e3",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963586938",
+      "fileId": "gid://shopify/MediaImage/71329631240570",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-black-without-gel-case-review-source-fced118e8841.png?v=1785016668",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-pro-max-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-pro-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1191940,
+        "sha256": "9631ae2b89a4f66d9b93ff7a3c5b2dac44f0b2e2f065986837e4b2454c499e47",
+        "pixelSha256": "37307a6cbbe3353241673bb6890d2b04b990af00b74a572ab2eb5fe40fcfb3e3",
+        "pixelWidth": 902,
+        "pixelHeight": 1817,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1638934,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17-pro-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "2124d13da9221a0e02c6230a56cd750698fafdecd20523f20c66758d4baee028",
+      "pixelSha256": "38a16e45303907392e360eacc394bd26072e8847bcf4d1a2b9b5dfcae479df37",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963586938",
+      "fileId": "gid://shopify/MediaImage/71329631994234",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-white-without-gel-case-review-source-2124d13da922.png?v=1785016675",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-pro-max-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-pro-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1424306,
+        "sha256": "08245d0f6cbce1186f480e2e4afb3b5f1459ec0f6f815161455107c71df3af3b",
+        "pixelSha256": "38a16e45303907392e360eacc394bd26072e8847bcf4d1a2b9b5dfcae479df37",
+        "pixelWidth": 880,
+        "pixelHeight": 1788,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573440,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17-pro",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "463a71655950836603b6846e5ccf31f31b2bbca29b16324de49cbefb92a15701",
+      "pixelSha256": "94dd7ef3e7ff0bc4e86f4649e6a4e962967968f481baa5ee9796a30dcea89682",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963554170",
+      "fileId": "gid://shopify/MediaImage/71329630978426",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-black-without-gel-case-review-source-463a71655950.png?v=1785016653",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-pro-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-pro-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1201930,
+        "sha256": "4c10370fd450a4cb8571e346839edcfd9c6d53832e888d11f164ee9a8f0fa8e3",
+        "pixelSha256": "94dd7ef3e7ff0bc4e86f4649e6a4e962967968f481baa5ee9796a30dcea89682",
+        "pixelWidth": 904,
+        "pixelHeight": 1807,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1633528,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17-pro",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "1b9ab445e297edfe621aea404ade2ec79021cb66b819733743f77827b67a4af6",
+      "pixelSha256": "b5425f14a7ba9fe714795bcf59a99cb521f2ec298e9d7b5a88010158c83cf98a",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963554170",
+      "fileId": "gid://shopify/MediaImage/71329631109498",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-white-without-gel-case-review-source-1b9ab445e297.png?v=1785016660",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-pro-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-pro-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1491507,
+        "sha256": "c193767e03a796c59c2a757fe85ad3de06abff168138be66796a5d7dcc24a9db",
+        "pixelSha256": "b5425f14a7ba9fe714795bcf59a99cb521f2ec298e9d7b5a88010158c83cf98a",
+        "pixelWidth": 877,
+        "pixelHeight": 1792,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1571584,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "47b863a4f2577d853f47287760085fb169b5bdd4adf1b5f646bd5d6c8b33156d",
+      "pixelSha256": "0f2438e4a2ad0e66abef4874fe46060e4d5c34e9dd081b905365e09ed26cfa63",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963521402",
+      "fileId": "gid://shopify/MediaImage/71329630749050",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-black-without-gel-case-review-source-47b863a4f257.png?v=1785016640",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 889716,
+        "sha256": "2a1fa16074ab4df5d6594664f48d2af61d415b2041e1088f67cb4ac64c6acf7c",
+        "pixelSha256": "0f2438e4a2ad0e66abef4874fe46060e4d5c34e9dd081b905365e09ed26cfa63",
+        "pixelWidth": 900,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1625400,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17e",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "29d39a9ed1edaed2b568e1c6eb864e4301834a8e3118bd9ca44469ee96a94e65",
+      "pixelSha256": "7779e810990dd31aceeb86d4ba26fda93c673ec16630107f8ac20e463adde263",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471548002682",
+      "fileId": "gid://shopify/MediaImage/71377106633082",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-black-without-gel-official-source-29d39a9ed1ed.png?v=1785499733",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-17e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-17e-official-black-apple-MHWD4.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 774858,
+        "sha256": "f076608745504b938993ab8f1072bceebb191dd6d6924b0a713966f71b616ead",
+        "pixelSha256": "7779e810990dd31aceeb86d4ba26fda93c673ec16630107f8ac20e463adde263",
+        "pixelWidth": 902,
+        "pixelHeight": 1772,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1598344,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17e",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "e63fb4bec5353849257a3f9c3d425a4adc8be5e723f2b7ba9e9b18f46533fbc3",
+      "pixelSha256": "9a569809b47af6eeb804ccd009a451f3d24f4660cb76e272a3f5d309b073a5e9",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471548002682",
+      "fileId": "gid://shopify/MediaImage/71377106895226",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-white-without-gel-derived-official-source-e63fb4bec535.png?v=1785499739",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "iphone-17e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/iphone-17e-white-v1-apple-vanilla-neutralized.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 474176,
+        "sha256": "b22be11ff5c60457802b2db8bc9dcc2a1491e2593712515e1ff1f64168771672",
+        "pixelSha256": "9a569809b47af6eeb804ccd009a451f3d24f4660cb76e272a3f5d309b073a5e9",
+        "pixelWidth": 902,
+        "pixelHeight": 1772,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1598344,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-17",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "e86a998f28de4aa213f0f9da4b0db3615543c04fbf5f7a1f83ecd1ff231e3115",
+      "pixelSha256": "572d904a49873b42993bd5b009cbc51dacb36de6eac431ae6908e3503ff1f7ff",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963521402",
+      "fileId": "gid://shopify/MediaImage/71329630847354",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-white-without-gel-case-review-source-e86a998f28de.png?v=1785016647",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-17-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-17-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1213500,
+        "sha256": "f786597aab02fb9acad4fc14cbe53bac1f3be64693f212abafa79e5210be128e",
+        "pixelSha256": "572d904a49873b42993bd5b009cbc51dacb36de6eac431ae6908e3503ff1f7ff",
+        "pixelWidth": 885,
+        "pixelHeight": 1777,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572645,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-6-6s",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "733c07d668951931b320c379bf6c50db391ec3c1732c71f06c9d2ab5eafa6748",
+      "pixelSha256": "2c789c91c8ccd62f71c55bc1365aa750e5c3e8bd732e1833386e5fad161a1ad6",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471556522362",
+      "fileId": "gid://shopify/MediaImage/71377560273274",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-black-without-gel-official-source-733c07d66895.png?v=1785503403",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-6-6s",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-charcoal-gray-apple-MKY02.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1737086,
+        "sha256": "fe97f92a15fa905a52015a86a378240b2d8226773bf43a10b8f452ad38332d4f",
+        "pixelSha256": "2c789c91c8ccd62f71c55bc1365aa750e5c3e8bd732e1833386e5fad161a1ad6",
+        "pixelWidth": 979,
+        "pixelHeight": 1949,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1908071,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-6-6s",
+      "finish": "white",
+      "candidateVersion": "official-source",
+      "sha256": "2192214ac39b896b6ffb6609b0d77c8a5feed354a8feb28c4ae76a72423a426d",
+      "pixelSha256": "43807a6586d1215878fb2c88079b4e527a6dc12cfd3e45d4d254a4a3864f464a",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471556522362",
+      "fileId": "gid://shopify/MediaImage/71377561911674",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-white-without-gel-official-source-2192214ac39b.png?v=1785503411",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-6-6s",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-white-apple-MKY12.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1642998,
+        "sha256": "6b434c0e495a38645208a81defeb115af25a00a71ae30b25f751022c63f04dc1",
+        "pixelSha256": "43807a6586d1215878fb2c88079b4e527a6dc12cfd3e45d4d254a4a3864f464a",
+        "pixelWidth": 979,
+        "pixelHeight": 1949,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1908071,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-7-plus",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "3dc879d76681d5596e0cf498db9599efefb53cb95605435f05458ccabdf78e32",
+      "pixelSha256": "d5464da70e799b662af62f0e209e9525becb3818bbbc6f0c3d2c66c4c8e16a34",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962571130",
+      "fileId": "gid://shopify/MediaImage/71329633042810",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-black-without-gel-case-review-source-3dc879d76681.png?v=1785016696",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-7-plus-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1012747,
+        "sha256": "bdba8821175b74fbdd86d83dc8fc569c2c3ae526f507cfa9724fa67fee208c11",
+        "pixelSha256": "d5464da70e799b662af62f0e209e9525becb3818bbbc6f0c3d2c66c4c8e16a34",
+        "pixelWidth": 926,
+        "pixelHeight": 1836,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1700136,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-7-plus-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-7-plus",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "0f8cbcc5e3e76192042735ebb59a7d35a0af7c5178b1ff7acd7eaa4e3fe47db5",
+      "pixelSha256": "33e9d0b281cc6d1af499ae5dddaf307a8acbbf4ecb1fb483ef86eca9bc34cb3a",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962571130",
+      "fileId": "gid://shopify/MediaImage/71329633173882",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-white-without-gel-case-review-source-0f8cbcc5e3e7.png?v=1785016703",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-7-plus-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1671276,
+        "sha256": "5f7fd3c2db3d146e52ff12ce9a4f201b00f4d948bb12567e25e8dcc54ef915c9",
+        "pixelSha256": "a7769450a2ea22144dc345ea9f2db07e0baefd1a95a838cc416bec6d9750c6c3",
+        "pixelWidth": 889,
+        "pixelHeight": 1770,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573530,
+          "changedPixels": 1,
+          "changedPixelFraction": 6.355137811163435e-7,
+          "changedChannels": 1,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 1,
+          "meanChangedChannelDelta": 1
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-7-plus-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-7",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "fdbbbac1e867071fc9b63691775e4cd1739f92c9d2c53a9e775546db031d3b8d",
+      "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962505594",
+      "fileId": "gid://shopify/MediaImage/71329632190842",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-black-without-gel-case-review-source-fdbbbac1e867.png?v=1785016682",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-7-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1396703,
+        "sha256": "6f4b210956d98cb13125cf3a3ca97320f065de66706ff457c798a39f48f81b21",
+        "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+        "pixelWidth": 920,
+        "pixelHeight": 1834,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1687280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-7-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-7",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "912eab70ab36c46b0b47c0520671614084cf6b8f1cbc0f421c6b0a958d3c331c",
+      "pixelSha256": "32f78d97187df2bc546e12c9a25c78a8f9c85fe67cc0777f8d42b9f0a23e5f89",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962505594",
+      "fileId": "gid://shopify/MediaImage/71329632321914",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-white-without-gel-case-review-source-912eab70ab36.png?v=1785016689",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-7-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1502630,
+        "sha256": "32b55fc770609ddd45887d6f30dfa5c6cd79020c097468ebb288be8ce4779d11",
+        "pixelSha256": "32f78d97187df2bc546e12c9a25c78a8f9c85fe67cc0777f8d42b9f0a23e5f89",
+        "pixelWidth": 889,
+        "pixelHeight": 1770,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573530,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-7-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-8-plus",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "3dc879d76681d5596e0cf498db9599efefb53cb95605435f05458ccabdf78e32",
+      "pixelSha256": "d5464da70e799b662af62f0e209e9525becb3818bbbc6f0c3d2c66c4c8e16a34",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962603898",
+      "fileId": "gid://shopify/MediaImage/71329634222458",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-black-without-gel-case-review-source-3dc879d76681.png?v=1785016722",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-8-plus-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1012747,
+        "sha256": "bdba8821175b74fbdd86d83dc8fc569c2c3ae526f507cfa9724fa67fee208c11",
+        "pixelSha256": "d5464da70e799b662af62f0e209e9525becb3818bbbc6f0c3d2c66c4c8e16a34",
+        "pixelWidth": 926,
+        "pixelHeight": 1836,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1700136,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-plus-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-8-plus",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "864ad1b0ccb82b117ed78c3a3a1835896a7688f1cfbe432fbc23e0c419ec20aa",
+      "pixelSha256": "8f6b5d357d248ed6ecbaddd7d968611c22ec40eb9b43ee600ee0d202db5f541f",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962603898",
+      "fileId": "gid://shopify/MediaImage/71329634419066",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-white-without-gel-case-review-source-864ad1b0ccb8.png?v=1785016729",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-8-plus-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1454024,
+        "sha256": "ce71ba73d2d4091ef23c888622252f13348da3b969d67e071fa5c394d709a39a",
+        "pixelSha256": "8f6b5d357d248ed6ecbaddd7d968611c22ec40eb9b43ee600ee0d202db5f541f",
+        "pixelWidth": 885,
+        "pixelHeight": 1778,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573530,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-plus-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-8",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "fdbbbac1e867071fc9b63691775e4cd1739f92c9d2c53a9e775546db031d3b8d",
+      "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962538362",
+      "fileId": "gid://shopify/MediaImage/71329633370490",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-black-without-gel-case-review-source-fdbbbac1e867.png?v=1785016709",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-8-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1396703,
+        "sha256": "6f4b210956d98cb13125cf3a3ca97320f065de66706ff457c798a39f48f81b21",
+        "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+        "pixelWidth": 920,
+        "pixelHeight": 1834,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1687280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-8",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "561dbd4f7ff4bac445e604222b26bc3cdab87e569d3ce4823ce5e49f487f1eb6",
+      "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962538362",
+      "fileId": "gid://shopify/MediaImage/71329634124154",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-white-without-gel-case-review-source-561dbd4f7ff4.png?v=1785016716",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-8-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1459639,
+        "sha256": "c0a76b5cae46905244bd204d66e15a1e0894cfa60066933331c9ec719f9d7060",
+        "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+        "pixelWidth": 891,
+        "pixelHeight": 1766,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573506,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-air",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "f69fe6660cf27e0e4b5bd5899582609bfd9723df1e9f0ef4fa38c50d95111f06",
+      "pixelSha256": "9a0d05446d04e76182f7e06beb239e41705c45c0c54789c5c281e889178d2ca5",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963619706",
+      "fileId": "gid://shopify/MediaImage/71329635107194",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-black-without-gel-case-review-source-f69fe6660cf2.png?v=1785016735",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-air-black.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-air-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 186507,
+        "sha256": "4d04c9059108ac8292b9552d9f8c5460abe2b1375dc2f5c4d01d7869ee5110ba",
+        "pixelSha256": "9a0d05446d04e76182f7e06beb239e41705c45c0c54789c5c281e889178d2ca5",
+        "pixelWidth": 318,
+        "pixelHeight": 650,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 206700,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-air",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "d6bfdfa764fbc5361b3cb7027761b47ef0f96d45e307de2a1960bcbf04891d83",
+      "pixelSha256": "ec0c6a788251d081c8810ec0382f2834e86ca51ff7a07e834f169902fd456c24",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463963619706",
+      "fileId": "gid://shopify/MediaImage/71329635205498",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-white-without-gel-case-review-source-d6bfdfa764fb.png?v=1785016742",
+      "sourceKind": "case-review-without-gel",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-air-white.png",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-air-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1352502,
+        "sha256": "913fa41e4c4282f8eee225c03c818ea0684cb58f977fdfa82f9812c098c33baa",
+        "pixelSha256": "ec0c6a788251d081c8810ec0382f2834e86ca51ff7a07e834f169902fd456c24",
+        "pixelWidth": 877,
+        "pixelHeight": 1793,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572461,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-se-2020",
+      "finish": "black",
+      "candidateVersion": "compatible-real-source",
+      "sha256": "fdbbbac1e867071fc9b63691775e4cd1739f92c9d2c53a9e775546db031d3b8d",
+      "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471554916730",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377470914938",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2020-black-without-gel-compatible-real-source-fdbbbac1e867.png?v=1785502748",
+      "sourceKind": "compatible-real-source",
+      "sourceModelId": "iphone-8",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-black.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1396703,
+        "sha256": "6f4b210956d98cb13125cf3a3ca97320f065de66706ff457c798a39f48f81b21",
+        "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+        "pixelWidth": 920,
+        "pixelHeight": 1834,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1687280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-se-2020",
+      "finish": "white",
+      "candidateVersion": "compatible-real-source",
+      "sha256": "561dbd4f7ff4bac445e604222b26bc3cdab87e569d3ce4823ce5e49f487f1eb6",
+      "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471554916730",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377471668602",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2020-white-without-gel-compatible-real-source-561dbd4f7ff4.png?v=1785502755",
+      "sourceKind": "compatible-real-source",
+      "sourceModelId": "iphone-8",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-white.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1459639,
+        "sha256": "c0a76b5cae46905244bd204d66e15a1e0894cfa60066933331c9ec719f9d7060",
+        "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+        "pixelWidth": 891,
+        "pixelHeight": 1766,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573506,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-se-2022",
+      "finish": "black",
+      "candidateVersion": "compatible-real-source",
+      "sha256": "fdbbbac1e867071fc9b63691775e4cd1739f92c9d2c53a9e775546db031d3b8d",
+      "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471554949498",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377473110394",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2022-black-without-gel-compatible-real-source-fdbbbac1e867.png?v=1785502762",
+      "sourceKind": "compatible-real-source",
+      "sourceModelId": "iphone-8",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-black.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1396703,
+        "sha256": "6f4b210956d98cb13125cf3a3ca97320f065de66706ff457c798a39f48f81b21",
+        "pixelSha256": "6b66b041c0b78abc52a6e63cf7d9b1fee9981f865c964c483e1d06a0bb5ef531",
+        "pixelWidth": 920,
+        "pixelHeight": 1834,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1687280,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-se-2022",
+      "finish": "white",
+      "candidateVersion": "compatible-real-source",
+      "sha256": "561dbd4f7ff4bac445e604222b26bc3cdab87e569d3ce4823ce5e49f487f1eb6",
+      "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471554949498",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377473929594",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2022-white-without-gel-compatible-real-source-561dbd4f7ff4.png?v=1785502769",
+      "sourceKind": "compatible-real-source",
+      "sourceModelId": "iphone-8",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-8-white.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1459639,
+        "sha256": "c0a76b5cae46905244bd204d66e15a1e0894cfa60066933331c9ec719f9d7060",
+        "pixelSha256": "0ac2603344f406a06eb8175e58b5073d73b33200fe5207dc5f123bc080a8b2dd",
+        "pixelWidth": 891,
+        "pixelHeight": 1766,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573506,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-x",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "1ee2bb78bc16b3f85f4b08d8d5ec86a3420cb4dc2abbcfccec59d1a98ff8d862",
+      "pixelSha256": "a9e59794daea6f11c4ab57143b4c25a9e7281b34c9ff144dcb4e9fbc88bb0802",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962636666",
+      "fileId": "gid://shopify/MediaImage/71329635336570",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-black-without-gel-case-review-source-1ee2bb78bc16.png?v=1785016748",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-x-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 904804,
+        "sha256": "e6fe4e0a7915fb1480109936ce21e2d40a659c7bfc7ef0f6942d16bbf588a963",
+        "pixelSha256": "a9e59794daea6f11c4ab57143b4c25a9e7281b34c9ff144dcb4e9fbc88bb0802",
+        "pixelWidth": 935,
+        "pixelHeight": 1834,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1714790,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-x-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xr",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "f07301e4eb3774904bbadcf7645afb1f9b8e1ef0db535aa98dad1a52f6742191",
+      "pixelSha256": "4b9cc9c0a8a10fa0e9477fb6d1dcddb6a51f2611b6a8a590bb161d4cc933e2a7",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471570907514",
+      "fileId": "gid://shopify/MediaImage/71378506514810",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-black-without-gel-official-source-f07301e4eb37.png?v=1785510295",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-xr",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-black-rhinoshield-SST0108552.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 614994,
+        "sha256": "a62e45a0492fdbab53a7a020b9c7b3aab5df2c05b3dc5adc3198555d5dd2113e",
+        "pixelSha256": "4b9cc9c0a8a10fa0e9477fb6d1dcddb6a51f2611b6a8a590bb161d4cc933e2a7",
+        "pixelWidth": 823,
+        "pixelHeight": 1587,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1306101,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xr",
+      "finish": "white",
+      "candidateVersion": "official-source",
+      "sha256": "cb95402eee455a557a5da960ce1041bd7c9bf6faeb5ad3d18a2bee93f108d5f9",
+      "pixelSha256": "fbcc7a146ef0225377e7c3bf28abd3537f31df14de43f2757aabd8c727c21b16",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471570907514",
+      "fileId": "gid://shopify/MediaImage/71378506744186",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-white-without-gel-official-source-cb95402eee45.png?v=1785510302",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-xr",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-white-rhinoshield-SST0108553.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 501622,
+        "sha256": "b140a3a36b5a487cdee59646c1dec1bcda0963ff8608ace7559fbe8c238b43df",
+        "pixelSha256": "fbcc7a146ef0225377e7c3bf28abd3537f31df14de43f2757aabd8c727c21b16",
+        "pixelWidth": 823,
+        "pixelHeight": 1586,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1305278,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xs-max",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "034379294408f2fb213e7294111decbd4841fe9faca2c348967c3ded3c8e7572",
+      "pixelSha256": "442c21d968ea608b24fcb273b48e2beeccd9efe1e8972bf8c93082f4c4714afd",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962702202",
+      "fileId": "gid://shopify/MediaImage/71329636483450",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-black-without-gel-case-review-source-034379294408.png?v=1785016776",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-xs-max-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 989168,
+        "sha256": "9f5fb40658fbbc7bde4b3e0dd41f673b7e157da4e65b5909a59903268188bee1",
+        "pixelSha256": "442c21d968ea608b24fcb273b48e2beeccd9efe1e8972bf8c93082f4c4714afd",
+        "pixelWidth": 923,
+        "pixelHeight": 1830,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1689090,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-xs-max-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xs-max",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "d5e3fe078fafaeb43d14b41e03b299c640890e77e11aacb30d51e15578d571fc",
+      "pixelSha256": "93c72f726a5638d039c26484406758a4c1a2b8810f3a8b1290e506e2d74060a6",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962702202",
+      "fileId": "gid://shopify/MediaImage/71329637171578",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-white-without-gel-case-review-source-d5e3fe078faf.png?v=1785016783",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-xs-max-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1555459,
+        "sha256": "7154e317ca834400a8835ee21c454d3dc301610340a8bc5493abeb198b7b7860",
+        "pixelSha256": "93c72f726a5638d039c26484406758a4c1a2b8810f3a8b1290e506e2d74060a6",
+        "pixelWidth": 877,
+        "pixelHeight": 1792,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1571584,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-xs-max-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xs",
+      "finish": "black",
+      "candidateVersion": "case-review-source",
+      "sha256": "554a99f63daa2fcd48f5c05e0e0cf5fdd180ab985247c2b38ad1ad99f9679628",
+      "pixelSha256": "cdab7265bc1d56ce4c5d50b6d459deeb848d6881aff0a49134239fb5ccbebaea",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962669434",
+      "fileId": "gid://shopify/MediaImage/71329635631482",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-black-without-gel-case-review-source-554a99f63daa.png?v=1785016761",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-xs-black.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1006517,
+        "sha256": "da46516c7a4b9985723ebec608f1ce9db60587d46e886c34d48f73b5dfab555a",
+        "pixelSha256": "cdab7265bc1d56ce4c5d50b6d459deeb848d6881aff0a49134239fb5ccbebaea",
+        "pixelWidth": 934,
+        "pixelHeight": 1836,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1714824,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-xs-black.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-xs",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "63e247153afcabee8b5740ce51cc24b959a4c3ac0ba34f16cf1b7f3ef4c7e8a5",
+      "pixelSha256": "46c79e5e5184a2e805e84caaf27cf745b9a281fedc84f46cdab08a50d9477a2e",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962669434",
+      "fileId": "gid://shopify/MediaImage/71329636352378",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-white-without-gel-case-review-source-63e247153afc.png?v=1785016769",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-xs-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1465922,
+        "sha256": "adf9cd163120941af358f0df2875cb0b320cf135677cb797000e18553ad31aeb",
+        "pixelSha256": "46c79e5e5184a2e805e84caaf27cf745b9a281fedc84f46cdab08a50d9477a2e",
+        "pixelWidth": 887,
+        "pixelHeight": 1774,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573538,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-xs-white.png"
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-x",
+      "finish": "white",
+      "candidateVersion": "case-review-source",
+      "sha256": "7335d1540ed27c71b4636b8315da13cff138907170fa3b7b9c42e27589a5b4d7",
+      "pixelSha256": "f46ff5656712052243968d4f38fa3e29fc72c014842d87b240b824127f572bc7",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/463962636666",
+      "fileId": "gid://shopify/MediaImage/71329635434874",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-white-without-gel-case-review-source-7335d1540ed2.png?v=1785016755",
+      "sourceKind": "case-review-without-gel",
+      "sourceUrl": "https://charme-customizer.pages.dev/assets/cases/case-without-gel/iphone-x-white.png",
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1506382,
+        "sha256": "07b342063df098fcc6ded6ea9339b775cde17c8475f408e33c749c173fbd88fe",
+        "pixelSha256": "f46ff5656712052243968d4f38fa3e29fc72c014842d87b240b824127f572bc7",
+        "pixelWidth": 887,
+        "pixelHeight": 1774,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1573538,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      },
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-x-white.png"
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384075141498",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496507258",
+        "gid://shopify/ProductVariant/57062374113658"
+      ]
+    },
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384075272570",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496474490",
+        "gid://shopify/ProductVariant/57062374080890"
+      ]
+    },
+    {
+      "modelId": "iphone-11-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384075403642",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496408954",
+        "gid://shopify/ProductVariant/57062374015354"
+      ]
+    },
+    {
+      "modelId": "iphone-11-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384075436410",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496376186",
+        "gid://shopify/ProductVariant/57062373982586"
+      ]
+    },
+    {
+      "modelId": "iphone-11",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384075469178",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496277882",
+        "gid://shopify/ProductVariant/57062373917050"
+      ]
+    },
+    {
+      "modelId": "iphone-11",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384075600250",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496245114",
+        "gid://shopify/ProductVariant/57062373884282"
+      ]
+    },
+    {
+      "modelId": "iphone-12-mini",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384075764090",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496638330",
+        "gid://shopify/ProductVariant/57062374211962"
+      ]
+    },
+    {
+      "modelId": "iphone-12-mini",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384075796858",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496605562",
+        "gid://shopify/ProductVariant/57062374179194"
+      ]
+    },
+    {
+      "modelId": "iphone-12-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384075927930",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496998778",
+        "gid://shopify/ProductVariant/57062374572410"
+      ]
+    },
+    {
+      "modelId": "iphone-12-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384076091770",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496966010",
+        "gid://shopify/ProductVariant/57062374539642"
+      ]
+    },
+    {
+      "modelId": "iphone-12-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384076124538",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496867706",
+        "gid://shopify/ProductVariant/57062374408570"
+      ]
+    },
+    {
+      "modelId": "iphone-12-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384076157306",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496834938",
+        "gid://shopify/ProductVariant/57062374375802"
+      ]
+    },
+    {
+      "modelId": "iphone-12",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384076288378",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496736634",
+        "gid://shopify/ProductVariant/57062374310266"
+      ]
+    },
+    {
+      "modelId": "iphone-12",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384076419450",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496703866",
+        "gid://shopify/ProductVariant/57062374277498"
+      ]
+    },
+    {
+      "modelId": "iphone-13-mini",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384076484986",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497129850",
+        "gid://shopify/ProductVariant/57062374670714"
+      ]
+    },
+    {
+      "modelId": "iphone-13-mini",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384076845434",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060497097082",
+        "gid://shopify/ProductVariant/57062374637946"
+      ]
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384076878202",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627534202",
+        "gid://shopify/ProductVariant/57062372606330"
+      ]
+    },
+    {
+      "modelId": "iphone-13-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384076910970",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636158842",
+        "gid://shopify/ProductVariant/57062371950970"
+      ]
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384077173114",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627501434",
+        "gid://shopify/ProductVariant/57062372573562"
+      ]
+    },
+    {
+      "modelId": "iphone-13-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384077205882",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636126074",
+        "gid://shopify/ProductVariant/57062371918202"
+      ]
+    },
+    {
+      "modelId": "iphone-13",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384077238650",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627468666",
+        "gid://shopify/ProductVariant/57062372540794"
+      ]
+    },
+    {
+      "modelId": "iphone-13",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384077369722",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636093306",
+        "gid://shopify/ProductVariant/57062371885434"
+      ]
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384077566330",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56516791239034",
+        "gid://shopify/ProductVariant/57062372671866"
+      ]
+    },
+    {
+      "modelId": "iphone-14-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384077599098",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636224378",
+        "gid://shopify/ProductVariant/57062372016506"
+      ]
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384077631866",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627632506",
+        "gid://shopify/ProductVariant/57062372737402"
+      ]
+    },
+    {
+      "modelId": "iphone-14-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384077730170",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636289914",
+        "gid://shopify/ProductVariant/57062372082042"
+      ]
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384077992314",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627599738",
+        "gid://shopify/ProductVariant/57062372704634"
+      ]
+    },
+    {
+      "modelId": "iphone-14-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384078025082",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636257146",
+        "gid://shopify/ProductVariant/57062372049274"
+      ]
+    },
+    {
+      "modelId": "iphone-14",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384078287226",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627566970",
+        "gid://shopify/ProductVariant/57062372639098"
+      ]
+    },
+    {
+      "modelId": "iphone-14",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384078385530",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636191610",
+        "gid://shopify/ProductVariant/57062371983738"
+      ]
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384078582138",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56516791271802",
+        "gid://shopify/ProductVariant/57062372802938"
+      ]
+    },
+    {
+      "modelId": "iphone-15-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384078680442",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636355450",
+        "gid://shopify/ProductVariant/57062372147578"
+      ]
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384078778746",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627730810",
+        "gid://shopify/ProductVariant/57062372868474"
+      ]
+    },
+    {
+      "modelId": "iphone-15-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384078942586",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636420986",
+        "gid://shopify/ProductVariant/57062372213114"
+      ]
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384079139194",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627698042",
+        "gid://shopify/ProductVariant/57062372835706"
+      ]
+    },
+    {
+      "modelId": "iphone-15-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384079171962",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636388218",
+        "gid://shopify/ProductVariant/57062372180346"
+      ]
+    },
+    {
+      "modelId": "iphone-15",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384079401338",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627665274",
+        "gid://shopify/ProductVariant/57062372770170"
+      ]
+    },
+    {
+      "modelId": "iphone-15",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384079532410",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636322682",
+        "gid://shopify/ProductVariant/57062372114810"
+      ]
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384079696250",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56516791304570",
+        "gid://shopify/ProductVariant/57062372934010"
+      ]
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384079827322",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636486522",
+        "gid://shopify/ProductVariant/57062372278650"
+      ]
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384080089466",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627829114",
+        "gid://shopify/ProductVariant/57062372999546"
+      ]
+    },
+    {
+      "modelId": "iphone-16-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384080253306",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636552058",
+        "gid://shopify/ProductVariant/57062372344186"
+      ]
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384080351610",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627796346",
+        "gid://shopify/ProductVariant/57062372966778"
+      ]
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384080580986",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636519290",
+        "gid://shopify/ProductVariant/57062372311418"
+      ]
+    },
+    {
+      "modelId": "iphone-16",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384080679290",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627763578",
+        "gid://shopify/ProductVariant/57062372901242"
+      ]
+    },
+    {
+      "modelId": "iphone-16e",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384018682234",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291225466",
+        "gid://shopify/ProductVariant/57101291356538"
+      ]
+    },
+    {
+      "modelId": "iphone-16e",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384018813306",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291258234",
+        "gid://shopify/ProductVariant/57101291323770"
+      ]
+    },
+    {
+      "modelId": "iphone-16",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384080810362",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636453754",
+        "gid://shopify/ProductVariant/57062372245882"
+      ]
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384080941434",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627927418",
+        "gid://shopify/ProductVariant/57062373097850"
+      ]
+    },
+    {
+      "modelId": "iphone-17-pro-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384081138042",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636650362",
+        "gid://shopify/ProductVariant/57062372442490"
+      ]
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384081203578",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627894650",
+        "gid://shopify/ProductVariant/57062373065082"
+      ]
+    },
+    {
+      "modelId": "iphone-17-pro",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384081334650",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636617594",
+        "gid://shopify/ProductVariant/57062372409722"
+      ]
+    },
+    {
+      "modelId": "iphone-17",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384081498490",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627861882",
+        "gid://shopify/ProductVariant/57062373032314"
+      ]
+    },
+    {
+      "modelId": "iphone-17e",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384019075450",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101290963322",
+        "gid://shopify/ProductVariant/57101291094394"
+      ]
+    },
+    {
+      "modelId": "iphone-17e",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384019108218",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101290996090",
+        "gid://shopify/ProductVariant/57101291061626"
+      ]
+    },
+    {
+      "modelId": "iphone-17",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384081826170",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636584826",
+        "gid://shopify/ProductVariant/57062372376954"
+      ]
+    },
+    {
+      "modelId": "iphone-6-6s",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384081858938",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101292011898",
+        "gid://shopify/ProductVariant/57101292142970"
+      ]
+    },
+    {
+      "modelId": "iphone-6-6s",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384081891706",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101292044666",
+        "gid://shopify/ProductVariant/57101292110202"
+      ]
+    },
+    {
+      "modelId": "iphone-7-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384081990010",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495589754",
+        "gid://shopify/ProductVariant/57062373425530"
+      ]
+    },
+    {
+      "modelId": "iphone-7-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384082219386",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495556986",
+        "gid://shopify/ProductVariant/57062373392762"
+      ]
+    },
+    {
+      "modelId": "iphone-7",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384082350458",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060494934394",
+        "gid://shopify/ProductVariant/57062373228922"
+      ]
+    },
+    {
+      "modelId": "iphone-7",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384082383226",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060494901626",
+        "gid://shopify/ProductVariant/57062373196154"
+      ]
+    },
+    {
+      "modelId": "iphone-8-plus",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384082678138",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495720826",
+        "gid://shopify/ProductVariant/57062373523834"
+      ]
+    },
+    {
+      "modelId": "iphone-8-plus",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384082710906",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495688058",
+        "gid://shopify/ProductVariant/57062373491066"
+      ]
+    },
+    {
+      "modelId": "iphone-8",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384082809210",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495458682",
+        "gid://shopify/ProductVariant/57062373327226"
+      ]
+    },
+    {
+      "modelId": "iphone-8",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384082973050",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495425914",
+        "gid://shopify/ProductVariant/57062373294458"
+      ]
+    },
+    {
+      "modelId": "iphone-air",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384083071354",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56028627960186",
+        "gid://shopify/ProductVariant/57062373130618"
+      ]
+    },
+    {
+      "modelId": "iphone-air",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384083202426",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/56787636683130",
+        "gid://shopify/ProductVariant/57062372475258"
+      ]
+    },
+    {
+      "modelId": "iphone-se-2020",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384083366266",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291815290",
+        "gid://shopify/ProductVariant/57101291946362"
+      ]
+    },
+    {
+      "modelId": "iphone-se-2020",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384083399034",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291848058",
+        "gid://shopify/ProductVariant/57101291913594"
+      ]
+    },
+    {
+      "modelId": "iphone-se-2022",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384083464570",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291618682",
+        "gid://shopify/ProductVariant/57101291749754"
+      ]
+    },
+    {
+      "modelId": "iphone-se-2022",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384083693946",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291651450",
+        "gid://shopify/ProductVariant/57101291716986"
+      ]
+    },
+    {
+      "modelId": "iphone-x",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384083726714",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495819130",
+        "gid://shopify/ProductVariant/57062373622138"
+      ]
+    },
+    {
+      "modelId": "iphone-xr",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384083890554",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291422074",
+        "gid://shopify/ProductVariant/57101291553146"
+      ]
+    },
+    {
+      "modelId": "iphone-xr",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384083923322",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101291454842",
+        "gid://shopify/ProductVariant/57101291520378"
+      ]
+    },
+    {
+      "modelId": "iphone-xs-max",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384084087162",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496114042",
+        "gid://shopify/ProductVariant/57062373818746"
+      ]
+    },
+    {
+      "modelId": "iphone-xs-max",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384084152698",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060496081274",
+        "gid://shopify/ProductVariant/57062373785978"
+      ]
+    },
+    {
+      "modelId": "iphone-xs",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71384084251002",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495917434",
+        "gid://shopify/ProductVariant/57062373720442"
+      ]
+    },
+    {
+      "modelId": "iphone-xs",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384084316538",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495884666",
+        "gid://shopify/ProductVariant/57062373687674"
+      ]
+    },
+    {
+      "modelId": "iphone-x",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71384084414842",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57060495786362",
+        "gid://shopify/ProductVariant/57062373589370"
+      ]
+    }
+  ]
+}

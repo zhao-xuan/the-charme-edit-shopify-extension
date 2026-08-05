@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T16:24:00.285Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a17-case-asset-provenance.json",
+  "source": "Live Galaxy A17 catalog identity, repeated-byte official Spigen A17/A17 5G-compatible empty-shell evidence, and first-party Samsung 4G/5G model API dimensions",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "thresholdStabilityPassed": 1,
+    "cameraOpeningQaPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a17",
+      "modelName": "Galaxy A17",
+      "sourceModelId": "galaxy-a17-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a17-5g-official-spigen-ACS09844-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS09844",
+        "gtin": "8800283312409",
+        "productTitle": "Galaxy A Series - Rugged Armor",
+        "encodedSha256": "cbd93678526be0064c8d3bb3487e023490abf035f083d05155c6bc6929a38340"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9991535717406866,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9991535717406866,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 544,
+              "minY": 160,
+              "maxX": 1287,
+              "maxY": 1669
+            },
+            "pixels": 1018397
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 544,
+              "minY": 160,
+              "maxX": 1287,
+              "maxY": 1668
+            },
+            "pixels": 1017535
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9995380994265554,
+            "boundsDriftFromPrimary": 2,
+            "bounds": {
+              "minX": 544,
+              "minY": 160,
+              "maxX": 1285,
+              "maxY": 1668
+            },
+            "pixels": 1017065
+          }
+        ],
+        "primaryBounds": {
+          "minX": 544,
+          "minY": 160,
+          "maxX": 1287,
+          "maxY": 1668
+        },
+        "primaryPixels": 1017535
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "The byte-locked official Spigen inner-case image directly supplies the complete physical outer silhouette and every visible camera opening of the real Galaxy A17/A17 5G-compatible shell.",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 528,
+          "top": 144,
+          "width": 776,
+          "height": 1541
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "stabilityMaskTransform": "none",
+        "sourceVisibleOpeningTransform": {
+          "openings": [],
+          "clearedPixels": 0
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-a17-camera-and-flash-single",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "morphologyOperations": 0,
+        "inferredBoundaryPixels": 0,
+        "inferredOpeningPixels": 0,
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "992d0733c8c0c94676c681ec2436f3a5821d7f4db7fcafd77aee57bd10d04e41",
+        "width": 776,
+        "height": 1541,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 759,
+          "maxY": 1524
+        },
+        "pixels": 1017661,
+        "significantHoles": [
+          {
+            "pixels": 70780,
+            "bounds": {
+              "minX": 424,
+              "minY": 91,
+              "maxX": 679,
+              "maxY": 510
+            },
+            "centerX": 0.719758064516129,
+            "centerY": 0.1885354539430086,
+            "width": 0.34408602150537637,
+            "height": 0.2783300198807157,
+            "aspect": 0.6095238095238096,
+            "componentIndex": 4,
+            "openingId": "camera-and-flash"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-a17-camera-and-flash-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-flash",
+              "minPixels": 65000,
+              "centerX": [
+                0.7,
+                0.74
+              ],
+              "centerY": [
+                0.17,
+                0.21
+              ],
+              "width": [
+                0.32,
+                0.37
+              ],
+              "height": [
+                0.26,
+                0.3
+              ],
+              "aspect": [
+                0.58,
+                0.64
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 107,
+        "filledArtifactPixels": 126,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a17-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "63c4cc4071afc2206840761909f91a23243ea0ac2aa834043c767e808b0a55a4",
+          "outputPixelSha256": "f32d0617c62f3ab018121e73ad4f881ae19bc01d6990ecf6f473a2c1c5f31990",
+          "outputAlphaSha256": "992d0733c8c0c94676c681ec2436f3a5821d7f4db7fcafd77aee57bd10d04e41",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 759,
+            "maxY": 1524
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a17-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "3d9e126138c9bef3039a9a0fea217138c2ca7b03a7938a525b410f150b174af7",
+          "outputPixelSha256": "207111a28dd7a11e5dde67873c45f7b2c3e306bdf830c46ef263904e55c0a183",
+          "outputAlphaSha256": "992d0733c8c0c94676c681ec2436f3a5821d7f4db7fcafd77aee57bd10d04e41",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 759,
+            "maxY": 1524
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

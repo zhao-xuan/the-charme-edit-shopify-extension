@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "source": "Verified Gomibo exact-SKU product record and signed gallery image for the discontinued Spigen Galaxy S10e case",
+  "reviewedAt": "2026-08-02T10:26:21.000Z",
+  "geometryAcceptanceCriteria": [
+    "The exact Galaxy S10e target is named in the Gomibo product title and locked by SKU and GTIN-13.",
+    "The selected signed gallery URL occurs in that exact product record and its source bytes are hash locked.",
+    "The source is an orthogonal real photograph of the complete empty shell on a uniform white background.",
+    "The complete shell boundary and complete centered camera opening are directly visible; no missing geometry is invented.",
+    "Foreground extraction must remain stable at thresholds 11, 12, and 13 with IoU of at least 0.995 and no more than four pixels of bounds drift."
+  ],
+  "products": {
+    "galaxy-s10e-liquid-air": {
+      "retailer": "Gomibo Belgium",
+      "sku": "609CS25836",
+      "gtin": "8809640252631",
+      "title": "Spigen Liquid Air Case Black Samsung Galaxy S10e - Gomibo.be",
+      "productRecordUrl": "https://www.gomibo.be/nl/accessoire-detail/spigen-liquid-air-case-zwart-samsung-galaxy-s10e"
+    }
+  },
+  "officialDimensions": {
+    "galaxy-s10e": {
+      "manufacturer": "Samsung",
+      "modelCode": "SM-G970FZKDBTU",
+      "modelFamilyCode": "SM-G970F",
+      "widthMm": 69.9,
+      "heightMm": 142.2,
+      "depthMm": 7.9,
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "142.2 x 69.9 x 7.9",
+      "reportedOrder": "height x width x depth",
+      "sourcePageUrl": "https://www.samsung.com/uk/support/model/SM-G970FZKDBTU/",
+      "originalSourcePageUrl": "https://www.samsung.com/uk/support/model/SM-G970FZKDBTU/",
+      "sourcePageTitle": "Galaxy S10e 128GB | Samsung Support UK",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "uk",
+        "modelCode": "SM-G970FZKDBTU",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645"
+    }
+  },
+  "candidates": [
+    {
+      "targetModelId": "galaxy-s10e",
+      "targetModelName": "Galaxy S10e",
+      "sourceModelId": "galaxy-s10e",
+      "product": "galaxy-s10e-liquid-air",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy S10e title, Spigen SKU 609CS25836, and GTIN-13 8809640252631 match; the selected signed image belongs to that product record.",
+      "galleryImageId": "spigen-liquid-air-case-zwart-samsung-galaxy-s10e_6.jpg",
+      "galleryPosition": 5,
+      "sourceUrl": "https://bsimg.nl/images/spigen-liquid-air-case-zwart-samsung-galaxy-s10e_6.jpg/FL1Itp-9xpNwlhIT59t2szj-9oY%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "expectedEncodedSha256": "81aa93bf29dd661514941988fb8ac93e011270bf18fde1c2e530f0c56e867712",
+      "expectedWidth": 505,
+      "expectedHeight": 505,
+      "geometryReview": "accepted-orthogonal-empty-shell-complete-boundary-and-opening-directly-visible",
+      "geometrySource": "Verified Gomibo Spigen orthogonal empty-case inner photograph with directly visible shell and camera-opening boundaries",
+      "derivedSourceKind": "derived-verified-retail-source"
+    }
+  ]
+}

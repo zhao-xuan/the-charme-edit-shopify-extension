@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T16:01:26.681Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a22-5g",
+      "name": "Galaxy A22 5G",
+      "widthMm": 76.4,
+      "heightMm": 167.2,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-a22-5g",
+      "name": "Galaxy A22 5G",
+      "widthMm": 76.4,
+      "heightMm": 167.2,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471873618298"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-a22-5g",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "46c82bc68f612791e1b2f6eda2b0045b9af9c211137cb35f69c85c39fc4d2f98",
+      "pixelSha256": "24c18d5dbeb231400793b6bc29139828a497aaaeda716380bb382be484b6219d",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471873618298",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393649820026",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a22-5g-black-without-gel-derived-verified-retail-source-46c82bc68f61.png?v=1785686481",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a22-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a22-5g-black-v1-nillkin-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 16838,
+        "sha256": "0574f6902da3a5cd424a5e2faa303d3ea58193a7cd3f75c2e2aaaab4e2d585d5",
+        "pixelSha256": "24c18d5dbeb231400793b6bc29139828a497aaaeda716380bb382be484b6219d",
+        "pixelWidth": 400,
+        "pixelHeight": 854,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 341600,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a22-5g",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "2bb9a44bba07692d5eaadb429db9c12ec3a3e8a2470ff4b4315f55092264a34a",
+      "pixelSha256": "495b1ab3092275542d772f15107ec8ccf9a34054bde0d311d9bf97b9ce19d1a3",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471873618298",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393649852794",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a22-5g-white-without-gel-derived-verified-retail-source-2bb9a44bba07.png?v=1785686485",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a22-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a22-5g-white-v1-nillkin-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 12655,
+        "sha256": "f425bce3447e795ce6ef95f4ae72ed6b0b55132d93714ea94ff83434541a2601",
+        "pixelSha256": "495b1ab3092275542d772f15107ec8ccf9a34054bde0d311d9bf97b9ce19d1a3",
+        "pixelWidth": 400,
+        "pixelHeight": 854,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 341600,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

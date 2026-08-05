@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 1,
+  "campaign": "samsung-s24-s26-recolors-v1",
+  "publish": false,
+  "policy": "Only exact original GPT PNG bytes may be reviewed or published. Never crop, resize, recolour, composite, retouch, re-encode, or attach images to Shopify Product Media or variant media.",
+  "summary": {
+    "targets": 12,
+    "opaqueRecolors": 6,
+    "clearToOpaque": 6,
+    "pending": 0,
+    "accepted": 0,
+    "rejected": 12
+  },
+  "targets": [
+    {
+      "key": "galaxy-s24:black",
+      "modelId": "galaxy-s24",
+      "modelName": "Galaxy S24",
+      "finish": "black",
+      "sourceColour": "violet",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-violet-fdb6c707aaf5.png",
+      "sha256": "fdb6c707aaf59c45b11f2eee9981b8702b1905c97801a4af2dfc99beafd10062",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.494137,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s24-black.txt",
+      "promptSha256": "daa8cea07089e0d2c31b94251df8970007f1baf69d75c677251a319a909124c6",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s24-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "112facc67f69664df88ef7e3f64165596ea08aa236226df832c7845d1dc660d9",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71f7c9-3104-83eb-8f1f-bb24b4f1c734",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000041481f499bdf8746d18e153&ts=496070&p=fs&cid=1&sig=54fd14139a76851b5fc92f748e8f2ccce58454a2c65e2ff1155caafaec07591a&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "Black finish and S24 hardware are plausible, but the product-exterior alpha contains a broad grey gradient haze: 176771 partial-alpha pixels, 13 canvas-edge pixels, and visible alpha bounds spanning nearly the full 1536x1024 canvas.",
+        "recordedAt": "2026-08-04T14:43:06.080Z"
+      }
+    },
+    {
+      "key": "galaxy-s24-plus:black",
+      "modelId": "galaxy-s24-plus",
+      "modelName": "Galaxy S24+",
+      "finish": "black",
+      "sourceColour": "violet",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-plus-violet-7c19a5eaf58b.png",
+      "sha256": "7c19a5eaf58b566f86f4496ff20ce0846bc2b85e3e8df1ce4000b898b49ad85b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.492462,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s24-plus-black.txt",
+      "promptSha256": "f79463e2641be772bc7be8d1f3524ebd25bdc78c29818c87b4e6d37ca348c9f6",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s24-plus-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "661322f91d882ac8df6b27c326e32054432f5fb5532f6e920351b8406cb72232",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71fad7-d4a0-83eb-a7b6-837afedf6a41",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000839081f4bfe7250aee718e43&ts=496070&p=fs&cid=1&sig=82b15592448168c9d54e2935118decc9392940b14d308a2c1fa5ffa1ecbdcda3&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "Black finish and S24+ hardware are plausible, but a broad green-grey partial-alpha gradient fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T14:47:47.732Z"
+      }
+    },
+    {
+      "key": "galaxy-s24-ultra:black",
+      "modelId": "galaxy-s24-ultra",
+      "modelName": "Galaxy S24 Ultra",
+      "finish": "black",
+      "sourceColour": "violet",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-ultra-violet-5df8495468d2.png",
+      "sha256": "5df8495468d2cb828450fea8e2ca512bf599b45ce7fa81b688fa51bbef2df37b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 658,
+        "top": 43,
+        "right": 1261,
+        "bottom": 1236,
+        "width": 604,
+        "height": 1194
+      },
+      "visibleAspect": 0.505863,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s24-ultra-black.txt",
+      "promptSha256": "f10363fe2522636043934e046927ee4e679760c292aae8ba54719ec49710a8a9",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s24-ultra-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "25dfa7708561d53ed94c0294bce1c72a9742d3922f3a1b3a74485c83fdd714d8",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71fbba-dfdc-83eb-9cf9-a20bface2c4b",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000004bd081f6bf372cab7b885638&ts=496070&p=fs&cid=1&sig=6cab45c7e969f4a6ba73757ae84520a78e0f11ed92188ee2e54e5c55f3b59b84&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "Black finish and S24 Ultra hardware are plausible, but a broad green-grey partial-alpha gradient fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T14:51:30.841Z"
+      }
+    },
+    {
+      "key": "galaxy-s25:white",
+      "modelId": "galaxy-s25",
+      "modelName": "Galaxy S25",
+      "finish": "white",
+      "sourceColour": "blue",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-blue-a9e119563669.png",
+      "sha256": "a9e119563669d1986ee4c456a9c574e04e32f58eec3fdc5a3aaf63dabfb05d75",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.494137,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s25-white.txt",
+      "promptSha256": "afd1b7694aea685d4a9ae85d97ea5dee3fff1b2b7de848a792fe7d2cb27ebda9",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s25-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "5696355f1ecf92497f93534c9e4b703da5e82825fcc0d820dc00ac13fb3e0439",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71fc96-9810-83eb-9b03-e9181bd29c5a",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000e10081f8812522b10c0e4bbd&ts=496070&p=fs&cid=1&sig=37bed91047dc7b7cd74ebf4aee96e3617128301c834497929839cf32c61689af&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo",
+          "aspect-ratio"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "White finish, S25 three-lens pill hardware, and product aspect are plausible, but a broad grey partial-alpha gradient fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T14:58:37.077Z"
+      }
+    },
+    {
+      "key": "galaxy-s25-plus:white",
+      "modelId": "galaxy-s25-plus",
+      "modelName": "Galaxy S25+",
+      "finish": "white",
+      "sourceColour": "blue",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-plus-blue-7ba60c2ccdfb.png",
+      "sha256": "7ba60c2ccdfbab96167b99370afc627023d5651def8628589f76f91a28f2da3f",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s25-plus-white.txt",
+      "promptSha256": "60d3acb75efd8b0a858bae3ad02bb80ca5ea72828638e804f446e18b3e31db46",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s25-plus-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "3b13e7428e60064f07832a2baca1f48c107929ed5123ef966e06ee24fd421536",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71fe45-312c-83eb-86ea-297e94fc9601",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000628882309e514d8883b1f262&ts=496071&p=fs&cid=1&sig=1287f5298266df61a5c2d8b90b7991d162dd385b8e4b8f11bbf575521951ce32&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "White finish and S25+ three-lens pill hardware are plausible, but a broad grey partial-alpha gradient fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T15:02:48.095Z"
+      }
+    },
+    {
+      "key": "galaxy-s25-ultra:white",
+      "modelId": "galaxy-s25-ultra",
+      "modelName": "Galaxy S25 Ultra",
+      "finish": "white",
+      "sourceColour": "grey",
+      "mode": "opaque-recolor",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-ultra-grey-8b092d323527.png",
+      "sha256": "8b092d3235270264c8516832303cd547e1e04e88f48c6a8852537632a726f52b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 43,
+        "right": 1251,
+        "bottom": 1236,
+        "width": 585,
+        "height": 1194
+      },
+      "visibleAspect": 0.48995,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s25-ultra-white.txt",
+      "promptSha256": "e40e1e05a3e956718674ca9be3b0b1d4dbe03c64e0ede2db60d0be3f40781e08",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s25-ultra-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "9acb642511693b5fd730ed220fe3831ac8568ae7931f13a104e1aa23647efbfc",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a71ff3f-6600-83ed-a7a3-34c67d6e84b5",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000040e081f49e29bd9100422c34&ts=496071&p=fs&cid=1&sig=f763680726e45a3d710b2148ff9b6cb6a4064662720f1106450b8d42e6dce30c&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "White finish and S25 Ultra camera hardware are plausible, but a broad grey partial-alpha gradient fills the product exterior instead of genuine alpha 0. The UI also showed a transient error after mounting this final image; Retry was not used.",
+        "recordedAt": "2026-08-04T15:06:54.053Z"
+      }
+    },
+    {
+      "key": "galaxy-s26:black",
+      "modelId": "galaxy-s26",
+      "modelName": "Galaxy S26",
+      "finish": "black",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-other-894410e9f2f9.png",
+      "sha256": "894410e9f2f99c2cfe6600a88822687cbf0a94970efe3b1043e34e562e7c88c3",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.489967,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-black.txt",
+      "promptSha256": "e51a9ed15be0f3329b991e2458bbd9131ee8ff33061f25eab5e7d9b875bc6290",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "4c91a500bef882ec9f61685fb2ecf8e164e2222a69257d7ef5c9cc92cd439f2f",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a72004a-6548-83eb-9b90-fe7d7fe867da",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000bc008243b3f6baa53ef4391a&ts=496071&p=fs&cid=1&sig=b62c3a9ec0cbc2dd62fc233c89ef2bc341d960953dfd338aacab1eaa6d462b78&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo",
+          "aspect-ratio"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "The clear case was plausibly synthesized as opaque matte Black with the S26 three-lens pill hardware preserved and no magnetic ring, but a broad grey partial-alpha gradient fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T15:12:14.785Z"
+      }
+    },
+    {
+      "key": "galaxy-s26:white",
+      "modelId": "galaxy-s26",
+      "modelName": "Galaxy S26",
+      "finish": "white",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-other-894410e9f2f9.png",
+      "sha256": "894410e9f2f99c2cfe6600a88822687cbf0a94970efe3b1043e34e562e7c88c3",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.489967,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-white.txt",
+      "promptSha256": "b2757b5d17e621becce37f92e6d224549625a58bb1dda14bad85918d62969515",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "3919023b1c56b8a2d454015c9c4235191d6f33f4f3132f6eff5c95e7cd0e3c98",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a72017b-c2f4-83eb-b611-94e369ad150e",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000007e2882119091bac1b09b02e3&ts=496071&p=fs&cid=1&sig=b7720193f58e38e8ea44f7828fb14860ccabf8873b967a32d3d14aceeab073f1&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "The clear case was plausibly synthesized as opaque neutral White with the S26 three-lens pill hardware, flash, side buttons and logo retained and no magnetic ring, but a broad grey partial-alpha glow fills the product exterior instead of genuine alpha 0. ChatGPT also displayed a transient error after mounting the final image; Retry was not used.",
+        "recordedAt": "2026-08-04T15:19:18.528Z"
+      }
+    },
+    {
+      "key": "galaxy-s26-plus:black",
+      "modelId": "galaxy-s26-plus",
+      "modelName": "Galaxy S26+",
+      "finish": "black",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-plus-other-66698b8a4a9a.png",
+      "sha256": "66698b8a4a9abdca4567f30fa400a3b64e843cdc4d5d73fc0874b040b1647dac",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 666,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 587,
+        "height": 1196
+      },
+      "visibleAspect": 0.490803,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-plus-black.txt",
+      "promptSha256": "bc526a97a2a77a95e747582daa1fe414f5a518eb8314121eb612bdf4d6f160a2",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-plus-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "47fd41f8aac6ca8e2470b23c1192e5030669d773e17d01dd8d4c492de9b6ec77",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a720335-6c58-83eb-9015-523e67d8875b",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000604081f9af42c04c1035516d&ts=496071&p=fs&cid=1&sig=61eea5818f8d0d9c1493d86088fa7926b67863eafaf9ab0d2f374e424b6ebb18&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background",
+          "other"
+        ],
+        "reviewNotes": "The clear case was synthesized as opaque matte Black with the S26+ three-lens pill and flash recognizable and no magnetic ring, but a broad yellow-green partial-alpha backdrop fills the product exterior instead of genuine alpha 0. The source low-contrast pale Samsung logo was also redrawn as a high-contrast white mark, violating the identity lock.",
+        "recordedAt": "2026-08-04T15:27:25.232Z"
+      }
+    },
+    {
+      "key": "galaxy-s26-plus:white",
+      "modelId": "galaxy-s26-plus",
+      "modelName": "Galaxy S26+",
+      "finish": "white",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-plus-other-66698b8a4a9a.png",
+      "sha256": "66698b8a4a9abdca4567f30fa400a3b64e843cdc4d5d73fc0874b040b1647dac",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 666,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 587,
+        "height": 1196
+      },
+      "visibleAspect": 0.490803,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-plus-white.txt",
+      "promptSha256": "d680ddd4b5bc0083dff963f8a3042569234e08c782e56e4b9ee3cfb0d84e3a2d",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-plus-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "b6b9124620c998673a9d00bcdf0276ee4dec49f6fb8eb8802cad75485480fade",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a720690-6a64-83eb-9f8a-804a31aae13c",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000008f2c820aa9beed94499cc390&ts=496071&p=fs&cid=1&sig=16231249396fbf51b5faaebec9d408207172ab1d9e49b3a9b8759ad52a88c841&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "alpha-halo",
+          "aspect-ratio"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background"
+        ],
+        "reviewNotes": "The clear case was plausibly synthesized as opaque neutral White with the S26+ three-lens pill, flash, side buttons and low-contrast logo retained and no magnetic ring, but a broad grey partial-alpha backdrop fills the product exterior instead of genuine alpha 0.",
+        "recordedAt": "2026-08-04T15:45:54.186Z"
+      }
+    },
+    {
+      "key": "galaxy-s26-ultra:black",
+      "modelId": "galaxy-s26-ultra",
+      "modelName": "Galaxy S26 Ultra",
+      "finish": "black",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-ultra-other-7231a0834068.png",
+      "sha256": "7231a0834068528227330a55411d6dab15a45aac265142bfdb048a079b186ff9",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.489967,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-ultra-black.txt",
+      "promptSha256": "fd16cb08b2cce211dde6c86378636b61cbf8b0c303d0550081ff69eeacbec5c8",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-ultra-black-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "9011e0efb92d2bf945264f3d24efd6bc1166b429440e4dfce0a9a934a9b32380",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a720c56-74f0-83eb-9981-fc342ca14469",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000088c82119516e6b6c320cd7f&ts=496072&p=fs&cid=1&sig=1524cea574c5078696d2a64f68122e611e66caf665781209e8670f78ad034e92&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo",
+          "aspect-ratio"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background",
+          "wrong-finish"
+        ],
+        "reviewNotes": "The S26 Ultra three-main-lens stack and separate right-side sensor/flash module remain recognizable with no magnetic ring, but the case body reads as translucent medium grey rather than fully opaque deep Black matte silicone. A broad grey partial-alpha layer also fills the product exterior instead of genuine alpha 0. ChatGPT displayed a transient error after mounting the final image; Retry was not used.",
+        "recordedAt": "2026-08-04T16:08:07.082Z"
+      }
+    },
+    {
+      "key": "galaxy-s26-ultra:white",
+      "modelId": "galaxy-s26-ultra",
+      "modelName": "Galaxy S26 Ultra",
+      "finish": "white",
+      "sourceColour": "clear",
+      "mode": "clear-to-opaque",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-ultra-other-7231a0834068.png",
+      "sha256": "7231a0834068528227330a55411d6dab15a45aac265142bfdb048a079b186ff9",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "visibleBoundsPx": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.489967,
+      "promptPath": "reference/case-history/generated/samsung-s24-s26-recolors/prompts/galaxy-s26-ultra-white.txt",
+      "promptSha256": "d9d082894c935be0446b45a4aef9aa4fb6c782bc1fb05a43ae285eac73365bfa",
+      "candidatePath": "reference/case-history/generated/samsung-s24-s26-recolors/candidates/galaxy-s26-ultra-white-v1-gpt.png",
+      "status": "rejected",
+      "outcome": {
+        "sha256": "2c57e230a6158e0afd0e811795102d7c3f3ed79874794e358ea66fec5a1c3fe4",
+        "widthPx": 1536,
+        "heightPx": 1024,
+        "conversationUrl": "https://chatgpt.com/c/6a720ed5-d37c-83ed-87a8-a3534b703851",
+        "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000f788824690955d7db6076051&ts=496072&p=fs&cid=1&sig=b16546e9242fccc66372834815f44d3289f87ccc4f10014d7cec3c1da7083444&v=0",
+        "automatedQaPassed": false,
+        "automatedQaFailures": [
+          "canvas-edge-leak",
+          "alpha-halo"
+        ],
+        "reviewStatus": "rejected",
+        "failureReasons": [
+          "alpha-background",
+          "wrong-hardware"
+        ],
+        "reviewNotes": "The case was synthesized as opaque neutral White with no magnetic ring, and the S26 Ultra three-main-lens stack plus right-side module layout remain recognizable. However, a broad grey partial-alpha backdrop fills the product exterior instead of genuine alpha 0, and the source upper-right dual-dot sensor was redrawn as a glossy camera-like lens, violating the hardware identity lock. ChatGPT displayed a transient error during generation; Retry was not used.",
+        "recordedAt": "2026-08-04T16:18:52.365Z"
+      }
+    }
+  ]
+}

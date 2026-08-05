@@ -1,0 +1,1930 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T20:29:43.215Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a-series-case-asset-provenance.json",
+  "source": "Exact-model official Spigen empty-case photographs with deterministic geometry extraction",
+  "summary": {
+    "models": 11,
+    "candidates": 22,
+    "thresholdStabilityPassed": 11,
+    "cameraOpeningQaPassed": 11,
+    "exactPairAlpha": 11,
+    "automatedQaPassed": 22
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a12-4g",
+      "modelName": "Galaxy A12 4G",
+      "sourceModelId": "galaxy-a12",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a12-official-spigen-ACS02786-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a12_rugged_armor_05.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS02786",
+        "gtin": "8809756645785",
+        "encodedSha256": "c1294d1f187772b7764d3e8f653f446c23468eec3b12e386ba4dd1f2003a7257"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9987313730568135,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9987313730568135,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1287
+            },
+            "pixels": 571484
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1286
+            },
+            "pixels": 570759
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9991467502045522,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 441,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1285
+            },
+            "pixels": 570272
+          }
+        ],
+        "primaryBounds": {
+          "minX": 440,
+          "minY": 144,
+          "maxX": 989,
+          "maxY": 1286
+        },
+        "primaryPixels": 570759
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 424,
+          "top": 128,
+          "width": 582,
+          "height": 1175
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+        "width": 582,
+        "height": 1175,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1158
+        },
+        "pixels": 570781,
+        "significantHoles": [
+          {
+            "pixels": 40981,
+            "bounds": {
+              "minX": 331,
+              "minY": 73,
+              "maxX": 504,
+              "maxY": 318
+            }
+          }
+        ],
+        "filledArtifactComponents": 18,
+        "filledArtifactPixels": 22,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "269a4039eeaf7bf1a0e8dedb3f2869eeeafb7ad0e6897c081958d9431b9e2427",
+          "outputPixelSha256": "e3b0d26526f1088f80ebd7ab20535ffbe187eb3745d7db0f4e06d32fe7882e51",
+          "outputAlphaSha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 565,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "622b742ced43d0d6d23442b921f7a35574b3ebd639c4f13a487cb2a6f2ca9991",
+          "outputPixelSha256": "f1c94631f864333f42b42ac03cf52fb9a2351102db4b7d8b78d4f79a007c9287",
+          "outputAlphaSha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 565,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "modelName": "Galaxy A21s 4G",
+      "sourceModelId": "galaxy-a21s",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a21s-official-spigen-ACS00974-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a21s_ruggedarmor_02.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS00974",
+        "gtin": "8809685629269",
+        "encodedSha256": "c882bb9ec49ce7334ea81f5616af2b74dd8e2cfbe2b0dc28c8280ad619a8ebbe"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9991648914098404,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9991648914098404,
+            "boundsDriftFromPrimary": 2,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 991,
+              "maxY": 1286
+            },
+            "pixels": 575973
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 441,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1285
+            },
+            "pixels": 575492
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9995204103619164,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 442,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1285
+            },
+            "pixels": 575216
+          }
+        ],
+        "primaryBounds": {
+          "minX": 441,
+          "minY": 144,
+          "maxX": 989,
+          "maxY": 1285
+        },
+        "primaryPixels": 575492
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 425,
+          "top": 128,
+          "width": 581,
+          "height": 1174
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+        "width": 581,
+        "height": 1174,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 564,
+          "maxY": 1157
+        },
+        "pixels": 582200,
+        "significantHoles": [
+          {
+            "pixels": 28638,
+            "bounds": {
+              "minX": 354,
+              "minY": 80,
+              "maxX": 496,
+              "maxY": 288
+            }
+          }
+        ],
+        "filledArtifactComponents": 12,
+        "filledArtifactPixels": 6708,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "55c6c114b8122872253abd4b0ebf38f502e1467b8fadccd988d72c71fd6bf719",
+          "outputPixelSha256": "7b68fb54f5146f24c5cdc91c9e6a1c51f086e736a15e217c8365b68214a54e57",
+          "outputAlphaSha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 564,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "c0577ff8825344d8e9ce99427a3594064fa22542afacaf197d2b2c4f04969bc4",
+          "outputPixelSha256": "f3ae71f7dda8606a082dd2c3f8a160d391d4331c8249ca90a66d5800fe7ba2a2",
+          "outputAlphaSha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 564,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a25",
+      "modelName": "Galaxy A25",
+      "sourceModelId": "galaxy-a25-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a25-5g-official-spigen-ACS06831-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a25_5g_ruggedarmor_02.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS06831",
+        "gtin": "8809971221382",
+        "encodedSha256": "e936c91afede43d004dc1be05a5c148af1cbf72ff95b79f5b27bf958d172abc3"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9986725767020534,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 3,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9986725767020534,
+            "boundsDriftFromPrimary": 3,
+            "bounds": {
+              "minX": 432,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1285
+            },
+            "pixels": 599658
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 433,
+              "minY": 144,
+              "maxX": 996,
+              "maxY": 1284
+            },
+            "pixels": 598862
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9992452351292952,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 434,
+              "minY": 144,
+              "maxX": 996,
+              "maxY": 1283
+            },
+            "pixels": 598410
+          }
+        ],
+        "primaryBounds": {
+          "minX": 433,
+          "minY": 144,
+          "maxX": 996,
+          "maxY": 1284
+        },
+        "primaryPixels": 598862
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 417,
+          "top": 128,
+          "width": 596,
+          "height": 1173
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+        "width": 596,
+        "height": 1173,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 579,
+          "maxY": 1156
+        },
+        "pixels": 599194,
+        "significantHoles": [
+          {
+            "pixels": 7294,
+            "bounds": {
+              "minX": 423,
+              "minY": 180,
+              "maxX": 519,
+              "maxY": 276
+            }
+          },
+          {
+            "pixels": 7287,
+            "bounds": {
+              "minX": 423,
+              "minY": 287,
+              "maxX": 519,
+              "maxY": 383
+            }
+          },
+          {
+            "pixels": 7261,
+            "bounds": {
+              "minX": 423,
+              "minY": 73,
+              "maxX": 519,
+              "maxY": 169
+            }
+          },
+          {
+            "pixels": 1318,
+            "bounds": {
+              "minX": 365,
+              "minY": 154,
+              "maxX": 405,
+              "maxY": 195
+            }
+          }
+        ],
+        "filledArtifactComponents": 301,
+        "filledArtifactPixels": 332,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "889ec2fce1379fec9eb0f66b4c417e936d99dcbeeafa17eb031ff6913d2d1994",
+          "outputPixelSha256": "2358526593abd893cc8604b6bddffb651c55264876698557105a39b26444ca25",
+          "outputAlphaSha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 579,
+            "maxY": 1156
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "806ae89adfec86386c8b5f6ccb17768f7af49486d6b0528b127db21bd99f13b9",
+          "outputPixelSha256": "b98cc2ba8e801099e5a64b90b978cccbf3ba0580c1bb7ca71653a0b94bf157cc",
+          "outputAlphaSha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 579,
+            "maxY": 1156
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "modelName": "Galaxy A26 5G",
+      "sourceModelId": "galaxy-a26-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a26-5g-official-spigen-ACS09290-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a26_5g_liquid_air_blk_02.jpg?v=1747163480",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sku": "ACS09290",
+        "gtin": "8800283301168",
+        "encodedSha256": "8d22c8a4aea08b9a200bd4f9df403e6b21baad79fd94bf397dbddfea1f3d6b86"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9989698423040057,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 4,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9989698423040057,
+            "boundsDriftFromPrimary": 4,
+            "bounds": {
+              "minX": 435,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1286
+            },
+            "pixels": 586318
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 435,
+              "minY": 144,
+              "maxX": 995,
+              "maxY": 1285
+            },
+            "pixels": 585714
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.999612438835336,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 436,
+              "minY": 144,
+              "maxX": 994,
+              "maxY": 1285
+            },
+            "pixels": 585487
+          }
+        ],
+        "primaryBounds": {
+          "minX": 435,
+          "minY": 144,
+          "maxX": 995,
+          "maxY": 1285
+        },
+        "primaryPixels": 585714
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 419,
+          "top": 128,
+          "width": 593,
+          "height": 1174
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+        "width": 593,
+        "height": 1174,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1157
+        },
+        "pixels": 585951,
+        "significantHoles": [
+          {
+            "pixels": 36401,
+            "bounds": {
+              "minX": 392,
+              "minY": 69,
+              "maxX": 517,
+              "maxY": 385
+            }
+          },
+          {
+            "pixels": 1266,
+            "bounds": {
+              "minX": 332,
+              "minY": 159,
+              "maxX": 372,
+              "maxY": 199
+            }
+          }
+        ],
+        "filledArtifactComponents": 198,
+        "filledArtifactPixels": 237,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "4f2823e590fb499456f4f1bd94b1238642e0fcd5655ca8795657656c85e0b631",
+          "outputPixelSha256": "bb88233cae3bd3363b35a7338bf1d17d9314c6da26a2ee9fcb9b8563be3d9ec2",
+          "outputAlphaSha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 576,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "e17f5f53b1f31cbe783ad74c614d605db19e5a79c8ecbbe8af8c4fb92d3d3378",
+          "outputPixelSha256": "a31e99e2343a5d2fd3e3a20fb2a0ace6f1e5f372a7d8aba69b97ec386fdeb1c9",
+          "outputAlphaSha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 576,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "modelName": "Galaxy A32 5G",
+      "sourceModelId": "galaxy-a32-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a32-5g-official-spigen-ACS03046-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a32_5g_rugged_armor_02.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS03046",
+        "gtin": "8809756648120",
+        "encodedSha256": "0a35c1cfdc372eaa3aed561e920c9be60d809bfa693efc780f8769da2e5f02df"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9988525530694206,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9988525530694206,
+            "boundsDriftFromPrimary": 2,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 990,
+              "maxY": 1287
+            },
+            "pixels": 573447
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 989,
+              "maxY": 1285
+            },
+            "pixels": 572789
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9994675177072185,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 440,
+              "minY": 144,
+              "maxX": 988,
+              "maxY": 1285
+            },
+            "pixels": 572484
+          }
+        ],
+        "primaryBounds": {
+          "minX": 440,
+          "minY": 144,
+          "maxX": 989,
+          "maxY": 1285
+        },
+        "primaryPixels": 572789
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 424,
+          "top": 128,
+          "width": 582,
+          "height": 1174
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+        "width": 582,
+        "height": 1174,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1157
+        },
+        "pixels": 573088,
+        "significantHoles": [
+          {
+            "pixels": 39046,
+            "bounds": {
+              "minX": 340,
+              "minY": 81,
+              "maxX": 497,
+              "maxY": 337
+            }
+          }
+        ],
+        "filledArtifactComponents": 126,
+        "filledArtifactPixels": 299,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "a8e7e485ebea474f89e195e1d3fa81cc6de3c661ba9e5d74c69cafbaaa72a2cf",
+          "outputPixelSha256": "8c53972cda81dfdbe23e03656687db03df7eaaf66c06abc678be0b88ae3e903c",
+          "outputAlphaSha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 565,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "e1a032645d971249fa577497ceb27bfcc43894fd71d2e2766c465c670372a35b",
+          "outputPixelSha256": "e46b05f4d4127f4588b5147b81a0054c9e706c86a904bc633975c5572bd21f57",
+          "outputAlphaSha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 565,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a33",
+      "modelName": "Galaxy A33",
+      "sourceModelId": "galaxy-a33-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a33-5g-official-spigen-ACS04319-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a33_5g_tougharmor_03.jpg?v=1746740945",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-tough-armor.js",
+        "sku": "ACS04319",
+        "gtin": "8809811858914",
+        "encodedSha256": "1ebb3e393ed8d5aba50fe8ddf2c4837db9330b9686058801223afba28d52a2ea"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.999259267060554,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.999259267060554,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 438,
+              "minY": 144,
+              "maxX": 991,
+              "maxY": 1286
+            },
+            "pixels": 569706
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 438,
+              "minY": 144,
+              "maxX": 990,
+              "maxY": 1286
+            },
+            "pixels": 569284
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9995520689146367,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 438,
+              "minY": 144,
+              "maxX": 990,
+              "maxY": 1286
+            },
+            "pixels": 569029
+          }
+        ],
+        "primaryBounds": {
+          "minX": 438,
+          "minY": 144,
+          "maxX": 990,
+          "maxY": 1286
+        },
+        "primaryPixels": 569284
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 422,
+          "top": 128,
+          "width": 585,
+          "height": 1175
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+        "width": 585,
+        "height": 1175,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 568,
+          "maxY": 1158
+        },
+        "pixels": 569312,
+        "significantHoles": [
+          {
+            "pixels": 52556,
+            "bounds": {
+              "minX": 323,
+              "minY": 78,
+              "maxX": 506,
+              "maxY": 375
+            }
+          }
+        ],
+        "filledArtifactComponents": 18,
+        "filledArtifactPixels": 28,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "044f0d1edb012e5fa357b743c29053237cc7f6e3a16524d80e88c6a19a9f670d",
+          "outputPixelSha256": "549617612a63954bbbbf9139bc7b28fe7f439186040cbdbe0df657a7ab044071",
+          "outputAlphaSha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 568,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "7f073bebe04b56db0f1173d8925e5924576c07812aad5fcc546ee2a5c705bf55",
+          "outputPixelSha256": "20c1499800d1a367be3611a63231ab401609f71398328b716fcc70189a9b313f",
+          "outputAlphaSha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 568,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a34",
+      "modelName": "Galaxy A34",
+      "sourceModelId": "galaxy-a34-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a34-5g-official-spigen-ACS05905-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_sp64a_liquidair_06.jpg?v=1747162470",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sku": "ACS05905",
+        "gtin": "8809896742634",
+        "encodedSha256": "dfb6f974b842b83d54ba4f4a11706ae0569e40b6a80eebe072a68f84171e0064"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.998812386133071,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.998812386133071,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 428,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1285
+            },
+            "pixels": 618046
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 429,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1285
+            },
+            "pixels": 617312
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9994573246591675,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 429,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1285
+            },
+            "pixels": 616977
+          }
+        ],
+        "primaryBounds": {
+          "minX": 429,
+          "minY": 144,
+          "maxX": 999,
+          "maxY": 1285
+        },
+        "primaryPixels": 617312
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 413,
+          "top": 128,
+          "width": 603,
+          "height": 1174
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+        "width": 603,
+        "height": 1174,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 586,
+          "maxY": 1157
+        },
+        "pixels": 617404,
+        "significantHoles": [
+          {
+            "pixels": 6445,
+            "bounds": {
+              "minX": 435,
+              "minY": 74,
+              "maxX": 525,
+              "maxY": 164
+            }
+          },
+          {
+            "pixels": 6419,
+            "bounds": {
+              "minX": 435,
+              "minY": 278,
+              "maxX": 524,
+              "maxY": 367
+            }
+          },
+          {
+            "pixels": 6413,
+            "bounds": {
+              "minX": 435,
+              "minY": 176,
+              "maxX": 524,
+              "maxY": 266
+            }
+          },
+          {
+            "pixels": 1185,
+            "bounds": {
+              "minX": 383,
+              "minY": 151,
+              "maxX": 421,
+              "maxY": 189
+            }
+          }
+        ],
+        "filledArtifactComponents": 85,
+        "filledArtifactPixels": 92,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "b7fa4ec8534229d609fa3cff86e8b5cd25ef2d73c4c1bd2c9f49d6963a4af89a",
+          "outputPixelSha256": "e33b62a20f3708448629943467e76698adeb8e850cf3e3b8c6d7720ec90a60a3",
+          "outputAlphaSha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 586,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "2ce2cf9cb84b54ec60b3a6b8e128cc5f138e5f00434c66f362f30d7a86a5f013",
+          "outputPixelSha256": "def756f4b2320dacb979ee107f6efaad2381da364b670054070aa6956a26ee9f",
+          "outputAlphaSha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 586,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a35",
+      "modelName": "Galaxy A35",
+      "sourceModelId": "galaxy-a35-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a35-5g-official-spigen-ACS07519-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_sp668_liquidair_blk_011.jpg?v=1747162915",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sku": "ACS07519",
+        "gtin": "8809971224314",
+        "encodedSha256": "adeabaa8fc4efccd36c66a3eef2bbd7d1357152c8f55bd17bfba536671da7993"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9991291603133708,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9991291603133708,
+            "boundsDriftFromPrimary": 2,
+            "bounds": {
+              "minX": 430,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1287
+            },
+            "pixels": 608608
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 431,
+              "minY": 144,
+              "maxX": 998,
+              "maxY": 1285
+            },
+            "pixels": 608078
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9994901969813084,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 431,
+              "minY": 144,
+              "maxX": 998,
+              "maxY": 1285
+            },
+            "pixels": 607768
+          }
+        ],
+        "primaryBounds": {
+          "minX": 431,
+          "minY": 144,
+          "maxX": 998,
+          "maxY": 1285
+        },
+        "primaryPixels": 608078
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 415,
+          "top": 128,
+          "width": 600,
+          "height": 1174
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+        "width": 600,
+        "height": 1174,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 583,
+          "maxY": 1157
+        },
+        "pixels": 609412,
+        "significantHoles": [
+          {
+            "pixels": 8292,
+            "bounds": {
+              "minX": 422,
+              "minY": 186,
+              "maxX": 524,
+              "maxY": 288
+            }
+          },
+          {
+            "pixels": 8276,
+            "bounds": {
+              "minX": 422,
+              "minY": 301,
+              "maxX": 524,
+              "maxY": 403
+            }
+          },
+          {
+            "pixels": 8270,
+            "bounds": {
+              "minX": 422,
+              "minY": 71,
+              "maxX": 524,
+              "maxY": 173
+            }
+          },
+          {
+            "pixels": 1289,
+            "bounds": {
+              "minX": 364,
+              "minY": 159,
+              "maxX": 403,
+              "maxY": 199
+            }
+          }
+        ],
+        "filledArtifactComponents": 408,
+        "filledArtifactPixels": 1334,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "19c56bf5e7823e828b15cd4f827786d49242f299769b87723e202b3c95bb9a5e",
+          "outputPixelSha256": "d69b556a9967487b959db112828070cab9cbb4160c844ba06c2e9cf3be3aa62c",
+          "outputAlphaSha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 583,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "018a635b548d9496977da07464864900673bc86fefd40b46d292bb6fc2cd9b00",
+          "outputPixelSha256": "e27d1ae67c9a47a6867ed1763fec5772fb0869becfff68fd546da498b7e41610",
+          "outputAlphaSha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 583,
+            "maxY": 1157
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "modelName": "Galaxy A36 5G",
+      "sourceModelId": "galaxy-a36-5g",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a36-5g-official-spigen-ACS09199-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a36_5g_liquid_air_blk_01.jpg?v=1747163480",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sku": "ACS09199",
+        "gtin": "8800283300291",
+        "encodedSha256": "c7b1d3b114a9ecd46cab97dcc4d7197a92cc01bf7ec77debd2327772cd2b65aa"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9988117058753234,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9988117058753234,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 432,
+              "minY": 144,
+              "maxX": 999,
+              "maxY": 1286
+            },
+            "pixels": 594129
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 432,
+              "minY": 144,
+              "maxX": 998,
+              "maxY": 1286
+            },
+            "pixels": 593423
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9994219974621813,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 433,
+              "minY": 144,
+              "maxX": 998,
+              "maxY": 1285
+            },
+            "pixels": 593080
+          }
+        ],
+        "primaryBounds": {
+          "minX": 432,
+          "minY": 144,
+          "maxX": 998,
+          "maxY": 1286
+        },
+        "primaryPixels": 593423
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 416,
+          "top": 128,
+          "width": 599,
+          "height": 1175
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+        "width": 599,
+        "height": 1175,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 582,
+          "maxY": 1158
+        },
+        "pixels": 593509,
+        "significantHoles": [
+          {
+            "pixels": 38071,
+            "bounds": {
+              "minX": 397,
+              "minY": 67,
+              "maxX": 525,
+              "maxY": 391
+            }
+          },
+          {
+            "pixels": 1195,
+            "bounds": {
+              "minX": 339,
+              "minY": 161,
+              "maxX": 377,
+              "maxY": 199
+            }
+          }
+        ],
+        "filledArtifactComponents": 68,
+        "filledArtifactPixels": 86,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "9495585c2c91210c06785bc32652149d35ec8837c01b24e1f3845e9604d43ff9",
+          "outputPixelSha256": "4ce37a0e1537f243fbac30a62bc1ef6ef0792d20c7f822e23e6816cf96606edf",
+          "outputAlphaSha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 582,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "b5d09e0535c0668b49a65f3cbfa300ea3257625dd93c236630b52d52166ccb31",
+          "outputPixelSha256": "4aad6df4955fd658cf083f097a3aadf8763386c970f0f154de977d357a4d4c01",
+          "outputAlphaSha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 582,
+            "maxY": 1158
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a50",
+      "modelName": "Galaxy A50",
+      "sourceModelId": "galaxy-a50",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a50-official-spigen-611CS26199-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a50_ruggedarmor_04.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "611CS26199",
+        "gtin": "8809640255984",
+        "encodedSha256": "54d3e049f27b1bf8572bf5064eede450b821edf942ee4d5c8bd64101b45b3b20"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9992009882139834,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9992009882139834,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 481,
+              "minY": 236,
+              "maxX": 948,
+              "maxY": 1191
+            },
+            "pixels": 421771
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 481,
+              "minY": 237,
+              "maxX": 948,
+              "maxY": 1190
+            },
+            "pixels": 421434
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9997888162796547,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 481,
+              "minY": 238,
+              "maxX": 948,
+              "maxY": 1190
+            },
+            "pixels": 421345
+          }
+        ],
+        "primaryBounds": {
+          "minX": 481,
+          "minY": 237,
+          "maxX": 948,
+          "maxY": 1190
+        },
+        "primaryPixels": 421434
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 465,
+          "top": 221,
+          "width": 500,
+          "height": 986
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+        "width": 500,
+        "height": 986,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 483,
+          "maxY": 969
+        },
+        "pixels": 421435,
+        "significantHoles": [
+          {
+            "pixels": 12258,
+            "bounds": {
+              "minX": 364,
+              "minY": 73,
+              "maxX": 424,
+              "maxY": 285
+            }
+          }
+        ],
+        "filledArtifactComponents": 1,
+        "filledArtifactPixels": 1,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "75785798e2c9409a441ccf59148a3ec2ba073eb5ae37f892815280b838af0fa3",
+          "outputPixelSha256": "4546b8cbc47521cb26e8a79ab06575dc8278d4cb27d6b58ea48b75fd8d2a33c5",
+          "outputAlphaSha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 483,
+            "maxY": 969
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "8cefbaf408b5d2fa483907918eb83c89d0e2ab15e13e502d6c4c9508284e5cd2",
+          "outputPixelSha256": "9d989493b712529ddb8ef6ae270dcd3d30ea9d3f9c0fc3bcfa903735282142db",
+          "outputAlphaSha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 483,
+            "maxY": 969
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "modelName": "Galaxy A51 4G",
+      "sourceModelId": "galaxy-a51",
+      "sourceKind": "derived-official-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a51-official-spigen-ACS00563-inner.jpg",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a51_ruggedarmor_02.jpg?v=1746728490",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sku": "ACS00563",
+        "gtin": "8809685624257",
+        "encodedSha256": "46122da580a8a8da878561ea927b05d0749217164d5d0fc1c584272294e9f232"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9987789722089239,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9987789722089239,
+            "boundsDriftFromPrimary": 2,
+            "bounds": {
+              "minX": 482,
+              "minY": 236,
+              "maxX": 947,
+              "maxY": 1193
+            },
+            "pixels": 413586
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 484,
+              "minY": 236,
+              "maxX": 947,
+              "maxY": 1193
+            },
+            "pixels": 413081
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9991962835376113,
+            "boundsDriftFromPrimary": 1,
+            "bounds": {
+              "minX": 484,
+              "minY": 237,
+              "maxX": 947,
+              "maxY": 1193
+            },
+            "pixels": 412749
+          }
+        ],
+        "primaryBounds": {
+          "minX": 484,
+          "minY": 236,
+          "maxX": 947,
+          "maxY": 1193
+        },
+        "primaryPixels": 413081
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "official Spigen empty-case photograph",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 468,
+          "top": 220,
+          "width": 496,
+          "height": 990
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "enclosedArtifactCleanup": "fill every enclosed void except significant upper-right camera openings",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+        "width": 496,
+        "height": 990,
+        "bounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 479,
+          "maxY": 973
+        },
+        "pixels": 413109,
+        "significantHoles": [
+          {
+            "pixels": 20613,
+            "bounds": {
+              "minX": 302,
+              "minY": 73,
+              "maxX": 422,
+              "maxY": 250
+            }
+          }
+        ],
+        "filledArtifactComponents": 12,
+        "filledArtifactPixels": 28,
+        "upperRightCameraHolePassed": true
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "9e01bb3aae8e9c4f6b8e0d297800671d3383369bce330c52fa9bbb993e0ac118",
+          "outputPixelSha256": "16bbf4ddebf54c83f623876f97ef58017dba98bcf4caaedb4104a0c9cf5887d7",
+          "outputAlphaSha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 479,
+            "maxY": 973
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "e215efa040f6c9d562a59316eff7453579d7121ff24fc4fa335f1a891b44840a",
+          "outputPixelSha256": "e380b3050a0e464ca6e54e51cfd37a8efea86f824cb6e98a5bec522aee2fd8ff",
+          "outputAlphaSha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+          "bounds": {
+            "minX": 16,
+            "minY": 16,
+            "maxX": 479,
+            "maxY": 973
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

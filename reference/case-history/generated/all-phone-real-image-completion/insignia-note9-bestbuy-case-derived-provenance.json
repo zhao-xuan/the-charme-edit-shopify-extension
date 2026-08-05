@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T13:25:57.247Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-case-asset-provenance.json",
+  "source": "Verified Best Buy exact-SKU product record, real empty-shell photograph, and photographed retail packaging for the Insignia Galaxy Note9 case",
+  "summary": {
+    "models": 1,
+    "candidates": 2,
+    "thresholdStabilityPassed": 1,
+    "cameraOpeningQaPassed": 1,
+    "exactPairAlpha": 1,
+    "automatedQaPassed": 2
+  },
+  "results": [
+    {
+      "modelId": "galaxy-note-9",
+      "modelName": "Galaxy Note 9",
+      "sourceModelId": "galaxy-note-9",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-9-verified-bestbuy-6267400-gallery-cv1d.jpg",
+        "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv1d.jpg",
+        "productRecordUrl": "https://www.bestbuy.com/product/insignia-soft-shell-case-for-samsung-galaxy-note9-clear/J2FPJKGX96?intl=nosplash",
+        "sku": "6267400",
+        "gtin": null,
+        "modelNumber": "NS-MSGN9TC",
+        "productTitle": "Insignia™ Soft shell Case for Samsung Galaxy Note9 Clear NS-MSGN9TC - Best Buy",
+        "galleryImageId": "6267400cv1d.jpg",
+        "encodedSha256": "aed2a6a13429104d336d466f6480cf9634ef45e7b6c734897604c93dc0134062"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 10,
+        "stabilityThresholds": [
+          9,
+          10,
+          11
+        ],
+        "minimumThresholdIou": 0.999657586666589,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 9,
+            "iouWithPrimary": 0.9996727885562827,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 0,
+              "minY": 0,
+              "maxX": 2413,
+              "maxY": 4999
+            },
+            "pixels": 11332122
+          },
+          {
+            "threshold": 10,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 0,
+              "minY": 0,
+              "maxX": 2413,
+              "maxY": 4999
+            },
+            "pixels": 11328414
+          },
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.999657586666589,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 0,
+              "minY": 0,
+              "maxX": 2413,
+              "maxY": 4999
+            },
+            "pixels": 11324535
+          }
+        ],
+        "primaryBounds": {
+          "minX": 0,
+          "minY": 0,
+          "maxX": 2413,
+          "maxY": 4999
+        },
+        "primaryPixels": 11328414
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Verified Best Buy exact-SKU Insignia real empty-case photograph with directly visible outer-shell and T-shaped opening boundaries",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "width": 2414,
+          "height": 5000
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold, then fill enclosed transparent-material regions except the profile-matched opening",
+        "stabilityMaskTransform": "two-pass enclosed-region normalization followed by strict galaxy-note-9-centered-t-opening-single opening verification",
+        "sourceVisibleOpeningTransform": {
+          "openings": [],
+          "clearedPixels": 0
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-note-9-centered-t-opening-single",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+        "width": 2414,
+        "height": 5000,
+        "bounds": {
+          "minX": 0,
+          "minY": 0,
+          "maxX": 2413,
+          "maxY": 4999
+        },
+        "pixels": 11328414,
+        "significantHoles": [
+          {
+            "pixels": 571881,
+            "bounds": {
+              "minX": 658,
+              "minY": 600,
+              "maxX": 1758,
+              "maxY": 1336
+            },
+            "centerX": 0.5004142502071252,
+            "centerY": 0.1936,
+            "width": 0.45608947804473904,
+            "height": 0.1474,
+            "aspect": 1.4938941655359566,
+            "componentIndex": 0,
+            "openingId": "camera-and-fingerprint"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-note-9-centered-t-opening-single",
+          "normalizeInternalTransparencyForStability": true,
+          "primaryThreshold": 10,
+          "stabilityThresholds": [
+            9,
+            10,
+            11
+          ],
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-fingerprint",
+              "minPixels": 500000,
+              "centerX": [
+                0.49,
+                0.51
+              ],
+              "centerY": [
+                0.18,
+                0.21
+              ],
+              "width": [
+                0.44,
+                0.48
+              ],
+              "height": [
+                0.13,
+                0.17
+              ],
+              "aspect": [
+                1.35,
+                1.65
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 0,
+        "filledArtifactPixels": 0,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "b5d112733360f8ba04d992e5e93e748e22e8c9c556847bbe1c9c3877f9f23d67",
+          "outputPixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+          "outputAlphaSha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+          "bounds": {
+            "minX": 0,
+            "minY": 0,
+            "maxX": 2413,
+            "maxY": 4999
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "b86a5a1f30694a1dce5961e5c0dfe4c4f119fca23c315aa877a336b7562212de",
+          "outputPixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+          "outputAlphaSha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+          "bounds": {
+            "minX": 0,
+            "minY": 0,
+            "maxX": 2413,
+            "maxY": 4999
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

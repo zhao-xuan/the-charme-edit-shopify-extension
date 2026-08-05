@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T09:03:26.872Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-legacy-amazon-case-asset-provenance.json",
+  "source": "Verified Amazon Belgium exact-ASIN product records and original Amazon gallery images for discontinued Spigen cases",
+  "summary": {
+    "models": 2,
+    "candidates": 4,
+    "thresholdStabilityPassed": 2,
+    "cameraOpeningQaPassed": 2,
+    "exactPairAlpha": 2,
+    "automatedQaPassed": 4
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a40",
+      "modelName": "Galaxy A40",
+      "sourceModelId": "galaxy-a40",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a40-verified-amazon-B07PP996WM-41DX7wWmzEL.jpg",
+        "sourceUrl": "https://m.media-amazon.com/images/I/41DX7wWmzEL.jpg",
+        "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07PP996WM",
+        "asin": "B07PP996WM",
+        "productTitle": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A40 - Black : Amazon.com.be: Electronics",
+        "galleryImageId": "41DX7wWmzEL",
+        "encodedSha256": "1ba817a3d450f5c0b405edde55f5577fc56bc74d201ac601b5700fc73e22bde3"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 14,
+        "stabilityThresholds": [
+          13,
+          14,
+          15
+        ],
+        "minimumThresholdIou": 0.9996691527474502,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9996691527474502,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 131,
+              "minY": 13,
+              "maxX": 367,
+              "maxY": 487
+            },
+            "pixels": 105789
+          },
+          {
+            "threshold": 14,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 131,
+              "minY": 13,
+              "maxX": 367,
+              "maxY": 487
+            },
+            "pixels": 105754
+          },
+          {
+            "threshold": 15,
+            "iouWithPrimary": 0.999716322786845,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 131,
+              "minY": 13,
+              "maxX": 367,
+              "maxY": 487
+            },
+            "pixels": 105724
+          }
+        ],
+        "primaryBounds": {
+          "minX": 131,
+          "minY": 13,
+          "maxX": 367,
+          "maxY": 487
+        },
+        "primaryPixels": 105754
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 115,
+          "top": 0,
+          "width": 269,
+          "height": 500
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "sourceVisibleOpeningTransform": {
+          "openings": [
+            {
+              "id": "camera",
+              "shape": "rounded-rect",
+              "bounds": {
+                "left": 150,
+                "top": 43,
+                "right": 205,
+                "bottom": 185
+              },
+              "radius": 24
+            },
+            {
+              "id": "fingerprint",
+              "shape": "rounded-rect",
+              "bounds": {
+                "left": 218,
+                "top": 88,
+                "right": 288,
+                "bottom": 164
+              },
+              "radius": 26
+            }
+          ],
+          "clearedPixels": 8056
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-a40-camera-and-fingerprint",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "03f87034fcd3be290786a5f7f189080ac7c6e352582d9a55c8c55946b1c75281",
+        "width": 269,
+        "height": 500,
+        "bounds": {
+          "minX": 16,
+          "minY": 13,
+          "maxX": 252,
+          "maxY": 487
+        },
+        "pixels": 97717,
+        "significantHoles": [
+          {
+            "pixels": 7310,
+            "bounds": {
+              "minX": 35,
+              "minY": 43,
+              "maxX": 89,
+              "maxY": 184
+            },
+            "centerX": 0.1940928270042194,
+            "centerY": 0.21157894736842106,
+            "width": 0.2320675105485232,
+            "height": 0.29894736842105263,
+            "aspect": 0.3873239436619718,
+            "componentIndex": 0,
+            "openingId": "camera"
+          },
+          {
+            "pixels": 4744,
+            "bounds": {
+              "minX": 103,
+              "minY": 88,
+              "maxX": 172,
+              "maxY": 163
+            },
+            "centerX": 0.5126582278481012,
+            "centerY": 0.23684210526315788,
+            "width": 0.29535864978902954,
+            "height": 0.16,
+            "aspect": 0.9210526315789473,
+            "componentIndex": 3,
+            "openingId": "fingerprint"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-a40-camera-and-fingerprint",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 3000,
+              "centerX": [
+                0.05,
+                0.3
+              ],
+              "centerY": [
+                0.08,
+                0.3
+              ],
+              "width": [
+                0.1,
+                0.3
+              ],
+              "height": [
+                0.15,
+                0.3
+              ],
+              "aspect": [
+                0.25,
+                0.75
+              ]
+            },
+            {
+              "id": "fingerprint",
+              "minPixels": 1500,
+              "centerX": [
+                0.35,
+                0.65
+              ],
+              "centerY": [
+                0.12,
+                0.3
+              ],
+              "width": [
+                0.12,
+                0.3
+              ],
+              "height": [
+                0.06,
+                0.18
+              ],
+              "aspect": [
+                0.75,
+                1.4
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 3,
+        "filledArtifactPixels": 19,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a40-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "e3036196344dce85493448cf64b2c80fe9f8845ffc2d7a22493e4e9346f036f7",
+          "outputPixelSha256": "8a53e49dfe1c681d92579495481b1209feacecd466709857c70fa85c3c456ceb",
+          "outputAlphaSha256": "03f87034fcd3be290786a5f7f189080ac7c6e352582d9a55c8c55946b1c75281",
+          "bounds": {
+            "minX": 16,
+            "minY": 13,
+            "maxX": 252,
+            "maxY": 487
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a40-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "bd65877abda91f08b1ab8cf029bb7489f07e2c6529e3ba5e0f305b741999b6a8",
+          "outputPixelSha256": "f777b3bdce6784b7ea7043ec955107383d379436ce9af005cbfe2f5cecd49ca9",
+          "outputAlphaSha256": "03f87034fcd3be290786a5f7f189080ac7c6e352582d9a55c8c55946b1c75281",
+          "bounds": {
+            "minX": 16,
+            "minY": 13,
+            "maxX": 252,
+            "maxY": 487
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a70",
+      "modelName": "Galaxy A70",
+      "sourceModelId": "galaxy-a70",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceAsset": {
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a70-verified-amazon-B07QKGR1DG-41kKx496UDL.jpg",
+        "sourceUrl": "https://m.media-amazon.com/images/I/41kKx496UDL.jpg",
+        "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07QKGR1DG",
+        "asin": "B07QKGR1DG",
+        "productTitle": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A70 - Metal Slate : Amazon.com.be: Electronics",
+        "galleryImageId": "41kKx496UDL",
+        "encodedSha256": "dc27756decb208aa42c92f7db4b5bc253be43673fb7ed877aabc319c92770d24"
+      },
+      "sourceGeometry": {
+        "primaryThreshold": 12,
+        "stabilityThresholds": [
+          11,
+          12,
+          13
+        ],
+        "minimumThresholdIou": 0.9999253800951404,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "thresholdStability": [
+          {
+            "threshold": 11,
+            "iouWithPrimary": 0.9999533647344122,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 136,
+              "minY": 12,
+              "maxX": 364,
+              "maxY": 486
+            },
+            "pixels": 107215
+          },
+          {
+            "threshold": 12,
+            "iouWithPrimary": 1,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 136,
+              "minY": 12,
+              "maxX": 364,
+              "maxY": 486
+            },
+            "pixels": 107210
+          },
+          {
+            "threshold": 13,
+            "iouWithPrimary": 0.9999253800951404,
+            "boundsDriftFromPrimary": 0,
+            "bounds": {
+              "minX": 136,
+              "minY": 12,
+              "maxX": 364,
+              "maxY": 486
+            },
+            "pixels": 107202
+          }
+        ],
+        "primaryBounds": {
+          "minX": 136,
+          "minY": 12,
+          "maxX": 364,
+          "maxY": 486
+        },
+        "primaryPixels": 107210
+      },
+      "transform": {
+        "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+        "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+        "spatialTransform": "source-axis crop with fixed transparent padding only",
+        "crop": {
+          "left": 120,
+          "top": 0,
+          "width": 261,
+          "height": 500
+        },
+        "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+        "sourceVisibleOpeningTransform": {
+          "openings": [
+            {
+              "id": "camera",
+              "shape": "rounded-rect",
+              "bounds": {
+                "left": 153,
+                "top": 39,
+                "right": 205,
+                "bottom": 180
+              },
+              "radius": 23
+            }
+          ],
+          "clearedPixels": 6844
+        },
+        "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-a70-upper-left-camera",
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "edgeBlurSigmaForRgbLightingOnly": 8
+      },
+      "alpha": {
+        "sha256": "aee4bf757f9ae1cab358a7fa9e4db58ca78d89d467ea68d6ba1b8c22ebbb5472",
+        "width": 261,
+        "height": 500,
+        "bounds": {
+          "minX": 16,
+          "minY": 12,
+          "maxX": 244,
+          "maxY": 486
+        },
+        "pixels": 100366,
+        "significantHoles": [
+          {
+            "pixels": 6880,
+            "bounds": {
+              "minX": 33,
+              "minY": 39,
+              "maxX": 84,
+              "maxY": 179
+            },
+            "centerX": 0.185589519650655,
+            "centerY": 0.20421052631578948,
+            "width": 0.22707423580786026,
+            "height": 0.2968421052631579,
+            "aspect": 0.36879432624113473,
+            "componentIndex": 0,
+            "openingId": "camera"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-a70-upper-left-camera",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 3000,
+              "centerX": [
+                0.05,
+                0.3
+              ],
+              "centerY": [
+                0.08,
+                0.3
+              ],
+              "width": [
+                0.1,
+                0.3
+              ],
+              "height": [
+                0.15,
+                0.3
+              ],
+              "aspect": [
+                0.25,
+                0.75
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "filledArtifactComponents": 0,
+        "filledArtifactPixels": 0,
+        "upperRightCameraHolePassed": false
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a70-black-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "844079f2da67694ccf3ba7401292be6b5a705560845a09625a35963346921f51",
+          "outputPixelSha256": "d67e190ec1672655ac98109824d88735bc8726f71d555d162524aef3d6150adc",
+          "outputAlphaSha256": "aee4bf757f9ae1cab358a7fa9e4db58ca78d89d467ea68d6ba1b8c22ebbb5472",
+          "bounds": {
+            "minX": 16,
+            "minY": 12,
+            "maxX": 244,
+            "maxY": 486
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a70-white-v1-spigen-alpha-matte.png",
+          "outputEncodedSha256": "6169f8c6d3f9949a2112dd9df96493cd9e22f9023b8fad9631e6ec6573c17d3c",
+          "outputPixelSha256": "ee7dc3947db13e47f24ae787f1f97542f10cd608faa9eeaf3020718749f83e33",
+          "outputAlphaSha256": "aee4bf757f9ae1cab358a7fa9e4db58ca78d89d467ea68d6ba1b8c22ebbb5472",
+          "bounds": {
+            "minX": 16,
+            "minY": 12,
+            "maxX": 244,
+            "maxY": 486
+          },
+          "qa": {
+            "passed": true,
+            "alphaExact": true,
+            "hiddenRgbPixels": 0,
+            "maximumChannelSpread": 0,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T14:58:41.282Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-tauri-a15-amazon-video-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "metaobjectId": "gid://shopify/Metaobject/471866638714",
+      "expected": {
+        "modelId": "galaxy-a15-4g-5g",
+        "name": "Galaxy A15 4G / 5G",
+        "widthMm": 76.8,
+        "heightMm": 160.1,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A15 4G / 5G",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 76.8,
+        "heightMm": 160.1,
+        "legacyId": "galaxy-a15-4g-5g"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "5ae9e5173769887af1d5b05a479ea936d8d739f54c0e1638b204a03e9cf2d363",
+      "sourceFileId": "gid://shopify/MediaImage/71393470513530",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471866638714",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a86dd4ee8f92f06e60f0a7451a02ccaac90b96955afda73336d62e04a2467a4d",
+        "pixelSha256": "540f2b1d2bfbeeadf1064f82f09763f54067b5343415b495ceb1012b886cddb4",
+        "width": 346,
+        "height": 679,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "960aac7769f9a2b22366614003ea4e7af2efb45be2a234761cf693843cd10451",
+      "sourceFileId": "gid://shopify/MediaImage/71393470546298",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471866638714",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e67910b9d9247f531f4be0aa6ea19bf73059b29e835753ea994e5e7ba79ea64a",
+        "pixelSha256": "d9e00f302db99ff67ea2ea32f7e1e943dd94ec9db8b793697deffae57c3931ee",
+        "width": 346,
+        "height": 679,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

@@ -10,11 +10,11 @@
  * the production Pages URL as a fallback), serving the art + KV images straight
  * from that CDN.
  */
-import { API_BASE } from './apiBase'
+import { ASSET_BASE } from './apiBase.js'
 
 export function resolveAsset(src) {
   if (!src) return src
   // Only rewrite root-relative paths; absolute URLs (already on a CDN) pass through.
-  if (API_BASE && src.charAt(0) === '/') return API_BASE + src
+  if (ASSET_BASE && src.charAt(0) === '/') return ASSET_BASE + src
   return src
 }

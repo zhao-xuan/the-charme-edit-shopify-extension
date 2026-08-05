@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T09:28:07.145Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-note10-gomibo-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-note-10",
+      "metaobjectId": "gid://shopify/Metaobject/471831970170",
+      "expected": {
+        "modelId": "galaxy-note-10",
+        "name": "Galaxy Note 10",
+        "widthMm": 71.8,
+        "heightMm": 151,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy Note 10",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 71.8,
+        "heightMm": 151,
+        "legacyId": "galaxy-note-10"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-note-10",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "37577aebdcb83bab4d6d46030e278874b3d07055161905953ed6e5b7b6139fb9",
+      "sourceFileId": "gid://shopify/MediaImage/71391831753082",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471831970170",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "2db04fa049c5820cc9f66c0bc6f8898aeb8ca84315657bdceb808ad64d36849a",
+        "pixelSha256": "624084d154171ad3617316eba47f75d1ff55dc575ffd666b66fbf1bd5cf9ef58",
+        "width": 245,
+        "height": 494,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-10",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "123f862886aeee4e3697092869749e75a754ada8dd80400f44037de6ccb4a524",
+      "sourceFileId": "gid://shopify/MediaImage/71391831785850",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471831970170",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "7e4cf6c22ac3fbd64d0524bbf213725f6a1a8380a578f5190f44278ec6f70564",
+        "pixelSha256": "36bc0044b94654eed959e311f21ebacfd75662edbc184964eced7fc1a1ff49eb",
+        "width": 245,
+        "height": 494,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

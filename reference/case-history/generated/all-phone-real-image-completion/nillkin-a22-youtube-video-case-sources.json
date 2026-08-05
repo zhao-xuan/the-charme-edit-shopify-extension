@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "targetModelId": "galaxy-a22-5g",
+  "sourceModelId": "galaxy-a22-5g",
+  "video": {
+    "provider": "YouTube",
+    "videoId": "qNzLAFOzqpg",
+    "pageUrl": "https://www.youtube.com/watch?v=qNzLAFOzqpg",
+    "oembedUrl": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DqNzLAFOzqpg&format=json",
+    "title": "Haul Samsung A22 5g Cases & Covers",
+    "channel": "Ako Si Meme Vlogs",
+    "channelId": "UCoUZLkW0V_yJ_uxduSvR79Q",
+    "channelUrl": "https://www.youtube.com/@akosimeme",
+    "uploadDate": "2021-09-08",
+    "durationSeconds": 486,
+    "descriptionAssertions": [
+      "new cases for new samsung phone A22 5g",
+      "cases natin for A22 5G",
+      "Nillkin Ph"
+    ],
+    "download": {
+      "ytDlpVersion": "2026.07.04",
+      "formatSelector": "bv*[height=1080][vcodec^=avc1]+ba[acodec^=opus]/bv*[height=1080]+ba",
+      "videoFormatId": "137",
+      "videoCodec": "avc1.640028",
+      "audioFormatId": "251",
+      "audioCodec": "opus",
+      "container": "mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "expectedBytes": 144452008,
+      "expectedSha256": "53b8547e5a3c94b1e29cd6f18da9216ca4867f5da2d8c757e4323b2b07678227"
+    },
+    "frames": [
+      {
+        "id": "package-model-label",
+        "timestampSeconds": 153,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-package-model-label-153s.png",
+        "expectedEncodedSha256": "02ae36dbf49f1ff5b793efac3ec9fca665c3418e3c450de80b005b3021d506a9",
+        "expectedPixelSha256": "7c307759ac32810944945f0c0a893fd6f73892be292b01ac2b910564663563fb",
+        "selectionReview": "accepted-continuous-real-video-frame-nillkin-package-side-label-explicitly-identifies-samsung-galaxy-a22-5g-white-4336",
+        "geometryUse": "identity evidence only"
+      },
+      {
+        "id": "unboxed-shell",
+        "timestampSeconds": 166,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-unboxed-nillkin-shell-166s.png",
+        "expectedEncodedSha256": "ce1e6bdf49a2530abce7680666e79fc3241f79e64b1409fe024462c0e97db2b7",
+        "expectedPixelSha256": "8c652463be67eb3dd381b97f787ec08977bbe1e6a44e494b2193bcbc2b00c9b1",
+        "selectionReview": "accepted-continuous-real-video-frame-unboxed-white-shell-with-visible-nillkin-embossing-and-complete-camera-opening",
+        "geometryUse": "identity and continuity evidence only"
+      },
+      {
+        "id": "installed-shell",
+        "timestampSeconds": 457,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-installed-nillkin-shell-457s.png",
+        "expectedEncodedSha256": "849dafdf8b92bd745fd0286de23786f7bf63cc11ceed62ec985a5e7017e7a498",
+        "expectedPixelSha256": "c98a4cbc5b854caa0076b1a9454f3914ff80f737987d72e99f6145c6cb256504",
+        "selectionReview": "accepted-continuous-real-video-frame-same-nillkin-shell-installed-on-the-demonstrated-samsung-galaxy-a22-5g",
+        "geometryUse": "fit and continuity evidence only"
+      },
+      {
+        "id": "empty-shell-geometry-before",
+        "timestampSeconds": 471,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-empty-nillkin-shell-471s.png",
+        "expectedEncodedSha256": "07cc484a4f676ef8842340f0960f553a56ac7203cde2749cb4bf57bd2c11f75f",
+        "expectedPixelSha256": "6aca883dac2c91e1be15b5bb4069d398f3ef4755986d44f4d45cb2ae72fd83c8",
+        "selectionReview": "accepted-continuous-real-video-frame-complete-empty-white-nillkin-shell-flat-unobstructed-and-separated-before-primary-geometry-frame",
+        "geometryUse": "temporal stability check for complete physical outer silhouette and sole physical opening"
+      },
+      {
+        "id": "empty-shell-geometry",
+        "timestampSeconds": 472,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-empty-nillkin-shell-472s.png",
+        "expectedEncodedSha256": "15b0697dc73d382c58985d50120dc6706026d94f5f9d9c12b829caecce799912",
+        "expectedPixelSha256": "a85644c2794bec9810672dc99b97f5103b520db536e051e38beb14407c0a1b54",
+        "selectionReview": "accepted-continuous-real-video-frame-complete-empty-white-nillkin-shell-flat-unobstructed-and-separated-with-one-complete-physical-camera-opening",
+        "geometryUse": "complete physical outer silhouette and sole physical opening"
+      },
+      {
+        "id": "empty-shell-geometry-after",
+        "timestampSeconds": 473,
+        "outputFile": "galaxy-a22-5g-verified-youtube-qNzLAFOzqpg-empty-nillkin-shell-473s.png",
+        "expectedEncodedSha256": "b8a917a7feb924765dadda22c9ea165658e4aa8aa39ab230abc67983ce96b909",
+        "expectedPixelSha256": "bd830c18d24f201b5ddd408ca41dcfe6dbe1c87b65457c73d6fd9aa0c0e2d69c",
+        "selectionReview": "accepted-continuous-real-video-frame-complete-empty-white-nillkin-shell-flat-unobstructed-and-separated-after-primary-geometry-frame",
+        "geometryUse": "temporal stability check for complete physical outer silhouette and sole physical opening"
+      }
+    ],
+    "identityChain": {
+      "packageProductName": "Nillkin Super Frosted Shield",
+      "packageModelLabel": "Samsung Galaxy A22 5G - White - 4336",
+      "packageSealLabel": "DESIGN FOR Galaxy A22 5G",
+      "continuity": "One continuous video shows the labeled package, unboxes the white Nillkin shell, installs it on the demonstrated Galaxy A22 5G, and ends with the same empty shell unobstructed in the geometry frame."
+    }
+  },
+  "officialDimension": {
+    "manufacturer": "Samsung",
+    "modelName": "Galaxy A22 5G",
+    "modelCode": "SM-A226BZAUMEA",
+    "modelFamilyCode": "SM-A226B",
+    "supportModel": "SM-A226B/DSN",
+    "sourcePageUrl": "https://www.samsung.com/ae/smartphones/galaxy-a/galaxy-a22-5g-gray-64gb-sm-a226bzaumea/",
+    "apiEndpoint": "https://api.samsung.com/model",
+    "apiQuery": {
+      "key": "56FE13336ABF4709AFCF7704B24D83F0",
+      "siteCode": "ae",
+      "modelCode": "SM-A226BZAUMEA",
+      "type": "json",
+      "option": "16",
+      "disclaimer": ""
+    },
+    "reportedLabel": "Dimension (HxWxD, mm)",
+    "reportedValue": "167.2 x 76.4 x 9.0&lrm;",
+    "normalizedValue": "167.2 x 76.4 x 9.0",
+    "heightMm": 167.2,
+    "widthMm": 76.4,
+    "depthMm": 9.0,
+    "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+    "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+    "plmItems": [
+      {
+        "itemPath": "General > Dimension (Height, mm)",
+        "userKey": "ITM01039",
+        "value": "167.2"
+      },
+      {
+        "itemPath": "General > Dimension (Width, mm)",
+        "userKey": "ITM01038",
+        "value": "76.4"
+      },
+      {
+        "itemPath": "General > Dimension (Depth, mm)",
+        "userKey": "ITM01040",
+        "value": "9.0"
+      }
+    ]
+  }
+}

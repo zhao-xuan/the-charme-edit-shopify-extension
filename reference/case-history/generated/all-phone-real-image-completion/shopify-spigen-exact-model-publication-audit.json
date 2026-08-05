@@ -1,0 +1,1176 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-02T07:27:47.969Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-exact-model-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 9,
+    "targetDefinitionsMatched": 9,
+    "images": 18,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 18,
+    "sourceFilesReady": 18,
+    "metaobjectReferencesMatched": 18,
+    "productMediaReady": 18,
+    "productMediaAltsMatched": 18,
+    "variantAssociationsMatched": 36,
+    "expectedVariantAssociations": 36,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 18,
+    "productMediaExactPixelMatches": 18,
+    "sourceFileAcceptablePixelMatches": 18,
+    "productMediaAcceptablePixelMatches": 18
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "metaobjectId": "gid://shopify/Metaobject/471782916474",
+      "expected": {
+        "modelId": "galaxy-note-20-4g-5g",
+        "name": "Galaxy Note 20 4G / 5G",
+        "widthMm": 75.2,
+        "heightMm": 161.6,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy Note 20 4G / 5G",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 75.2,
+        "heightMm": 161.6,
+        "legacyId": "galaxy-note-20-4g-5g"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "metaobjectId": "gid://shopify/Metaobject/471782949242",
+      "expected": {
+        "modelId": "galaxy-note-20-ultra-4g-5g",
+        "name": "Galaxy Note 20 Ultra 4G / 5G",
+        "widthMm": 77.2,
+        "heightMm": 164.8,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy Note 20 Ultra 4G / 5G",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 77.2,
+        "heightMm": 164.8,
+        "legacyId": "galaxy-note-20-ultra-4g-5g"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "metaobjectId": "gid://shopify/Metaobject/471782982010",
+      "expected": {
+        "modelId": "galaxy-s10-plus",
+        "name": "Galaxy S10+",
+        "widthMm": 74.1,
+        "heightMm": 157.6,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy S10+",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 74.1,
+        "heightMm": 157.6,
+        "legacyId": "galaxy-s10-plus"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "galaxy-s9",
+      "metaobjectId": "gid://shopify/Metaobject/471783014778",
+      "expected": {
+        "modelId": "galaxy-s9",
+        "name": "Galaxy S9",
+        "widthMm": 68.7,
+        "heightMm": 147.7,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy S9",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 68.7,
+        "heightMm": 147.7,
+        "legacyId": "galaxy-s9"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "metaobjectId": "gid://shopify/Metaobject/471783047546",
+      "expected": {
+        "modelId": "galaxy-s9-plus",
+        "name": "Galaxy S9+",
+        "widthMm": 73.8,
+        "heightMm": 158.1,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy S9+",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 73.8,
+        "heightMm": 158.1,
+        "legacyId": "galaxy-s9-plus"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "pixel-10",
+      "metaobjectId": "gid://shopify/Metaobject/471783080314",
+      "expected": {
+        "modelId": "pixel-10",
+        "name": "Pixel 10",
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Pixel 10",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "legacyId": "pixel-10"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "metaobjectId": "gid://shopify/Metaobject/471783113082",
+      "expected": {
+        "modelId": "pixel-10-pro",
+        "name": "Pixel 10 Pro",
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Pixel 10 Pro",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "legacyId": "pixel-10-pro"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "expected": {
+        "modelId": "pixel-10-pro-xl",
+        "name": "Pixel 10 Pro XL",
+        "widthMm": 76.6,
+        "heightMm": 162.8,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Pixel 10 Pro XL",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 76.6,
+        "heightMm": 162.8,
+        "legacyId": "pixel-10-pro-xl"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "pixel-9a",
+      "metaobjectId": "gid://shopify/Metaobject/471783178618",
+      "expected": {
+        "modelId": "pixel-9a",
+        "name": "Pixel 9a",
+        "widthMm": 73.3,
+        "heightMm": 154.7,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Pixel 9a",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 73.3,
+        "heightMm": 154.7,
+        "legacyId": "pixel-9a"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "620f07982b7bffc3bb620517e23d7a74dfdd3cc9dedeec43074a251327ec6537",
+      "sourceFileId": "gid://shopify/MediaImage/71387525906810",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782916474",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391511085434",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-note-20-4g-5g black 9f1b900a7e8e",
+      "actualAlt": "Charme without gel galaxy-note-20-4g-5g black 9f1b900a7e8e",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "2e8d414b9707d99be19c781af1c513306da03b9a78b6209518af2d88434d89de",
+        "pixelSha256": "d4642128aac93655b70d88f99aef076a5659ceaa6dc17ac343585e6ca5818c96",
+        "width": 552,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "2e8d414b9707d99be19c781af1c513306da03b9a78b6209518af2d88434d89de",
+        "pixelSha256": "d4642128aac93655b70d88f99aef076a5659ceaa6dc17ac343585e6ca5818c96",
+        "width": 552,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "8d581362fcb023082de9604ea7326bae6aafc8c921071c734036754edaae8813",
+      "sourceFileId": "gid://shopify/MediaImage/71387525939578",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782916474",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391511150970",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-note-20-4g-5g white e2e3a305d076",
+      "actualAlt": "Charme without gel galaxy-note-20-4g-5g white e2e3a305d076",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e3049e9f0f93f219ee2ace88740d168bc6ec72298ce3c1eb63852d87281c9f9a",
+        "pixelSha256": "9a509a892a87cf2ec2430da1d495a2a37d338ab787792b73bbfdc4d33914d71f",
+        "width": 552,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e3049e9f0f93f219ee2ace88740d168bc6ec72298ce3c1eb63852d87281c9f9a",
+        "pixelSha256": "9a509a892a87cf2ec2430da1d495a2a37d338ab787792b73bbfdc4d33914d71f",
+        "width": 552,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "052fd9f35c6081dd4804929c17c8f043f6acf5c24b4a91856e0f19ee9ca6f215",
+      "sourceFileId": "gid://shopify/MediaImage/71387526005114",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782949242",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391511708026",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-note-20-ultra-4g-5g black 3bce157677ed",
+      "actualAlt": "Charme without gel galaxy-note-20-ultra-4g-5g black 3bce157677ed",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "66f86508593be32dd04bb7d567bbbde1516bf9fa61e8c2db82df8daacb49673c",
+        "pixelSha256": "f9ba646680622b9166ee257c713112afd574f8f75be20f311b8b058838d05374",
+        "width": 557,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "66f86508593be32dd04bb7d567bbbde1516bf9fa61e8c2db82df8daacb49673c",
+        "pixelSha256": "f9ba646680622b9166ee257c713112afd574f8f75be20f311b8b058838d05374",
+        "width": 557,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "415db398cda45dc78994fb64529eea380c1cc48290bf80e1664d18a52e9903e0",
+      "sourceFileId": "gid://shopify/MediaImage/71387526168954",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782949242",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391511839098",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-note-20-ultra-4g-5g white 7253943d807e",
+      "actualAlt": "Charme without gel galaxy-note-20-ultra-4g-5g white 7253943d807e",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "feda9cd85f5a9b601a420327b22b15f919462e7683b0deb8598d3f7a5e518d09",
+        "pixelSha256": "c09118176a0d8df9e123afc34842513b22133b98427c9ce8af23fd4e5b857a8d",
+        "width": 557,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "feda9cd85f5a9b601a420327b22b15f919462e7683b0deb8598d3f7a5e518d09",
+        "pixelSha256": "c09118176a0d8df9e123afc34842513b22133b98427c9ce8af23fd4e5b857a8d",
+        "width": 557,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "774e97be0b3bbbe4e3a0dc41a53a671e32e265be81b30e0e880064f822cb6f88",
+      "sourceFileId": "gid://shopify/MediaImage/71387576926586",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782982010",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391511904634",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s10-plus black e22046f92baa",
+      "actualAlt": "Charme without gel galaxy-s10-plus black e22046f92baa",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "134109718b7e572d8314e2a1c82c3714d52df260703dd4ffc0a445e1778477f3",
+        "pixelSha256": "a9f272977c851ed6067f73cb1b0ce159865753874ec76d0a8804a3cc7fddb683",
+        "width": 563,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "134109718b7e572d8314e2a1c82c3714d52df260703dd4ffc0a445e1778477f3",
+        "pixelSha256": "a9f272977c851ed6067f73cb1b0ce159865753874ec76d0a8804a3cc7fddb683",
+        "width": 563,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "8d9b8a39a1ff230acc10efbb9933ebdf0578bdf9246af72564484c54182aa0cf",
+      "sourceFileId": "gid://shopify/MediaImage/71387577352570",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471782982010",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512068474",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s10-plus white 6e239e03976a",
+      "actualAlt": "Charme without gel galaxy-s10-plus white 6e239e03976a",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5fb6404955c645aba8aaf04bce22d7a5e07c9103f2666c804e4c824ecc4d0a54",
+        "pixelSha256": "4c59287689545eea6e7b16ae6f1888aeb2d7b0b2d3e417141242e26b5c883a68",
+        "width": 563,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5fb6404955c645aba8aaf04bce22d7a5e07c9103f2666c804e4c824ecc4d0a54",
+        "pixelSha256": "4c59287689545eea6e7b16ae6f1888aeb2d7b0b2d3e417141242e26b5c883a68",
+        "width": 563,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "b42323a4253ee72a09f2cd9d3afffdf6f33f1bf94371d96484180644d480227c",
+      "sourceFileId": "gid://shopify/MediaImage/71387620082042",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783014778",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512199546",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s9 black 819f961a4acd",
+      "actualAlt": "Charme without gel galaxy-s9 black 819f961a4acd",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "12d91415fe136c0d7748b434c76247178b6ef1838c561e19c7034827a02049f0",
+        "pixelSha256": "e661d777f9a36f546e482c5d3ea971a9615fc4426b1b1b3ca53e6769dc71bc70",
+        "width": 565,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "12d91415fe136c0d7748b434c76247178b6ef1838c561e19c7034827a02049f0",
+        "pixelSha256": "e661d777f9a36f546e482c5d3ea971a9615fc4426b1b1b3ca53e6769dc71bc70",
+        "width": 565,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "a7641adbbeba960ee079de8afebd77d4146ff5c1d22c4f70e360e4c003cd28fc",
+      "sourceFileId": "gid://shopify/MediaImage/71387621720442",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783014778",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512330618",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s9 white b04a100d7016",
+      "actualAlt": "Charme without gel galaxy-s9 white b04a100d7016",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5752a4b0901735b341a5be53494e41304895e155088d77c72fee3ec04a5af683",
+        "pixelSha256": "0302a8942e4f4d4f3cc9b9357ab71f7e2955a1e1826ecd48ebf24b1986910368",
+        "width": 565,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5752a4b0901735b341a5be53494e41304895e155088d77c72fee3ec04a5af683",
+        "pixelSha256": "0302a8942e4f4d4f3cc9b9357ab71f7e2955a1e1826ecd48ebf24b1986910368",
+        "width": 565,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f87f6e2cdd7aff046622894685bdaba2263d4452c2b52c214fac2654c5799e5f",
+      "sourceFileId": "gid://shopify/MediaImage/71387621818746",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783047546",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512527226",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s9-plus black f42dabc57ab6",
+      "actualAlt": "Charme without gel galaxy-s9-plus black f42dabc57ab6",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "587c1be4b3f896015facfcb362bc2a8ec014905aac9dd7409dc52e32a3540e37",
+        "pixelSha256": "5b50d7990e973d01598f8003dfe9543914259a76ea0c0fbfd8a7e4e35c15d540",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "587c1be4b3f896015facfcb362bc2a8ec014905aac9dd7409dc52e32a3540e37",
+        "pixelSha256": "5b50d7990e973d01598f8003dfe9543914259a76ea0c0fbfd8a7e4e35c15d540",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "603f536942cb23a7c025e2592b48dc960bfb07c2bd02d7f935bd9e2b439f2bf1",
+      "sourceFileId": "gid://shopify/MediaImage/71387621949818",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783047546",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512756602",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel galaxy-s9-plus white e19cdbd01369",
+      "actualAlt": "Charme without gel galaxy-s9-plus white e19cdbd01369",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "86206354bbf8185052800c6d87b6f157fe2e889b82a8b9887229225ba9f6cd2d",
+        "pixelSha256": "9e8a5381ead5a94b43c921f8ebe0c94d1c9c4f8a475a6a8d4e8d29f2278c4f71",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "86206354bbf8185052800c6d87b6f157fe2e889b82a8b9887229225ba9f6cd2d",
+        "pixelSha256": "9e8a5381ead5a94b43c921f8ebe0c94d1c9c4f8a475a6a8d4e8d29f2278c4f71",
+        "width": 560,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+      "sourceFileId": "gid://shopify/MediaImage/71387644821882",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783080314",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391512887674",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10 black 59c898757276",
+      "actualAlt": "Charme without gel pixel-10 black 59c898757276",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+      "sourceFileId": "gid://shopify/MediaImage/71388164948346",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783080314",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391513182586",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10 white fee3effdb2ad",
+      "actualAlt": "Charme without gel pixel-10 white fee3effdb2ad",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+      "sourceFileId": "gid://shopify/MediaImage/71388165177722",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783113082",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391513477498",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10-pro black 59c898757276",
+      "actualAlt": "Charme without gel pixel-10-pro black 59c898757276",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+      "sourceFileId": "gid://shopify/MediaImage/71388165636474",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783113082",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71391513641338",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10-pro white fee3effdb2ad",
+      "actualAlt": "Charme without gel pixel-10-pro white fee3effdb2ad",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+      "sourceFileId": "gid://shopify/MediaImage/71388165833082",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71389891658106",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10-pro-xl black 59c898757276",
+      "actualAlt": "Charme without gel pixel-10-pro-xl black 59c898757276",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "24befb76bc971718e89a9434c79cbf6c1a6136f7917e1914710cd2d3ec686134",
+        "pixelSha256": "ff086d2a06a1fb6e47b494d559b369d2d0e37cba157e0e1361d6205305c72e11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+      "sourceFileId": "gid://shopify/MediaImage/71388170158458",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71389891985786",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-10-pro-xl white fee3effdb2ad",
+      "actualAlt": "Charme without gel pixel-10-pro-xl white fee3effdb2ad",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9c733a41a582ffcbf7db6518a3934d8416cb6e1e5b6f8d3a60af9762d71d0c17",
+        "pixelSha256": "ee1e547eb5ca8dd701d06dec7d7be37cb867289448f0fcaf1b1d32dfa79c4a11",
+        "width": 561,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9a",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "de62c29d74da847f9b19b3e750f4d9a58f13b49dc8f7558a6831163295d972c3",
+      "sourceFileId": "gid://shopify/MediaImage/71388170486138",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783178618",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71390028235130",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-9a black 82461dcf1220",
+      "actualAlt": "Charme without gel pixel-9a black 82461dcf1220",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b10b6e4fe2ddce8e873f52a71ea1493b85e3421e24fd5df2f2258aacd2ff4250",
+        "pixelSha256": "cede2fb8822a70cd019f7321592cd6287384b70eee393a7501a5ad1dc262a930",
+        "width": 566,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b10b6e4fe2ddce8e873f52a71ea1493b85e3421e24fd5df2f2258aacd2ff4250",
+        "pixelSha256": "cede2fb8822a70cd019f7321592cd6287384b70eee393a7501a5ad1dc262a930",
+        "width": 566,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9a",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "b543a1db729f0cf4488dedb8e2957947c0520961a3d29b4ac16bb27cb545edc0",
+      "sourceFileId": "gid://shopify/MediaImage/71388170781050",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471783178618",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71390028333434",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "expectedAlt": "Charme without gel pixel-9a white ce3ebfc6689b",
+      "actualAlt": "Charme without gel pixel-9a white ce3ebfc6689b",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "61d4a23c2f15955fd7c693c8deafeda9a7202188d30fa2f6551cc6cce54fe676",
+        "pixelSha256": "22823886d6086fb26e877a68e06303c3d61d62aa2b3fa95e599058daa21f1b02",
+        "width": 566,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "61d4a23c2f15955fd7c693c8deafeda9a7202188d30fa2f6551cc6cce54fe676",
+        "pixelSha256": "22823886d6086fb26e877a68e06303c3d61d62aa2b3fa95e599058daa21f1b02",
+        "width": 566,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

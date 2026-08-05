@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:13:10.310Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-asset-provenance.json",
+  "source": "Official same-model RhinoShield textured case PNGs with deterministic RGB-only texture neutralization",
+  "summary": {
+    "models": 3,
+    "candidates": 6,
+    "exactAlphaMatches": 6,
+    "automatedQaPassed": 6
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a53",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a53-official-carbon-fiber-black-rhinoshield-SSA0324649.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324649?device-handle=samsung-galaxy-a53&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a53",
+      "sourceOfficialTitle": "Galaxy A53 SolidSuit Carbon Fiber / Black",
+      "sourceSku": "SSA0324649",
+      "sourceEncodedSha256": "e99a400a4bf7b5a775d43b824025c180fea5e905ab9df1e61b2e2a756953482c",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 607,
+          "minY": 204,
+          "maxX": 1386,
+          "maxY": 1788
+        },
+        "visiblePixels": 1111205,
+        "fullyTransparentPixels": 2888795,
+        "nonzeroRgbFullyTransparentPixels": 2887627,
+        "opaqueLuma": {
+          "p1": 9,
+          "p5": 23.072,
+          "p50": 39.647,
+          "p95": 58.856,
+          "p99": 74.575
+        },
+        "maximumChannelSpread": 7,
+        "meanOpaqueNeighborDelta": 5.13022,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-black-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "7bdf08d56c8ff3298224e8c39ece013a2f3f44448b9f763762751fcbae63ccd4",
+          "alphaIdentity": {
+            "sourceSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+            "outputSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 607,
+              "minY": 204,
+              "maxX": 1386,
+              "maxY": 1788
+            },
+            "visiblePixels": 1111205,
+            "fullyTransparentPixels": 2888795,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.039319,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-white-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "4c532266d0cc07be4319989ed69e6674f9dc46f2f9beb51c76eb942d96c88a20",
+          "alphaIdentity": {
+            "sourceSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+            "outputSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 607,
+              "minY": 204,
+              "maxX": 1386,
+              "maxY": 1788
+            },
+            "visiblePixels": 1111205,
+            "fullyTransparentPixels": 2888795,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.019185,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s21",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-official-carbon-fiber-black-rhinoshield-SSA0319949.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0319949?device-handle=samsung-galaxy-s21&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s21",
+      "sourceOfficialTitle": "Galaxy S21 SolidSuit Carbon Fiber / Black",
+      "sourceSku": "SSA0319949",
+      "sourceEncodedSha256": "c5e6e7a77b25b29c17c9edd6c083860c96bc752cf40f17ee8dc9aab78bf5bc06",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 611,
+          "minY": 217,
+          "maxX": 1382,
+          "maxY": 1784
+        },
+        "visiblePixels": 1059726,
+        "fullyTransparentPixels": 2940274,
+        "nonzeroRgbFullyTransparentPixels": 2940270,
+        "opaqueLuma": {
+          "p1": 24,
+          "p5": 32.503,
+          "p50": 44.29,
+          "p95": 66.715,
+          "p99": 69.362
+        },
+        "maximumChannelSpread": 7,
+        "meanOpaqueNeighborDelta": 5.175785,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-black-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "e7ddc447a41d59f90236962949443d3e6b48a39dd0f0548a66f6c8308e9b83e3",
+          "alphaIdentity": {
+            "sourceSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+            "outputSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 611,
+              "minY": 217,
+              "maxX": 1382,
+              "maxY": 1784
+            },
+            "visiblePixels": 1059726,
+            "fullyTransparentPixels": 2940274,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.04087,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-white-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "e240f8e4fb1317b8183d09250d4233ac823230adb23f8056ee77140f9182d5b5",
+          "alphaIdentity": {
+            "sourceSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+            "outputSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 611,
+              "minY": 217,
+              "maxX": 1382,
+              "maxY": 1784
+            },
+            "visiblePixels": 1059726,
+            "fullyTransparentPixels": 2940274,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.019385,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "pixel-6a",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6a-official-carbon-fiber-black-rhinoshield-SST0228049.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0228049?device-handle=google-pixel-6a&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-6a",
+      "sourceOfficialTitle": "Pixel 6a SolidSuit Carbon Fiber / Black",
+      "sourceSku": "SST0228049",
+      "sourceEncodedSha256": "7aa89ee15be82819dfcd72128c39f5cd818ccbe2f2face6b197eae8cacd066d2",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 603,
+          "minY": 207,
+          "maxX": 1391,
+          "maxY": 1796
+        },
+        "visiblePixels": 1126985,
+        "fullyTransparentPixels": 2873015,
+        "nonzeroRgbFullyTransparentPixels": 2873015,
+        "opaqueLuma": {
+          "p1": 18,
+          "p5": 27,
+          "p50": 41,
+          "p95": 79,
+          "p99": 90
+        },
+        "maximumChannelSpread": 0,
+        "meanOpaqueNeighborDelta": 2.481206,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6a-black-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "c6ddd23b36c70fab37880eab4b9df2dfdd2f5241cf280ba7cd934edc756f7a2e",
+          "alphaIdentity": {
+            "sourceSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+            "outputSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 603,
+              "minY": 207,
+              "maxX": 1391,
+              "maxY": 1796
+            },
+            "visiblePixels": 1126985,
+            "fullyTransparentPixels": 2873015,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.040697,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6a-white-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "b5d7b47eaa5112b4c2a81523edc496bba7e20c6be76d399e478fc363c661dcea",
+          "alphaIdentity": {
+            "sourceSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+            "outputSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 603,
+              "minY": 207,
+              "maxX": 1391,
+              "maxY": 1796
+            },
+            "visiblePixels": 1126985,
+            "fullyTransparentPixels": 2873015,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.018972,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

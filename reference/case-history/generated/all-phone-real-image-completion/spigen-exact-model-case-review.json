@@ -1,0 +1,1378 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-01T21:00:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-exact-model-case-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-exact-model-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-exact-model-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "Official Spigen product records, exact variant titles, media identity, SKU, and GTIN identify every target geometry.",
+    "Every official source is byte-identical across repeated downloads and its local SHA-256 remains locked.",
+    "Foreground threshold samples 11, 12, and 13 retain IoU of at least 0.995 with no more than four pixels of bounds drift.",
+    "Each model matches its strict camera-opening profile exactly, including Pixel 9a two-opening geometry, with no unexpected significant holes.",
+    "Black and White outputs use the exact same alpha, preserve transparent openings, contain zero hidden RGB, and have neutral RGB channels.",
+    "Visual review confirms a complete orthogonal body, clean outer edge, transparent background, exact camera geometry, and matched Black/White framing.",
+    "Physical width and height are supported by a directly verified official Samsung or Google specification page."
+  ],
+  "summary": {
+    "sourceCandidates": 9,
+    "uniqueOfficialSourceImages": 8,
+    "modelsVisuallyAccepted": 9,
+    "candidateImagesVisuallyAccepted": 18,
+    "modelsPublicationEligible": 9,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "modelName": "Galaxy Note 20 4G / 5G",
+      "sourceModelId": "galaxy-note-20",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Samsung identifies the LTE and 5G Galaxy Note20 with identical exterior dimensions, and the official Spigen variant and media identify the shared Galaxy Note 20 case geometry without a network-specific restriction.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 75.2,
+        "heightMm": 161.6,
+        "depthMm": 8.3,
+        "reportedValue": "161.6 x 75.2 x 8.3",
+        "sourceUrl": "https://www.samsung.com/ie/smartphones/galaxy-note20/specs/",
+        "sourcePageTitle": "Specs | Samsung Galaxy Note20 & Note20 Ultra | Samsung IE",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "network": "LTE",
+              "modelLabel": "Galaxy Note20",
+              "modelCode": "SM-N980FZNGEUA",
+              "reportedValue": "161.6 x 75.2 x 8.3",
+              "sourceUrl": "https://www.samsung.com/ie/smartphones/galaxy-note20/specs/",
+              "sourcePageTitle": "Specs | Samsung Galaxy Note20 & Note20 Ultra | Samsung IE",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            },
+            {
+              "network": "5G",
+              "modelLabel": "Galaxy Note20 5G",
+              "modelCode": "SM-N981BZNGEUA",
+              "reportedValue": "161.6 x 75.2 x 8.3",
+              "sourceUrl": "https://www.samsung.com/ie/smartphones/galaxy-note20/specs/",
+              "sourcePageTitle": "Specs | Samsung Galaxy Note20 & Note20 Ultra | Samsung IE",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-note-20-series-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_note_20_liquidair_09.jpg?v=1701804252",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-20-official-spigen-ACS01418-inner.jpg",
+        "sha256": "cef60f900671e10865d830d35ab79b8cdad78a73ba803d69424b3d1a22b94ce5",
+        "sku": "ACS01418",
+        "gtin": "8809710754102"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9989759132733018,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "efa7736a96b6cde7e63045d3a46dbf78f1f5d35a98698fba76a9b7da192fcfcf",
+        "cameraOpeningProfile": {
+          "id": "galaxy-note-20-upper-right-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 35000,
+              "centerX": [
+                0.68,
+                0.79
+              ],
+              "centerY": [
+                0.1,
+                0.22
+              ],
+              "width": [
+                0.24,
+                0.33
+              ],
+              "height": [
+                0.2,
+                0.27
+              ],
+              "aspect": [
+                0.5,
+                0.7
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 40943,
+            "bounds": {
+              "minX": 345,
+              "minY": 67,
+              "maxX": 501,
+              "maxY": 334
+            },
+            "centerX": 0.7373188405797102,
+            "centerY": 0.16170026292725678,
+            "width": 0.28442028985507245,
+            "height": 0.23488168273444346,
+            "aspect": 0.585820895522388,
+            "componentIndex": 0,
+            "openingId": "camera"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 4,
+        "filledArtifactPixels": 8
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-4g-5g-black-v1-spigen-alpha-matte.png",
+        "sha256": "ecc27232967307e56696e59bc889dd249834b41a87351aeb5bfceac8678c2148",
+        "pixelSha256": "620f07982b7bffc3bb620517e23d7a74dfdd3cc9dedeec43074a251327ec6537",
+        "alphaSha256": "efa7736a96b6cde7e63045d3a46dbf78f1f5d35a98698fba76a9b7da192fcfcf",
+        "width": 584,
+        "height": 1173,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 567,
+          "maxY": 1156
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-4g-5g-white-v1-spigen-alpha-matte.png",
+        "sha256": "70811e7dd9a37b839b0f1e27553d1ba9da96bca18ac7d8ca713da8d04fd615d8",
+        "pixelSha256": "8d581362fcb023082de9604ea7326bae6aafc8c921071c734036754edaae8813",
+        "alphaSha256": "efa7736a96b6cde7e63045d3a46dbf78f1f5d35a98698fba76a9b7da192fcfcf",
+        "width": 584,
+        "height": 1173,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 567,
+          "maxY": 1156
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "modelName": "Galaxy Note 20 Ultra 4G / 5G",
+      "sourceModelId": "galaxy-note-20-ultra",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Samsung identifies the LTE and 5G Galaxy Note20 Ultra with identical exterior dimensions, and the official Spigen variant and media identify the shared Galaxy Note 20 Ultra case geometry without a network-specific restriction.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 77.2,
+        "heightMm": 164.8,
+        "depthMm": 8.1,
+        "reportedValue": "164.8 x 77.2 x 8.1",
+        "sourceUrl": "https://www.samsung.com/ie/smartphones/galaxy-note20/specs/",
+        "sourcePageTitle": "Specs | Samsung Galaxy Note20 & Note20 Ultra | Samsung IE",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "network": "LTE",
+              "modelLabel": "Galaxy Note20 Ultra",
+              "modelCode": "SM-N985FZNGAFR",
+              "reportedValue": "164.8 x 77.2 x 8.1",
+              "sourceUrl": "https://www.samsung.com/africa_pt/business/smartphones/galaxy-note/galaxy-note20-ultra-n985-sm-n985fzngafr/",
+              "sourcePageTitle": "Galaxy Note20 Ultra | SM-N985FZNGAFR | Samsung Business Africa (Portuguese)",
+              "verificationMethod": "Read the model code and Dimensao (AxLxP, mm) from the Samsung Business product page.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            },
+            {
+              "network": "5G",
+              "modelLabel": "Galaxy Note20 Ultra 5G",
+              "modelCode": "SM-N986BZNHEUA",
+              "reportedValue": "164.8 x 77.2 x 8.1",
+              "sourceUrl": "https://www.samsung.com/ie/smartphones/galaxy-note20/specs/",
+              "sourcePageTitle": "Specs | Samsung Galaxy Note20 & Note20 Ultra | Samsung IE",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-note-20-series-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_note_20ultra_liquidair_010.jpg?v=1746654050",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-20-ultra-official-spigen-ACS01392-inner.jpg",
+        "sha256": "0bb339960e6dd219c9592d24ac4c627faf066c7aa68e129d6bd959fd148000a7",
+        "sku": "ACS01392",
+        "gtin": "8809710753945"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9990821071134927,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "1e8c9da3203fcb09c4bb2d345a6cb4a76fb9205089514d1bd405c4ca16252a1c",
+        "cameraOpeningProfile": {
+          "id": "galaxy-note-20-ultra-upper-right-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 55000,
+              "centerX": [
+                0.65,
+                0.78
+              ],
+              "centerY": [
+                0.12,
+                0.24
+              ],
+              "width": [
+                0.32,
+                0.4
+              ],
+              "height": [
+                0.24,
+                0.31
+              ],
+              "aspect": [
+                0.55,
+                0.75
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 62712,
+            "bounds": {
+              "minX": 316,
+              "minY": 68,
+              "maxX": 518,
+              "maxY": 381
+            },
+            "centerX": 0.7199281867145422,
+            "centerY": 0.18257443082311733,
+            "width": 0.3644524236983842,
+            "height": 0.27495621716287216,
+            "aspect": 0.6464968152866242,
+            "componentIndex": 1,
+            "openingId": "camera"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 3,
+        "filledArtifactPixels": 29
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-ultra-4g-5g-black-v1-spigen-alpha-matte.png",
+        "sha256": "8406c2aa7ea4410bc327e63b9acc33f40e3dc0df74c5a22722a29b59a1fd7d05",
+        "pixelSha256": "052fd9f35c6081dd4804929c17c8f043f6acf5c24b4a91856e0f19ee9ca6f215",
+        "alphaSha256": "1e8c9da3203fcb09c4bb2d345a6cb4a76fb9205089514d1bd405c4ca16252a1c",
+        "width": 589,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 572,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-20-ultra-4g-5g-white-v1-spigen-alpha-matte.png",
+        "sha256": "c526ff01340370f096dde9ad2747f13d6a2a9cc48fe9b7da4cac14b6e8dc08d0",
+        "pixelSha256": "415db398cda45dc78994fb64529eea380c1cc48290bf80e1664d18a52e9903e0",
+        "alphaSha256": "1e8c9da3203fcb09c4bb2d345a6cb4a76fb9205089514d1bd405c4ca16252a1c",
+        "width": 589,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 572,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "modelName": "Galaxy S10+",
+      "sourceModelId": "galaxy-s10-plus",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Exact Galaxy S10 Plus target, variant, media identity, SKU, and GTIN match.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 74.1,
+        "heightMm": 157.6,
+        "depthMm": 7.8,
+        "reportedValue": "157.6 x 74.1 x 7.8",
+        "sourceUrl": "https://www.samsung.com/uk/smartphones/galaxy-s10/specs/",
+        "sourcePageTitle": "Specifications | Samsung Galaxy S10 | Samsung UK",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Galaxy S10+ (128GB)",
+              "modelCode": "SM-G975FZWDBTU",
+              "reportedValue": "157.6 x 74.1 x 7.8",
+              "sourceUrl": "https://www.samsung.com/uk/smartphones/galaxy-s10/specs/",
+              "sourcePageTitle": "Specifications | Samsung Galaxy S10 | Samsung UK",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-s10-series-case-tough-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_s10plus_tougharmor_black_03.jpg?v=1745516647",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-plus-official-spigen-606CS25770-inner.jpg",
+        "sha256": "5a3beab12e120b2abbaec5629eb4886a0f47062495206b51309e0a3f59c57c95",
+        "sku": "606CS25770",
+        "gtin": "8809640251979"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9988800712500665,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "ee55a9a87fcd06c3e52f85cd89dd7dfe4a76215729184547ce8e6a20f60c9204",
+        "cameraOpeningProfile": {
+          "id": "galaxy-s10-plus-wide-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "wide-camera",
+              "minPixels": 25000,
+              "centerX": [
+                0.45,
+                0.55
+              ],
+              "centerY": [
+                0.13,
+                0.22
+              ],
+              "width": [
+                0.5,
+                0.65
+              ],
+              "height": [
+                0.06,
+                0.11
+              ],
+              "aspect": [
+                3,
+                3.7
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 30338,
+            "bounds": {
+              "minX": 136,
+              "minY": 170,
+              "maxX": 460,
+              "maxY": 266
+            },
+            "centerX": 0.5008880994671403,
+            "centerY": 0.17672790901137359,
+            "width": 0.5772646536412078,
+            "height": 0.08486439195100612,
+            "aspect": 3.350515463917526,
+            "componentIndex": 6,
+            "openingId": "wide-camera"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 22,
+        "filledArtifactPixels": 26
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-plus-black-v1-spigen-alpha-matte.png",
+        "sha256": "03ed411c2a070d8b6d34519806df838723965526cf891a2ddebc44fa8a9659e5",
+        "pixelSha256": "774e97be0b3bbbe4e3a0dc41a53a671e32e265be81b30e0e880064f822cb6f88",
+        "alphaSha256": "ee55a9a87fcd06c3e52f85cd89dd7dfe4a76215729184547ce8e6a20f60c9204",
+        "width": 595,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 578,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-plus-white-v1-spigen-alpha-matte.png",
+        "sha256": "7559d721a97e18df17926490891adced7747116f944a2a1bb9911fb25d03bf1c",
+        "pixelSha256": "8d9b8a39a1ff230acc10efbb9933ebdf0578bdf9246af72564484c54182aa0cf",
+        "alphaSha256": "ee55a9a87fcd06c3e52f85cd89dd7dfe4a76215729184547ce8e6a20f60c9204",
+        "width": 595,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 578,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9",
+      "modelName": "Galaxy S9",
+      "sourceModelId": "galaxy-s9",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Exact Galaxy S9 target, variant, media identity, SKU, and GTIN match.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 68.7,
+        "heightMm": 147.7,
+        "depthMm": 8.5,
+        "reportedValue": "147.7 x 68.7 x 8.5",
+        "sourceUrl": "https://www.samsung.com/nz/smartphones/galaxy-s9/specs/",
+        "sourcePageTitle": "Samsung Galaxy S9 and S9+ Specs and Features | Samsung New Zealand",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Galaxy S9 Single Sim (256GB)",
+              "modelCode": "SM-G960FZKFTNZ",
+              "reportedValue": "147.7 x 68.7 x 8.5",
+              "sourceUrl": "https://www.samsung.com/nz/smartphones/galaxy-s9/specs/",
+              "sourcePageTitle": "Samsung Galaxy S9 and S9+ Specs and Features | Samsung New Zealand",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-s9-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_galaxy_s9_ruggedarmor_08.jpg?v=1702067317",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s9-official-spigen-592CS22834-inner.jpg",
+        "sha256": "8aba6b54e8d9c79d70529f0d2d6cf485e7f48542a3ff1370e5e223fea5ce08b8",
+        "sku": "592CS22834",
+        "gtin": "8809565305177"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9988370738820972,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 4,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "0fad3d681599820ff9f15ee54de87c37c555cf80c23688b5818eca121842634d",
+        "cameraOpeningProfile": {
+          "id": "galaxy-s9-centered-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-fingerprint",
+              "minPixels": 20000,
+              "centerX": [
+                0.38,
+                0.5
+              ],
+              "centerY": [
+                0.18,
+                0.28
+              ],
+              "width": [
+                0.25,
+                0.38
+              ],
+              "height": [
+                0.14,
+                0.21
+              ],
+              "aspect": [
+                0.75,
+                1.05
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 27560,
+            "bounds": {
+              "minX": 177,
+              "minY": 176,
+              "maxX": 353,
+              "maxY": 373
+            },
+            "centerX": 0.4407079646017699,
+            "centerY": 0.22635726795096323,
+            "width": 0.31327433628318585,
+            "height": 0.1733800350262697,
+            "aspect": 0.8939393939393939,
+            "componentIndex": 36,
+            "openingId": "camera-and-fingerprint"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 124,
+        "filledArtifactPixels": 203
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-black-v1-spigen-alpha-matte.png",
+        "sha256": "d6c63a62c9fe133b2f73a891193ddb11d5bd64a66e52938fb3e6b7e652d8e9b6",
+        "pixelSha256": "b42323a4253ee72a09f2cd9d3afffdf6f33f1bf94371d96484180644d480227c",
+        "alphaSha256": "0fad3d681599820ff9f15ee54de87c37c555cf80c23688b5818eca121842634d",
+        "width": 597,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 580,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-white-v1-spigen-alpha-matte.png",
+        "sha256": "24b465197c75395d29b0fdc592d290b0d85bdc837cbcf9aa64c7698f1ad9c88d",
+        "pixelSha256": "a7641adbbeba960ee079de8afebd77d4146ff5c1d22c4f70e360e4c003cd28fc",
+        "alphaSha256": "0fad3d681599820ff9f15ee54de87c37c555cf80c23688b5818eca121842634d",
+        "width": 597,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 580,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "modelName": "Galaxy S9+",
+      "sourceModelId": "galaxy-s9-plus",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Exact Galaxy S9 Plus target, variant, media identity, SKU, and GTIN match.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 73.8,
+        "heightMm": 158.1,
+        "depthMm": 8.5,
+        "reportedValue": "158.1 x 73.8 x 8.5",
+        "sourceUrl": "https://www.samsung.com/nz/smartphones/galaxy-s9/specs/",
+        "sourcePageTitle": "Samsung Galaxy S9 and S9+ Specs and Features | Samsung New Zealand",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Galaxy S9+ Single Sim (256GB)",
+              "modelCode": "SM-G965FZKFTNZ",
+              "reportedValue": "158.1 x 73.8 x 8.5",
+              "sourceUrl": "https://www.samsung.com/nz/smartphones/galaxy-s9/specs/",
+              "sourcePageTitle": "Samsung Galaxy S9 and S9+ Specs and Features | Samsung New Zealand",
+              "verificationMethod": "Selected the exact Samsung specification tab and read Dimension (HxWxD, mm).",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-s9-series-case-tough-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_s9_plus_tougharmor_blk_010.jpg?v=1745516317",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s9-plus-official-spigen-593CS22933-inner.jpg",
+        "sha256": "e48172f4a5ec5c6ff6d21a66b164c8e0fe48151cef332ae1f9eb435926f64e38",
+        "sku": "593CS22933",
+        "gtin": "8809565306167"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9982206496326694,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 3,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "a6b543524f7dfc346748a215006618b9bb3beff6562afdec0d193972b5a4c5b4",
+        "cameraOpeningProfile": {
+          "id": "galaxy-s9-plus-centered-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-fingerprint",
+              "minPixels": 25000,
+              "centerX": [
+                0.38,
+                0.51
+              ],
+              "centerY": [
+                0.19,
+                0.29
+              ],
+              "width": [
+                0.25,
+                0.37
+              ],
+              "height": [
+                0.19,
+                0.27
+              ],
+              "aspect": [
+                0.55,
+                0.75
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 35148,
+            "bounds": {
+              "minX": 180,
+              "minY": 155,
+              "maxX": 353,
+              "maxY": 420
+            },
+            "centerX": 0.4473214285714286,
+            "centerY": 0.23774080560420316,
+            "width": 0.3107142857142857,
+            "height": 0.2329246935201401,
+            "aspect": 0.6541353383458647,
+            "componentIndex": 1,
+            "openingId": "camera-and-fingerprint"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 12,
+        "filledArtifactPixels": 98
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-plus-black-v1-spigen-alpha-matte.png",
+        "sha256": "69a9291f5da8c4adb7795ccd5751283d702246c41061b9fc9ed7a52138e38643",
+        "pixelSha256": "f87f6e2cdd7aff046622894685bdaba2263d4452c2b52c214fac2654c5799e5f",
+        "alphaSha256": "a6b543524f7dfc346748a215006618b9bb3beff6562afdec0d193972b5a4c5b4",
+        "width": 592,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 575,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s9-plus-white-v1-spigen-alpha-matte.png",
+        "sha256": "03f636d2f64628d7048489ae7cedd005e55b5f19ea5085e444d52ede0525e2ec",
+        "pixelSha256": "603f536942cb23a7c025e2592b48dc960bfb07c2bd02d7f935bd9e2b439f2bf1",
+        "alphaSha256": "a6b543524f7dfc346748a215006618b9bb3beff6562afdec0d193972b5a4c5b4",
+        "width": 592,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 575,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10",
+      "modelName": "Pixel 10",
+      "sourceModelId": "pixel-10-pixel-10-pro",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "The official Spigen Pixel 10 variant uses SKU ACS09698, whose official media explicitly identifies shared Pixel 10 / Pixel 10 Pro case geometry; Google reports identical exterior dimensions for both phones.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Google",
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "depthMm": 8.6,
+        "reportedValue": "152.8 x 72.0 x 8.6",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+        "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Pixel 10",
+              "reportedValue": "152.8 x 72.0 x 8.6",
+              "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+              "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+              "verificationMethod": "Expanded the exact Google Pixel model accordion and read Dimensions & weight.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/pixel-10-series-case-rugged-armor-magfit.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajP_rugged_armor_magfit_05.jpg?v=1755810998",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-10-pixel-10-pro-official-spigen-ACS09698-inner.jpg",
+        "sha256": "ba2af51fea721cedbfdc7874e9b186d7d78dffa0b8ea2ebdae1365e17481647e",
+        "sku": "ACS09698",
+        "gtin": "8800283307597"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.998065644463998,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "cameraOpeningProfile": {
+          "id": "pixel-10-wide-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-bar",
+              "minPixels": 65000,
+              "centerX": [
+                0.45,
+                0.55
+              ],
+              "centerY": [
+                0.12,
+                0.21
+              ],
+              "width": [
+                0.8,
+                0.9
+              ],
+              "height": [
+                0.12,
+                0.17
+              ],
+              "aspect": [
+                2.6,
+                3.2
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 73189,
+            "bounds": {
+              "minX": 54,
+              "minY": 123,
+              "maxX": 535,
+              "maxY": 289
+            },
+            "centerX": 0.4964349376114082,
+            "centerY": 0.1662292213473316,
+            "width": 0.8591800356506238,
+            "height": 0.14610673665791776,
+            "aspect": 2.8862275449101795,
+            "componentIndex": 4,
+            "openingId": "camera-bar"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 43,
+        "filledArtifactPixels": 77
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-black-v1-spigen-alpha-matte.png",
+        "sha256": "f042f4719c4f0ab770cfce1151c3b69ac77ff8c8bc094a4f217a8cea7cf884a4",
+        "pixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-white-v1-spigen-alpha-matte.png",
+        "sha256": "08ed3430a5390b7c05b94889b37c5751c58a6fa6c21fb9d62e75e40ddf32f550",
+        "pixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "modelName": "Pixel 10 Pro",
+      "sourceModelId": "pixel-10-pixel-10-pro",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "The official Spigen Pixel 10 Pro variant uses SKU ACS09698, whose official media explicitly identifies shared Pixel 10 / Pixel 10 Pro case geometry; Google reports identical exterior dimensions for both phones.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Google",
+        "widthMm": 72,
+        "heightMm": 152.8,
+        "depthMm": 8.6,
+        "reportedValue": "152.8 x 72.0 x 8.6",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+        "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Pixel 10 Pro",
+              "reportedValue": "152.8 x 72.0 x 8.6",
+              "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+              "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+              "verificationMethod": "Expanded the exact Google Pixel model accordion and read Dimensions & weight.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/pixel-10-series-case-rugged-armor-magfit.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajP_rugged_armor_magfit_05.jpg?v=1755810998",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-10-pixel-10-pro-official-spigen-ACS09698-inner.jpg",
+        "sha256": "ba2af51fea721cedbfdc7874e9b186d7d78dffa0b8ea2ebdae1365e17481647e",
+        "sku": "ACS09698",
+        "gtin": "8800283307597"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.998065644463998,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "cameraOpeningProfile": {
+          "id": "pixel-10-pro-wide-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-bar",
+              "minPixels": 65000,
+              "centerX": [
+                0.45,
+                0.55
+              ],
+              "centerY": [
+                0.12,
+                0.21
+              ],
+              "width": [
+                0.8,
+                0.9
+              ],
+              "height": [
+                0.12,
+                0.17
+              ],
+              "aspect": [
+                2.6,
+                3.2
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 73189,
+            "bounds": {
+              "minX": 54,
+              "minY": 123,
+              "maxX": 535,
+              "maxY": 289
+            },
+            "centerX": 0.4964349376114082,
+            "centerY": 0.1662292213473316,
+            "width": 0.8591800356506238,
+            "height": 0.14610673665791776,
+            "aspect": 2.8862275449101795,
+            "componentIndex": 4,
+            "openingId": "camera-bar"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 43,
+        "filledArtifactPixels": 77
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-black-v1-spigen-alpha-matte.png",
+        "sha256": "f042f4719c4f0ab770cfce1151c3b69ac77ff8c8bc094a4f217a8cea7cf884a4",
+        "pixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-white-v1-spigen-alpha-matte.png",
+        "sha256": "08ed3430a5390b7c05b94889b37c5751c58a6fa6c21fb9d62e75e40ddf32f550",
+        "pixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "modelName": "Pixel 10 Pro XL",
+      "sourceModelId": "pixel-10-pro-xl",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Exact Pixel 10 Pro XL target, variant, media identity, SKU, and GTIN match.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Google",
+        "widthMm": 76.6,
+        "heightMm": 162.8,
+        "depthMm": 8.5,
+        "reportedValue": "162.8 x 76.6 x 8.5",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+        "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Pixel 10 Pro XL",
+              "reportedValue": "162.8 x 76.6 x 8.5",
+              "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+              "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+              "verificationMethod": "Expanded the exact Google Pixel model accordion and read Dimensions & weight.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/pixel-10-series-case-rugged-armor-magfit.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajPXL_rugged_armor_magfit_05.jpg?v=1755185971",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-10-pro-xl-official-spigen-ACS09721-inner.jpg",
+        "sha256": "c394777e8e2fb1621cd545833ae2a4f0a3bd04b375b2814d5e9b721d4180ee4b",
+        "sku": "ACS09721",
+        "gtin": "8800283307825"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.998065644463998,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "cameraOpeningProfile": {
+          "id": "pixel-10-pro-xl-wide-top-single",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-bar",
+              "minPixels": 65000,
+              "centerX": [
+                0.45,
+                0.55
+              ],
+              "centerY": [
+                0.12,
+                0.21
+              ],
+              "width": [
+                0.8,
+                0.9
+              ],
+              "height": [
+                0.12,
+                0.17
+              ],
+              "aspect": [
+                2.6,
+                3.2
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 73189,
+            "bounds": {
+              "minX": 54,
+              "minY": 123,
+              "maxX": 535,
+              "maxY": 289
+            },
+            "centerX": 0.4964349376114082,
+            "centerY": 0.1662292213473316,
+            "width": 0.8591800356506238,
+            "height": 0.14610673665791776,
+            "aspect": 2.8862275449101795,
+            "componentIndex": 4,
+            "openingId": "camera-bar"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 43,
+        "filledArtifactPixels": 77
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-xl-black-v1-spigen-alpha-matte.png",
+        "sha256": "f042f4719c4f0ab770cfce1151c3b69ac77ff8c8bc094a4f217a8cea7cf884a4",
+        "pixelSha256": "05710f473d60acc400ccc098f6ef9703eb4c92bb6482ecf5b3a415d165dabac7",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-10-pro-xl-white-v1-spigen-alpha-matte.png",
+        "sha256": "08ed3430a5390b7c05b94889b37c5751c58a6fa6c21fb9d62e75e40ddf32f550",
+        "pixelSha256": "ed5c7f6b3bc7e57c84a9f160d96cf074bb8eca1cb91a0256deaac7f4a019c230",
+        "alphaSha256": "8c6c3fc98cf313e6379ec42d4033774f962e7233a03a6287899d66ccdadfcbe5",
+        "width": 593,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9a",
+      "modelName": "Pixel 9a",
+      "sourceModelId": "pixel-9a",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Exact Pixel 9a target, variant, media identity, SKU, and GTIN match.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact profile-matched camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Google",
+        "widthMm": 73.3,
+        "heightMm": 154.7,
+        "depthMm": 8.9,
+        "reportedValue": "154.7 x 73.3 x 8.9",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+        "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+        "reportedLabel": "Dimensions (height x width x depth, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T21:00:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Pixel 9a",
+              "reportedValue": "154.7 x 73.3 x 8.9",
+              "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en",
+              "sourcePageTitle": "Pixel phone hardware tech specs - Pixel Phone Help",
+              "verificationMethod": "Expanded the exact Google Pixel model accordion and read Dimensions & weight.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-01T21:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/pixel-9a-series-case-tough-armor-ai-magfit.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_pixel9a_tougharmormagfit_black_05.jpg?v=1740158936",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-9a-official-spigen-ACS09046-inner.jpg",
+        "sha256": "3315b9dda0faf1ddc40664bdfa23030c468c066a5b2c3353c28572a56d132191",
+        "sku": "ACS09046",
+        "gtin": "8809971238779"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9986649287962025,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "ec343f2cd41cba9bfa4ceed4f0667a205e230d85d3ffd3fe7051de05234bdf21",
+        "cameraOpeningProfile": {
+          "id": "pixel-9a-dual-opening",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-oval",
+              "minPixels": 20000,
+              "centerX": [
+                0.62,
+                0.72
+              ],
+              "centerY": [
+                0.12,
+                0.21
+              ],
+              "width": [
+                0.36,
+                0.45
+              ],
+              "height": [
+                0.09,
+                0.14
+              ],
+              "aspect": [
+                1.5,
+                1.9
+              ]
+            },
+            {
+              "id": "secondary-circle",
+              "minPixels": 2000,
+              "centerX": [
+                0.33,
+                0.42
+              ],
+              "centerY": [
+                0.13,
+                0.2
+              ],
+              "width": [
+                0.09,
+                0.14
+              ],
+              "height": [
+                0.04,
+                0.07
+              ],
+              "aspect": [
+                0.85,
+                1.2
+              ]
+            }
+          ]
+        },
+        "significantCameraOpenings": [
+          {
+            "pixels": 26707,
+            "bounds": {
+              "minX": 281,
+              "minY": 140,
+              "maxX": 509,
+              "maxY": 274
+            },
+            "centerX": 0.6696113074204947,
+            "centerY": 0.16710411198600175,
+            "width": 0.4045936395759717,
+            "height": 0.11811023622047244,
+            "aspect": 1.6962962962962962,
+            "componentIndex": 28,
+            "openingId": "camera-oval"
+          },
+          {
+            "pixels": 3142,
+            "bounds": {
+              "minX": 196,
+              "minY": 176,
+              "maxX": 259,
+              "maxY": 238
+            },
+            "centerX": 0.3736749116607774,
+            "centerY": 0.16710411198600175,
+            "width": 0.11307420494699646,
+            "height": 0.05511811023622047,
+            "aspect": 1.0158730158730158,
+            "componentIndex": 30,
+            "openingId": "secondary-circle"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true,
+        "filledArtifactComponents": 857,
+        "filledArtifactPixels": 1586
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-9a-black-v1-spigen-alpha-matte.png",
+        "sha256": "ad47ee880ffb6f7c2056451bc3c5c2d8726b842ff70b60c1c2197e1869264288",
+        "pixelSha256": "de62c29d74da847f9b19b3e750f4d9a58f13b49dc8f7558a6831163295d972c3",
+        "alphaSha256": "ec343f2cd41cba9bfa4ceed4f0667a205e230d85d3ffd3fe7051de05234bdf21",
+        "width": 598,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 581,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-9a-white-v1-spigen-alpha-matte.png",
+        "sha256": "189a11107a4159f5644e8380e45162bbfca0e3dd41bdf692f1abb74c0f110b12",
+        "pixelSha256": "b543a1db729f0cf4488dedb8e2957947c0520961a3d29b4ac16bb27cb545edc0",
+        "alphaSha256": "ec343f2cd41cba9bfa4ceed4f0667a205e230d85d3ffd3fe7051de05234bdf21",
+        "width": 598,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 581,
+          "maxY": 1158
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireOfficialDimensions": true,
+    "requireExactCameraOpeningProfile": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

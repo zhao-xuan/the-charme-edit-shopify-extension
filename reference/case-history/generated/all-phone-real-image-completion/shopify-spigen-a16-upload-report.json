@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T16:19:18.492Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a16",
+      "name": "Galaxy A16 5G",
+      "widthMm": 77.9,
+      "heightMm": 164.4,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-a16",
+      "name": "Galaxy A16 5G",
+      "widthMm": 77.9,
+      "heightMm": 164.4,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471874961786"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-a16",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "4a9fa21decab5fd86b9daa4eabcbd43ed9155168fe3436cb1b56261dd008bda4",
+      "pixelSha256": "5b04c162447080a36cc44ab7ca596b551fe661dbe2f396f08bb853603b0204a7",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471874961786",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393694286202",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a16-black-without-gel-derived-official-source-4a9fa21decab.png?v=1785687552",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a16",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a16-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 24293,
+        "sha256": "b6d6862150df913ab900c2468136fbd6199568ff7b2ea144f43f270e828944d4",
+        "pixelSha256": "5b04c162447080a36cc44ab7ca596b551fe661dbe2f396f08bb853603b0204a7",
+        "pixelWidth": 560,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 639520,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a16",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "0aa9fac9647defb3f20c369e3566cb0fa41c647abdc7154680a7500f7693cd0e",
+      "pixelSha256": "ef8468b51298aefb7136476b0680c51688185f95222af0bfecf80779d14eee58",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471874961786",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393696186746",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a16-white-without-gel-derived-official-source-0aa9fac9647d.png?v=1785687557",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a16",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a16-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 18675,
+        "sha256": "59add7a81b2b54dbc56c9411b0e1f9af4f0e94ff74c9db72fcb51c480ff72d4b",
+        "pixelSha256": "ef8468b51298aefb7136476b0680c51688185f95222af0bfecf80779d14eee58",
+        "pixelWidth": 560,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 639520,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

@@ -1,14 +1,14 @@
 # Phone-case asset inventory
 
-_Generated 2026-07-16T00:37:46.928Z by `scripts/build-case-inventory.mjs`._
+_Generated 2026-07-31T10:36:54.497Z by `scripts/build-case-inventory.mjs`._
 
 Legend: ● = present · ○ = missing. **without-gel** = plain silicone shell (base for gel). **with-gel** = poured-gel render used in the customizer.
 
-**Totals:** 87 models · plain-shell complete (B+W): 43 · gel complete (B+W): 49 · fully complete: 41.
-Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** in case-without-gel.
+**Totals:** 89 models · plain-shell complete (B+W): 44 · gel complete (B+W): 30 · fully complete: 23.
+Requested models (Galaxy + Pixel): 46, of which **36 still need a plain shell** in case-without-gel.
 
 
-## Apple (34)
+## Apple (36)
 
 | Model | id | without-gel B / W | with-gel B / W / Glitter | status | requested |
 | --- | --- | :---: | :---: | --- | :---: |
@@ -23,29 +23,31 @@ Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** 
 | iPhone 13 mini | `iphone-13-mini` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 13 Pro | `iphone-13-pro` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 13 Pro Max | `iphone-13-pro-max` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 14 | `iphone-14` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 14 Plus | `iphone-14-plus` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 14 Pro | `iphone-14-pro` | ● / ● | ● / ● / ● | complete |  |
-| iPhone 14 Pro Max | `iphone-14-pro-max` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 15 | `iphone-15` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 15 Plus | `iphone-15-plus` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 15 Pro | `iphone-15-pro` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 15 Pro Max | `iphone-15-pro-max` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 16 | `iphone-16` | ● / ● | ● / ● / ● | complete |  |
-| iPhone 16 Plus | `iphone-16-plus` | ● / ● | ● / ● / ● | complete |  |
-| iPhone 16 Pro | `iphone-16-pro` | ● / ● | ● / ● / ● | complete |  |
-| iPhone 16 Pro Max | `iphone-16-pro-max` | ● / ● | ● / ● / ● | complete |  |
+| iPhone 14 | `iphone-14` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 14 Plus | `iphone-14-plus` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 14 Pro | `iphone-14-pro` | ● / ● | ○ / ○ / ● | shell-only (needs gel) |  |
+| iPhone 14 Pro Max | `iphone-14-pro-max` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 15 | `iphone-15` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 15 Plus | `iphone-15-plus` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 15 Pro | `iphone-15-pro` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 15 Pro Max | `iphone-15-pro-max` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 16 | `iphone-16` | ● / ● | ○ / ○ / ● | shell-only (needs gel) |  |
+| iPhone 16 Plus | `iphone-16-plus` | ● / ● | ○ / ○ / ● | shell-only (needs gel) |  |
+| iPhone 16 Pro | `iphone-16-pro` | ● / ● | ○ / ○ / ● | shell-only (needs gel) |  |
+| iPhone 16 Pro Max | `iphone-16-pro-max` | ● / ● | ○ / ○ / ● | shell-only (needs gel) |  |
+| iPhone 16e | `iphone-16e` | ○ / ○ | ○ / ○ / ○ | missing (none) |  |
 | iPhone 17 | `iphone-17` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 17 Pro | `iphone-17-pro` | ● / ● | ● / ● / ○ | complete |  |
 | iPhone 17 Pro Max | `iphone-17-pro-max` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 7 | `iphone-7` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 7 Plus | `iphone-7-plus` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 8 | `iphone-8` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone 8 Plus | `iphone-8-plus` | ● / ● | ● / ● / ○ | complete |  |
+| iPhone 17e | `iphone-17e` | ○ / ○ | ○ / ○ / ○ | missing (none) |  |
+| iPhone 7 | `iphone-7` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 7 Plus | `iphone-7-plus` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 8 | `iphone-8` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone 8 Plus | `iphone-8-plus` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
 | iPhone Air | `iphone-air` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone X | `iphone-x` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone XS | `iphone-xs` | ● / ● | ● / ● / ○ | complete |  |
-| iPhone XS Max | `iphone-xs-max` | ● / ● | ● / ● / ○ | complete |  |
+| iPhone X | `iphone-x` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone XS | `iphone-xs` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
+| iPhone XS Max | `iphone-xs-max` | ● / ● | ○ / ○ / ○ | shell-only (needs gel) |  |
 
 ## Google (18)
 
@@ -84,16 +86,16 @@ Requested models (Galaxy + Pixel): 46, of which **37 still need a plain shell** 
 | Galaxy A54 5G | `galaxy-a54` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy A55 5G | `galaxy-a55` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy A56 5G | `galaxy-a56` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
-| Galaxy S22 | `galaxy-s22` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
-| Galaxy S22+ | `galaxy-s22-plus` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
+| Galaxy S22 | `galaxy-s22` | ● / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
+| Galaxy S22+ | `galaxy-s22-plus` | ● / ● | ● / ● / ○ | complete | ✔ |
 | Galaxy S22 Ultra | `galaxy-s22-ultra` | ● / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S23 | `galaxy-s23` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S23 FE | `galaxy-s23-fe` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy S23+ | `galaxy-s23-plus` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S23 Ultra | `galaxy-s23-ultra` | ● / ● | ● / ● / ○ | complete | ✔ |
-| Galaxy S24 | `galaxy-s24` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
+| Galaxy S24 | `galaxy-s24` | ○ / ● | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S24 FE | `galaxy-s24-fe` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
-| Galaxy S24+ | `galaxy-s24-plus` | ○ / ○ | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
+| Galaxy S24+ | `galaxy-s24-plus` | ○ / ● | ● / ● / ○ | gel-only (missing plain shell) | ✔ |
 | Galaxy S24 Ultra | `galaxy-s24-ultra` | ● / ● | ● / ● / ● | complete | ✔ |
 | Galaxy S25 | `galaxy-s25` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |
 | Galaxy S25 Edge | `galaxy-s25-edge` | ○ / ○ | ○ / ○ / ○ | missing (none) | ✔ |

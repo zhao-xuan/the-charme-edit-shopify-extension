@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:36:30.687Z",
+  "auditPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-live-catalog-gap-source-audit.json",
+  "provenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-live-catalog-gap-asset-provenance.json",
+  "source": "Official same-model RhinoShield plain Black product PNGs with deterministic RGB-only White derivation",
+  "summary": {
+    "derived": 5,
+    "exactAlphaMatches": 5
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s22",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-official-black-rhinoshield-SSA0324252.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324252?device-handle=samsung-galaxy-s22&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22",
+      "sourceOfficialTitle": "Galaxy S22 SolidSuit Black",
+      "sourceSku": "SSA0324252",
+      "sourceEncodedSha256": "07ca2d2e097e0a05422d3c5186e44d2dcce1f16d8f474d64ce71a6f4733591ed",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s22-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "55e0a4513ba32b6fcdf063addb5ab69e159bc3a32aafd3649a6a82c220347ee4",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            9,
+            160
+          ],
+          [
+            29.575,
+            220
+          ],
+          [
+            40,
+            246
+          ],
+          [
+            43.928,
+            252
+          ],
+          [
+            54.077,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "c8e31683799f71ac36a568d99f0e83efd8d97a33834814106820878ea3ff3840",
+        "outputSha256": "c8e31683799f71ac36a568d99f0e83efd8d97a33834814106820878ea3ff3840",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1014855,
+        "transparentPixels": 2985145,
+        "bounds": {
+          "minX": 612,
+          "minY": 233,
+          "maxX": 1387,
+          "maxY": 1765
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 9,
+          "p5": 29.575,
+          "p50": 40,
+          "p95": 43.928,
+          "p99": 54.077
+        },
+        "maximumChannelSpread": 7
+      },
+      "outputStats": {
+        "visiblePixels": 1014855,
+        "transparentPixels": 2985145,
+        "bounds": {
+          "minX": 612,
+          "minY": 233,
+          "maxX": 1387,
+          "maxY": 1765
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-ultra-official-black-rhinoshield-SSA0324452.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324452?device-handle=samsung-galaxy-s22-ultra&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-ultra",
+      "sourceOfficialTitle": "Galaxy S22 Ultra SolidSuit Black",
+      "sourceSku": "SSA0324452",
+      "sourceEncodedSha256": "ad7b1f7991f236293c17dceeaf8a1c08451d6cb8c0ace338e1672c7ef0e83e84",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s22-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "7d79be7d2b1ccfdf5c27326789dbfb6640429c1c6b2b8d7d3f24c15c4eeb23ce",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            9,
+            160
+          ],
+          [
+            25,
+            220
+          ],
+          [
+            40,
+            246
+          ],
+          [
+            48,
+            252
+          ],
+          [
+            60.503,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "95a403a633b85bf6c4b8a822f1dbd0b81fd31d83fdfb0ea5ea1339372b241b83",
+        "outputSha256": "95a403a633b85bf6c4b8a822f1dbd0b81fd31d83fdfb0ea5ea1339372b241b83",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1074172,
+        "transparentPixels": 2925828,
+        "bounds": {
+          "minX": 612,
+          "minY": 219,
+          "maxX": 1385,
+          "maxY": 1771
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 9,
+          "p5": 25,
+          "p50": 40,
+          "p95": 48,
+          "p99": 60.503
+        },
+        "maximumChannelSpread": 7
+      },
+      "outputStats": {
+        "visiblePixels": 1074172,
+        "transparentPixels": 2925828,
+        "bounds": {
+          "minX": 612,
+          "minY": 219,
+          "maxX": 1385,
+          "maxY": 1771
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s23",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-official-black-rhinoshield-SST0327352.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327352?device-handle=samsung-galaxy-s23&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23",
+      "sourceOfficialTitle": "Galaxy S23 SolidSuit Black",
+      "sourceSku": "SST0327352",
+      "sourceEncodedSha256": "ff21d81fb6f1e1014591532ad36956661bbef640dfa8cdb9a759221f5249a024",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "24673d643dde365a137b1792d58526472845c09389eaa21af0c1fe4b06a2c9d3",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            11.213,
+            160
+          ],
+          [
+            51,
+            220
+          ],
+          [
+            72.213,
+            246
+          ],
+          [
+            79.425,
+            252
+          ],
+          [
+            99.213,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "2315459ed0ac4c10b778fe2cd0259553076b8fb8f94def070f438138c6fd9e03",
+        "outputSha256": "2315459ed0ac4c10b778fe2cd0259553076b8fb8f94def070f438138c6fd9e03",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1120960,
+        "transparentPixels": 2879040,
+        "bounds": {
+          "minX": 595,
+          "minY": 212,
+          "maxX": 1398,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 11.213,
+          "p5": 51,
+          "p50": 72.213,
+          "p95": 79.425,
+          "p99": 99.213
+        },
+        "maximumChannelSpread": 3
+      },
+      "outputStats": {
+        "visiblePixels": 1120960,
+        "transparentPixels": 2879040,
+        "bounds": {
+          "minX": 595,
+          "minY": 212,
+          "maxX": 1398,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-plus-official-black-rhinoshield-SST0327452.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327452?device-handle=samsung-galaxy-s23-plus&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-plus",
+      "sourceOfficialTitle": "Galaxy S23+ SolidSuit Black",
+      "sourceSku": "SST0327452",
+      "sourceEncodedSha256": "653aee634c1b6a6ca37222b1d94b15c1ef1854380c2f7ce449dc5b597038d346",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-plus-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "d9447e95240ccb234ff9de27c0306d2083cfe70c8fd742d7510d0ac75d3f492e",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            160
+          ],
+          [
+            35.425,
+            220
+          ],
+          [
+            44.638,
+            246
+          ],
+          [
+            56.353,
+            252
+          ],
+          [
+            93.213,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "42d029181e6c3316a0366e14b0ffbe48c4c06faadeb10555bab7edf0e05341bb",
+        "outputSha256": "42d029181e6c3316a0366e14b0ffbe48c4c06faadeb10555bab7edf0e05341bb",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1132573,
+        "transparentPixels": 2867427,
+        "bounds": {
+          "minX": 598,
+          "minY": 211,
+          "maxX": 1396,
+          "maxY": 1789
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 0,
+          "p5": 35.425,
+          "p50": 44.638,
+          "p95": 56.353,
+          "p99": 93.213
+        },
+        "maximumChannelSpread": 5
+      },
+      "outputStats": {
+        "visiblePixels": 1132573,
+        "transparentPixels": 2867427,
+        "bounds": {
+          "minX": 598,
+          "minY": 211,
+          "maxX": 1396,
+          "maxY": 1789
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-ultra-official-black-rhinoshield-SST0327552.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327552?device-handle=samsung-galaxy-s23-ultra&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-ultra",
+      "sourceOfficialTitle": "Galaxy S23 Ultra SolidSuit Black",
+      "sourceSku": "SST0327552",
+      "sourceEncodedSha256": "d8101421f0a1390bbe5a50f19241ed7ed623d5a0971a5052ac6c8e1f2413161c",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s23-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "90e7f92b856bc610f5669a5dcb42db236d8403926faa42120b41fbaa9600d5f0",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            32.213,
+            160
+          ],
+          [
+            54.425,
+            220
+          ],
+          [
+            70.285,
+            246
+          ],
+          [
+            75,
+            253
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "e5c75ca7f45d460d0b086280c5e821660f3b5ed26d7644e3e191b0553147adaa",
+        "outputSha256": "e5c75ca7f45d460d0b086280c5e821660f3b5ed26d7644e3e191b0553147adaa",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1084046,
+        "transparentPixels": 2915954,
+        "bounds": {
+          "minX": 605,
+          "minY": 217,
+          "maxX": 1390,
+          "maxY": 1784
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 32.213,
+          "p5": 54.425,
+          "p50": 70.285,
+          "p95": 75,
+          "p99": 75
+        },
+        "maximumChannelSpread": 2
+      },
+      "outputStats": {
+        "visiblePixels": 1084046,
+        "transparentPixels": 2915954,
+        "bounds": {
+          "minX": 605,
+          "minY": 217,
+          "maxX": 1390,
+          "maxY": 1784
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 253,
+          "p99": 253
+        },
+        "maximumChannelSpread": 0
+      }
+    }
+  ]
+}

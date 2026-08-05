@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-07-31T12:09:00.983Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed official sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 4,
+    "updated": 4,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 4,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 2
+  },
+  "createdTargets": [
+    {
+      "modelId": "iphone-16e",
+      "name": "iPhone 16e",
+      "widthMm": 71.5,
+      "heightMm": 146.7,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471547969914"
+    },
+    {
+      "modelId": "iphone-17e",
+      "name": "iPhone 17e",
+      "widthMm": 71.5,
+      "heightMm": 146.7,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471548002682"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "iphone-16e",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "b0d466f822b643766436c2e6c9344314441690cb4c5e673877e0f7e452fca09f",
+      "pixelSha256": "eccc147c5bdc05716f3e3a40fd312c17bda7901cd86c0f3c4c9b6e0f4eb3c9d5",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471547969914",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377106076026",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-black-without-gel-official-source-b0d466f822b6.png?v=1785499720",
+      "sourceKind": "official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16e-official-black-apple-MD3N4.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 803881,
+        "sha256": "c91b07dd91dc464d9e0594832446888ab15235ee5ea91b3e2b2641964650d864",
+        "pixelSha256": "eccc147c5bdc05716f3e3a40fd312c17bda7901cd86c0f3c4c9b6e0f4eb3c9d5",
+        "pixelWidth": 914,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1650684,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-16e",
+      "finish": "white",
+      "candidateVersion": "official-source",
+      "sha256": "e714a1ea902db4dea8252e9daa85c3acc21c96e2848e7dbdf98307635d6ef8d0",
+      "pixelSha256": "ea277a40cb996ed752518c9ec2eaacb8a96ef94518d666351c5f9e695b1e3a56",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471547969914",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377106305402",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-white-without-gel-official-source-e714a1ea902d.png?v=1785499726",
+      "sourceKind": "official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16e-official-white-apple-MD3P4.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 521592,
+        "sha256": "089cf9ddff774f8861161803d33de68282c3784477173a9d2523192cf11fb130",
+        "pixelSha256": "ea277a40cb996ed752518c9ec2eaacb8a96ef94518d666351c5f9e695b1e3a56",
+        "pixelWidth": 914,
+        "pixelHeight": 1806,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1650684,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-17e",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "29d39a9ed1edaed2b568e1c6eb864e4301834a8e3118bd9ca44469ee96a94e65",
+      "pixelSha256": "7779e810990dd31aceeb86d4ba26fda93c673ec16630107f8ac20e463adde263",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471548002682",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377106633082",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-black-without-gel-official-source-29d39a9ed1ed.png?v=1785499733",
+      "sourceKind": "official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-17e-official-black-apple-MHWD4.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 774858,
+        "sha256": "f076608745504b938993ab8f1072bceebb191dd6d6924b0a713966f71b616ead",
+        "pixelSha256": "7779e810990dd31aceeb86d4ba26fda93c673ec16630107f8ac20e463adde263",
+        "pixelWidth": 902,
+        "pixelHeight": 1772,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1598344,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-17e",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "e63fb4bec5353849257a3f9c3d425a4adc8be5e723f2b7ba9e9b18f46533fbc3",
+      "pixelSha256": "9a569809b47af6eeb804ccd009a451f3d24f4660cb76e272a3f5d309b073a5e9",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471548002682",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71377106895226",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-white-without-gel-derived-official-source-e63fb4bec535.png?v=1785499739",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/iphone-17e-white-v1-apple-vanilla-neutralized.png",
+      "sourceUrl": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 474176,
+        "sha256": "b22be11ff5c60457802b2db8bc9dcc2a1491e2593712515e1ff1f64168771672",
+        "pixelSha256": "9a569809b47af6eeb804ccd009a451f3d24f4660cb76e272a3f5d309b073a5e9",
+        "pixelWidth": 902,
+        "pixelHeight": 1772,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1598344,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

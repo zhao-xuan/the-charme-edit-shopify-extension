@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T16:23:32.374Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a17-case-sources.json",
+  "source": "Live Galaxy A17 catalog identity, repeated-byte official Spigen A17/A17 5G-compatible empty-shell evidence, and first-party Samsung 4G/5G model API dimensions",
+  "summary": {
+    "assets": 1,
+    "catalogIdentitiesVerified": 1,
+    "productRecordsVerified": 1,
+    "compatibilityStatementsVerified": 1,
+    "repeatedSourceFetchesByteIdentical": 2,
+    "sourceImagesPixelVerified": 2,
+    "officialModelsVerified": 2,
+    "officialDimensionsVerified": 2,
+    "crossNetworkDimensionsExact": 1,
+    "publicationEligible": 1
+  },
+  "assets": [
+    {
+      "targetModelId": "galaxy-a17",
+      "targetModelName": "Galaxy A17",
+      "sourceModelId": "galaxy-a17-5g",
+      "sourceKind": "official-spigen-empty-case-image",
+      "derivedSourceKind": "derived-official-source",
+      "publicationEligible": true,
+      "eligibilityReason": "The live catalog identifies Galaxy A17; Spigen SKU ACS09844 supplies a complete real empty shell and its same-SKU official media explicitly states Designed for Galaxy A17/A17 5G; Samsung independently verifies the 4G SM-A175F and 5G SM-A176B devices at the same 164.4 x 77.9 x 7.5 mm dimensions.",
+      "geometryReview": "accepted-complete-orthogonal-real-empty-shell-with-directly-visible-outer-boundary-and-camera-openings",
+      "geometrySource": "The byte-locked official Spigen inner-case image directly supplies the complete physical outer silhouette and every visible camera opening of the real Galaxy A17/A17 5G-compatible shell.",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a17-5g-official-spigen-ACS09844-inner.jpg",
+      "encodedSha256": "cbd93678526be0064c8d3bb3487e023490abf035f083d05155c6bc6929a38340",
+      "decodedPixelSha256": "07fd5136f6caa8a0d76ae6d534d5d68ddba2d60e087b95e4257e5743bea92757",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "productId": "7295548358703",
+        "productTitle": "Galaxy A Series - Rugged Armor",
+        "variantTitle": "Galaxy A17 5G / Matte Black / In Stock",
+        "sku": "ACS09844",
+        "gtin": "8800283312409",
+        "mediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing inside",
+        "compatibilityMediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing the back, partial side and bottom. Designed for Galaxy A17/A17 5G"
+      },
+      "format": "jpeg",
+      "width": 1830,
+      "height": 1830,
+      "channels": 3,
+      "writeStatus": "already-current",
+      "catalogIdentityEvidence": {
+        "coverageAuditPath": "reference/case-history/generated/all-phone-real-image-completion/shopify-case-coverage-audit.json",
+        "coverageModelId": "galaxy-a17",
+        "coverageModelName": "Galaxy A17",
+        "reason": "The live Shopify case catalog defines galaxy-a17 as Galaxy A17; Spigen's same-SKU official media explicitly states that its physical shell is designed for Galaxy A17/A17 5G.",
+        "matchedModel": {
+          "id": "galaxy-a17",
+          "name": "Galaxy A17",
+          "platform": "android"
+        },
+        "verified": true
+      },
+      "onlineSourceEvidence": {
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "productRecordFinalUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "productRecordHttpStatus": 200,
+        "productRecordVerified": true,
+        "productRecord": {
+          "productId": "7295548358703",
+          "productTitle": "Galaxy A Series - Rugged Armor",
+          "variantTitle": "Galaxy A17 5G / Matte Black / In Stock",
+          "sku": "ACS09844",
+          "gtin": "8800283312409",
+          "mediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing inside",
+          "compatibilityMediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing the back, partial side and bottom. Designed for Galaxy A17/A17 5G"
+        },
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+        "sourceFinalUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+        "sourceHttpStatus": 200,
+        "repeatedFetchByteIdentical": true,
+        "encodedSha256": "cbd93678526be0064c8d3bb3487e023490abf035f083d05155c6bc6929a38340",
+        "decodedPixelSha256": "07fd5136f6caa8a0d76ae6d534d5d68ddba2d60e087b95e4257e5743bea92757",
+        "format": "jpeg",
+        "width": 1830,
+        "height": 1830,
+        "channels": 3,
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a17-5g-official-spigen-ACS09844-inner.jpg",
+        "writeStatus": "already-current",
+        "compatibilityEvidence": {
+          "mediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing the back, partial side and bottom. Designed for Galaxy A17/A17 5G",
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/id_saag5g_rugged_armor_blk_01.jpg?v=1756848798",
+          "sourceFinalUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/id_saag5g_rugged_armor_blk_01.jpg?v=1756848798",
+          "sourceHttpStatus": 200,
+          "repeatedFetchByteIdentical": true,
+          "encodedSha256": "4867c0b24ffe8c5f4ef7aa9d31c400abdbe05f37c663146ed56a15bc45d2141a",
+          "decodedPixelSha256": "11fae5a58de3af5e00cd086bf3ea9a0d339ae04345c0c0c3343a80a05598aa15",
+          "format": "jpeg",
+          "width": 1600,
+          "height": 2000,
+          "channels": 3
+        }
+      },
+      "officialModelEvidence": [
+        {
+          "network": "4G",
+          "manufacturer": "Samsung",
+          "modelName": "Galaxy A17",
+          "modelCode": "SM-A175FZKNMEA",
+          "modelFamilyCode": "SM-A175F",
+          "sourcePageUrl": "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-black-128gb-sm-a175fzknmea/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "levant",
+            "modelCode": "SM-A175FZKNMEA",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "expectedInfraIncludes": "4G LTE",
+          "expectedInfraExcludes": "5G",
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "164.4 x 77.9 x 7.5",
+          "heightMm": 164.4,
+          "widthMm": 77.9,
+          "depthMm": 7.5,
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "plmItems": [
+            {
+              "itemPath": "General > Dimension (Height, mm)",
+              "userKey": "ITM01039",
+              "value": "164.4"
+            },
+            {
+              "itemPath": "General > Dimension (Width, mm)",
+              "userKey": "ITM01038",
+              "value": "77.9"
+            },
+            {
+              "itemPath": "General > Dimension (Depth, mm)",
+              "userKey": "ITM01040",
+              "value": "7.5"
+            }
+          ],
+          "sourcePageFinalUrl": "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-black-128gb-sm-a175fzknmea/",
+          "sourcePageHttpStatus": 200,
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=levant&modelCode=SM-A175FZKNMEA&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "reportedValueFound": true,
+          "networkIdentityVerified": true,
+          "plmDimensionsVerified": true
+        },
+        {
+          "network": "5G",
+          "manufacturer": "Samsung",
+          "modelName": "Galaxy A17 5G",
+          "modelCode": "SM-A176BZKAEUB",
+          "modelFamilyCode": "SM-A176B",
+          "supportModel": "SM-A176B/DS",
+          "sourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a17-5g-black-128gb-sm-a176bzkaeub/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "uk",
+            "modelCode": "SM-A176BZKAEUB",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "expectedInfraIncludes": "5G Sub6",
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "164.4 x 77.9 x 7.5",
+          "heightMm": 164.4,
+          "widthMm": 77.9,
+          "depthMm": 7.5,
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "plmItems": [
+            {
+              "itemPath": "General > Dimension (Height, mm)",
+              "userKey": "ITM01039",
+              "value": "164.4"
+            },
+            {
+              "itemPath": "General > Dimension (Width, mm)",
+              "userKey": "ITM01038",
+              "value": "77.9"
+            },
+            {
+              "itemPath": "General > Dimension (Depth, mm)",
+              "userKey": "ITM01040",
+              "value": "7.5"
+            }
+          ],
+          "sourcePageFinalUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a17-5g-black-128gb-sm-a176bzkaeub/",
+          "sourcePageHttpStatus": 200,
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A176BZKAEUB&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "reportedValueFound": true,
+          "networkIdentityVerified": true,
+          "plmDimensionsVerified": true
+        }
+      ],
+      "officialDimensionEvidence": {
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "164.4 x 77.9 x 7.5",
+        "heightMm": 164.4,
+        "widthMm": 77.9,
+        "depthMm": 7.5,
+        "models": [
+          {
+            "network": "4G",
+            "manufacturer": "Samsung",
+            "modelName": "Galaxy A17",
+            "modelCode": "SM-A175FZKNMEA",
+            "modelFamilyCode": "SM-A175F",
+            "sourcePageUrl": "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-black-128gb-sm-a175fzknmea/",
+            "apiEndpoint": "https://api.samsung.com/model",
+            "apiQuery": {
+              "key": "56FE13336ABF4709AFCF7704B24D83F0",
+              "siteCode": "levant",
+              "modelCode": "SM-A175FZKNMEA",
+              "type": "json",
+              "option": "16",
+              "disclaimer": ""
+            },
+            "expectedInfraIncludes": "4G LTE",
+            "expectedInfraExcludes": "5G",
+            "reportedLabel": "Dimension (HxWxD, mm)",
+            "reportedValue": "164.4 x 77.9 x 7.5",
+            "heightMm": 164.4,
+            "widthMm": 77.9,
+            "depthMm": 7.5,
+            "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+            "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+            "plmItems": [
+              {
+                "itemPath": "General > Dimension (Height, mm)",
+                "userKey": "ITM01039",
+                "value": "164.4"
+              },
+              {
+                "itemPath": "General > Dimension (Width, mm)",
+                "userKey": "ITM01038",
+                "value": "77.9"
+              },
+              {
+                "itemPath": "General > Dimension (Depth, mm)",
+                "userKey": "ITM01040",
+                "value": "7.5"
+              }
+            ],
+            "sourcePageFinalUrl": "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-black-128gb-sm-a175fzknmea/",
+            "sourcePageHttpStatus": 200,
+            "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=levant&modelCode=SM-A175FZKNMEA&type=json&option=16&disclaimer=",
+            "apiHttpStatus": 200,
+            "apiStatusCode": 200,
+            "reportedValueFound": true,
+            "networkIdentityVerified": true,
+            "plmDimensionsVerified": true
+          },
+          {
+            "network": "5G",
+            "manufacturer": "Samsung",
+            "modelName": "Galaxy A17 5G",
+            "modelCode": "SM-A176BZKAEUB",
+            "modelFamilyCode": "SM-A176B",
+            "supportModel": "SM-A176B/DS",
+            "sourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a17-5g-black-128gb-sm-a176bzkaeub/",
+            "apiEndpoint": "https://api.samsung.com/model",
+            "apiQuery": {
+              "key": "56FE13336ABF4709AFCF7704B24D83F0",
+              "siteCode": "uk",
+              "modelCode": "SM-A176BZKAEUB",
+              "type": "json",
+              "option": "16",
+              "disclaimer": ""
+            },
+            "expectedInfraIncludes": "5G Sub6",
+            "reportedLabel": "Dimension (HxWxD, mm)",
+            "reportedValue": "164.4 x 77.9 x 7.5",
+            "heightMm": 164.4,
+            "widthMm": 77.9,
+            "depthMm": 7.5,
+            "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+            "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+            "plmItems": [
+              {
+                "itemPath": "General > Dimension (Height, mm)",
+                "userKey": "ITM01039",
+                "value": "164.4"
+              },
+              {
+                "itemPath": "General > Dimension (Width, mm)",
+                "userKey": "ITM01038",
+                "value": "77.9"
+              },
+              {
+                "itemPath": "General > Dimension (Depth, mm)",
+                "userKey": "ITM01040",
+                "value": "7.5"
+              }
+            ],
+            "sourcePageFinalUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a17-5g-black-128gb-sm-a176bzkaeub/",
+            "sourcePageHttpStatus": 200,
+            "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A176BZKAEUB&type=json&option=16&disclaimer=",
+            "apiHttpStatus": 200,
+            "apiStatusCode": 200,
+            "reportedValueFound": true,
+            "networkIdentityVerified": true,
+            "plmDimensionsVerified": true
+          }
+        ],
+        "crossNetworkDimensionsExact": true
+      }
+    }
+  ]
+}

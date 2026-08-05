@@ -1,6 +1,6 @@
 import { Select, Space } from 'antd'
 import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
-import { productGroups, BRAND_LABELS } from '../data/products'
+import { productGroups, hasCaseImage, productsByAvailability } from '../data/products'
 import { formatMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
@@ -27,25 +27,20 @@ const toOption = (p) => ({
   name: p.name,
   price: p.basePrice,
   label: `${p.name} · ${formatMoney(p.basePrice, { whole: true })}`,
+  disabled: !hasCaseImage(p),
 })
 
 /**
- * Build the model dropdown options for a platform group. Android is sub-grouped
- * by brand (Samsung / Xiaomi / Huawei) using Select option groups; Apple & Totes
- * are a flat list.
+ * Build the model dropdown options for a platform group. Android launch models
+ * are listed first; every unavailable model follows in one disabled section.
  */
 function buildOptions(group) {
   if (group.platform === 'android') {
-    const byBrand = new Map()
-    for (const p of group.products) {
-      if (!byBrand.has(p.brand)) byBrand.set(p.brand, [])
-      byBrand.get(p.brand).push(p)
-    }
-    return Array.from(byBrand, ([brand, items]) => ({
-      label: BRAND_LABELS[brand] || brand,
-      title: BRAND_LABELS[brand] || brand,
-      options: items.map(toOption),
-    }))
+    const { available, comingSoon } = productsByAvailability(group.products)
+    return [
+      { label: t('picker.availableNow'), options: available.map(toOption) },
+      { label: t('picker.comingSoon'), options: comingSoon.map(toOption) },
+    ].filter((section) => section.options.length)
   }
   return group.products.map(toOption)
 }
@@ -60,6 +55,7 @@ function ColourGroup({ title, colours, value, onChange }) {
           return (
             <button
               key={c.id}
+              disabled={c.disabled}
               onClick={() => onChange(c.id)}
               style={{
                 display: 'flex',
@@ -67,7 +63,9 @@ function ColourGroup({ title, colours, value, onChange }) {
                 gap: 8,
                 padding: '6px 10px',
                 borderRadius: 999,
-                cursor: 'pointer',
+                cursor: c.disabled ? 'not-allowed' : 'pointer',
+                opacity: c.disabled ? 0.38 : 1,
+                filter: c.disabled ? 'grayscale(1)' : 'none',
                 background: active ? '#fff' : 'transparent',
                 border: `1.5px solid ${active ? 'var(--rouge)' : 'var(--line)'}`,
               }}
@@ -141,10 +139,17 @@ export default function ProductPicker({
           )
         }}
         optionRender={(opt) => (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 12,
+            color: opt.data.disabled ? 'var(--muted)' : 'inherit',
+            filter: opt.data.disabled ? 'grayscale(1)' : 'none',
+          }}>
             <strong>{opt.data.name}</strong>
-            <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}>
-              {formatMoney(opt.data.price, { whole: true })}
+            <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: opt.data.disabled ? 14 : 18 }}>
+              {opt.data.disabled ? t('picker.comingSoon') : formatMoney(opt.data.price, { whole: true })}
             </span>
           </div>
         )}

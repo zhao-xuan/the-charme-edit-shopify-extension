@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T08:20:00.000Z",
+  "source": "Exact-model Spigen Thin Fit real-product photograph from a verified reseller listing, with manufacturer catalog corroboration",
+  "summary": {
+    "assets": 1,
+    "publicationEligible": 1,
+    "sourceVisibleOpenings": 2
+  },
+  "assets": [
+    {
+      "targetModelId": "pixel-5",
+      "targetModelName": "Pixel 5",
+      "sourceModelId": "pixel-5",
+      "sourceKind": "verified-reseller-real-product-image",
+      "derivedSourceKind": "derived-verified-real-product-source",
+      "geometrySource": "Exact-model orthogonal Spigen Thin Fit product photograph; installed-phone pixels inside both visibly bounded apertures are explicitly excluded from alpha",
+      "publicationEligible": true,
+      "eligibilityReason": "The reseller listing identifies Spigen Thin Fit ACS01894 for Google Pixel 5, while Spigen Philippines and Spigen Australia independently identify ACS01894 as the Pixel 5 Thin Fit case.",
+      "productRecordVerified": true,
+      "productRecordUrl": "https://www.gsmpunt.nl/hoesjes/spigen-thin-fit-google-pixel-5-hoesje-zwart",
+      "sourceUrl": "https://cdn.gsmpunt.nl/product/90000/83890/spigen-thin-fit-google-pixel-5-hoesje-zwart_2.jpg?class=imageview",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-5-official-spigen-ACS01894-back.jpg",
+      "encodedSha256": "81351ae4b365b187b673928d3684d9512ea88d4ff5425c42aa67579e1dba012e",
+      "repeatedFetchByteIdentical": true,
+      "repeatedFetchVerifiedAt": "2026-08-02T08:25:00.000Z",
+      "format": "jpeg",
+      "width": 487,
+      "height": 960,
+      "channels": 3,
+      "manufacturerEvidence": [
+        {
+          "url": "https://spigen.ph/shop/pixel-5/pixel-5-case-thin-fit",
+          "claim": "Pixel 5 Case Thin Fit; SKU ACS01894; compatibility Google Pixel 5"
+        },
+        {
+          "url": "https://www.spigenstore.com.au/spigen-google-pixel-5-thin-fit-2650609",
+          "claim": "Google Pixel 5 Case Thin Fit; Black ACS01894; compatibility Google Pixel 5 5G (2020)"
+        }
+      ],
+      "productRecord": {
+        "productId": "83890",
+        "productTitle": "Spigen Thin Fit Google Pixel 5 Hoesje Zwart",
+        "sku": "ACS01894",
+        "gtin": null
+      },
+      "sourceVisibleOpenings": [
+        {
+          "id": "camera",
+          "shape": "rounded-rect",
+          "bounds": {
+            "left": 59,
+            "top": 62,
+            "right": 206,
+            "bottom": 218
+          },
+          "radius": 28,
+          "basis": "Visible inner edge of the camera aperture in source pixels"
+        },
+        {
+          "id": "fingerprint",
+          "shape": "ellipse",
+          "bounds": {
+            "left": 217,
+            "top": 239,
+            "right": 282,
+            "bottom": 307
+          },
+          "basis": "Visible inner edge of the circular fingerprint aperture in source pixels"
+        }
+      ]
+    }
+  ]
+}

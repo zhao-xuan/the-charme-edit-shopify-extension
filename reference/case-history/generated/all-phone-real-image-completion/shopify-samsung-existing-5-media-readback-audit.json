@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T09:43:01.124Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-samsung-existing-5-media-restore-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 5,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 5,
+    "sourceFilesReady": 5,
+    "metaobjectReferencesMatched": 5,
+    "productMediaReady": 5,
+    "productMediaAltsMatched": 5,
+    "variantAssociationsMatched": 10,
+    "expectedVariantAssociations": 10,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 5,
+    "productMediaExactPixelMatches": 5,
+    "sourceFileAcceptablePixelMatches": 5,
+    "productMediaAcceptablePixelMatches": 5
+  },
+  "images": [
+    {
+      "modelId": "galaxy-s22-plus",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "c26b4317af5524899fdb76a364145a423f021e0784ae10f9987eb787b19757cb",
+      "sourceFileId": "gid://shopify/MediaImage/71376614523258",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963914618",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149787002",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ec6eb1263ac57c2078cd2ec8d24225d4304e7545d2c6e4717f89c79ede1b4608",
+        "pixelSha256": "0187460234bb03c7ffc95f8257db6faed0398476c7ac1e98fd815f3061f8f91d",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ec6eb1263ac57c2078cd2ec8d24225d4304e7545d2c6e4717f89c79ede1b4608",
+        "pixelSha256": "0187460234bb03c7ffc95f8257db6faed0398476c7ac1e98fd815f3061f8f91d",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "de24756e4a4195a22cd22ad3b3a9223c99951dda99ab2f932150cec4025cc9d2",
+      "sourceFileId": "gid://shopify/MediaImage/71376616096122",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963914618",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149852538",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6cdcd6a5d830e2449ef5f2e92fcbb60e56ffe16c7d5a1d9b32218bf03a021e75",
+        "pixelSha256": "c2897995d5b7b2df5a694185d64408e1a9536e4d472613dad352a130c7d19d6a",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6cdcd6a5d830e2449ef5f2e92fcbb60e56ffe16c7d5a1d9b32218bf03a021e75",
+        "pixelSha256": "c2897995d5b7b2df5a694185d64408e1a9536e4d472613dad352a130c7d19d6a",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s22",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "c88c0c14f9a0b1a8537ff0c24120171d073b7f6a9a8254ce497f3b4c5400a4e9",
+      "sourceFileId": "gid://shopify/MediaImage/71376613802362",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963947386",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384149885306",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6a2804a19b62fc581b845a3c77ef67330daa72ed61cab45d1a534f879b549a42",
+        "pixelSha256": "040bf66e536af804130f98c2eff7b6ff3dd1c531a9115bfc0e9fef6616f7a24b",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6a2804a19b62fc581b845a3c77ef67330daa72ed61cab45d1a534f879b549a42",
+        "pixelSha256": "040bf66e536af804130f98c2eff7b6ff3dd1c531a9115bfc0e9fef6616f7a24b",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "a7e04b18391c7bbe7f3e97b144fbd507146e4c517245b7ed42e2254e6aaf0ae4",
+      "sourceFileId": "gid://shopify/MediaImage/71376619733370",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963685242",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384150049146",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5784a1097d787daafae7593482986e3ad0297cfb3e6acea9d5942210727d1b47",
+        "pixelSha256": "dba7a9f989a6123260ab55b9be01344e237b30112b3caaf4913349dc2022bf68",
+        "width": 590,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5784a1097d787daafae7593482986e3ad0297cfb3e6acea9d5942210727d1b47",
+        "pixelSha256": "dba7a9f989a6123260ab55b9be01344e237b30112b3caaf4913349dc2022bf68",
+        "width": 590,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s24",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "fc3a17dc9cce28a35bff362d597a319d660bcd2d0f365b6390643233c58b9aa1",
+      "sourceFileId": "gid://shopify/MediaImage/71376618258810",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/463963718010",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384150212986",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a1e5180680c87d8c92e0d1c9b0569788477a0f3bb98a9c045eebe3406191747a",
+        "pixelSha256": "dd780b2aa380c4d6ea03b3aa5d39eae5244d28b67540f8fc523c3920fc20c1ef",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a1e5180680c87d8c92e0d1c9b0569788477a0f3bb98a9c045eebe3406191747a",
+        "pixelSha256": "dd780b2aa380c4d6ea03b3aa5d39eae5244d28b67540f8fc523c3920fc20c1ef",
+        "width": 592,
+        "height": 1196,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

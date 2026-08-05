@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-02T16:17:36.228Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "The canonical case inventory explicitly defines galaxy-a16 as Galaxy A16 5G, matching the official Spigen variant and Samsung model.",
+    "The official Spigen product, variant, SKU ACS08891, GTIN, media alt, and twice-fetched source bytes identify the complete real empty Galaxy A16 5G shell.",
+    "Samsung identifies SM-A166BZKDEUB and independently reports 164.4 x 77.9 x 7.9 mm through the product page, model API, and three PLM dimension fields.",
+    "Foreground thresholds 11, 12, and 13 retain IoU of at least 0.995 with no more than four pixels of bounds drift.",
+    "The source-aligned review overlay confirms the red outer contour follows the real shell and the blue contour follows the sole connected camera-and-flash opening.",
+    "Source-axis cropping preserves observed geometry with zero morphology, zero inferred boundary pixels, zero inferred opening pixels, and no projective or template transform.",
+    "Black and White candidates share exact binary alpha, contain zero hidden RGB, use neutral RGB channels, and retain transparent canvas corners."
+  ],
+  "summary": {
+    "sourceCandidates": 1,
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a16",
+      "modelName": "Galaxy A16 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": {
+        "inventoryPath": "public/assets/cases/case-inventory.json",
+        "inventoryModelId": "galaxy-a16",
+        "inventoryModelName": "Galaxy A16 5G",
+        "reason": "The canonical case inventory explicitly defines galaxy-a16 as Galaxy A16 5G; the unsuffixed internal ID does not represent Galaxy A16 4G.",
+        "matchedModel": {
+          "id": "galaxy-a16",
+          "name": "Galaxy A16 5G",
+          "brand": "Samsung"
+        },
+        "verified": true
+      },
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "The hash-locked source overlay confirms a complete real shell outer boundary, all physical side structures, and the sole connected camera-and-flash opening with transparent margin on every side.",
+        "evidence": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/reviews/galaxy-a16-spigen-real-shell-geometry-overlay.png",
+          "sourceFramePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-asset-provenance.json",
+          "encodedSha256": "ddf6388e96a155de7c2e9474c8d162fa47e7407662ccb454836eea008668ec4f",
+          "decodedPixelSha256": "169e5923228674e1d2bce8d13538dc4523cdb81f9d32efd20cb002da6d864261",
+          "width": 592,
+          "height": 1174,
+          "outerEdgeColour": "#ff2038",
+          "openingEdgeColour": "#006cff",
+          "bodyFillOpacity": 0.18823529411764706,
+          "edgeRadiusPixels": 2,
+          "geometryUse": "visual review only; never sampled by candidate generation"
+        }
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 77.9,
+        "heightMm": 164.4,
+        "depthMm": 7.9,
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "164.4 x 77.9 x 7.9",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "verifiedAt": "2026-08-02T16:13:47.935Z",
+          "evidence": {
+            "manufacturer": "Samsung",
+            "modelName": "Galaxy A16 5G",
+            "modelCode": "SM-A166BZKDEUB",
+            "modelFamilyCode": "SM-A166B",
+            "supportModel": "SM-A166B/DS",
+            "sourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a16-5g-blue-black-128gb-sm-a166bzkdeub/",
+            "apiEndpoint": "https://api.samsung.com/model",
+            "apiQuery": {
+              "key": "56FE13336ABF4709AFCF7704B24D83F0",
+              "siteCode": "uk",
+              "modelCode": "SM-A166BZKDEUB",
+              "type": "json",
+              "option": "16",
+              "disclaimer": ""
+            },
+            "reportedLabel": "Dimension (HxWxD, mm)",
+            "reportedValue": "164.4 x 77.9 x 7.9",
+            "heightMm": 164.4,
+            "widthMm": 77.9,
+            "depthMm": 7.9,
+            "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+            "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+            "plmItems": [
+              {
+                "itemPath": "General > Dimension (Height, mm)",
+                "userKey": "ITM01039",
+                "value": "164.4"
+              },
+              {
+                "itemPath": "General > Dimension (Width, mm)",
+                "userKey": "ITM01038",
+                "value": "77.9"
+              },
+              {
+                "itemPath": "General > Dimension (Depth, mm)",
+                "userKey": "ITM01040",
+                "value": "7.9"
+              }
+            ],
+            "sourcePageFinalUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a16-5g-blue-black-128gb-sm-a166bzkdeub/",
+            "sourcePageHttpStatus": 200,
+            "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A166BZKDEUB&type=json&option=16&disclaimer=",
+            "apiHttpStatus": 200,
+            "apiStatusCode": 200,
+            "reportedValueFound": true,
+            "plmDimensionsVerified": true
+          }
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a16-5g-official-spigen-ACS08891-inner.jpg",
+        "sha256": "8ac3fecb2c38b0ec7b80d480322444b93e2e3e1f7ded2cebe5eeadc049e6c9ee",
+        "decodedPixelSha256": "657eafc77f41002bc1ab133c3273ac9be0d4c4336c7c3695972f84d79b14b2b6",
+        "productRecord": {
+          "productId": "7295548358703",
+          "productTitle": "Galaxy A Series - Rugged Armor",
+          "variantTitle": "Galaxy A16 5G / Matte Black / In Stock",
+          "sku": "ACS08891",
+          "gtin": "8809971237215",
+          "mediaAlt": "ACS08891 - Galaxy A16 5G Case Rugged Armor in Matte Black showing the inner case with spider web pattern"
+        },
+        "onlineEvidence": {
+          "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+          "productRecordFinalUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+          "productRecordHttpStatus": 200,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+          "sourceFinalUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+          "sourceHttpStatus": 200,
+          "repeatedFetchByteIdentical": true,
+          "productRecordVerified": true,
+          "productRecord": {
+            "productId": "7295548358703",
+            "productTitle": "Galaxy A Series - Rugged Armor",
+            "variantTitle": "Galaxy A16 5G / Matte Black / In Stock",
+            "sku": "ACS08891",
+            "gtin": "8809971237215",
+            "mediaAlt": "ACS08891 - Galaxy A16 5G Case Rugged Armor in Matte Black showing the inner case with spider web pattern"
+          },
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a16-5g-official-spigen-ACS08891-inner.jpg",
+          "encodedSha256": "8ac3fecb2c38b0ec7b80d480322444b93e2e3e1f7ded2cebe5eeadc049e6c9ee",
+          "decodedPixelSha256": "657eafc77f41002bc1ab133c3273ac9be0d4c4336c7c3695972f84d79b14b2b6",
+          "format": "jpeg",
+          "width": 1430,
+          "height": 1430,
+          "channels": 3,
+          "writeStatus": "already-current"
+        }
+      },
+      "geometryQa": {
+        "sourceGeometry": {
+          "primaryThreshold": 12,
+          "stabilityThresholds": [
+            11,
+            12,
+            13
+          ],
+          "minimumThresholdIou": 0.9989919252364317,
+          "requiredMinimumThresholdIou": 0.995,
+          "maximumBoundsDrift": 1,
+          "allowedMaximumBoundsDrift": 4,
+          "thresholdStability": [
+            {
+              "threshold": 11,
+              "iouWithPrimary": 0.9989919252364317,
+              "boundsDriftFromPrimary": 1,
+              "bounds": {
+                "minX": 435,
+                "minY": 144,
+                "maxX": 995,
+                "maxY": 1286
+              },
+              "pixels": 590234
+            },
+            {
+              "threshold": 12,
+              "iouWithPrimary": 1,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 435,
+                "minY": 144,
+                "maxX": 994,
+                "maxY": 1285
+              },
+              "pixels": 589639
+            },
+            {
+              "threshold": 13,
+              "iouWithPrimary": 0.9996014510573419,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 435,
+                "minY": 144,
+                "maxX": 994,
+                "maxY": 1285
+              },
+              "pixels": 589404
+            }
+          ],
+          "primaryBounds": {
+            "minX": 435,
+            "minY": 144,
+            "maxX": 994,
+            "maxY": 1285
+          },
+          "primaryPixels": 589639
+        },
+        "transform": {
+          "kind": "connected-white-background-segmentation-and-alpha-only-matte-relighting",
+          "geometrySource": "The byte-locked official Spigen inner-case image directly supplies the complete physical outer silhouette and every visible camera opening of the empty Galaxy A16 5G shell.",
+          "spatialTransform": "source-axis crop with fixed transparent padding only",
+          "crop": {
+            "left": 419,
+            "top": 128,
+            "width": 592,
+            "height": 1174
+          },
+          "alphaTransform": "foreground connected-component extraction at a fixed white-background threshold",
+          "stabilityMaskTransform": "none",
+          "sourceVisibleOpeningTransform": {
+            "openings": [],
+            "clearedPixels": 0
+          },
+          "enclosedArtifactCleanup": "fill every enclosed void except openings matching galaxy-a16-camera-and-flash-single",
+          "sourceRgbUsed": false,
+          "fullyTransparentRgb": "zeroed",
+          "morphologyOperations": 0,
+          "inferredBoundaryPixels": 0,
+          "inferredOpeningPixels": 0,
+          "edgeBlurSigmaForRgbLightingOnly": 8
+        },
+        "visualReviewEvidence": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/reviews/galaxy-a16-spigen-real-shell-geometry-overlay.png",
+          "sourceFramePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a16-case-asset-provenance.json",
+          "encodedSha256": "ddf6388e96a155de7c2e9474c8d162fa47e7407662ccb454836eea008668ec4f",
+          "decodedPixelSha256": "169e5923228674e1d2bce8d13538dc4523cdb81f9d32efd20cb002da6d864261",
+          "width": 592,
+          "height": 1174,
+          "outerEdgeColour": "#ff2038",
+          "openingEdgeColour": "#006cff",
+          "bodyFillOpacity": 0.18823529411764706,
+          "edgeRadiusPixels": 2,
+          "geometryUse": "visual review only; never sampled by candidate generation"
+        },
+        "sharedAlphaSha256": "c7bc703c137dbb94af8837a83f5b98c4bccca549313b428482c04e1772a6fd6f",
+        "significantOpenings": [
+          {
+            "pixels": 32527,
+            "bounds": {
+              "minX": 353,
+              "minY": 73,
+              "maxX": 517,
+              "maxY": 387
+            },
+            "centerX": 0.7482142857142857,
+            "centerY": 0.18739054290718038,
+            "width": 0.29464285714285715,
+            "height": 0.27583187390542907,
+            "aspect": 0.5238095238095238,
+            "componentIndex": 8,
+            "openingId": "camera-and-flash"
+          }
+        ],
+        "expectedOpeningCount": 1,
+        "openingQaPassed": true,
+        "decodedOpeningComponents": [
+          {
+            "pixels": 32527,
+            "bounds": {
+              "minX": 353,
+              "minY": 73,
+              "maxX": 517,
+              "maxY": 387
+            }
+          }
+        ]
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a16-black-v1-spigen-alpha-matte.png",
+        "sha256": "2f1633f1645a93bfbf4ffef9d987fb83720c97f7beb5b31a59a6ca90135b8e7c",
+        "pixelSha256": "53efedaae81a9aff1c9de6f80f5af0e3b73fe0aebd68052d9d932ba5b034aa02",
+        "alphaSha256": "c7bc703c137dbb94af8837a83f5b98c4bccca549313b428482c04e1772a6fd6f",
+        "width": 592,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 575,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a16-white-v1-spigen-alpha-matte.png",
+        "sha256": "a4b215b3dc3da5c84dc6cbdae9db75bf5b83e62231faa377c9031da47cba626b",
+        "pixelSha256": "f2cf0780b285aaf88a64e7e91ccf01ca0f28adb7f2ce1d993ec71062b30afcee",
+        "alphaSha256": "c7bc703c137dbb94af8837a83f5b98c4bccca549313b428482c04e1772a6fd6f",
+        "width": 592,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 575,
+          "maxY": 1157
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireVerifiedDimensions": true,
+    "shopifyStorageOnly": true,
+    "allowedDestinations": [
+      "Shopify Files",
+      "charme_product.body_image_black",
+      "charme_product.body_image_white"
+    ],
+    "forbiddenDestinations": [
+      "Shopify Product Media",
+      "Shopify variant media associations"
+    ]
+  }
+}

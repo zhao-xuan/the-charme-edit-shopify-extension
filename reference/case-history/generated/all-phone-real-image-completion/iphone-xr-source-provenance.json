@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "campaign": "all-phone-real-image-completion",
+  "recordedAt": "2026-07-31T14:59:10Z",
+  "modelId": "iphone-xr",
+  "modelName": "iPhone XR",
+  "manufacturerProductPage": "https://rhinoshield.io/products/solidsuit/buy?device=iphone-xr",
+  "manufacturerPageEvidence": {
+    "compatibility": "Compatible with iPhone XR",
+    "blackProductName": "iPhone XR SolidSuit Black",
+    "blackSku": "SST0108552",
+    "blackShopifyVariantId": "39592377090309",
+    "whiteProductName": "iPhone XR SolidSuit White",
+    "whiteSku": "SST0108553",
+    "whiteShopifyVariantId": "39592377123077"
+  },
+  "sources": [
+    {
+      "finish": "black",
+      "sourceKind": "official-source",
+      "provider": "RHINOSHIELD",
+      "productName": "iPhone XR SolidSuit Black",
+      "productSku": "SST0108552",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0108552?device-handle=iphone-xr&size=2000&lossless=1",
+      "requestHeaders": {
+        "Accept": "image/png"
+      },
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-black-rhinoshield-SST0108552.png",
+      "sourceSha256": "710b87adb60655932d4209e1c252eaa9599af3339bbe98ee1f3264cc88d7ca8b",
+      "widthPx": 2000,
+      "heightPx": 2000
+    },
+    {
+      "finish": "white",
+      "sourceKind": "official-source",
+      "provider": "RHINOSHIELD",
+      "productName": "iPhone XR SolidSuit White",
+      "productSku": "SST0108553",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0108553?device-handle=iphone-xr&size=2000&lossless=1",
+      "requestHeaders": {
+        "Accept": "image/png"
+      },
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-white-rhinoshield-SST0108553.png",
+      "sourceSha256": "5c4de577a07bf353f34f5a82a8d3678a2faab5cc2dd51e62d9643ff6d211b067",
+      "widthPx": 2000,
+      "heightPx": 2000
+    }
+  ],
+  "qa": {
+    "visualCameraAndButtons": "passed-by-review",
+    "phoneLayerExcluded": true,
+    "transparentCutout": true,
+    "nativePngResponse": true,
+    "alphaMasksExactAcrossFinishes": false,
+    "alphaDifferingPixels": 1174,
+    "alphaDifferingPixelFraction": 0.0002935,
+    "blackAlphaBoundsPx": {
+      "width": 823,
+      "height": 1587
+    },
+    "whiteAlphaBoundsPx": {
+      "width": 823,
+      "height": 1586
+    }
+  }
+}

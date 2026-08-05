@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "source": "Official Spigen US Shopify product records and original CDN gallery images",
+  "reviewedAt": "2026-08-01T21:00:00.000Z",
+  "geometryAcceptanceCriteria": [
+    "The complete case boundary is visible on a uniform white background.",
+    "The case is shown empty, without an installed phone or camera obstruction.",
+    "The view is orthogonal enough to preserve the source silhouette without perspective correction.",
+    "Every visible camera opening remains available for deterministic alpha extraction."
+  ],
+  "products": {
+    "galaxy-s9-rugged-armor": {
+      "productId": "7379492241455",
+      "title": "Galaxy S9 Series - Rugged Armor",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-s9-series-case-rugged-armor.js"
+    },
+    "galaxy-s9-tough-armor": {
+      "productId": "7379492143151",
+      "title": "Galaxy S9 Series - Tough Armor",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-s9-series-case-tough-armor.js"
+    },
+    "galaxy-s10-tough-armor": {
+      "productId": "7379491684399",
+      "title": "Galaxy S10 Series - Tough Armor",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-s10-series-case-tough-armor.js"
+    },
+    "galaxy-note20-liquid-air": {
+      "productId": "7375396765743",
+      "title": "Galaxy Note 20 Series - Liquid Air",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-note-20-series-liquid-air.js"
+    },
+    "pixel-9a-tough-armor": {
+      "productId": "7929553911855",
+      "title": "Pixel 9a Series - Tough Armor AI (Mag Fit)",
+      "productRecordUrl": "https://www.spigen.com/products/pixel-9a-series-case-tough-armor-ai-magfit.js"
+    },
+    "pixel-10-rugged-armor": {
+      "productId": "8036513382447",
+      "title": "Pixel 10 Series - Rugged Armor (Mag Fit)",
+      "productRecordUrl": "https://www.spigen.com/products/pixel-10-series-case-rugged-armor-magfit.js"
+    }
+  },
+  "candidates": [
+    {
+      "targetModelId": "galaxy-s9",
+      "targetModelName": "Galaxy S9",
+      "sourceModelId": "galaxy-s9",
+      "product": "galaxy-s9-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy S9 target, variant, media identity, SKU, and GTIN match.",
+      "variantTitle": "Galaxy S9 / Matte Black / Out of Stock",
+      "sku": "592CS22834",
+      "gtin": "8809565305177",
+      "mediaAlt": "592CS22834 - Galaxy S9 Series Rugged Armor Case in black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_galaxy_s9_ruggedarmor_08.jpg?v=1702067317",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-centered-top-camera"
+    },
+    {
+      "targetModelId": "galaxy-s9-plus",
+      "targetModelName": "Galaxy S9+",
+      "sourceModelId": "galaxy-s9-plus",
+      "product": "galaxy-s9-tough-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy S9 Plus target, variant, media identity, SKU, and GTIN match.",
+      "variantTitle": "Galaxy S9 Plus / Black / Out of Stock",
+      "sku": "593CS22933",
+      "gtin": "8809565306167",
+      "mediaAlt": "593CS22933 - Galaxy S9 Plus Tough Armor Case in black showing the inner case with spider web pattern",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_s9_plus_tougharmor_blk_010.jpg?v=1745516317",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-centered-top-camera-multilayer"
+    },
+    {
+      "targetModelId": "galaxy-s10-plus",
+      "targetModelName": "Galaxy S10+",
+      "sourceModelId": "galaxy-s10-plus",
+      "product": "galaxy-s10-tough-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy S10 Plus target, variant, media identity, SKU, and GTIN match.",
+      "variantTitle": "Galaxy S10 Plus / Black / Out of Stock",
+      "sku": "606CS25770",
+      "gtin": "8809640251979",
+      "mediaAlt": "606CS25770 - Galaxy S10 Plus Tough Armor Case in black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_s10plus_tougharmor_black_03.jpg?v=1745516647",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-wide-top-camera-multilayer"
+    },
+    {
+      "targetModelId": "galaxy-note-20-4g-5g",
+      "targetModelName": "Galaxy Note 20 4G / 5G",
+      "sourceModelId": "galaxy-note-20",
+      "product": "galaxy-note20-liquid-air",
+      "publicationEligible": true,
+      "eligibilityReason": "Samsung identifies the LTE and 5G Galaxy Note20 with identical exterior dimensions, and the official Spigen variant and media identify the shared Galaxy Note 20 case geometry without a network-specific restriction.",
+      "variantTitle": "Galaxy Note 20 / Matte Black / Out of Stock",
+      "sku": "ACS01418",
+      "gtin": "8809710754102",
+      "mediaAlt": "ACS01418 - Galaxy Note 20 Liquid Air Case in matte black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_note_20_liquidair_09.jpg?v=1701804252",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-upper-right-vertical-camera"
+    },
+    {
+      "targetModelId": "galaxy-note-20-ultra-4g-5g",
+      "targetModelName": "Galaxy Note 20 Ultra 4G / 5G",
+      "sourceModelId": "galaxy-note-20-ultra",
+      "product": "galaxy-note20-liquid-air",
+      "publicationEligible": true,
+      "eligibilityReason": "Samsung identifies the LTE and 5G Galaxy Note20 Ultra with identical exterior dimensions, and the official Spigen variant and media identify the shared Galaxy Note 20 Ultra case geometry without a network-specific restriction.",
+      "variantTitle": "Galaxy Note 20 Ultra / Matte Black / Out of Stock",
+      "sku": "ACS01392",
+      "gtin": "8809710753945",
+      "mediaAlt": "ACS01392 - Galaxy Note 20 Ultra Liquid Air Case in matte black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/products/detail_web_note_20ultra_liquidair_010.jpg?v=1746654050",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-upper-right-vertical-camera"
+    },
+    {
+      "targetModelId": "pixel-9a",
+      "targetModelName": "Pixel 9a",
+      "sourceModelId": "pixel-9a",
+      "product": "pixel-9a-tough-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Pixel 9a target, variant, media identity, SKU, and GTIN match.",
+      "variantTitle": "Pixel 9a / Black / In Stock",
+      "sku": "ACS09046",
+      "gtin": "8809971238779",
+      "mediaAlt": "ACS09046 - Pixel 9a Case Tough Armor AI (MagFit) in Black showing the inner",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_pixel9a_tougharmormagfit_black_05.jpg?v=1740158936",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-pixel-oval-camera-multilayer"
+    },
+    {
+      "targetModelId": "pixel-10",
+      "targetModelName": "Pixel 10",
+      "sourceModelId": "pixel-10-pixel-10-pro",
+      "product": "pixel-10-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "The official Spigen Pixel 10 variant uses SKU ACS09698, whose official media explicitly identifies shared Pixel 10 / Pixel 10 Pro case geometry; Google reports identical exterior dimensions for both phones.",
+      "variantTitle": "Pixel 10 / Matte Black / In Stock",
+      "sku": "ACS09698",
+      "gtin": "8800283307597",
+      "mediaAlt": "ACS09698 - Pixel 10 / Pixel 10 Pro Case Rugged Armor (MagFit) in black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajP_rugged_armor_magfit_05.jpg?v=1755810998",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-pixel-pill-camera"
+    },
+    {
+      "targetModelId": "pixel-10-pro",
+      "targetModelName": "Pixel 10 Pro",
+      "sourceModelId": "pixel-10-pixel-10-pro",
+      "product": "pixel-10-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "The official Spigen Pixel 10 Pro variant uses SKU ACS09698, whose official media explicitly identifies shared Pixel 10 / Pixel 10 Pro case geometry; Google reports identical exterior dimensions for both phones.",
+      "variantTitle": "Pixel 10 Pro / Matte Black / In Stock",
+      "sku": "ACS09698",
+      "gtin": "8800283307597",
+      "mediaAlt": "ACS09698 - Pixel 10 / Pixel 10 Pro Case Rugged Armor (MagFit) in black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajP_rugged_armor_magfit_05.jpg?v=1755810998",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-pixel-pill-camera"
+    },
+    {
+      "targetModelId": "pixel-10-pro-xl",
+      "targetModelName": "Pixel 10 Pro XL",
+      "sourceModelId": "pixel-10-pro-xl",
+      "product": "pixel-10-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Pixel 10 Pro XL target, variant, media identity, SKU, and GTIN match.",
+      "variantTitle": "Pixel 10 Pro XL / Matte Black / In Stock",
+      "sku": "ACS09721",
+      "gtin": "8800283307825",
+      "mediaAlt": "ACS09721 - Pixel 10 Pro XL Case Rugged Armor (MagFit) in black showing the inside of case",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_GajPXL_rugged_armor_magfit_05.jpg?v=1755185971",
+      "expectedWidth": 1430,
+      "expectedHeight": 1430,
+      "geometryReview": "accepted-pixel-pill-camera"
+    }
+  ]
+}

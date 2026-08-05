@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "campaign": "all-phone-real-image-completion",
+  "recordedAt": "2026-07-31T00:00:00.000Z",
+  "modelId": "iphone-6-6s",
+  "modelName": "iPhone 6 / 6s",
+  "sources": [
+    {
+      "finish": "black",
+      "sourceKind": "official-source",
+      "provider": "Apple",
+      "productName": "iPhone 6s Silicone Case - Charcoal Gray",
+      "productSku": "MKY02ZM/A",
+      "sourceUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKY02?wid=2000&hei=2000&fmt=png-alpha",
+      "evidenceUrl": "https://www.ebay.com/itm/134333673756",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-charcoal-gray-apple-MKY02.png",
+      "sourceSha256": "dafff8a1644336403d9ed809e2bbbf8aad1a0c747e575bceb8e7a36c22a4819e",
+      "widthPx": 2000,
+      "heightPx": 2000
+    },
+    {
+      "finish": "white",
+      "sourceKind": "official-source",
+      "provider": "Apple",
+      "productName": "iPhone 6s Silicone Case - White",
+      "productSku": "MKY12ZM/A",
+      "sourceUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKY12?wid=2000&hei=2000&fmt=png-alpha",
+      "evidenceUrl": "https://www.bestbuy.com/site/apple-iphone-6s-silicone-case-white/4561467.p?intl=nosplash",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-6-6s-official-white-apple-MKY12.png",
+      "sourceSha256": "2e35a953c9c73e1f75cb5c1ff7d5f8b923b3fc047655c970f518791ce9288a2b",
+      "widthPx": 2000,
+      "heightPx": 2000
+    }
+  ],
+  "qa": {
+    "visualCameraAndButtons": "passed-by-review",
+    "transparentCutout": true,
+    "alphaMasksExactAcrossFinishes": true,
+    "alphaWidthPx": 979,
+    "alphaHeightPx": 1949
+  }
+}

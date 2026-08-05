@@ -2,11 +2,31 @@
 import { readFile } from 'node:fs/promises'
 import { shopifyAdmin } from '../functions/api/_lib.js'
 
-const REPORT_PATH = 'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-all-case-review-source-upload-report.json'
+const REPORT_PATH = argumentValue(
+  'report',
+  'reference/case-history/generated/shopify-iphone-without-gel-regeneration/shopify-all-case-review-source-upload-report.json',
+)
 const CASE_HANDLE = argumentValue('case-handle', 'custom-charm-phone-case')
-const EXPECTED_MEDIA_COUNT = 68
-const EXPECTED_ASSOCIATION_COUNT = 136
+const EXPECTED_MEDIA_COUNT = Number(argumentValue('expected-media-count', '68'))
+const EXPECTED_ASSOCIATION_COUNT = Number(argumentValue('expected-association-count', '136'))
+const EXTRA_MEDIA_IDS = argumentValues('extra-media-id')
+const EXPECTED_TARGET_MEDIA_COUNT = EXPECTED_MEDIA_COUNT + EXTRA_MEDIA_IDS.length
+const allowReused = process.argv.includes('--allow-reused')
+const showProtected = process.argv.includes('--show-protected')
 const apply = process.argv.includes('--apply')
+
+if (!Number.isSafeInteger(EXPECTED_MEDIA_COUNT) || EXPECTED_MEDIA_COUNT <= 0) {
+  throw new Error('--expected-media-count must be a positive integer')
+}
+if (!Number.isSafeInteger(EXPECTED_ASSOCIATION_COUNT) || EXPECTED_ASSOCIATION_COUNT <= 0) {
+  throw new Error('--expected-association-count must be a positive integer')
+}
+if (new Set(EXTRA_MEDIA_IDS).size !== EXTRA_MEDIA_IDS.length) {
+  throw new Error('--extra-media-id values must be unique')
+}
+if (EXTRA_MEDIA_IDS.some((id) => !/^gid:\/\/shopify\/MediaImage\/\d+$/.test(id))) {
+  throw new Error('--extra-media-id must be a Shopify MediaImage GID')
+}
 
 const env = {
   SHOPIFY_STORE: process.env.SHOPIFY_STORE,
@@ -18,6 +38,14 @@ const env = {
 function argumentValue(name, fallback) {
   const index = process.argv.indexOf(`--${name}`)
   return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : fallback
+}
+
+function argumentValues(name) {
+  const values = []
+  for (let index = 0; index < process.argv.length; index += 1) {
+    if (process.argv[index] === `--${name}` && process.argv[index + 1]) values.push(process.argv[index + 1])
+  }
+  return values
 }
 
 function requireCredentials() {
@@ -72,7 +100,13 @@ const Q_PRODUCT_MEDIA = `
     node(id: $id) {
       ... on Product {
         media(first: 100, after: $after) {
-          nodes { id alt mediaContentType status }
+          nodes {
+            id
+            alt
+            mediaContentType
+            status
+            ... on MediaImage { createdAt image { url } }
+          }
           pageInfo { hasNextPage endCursor }
         }
       }
@@ -162,7 +196,7 @@ async function loadScope() {
   const entries = productMedia.map((media) => {
     const result = resultsByKey.get(`${media.modelId}\u0000${media.finish}`)
     if (!result) throw new Error(`Missing source result for ${media.modelId}/${media.finish}`)
-    if (media.mediaStatus !== 'created') {
+    if (media.mediaStatus !== 'created' && !(allowReused && media.mediaStatus === 'reused')) {
       throw new Error(`Refusing non-created product media ${media.mediaId}`)
     }
     return {
@@ -174,7 +208,8 @@ async function loadScope() {
     }
   })
 
-  const mediaIds = new Set(entries.map((entry) => entry.mediaId))
+  const reportMediaIds = new Set(entries.map((entry) => entry.mediaId))
+  const mediaIds = new Set([...reportMediaIds, ...EXTRA_MEDIA_IDS])
   const sourceFileIds = new Set(entries.map((entry) => entry.sourceFileId))
   const pairs = entries.flatMap((entry) => entry.variantIds.map((variantId) => ({
     variantId,
@@ -183,7 +218,10 @@ async function loadScope() {
   const pairIds = new Set(pairs.map(({ variantId, mediaId }) => pairKey(variantId, mediaId)))
   const variantIds = new Set(pairs.map(({ variantId }) => variantId))
 
-  if (mediaIds.size !== EXPECTED_MEDIA_COUNT) throw new Error('Report contains duplicate product media IDs')
+  if (reportMediaIds.size !== EXPECTED_MEDIA_COUNT) throw new Error('Report contains duplicate product media IDs')
+  if (mediaIds.size !== EXPECTED_TARGET_MEDIA_COUNT) {
+    throw new Error('An extra product media ID overlaps the report media IDs')
+  }
   if (sourceFileIds.size !== EXPECTED_MEDIA_COUNT) throw new Error('Report contains duplicate source File IDs')
   if ([...mediaIds].some((id) => sourceFileIds.has(id))) {
     throw new Error('Product media IDs overlap source File IDs')
@@ -280,7 +318,7 @@ async function audit(product, scope) {
     media,
     variants,
     productMediaIds: new Set(media.map((item) => item.id)),
-    reportedMediaPresent: scope.entries.filter((entry) => mediaById.has(entry.mediaId)),
+    reportedMediaPresent: [...scope.mediaIds].filter((id) => mediaById.has(id)),
     wrongAlts: scope.entries.flatMap((entry) => {
       const actual = mediaById.get(entry.mediaId)?.alt
       return actual !== undefined && actual !== entry.expectedAlt
@@ -300,7 +338,7 @@ async function audit(product, scope) {
 function printAudit(label, auditResult) {
   console.log(`${label}:`)
   console.log(`- product media: ${auditResult.media.length}`)
-  console.log(`- reported product media present: ${auditResult.reportedMediaPresent.length}/${EXPECTED_MEDIA_COUNT}`)
+  console.log(`- targeted product media present: ${auditResult.reportedMediaPresent.length}/${EXPECTED_TARGET_MEDIA_COUNT}`)
   console.log(`- reported variant associations present: ${auditResult.presentPairs.length}/${EXPECTED_ASSOCIATION_COUNT}`)
   console.log(`- unexpected associations to reported media: ${auditResult.unexpectedPairs.length}`)
   console.log(`- product media alt differences (informational): ${auditResult.wrongAlts.length}`)
@@ -319,8 +357,8 @@ function assertSourceState(auditResult) {
 }
 
 function assertBefore(auditResult, allowPartiallyDetached = false) {
-  if (auditResult.reportedMediaPresent.length !== EXPECTED_MEDIA_COUNT) {
-    throw new Error('Not all reported product media IDs are present; no write was performed')
+  if (auditResult.reportedMediaPresent.length !== EXPECTED_TARGET_MEDIA_COUNT) {
+    throw new Error('Not all targeted product media IDs are present; no write was performed')
   }
   if (auditResult.missingVariants.length) throw new Error('A reported product variant no longer exists')
   if (!allowPartiallyDetached && (
@@ -345,6 +383,20 @@ async function main() {
   const preservedMediaIds = new Set([...before.productMediaIds].filter((id) => !scope.mediaIds.has(id)))
   console.log(`- unrelated product media protected: ${preservedMediaIds.size}`)
   if (!apply) {
+    if (showProtected) {
+      const protectedMedia = before.media
+        .filter((item) => preservedMediaIds.has(item.id))
+        .map(({ id, alt, createdAt, image }) => ({
+          id,
+          alt,
+          createdAt,
+          url: image?.url || null,
+          variants: before.variants
+            .filter((variant) => variant.media.nodes.some((item) => item.id === id))
+            .map((variant) => ({ id: variant.id, selectedOptions: variant.selectedOptions })),
+        }))
+      console.log(`- protected product media details: ${JSON.stringify(protectedMedia, null, 2)}`)
+    }
     console.log('DRY RUN complete. Pass --apply to detach and remove only the reported product media.')
     return
   }
@@ -363,7 +415,7 @@ async function main() {
   if (afterDetach.presentPairs.length || afterDetach.unexpectedPairs.length) {
     throw new Error('Variant-media detach did not reach zero; product media were not removed')
   }
-  if (afterDetach.reportedMediaPresent.length !== EXPECTED_MEDIA_COUNT) {
+  if (afterDetach.reportedMediaPresent.length !== EXPECTED_TARGET_MEDIA_COUNT) {
     throw new Error('Product media changed unexpectedly during detach')
   }
   assertSourceState(afterDetach)
@@ -389,7 +441,7 @@ async function main() {
     throw new Error('The remaining product media set differs from the protected pre-write set')
   }
   assertSourceState(after)
-  console.log(`Completed: confirmed ${EXPECTED_ASSOCIATION_COUNT} associations removed (${before.presentPairs.length} detached in this run) and removed ${EXPECTED_MEDIA_COUNT} product media; preserved ${preservedMediaIds.size} unrelated product media.`)
+  console.log(`Completed: confirmed ${EXPECTED_ASSOCIATION_COUNT} associations removed (${before.presentPairs.length} detached in this run) and removed ${EXPECTED_TARGET_MEDIA_COUNT} product media; preserved ${preservedMediaIds.size} unrelated product media.`)
 }
 
 main().catch((error) => {

@@ -1,0 +1,1489 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:21:10.062Z",
+  "auditPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-source-audit-after-batch-1.json",
+  "provenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-asset-provenance.json",
+  "source": "Official same-model RhinoShield plain Black product PNGs with deterministic RGB-only White derivation",
+  "summary": {
+    "derived": 12,
+    "exactAlphaMatches": 12
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a14-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a14-5g-official-black-rhinoshield-SST0330352.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0330352?device-handle=samsung-galaxy-a14-5g&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a14-5g",
+      "sourceOfficialTitle": "Galaxy A14 (5G) SolidSuit Black",
+      "sourceSku": "SST0330352",
+      "sourceEncodedSha256": "1a2ab4a4f17fa691010b8cf3b5342bb6082b73fc6c89ae1e85b98dcaf1bcd386",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a14-5g-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "e45c8687255dedf8a4458580e84508723185e578f667d7736fc3f3b68d1bac6b",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            33,
+            160
+          ],
+          [
+            48,
+            220
+          ],
+          [
+            68.425,
+            246
+          ],
+          [
+            77,
+            252
+          ],
+          [
+            80,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "db71debcce06bbceaa0c0a5fea23b78a22091bfb8b8c01c84ba2695e346ba9e7",
+        "outputSha256": "db71debcce06bbceaa0c0a5fea23b78a22091bfb8b8c01c84ba2695e346ba9e7",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1113705,
+        "transparentPixels": 2886295,
+        "bounds": {
+          "minX": 611,
+          "minY": 208,
+          "maxX": 1380,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 33,
+          "p5": 48,
+          "p50": 68.425,
+          "p95": 77,
+          "p99": 80
+        },
+        "maximumChannelSpread": 5
+      },
+      "outputStats": {
+        "visiblePixels": 1113705,
+        "transparentPixels": 2886295,
+        "bounds": {
+          "minX": 611,
+          "minY": 208,
+          "maxX": 1380,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-a54",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a54-official-black-rhinoshield-SST0327952.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327952?device-handle=samsung-galaxy-a54&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a54",
+      "sourceOfficialTitle": "Galaxy A54 SolidSuit Black",
+      "sourceSku": "SST0327952",
+      "sourceEncodedSha256": "44eebd95327b427731ef09a18fa61122b0fd8d8a10c13964ef275350ff92901a",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a54-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "73518257f40efd51e05b5d0be63be1c7cdbe9d9f26dbe44f09f27940a3b23e6f",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            32.213,
+            160
+          ],
+          [
+            53,
+            220
+          ],
+          [
+            60,
+            246
+          ],
+          [
+            73,
+            252
+          ],
+          [
+            90,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "3e7873664c846279918c8f8a33232586735f2f1f17d8d5b8fc171ec86680a5d6",
+        "outputSha256": "3e7873664c846279918c8f8a33232586735f2f1f17d8d5b8fc171ec86680a5d6",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1157097,
+        "transparentPixels": 2842903,
+        "bounds": {
+          "minX": 595,
+          "minY": 208,
+          "maxX": 1399,
+          "maxY": 1793
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 32.213,
+          "p5": 53,
+          "p50": 60,
+          "p95": 73,
+          "p99": 90
+        },
+        "maximumChannelSpread": 2
+      },
+      "outputStats": {
+        "visiblePixels": 1157097,
+        "transparentPixels": 2842903,
+        "bounds": {
+          "minX": 595,
+          "minY": 208,
+          "maxX": 1399,
+          "maxY": 1793
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-a73",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a73-official-black-rhinoshield-SSA0324752.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324752?device-handle=samsung-galaxy-a73&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a73",
+      "sourceOfficialTitle": "Galaxy A73 SolidSuit Black",
+      "sourceSku": "SSA0324752",
+      "sourceEncodedSha256": "204a26a91ace170d2a217418997a872b8c9ddbb35b4e6e80497c5b22521e4356",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a73-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "20c9522ba2feebe94ddd33193aecab476763a8c6dfc45f2a8f59092c4058a0a5",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            9,
+            160
+          ],
+          [
+            25.787,
+            220
+          ],
+          [
+            44,
+            246
+          ],
+          [
+            52.715,
+            252
+          ],
+          [
+            76.362,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "c3b616ad9d3506ddd664524bb37eea9f70c044b2d70378ada546c5cea94c944b",
+        "outputSha256": "c3b616ad9d3506ddd664524bb37eea9f70c044b2d70378ada546c5cea94c944b",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1095541,
+        "transparentPixels": 2904459,
+        "bounds": {
+          "minX": 614,
+          "minY": 209,
+          "maxX": 1383,
+          "maxY": 1787
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 9,
+          "p5": 25.787,
+          "p50": 44,
+          "p95": 52.715,
+          "p99": 76.362
+        },
+        "maximumChannelSpread": 7
+      },
+      "outputStats": {
+        "visiblePixels": 1095541,
+        "transparentPixels": 2904459,
+        "bounds": {
+          "minX": 614,
+          "minY": 209,
+          "maxX": 1383,
+          "maxY": 1787
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s21-fe",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-fe-official-black-rhinoshield-SSA0322552.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0322552?device-handle=samsung-galaxy-s21-fe&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s21-fe",
+      "sourceOfficialTitle": "Galaxy S21 FE SolidSuit Black",
+      "sourceSku": "SSA0322552",
+      "sourceEncodedSha256": "6ec46bba8d79f83d2da4279ef5582467627137e1f123515e0f658c85529cba05",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-fe-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "a199937594c7d9bbab7848f40494cb7547d9f4a8160d5303aeb44d80089e6fc0",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            19,
+            160
+          ],
+          [
+            23,
+            220
+          ],
+          [
+            38.358,
+            246
+          ],
+          [
+            40,
+            252
+          ],
+          [
+            52,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "72375dde6b5577e5b757094568a95389cb00f2699a7cde46cd9398714b8fe2c1",
+        "outputSha256": "72375dde6b5577e5b757094568a95389cb00f2699a7cde46cd9398714b8fe2c1",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1124125,
+        "transparentPixels": 2875875,
+        "bounds": {
+          "minX": 599,
+          "minY": 208,
+          "maxX": 1393,
+          "maxY": 1792
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 19,
+          "p5": 23,
+          "p50": 38.358,
+          "p95": 40,
+          "p99": 52
+        },
+        "maximumChannelSpread": 7
+      },
+      "outputStats": {
+        "visiblePixels": 1124125,
+        "transparentPixels": 2875875,
+        "bounds": {
+          "minX": 599,
+          "minY": 208,
+          "maxX": 1393,
+          "maxY": 1792
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s21-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-plus-official-black-rhinoshield-SSA0320052.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0320052?device-handle=samsung-galaxy-s21-plus&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s21-plus",
+      "sourceOfficialTitle": "Galaxy S21 Plus SolidSuit Black",
+      "sourceSku": "SSA0320052",
+      "sourceEncodedSha256": "8c14cf5fa5576ae1df9c0b0f35fc2fe8bdbf93a610554fd40f49efb9799d3636",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-plus-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "a53ed8c3e690ee8102d2565d71539a688c0ed73b8d372ff86d3aab74a891bf75",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            25,
+            160
+          ],
+          [
+            38,
+            220
+          ],
+          [
+            39,
+            246
+          ],
+          [
+            48.43,
+            252
+          ],
+          [
+            60.073,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "45fe0add69f32bca08ceb594e9811633e1e632f8a69f8f0ad5898031186642d5",
+        "outputSha256": "45fe0add69f32bca08ceb594e9811633e1e632f8a69f8f0ad5898031186642d5",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1066891,
+        "transparentPixels": 2933109,
+        "bounds": {
+          "minX": 613,
+          "minY": 217,
+          "maxX": 1381,
+          "maxY": 1785
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 25,
+          "p5": 38,
+          "p50": 39,
+          "p95": 48.43,
+          "p99": 60.073
+        },
+        "maximumChannelSpread": 7
+      },
+      "outputStats": {
+        "visiblePixels": 1066891,
+        "transparentPixels": 2933109,
+        "bounds": {
+          "minX": 613,
+          "minY": 217,
+          "maxX": 1381,
+          "maxY": 1785
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s21-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-ultra-official-black-rhinoshield-SSA0320152.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0320152?device-handle=samsung-galaxy-s21-ultra&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s21-ultra",
+      "sourceOfficialTitle": "Galaxy S21 Ultra SolidSuit Black",
+      "sourceSku": "SSA0320152",
+      "sourceEncodedSha256": "91a4b51e5b52f0535c93431b632cc626a73cc8a5420e209325b9a8562cf4a8ff",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "69a271774ca3d1eb2e2a961021539ba00b66316f2f4b1c3008c6f0e201ce10a3",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            23,
+            160
+          ],
+          [
+            36.928,
+            220
+          ],
+          [
+            39,
+            246
+          ],
+          [
+            53.787,
+            252
+          ],
+          [
+            64.43,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "c74bedf47d8cec2ae19abc02602fdc9d7707c351d18586823bdde317087812a5",
+        "outputSha256": "c74bedf47d8cec2ae19abc02602fdc9d7707c351d18586823bdde317087812a5",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1005543,
+        "transparentPixels": 2994457,
+        "bounds": {
+          "minX": 622,
+          "minY": 218,
+          "maxX": 1372,
+          "maxY": 1783
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 23,
+          "p5": 36.928,
+          "p50": 39,
+          "p95": 53.787,
+          "p99": 64.43
+        },
+        "maximumChannelSpread": 8
+      },
+      "outputStats": {
+        "visiblePixels": 1005543,
+        "transparentPixels": 2994457,
+        "bounds": {
+          "minX": 622,
+          "minY": 218,
+          "maxX": 1372,
+          "maxY": 1783
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-6",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6-official-black-rhinoshield-SSA0223352.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0223352?device-handle=google-pixel-6&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-6",
+      "sourceOfficialTitle": "Pixel 6 SolidSuit Black",
+      "sourceSku": "SSA0223352",
+      "sourceEncodedSha256": "b0f6c246e0fc9dd30564343c77a2012524569e5db48fc528df0d05d9881fb5e3",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "d515feaf29085871035cfae98cfd8d4306cdbaa36c98a5906b45c4b092a52292",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            21.575,
+            160
+          ],
+          [
+            25.715,
+            220
+          ],
+          [
+            40.503,
+            246
+          ],
+          [
+            42.715,
+            252
+          ],
+          [
+            54,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "d6d143dce682281e5c082c421bbcb52bce2fd5fa5ae7b6bf15c4e45fd2f01301",
+        "outputSha256": "d6d143dce682281e5c082c421bbcb52bce2fd5fa5ae7b6bf15c4e45fd2f01301",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1122714,
+        "transparentPixels": 2877286,
+        "bounds": {
+          "minX": 599,
+          "minY": 175,
+          "maxX": 1394,
+          "maxY": 1784
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 21.575,
+          "p5": 25.715,
+          "p50": 40.503,
+          "p95": 42.715,
+          "p99": 54
+        },
+        "maximumChannelSpread": 17
+      },
+      "outputStats": {
+        "visiblePixels": 1122714,
+        "transparentPixels": 2877286,
+        "bounds": {
+          "minX": 599,
+          "minY": 175,
+          "maxX": 1394,
+          "maxY": 1784
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-6-pro",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6-pro-official-black-rhinoshield-SSA0223452.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0223452?device-handle=google-pixel-6-pro&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-6-pro",
+      "sourceOfficialTitle": "Pixel 6 Pro SolidSuit Black",
+      "sourceSku": "SSA0223452",
+      "sourceEncodedSha256": "29973f52a8722127185a44e9a8ebbd941e53de5d427e74434efb90f8e841d3f5",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6-pro-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "a6b8848ad287daf113f3826c1dafa6953ab707a8abca2638d8afd8aaa9edd49c",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            16,
+            160
+          ],
+          [
+            23.503,
+            220
+          ],
+          [
+            41.29,
+            246
+          ],
+          [
+            55.15,
+            252
+          ],
+          [
+            67.077,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "d8f3a1a45cf6a76000770f349e2174815d7dd7d3870b820c1212e05a8fb5ec1b",
+        "outputSha256": "d8f3a1a45cf6a76000770f349e2174815d7dd7d3870b820c1212e05a8fb5ec1b",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1080467,
+        "transparentPixels": 2919533,
+        "bounds": {
+          "minX": 611,
+          "minY": 178,
+          "maxX": 1383,
+          "maxY": 1769
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 16,
+          "p5": 23.503,
+          "p50": 41.29,
+          "p95": 55.15,
+          "p99": 67.077
+        },
+        "maximumChannelSpread": 9
+      },
+      "outputStats": {
+        "visiblePixels": 1080467,
+        "transparentPixels": 2919533,
+        "bounds": {
+          "minX": 611,
+          "minY": 178,
+          "maxX": 1383,
+          "maxY": 1769
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-7",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7-official-black-rhinoshield-SST0225852.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0225852?device-handle=google-pixel-7&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-7",
+      "sourceOfficialTitle": "Google Pixel 7 SolidSuit Black",
+      "sourceSku": "SST0225852",
+      "sourceEncodedSha256": "20d694d1b5a018042a5279c35a3d2b46fa16bc8d2406e20b7d689de13a7d64ee",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "0456ed599acb9c8d73aee519c19d2fadf47f5bacab3690e213fb155d0abfc73f",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            38,
+            160
+          ],
+          [
+            50,
+            220
+          ],
+          [
+            61.503,
+            246
+          ],
+          [
+            91,
+            252
+          ],
+          [
+            101,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "10e7965c752695fef71b24daafcb43de6d3fda67f42ccfc28ff579d61f49bd97",
+        "outputSha256": "10e7965c752695fef71b24daafcb43de6d3fda67f42ccfc28ff579d61f49bd97",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1114001,
+        "transparentPixels": 2885999,
+        "bounds": {
+          "minX": 600,
+          "minY": 198,
+          "maxX": 1393,
+          "maxY": 1805
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 38,
+          "p5": 50,
+          "p50": 61.503,
+          "p95": 91,
+          "p99": 101
+        },
+        "maximumChannelSpread": 5
+      },
+      "outputStats": {
+        "visiblePixels": 1114001,
+        "transparentPixels": 2885999,
+        "bounds": {
+          "minX": 600,
+          "minY": 198,
+          "maxX": 1393,
+          "maxY": 1805
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-7-pro",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7-pro-official-black-rhinoshield-SST0225952.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0225952?device-handle=google-pixel-7-pro&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-7-pro",
+      "sourceOfficialTitle": "Google Pixel 7 Pro SolidSuit Black",
+      "sourceSku": "SST0225952",
+      "sourceEncodedSha256": "4bb53ff9118bd52a25198b6e97652c28e25bbd7fe50e10a40ccfa763fdca73fe",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7-pro-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "03d07fbc36f5198131e347b6d04f4852880b0e738f48fb573a57f9b73a7b2ac2",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            32,
+            160
+          ],
+          [
+            40,
+            220
+          ],
+          [
+            49.285,
+            246
+          ],
+          [
+            66,
+            252
+          ],
+          [
+            83,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "ccb325b78e39c3518efb0f9f5060a0f70c6e7bccd3c1c92b989cd5c00a4cdcc4",
+        "outputSha256": "ccb325b78e39c3518efb0f9f5060a0f70c6e7bccd3c1c92b989cd5c00a4cdcc4",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1099299,
+        "transparentPixels": 2900701,
+        "bounds": {
+          "minX": 605,
+          "minY": 201,
+          "maxX": 1390,
+          "maxY": 1800
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 32,
+          "p5": 40,
+          "p50": 49.285,
+          "p95": 66,
+          "p99": 83
+        },
+        "maximumChannelSpread": 5
+      },
+      "outputStats": {
+        "visiblePixels": 1099299,
+        "transparentPixels": 2900701,
+        "bounds": {
+          "minX": 605,
+          "minY": 201,
+          "maxX": 1390,
+          "maxY": 1800
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-7a",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-7a-official-black-rhinoshield-SST0228152.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0228152?device-handle=google-pixel-7a&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-7a",
+      "sourceOfficialTitle": "Pixel 7a SolidSuit Black",
+      "sourceSku": "SST0228152",
+      "sourceEncodedSha256": "c037c7a3b988f2cc1227889c66e3d1c1b255e0a8ca9b86fc1193f83cac1b34c3",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-7a-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "f5ae71c9b22b4b5604527c26cb747c45f4bf6e9fba4c927c5ca0da4376d30ab8",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            27.425,
+            160
+          ],
+          [
+            54.425,
+            220
+          ],
+          [
+            73.213,
+            246
+          ],
+          [
+            82.213,
+            252
+          ],
+          [
+            92,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "13e07207cd5fa82eb2a596efdcd7a981d5ab45ba3a7a7b7217eb7c022a248913",
+        "outputSha256": "13e07207cd5fa82eb2a596efdcd7a981d5ab45ba3a7a7b7217eb7c022a248913",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1152412,
+        "transparentPixels": 2847588,
+        "bounds": {
+          "minX": 595,
+          "minY": 199,
+          "maxX": 1398,
+          "maxY": 1802
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 27.425,
+          "p5": 54.425,
+          "p50": 73.213,
+          "p95": 82.213,
+          "p99": 92
+        },
+        "maximumChannelSpread": 3
+      },
+      "outputStats": {
+        "visiblePixels": 1152412,
+        "transparentPixels": 2847588,
+        "bounds": {
+          "minX": 595,
+          "minY": 199,
+          "maxX": 1398,
+          "maxY": 1802
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "pixel-8",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-8-official-black-rhinoshield-SST0230152.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0230152?device-handle=google-pixel-8&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-8",
+      "sourceOfficialTitle": "Pixel 8 SolidSuit Black",
+      "sourceSku": "SST0230152",
+      "sourceEncodedSha256": "4b6569808120f6075dcb9d9c5bc13db907ca937532da0b71389ba328e70247d1",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-8-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "f9f8edc8082029af7a501f42bf51e533fdde5bd72411ca7b48279e62308e5f4e",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            39,
+            160
+          ],
+          [
+            44,
+            220
+          ],
+          [
+            66,
+            246
+          ],
+          [
+            77,
+            252
+          ],
+          [
+            84,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "8980385fb340e9a18f031c6b527f5f206bd622d6d84bc306e7fc92a4b4e43af6",
+        "outputSha256": "8980385fb340e9a18f031c6b527f5f206bd622d6d84bc306e7fc92a4b4e43af6",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1079676,
+        "transparentPixels": 2920324,
+        "bounds": {
+          "minX": 603,
+          "minY": 203,
+          "maxX": 1390,
+          "maxY": 1796
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 39,
+          "p5": 44,
+          "p50": 66,
+          "p95": 77,
+          "p99": 84
+        },
+        "maximumChannelSpread": 2
+      },
+      "outputStats": {
+        "visiblePixels": 1079676,
+        "transparentPixels": 2920324,
+        "bounds": {
+          "minX": 603,
+          "minY": 203,
+          "maxX": 1390,
+          "maxY": 1796
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    }
+  ]
+}

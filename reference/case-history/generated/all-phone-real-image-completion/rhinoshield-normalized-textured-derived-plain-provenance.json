@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:21:57.328Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-handle-asset-provenance.json",
+  "source": "Official same-model RhinoShield textured case PNGs with deterministic RGB-only texture neutralization",
+  "summary": {
+    "models": 3,
+    "candidates": 6,
+    "exactAlphaMatches": 6,
+    "automatedQaPassed": 6
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a71-4g",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a71-4g-official-carbon-fiber-black-rhinoshield-SSA0317349.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0317349?device-handle=samsung-galaxy-a71&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+      "sourceOfficialTitle": "Galaxy A71 (4G) SolidSuit Carbon Fiber / Black",
+      "sourceSku": "SSA0317349",
+      "sourceEncodedSha256": "749c032ed7ea5b0e7a8d6d4f5661d439a81c4a4c94b3daa4f0fbb4fa269fc176",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 619,
+          "minY": 221,
+          "maxX": 1375,
+          "maxY": 1781
+        },
+        "visiblePixels": 1092345,
+        "fullyTransparentPixels": 2907655,
+        "nonzeroRgbFullyTransparentPixels": 2907655,
+        "opaqueLuma": {
+          "p1": 16.072,
+          "p5": 23,
+          "p50": 43.144,
+          "p95": 92.58,
+          "p99": 107.579
+        },
+        "maximumChannelSpread": 33,
+        "meanOpaqueNeighborDelta": 9.287617,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a71-4g-black-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "81e95ea9c476b753f77f1d462a8b2567e1627c950ab2fa991dd6f4dd24011605",
+          "alphaIdentity": {
+            "sourceSha256": "c4f78332f55fbfd2836949980de4ceb9f50cd4dfde6b0f41f96b4f48335032b7",
+            "outputSha256": "c4f78332f55fbfd2836949980de4ceb9f50cd4dfde6b0f41f96b4f48335032b7",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 221,
+              "maxX": 1375,
+              "maxY": 1781
+            },
+            "visiblePixels": 1092345,
+            "fullyTransparentPixels": 2907655,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.039278,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a71-4g-white-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "17ae680ebe23de071afa8f08fe1383144fec638890d340f0ee09310a1b79bc1c",
+          "alphaIdentity": {
+            "sourceSha256": "c4f78332f55fbfd2836949980de4ceb9f50cd4dfde6b0f41f96b4f48335032b7",
+            "outputSha256": "c4f78332f55fbfd2836949980de4ceb9f50cd4dfde6b0f41f96b4f48335032b7",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 221,
+              "maxX": 1375,
+              "maxY": 1781
+            },
+            "visiblePixels": 1092345,
+            "fullyTransparentPixels": 2907655,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.019708,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-fe-4g-5g-official-carbon-fiber-black-rhinoshield-SSA0319549.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0319549?device-handle=samsung-galaxy-s20-fe&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+      "sourceOfficialTitle": "Galaxy S20 FE (4G/5G) SolidSuit Carbon Fiber / Black",
+      "sourceSku": "SSA0319549",
+      "sourceEncodedSha256": "c634bb1c4be05f73431c51927ac32bd4e49537655cc0b0ab2c1967d4967ab6af",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 619,
+          "minY": 219,
+          "maxX": 1379,
+          "maxY": 1780
+        },
+        "visiblePixels": 1098214,
+        "fullyTransparentPixels": 2901786,
+        "nonzeroRgbFullyTransparentPixels": 2901765,
+        "opaqueLuma": {
+          "p1": 27,
+          "p5": 40,
+          "p50": 53,
+          "p95": 77,
+          "p99": 87
+        },
+        "maximumChannelSpread": 9,
+        "meanOpaqueNeighborDelta": 4.099541,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-fe-4g-5g-black-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "d95eb9a012d3f97a21b6c73f6d2076ce877ce85cf0e0be65c316ef00f30fab44",
+          "alphaIdentity": {
+            "sourceSha256": "d5fe37d0d6b4980eaae8449173ac6aeebb4b66931d03c463679bea4c8992445a",
+            "outputSha256": "d5fe37d0d6b4980eaae8449173ac6aeebb4b66931d03c463679bea4c8992445a",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 219,
+              "maxX": 1379,
+              "maxY": 1780
+            },
+            "visiblePixels": 1098214,
+            "fullyTransparentPixels": 2901786,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.039322,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-fe-4g-5g-white-v1-rhinoshield-carbon-texture-neutralized.png",
+          "outputEncodedSha256": "f0f119f8ab8601ac0c1f8bc002155d2d26773903e410c7171ddba41f6de0a514",
+          "alphaIdentity": {
+            "sourceSha256": "d5fe37d0d6b4980eaae8449173ac6aeebb4b66931d03c463679bea4c8992445a",
+            "outputSha256": "d5fe37d0d6b4980eaae8449173ac6aeebb4b66931d03c463679bea4c8992445a",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 219,
+              "maxX": 1379,
+              "maxY": 1780
+            },
+            "visiblePixels": 1098214,
+            "fullyTransparentPixels": 2901786,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.019615,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-plus-4g-5g-official-leather-black-rhinoshield-SSA0315861.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0315861?device-handle=samsung-galaxy-s20-plus&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+      "sourceOfficialTitle": "Galaxy S20+ (4G/5G) SolidSuit Leather / Black",
+      "sourceSku": "SSA0315861",
+      "sourceEncodedSha256": "621a1f21f4de58dd8423d571a1d9fedc19dccf4a747a6bedebf4fb18ad6f9fe7",
+      "transform": {
+        "kind": "alpha-mask-only-matte-relighting",
+        "edgeBlurSigma": 8,
+        "edgeBlurChannels": 3,
+        "sourceRgbUsed": false,
+        "fullyTransparentRgb": "zeroed",
+        "spatialTransform": "none",
+        "alphaTransform": "none"
+      },
+      "sourceStats": {
+        "bounds": {
+          "minX": 619,
+          "minY": 211,
+          "maxX": 1372,
+          "maxY": 1790
+        },
+        "visiblePixels": 1102609,
+        "fullyTransparentPixels": 2897391,
+        "nonzeroRgbFullyTransparentPixels": 88711,
+        "opaqueLuma": {
+          "p1": 19,
+          "p5": 25,
+          "p50": 44,
+          "p95": 75.213,
+          "p99": 93.213
+        },
+        "maximumChannelSpread": 6,
+        "meanOpaqueNeighborDelta": 7.997946,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "candidates": [
+        {
+          "finish": "black",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-plus-4g-5g-black-v1-rhinoshield-leather-texture-neutralized.png",
+          "outputEncodedSha256": "1032bf1f0a8cbd70d1d411a874652275d9bfc3bd14035bf69825395421579241",
+          "alphaIdentity": {
+            "sourceSha256": "630814e4302d6ac3bf7b8cd03160827af9dd6810b33b7ea80009a69d93e39cf2",
+            "outputSha256": "630814e4302d6ac3bf7b8cd03160827af9dd6810b33b7ea80009a69d93e39cf2",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 211,
+              "maxX": 1372,
+              "maxY": 1790
+            },
+            "visiblePixels": 1102609,
+            "fullyTransparentPixels": 2897391,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 32,
+              "p5": 33,
+              "p50": 39,
+              "p95": 46,
+              "p99": 47
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.039355,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "finish": "white",
+          "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-plus-4g-5g-white-v1-rhinoshield-leather-texture-neutralized.png",
+          "outputEncodedSha256": "e344a70889d6ca1a4df08e1c1d6a9d68a77a1ee36bcef32c8461d4b3a21df08f",
+          "alphaIdentity": {
+            "sourceSha256": "630814e4302d6ac3bf7b8cd03160827af9dd6810b33b7ea80009a69d93e39cf2",
+            "outputSha256": "630814e4302d6ac3bf7b8cd03160827af9dd6810b33b7ea80009a69d93e39cf2",
+            "exact": true
+          },
+          "automatedQa": {
+            "passed": true,
+            "alphaIdentityPassed": true,
+            "boundsIdentityPassed": true,
+            "cornerTransparencyPassed": true,
+            "transparentRgbClearedPassed": true,
+            "neutralChannelsPassed": true,
+            "smoothnessPassed": true,
+            "lumaPassed": true
+          },
+          "outputStats": {
+            "bounds": {
+              "minX": 619,
+              "minY": 211,
+              "maxX": 1372,
+              "maxY": 1790
+            },
+            "visiblePixels": 1102609,
+            "fullyTransparentPixels": 2897391,
+            "nonzeroRgbFullyTransparentPixels": 0,
+            "opaqueLuma": {
+              "p1": 237,
+              "p5": 238,
+              "p50": 244,
+              "p95": 250,
+              "p99": 252
+            },
+            "maximumChannelSpread": 0,
+            "meanOpaqueNeighborDelta": 0.019697,
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

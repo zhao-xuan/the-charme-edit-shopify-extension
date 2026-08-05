@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T09:07:09.073Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-legacy-amazon-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 2,
+    "targetDefinitionsMatched": 2,
+    "images": 4,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 4,
+    "sourceFilesReady": 4,
+    "metaobjectReferencesMatched": 4,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 4,
+    "sourceFileAcceptablePixelMatches": 4
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-a40",
+      "metaobjectId": "gid://shopify/Metaobject/471829873018",
+      "expected": {
+        "modelId": "galaxy-a40",
+        "name": "Galaxy A40",
+        "widthMm": 69.2,
+        "heightMm": 144.4,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A40",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 69.2,
+        "heightMm": 144.4,
+        "legacyId": "galaxy-a40"
+      },
+      "matches": true
+    },
+    {
+      "modelId": "galaxy-a70",
+      "metaobjectId": "gid://shopify/Metaobject/471829905786",
+      "expected": {
+        "modelId": "galaxy-a70",
+        "name": "Galaxy A70",
+        "widthMm": 76.7,
+        "heightMm": 164.3,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A70",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 76.7,
+        "heightMm": 164.3,
+        "legacyId": "galaxy-a70"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-a40",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "8a53e49dfe1c681d92579495481b1209feacecd466709857c70fa85c3c456ceb",
+      "sourceFileId": "gid://shopify/MediaImage/71391787483514",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471829873018",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b59e3bd2505317c69ff2dd39bb7c19639d4d7c77eb70fd4c8381c3d0e70486ce",
+        "pixelSha256": "8c864189f02cb2786abfa10477574399e717ec38d7cbee94172e313d880dc6b5",
+        "width": 237,
+        "height": 475,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a40",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f777b3bdce6784b7ea7043ec955107383d379436ce9af005cbfe2f5cecd49ca9",
+      "sourceFileId": "gid://shopify/MediaImage/71391787942266",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471829873018",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "67ba83cd314d9adce9ef59c7690a3c6df09ca2142167fbae0bbda2da8287b00d",
+        "pixelSha256": "95addf830ddc28cbd07e20d73fe50b48d0fae85912cfb831b78a84b8e3c966c4",
+        "width": 237,
+        "height": 475,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a70",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "d67e190ec1672655ac98109824d88735bc8726f71d555d162524aef3d6150adc",
+      "sourceFileId": "gid://shopify/MediaImage/71391789154682",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471829905786",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "14c8d732cab7870f77b30b8d37b2ca27109a1124cd2d541405eb00fcd159c17b",
+        "pixelSha256": "b27aa42ad53b292359acb6331079e7ce075b8d2af1725a4b226acc070bf9b694",
+        "width": 229,
+        "height": 475,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a70",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "ee7dc3947db13e47f24ae787f1f97542f10cd608faa9eeaf3020718749f83e33",
+      "sourceFileId": "gid://shopify/MediaImage/71391789187450",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471829905786",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "ab0934521d07fc25415497da609c9efbfcb765091cabb8b8da63bb713c55c3ac",
+        "pixelSha256": "54cbcb646c994e53eb606103fc0b4a085080d09dfc7596a154d8ca0d9ea3a423",
+        "width": 229,
+        "height": 475,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

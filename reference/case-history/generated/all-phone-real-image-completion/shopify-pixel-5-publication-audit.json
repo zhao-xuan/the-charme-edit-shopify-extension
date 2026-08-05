@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T08:33:25.814Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-pixel-5-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 2,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "pixel-5",
+      "metaobjectId": "gid://shopify/Metaobject/471825449338",
+      "expected": {
+        "modelId": "pixel-5",
+        "name": "Pixel 5",
+        "widthMm": 70.4,
+        "heightMm": 144.7,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Pixel 5",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 70.4,
+        "heightMm": 144.7,
+        "legacyId": "pixel-5"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "pixel-5",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "88a8c39d3ffee3da2f843fcd801341c3e4ef98c289cd61c57643192bc90bdd22",
+      "sourceFileId": "gid://shopify/MediaImage/71391716180346",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471825449338",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": "gid://shopify/MediaImage/71391716966778",
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "524948b3a6f554f2638d69efe112a36d75351b3adbeacd91d44c433b5e396815",
+        "pixelSha256": "168af3d6d2578c34fe564c9fd261b9cf853fedda68170c346ea415f3acc79ed6",
+        "width": 479,
+        "height": 951,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-5",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "417b316cfdb4ad3dc3e43f99b93e34da4df140f374451350a29bcdd982229386",
+      "sourceFileId": "gid://shopify/MediaImage/71391716802938",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471825449338",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": "gid://shopify/MediaImage/71391717065082",
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c868ab74e7ab3447b803860fee01a966846fecb112c6620f70b3bc7cbad7c126",
+        "pixelSha256": "9fb81176a8b54eb8f62e66db5b9ac3e3b7dc73afde7be19297c333564dbb5324",
+        "width": 479,
+        "height": 951,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

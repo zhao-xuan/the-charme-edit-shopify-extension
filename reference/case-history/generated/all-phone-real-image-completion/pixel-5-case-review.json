@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-02T08:30:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/pixel-5-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/pixel-5-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "The exact Pixel 5 Spigen Thin Fit ACS01894 identity is corroborated by two Spigen catalog pages.",
+    "The real-product source is byte-identical across repeated downloads and its local SHA-256 remains locked.",
+    "The source-axis silhouette is stable across thresholds 11, 12, and 13 with no perspective or geometry reconstruction.",
+    "The visibly bounded camera and fingerprint interiors are explicitly transparent and uniquely match the strict Pixel 5 dual-opening profile.",
+    "Black and White outputs retain the visually accepted shared alpha, zero hidden RGB, neutral channels, and transparent canvas corners.",
+    "Pixel 5 physical dimensions are supported by the archived official Google hardware specification page."
+  ],
+  "summary": {
+    "sourceAssets": 1,
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "pixel-5",
+      "modelName": "Pixel 5",
+      "sourceModelId": "pixel-5",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "The reseller listing identifies Spigen Thin Fit ACS01894 for Google Pixel 5, while Spigen Philippines and Spigen Australia independently identify ACS01894 as the Pixel 5 Thin Fit case.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal real-case silhouette, source-bounded camera and fingerprint openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "manufacturer": "Google",
+        "widthMm": 70.4,
+        "heightMm": 144.7,
+        "depthMm": 8,
+        "reportedValue": "144.7 x 70.4 x 8.0",
+        "reportedLabel": "Dimensions",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/16043605?hl=en",
+        "sourcePageTitle": "Pixel phone hardware tech specs (earlier models) - Pixel Phone Help",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-02T08:30:00.000Z",
+          "evidence": [
+            {
+              "modelLabel": "Pixel 5 phone (2020)",
+              "reportedValue": "144.7 x 70.4 x 8.0",
+              "sourceUrl": "https://support.google.com/pixelphone/answer/16043605?hl=en",
+              "sourcePageTitle": "Pixel phone hardware tech specs (earlier models) - Pixel Phone Help",
+              "verificationMethod": "Expanded the archived Pixel 5 model row and read Dimensions.",
+              "httpStatus": 200,
+              "modelIdentityFound": true,
+              "reportedValueFound": true,
+              "verifiedAt": "2026-08-02T08:30:00.000Z"
+            }
+          ]
+        }
+      },
+      "sourceEvidence": {
+        "kind": "verified-reseller-real-product-image",
+        "productRecordUrl": "https://www.gsmpunt.nl/hoesjes/spigen-thin-fit-google-pixel-5-hoesje-zwart",
+        "sourceUrl": "https://cdn.gsmpunt.nl/product/90000/83890/spigen-thin-fit-google-pixel-5-hoesje-zwart_2.jpg?class=imageview",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-5-official-spigen-ACS01894-back.jpg",
+        "sha256": "81351ae4b365b187b673928d3684d9512ea88d4ff5425c42aa67579e1dba012e",
+        "productId": "83890",
+        "sku": "ACS01894",
+        "manufacturerEvidence": [
+          {
+            "url": "https://spigen.ph/shop/pixel-5/pixel-5-case-thin-fit",
+            "claim": "Pixel 5 Case Thin Fit; SKU ACS01894; compatibility Google Pixel 5"
+          },
+          {
+            "url": "https://www.spigenstore.com.au/spigen-google-pixel-5-thin-fit-2650609",
+            "claim": "Google Pixel 5 Case Thin Fit; Black ACS01894; compatibility Google Pixel 5 5G (2020)"
+          }
+        ]
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9998921498577726,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+        "sourceVisibleOpeningTransform": {
+          "openings": [
+            {
+              "id": "camera",
+              "shape": "rounded-rect",
+              "bounds": {
+                "left": 59,
+                "top": 62,
+                "right": 206,
+                "bottom": 218
+              },
+              "radius": 28,
+              "basis": "Visible inner edge of the camera aperture in source pixels"
+            },
+            {
+              "id": "fingerprint",
+              "shape": "ellipse",
+              "bounds": {
+                "left": 217,
+                "top": 239,
+                "right": 282,
+                "bottom": 307
+              },
+              "basis": "Visible inner edge of the circular fingerprint aperture in source pixels"
+            }
+          ],
+          "clearedPixels": 25717
+        },
+        "cameraOpeningProfile": {
+          "id": "pixel-5-camera-and-fingerprint",
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera",
+              "minPixels": 15000,
+              "centerX": [
+                0.23,
+                0.3
+              ],
+              "centerY": [
+                0.11,
+                0.18
+              ],
+              "width": [
+                0.27,
+                0.35
+              ],
+              "height": [
+                0.13,
+                0.19
+              ],
+              "aspect": [
+                0.85,
+                1.1
+              ]
+            },
+            {
+              "id": "fingerprint",
+              "minPixels": 2000,
+              "centerX": [
+                0.47,
+                0.55
+              ],
+              "centerY": [
+                0.24,
+                0.32
+              ],
+              "width": [
+                0.1,
+                0.16
+              ],
+              "height": [
+                0.05,
+                0.09
+              ],
+              "aspect": [
+                0.85,
+                1.15
+              ]
+            }
+          ]
+        },
+        "significantOpenings": [
+          {
+            "pixels": 22268,
+            "bounds": {
+              "minX": 59,
+              "minY": 62,
+              "maxX": 205,
+              "maxY": 217
+            },
+            "centerX": 0.267223382045929,
+            "centerY": 0.14143007360672977,
+            "width": 0.3068893528183716,
+            "height": 0.1640378548895899,
+            "aspect": 0.9423076923076923,
+            "componentIndex": 0,
+            "openingId": "camera"
+          },
+          {
+            "pixels": 3476,
+            "bounds": {
+              "minX": 217,
+              "minY": 239,
+              "maxX": 281,
+              "maxY": 306
+            },
+            "centerX": 0.511482254697286,
+            "centerY": 0.2812828601472135,
+            "width": 0.13569937369519833,
+            "height": 0.07150368033648791,
+            "aspect": 0.9558823529411765,
+            "componentIndex": 2,
+            "openingId": "fingerprint"
+          }
+        ],
+        "unexpectedSignificantHoles": [],
+        "cameraOpeningProfilePassed": true
+      },
+      "black": {
+        "sourceKind": "derived-verified-real-product-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-black-v1-spigen-alpha-matte.png",
+        "sha256": "c59a66fc69b051c93a1fbf770a9f2b2039b8e48c0d8d398eb2bdc1c01baae586",
+        "pixelSha256": "88a8c39d3ffee3da2f843fcd801341c3e4ef98c289cd61c57643192bc90bdd22",
+        "alphaSha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+        "width": 487,
+        "height": 960,
+        "alphaBounds": {
+          "minX": 4,
+          "minY": 5,
+          "maxX": 482,
+          "maxY": 955
+        }
+      },
+      "white": {
+        "sourceKind": "derived-verified-real-product-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-white-v1-spigen-alpha-matte.png",
+        "sha256": "badd71663046fabfe010076c00b2825223b336daa5e0f9712d858f34828ab58f",
+        "pixelSha256": "417b316cfdb4ad3dc3e43f99b93e34da4df140f374451350a29bcdd982229386",
+        "alphaSha256": "7b3936fbe5eaa9938b0a3d4188b9904a6aa54c85201cd6311f3a8150bfd91816",
+        "width": 487,
+        "height": 960,
+        "alphaBounds": {
+          "minX": 4,
+          "minY": 5,
+          "maxX": 482,
+          "maxY": 955
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireOfficialDimensions": true,
+    "requireExactCameraAndFingerprintOpeningProfile": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

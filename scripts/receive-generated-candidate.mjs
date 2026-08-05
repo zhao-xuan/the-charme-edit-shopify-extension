@@ -14,7 +14,10 @@ const port = Number(argument('port', '8765'))
 const resultPath = argument('result')
 const allowedDirectories = new Set([
   path.resolve('reference/case-history/generated/black-white-glitter-shape-trials/candidates'),
+  path.resolve('reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates'),
+  path.resolve('reference/case-history/generated/samsung-s24-s26-recolors/candidates'),
   path.resolve('reference/case-history/generated/shopify-iphone-without-gel-regeneration/candidates'),
+  path.resolve('reference/case-history/generated/shopify-case-phone-body-regeneration/candidates'),
 ])
 const resolvedTarget = path.resolve(target)
 

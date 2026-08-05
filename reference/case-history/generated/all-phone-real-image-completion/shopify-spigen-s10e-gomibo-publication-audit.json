@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T10:29:15.400Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-s10e-gomibo-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-s10e",
+      "metaobjectId": "gid://shopify/Metaobject/471837409658",
+      "expected": {
+        "modelId": "galaxy-s10e",
+        "name": "Galaxy S10e",
+        "widthMm": 69.9,
+        "heightMm": 142.2,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy S10e",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 69.9,
+        "heightMm": 142.2,
+        "legacyId": "galaxy-s10e"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-s10e",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "d33ae0fd29a214a932061a20708d7a0b70b3b01ee044c8edfd17ed84d891778c",
+      "sourceFileId": "gid://shopify/MediaImage/71392050282874",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471837409658",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "480b332658f90c3ee87a14df91c085a8d90b588a1f98dd705ca99f1540fc08ab",
+        "pixelSha256": "75126d72503bd046ebbef97d22d00ae6c416c0f0d3ac331b272c22891966d40d",
+        "width": 254,
+        "height": 494,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10e",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "dcbc3a944c3b5ac65aef3692a4e6304f3447ca9144bef338847f598fee5fcdd0",
+      "sourceFileId": "gid://shopify/MediaImage/71392050315642",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471837409658",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "02a47bd7628f1b52ea01bb4487628028d1f372ac1d3651fc55aea2bedf227e8b",
+        "pixelSha256": "de747c549eedffd0ca5c918c3929902632fc60bdcac12ae546e99fd3d9ad31f9",
+        "width": 254,
+        "height": 494,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

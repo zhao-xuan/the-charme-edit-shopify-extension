@@ -18,7 +18,7 @@ import ProductPicker from '../components/ProductPicker'
 import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
-import { productGroups, BRAND_LABELS, findProduct } from '../data/products'
+import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
 import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel, itemById } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
@@ -119,6 +119,7 @@ function deriveColor(product, caseColourId, gelColourId) {
 
 export default function CustomizerPage({
   onPlaceOrder,
+  onGoToCart,
   initialGroupKey,
   initialProductId,
   initialLayout,
@@ -137,7 +138,8 @@ export default function CustomizerPage({
   // so the same widget can open on a different product on each product page). A
   // valid model wins and drives its own category; otherwise fall back to the
   // chosen category, then the default.
-  const startProduct = (initialProductId && findProduct(initialProductId) && initialProductId) || null
+  const initialProduct = initialProductId && findProduct(initialProductId)
+  const startProduct = (hasCaseImage(initialProduct) && initialProductId) || null
   const startGroup =
     (startProduct &&
       PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === startProduct))?.key) ||
@@ -147,8 +149,9 @@ export default function CustomizerPage({
     startProduct ||
     // Default to the iPhone 16 Pro Max when the Apple group is active (rather than
     // the group's first entry, which is an old model).
-    (startGroup === 'apple' && findProduct('iphone-16-pro-max') ? 'iphone-16-pro-max' : null) ||
-    (PRODUCT_GROUPS.find((g) => g.key === startGroup) || PRODUCT_GROUPS[0]).products[0]?.id ||
+    (startGroup === 'apple' && hasCaseImage(findProduct('iphone-16-pro-max')) ? 'iphone-16-pro-max' : null) ||
+    (PRODUCT_GROUPS.find((g) => g.key === startGroup) || PRODUCT_GROUPS[0]).products.find((item) => hasCaseImage(item))?.id ||
+    PRODUCT_GROUPS.flatMap((group) => group.products).find((item) => hasCaseImage(item))?.id ||
     'iphone-17-pro'
 
   const [groupKey, setGroupKey] = useState(startGroup)
@@ -257,6 +260,14 @@ export default function CustomizerPage({
     () => deriveColor(product, caseColourId, gelColourId),
     [product, caseColourId, gelColourId],
   )
+  const geometryProduct = useMemo(() => {
+    const obstacles = product.printable.obstaclesByCaseColour?.[caseColourId]
+    if (!obstacles) return product
+    return {
+      ...product,
+      printable: { ...product.printable, obstacles },
+    }
+  }, [product, caseColourId])
 
   // Apply a full saved arrangement (product + case/gel finish + placed charms).
   // Shared by the dev/QA seed hook and the production preset auto-loader. `opts`
@@ -334,36 +345,53 @@ export default function CustomizerPage({
     }
   }, [applyLayout])
 
-  // Inline Step 1 dropdowns (mobile header): model list for the active platform
-  // (Android sub-grouped by brand), plus case + gel colour lists.
+  // Inline Step 1 dropdowns (mobile header), plus case + gel colour lists.
   const modelOptions = useMemo(() => {
     const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
     if (group.platform === 'android') {
-      const byBrand = new Map()
-      for (const p of group.products) {
-        if (!byBrand.has(p.brand)) byBrand.set(p.brand, [])
-        byBrand.get(p.brand).push(p)
-      }
-      return Array.from(byBrand, ([brand, items]) => ({
-        label: BRAND_LABELS[brand] || brand,
-        options: items.map((p) => ({ value: p.id, label: p.name })),
-      }))
+      const { available, comingSoon } = productsByAvailability(group.products)
+      return [
+        {
+          label: t('picker.availableNow'),
+          options: available.map((p) => ({
+            value: p.id,
+            label: p.name,
+          })),
+        },
+        {
+          label: t('picker.comingSoon'),
+          options: comingSoon.map((p) => ({
+            value: p.id,
+            label: `${p.name} · ${t('picker.comingSoon')}`,
+            disabled: true,
+          })),
+        },
+      ].filter((section) => section.options.length)
     }
-    return group.products.map((p) => ({ value: p.id, label: p.name }))
+    return group.products.map((p) => ({
+      value: p.id,
+      label: p.name,
+      disabled: !hasCaseImage(p),
+    }))
   }, [groupKey])
   const caseOptions = (product.caseColours || product.colors).map((c) => ({
     value: c.id,
     label: c.label,
+    disabled: !!c.disabled,
   }))
-  const gelOptions = product.gelColours?.map((g) => ({ value: g.id, label: g.label }))
+  const gelOptions = product.gelColours?.map((g) => ({
+    value: g.id,
+    label: g.label,
+    disabled: !!g.disabled,
+  }))
   // Charm shape masks load lazily in the browser; bump this when one arrives so
   // the layout re-validates against the real cut-out shape (not just the OBB).
   const [maskVersion, setMaskVersion] = useState(0)
   useEffect(() => onMaskReady(() => setMaskVersion((v) => v + 1)), [])
   const validation = useMemo(
-    () => validateLayout(placed, product, { minCharms: MIN_CHARMS, maxCharms: MAX_CHARMS }),
+    () => validateLayout(placed, geometryProduct, { minCharms: MIN_CHARMS, maxCharms: MAX_CHARMS }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [placed, product, maskVersion],
+    [placed, geometryProduct, maskVersion],
   )
 
   // Tray groups for the active product kind (4 categories for phones, 3 types
@@ -377,9 +405,13 @@ export default function CustomizerPage({
   // keep the case/gel selection valid when switching products
   useEffect(() => {
     const caseList = product.caseColours || product.colors
-    if (!caseList.some((c) => c.id === caseColourId)) setCaseColourId(caseList[0].id)
-    if (product.gelColours && !product.gelColours.some((g) => g.id === gelColourId)) {
-      setGelColourId(product.gelColours[0].id)
+    const currentCase = caseList.find((c) => c.id === caseColourId)
+    if (!currentCase || currentCase.disabled) {
+      setCaseColourId((caseList.find((c) => !c.disabled) || caseList[0]).id)
+    }
+    const currentGel = product.gelColours?.find((g) => g.id === gelColourId)
+    if (product.gelColours && (!currentGel || currentGel.disabled)) {
+      setGelColourId((product.gelColours.find((g) => !g.disabled) || product.gelColours[0]).id)
     }
   }, [product, caseColourId, gelColourId])
 
@@ -427,8 +459,11 @@ export default function CustomizerPage({
     setGroupKey(g)
     const group = PRODUCT_GROUPS.find((x) => x.key === g)
     // Apple defaults to the iPhone 16 Pro Max rather than the group's oldest model.
+    const firstAvailable = group.products.find((item) => hasCaseImage(item)) || group.products[0]
     const firstId =
-      g === 'apple' && findProduct('iphone-16-pro-max') ? 'iphone-16-pro-max' : group.products[0].id
+      g === 'apple' && hasCaseImage(findProduct('iphone-16-pro-max'))
+        ? 'iphone-16-pro-max'
+        : firstAvailable.id
     const to = findProduct(firstId)
     setProductId(firstId)
     // Carry a design across to the new phone (re-fitted to its footprint + camera)
@@ -444,6 +479,7 @@ export default function CustomizerPage({
   const handleProduct = (id) => {
     const from = product
     const to = findProduct(id)
+    if (!hasCaseImage(to)) return
     setProductId(id)
     setPlaced((prev) =>
       from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
@@ -482,10 +518,10 @@ export default function CustomizerPage({
   // Keep a charm's whole footprint inside the printable area (strict boundary).
   const clampToPrintable = useCallback(
     (c) => {
-      const { cx, cy } = clampCenter(charmFootprint(c), product.printable)
+      const { cx, cy } = clampCenter(charmFootprint(c), geometryProduct.printable)
       return { ...c, cxMm: cx, cyMm: cy }
     },
-    [product],
+    [geometryProduct],
   )
 
   // Gate every add path on the overall cap and a legacy bundle charm's
@@ -575,11 +611,11 @@ export default function CustomizerPage({
       // customer is never blocked from choosing the charms they want. Overlaps
       // are simply flagged for them to tidy before ordering.
       const spot =
-        findScatterSpot(product, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 }) ||
+        findScatterSpot(geometryProduct, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 }) ||
         fallbackSpot(prev, charm)
       commitPlaced(clampToPrintable(makePlaced(charm, spot)))
     },
-    [canAddMore, product, makePlaced, commitPlaced, clampToPrintable, fallbackSpot],
+    [canAddMore, geometryProduct, makePlaced, commitPlaced, clampToPrintable, fallbackSpot],
   )
 
   const activateCharm = useCallback((charm) => addAuto(charm), [addAuto])
@@ -875,7 +911,7 @@ export default function CustomizerPage({
   const stageNode = (
     <ProductStage
       ref={stageApi}
-      product={product}
+      product={geometryProduct}
       color={color}
       placed={placed}
       flags={validation.flags}
@@ -1027,6 +1063,10 @@ export default function CustomizerPage({
   // Skip the cross-sell and go straight to the cart to check out.
   const goToCart = () => {
     setCrossSellOpen(false)
+    if (onGoToCart) {
+      onGoToCart()
+      return
+    }
     if (typeof window !== 'undefined') {
       const cartUrl = (window.CharmeConfig && window.CharmeConfig.cartUrl) || '/cart'
       window.location.href = cartUrl

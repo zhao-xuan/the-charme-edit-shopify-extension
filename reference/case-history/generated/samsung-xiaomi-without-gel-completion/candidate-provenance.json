@@ -1,0 +1,2135 @@
+{
+  "schemaVersion": 1,
+  "campaign": "samsung-xiaomi-without-gel-completion",
+  "publish": false,
+  "policy": "Preserve every GPT candidate as exact original bytes with source, conversation, prompt, reference, hash, dimensions, and QA provenance. Publish only explicitly accepted candidates; do not crop, composite, retouch, or re-encode them locally.",
+  "candidates": [
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v1-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "Generate exactly ONE new image now.\n\nIMAGE 1 is the exact straight-on Samsung Galaxy S22 BLACK case source with poured glossy black Gel covering the back. IMAGE 2 is an official Samsung black silicone-cover web reference; use it only for the smooth bare silicone material.\n\nRemove ONLY the poured Gel/resin from IMAGE 1 and reveal a plain smooth matte BLACK silicone shell. Preserve IMAGE 1's exact complete outer silhouette, physical aspect, rounded corners, side buttons, framing, and every camera detail: exactly three separate vertically aligned lenses, their exact size and position, and the flash beside the top lens. Do not redesign, add, remove, move, or resize any hardware.\n\nKeep the case straight-on, centred, fully visible and uncropped. Use a tight canvas around the outermost case pixels with no white or grey margin. The area outside the case must be genuine transparent alpha, with no baked checkerboard, white halo, backdrop, floor, or drop shadow.\n\nNo Gel, resin, glossy poured pattern, charms, decoration, hands, packaging, text, watermark, or explanation. Output exactly ONE transparent PNG product image.",
+      "promptSha256": "0669659c9206fe93352b0b5584b1ddf248da0666d62793d6eaf95f5ec7279c58",
+      "referenceImages": [
+        {
+          "role": "geometry-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s22-black.png",
+          "sha256": "d66602cfa9986b26af238b2e18d109b1d417f550ae34cd178c1cd919433aa5cc",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        },
+        {
+          "role": "material-web-reference",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v1-gpt.png",
+      "sha256": "1451af4270e660f51f879daf4dddb18fc19229b10642928c86b1a2f9ac1fe529",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 231,
+          "top": 105,
+          "right": 788,
+          "bottom": 1426,
+          "width": 558,
+          "height": 1322
+        },
+        "widthFill": 0.544922,
+        "heightFill": 0.860677,
+        "visibleAspect": 0.422088,
+        "targetReferenceAspect": 0.502146,
+        "aspectDriftPercent": 15.94,
+        "transparentPixels": 839055,
+        "opaquePixels": 510023,
+        "partialAlphaPixels": 223786,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": false,
+        "failures": [
+          "aspect-ratio",
+          "tight-canvas",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bbe47-2dc4-83eb-89a3-8acca19c64c8",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000eab88243afe41f7b6ef07dbb&ts=495957&p=fs&cid=1&sig=0ceeb6f3daeab5821d90147202448a12f88132139fe22a2c07f9cd9dcdc0bc1c&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "Camera hardware and black bare-shell appearance are plausible, but the solid shell is 15.94% too narrow relative to the authoritative source. It fills only 54.49% of the canvas width and includes 223,786 partial-alpha background pixels, so it also fails the tight transparent-canvas requirement.",
+      "recordedAt": "2026-07-30T21:26:32Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v2-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "RETRY AFTER REJECTED V1-GPT - START AGAIN FROM IMAGE 1: the previous generated result is rejected. Do not edit, trace, preserve, or use that generated result as a source. Its measured solid-shell bounds were 558x1322px (width/height 0.422088), 15.94% too narrow versus IMAGE 1, and it contained 223,786 partial-alpha pixels plus broad side margins.\n\nGenerate exactly ONE new image now.\n\nIMAGE 1 remains the sole authoritative Samsung Galaxy S22 geometry source. Remove ONLY its poured glossy black Gel/resin and reveal a plain smooth matte BLACK silicone shell. IMAGE 2 controls only the bare black silicone material.\n\nGEOMETRY LOCK - HIGHEST PRIORITY: preserve IMAGE 1's exact complete outer silhouette and physical aspect. At alpha >= 128, IMAGE 1's shell bounds are 585x1165px, so the output shell width/height must be 0.502146 within 1%. Preserve its rounded corners, side buttons, framing, and all camera hardware exactly: three separate vertically aligned lenses at the same size and position, with the flash beside the top lens. Do not redesign, add, remove, move, or resize hardware.\n\nCANVAS AND ALPHA LOCK: retain IMAGE 1's tight 591x1171 portrait composition or the same 0.504697 canvas aspect. The complete shell must fill at least 98% of both canvas width and height, remain centred, fully visible, straight-on, and uncropped. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. No semi-transparent haze, white or grey margin, baked checkerboard, backdrop, floor, glow, or drop shadow. All four corner pixels must have alpha 0.\n\nNo Gel, resin, glossy poured pattern, charms, decoration, logo, text, watermark, hands, packaging, extra object, comparison, grid, crop, or explanation. Output exactly ONE transparent PNG product image.",
+      "promptSha256": "4fbee0914f1be2a0a44c2784cb3188dc549ff2d2cd35bd82af4581b937a834b7",
+      "referenceImages": [
+        {
+          "role": "geometry-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s22-black.png",
+          "sha256": "d66602cfa9986b26af238b2e18d109b1d417f550ae34cd178c1cd919433aa5cc",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        },
+        {
+          "role": "material-web-reference",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v2-gpt.png",
+      "sha256": "d33263e6e8e8a66821f6010c788d351902b3e6f860929010bc657afc2e8c49ac",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 235,
+          "top": 123,
+          "right": 786,
+          "bottom": 1435,
+          "width": 552,
+          "height": 1313
+        },
+        "widthFill": 0.539063,
+        "heightFill": 0.854818,
+        "visibleAspect": 0.420411,
+        "targetReferenceAspect": 0.502146,
+        "aspectDriftPercent": 16.28,
+        "transparentPixels": 843617,
+        "opaquePixels": 503375,
+        "partialAlphaPixels": 225872,
+        "haloPixelsOutsideDilatedCore": 6219,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 10,
+          "bottom": 0,
+          "left": 5
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bbe47-2dc4-83eb-89a3-8acca19c64c8",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000009f2881f48dfab43abc4e3ba7&ts=495957&p=fs&cid=1&sig=74cf007f6f3adf89b1b1fce1f3d7473d525ab624e64ea41eb8d6b8a6dead0b3d&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "Three vertically aligned lenses and the adjacent flash remain plausible, but the retry is 16.28% too narrow relative to the authoritative source. It fills only 53.91% x 85.48% of the canvas, has 6,219 partial-alpha pixels beyond a three-pixel antialiasing neighborhood, and leaks onto both vertical canvas edges.",
+      "recordedAt": "2026-07-30T21:51:00Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v3-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "Generate exactly ONE new image now.\n\nIMAGE 1 is the authoritative straight-on Samsung Galaxy S22 BLACK case source with poured glossy black Gel. IMAGE 2 is an official Samsung black silicone-cover web reference; it controls only the smooth matte black silicone material. IMAGE 3 is a binary silhouette guide derived pixel-for-pixel from IMAGE 1's alpha channel; its RED shape controls only the complete outer shell silhouette, width, height, rounded corners, and framing. Never render the red colour.\n\nRemove ONLY the poured Gel/resin from IMAGE 1 and reveal a plain smooth matte BLACK silicone shell. Preserve IMAGE 1's exact camera hardware: exactly three separate vertically aligned lenses at the same size and position, with the flash beside the top lens. Preserve the side buttons and all four corners. Do not add, remove, move, resize, or redesign hardware.\n\nGEOMETRY PASS/FAIL - HIGHEST PRIORITY: the solid shell must match IMAGE 3 exactly at width/height 0.502146 within 1%. The output may use a 1024x1536 transparent canvas. On that canvas, target solid-shell bounds approximately x=133..890 and y=15..1520, about 758x1506px. The complete shell must fill at least 98% of canvas height; equal transparent side margins are expected because the case is taller than a 2:3 canvas. Do not make the shell narrow like a 0.42 ratio.\n\nALPHA PASS/FAIL: outside the shell and its one-pixel antialiased edge, every pixel must have alpha 0. The side margins must be genuinely transparent, not white, grey, smoky, glowing, shadowed, or partially transparent. All four canvas corners must have alpha 0. Keep the case straight-on, centred, complete, and uncropped.\n\nNo Gel, resin, glossy poured pattern, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, backdrop, floor, or explanation. Output exactly ONE transparent PNG product image.",
+      "promptSha256": "4a929d5dae43965cf8c9b82d1bd5a8a8a8c26ba4818883c858c992b9db5fcf8e",
+      "referenceImages": [
+        {
+          "role": "geometry-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s22-black.png",
+          "sha256": "d66602cfa9986b26af238b2e18d109b1d417f550ae34cd178c1cd919433aa5cc",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        },
+        {
+          "role": "material-web-reference",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        },
+        {
+          "role": "single-source-silhouette-guide",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-black-silhouette-guide.png",
+          "sha256": "0f603cc35c1f06e3a4b443d47fef322010d5403835e55190cbcfd41d674700e6",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v3-gpt.png",
+      "sha256": "762e9f40ff4e729a901cdce0b79d082ed4dbecdc0f4a0ee624944d429b39173b",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 251,
+          "top": 121,
+          "right": 769,
+          "bottom": 1385,
+          "width": 519,
+          "height": 1265
+        },
+        "widthFill": 0.506836,
+        "heightFill": 0.823568,
+        "visibleAspect": 0.410277,
+        "targetReferenceAspect": 0.502146,
+        "aspectDriftPercent": 18.3,
+        "transparentPixels": 923167,
+        "opaquePixels": 463740,
+        "partialAlphaPixels": 185957,
+        "haloPixelsOutsideDilatedCore": 1201,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 4,
+          "bottom": 0,
+          "left": 1
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bc987-f478-83eb-8f49-92236e3fd1e9",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000094648243a5b4e95156dee722&ts=495958&p=fs&cid=1&sig=3e7e60704a5f685a15edbec99015dd4ee99dcf2034ef6c9c8135df4ff642624c&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "All three references were attached in the intended order and camera hardware remained plausible, but the solid shell became narrower: 18.30% aspect drift, 50.68% x 82.36% canvas fill, 1,201 remote partial-alpha pixels, and leakage on both vertical canvas edges.",
+      "recordedAt": "2026-07-30T22:04:39Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v4-gpt-edit",
+      "publish": false,
+      "generator": "ChatGPT image edit",
+      "promptText": "EDIT THIS IMAGE ONCE. Correct only the complete shell geometry, scale, and outside alpha.\n\nThe current image is rejected: at alpha >= 128 its shell bounds are x=251..769, y=121..1385, or 519x1265px, width/height 0.410277. It is 18.30% too narrow relative to the original IMAGE 1 and binary IMAGE 3 silhouette.\n\nOn the same 1024x1536 canvas, regenerate the complete solid shell at target bounds approximately x=133..890 and y=15..1520, about 758x1506px. The shell width/height must be 0.502146 within 1%. Increase the body width and overall scale; do not merely add padding, shadow, haze, or a border. Preserve perfectly circular lenses rather than stretching them. Preserve exactly three vertically aligned lenses, the flash beside the top lens, side buttons, matte BLACK silicone, straight-on view, and complete uncropped corners. Original IMAGE 1 remains authoritative for hardware.\n\nMake every pixel outside the shell and its one-pixel antialiased edge alpha 0. Remove all grey smoke, partial-alpha backdrop, glow, floor, and shadow. All four canvas corners must be alpha 0.\n\nNo Gel, logo, text, decoration, extra object, comparison, or explanation. Output exactly ONE corrected transparent PNG.",
+      "promptSha256": "6a689008aa09c4a65e15067378959bcbe2fc628337012eae4bf69da6ba431f01",
+      "referenceImages": [
+        {
+          "role": "gpt-edit-base",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v3-gpt.png",
+          "sha256": "762e9f40ff4e729a901cdce0b79d082ed4dbecdc0f4a0ee624944d429b39173b",
+          "format": "png",
+          "widthPx": 1024,
+          "heightPx": 1536
+        },
+        {
+          "role": "geometry-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s22-black.png",
+          "sha256": "d66602cfa9986b26af238b2e18d109b1d417f550ae34cd178c1cd919433aa5cc",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        },
+        {
+          "role": "single-source-silhouette-guide",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-black-silhouette-guide.png",
+          "sha256": "0f603cc35c1f06e3a4b443d47fef322010d5403835e55190cbcfd41d674700e6",
+          "format": "png",
+          "widthPx": 591,
+          "heightPx": 1171
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v4-gpt-edit.png",
+      "sha256": "18cff3a31ae269e5b4a63aa40c8ca5590d8d3e75dbc9da59b356b839719ec3e6",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 249,
+          "top": 136,
+          "right": 771,
+          "bottom": 1381,
+          "width": 523,
+          "height": 1246
+        },
+        "widthFill": 0.510742,
+        "heightFill": 0.811198,
+        "visibleAspect": 0.419743,
+        "targetReferenceAspect": 0.502146,
+        "aspectDriftPercent": 16.41,
+        "transparentPixels": 925474,
+        "opaquePixels": 457210,
+        "partialAlphaPixels": 190180,
+        "haloPixelsOutsideDilatedCore": 1573,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 4,
+          "bottom": 0,
+          "left": 2
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bc987-f478-83eb-8f49-92236e3fd1e9",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000a90882439723f02ba20334b3&ts=495958&p=fs&cid=1&sig=32241a4e6f001ff8b5e5e564a425c4d2ac0e9f9bea578d1f65dce741c2b2b1f4&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The GPT-side edit modestly widened the shell but still missed the source geometry by 16.41%. It also remained undersized at 51.07% x 81.12% canvas fill, retained 1,573 remote partial-alpha pixels, and leaked onto both vertical edges.",
+      "recordedAt": "2026-07-30T22:08:52Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v5-web-source-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "Transform the uploaded official Samsung Galaxy S22 black silicone-cover product image into exactly ONE clean transparent PNG.\n\nSOURCE LOCK - HIGHEST PRIORITY: use the uploaded product as the only structural and material source. Preserve its exact complete outer silhouette, width/height ratio 0.494898 within 1%, rounded corners, straight-on orientation, three separate vertically aligned circular lenses, flash beside the top lens, camera housing, and side buttons. Do not redesign, elongate, narrow, widen, move, add, or remove any hardware.\n\nMake only these changes: remove the white background; remove the SAMSUNG wordmark so the matte black back is plain; increase resolution while preserving the exact source proportions and geometry. Keep the complete case centred and uncropped. A square canvas with balanced transparent side margins is allowed. Every pixel outside the case and its one-pixel antialiased edge must have alpha 0. All four corners must be transparent.\n\nNo white or grey margin pixels, haze, glow, floor, drop shadow, checkerboard, Gel, resin, decoration, charm, text, watermark, hand, packaging, extra object, comparison, or explanation. Keep the silicone smooth matte black. Output exactly ONE transparent PNG product image.",
+      "promptSha256": "0fb0fc529fa50df9ccdc03f70ed2e826ce3cd79717108683587e680be673922a",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v5-web-source-gpt.png",
+      "sha256": "5d8593d4dba71027780bdcd1cd8c07154bab08f3b00acd7cb636c32534d6a06b",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 296,
+          "top": 65,
+          "right": 726,
+          "bottom": 955,
+          "width": 431,
+          "height": 891
+        },
+        "widthFill": 0.420898,
+        "heightFill": 0.870117,
+        "visibleAspect": 0.483726,
+        "targetReferenceAspect": 0.494898,
+        "aspectDriftPercent": 2.26,
+        "transparentPixels": 668060,
+        "opaquePixels": 317767,
+        "partialAlphaPixels": 62749,
+        "haloPixelsOutsideDilatedCore": 33,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bcbf4-d588-83eb-92af-e6d71ecd874a",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000de5c8210a09a2cbe98731253&ts=495958&p=fs&cid=1&sig=2346a9454ae1c4595cdcfe8fb31c135965e9175bfdb20ff050323917f7a18566&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The source-only transform preserved the three circular lenses, adjacent flash, camera housing, side buttons, matte black finish, and clean alpha while removing the wordmark. It is still 2.26% too narrow, however, and leaves unnecessary transparent padding at 42.09% x 87.01% canvas fill instead of the adaptive 48.50% x 98.00% minimum, so it must not be published.",
+      "recordedAt": "2026-07-30T22:26:37Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v6-web-source-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "RETRY AFTER REJECTED V5 - START AGAIN FROM THE ORIGINAL UPLOADED OFFICIAL PRODUCT IMAGE. Do not edit, trace, preserve, or use the previous generated result as a source.\n\nThe previous generated result is rejected even though its alpha and hardware were clean: its alpha>=128 shell bounds were only 431x891px on 1024x1024, width/height 0.483726, 2.26% too narrow, with unnecessary top/bottom padding.\n\nGenerate exactly ONE new transparent PNG from the ORIGINAL uploaded official Samsung Galaxy S22 black silicone-cover image. Preserve that original product's exact complete outer silhouette, rounded corners, three separate vertically aligned circular lenses, flash beside the top lens, camera housing, side buttons, and smooth matte black material. Remove only the white background and SAMSUNG wordmark.\n\nGEOMETRY PASS/FAIL - HIGHEST PRIORITY: on the 1024x1024 output canvas, make the solid shell bounds approximately x=261..761 and y=6..1017, about 501x1012px. Its width/height must be 0.494898 within 1%. Increase both the body width and overall scale relative to the rejected result. Do not stretch the circular lenses. Keep the complete case straight-on, centred, fully visible, and uncropped.\n\nALPHA PASS/FAIL: every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. Side margins must be genuinely transparent. All four corners and every outer canvas edge pixel must be alpha 0. No white or grey margin pixels, haze, glow, floor, shadow, or checkerboard.\n\nDo not add, remove, move, resize, reshape, or redesign hardware. No Gel, resin, decoration, charm, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Output exactly ONE transparent PNG.",
+      "promptSha256": "0f6161bc35a049bedb8bfb17edf0fae35c64bb4877d6f19db2df7ff414a0d1bc",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v6-web-source-gpt.png",
+      "sha256": "a2292c59031bdd1f1332566ad6b0edb41caa42b5c1aeb11f5fe310529527c092",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 292,
+          "top": 37,
+          "right": 729,
+          "bottom": 986,
+          "width": 438,
+          "height": 950
+        },
+        "widthFill": 0.427734,
+        "heightFill": 0.927734,
+        "visibleAspect": 0.461053,
+        "targetReferenceAspect": 0.494898,
+        "aspectDriftPercent": 6.84,
+        "transparentPixels": 636772,
+        "opaquePixels": 339001,
+        "partialAlphaPixels": 72803,
+        "haloPixelsOutsideDilatedCore": 41,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bcbf4-d588-83eb-92af-e6d71ecd874a",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000007e7481f48f9ce0a8a8e96613&ts=495958&p=fs&cid=1&sig=ea50d8389db8691da9fa36ebffec921fa117af63b11437996bf5faadb1cb3967&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The retry again preserved the three circular lenses, adjacent flash, camera housing, side buttons, matte black finish, and clean alpha. It increased height fill to 92.77% but narrowed the solid shell to 0.461053, 6.84% away from the official product aspect, and remained below the adaptive 48.50% x 98.00% fill requirement, so it must not be published.",
+      "recordedAt": "2026-07-30T22:32:45Z"
+    },
+    {
+      "modelId": "galaxy-s22",
+      "modelName": "Samsung Galaxy S22",
+      "finish": "black",
+      "candidateVersion": "v7-framed-source-gpt",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "Transform the uploaded preframed official Samsung Galaxy S22 black silicone-cover guide into exactly ONE clean transparent PNG.\n\nSOURCE LOCK - HIGHEST PRIORITY: the uploaded image is the sole structural and material source. It was made from the official product photo using only an exact product crop and proportional resize. Preserve its complete visible outer silhouette, 501x1012 product bounds, width/height 0.495059, rounded corners, straight-on orientation, three separate vertically aligned circular lenses, flash beside the top lens, camera housing, side buttons, and smooth matte black material. Do not reframe, rescale, narrow, widen, stretch, redraw, or redesign it.\n\nMake only two changes: remove the pure white background and remove the SAMSUNG wordmark so the back is plain. Keep the 1024x1024 canvas and keep the shell at approximately x=261..761 and y=6..1017. The shell width/height must remain within 1% of 0.494898. Keep the complete shell centred, fully visible, straight-on, and uncropped.\n\nEvery pixel outside the shell and its one-pixel antialiased edge must have alpha 0. The side margins must be genuine transparent alpha. All four corners and every outer canvas edge pixel must be alpha 0. No white or grey margin pixels, haze, glow, floor, shadow, checkerboard, Gel, resin, decoration, charm, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Output exactly ONE transparent PNG.",
+      "promptSha256": "c2ad2f85303f0349c83eb3371730a48d6f0ad1a5b2669e81d21965c9c9b071e3",
+      "referenceImages": [
+        {
+          "role": "single-preframed-structure-and-material-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-black-official-framed-guide.png",
+          "sha256": "7a5b0976e7c2a895918b4c3ba2a39bd510d18e8749a4b1d40dc0e95a763a7762",
+          "format": "png",
+          "widthPx": 1024,
+          "heightPx": 1024,
+          "derivedFromPath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "derivedFromSha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "sourceCropBoundsPx": {
+            "left": 128,
+            "top": 29,
+            "right": 321,
+            "bottom": 420,
+            "width": 194,
+            "height": 392
+          },
+          "productBoundsPx": {
+            "left": 261,
+            "top": 6,
+            "right": 761,
+            "bottom": 1017,
+            "width": 501,
+            "height": 1012
+          }
+        },
+        {
+          "role": "framed-guide-original-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-official-black-mobilefun.jpg",
+          "sourcePageUrl": "https://www.mobilefun.co.uk/official-samsung-silicone-cover-black-case-for-samsung-galaxy-s22-88246",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/88246.jpg",
+          "sha256": "1c73debb3626a5a11515b99bee2b532599eb8888f676d6f6ff14d6ec926e5bfe",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-black-v7-framed-source-gpt.png",
+      "sha256": "259827f6f90e54c3c4b6ba752861139eb5757ee7c1ddaeb715e416740bf0a135",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 292,
+          "top": 11,
+          "right": 728,
+          "bottom": 1015,
+          "width": 437,
+          "height": 1005
+        },
+        "widthFill": 0.426758,
+        "heightFill": 0.981445,
+        "visibleAspect": 0.434826,
+        "targetReferenceAspect": 0.494898,
+        "aspectDriftPercent": 12.14,
+        "transparentPixels": 613883,
+        "opaquePixels": 358940,
+        "partialAlphaPixels": 75753,
+        "haloPixelsOutsideDilatedCore": 47,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bd28e-5a9c-83eb-b1d1-d66b8b0e1a4d",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000712481f4bb65cc2916449c2c&ts=495958&p=fs&cid=1&sig=51957dbd76b3cc9941b96584cfb59801148f7bb99993da8ddb058e24c6ac53ab&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The preframed source controlled the output height and clean alpha: height fill reached 98.14%, all edges and corners stayed transparent, and remote halo remained below threshold. GPT still narrowed the shell to 0.434826, 12.14% away from the official product aspect, leaving width fill at 42.68% instead of the adaptive 48.50% minimum, so it must not be published.",
+      "recordedAt": "2026-07-30T22:42:19Z"
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "modelName": "Samsung Galaxy S22+",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-output-1-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S22+ model. Use the uploaded official Samsung EF-PS906 black product PNG as the sole structural source. Produce TWO SEPARATE downloadable transparent PNG image outputs in this single response, not a comparison, collage, grid, or composite.\n\nOUTPUT 1 - BLACK: preserve the uploaded image exactly except remove the SAMSUNG wordmark. Keep the complete straight-on matte black case, exact outer silhouette and width/height 0.494983 within 1%, three separate vertically aligned circular lenses, flash beside the top lens, camera housing, side buttons, lighting, and material.\n\nOUTPUT 2 - WHITE: make a second independent image with the exact same geometry, hardware, lighting, and material, changing only the silicone case body from matte black to clean neutral matte white. Keep all three lenses and the flash unchanged. Do not tint the lenses or flash. Do not add a wordmark.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, straight-on, uncropped, tightly framed, and on genuine transparent alpha. Every pixel outside the case and its one-pixel antialiased edge must have alpha 0. Four transparent corners; no white, grey, or black background pixels; no halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, charms, decoration, logo, text, watermark, hand, packaging, or extra object. Do not add, remove, move, resize, reshape, or redesign any lens, flash, camera housing, button, edge, or corner. Output exactly TWO separate PNG files: BLACK first, WHITE second.",
+      "promptSha256": "ddc3fe3b78a359e12a4e21b95c7f3b891483af885477191086954721c7b5704f",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-plus-official-black-samsung-530883619.png",
+          "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-plus-silicone-cover-black-ef-ps906tbegww/",
+          "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-ps906-ef-ps906tbegww-530883619?$ORIGIN_PNG$",
+          "sha256": "7d01448603406a5909a04bf3232baeedbade9d28d83c1661a24e6df516dd1af1",
+          "format": "png",
+          "widthPx": 1920,
+          "heightPx": 1280,
+          "visibleBoundsPx": {
+            "left": 665,
+            "top": 43,
+            "right": 1254,
+            "bottom": 1236,
+            "width": 590,
+            "height": 1194
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-plus-output-1-gpt.png",
+      "sha256": "12bf5f73d2accff4f0118f63d903d1a38f78832ed421e3f7b38a3793b9c85730",
+      "format": "png",
+      "widthPx": 1536,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 531,
+          "top": 35,
+          "right": 1002,
+          "bottom": 989,
+          "width": 472,
+          "height": 955
+        },
+        "widthFill": 0.307292,
+        "heightFill": 0.932617,
+        "visibleAspect": 0.494241,
+        "targetReferenceAspect": 0.494983,
+        "aspectDriftPercent": 0.15,
+        "transparentPixels": 1124963,
+        "opaquePixels": 274084,
+        "partialAlphaPixels": 173817,
+        "haloPixelsOutsideDilatedCore": 1905,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 2,
+          "right": 31,
+          "bottom": 0,
+          "left": 29
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bda1f-fb3c-83eb-bbe8-e640127e53bf",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000008a04824695683105b3f26c0b&ts=495959&p=fs&cid=1&sig=807bca1a2fea5419095d65d2c6dafd1eb3a2d50a2c5ff92b88fb191805beb18f&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The black output preserved the three lenses, adjacent flash, plain matte shell, and physical aspect within 0.15%, but generated a broad partial-alpha grey backdrop. It leaks onto three canvas edges, has 1,905 remote halo pixels, and remains below the adaptive canvas-fill thresholds, so it must not be published.",
+      "recordedAt": "2026-07-30T23:19:23Z"
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "modelName": "Samsung Galaxy S22+",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-2-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S22+ model. Use the uploaded official Samsung EF-PS906 black product PNG as the sole structural source. Produce TWO SEPARATE downloadable transparent PNG image outputs in this single response, not a comparison, collage, grid, or composite.\n\nOUTPUT 1 - BLACK: preserve the uploaded image exactly except remove the SAMSUNG wordmark. Keep the complete straight-on matte black case, exact outer silhouette and width/height 0.494983 within 1%, three separate vertically aligned circular lenses, flash beside the top lens, camera housing, side buttons, lighting, and material.\n\nOUTPUT 2 - WHITE: make a second independent image with the exact same geometry, hardware, lighting, and material, changing only the silicone case body from matte black to clean neutral matte white. Keep all three lenses and the flash unchanged. Do not tint the lenses or flash. Do not add a wordmark.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, straight-on, uncropped, tightly framed, and on genuine transparent alpha. Every pixel outside the case and its one-pixel antialiased edge must have alpha 0. Four transparent corners; no white, grey, or black background pixels; no halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, charms, decoration, logo, text, watermark, hand, packaging, or extra object. Do not add, remove, move, resize, reshape, or redesign any lens, flash, camera housing, button, edge, or corner. Output exactly TWO separate PNG files: BLACK first, WHITE second.",
+      "promptSha256": "ddc3fe3b78a359e12a4e21b95c7f3b891483af885477191086954721c7b5704f",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s22-plus-official-black-samsung-530883619.png",
+          "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-plus-silicone-cover-black-ef-ps906tbegww/",
+          "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-ps906-ef-ps906tbegww-530883619?$ORIGIN_PNG$",
+          "sha256": "7d01448603406a5909a04bf3232baeedbade9d28d83c1661a24e6df516dd1af1",
+          "format": "png",
+          "widthPx": 1920,
+          "heightPx": 1280,
+          "visibleBoundsPx": {
+            "left": 665,
+            "top": 43,
+            "right": 1254,
+            "bottom": 1236,
+            "width": 590,
+            "height": 1194
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-plus-output-2-gpt.png",
+      "sha256": "0e34671779c4ef9e41965ba9be4f67d7c728d4cc476e8426d2e2b05bc2051ce2",
+      "format": "png",
+      "widthPx": 1536,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 532,
+          "top": 35,
+          "right": 1002,
+          "bottom": 995,
+          "width": 471,
+          "height": 961
+        },
+        "widthFill": 0.306641,
+        "heightFill": 0.938477,
+        "visibleAspect": 0.490114,
+        "targetReferenceAspect": 0.494983,
+        "aspectDriftPercent": 0.98,
+        "transparentPixels": 1121551,
+        "opaquePixels": 222831,
+        "partialAlphaPixels": 228482,
+        "haloPixelsOutsideDilatedCore": 2333,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 1,
+          "right": 0,
+          "bottom": 1,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bda1f-fb3c-83eb-bbe8-e640127e53bf",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000009334821081bccdbc7cc6f1f0&ts=495959&p=fs&cid=1&sig=00eaa77a4f7eb4aa7c4db04e8212a2e0561658114f2aea757fa09595b163c477&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The white output preserved the three lenses, adjacent flash, neutral white shell, and physical aspect within 0.98%, but generated a broad partial-alpha grey backdrop. It leaks onto the top and bottom canvas edges, has 2,333 remote halo pixels, and remains below the adaptive canvas-fill thresholds, so it must not be published.",
+      "recordedAt": "2026-07-30T23:19:23Z"
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "modelName": "Samsung Galaxy S22 Ultra",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S22 Ultra model. Transform the uploaded existing Galaxy S22 Ultra BLACK bare-shell catalogue PNG into exactly ONE WHITE bare-shell transparent PNG. Use the uploaded image as the sole structural source.\n\nChange ONLY the silicone shell body from matte black to clean neutral matte white. Preserve pixel-for-pixel geometry as closely as image generation allows: the complete alpha>=128 shell bounds are 624x1364, width/height 0.457478. Keep the same straight-on orientation, exact outer silhouette, squared rounded corners, side buttons, lighting, material texture, and all camera hardware unchanged: three large vertically aligned lenses on the left, the two smaller sensors on the right, and the flash between them. Do not tint, move, resize, add, remove, merge, or redesign any lens, sensor, flash, button, edge, or corner.\n\nKeep one complete shell centred, fully visible, uncropped, and tightly framed. Preserve genuine transparent alpha outside the shell. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four canvas corners and every outer edge pixel must be transparent. No white or grey margin pixels, background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Output exactly ONE transparent PNG.",
+      "promptSha256": "7ccf3d67962ed4e061cbf89ba75d900dbe44b5fca4b79d8e2aaa49c86f52b16b",
+      "referenceImages": [
+        {
+          "role": "single-existing-catalogue-structure-source",
+          "path": "public/assets/cases/case-without-gel/galaxy-s22-ultra-black.png",
+          "sha256": "ce23955d3943a349ec320919051acd187511b910fb253797938d7924138a39d5",
+          "format": "png",
+          "widthPx": 630,
+          "heightPx": 1370,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 626,
+            "bottom": 1366,
+            "width": 624,
+            "height": 1364
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s22-ultra-white-v1-gpt.png",
+      "sha256": "c6d611bce43fa99ae420312ea72f572cabbf621e65a6853ea10d14794e67ff1a",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 89,
+          "top": 0,
+          "right": 927,
+          "bottom": 1535,
+          "width": 839,
+          "height": 1536
+        },
+        "widthFill": 0.819336,
+        "heightFill": 1,
+        "visibleAspect": 0.546224,
+        "targetReferenceAspect": 0.457478,
+        "aspectDriftPercent": 19.4,
+        "transparentPixels": 1117756,
+        "opaquePixels": 97382,
+        "partialAlphaPixels": 357726,
+        "haloPixelsOutsideDilatedCore": 106912,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 502,
+          "right": 15,
+          "bottom": 798,
+          "left": 2
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bdceb-65d0-83eb-80cd-8b85b82cdb5a",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000917c820ab7d44f8d8121d13a&ts=495959&p=fs&cid=1&sig=e246216a9d6cf093fcaf6f5cf43676064276db5c5e9f874906393ba3d172ee60&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The one-shot white recolour retained the five visible camera and sensor circles, flash, and side buttons, but widened the shell by 19.40%, touched all four canvas edges, and created 106,912 remote partial-alpha backdrop pixels. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-30T23:27:21Z"
+    },
+    {
+      "modelId": "galaxy-s23",
+      "modelName": "Samsung Galaxy S23",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-1-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S23 model. Use the uploaded model-specific straight-on Samsung Galaxy S23 silicone-cover product image as the sole structural source. Produce TWO SEPARATE downloadable transparent PNG outputs in this single response, not a comparison, collage, grid, or composite.\n\nOUTPUT 1 - BLACK: one complete smooth matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete neutral matte WHITE silicone shell. For both, remove the white source background and remove the SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and width/height 0.503896 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lighting, and material. Keep every lens and the flash identical between outputs.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas. Do not use a landscape canvas. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. Four transparent corners and no pixel on an outer canvas edge may be visible. No white, grey, or black background pixels, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Output exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "d0974e973463984e3105771ccc9cab5a8b921cc1071b35382e0a4a62872279ac",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s23-official-cotton-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/92507.jpg",
+          "sha256": "40cba6b8b54e170dac8edbfab3daa5a948cac61f3368a2b9267581111b6e66c1",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 128,
+            "top": 33,
+            "right": 321,
+            "bottom": 417,
+            "width": 194,
+            "height": 385
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s23-output-1-gpt.png",
+      "sha256": "f340e2e133eeae24518bbadbe8bc7cc25c947a98f0f785e33b82484952d5c681",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 296,
+          "top": 73,
+          "right": 723,
+          "bottom": 956,
+          "width": 428,
+          "height": 884
+        },
+        "widthFill": 0.417969,
+        "heightFill": 0.863281,
+        "visibleAspect": 0.484163,
+        "targetReferenceAspect": 0.503896,
+        "aspectDriftPercent": 3.92,
+        "transparentPixels": 673068,
+        "opaquePixels": 268210,
+        "partialAlphaPixels": 107298,
+        "haloPixelsOutsideDilatedCore": 10,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bdf6d-da40-83eb-8e53-22c8b10fe6e5",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000069c8824393988f51971d9b4b&ts=495959&p=fs&cid=1&sig=2f25f6d9c1982b1b3c822bfcc820cf264ab76052702152dfbece1d71521a489e&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The first output is visually the white finish despite the requested order. It preserves three circular lenses, the adjacent flash, transparent corners, clean outer edges, and low remote halo, but is 3.92% too narrow and fills only 41.80% x 86.33% of the square canvas. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-30T23:39:11Z"
+    },
+    {
+      "modelId": "galaxy-s23",
+      "modelName": "Samsung Galaxy S23",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-output-2-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S23 model. Use the uploaded model-specific straight-on Samsung Galaxy S23 silicone-cover product image as the sole structural source. Produce TWO SEPARATE downloadable transparent PNG outputs in this single response, not a comparison, collage, grid, or composite.\n\nOUTPUT 1 - BLACK: one complete smooth matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete neutral matte WHITE silicone shell. For both, remove the white source background and remove the SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and width/height 0.503896 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lighting, and material. Keep every lens and the flash identical between outputs.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas. Do not use a landscape canvas. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. Four transparent corners and no pixel on an outer canvas edge may be visible. No white, grey, or black background pixels, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Output exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "d0974e973463984e3105771ccc9cab5a8b921cc1071b35382e0a4a62872279ac",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s23-official-cotton-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/92507.jpg",
+          "sha256": "40cba6b8b54e170dac8edbfab3daa5a948cac61f3368a2b9267581111b6e66c1",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 128,
+            "top": 33,
+            "right": 321,
+            "bottom": 417,
+            "width": 194,
+            "height": 385
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s23-output-2-gpt.png",
+      "sha256": "368bdf20f5681778355cacce56c48f5878d9c38762411f34827d158dec091ed4",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 296,
+          "top": 73,
+          "right": 723,
+          "bottom": 959,
+          "width": 428,
+          "height": 887
+        },
+        "widthFill": 0.417969,
+        "heightFill": 0.866211,
+        "visibleAspect": 0.482525,
+        "targetReferenceAspect": 0.503896,
+        "aspectDriftPercent": 4.24,
+        "transparentPixels": 673960,
+        "opaquePixels": 308826,
+        "partialAlphaPixels": 65790,
+        "haloPixelsOutsideDilatedCore": 5,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bdf6d-da40-83eb-8e53-22c8b10fe6e5",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000cde4820a81a05476174a8e66&ts=495959&p=fs&cid=1&sig=0f7f51eec292a0071551c6e428b6f58f1e18ad16a6ea91b5febeb3dcc4eac8a9&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The second output is visually the black finish despite the requested order. It preserves three circular lenses, the adjacent flash, transparent corners, clean outer edges, and low remote halo, but is 4.24% too narrow and fills only 41.80% x 86.62% of the square canvas. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-30T23:39:11Z"
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "modelName": "Samsung Galaxy S23+",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-1-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S23+ model. Produce TWO SEPARATE downloadable transparent PNG outputs in this single response, not a comparison, collage, grid, or composite.\n\nIMAGE 1 is the model-specific straight-on official S23+ silicone cover. It alone controls the complete outer silhouette, physical width/height 0.497159 within 1%, rounded corners, side buttons, smooth silicone material, and straight-on framing. IMAGE 2 is the existing same-model Gel catalogue image. It controls ONLY the actual hardware inside IMAGE 1's four openings: three separate vertically aligned circular lenses and the flash beside the top lens. Never copy IMAGE 2's poured Gel pattern or narrower outer silhouette.\n\nOUTPUT 1 - BLACK: one complete smooth matte BLACK shell. OUTPUT 2 - WHITE: one complete neutral matte WHITE shell. Remove IMAGE 1's white background and SAMSUNG wordmark. Insert the unchanged three lenses and flash from IMAGE 2 into the corresponding openings.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. Four transparent corners and no visible outer-edge pixels. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Do not add, remove, move, resize, reshape, or redesign hardware or shell geometry. Output exactly TWO separate PNG files: BLACK first, WHITE second.",
+      "promptSha256": "15d417bdb748258405394ff1044795f52f34078df17c77c971c34fd144f8fef0",
+      "referenceImages": [
+        {
+          "role": "outer-silhouette-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s23-plus-official-cotton-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/92554.jpg",
+          "sha256": "083d77e49181a1cb531937f34c687be082f8584d7bccbe5a0edad4c35d6cc71a",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 137,
+            "top": 49,
+            "right": 311,
+            "bottom": 400,
+            "width": 175,
+            "height": 352
+          }
+        },
+        {
+          "role": "same-model-camera-hardware-catalogue-reference",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s23-plus-black.png",
+          "sha256": "1f321d7e4d1e7285081c871ef750202986ab9336c59e88f29a079f119882b18c",
+          "format": "png",
+          "widthPx": 563,
+          "heightPx": 1146,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 559,
+            "bottom": 1142,
+            "width": 557,
+            "height": 1140
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s23-plus-output-1-gpt.png",
+      "sha256": "6147dec07df97409aac4ca924871d371216714eaddf586d9f455db8a8a84b691",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 249,
+          "top": 173,
+          "right": 773,
+          "bottom": 1365,
+          "width": 525,
+          "height": 1193
+        },
+        "widthFill": 0.512695,
+        "heightFill": 0.776693,
+        "visibleAspect": 0.440067,
+        "targetReferenceAspect": 0.497159,
+        "aspectDriftPercent": 11.48,
+        "transparentPixels": 946355,
+        "opaquePixels": 365699,
+        "partialAlphaPixels": 260810,
+        "haloPixelsOutsideDilatedCore": 1905,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 39,
+          "bottom": 0,
+          "left": 82
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be1d7-ce24-83eb-8544-862656538bd3",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000528081f4854db86dd7e41b7d&ts=495959&p=fs&cid=1&sig=b78e041fe158f169e9234159bee0eaa22d70e409d2f245145e1a7106bdb87335&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The first output is visually white instead of the requested black finish. It retained three circular lenses and the adjacent flash, but narrowed the shell by 11.48%, filled only 51.27% x 77.67% of the portrait canvas, leaked partial-alpha backdrop onto the left and right edges, and left 1,905 remote halo pixels. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-31T00:08:09Z"
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "modelName": "Samsung Galaxy S23+",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-2-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S23+ model. Produce TWO SEPARATE downloadable transparent PNG outputs in this single response, not a comparison, collage, grid, or composite.\n\nIMAGE 1 is the model-specific straight-on official S23+ silicone cover. It alone controls the complete outer silhouette, physical width/height 0.497159 within 1%, rounded corners, side buttons, smooth silicone material, and straight-on framing. IMAGE 2 is the existing same-model Gel catalogue image. It controls ONLY the actual hardware inside IMAGE 1's four openings: three separate vertically aligned circular lenses and the flash beside the top lens. Never copy IMAGE 2's poured Gel pattern or narrower outer silhouette.\n\nOUTPUT 1 - BLACK: one complete smooth matte BLACK shell. OUTPUT 2 - WHITE: one complete neutral matte WHITE shell. Remove IMAGE 1's white background and SAMSUNG wordmark. Insert the unchanged three lenses and flash from IMAGE 2 into the corresponding openings.\n\nFor BOTH outputs: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. Four transparent corners and no visible outer-edge pixels. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, comparison, grid, or explanation. Do not add, remove, move, resize, reshape, or redesign hardware or shell geometry. Output exactly TWO separate PNG files: BLACK first, WHITE second.",
+      "promptSha256": "15d417bdb748258405394ff1044795f52f34078df17c77c971c34fd144f8fef0",
+      "referenceImages": [
+        {
+          "role": "outer-silhouette-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s23-plus-official-cotton-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/92554.jpg",
+          "sha256": "083d77e49181a1cb531937f34c687be082f8584d7bccbe5a0edad4c35d6cc71a",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 137,
+            "top": 49,
+            "right": 311,
+            "bottom": 400,
+            "width": 175,
+            "height": 352
+          }
+        },
+        {
+          "role": "same-model-camera-hardware-catalogue-reference",
+          "path": "public/assets/cases/case-with-gel/integrated-galaxy-s23-plus-black.png",
+          "sha256": "1f321d7e4d1e7285081c871ef750202986ab9336c59e88f29a079f119882b18c",
+          "format": "png",
+          "widthPx": 563,
+          "heightPx": 1146,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 559,
+            "bottom": 1142,
+            "width": 557,
+            "height": 1140
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s23-plus-output-2-gpt.png",
+      "sha256": "512e3bfd5891121ca368f2e61d829e3fa514f2ebeae9e3028a0db6ab0d745d15",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 264,
+          "top": 175,
+          "right": 761,
+          "bottom": 1312,
+          "width": 498,
+          "height": 1138
+        },
+        "widthFill": 0.486328,
+        "heightFill": 0.740885,
+        "visibleAspect": 0.43761,
+        "targetReferenceAspect": 0.497159,
+        "aspectDriftPercent": 11.98,
+        "transparentPixels": 1012973,
+        "opaquePixels": 334622,
+        "partialAlphaPixels": 225269,
+        "haloPixelsOutsideDilatedCore": 797,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 1,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be1d7-ce24-83eb-8544-862656538bd3",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000004dc88246a816fe772a62c2a3&ts=495959&p=fs&cid=1&sig=d0e624becd43e26e2e60e966dce9201e5d240a21defe5fde71cda21854b33f05&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The second output is also visually white, so the single request produced no black candidate. It retained three circular lenses and the adjacent flash, but narrowed the shell by 11.98%, filled only 48.63% x 74.09% of the portrait canvas, leaked one visible pixel onto the right edge, and left 797 remote halo pixels. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-31T00:08:09Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-internal-output-1-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-1-gpt.png",
+      "sha256": "b483fb3ebe1226694dbf2981eca8f54ad115ef1dfd5e56885a43c04beb2891f1",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 316,
+          "top": 115,
+          "right": 706,
+          "bottom": 912,
+          "width": 391,
+          "height": 798
+        },
+        "widthFill": 0.381836,
+        "heightFill": 0.779297,
+        "visibleAspect": 0.489975,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 0.3,
+        "transparentPixels": 738590,
+        "opaquePixels": 213017,
+        "partialAlphaPixels": 96969,
+        "haloPixelsOutsideDilatedCore": 1,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000032208246ba2adb2650d858ed&ts=495960&p=fs&cid=1&sig=f9fd0139030935710c7b3572615469a1dd71922a4e5ccb1508596263cdbfbeab&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The first internal output is visually white instead of the requested first black file. It preserved the three lenses, adjacent flash, physical aspect within 0.30%, transparent corners, clean edges, and low remote halo, but placed the case on a square canvas with only 38.18% x 77.93% fill. It must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-internal-output-2-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-2-gpt.png",
+      "sha256": "185b51e966cd791e8f1eead138408868c32e65e4708d3f5203d1e2973c965d5e",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 314,
+          "top": 83,
+          "right": 704,
+          "bottom": 917,
+          "width": 391,
+          "height": 835
+        },
+        "widthFill": 0.381836,
+        "heightFill": 0.81543,
+        "visibleAspect": 0.468263,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 4.71,
+        "transparentPixels": 724512,
+        "opaquePixels": 251159,
+        "partialAlphaPixels": 72905,
+        "haloPixelsOutsideDilatedCore": 61,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000054e8820cafceb1174a24004b&ts=495960&p=fs&cid=1&sig=ef1c66a3c5a51af8ea39d5a9a22ec139b9b2cfc4fd73841d764af6d711d1407b&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The second internal output is visually black and retains the three lenses and adjacent flash, but is 4.71% too narrow and fills only 38.18% x 81.54% of the square canvas. It must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-internal-output-3-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-3-gpt.png",
+      "sha256": "41b259bfd8f125cf63659a7ff035d1d3d0c293e22c003a7a5dd115a7f27b4e2b",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 315,
+          "top": 91,
+          "right": 706,
+          "bottom": 923,
+          "width": 392,
+          "height": 833
+        },
+        "widthFill": 0.382813,
+        "heightFill": 0.813477,
+        "visibleAspect": 0.470588,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 4.24,
+        "transparentPixels": 725971,
+        "opaquePixels": 254596,
+        "partialAlphaPixels": 68009,
+        "haloPixelsOutsideDilatedCore": 104,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 1,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000f898824697f84f5f4ddb1296&ts=495960&p=fs&cid=1&sig=6b06d69db483f9407a078968e371b05f7468c18e83ca69e64da11d1e72528721&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The third internal output is visually black, but is 4.24% too narrow, fills only 38.28% x 81.35% of the square canvas, leaks onto the right canvas edge, and exceeds the remote-halo threshold. It must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-internal-output-4-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-4-gpt.png",
+      "sha256": "9bc958d85f89d42d26eafc7e8755b39b6e0f0157ae947a8e3eb7d34266ff7511",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 315,
+          "top": 85,
+          "right": 707,
+          "bottom": 949,
+          "width": 393,
+          "height": 865
+        },
+        "widthFill": 0.383789,
+        "heightFill": 0.844727,
+        "visibleAspect": 0.454335,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 7.55,
+        "transparentPixels": 709822,
+        "opaquePixels": 232744,
+        "partialAlphaPixels": 106010,
+        "haloPixelsOutsideDilatedCore": 0,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill",
+          "aspect-ratio"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000018881f6bb8d2888cc0fcfde&ts=495960&p=fs&cid=1&sig=a86872eb73bc860f03501adbb2a9de3c671b799a9d40ff908c746fda726ff536&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The fourth internal output is visually white, but is 7.55% too narrow and fills only 38.38% x 84.47% of the square canvas. It must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-internal-output-5-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-5-gpt.png",
+      "sha256": "264a71970a3c7969af5fe1626df39115e0776193cff8d581dc6acde5917becec",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 317,
+          "top": 109,
+          "right": 705,
+          "bottom": 917,
+          "width": 389,
+          "height": 809
+        },
+        "widthFill": 0.379883,
+        "heightFill": 0.790039,
+        "visibleAspect": 0.480841,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 2.15,
+        "transparentPixels": 733608,
+        "opaquePixels": 202627,
+        "partialAlphaPixels": 112341,
+        "haloPixelsOutsideDilatedCore": 2142,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "edgePixels": {
+          "top": 3,
+          "right": 51,
+          "bottom": 6,
+          "left": 2
+        },
+        "passed": false,
+        "failures": [
+          "transparent-corners",
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000e0a08246a615f6a4b26cd429&ts=495960&p=fs&cid=1&sig=9a1a3ee0bfbaeab803b88d60f764f318b9b2dc56d781dbbc5d6f4c3576b24ec3&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The fifth internal output is visually white, but is 2.15% too narrow, fills only 37.99% x 79.00% of the square canvas, leaks partial alpha onto every edge, leaves a nontransparent bottom-left corner, and has 2,142 remote halo pixels. It must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-internal-output-6-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-6-gpt.png",
+      "sha256": "f8f623924c3a6a34fa58cf836144be76e2ec0d31b1b66e31d571cfa11b8edf4d",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 314,
+          "top": 111,
+          "right": 705,
+          "bottom": 914,
+          "width": 392,
+          "height": 804
+        },
+        "widthFill": 0.382813,
+        "heightFill": 0.785156,
+        "visibleAspect": 0.487562,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 0.79,
+        "transparentPixels": 736361,
+        "opaquePixels": 234818,
+        "partialAlphaPixels": 77397,
+        "haloPixelsOutsideDilatedCore": 48,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000018e0824382d995066726084e&ts=495960&p=fs&cid=1&sig=bddc238a7ebc027519777a4561da7d1c8462cd60f98913899b834a2fdc15544c&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The final black output preserved the requested finish, three lenses, adjacent flash, clean canvas edges, low remote halo, and physical aspect within 0.79%. It still fills only 38.28% x 78.52% of a square canvas instead of the required tightly framed portrait canvas, so it must not be published.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "modelName": "Samsung Galaxy S24",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-internal-output-7-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24 model. Use the one uploaded model-specific straight-on Samsung Galaxy S24 silicone-cover product image as the sole structural and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the white source background, source shadow, and SAMSUNG wordmark. Preserve the source's exact complete outer silhouette and physical width/height 0.491429 within 1%, straight-on orientation, rounded corners, side buttons, three separate vertically aligned circular lenses, flash beside the top lens, lens spacing, lighting, and silicone material. Keep every lens and the flash identical between outputs. Change only the shell-body colour.\n\nFor BOTH files: one complete case per PNG, centred, fully visible, uncropped, and tightly framed on a PORTRAIT transparent canvas with 1%-2% transparent padding and at least 98% canvas-height fill. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent. No background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any lens, flash, button, edge, or corner. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5b434a018b55e6de7bcc83c4435658c11ffa781a738c60dcff29b486359ac997",
+      "referenceImages": [
+        {
+          "role": "single-structure-and-material-web-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-official-white-mobilefun.jpg",
+          "sourceUrl": "https://images.mobilefun.co.uk/graphics/450pixelp/98647.jpg",
+          "sha256": "86cbf9c52fa95baea19f142ca67571197af0ad90527c1761f8b3a426b6f38a1f",
+          "format": "jpeg",
+          "widthPx": 450,
+          "heightPx": 450,
+          "visibleBoundsPx": {
+            "left": 139,
+            "top": 50,
+            "right": 310,
+            "bottom": 399,
+            "width": 172,
+            "height": 350
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-internal-output-7-gpt.png",
+      "sha256": "3018cd6e7634007eb08ebc8b77fc8b7f80f6193bafbcfe7c24f49da90530911b",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1024,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 313,
+          "top": 111,
+          "right": 706,
+          "bottom": 917,
+          "width": 394,
+          "height": 807
+        },
+        "widthFill": 0.384766,
+        "heightFill": 0.788086,
+        "visibleAspect": 0.488228,
+        "targetReferenceAspect": 0.491429,
+        "aspectDriftPercent": 0.65,
+        "transparentPixels": 735880,
+        "opaquePixels": 202760,
+        "partialAlphaPixels": 109936,
+        "haloPixelsOutsideDilatedCore": 1,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "passed": false,
+        "failures": [
+          "width-fill",
+          "height-fill"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6be9bd-ca14-83eb-a0d7-615ed82fa8c0",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000666c8246859eb7f0bbad234b&ts=495960&p=fs&cid=1&sig=c23984a99e5df6f4d083445ee30ba80f2607be92e4e541599281b997eb446521&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The final white output preserved the requested finish, three lenses, adjacent flash, clean canvas edges, negligible remote halo, and physical aspect within 0.65%. It still fills only 38.48% x 78.81% of a square canvas instead of the required tightly framed portrait canvas, so it must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-31T00:32:35Z"
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "modelName": "Samsung Galaxy S24+",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-1-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24+ model. Use the one uploaded official Samsung EF-PS926 straight-on Galaxy S24+ silicone-case PNG as the sole structural, hardware, lighting, and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the SAMSUNG wordmark. Preserve the source case pixel-for-pixel in structure: exact complete outer silhouette and physical width/height 0.492462 within 1%, straight-on orientation, rounded corners, left-side buttons, exactly three separate vertically aligned circular lenses, flash beside the top lens, lens sizes and spacing, lighting, and silicone surface. Keep every lens, flash, button, edge, and corner identical between outputs. Change only the shell-body colour.\n\nCANVAS IS A HARD PASS/FAIL REQUIREMENT FOR BOTH FILES: use a PORTRAIT transparent canvas whose aspect follows the tall case, not a square or landscape canvas. Crop the transparent canvas only, never the case, so the alpha>=128 case bounds have 1%-2% transparent padding on every side, fill at least 96% of canvas width and 96% of canvas height, and remain fully visible and uncropped. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent.\n\nNo background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any hardware or shell geometry. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5241f9f67b324d6506d2a0a5ca17057e95ec0d130a5af94c34f61611eb4902e3",
+      "referenceImages": [
+        {
+          "role": "single-structure-hardware-and-material-official-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-plus-official-white-samsung-539354474.png",
+          "sourcePageUrl": "https://www.samsung.com/de/business/mobile-accessories/galaxy-s24-plus-silicone-case-white-ef-ps926twegww/",
+          "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/de/2401/gallery/de-galaxy-s24plus-ps926-ef-ps926twegww-539354474",
+          "productSku": "EF-PS926TWEGWW",
+          "sha256": "ff56ecf4502f9bd558efddf78bcd2c528727f5bfa265edd451c6e8ba5ba2a27c",
+          "format": "png",
+          "widthPx": 1920,
+          "heightPx": 1280,
+          "visibleBoundsPx": {
+            "left": 666,
+            "top": 43,
+            "right": 1253,
+            "bottom": 1236,
+            "width": 588,
+            "height": 1194
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-plus-output-1-gpt.png",
+      "sha256": "584b89bf717b80a9b2102d7762b8e33510277e3d791b483aee8e96c44ba45a11",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 276,
+          "top": 195,
+          "right": 743,
+          "bottom": 1290,
+          "width": 468,
+          "height": 1096
+        },
+        "widthFill": 0.457031,
+        "heightFill": 0.713542,
+        "visibleAspect": 0.427007,
+        "targetReferenceAspect": 0.492462,
+        "aspectDriftPercent": 13.29,
+        "transparentPixels": 1063197,
+        "opaquePixels": 275139,
+        "partialAlphaPixels": 234528,
+        "haloPixelsOutsideDilatedCore": 942,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 3,
+          "bottom": 0,
+          "left": 1
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bf992-0954-83ed-8ca9-9a0d295f1ad6",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000007368824688761637a83f06f9&ts=495961&p=fs&cid=1&sig=dc0653ab2b2ecba998ff69159287fa9e5991b078bfac9ed20ed21d92895d21b9&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The first output is visually white instead of the requested first black file. It preserves three separate lenses, the adjacent flash, and a plausible matte shell, but the body is 13.29% too narrow, fills only 45.70% x 71.35% of the portrait canvas, leaks onto both vertical canvas edges, and leaves 942 remote partial-alpha pixels in a broad grey halo. It must not be published.",
+      "recordedAt": "2026-07-31T01:31:42Z"
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "modelName": "Samsung Galaxy S24+",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-output-2-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Samsung Galaxy S24+ model. Use the one uploaded official Samsung EF-PS926 straight-on Galaxy S24+ silicone-case PNG as the sole structural, hardware, lighting, and material source. Produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nOUTPUT 1 - BLACK: one complete smooth neutral matte BLACK silicone shell. OUTPUT 2 - WHITE: one complete smooth neutral matte WHITE silicone shell. Remove the SAMSUNG wordmark. Preserve the source case pixel-for-pixel in structure: exact complete outer silhouette and physical width/height 0.492462 within 1%, straight-on orientation, rounded corners, left-side buttons, exactly three separate vertically aligned circular lenses, flash beside the top lens, lens sizes and spacing, lighting, and silicone surface. Keep every lens, flash, button, edge, and corner identical between outputs. Change only the shell-body colour.\n\nCANVAS IS A HARD PASS/FAIL REQUIREMENT FOR BOTH FILES: use a PORTRAIT transparent canvas whose aspect follows the tall case, not a square or landscape canvas. Crop the transparent canvas only, never the case, so the alpha>=128 case bounds have 1%-2% transparent padding on every side, fill at least 96% of canvas width and 96% of canvas height, and remain fully visible and uncropped. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent.\n\nNo background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, grip, strap, charms, decoration, logo, text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any hardware or shell geometry. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "5241f9f67b324d6506d2a0a5ca17057e95ec0d130a5af94c34f61611eb4902e3",
+      "referenceImages": [
+        {
+          "role": "single-structure-hardware-and-material-official-source",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/galaxy-s24-plus-official-white-samsung-539354474.png",
+          "sourcePageUrl": "https://www.samsung.com/de/business/mobile-accessories/galaxy-s24-plus-silicone-case-white-ef-ps926twegww/",
+          "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/de/2401/gallery/de-galaxy-s24plus-ps926-ef-ps926twegww-539354474",
+          "productSku": "EF-PS926TWEGWW",
+          "sha256": "ff56ecf4502f9bd558efddf78bcd2c528727f5bfa265edd451c6e8ba5ba2a27c",
+          "format": "png",
+          "widthPx": 1920,
+          "heightPx": 1280,
+          "visibleBoundsPx": {
+            "left": 666,
+            "top": 43,
+            "right": 1253,
+            "bottom": 1236,
+            "width": 588,
+            "height": 1194
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/galaxy-s24-plus-output-2-gpt.png",
+      "sha256": "9c7969c7fae05f602c5e1ddc2e8116b187789e603941854aba323589c59d5f03",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 240,
+          "top": 107,
+          "right": 781,
+          "bottom": 1437,
+          "width": 542,
+          "height": 1331
+        },
+        "widthFill": 0.529297,
+        "heightFill": 0.866536,
+        "visibleAspect": 0.407213,
+        "targetReferenceAspect": 0.492462,
+        "aspectDriftPercent": 17.31,
+        "transparentPixels": 854069,
+        "opaquePixels": 504945,
+        "partialAlphaPixels": 213850,
+        "haloPixelsOutsideDilatedCore": 1474,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 4,
+          "bottom": 0,
+          "left": 2
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bf992-0954-83ed-8ca9-9a0d295f1ad6",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000006620824680007b4a94209059&ts=495961&p=fs&cid=1&sig=6f8790f5e0df3b05574a7c111ea31a333af107a58c291f79eae851a88649383e&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The second output is visually black and preserves three separate lenses and the adjacent flash, but the body is 17.31% too narrow, fills only 52.93% x 86.65% of the portrait canvas, leaks onto both vertical canvas edges, and leaves 1,474 remote partial-alpha pixels in a broad grey halo. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-31T01:31:42Z"
+    },
+    {
+      "modelId": "xiaomi-14-pro",
+      "modelName": "Xiaomi 14 Pro",
+      "finish": "white",
+      "candidateVersion": "v1-single-request-output-1-white",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Xiaomi 14 Pro model. Use the three uploaded references and produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nIMAGE 1 is the exact same-model BLACK Gel catalogue image. IMAGE 2 is the exact same-model WHITE Gel catalogue image. Their alpha masks are pixel-for-pixel identical. IMAGES 1 and 2 alone control the complete straight-on Xiaomi 14 Pro structure: exact outer silhouette width/height 0.469632 within 1%, exact 555x1175 portrait composition, rounded corners, side buttons, the large raised upper-left square camera island and frame, three lens circles, flash, LEICA area, all hardware sizes and positions, lighting, and shell colour. Remove ONLY the glossy poured Gel/resin from IMAGE 1 and IMAGE 2 and reveal the plain smooth matte silicone shell beneath it. Preserve the camera island and all hardware unchanged. IMAGE 3 is a black silicone-case web listing and controls ONLY the smooth non-glossy BLACK silicone material. Ignore its tilted angle, second phone, white background, camera cutout design, and all geometry.\n\nOUTPUT 1 - BLACK: the complete IMAGE 1 Xiaomi 14 Pro with only its poured Gel removed, revealing a neutral matte BLACK shell. OUTPUT 2 - WHITE: the complete IMAGE 2 Xiaomi 14 Pro with only its poured Gel removed, revealing a neutral matte WHITE shell. Keep the two outputs perfectly registered and change no hardware.\n\nCANVAS IS A HARD PASS/FAIL REQUIREMENT FOR BOTH FILES: preserve the exact 555:1175 PORTRAIT canvas aspect or a proportional portrait canvas. At alpha>=128, the complete case bounds must preserve width/height 0.469632 within 1% and fill at least 98% of both canvas width and canvas height. Keep the complete case centred, fully visible, straight-on, and uncropped. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent.\n\nNo background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, charms, decoration, added logo, added text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any camera, flash, button, edge, corner, or shell feature. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "40fc5e75952026df41744fb627cc489232c3cc823adfb10b812e3a21a42bec0b",
+      "referenceImages": [
+        {
+          "role": "same-model-black-geometry-hardware-and-finish-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-xiaomi-14-pro-black.png",
+          "sha256": "e7bbc1a3ac229a704472bcf6e92b0e0b7ef708f9b4a12d86db451588d3ef7066",
+          "format": "png",
+          "widthPx": 555,
+          "heightPx": 1175,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 551,
+            "bottom": 1171,
+            "width": 549,
+            "height": 1169
+          }
+        },
+        {
+          "role": "same-model-white-geometry-hardware-and-finish-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-xiaomi-14-pro-white.png",
+          "sha256": "5f80da47078d8cd5b07c38a8748344fd0d764d99cfc6b26a0bdec2589312e7c9",
+          "format": "png",
+          "widthPx": 555,
+          "heightPx": 1175,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 551,
+            "bottom": 1171,
+            "width": 549,
+            "height": 1169
+          }
+        },
+        {
+          "role": "black-material-web-listing",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/xiaomi-14-pro-black-fruugo-main.jpg",
+          "sourcePageUrl": "https://www.fruugo.co.uk/for-xiaomi-14-pro-case-liquid-silicone-coque-cover-xiaomi-14-pro-case-tpu-protective-phone-case-mi-14-pro-13-12-13t-pro-cover/p-506838873-1037159982?language=en",
+          "sourceProvenanceNote": "The current product page explicitly lists a For Mi 14 Pro size and matte silicone material. The archived 1000x1000 bytes predate this record; no current CDN URL was claimed because the current variant gallery bytes could not be matched exactly.",
+          "sha256": "cb4415221b958554fe17b54c144876e3a9dac7aa19e8a5b2e675699917b71934",
+          "format": "jpeg",
+          "widthPx": 1000,
+          "heightPx": 1000
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/xiaomi-14-pro-output-1-gpt.png",
+      "sha256": "a5346aa27087ae35be3074c0468550bfcbefc4d2fcd8e6d76737379ab5b89e2d",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 210,
+          "top": 107,
+          "right": 806,
+          "bottom": 1440,
+          "width": 597,
+          "height": 1334
+        },
+        "widthFill": 0.583008,
+        "heightFill": 0.86849,
+        "visibleAspect": 0.447526,
+        "targetReferenceAspect": 0.469632,
+        "aspectDriftPercent": 4.71,
+        "transparentPixels": 785855,
+        "opaquePixels": 482140,
+        "partialAlphaPixels": 304869,
+        "haloPixelsOutsideDilatedCore": 943,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 3,
+          "bottom": 0,
+          "left": 1
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bfcfd-f490-83eb-a8dc-52a1f363a01e",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000005ce481f4ba4a1609cb1a1ef6&ts=495961&p=fs&cid=1&sig=1ad18be966b4bc84d7cf575a7da2095c667970b52c9bd10a1a5a63339563c04a&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The first output is visually white instead of the requested first black file. It preserves the square camera island, three lenses, flash, and LEICA area, but the body is 4.71% too narrow, fills only 58.30% x 86.85% of the portrait canvas, leaks onto both vertical edges, and leaves 943 remote partial-alpha pixels in a broad grey halo. It must not be published.",
+      "recordedAt": "2026-07-31T01:45:28Z"
+    },
+    {
+      "modelId": "xiaomi-14-pro",
+      "modelName": "Xiaomi 14 Pro",
+      "finish": "black",
+      "candidateVersion": "v1-single-request-output-2-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "This is the ONLY generation request for the Xiaomi 14 Pro model. Use the three uploaded references and produce exactly TWO SEPARATE downloadable transparent PNG image files in this single response, never a comparison, collage, grid, composite, or alternate carousel.\n\nIMAGE 1 is the exact same-model BLACK Gel catalogue image. IMAGE 2 is the exact same-model WHITE Gel catalogue image. Their alpha masks are pixel-for-pixel identical. IMAGES 1 and 2 alone control the complete straight-on Xiaomi 14 Pro structure: exact outer silhouette width/height 0.469632 within 1%, exact 555x1175 portrait composition, rounded corners, side buttons, the large raised upper-left square camera island and frame, three lens circles, flash, LEICA area, all hardware sizes and positions, lighting, and shell colour. Remove ONLY the glossy poured Gel/resin from IMAGE 1 and IMAGE 2 and reveal the plain smooth matte silicone shell beneath it. Preserve the camera island and all hardware unchanged. IMAGE 3 is a black silicone-case web listing and controls ONLY the smooth non-glossy BLACK silicone material. Ignore its tilted angle, second phone, white background, camera cutout design, and all geometry.\n\nOUTPUT 1 - BLACK: the complete IMAGE 1 Xiaomi 14 Pro with only its poured Gel removed, revealing a neutral matte BLACK shell. OUTPUT 2 - WHITE: the complete IMAGE 2 Xiaomi 14 Pro with only its poured Gel removed, revealing a neutral matte WHITE shell. Keep the two outputs perfectly registered and change no hardware.\n\nCANVAS IS A HARD PASS/FAIL REQUIREMENT FOR BOTH FILES: preserve the exact 555:1175 PORTRAIT canvas aspect or a proportional portrait canvas. At alpha>=128, the complete case bounds must preserve width/height 0.469632 within 1% and fill at least 98% of both canvas width and canvas height. Keep the complete case centred, fully visible, straight-on, and uncropped. Every pixel outside the shell and its one-pixel antialiased edge must have alpha 0. All four corners and every outer canvas edge must be fully transparent.\n\nNo background, halo, haze, glow, floor, shadow, checkerboard, Gel, resin, glossy poured pattern, charms, decoration, added logo, added text, watermark, hand, packaging, extra object, explanation, comparison, grid, or composite. Do not add, remove, move, resize, reshape, or redesign any camera, flash, button, edge, corner, or shell feature. Return exactly TWO separate transparent PNG files: BLACK first, WHITE second.",
+      "promptSha256": "40fc5e75952026df41744fb627cc489232c3cc823adfb10b812e3a21a42bec0b",
+      "referenceImages": [
+        {
+          "role": "same-model-black-geometry-hardware-and-finish-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-xiaomi-14-pro-black.png",
+          "sha256": "e7bbc1a3ac229a704472bcf6e92b0e0b7ef708f9b4a12d86db451588d3ef7066",
+          "format": "png",
+          "widthPx": 555,
+          "heightPx": 1175,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 551,
+            "bottom": 1171,
+            "width": 549,
+            "height": 1169
+          }
+        },
+        {
+          "role": "same-model-white-geometry-hardware-and-finish-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-xiaomi-14-pro-white.png",
+          "sha256": "5f80da47078d8cd5b07c38a8748344fd0d764d99cfc6b26a0bdec2589312e7c9",
+          "format": "png",
+          "widthPx": 555,
+          "heightPx": 1175,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 551,
+            "bottom": 1171,
+            "width": 549,
+            "height": 1169
+          }
+        },
+        {
+          "role": "black-material-web-listing",
+          "path": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/references/xiaomi-14-pro-black-fruugo-main.jpg",
+          "sourcePageUrl": "https://www.fruugo.co.uk/for-xiaomi-14-pro-case-liquid-silicone-coque-cover-xiaomi-14-pro-case-tpu-protective-phone-case-mi-14-pro-13-12-13t-pro-cover/p-506838873-1037159982?language=en",
+          "sourceProvenanceNote": "The current product page explicitly lists a For Mi 14 Pro size and matte silicone material. The archived 1000x1000 bytes predate this record; no current CDN URL was claimed because the current variant gallery bytes could not be matched exactly.",
+          "sha256": "cb4415221b958554fe17b54c144876e3a9dac7aa19e8a5b2e675699917b71934",
+          "format": "jpeg",
+          "widthPx": 1000,
+          "heightPx": 1000
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/xiaomi-14-pro-output-2-gpt.png",
+      "sha256": "0e56d16f5476124110d39af4da4585d46aef9bbe6427ead98a3d00fd9aef3e2d",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 155,
+          "top": 41,
+          "right": 859,
+          "bottom": 1501,
+          "width": 705,
+          "height": 1461
+        },
+        "widthFill": 0.688477,
+        "heightFill": 0.951172,
+        "visibleAspect": 0.482546,
+        "targetReferenceAspect": 0.469632,
+        "aspectDriftPercent": 2.75,
+        "transparentPixels": 552036,
+        "opaquePixels": 774148,
+        "partialAlphaPixels": 246680,
+        "haloPixelsOutsideDilatedCore": 1950,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 8,
+          "bottom": 0,
+          "left": 3
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bfcfd-f490-83eb-a8dc-52a1f363a01e",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000002d608246b109db155cbe94cb&ts=495961&p=fs&cid=1&sig=5b11ea71a236603e21b0dc3ca82b3b7533042b958f75ea3339f69612906f148c&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The second output is visually black and preserves the square camera island, three lenses, flash, and LEICA area, but the body is 2.75% too wide, fills only 68.85% x 95.12% of the portrait canvas, leaks onto both vertical edges, and leaves 1,950 remote partial-alpha pixels in a broad grey halo. It must not be published and the model will not be retried.",
+      "recordedAt": "2026-07-31T01:45:28Z"
+    },
+    {
+      "modelId": "xiaomi-14-pro",
+      "modelName": "Xiaomi 14 Pro",
+      "finish": "black",
+      "candidateVersion": "v2-corrected-feasible-canvas-black",
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "promptText": "RETRY ONLY THE BLACK OUTPUT. Generate exactly ONE new downloadable transparent PNG, not two images, not a grid, and not a comparison.\n\nStart again from the original uploaded IMAGE 1 (integrated-xiaomi-14-pro-black.png). The previous generated black and white results are rejected and have zero visual authority. Do not edit, trace, preserve, or reuse either rejected generated result.\n\nRemove only the glossy poured Gel/resin from original IMAGE 1 and reveal a smooth neutral matte BLACK silicone shell. Preserve the original Xiaomi 14 Pro hardware and geometry: the exact square camera island and frame, three lens circles, flash, LEICA area, side buttons, corners, lighting, and straight-on silhouette. Do not add, remove, move, resize, or redesign any hardware.\n\nCORRECTED FEASIBLE CANVAS TARGET: if the output canvas is 1024x1536, the alpha>=128 complete case bounds must be approximately 707px wide by 1506px high, centred at about x=158..864 and y=15..1520. This preserves the required physical width/height 0.469632 within 1% and leaves transparent space around the complete uncropped case. Do not try to fill 98% of the canvas width because that is mathematically incompatible with this portrait canvas and the locked case aspect.\n\nALPHA IS A HARD PASS/FAIL REQUIREMENT: every pixel outside the case and its one-pixel antialiased edge must have alpha 0. No grey or black backdrop, no semi-transparent rectangle, no haze, halo, glow, shadow, floor, vignette, edge leak, or visible outer-canvas pixel. All four corners and all four canvas edges must be fully transparent.\n\nNo Gel, resin, glossy poured pattern, charms, decoration, logo added to the shell, watermark, hand, packaging, extra object, explanation, or text outside the authentic camera hardware. Output exactly ONE BLACK transparent PNG now.",
+      "promptSha256": "ec13c95025f6d3d280189a975356b6c59585fa89b6956839e17a41731cd2adff",
+      "referenceImages": [
+        {
+          "role": "same-model-black-geometry-hardware-and-finish-source-with-gel",
+          "path": "public/assets/cases/case-with-gel/integrated-xiaomi-14-pro-black.png",
+          "sha256": "e7bbc1a3ac229a704472bcf6e92b0e0b7ef708f9b4a12d86db451588d3ef7066",
+          "format": "png",
+          "widthPx": 555,
+          "heightPx": 1175,
+          "visibleBoundsPx": {
+            "left": 3,
+            "top": 3,
+            "right": 551,
+            "bottom": 1171,
+            "width": 549,
+            "height": 1169
+          }
+        }
+      ],
+      "candidatePath": "reference/case-history/generated/samsung-xiaomi-without-gel-completion/candidates/xiaomi-14-pro-black-v2-gpt.png",
+      "sha256": "bbf3093875098cee158d8135d7528a328128a116840982b2fdc89b5aadd2c7b4",
+      "format": "png",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "automatedQa": {
+        "alphaThreshold": 128,
+        "visibleBoundsPx": {
+          "left": 247,
+          "top": 137,
+          "right": 770,
+          "bottom": 1421,
+          "width": 524,
+          "height": 1285
+        },
+        "widthFill": 0.511719,
+        "heightFill": 0.836589,
+        "visibleAspect": 0.407782,
+        "targetReferenceAspect": 0.469632,
+        "aspectDriftPercent": 13.17,
+        "transparentPixels": 903692,
+        "opaquePixels": 479438,
+        "partialAlphaPixels": 189734,
+        "haloPixelsOutsideDilatedCore": 1253,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "edgePixels": {
+          "top": 0,
+          "right": 5,
+          "bottom": 0,
+          "left": 2
+        },
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ]
+      },
+      "conversationUrl": "https://chatgpt.com/c/6a6bfcfd-f490-83eb-a8dc-52a1f363a01e",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000a4248246bf09c212b67d2fdb&ts=495970&p=fs&cid=1&sig=c38a0a727ec65de17ee10d688ac4a9a5a9528ff49c38a96ad4d934228ec1facd&v=0",
+      "reviewStatus": "rejected",
+      "reviewNotes": "The corrected retry is visually black and retains the square camera island, three lenses, flash, and LEICA area, but it introduces a broad grey partial-alpha backdrop. The body is 13.17% too narrow, fills only 51.17% x 83.66% of the portrait canvas, leaks onto both vertical canvas edges, and leaves 1,253 remote partial-alpha halo pixels. It must not be published.",
+      "recordedAt": "2026-07-31T10:30:13Z"
+    }
+  ]
+}

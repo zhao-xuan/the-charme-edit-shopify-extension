@@ -9,15 +9,22 @@
  * minus optional keep-out obstacles (e.g. the iPhone camera island). Boundary
  * detection uses this region.
  *
- * iPhone models use the prebuilt case product photos listed in cases.json where
- * available. Models without a photo fall back to a parametric gel render in
- * White (Glitter gel) / Black (Black gel).
+ * Shopify-hosted case photos override bundled art for matching models. Models
+ * without a reviewed photo retain the parametric preview until art is supplied.
  */
 import CASES_DATA from './cases.json'
 import CAMERA_KEEPOUTS from './camera-keepouts.json'
+import GENERATED_PHONE_BODY_IMAGES from './generated-phone-body-images.json'
+import OFFICIAL_PHONE_CASE_IMAGE_BOUNDS from './official-phone-case-image-bounds.json'
+import OFFICIAL_PHONE_CASE_IMAGES from './official-phone-case-images.json'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import { loadAdmin } from '../lib/adminStore'
+import { ANDROID_LAUNCH_MODEL_IDS, trustedCaseImages } from '../lib/caseImagePolicy'
 import { remoteCatalog } from '../lib/remoteCatalog'
+import {
+  samsungCameraObstacles,
+  samsungCameraObstaclesByCaseColour,
+} from '../lib/samsungCameraKeepouts'
 
 // A phone case is described by two finish axes:
 //   • Case colour — the silicone shell: White or Black. This drives the rendered
@@ -75,15 +82,19 @@ function applyPlainIphoneCase(product) {
 }
 
 // Android blank-case art must never contain poured gel. Use only verified files
-// from case-without-gel; every other finish falls back to ProductCanvas.
+// from case-without-gel; models and finishes without one stay out of the editor.
 const PLAIN_CASE_IMAGES = {
   'pixel-6-pro': ['black', 'white'],
   'pixel-7-pro': ['black', 'white'],
   'pixel-8-pro': ['black', 'white'],
   'pixel-9-pro': ['black', 'white'],
   'pixel-10-pro': ['black', 'white'],
+  'galaxy-s22': ['black'],
+  'galaxy-s22-plus': ['black', 'white'],
   'galaxy-s22-ultra': ['black'],
   'galaxy-s23-ultra': ['black', 'white'],
+  'galaxy-s24': ['white'],
+  'galaxy-s24-plus': ['white'],
   'galaxy-s24-ultra': ['black', 'white'],
   'galaxy-s25-ultra': ['black', 'white'],
   'galaxy-s26-ultra': ['black', 'white'],
@@ -93,13 +104,22 @@ function applyPlainCase(p) {
   const blankImage = Object.fromEntries(
     colours.map((colour) => [colour, `/assets/cases/case-without-gel/${p.id}-${colour}.png`]),
   )
+  const caseColours = CASE_COLOURS.filter((colour) => colours.includes(colour.id))
+  const gelColours = GEL_COLOURS.filter((gel) =>
+    colours.includes(gel.id === 'black' ? 'black' : 'white'),
+  )
   return {
     ...p,
     gelRender: false,
     gelImages: null,
     plainCaseOnly: true,
     linkedFinish: true,
-    ...(colours.length ? { blankImage } : {}),
+    ...(colours.length ? {
+      blankImage,
+      colors: caseColours,
+      caseColours,
+      gelColours,
+    } : {}),
   }
 }
 
@@ -114,6 +134,7 @@ const PHONE_BASE_PRICE = 26
  * cameraKind:
  *   'squareTriple' — Pro models 13–16: triple-lens square island, top-left
  *   'squareDual'   — non-Pro 13–16: dual-lens square, top-left
+ *   'single'       — iPhone 16e / 17e: single lens with flash, top-left
  *   'bar'          — 17 series: horizontal camera plateau across the top
  *   'samsungV3' / 'samsungV4' — Samsung Galaxy: floating vertical lens column,
  *                    top-left (no raised island)
@@ -138,6 +159,8 @@ function buildCamera(cameraKind, widthMm) {
       return { kind: 'bar', xMm: 9, yMm: 8, wMm: +(widthMm - 18).toFixed(1), hMm: 20, rMm: 10 }
     case 'pixelOval':
       return { kind: 'bar', xMm: 8, yMm: 8, wMm: 27, hMm: 17, rMm: 8.5 }
+    case 'single':
+      return { kind: 'single', xMm: 7, yMm: 7, wMm: 22, hMm: 22, rMm: 11 }
     case 'circle': { // Huawei round island, top-centre
       const d = 48
       return { kind: 'circle', xMm: +((widthMm - d) / 2).toFixed(1), yMm: 9, wMm: d, hMm: d, rMm: d / 2 }
@@ -181,6 +204,8 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
   }
 
   const camera = buildCamera(cameraKind, widthMm)
+  const calibratedCameraObstacles = samsungCameraObstacles(id, widthMm, heightMm)
+  const cameraObstaclesByCaseColour = samsungCameraObstaclesByCaseColour(id, widthMm, heightMm)
 
   return {
     id,
@@ -199,7 +224,8 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
     gelImages: brand === 'apple' ? gelOverlaySrc(id) : null,
     printable: {
       outer,
-      obstacles: [cameraObstacle(camera)],
+      obstacles: calibratedCameraObstacles || [cameraObstacle(camera)],
+      ...(cameraObstaclesByCaseColour ? { obstaclesByCaseColour: cameraObstaclesByCaseColour } : {}),
     },
     camera,
   }
@@ -325,11 +351,11 @@ const IPHONES = [
   ['iphone-16-plus', 'iPhone 16 Plus', 80.8, 163.9, 'squareDual', 48],
   ['iphone-16-pro', 'iPhone 16 Pro', 74.5, 152.6, 'squareTriple', 48],
   ['iphone-16-pro-max', 'iPhone 16 Pro Max', 80.6, 166, 'squareTriple', 50],
-  ['iphone-16e', 'iPhone 16e', 71.5, 146.7, 'squareDual', 46],
+  ['iphone-16e', 'iPhone 16e', 71.5, 146.7, 'single', 46],
   ['iphone-17', 'iPhone 17', 74.5, 152.6, 'bar', 46],
   ['iphone-17-pro', 'iPhone 17 Pro', 76, 153, 'bar', 48],
   ['iphone-17-pro-max', 'iPhone 17 Pro Max', 80.6, 166, 'bar', 50],
-  ['iphone-17e', 'iPhone 17e', 71.5, 146.7, 'squareDual', 46],
+  ['iphone-17e', 'iPhone 17e', 71.5, 146.7, 'single', 46],
   // Case-outer footprint (bare 74.7×156.2 + ~3mm silicone wall) to match the
   // case-outer basis used by the rest of the line, so charms stay the same real
   // size across every model.
@@ -414,7 +440,17 @@ const PIXEL_SPECS = {
   'pixel-10-pro-xl': [76.6, 162.8, 'pixelPill'],
 }
 
+const SAMSUNG_SPECS = {
+  'galaxy-a72-4g': [77.4, 165, 'samsungV3'],
+  'galaxy-s9': [68.7, 147.7, 'samsungV3'],
+  'galaxy-s9-plus': [73.8, 158.1, 'samsungV3'],
+  'galaxy-s10-plus': [74.1, 157.6, 'samsungV3'],
+  'galaxy-note-20-4g-5g': [75.2, 161.6, 'samsungV4'],
+  'galaxy-note-20-ultra-4g-5g': [77.2, 164.8, 'samsungV4'],
+}
+
 function samsungSpec(id) {
+  if (SAMSUNG_SPECS[id]) return SAMSUNG_SPECS[id]
   if (/z-fold/.test(id)) return [68, 155, 'samsungV3']
   if (/z-flip/.test(id)) return [72, 165, 'squareDual']
   if (/ultra|note/.test(id)) return [78, 163, 'samsungV4']
@@ -437,6 +473,11 @@ const ANDROIDS = [
   ...LIVE_ANDROIDS,
   ...LEGACY_ANDROIDS.filter((product) => !liveAndroidIds.has(product.id)),
 ]
+
+const BUILT_IN_PRODUCT_IDS = new Set([
+  ...IPHONES.map((product) => product.id),
+  ...ANDROIDS.map((product) => product.id),
+])
 
 /** Sub-brand display labels (used to group the Android model dropdown). */
 export const BRAND_LABELS = {
@@ -614,26 +655,59 @@ function applyAdminOverrides(groups) {
   const admin = loadAdmin()
   const remote = remoteCatalog() || {}
   const remotePrices = (remote.overrides && remote.overrides.productPrices) || {}
-  // A merchant product edited in Shopify (charme_product) carries its own base
-  // price. Built-in case art remains on the customizer's static asset host so
-  // the editor always uses the reviewed gel-free source images.
+  const remoteProducts = new Map((remote.products || []).map((product) => [product.id, product]))
   const remoteProductPrice = {}
   for (const p of remote.products || []) {
     if (p.basePrice != null) remoteProductPrice[p.id] = p.basePrice
   }
   const priceOf = (id, fallback) =>
     admin.productPrices[id] ?? remoteProductPrice[id] ?? remotePrices[id] ?? fallback
+  const withRemoteImage = (product) => {
+    const remoteProduct = remoteProducts.get(product.id)
+    if (product.kind !== 'phone') return product
+    const blankImage = trustedCaseImages(product, {
+      remoteProduct,
+      generatedImages: GENERATED_PHONE_BODY_IMAGES[product.id],
+      officialImages: OFFICIAL_PHONE_CASE_IMAGES[product.id],
+    })
+    const caseImageAvailability = {
+      white: !!blankImage.white,
+      black: !!blankImage.black,
+    }
+    const caseColours = CASE_COLOURS.map((colour) => ({
+      ...colour,
+      disabled: !caseImageAvailability[colour.id],
+    }))
+    const gelColours = GEL_COLOURS.map((gel) => ({
+      ...gel,
+      disabled: !caseImageAvailability[gel.id === 'black' ? 'black' : 'white'],
+    }))
+    return {
+      ...product,
+      blankImage,
+      caseImageBounds: OFFICIAL_PHONE_CASE_IMAGE_BOUNDS[product.id] || {},
+      caseImageAvailability,
+      colors: caseColours,
+      caseColours,
+      gelColours,
+      gelRender: false,
+      linkedFinish: true,
+    }
+  }
   const priced = groups.map((g) => ({
     ...g,
-    products: g.products.map((p) => ({
-      ...p,
-      basePrice: priceOf(p.id, p.basePrice),
-    })),
+    products: g.products.map((p) => {
+      const product = withRemoteImage(p)
+      return { ...product, basePrice: priceOf(product.id, product.basePrice) }
+    }),
   }))
   // Remote DB products first, then local-only drafts; de-dup by id. Migrated
   // built-in models contribute price/images above and must not become duplicate
   // custom products.
-  const bundledIds = new Set(groups.flatMap((group) => group.products.map((product) => product.id)))
+  const bundledIds = new Set([
+    ...BUILT_IN_PRODUCT_IDS,
+    ...groups.flatMap((group) => group.products.map((product) => product.id)),
+  ])
   const seen = new Set()
   const customRaw = []
   for (const product of remote.products || []) {
@@ -648,7 +722,7 @@ function applyAdminOverrides(groups) {
       customRaw.push(product)
     }
   }
-  const custom = customRaw.map(buildCustomProduct)
+  const custom = customRaw.filter((product) => product.src).map(buildCustomProduct)
   if (custom.length) {
     priced.push({
       key: 'custom',
@@ -664,8 +738,9 @@ function applyAdminOverrides(groups) {
 let productCatalogCache = null
 function productCatalog() {
   if (!productCatalogCache) {
-    const groups = applyAdminOverrides(BASE_PRODUCT_GROUPS)
-    productCatalogCache = { groups, all: groups.flatMap((group) => group.products) }
+    const allGroups = applyAdminOverrides(BASE_PRODUCT_GROUPS)
+    const groups = allGroups.filter((group) => group.key !== 'custom')
+    productCatalogCache = { groups, all: allGroups.flatMap((group) => group.products) }
   }
   return productCatalogCache
 }
@@ -680,4 +755,36 @@ export function allProducts() {
 
 export function findProduct(id) {
   return productCatalog().all.find((product) => product.id === id)
+}
+
+export function hasCaseImage(product, finish) {
+  if (!product) return false
+  if (product.kind !== 'phone') return true
+  if (product.caseImageAvailability) {
+    return finish
+      ? !!product.caseImageAvailability[finish]
+      : Object.values(product.caseImageAvailability).some(Boolean)
+  }
+  const images = product.blankImage || {}
+  return finish ? !!(images[finish] || images.default) : Object.values(images).some(Boolean)
+}
+
+const ANDROID_LAUNCH_RANK = new Map(
+  ANDROID_LAUNCH_MODEL_IDS.map((modelId, index) => [modelId, index]),
+)
+
+export function productsByAvailability(products) {
+  const available = products
+    .filter((product) => hasCaseImage(product))
+    .sort((left, right) => (
+      (ANDROID_LAUNCH_RANK.get(left.id) ?? Number.MAX_SAFE_INTEGER)
+      - (ANDROID_LAUNCH_RANK.get(right.id) ?? Number.MAX_SAFE_INTEGER)
+    ))
+  const comingSoon = products
+    .filter((product) => !hasCaseImage(product))
+    .sort((left, right) => (
+      (ANDROID_LAUNCH_RANK.get(left.id) ?? Number.MAX_SAFE_INTEGER)
+      - (ANDROID_LAUNCH_RANK.get(right.id) ?? Number.MAX_SAFE_INTEGER)
+    ))
+  return { available, comingSoon }
 }

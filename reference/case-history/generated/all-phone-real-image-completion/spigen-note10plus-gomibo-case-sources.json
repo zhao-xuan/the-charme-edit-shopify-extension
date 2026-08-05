@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "source": "Verified Gomibo exact-SKU product record and signed gallery image for the discontinued Spigen Galaxy Note 10 Plus case",
+  "reviewedAt": "2026-08-02T10:20:02.000Z",
+  "geometryAcceptanceCriteria": [
+    "The exact Galaxy Note 10 Plus target is named in the Gomibo product title and locked by SKU and GTIN-13.",
+    "The selected signed gallery URL occurs in that exact product record and its source bytes are hash locked.",
+    "The source is an orthogonal real photograph of the complete empty shell on a uniform white background.",
+    "The complete shell boundary and the complete camera-and-flash opening are directly visible; no missing geometry is invented.",
+    "Foreground extraction must remain stable at thresholds 11, 12, and 13 with IoU of at least 0.995 and no more than four pixels of bounds drift."
+  ],
+  "products": {
+    "galaxy-note-10-plus-rugged-armor": {
+      "retailer": "Gomibo Belgium",
+      "sku": "627CS27331",
+      "gtin": "8809671011764",
+      "title": "Spigen Rugged Armor Case Black Samsung Galaxy Note 10+ - Gomibo.be",
+      "productRecordUrl": "https://www.gomibo.be/nl/accessoire-detail/spigen-rugged-armor-case-zwart-samsung-galaxy-note-10-plus"
+    }
+  },
+  "officialDimensions": {
+    "galaxy-note-10-plus": {
+      "manufacturer": "Samsung",
+      "modelCode": "SM-N975FZSDBTU",
+      "modelFamilyCode": "SM-N975F",
+      "widthMm": 77.2,
+      "heightMm": 162.3,
+      "depthMm": 7.9,
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "162.3 x 77.2 x 7.9",
+      "reportedOrder": "height x width x depth",
+      "sourcePageUrl": "https://web.archive.org/web/20190908001317id_/https://www.samsung.com/ie/smartphones/galaxy-note10/specs/",
+      "originalSourcePageUrl": "https://www.samsung.com/ie/smartphones/galaxy-note10/specs/",
+      "sourcePageTitle": "Specifications | Samsung Galaxy Note10 & Note10+ | Samsung IE",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "ie",
+        "modelCode": "SM-N975FZSDBTU",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645"
+    }
+  },
+  "candidates": [
+    {
+      "targetModelId": "galaxy-note-10-plus",
+      "targetModelName": "Galaxy Note 10 Plus",
+      "sourceModelId": "galaxy-note-10-plus",
+      "product": "galaxy-note-10-plus-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy Note 10+ title, Spigen SKU 627CS27331, and GTIN-13 8809671011764 match; the selected signed image belongs to that product record.",
+      "galleryImageId": "spigen-rugged-armor-case-zwart-samsung-galaxy-note-10-plus_10.jpg",
+      "galleryPosition": 3,
+      "sourceUrl": "https://bsimg.nl/images/spigen-rugged-armor-case-zwart-samsung-galaxy-note-10-plus_10.jpg/qvbB7eTXDmy7huXmfZtM0R7VkI0%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "expectedEncodedSha256": "01b372a29e1bcc5985b86425e8214f1a1ed7d32b75da44959ca5c668f35db1b7",
+      "expectedWidth": 505,
+      "expectedHeight": 505,
+      "geometryReview": "accepted-orthogonal-empty-shell-complete-boundary-and-opening-directly-visible",
+      "geometrySource": "Verified Gomibo Spigen orthogonal empty-case inner photograph with directly visible shell and camera-opening boundaries",
+      "derivedSourceKind": "derived-verified-retail-source"
+    }
+  ]
+}

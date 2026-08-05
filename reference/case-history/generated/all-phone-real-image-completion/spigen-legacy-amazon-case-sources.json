@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "source": "Verified Amazon Belgium exact-ASIN product records and original Amazon gallery images for discontinued Spigen cases",
+  "reviewedAt": "2026-08-02T08:48:00.000Z",
+  "geometryAcceptanceCriteria": [
+    "The exact target model is named in the Amazon product title and locked by ASIN.",
+    "The selected image ID occurs in that exact-ASIN product record and its source bytes are hash locked.",
+    "The complete shell boundary is visible in an orthogonal rear view on a uniform white background.",
+    "An installed phone is permitted only when it does not occlude the shell boundary or any opening's visible outer recess.",
+    "Every output opening is cleared only from source-coordinate bounds measured from a directly visible outer recess; no missing geometry is invented."
+  ],
+  "products": {
+    "galaxy-a40-rugged-armor": {
+      "asin": "B07PP996WM",
+      "title": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A40 - Black : Amazon.com.be: Electronics",
+      "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07PP996WM"
+    },
+    "galaxy-a70-rugged-armor": {
+      "asin": "B07QKGR1DG",
+      "title": "Spigen Rugged Armor Protective Case Compatible with Samsung Galaxy A70 - Metal Slate : Amazon.com.be: Electronics",
+      "productRecordUrl": "https://www.amazon.com.be/-/en/dp/B07QKGR1DG"
+    }
+  },
+  "candidates": [
+    {
+      "targetModelId": "galaxy-a40",
+      "targetModelName": "Galaxy A40",
+      "sourceModelId": "galaxy-a40",
+      "product": "galaxy-a40-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy A40 target and exact-ASIN Amazon title match; the selected gallery image belongs to that product record.",
+      "galleryImageId": "41DX7wWmzEL",
+      "galleryPosition": 2,
+      "sourceUrl": "https://m.media-amazon.com/images/I/41DX7wWmzEL.jpg",
+      "expectedEncodedSha256": "1ba817a3d450f5c0b405edde55f5577fc56bc74d201ac601b5700fc73e22bde3",
+      "expectedWidth": 500,
+      "expectedHeight": 500,
+      "geometryReview": "accepted-orthogonal-installed-device-shell-and-opening-recesses-unobstructed",
+      "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+      "derivedSourceKind": "derived-verified-retail-source",
+      "primaryThreshold": 14,
+      "stabilityThresholds": [13, 14, 15],
+      "sourceVisibleOpenings": [
+        {
+          "id": "camera",
+          "shape": "rounded-rect",
+          "bounds": { "left": 150, "top": 43, "right": 205, "bottom": 185 },
+          "radius": 24
+        },
+        {
+          "id": "fingerprint",
+          "shape": "rounded-rect",
+          "bounds": { "left": 218, "top": 88, "right": 288, "bottom": 164 },
+          "radius": 26
+        }
+      ]
+    },
+    {
+      "targetModelId": "galaxy-a70",
+      "targetModelName": "Galaxy A70",
+      "sourceModelId": "galaxy-a70",
+      "product": "galaxy-a70-rugged-armor",
+      "publicationEligible": true,
+      "eligibilityReason": "Exact Galaxy A70 target and exact-ASIN Amazon title match; the selected gallery image belongs to that product record.",
+      "galleryImageId": "41kKx496UDL",
+      "galleryPosition": 2,
+      "sourceUrl": "https://m.media-amazon.com/images/I/41kKx496UDL.jpg",
+      "expectedEncodedSha256": "dc27756decb208aa42c92f7db4b5bc253be43673fb7ed877aabc319c92770d24",
+      "expectedWidth": 500,
+      "expectedHeight": 500,
+      "geometryReview": "accepted-orthogonal-installed-device-shell-and-opening-recess-unobstructed",
+      "geometrySource": "Verified Amazon Spigen orthogonal rear photograph with directly visible shell and opening-recess boundaries",
+      "derivedSourceKind": "derived-verified-retail-source",
+      "sourceVisibleOpenings": [
+        {
+          "id": "camera",
+          "shape": "rounded-rect",
+          "bounds": { "left": 153, "top": 39, "right": 205, "bottom": 180 },
+          "radius": 23
+        }
+      ]
+    }
+  ]
+}

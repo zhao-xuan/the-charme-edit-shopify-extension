@@ -1,0 +1,784 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-02T14:56:14.628Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/tauri-a15-amazon-video-case-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/tauri-a15-amazon-video-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/tauri-a15-amazon-video-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "Amazon ASIN B0CRDYG64S and its structured video record identify the real TAURI Galaxy A15 5G empty case shown in both geometry frames.",
+    "The HLS master, 1080p variant, and all three segments are byte stable; the 17.8-second silhouette frame and 6.5-second opening frame are pixel locked.",
+    "Samsung accessory EF-QA156CTEGWW explicitly reports Galaxy A15 5G/LTE compatibility, and Samsung LTE and 5G records both report 160.1 x 76.8 x 8.4 mm.",
+    "The complete physical outer silhouette remains stable at thresholds 79, 80, and 81 with IoU of at least 0.995 and at most four pixels of bounds drift.",
+    "All four physical openings are taken from the separately verified bright-backed frame and remain stable at thresholds 114, 115, and 116; no opening pixels are inferred.",
+    "Pixel-center projective sampling preserves the observed silhouette without morphology, and red/blue high-contrast review confirms the physical side structures and transparent canvas margin.",
+    "Black and White candidates share exact binary alpha, contain zero hidden RGB, use neutral RGB channels, and retain transparent canvas corners."
+  ],
+  "summary": {
+    "sourceCandidates": 1,
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "modelName": "Galaxy A15 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "Amazon ASIN B0CRDYG64S identifies the real TAURI Galaxy A15 5G case video, while Samsung accessory EF-QA156CTEGWW explicitly confirms Galaxy A15 5G/LTE shared-case compatibility and both official device records report identical dimensions.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "The 17.8-second real empty-shell frame directly supplies the complete outer boundary; the 6.5-second real frame directly supplies all four unoccluded openings; high-contrast review confirms the side-key contours and an unclipped transparent margin."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 76.8,
+        "heightMm": 160.1,
+        "depthMm": 8.4,
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "160.1 x 76.8 x 8.4",
+        "reportedOrder": "height x width x depth",
+        "compatibleNetworks": [
+          "LTE",
+          "5G"
+        ],
+        "sharedCaseCompatibility": {
+          "manufacturer": "Samsung",
+          "accessoryCode": "EF-QA156CTEGWW",
+          "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a15---a15-5g-clear-case-transparent-ef-qa156ctegww/",
+          "sourcePageTitle": "Clear Case for A15 | A15 5G",
+          "reportedLabel": "Compatible Models",
+          "reportedValue": "Galaxy A15 5G/LTE",
+          "finalUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a15---a15-5g-clear-case-transparent-ef-qa156ctegww/",
+          "httpStatus": 200,
+          "compatibilityVerified": true
+        },
+        "directPageVerification": {
+          "verifiedAt": "2026-08-02T14:49:10.918Z",
+          "evidence": [
+            {
+              "network": "LTE",
+              "modelName": "Galaxy A15",
+              "modelCode": "SM-A155FZKDEUB",
+              "modelFamilyCode": "SM-A155",
+              "sourcePageUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-blue-black-128gb-sm-a155fzkdeub/",
+              "apiEndpoint": "https://api.samsung.com/model",
+              "apiQuery": {
+                "key": "56FE13336ABF4709AFCF7704B24D83F0",
+                "siteCode": "uk",
+                "modelCode": "SM-A155FZKDEUB",
+                "type": "json",
+                "option": "16",
+                "disclaimer": ""
+              },
+              "reportedLabel": "Dimension (HxWxD, mm)",
+              "reportedValue": "160.1 x 76.8 x 8.4",
+              "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+              "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+              "sourcePageFinalUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-blue-black-128gb-sm-a155fzkdeub/",
+              "sourcePageHttpStatus": 200,
+              "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A155FZKDEUB&type=json&option=16&disclaimer=",
+              "apiHttpStatus": 200,
+              "apiStatusCode": 200,
+              "reportedValueFound": true
+            },
+            {
+              "network": "5G",
+              "modelName": "Galaxy A15 5G",
+              "modelCode": "SM-A156BZKDEUB",
+              "modelFamilyCode": "SM-A156",
+              "sourcePageUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-5g-blue-black-128gb-sm-a156bzkdeub/",
+              "apiEndpoint": "https://api.samsung.com/model",
+              "apiQuery": {
+                "key": "56FE13336ABF4709AFCF7704B24D83F0",
+                "siteCode": "uk",
+                "modelCode": "SM-A156BZKDEUB",
+                "type": "json",
+                "option": "16",
+                "disclaimer": ""
+              },
+              "reportedLabel": "Dimension (HxWxD, mm)",
+              "reportedValue": "160.1 x 76.8 x 8.4",
+              "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+              "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+              "sourcePageFinalUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a15-5g-blue-black-128gb-sm-a156bzkdeub/",
+              "sourcePageHttpStatus": 200,
+              "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A156BZKDEUB&type=json&option=16&disclaimer=",
+              "apiHttpStatus": 200,
+              "apiStatusCode": 200,
+              "reportedValueFound": true
+            }
+          ]
+        }
+      },
+      "verifiedRetailSource": {
+        "manufacturer": "TAURI",
+        "retailer": "Amazon US",
+        "asin": "B0CRDYG64S",
+        "productTitle": "TAURI 3 in 1 for Samsung Galaxy A15 5G Case Black, [15 FT Military Grade Protection] with 2X Screen Protector, [Non Slip Textured Back] Slim Shockproof Case for Galaxy A15 5G Case 6.5 Inch",
+        "productRecordUrl": "https://www.amazon.com/dp/B0CRDYG64S",
+        "videoUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+        "videoTitle": "TAURI for Samsung Galaxy A15 5G Case Open Box Video",
+        "hlsEvidence": {
+          "master": {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls.m3u8",
+            "encodedSha256": "72f669cfc7421b4c457393715866043cfb1609e30d321c34fe1127e7f58962cf",
+            "bytes": 702,
+            "repeatedFetchByteIdentical": true
+          },
+          "variant": {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080.m3u8",
+            "encodedSha256": "6e5040fc133eef047afbd54ea1accbf363e84c8d7e02602b99415ddab83a4d27",
+            "bytes": 257,
+            "repeatedFetchByteIdentical": true
+          },
+          "segments": [
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00001.ts",
+              "expectedBytes": 2993524,
+              "expectedSha256": "6ae39bdcd692faba988a4a76723610f80638d5a3b4cc248865654120015b14de",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00002.ts",
+              "expectedBytes": 2718668,
+              "expectedSha256": "363a748c8ee794f261985bc04914cbd7b4a380a5e7561451da2aeeb8de172d68",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/986a979e-2e0f-4adf-a358-93ccdd5df032/default.jobtemplate.hls1080_00003.ts",
+              "expectedBytes": 2288336,
+              "expectedSha256": "db861dcff4fa4565b58dee0fc3e99d73c313e6ed65023eea4744f6e684f1047b",
+              "repeatedFetchByteIdentical": true
+            }
+          ],
+          "frame": {
+            "timestampSeconds": 17.8,
+            "width": 1920,
+            "height": 1080,
+            "channels": 3,
+            "encodedSha256": "358f90e50051796a9fac2a2636948925b5e1acf90d7595bb9c9c53fdf428395a",
+            "pixelSha256": "7bc4641bf221f84dd1125e95118f3f7eeaf84b2f1fb91a234e134ec8b1fa91a3"
+          },
+          "openingFrame": {
+            "timestampSeconds": 6.5,
+            "width": 1920,
+            "height": 1080,
+            "channels": 3,
+            "encodedSha256": "ddfd5a599984eccaa072b7537a493e3ab4c770affc3f13d256f448bede645523",
+            "pixelSha256": "9ea6a6f7e0013c64b356d6a9784cb5d76121a0e3a618b1ec32cec0b24374a923"
+          }
+        },
+        "silhouetteFrame": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a15-5g-verified-amazon-B0CRDYG64S-real-video-frame-17.8s.png",
+          "sourceUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+          "productRecordUrl": "https://www.amazon.com/dp/B0CRDYG64S",
+          "asin": "B0CRDYG64S",
+          "productTitle": "TAURI 3 in 1 for Samsung Galaxy A15 5G Case Black, [15 FT Military Grade Protection] with 2X Screen Protector, [Non Slip Textured Back] Slim Shockproof Case for Galaxy A15 5G Case 6.5 Inch",
+          "encodedSha256": "358f90e50051796a9fac2a2636948925b5e1acf90d7595bb9c9c53fdf428395a",
+          "decodedPixelSha256": "7bc4641bf221f84dd1125e95118f3f7eeaf84b2f1fb91a234e134ec8b1fa91a3",
+          "frameTimestampSeconds": 17.8,
+          "geometryUse": "complete physical silhouette only"
+        },
+        "openingFrame": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a15-5g-verified-amazon-B0CRDYG64S-real-video-opening-frame-6.5s.png",
+          "sourceUrl": "https://www.amazon.com/live/video/0cbe63cd03ad4962b3acef1e0e49a9f4",
+          "encodedSha256": "ddfd5a599984eccaa072b7537a493e3ab4c770affc3f13d256f448bede645523",
+          "decodedPixelSha256": "9ea6a6f7e0013c64b356d6a9784cb5d76121a0e3a618b1ec32cec0b24374a923",
+          "frameTimestampSeconds": 6.5,
+          "geometryUse": "four physical opening masks only; no outer silhouette pixels are used"
+        }
+      },
+      "geometryQa": {
+        "sourceGeometry": {
+          "method": "max-rgb-connected-dark-component",
+          "seed": {
+            "x": 1400,
+            "y": 450
+          },
+          "primaryThreshold": 80,
+          "stabilityThresholds": [
+            79,
+            80,
+            81
+          ],
+          "minimumThresholdIou": 0.9994032710170303,
+          "requiredMinimumThresholdIou": 0.995,
+          "maximumBoundsDrift": 1,
+          "allowedMaximumBoundsDrift": 4,
+          "thresholdStability": [
+            {
+              "threshold": 79,
+              "iouWithPrimary": 0.9997250265153003,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 1166,
+                "minY": 226,
+                "maxX": 1599,
+                "maxY": 902
+              },
+              "pixels": 254500
+            },
+            {
+              "threshold": 80,
+              "iouWithPrimary": 1,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 1166,
+                "minY": 226,
+                "maxX": 1599,
+                "maxY": 902
+              },
+              "pixels": 254570
+            },
+            {
+              "threshold": 81,
+              "iouWithPrimary": 0.9994032710170303,
+              "boundsDriftFromPrimary": 1,
+              "bounds": {
+                "minX": 1165,
+                "minY": 226,
+                "maxX": 1599,
+                "maxY": 902
+              },
+              "pixels": 254722
+            }
+          ],
+          "primaryBounds": {
+            "minX": 1166,
+            "minY": 226,
+            "maxX": 1599,
+            "maxY": 902
+          },
+          "primaryPixels": 254570
+        },
+        "openingFrameGeometry": {
+          "method": "max-rgb-connected-bright-components",
+          "comparison": "greater-than-or-equal",
+          "primaryThreshold": 115,
+          "stabilityThresholds": [
+            114,
+            115,
+            116
+          ],
+          "minimumThresholdIou": 0.9971743430347556,
+          "requiredMinimumThresholdIou": 0.995,
+          "maximumBoundsDrift": 0,
+          "allowedMaximumBoundsDrift": 0,
+          "thresholdStability": [
+            {
+              "openingId": "upper-camera",
+              "thresholds": [
+                114,
+                115
+              ],
+              "iou": 0.9990350595046639,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "upper-camera",
+              "thresholds": [
+                114,
+                116
+              ],
+              "iou": 0.9980701190093277,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "upper-camera",
+              "thresholds": [
+                115,
+                116
+              ],
+              "iou": 0.9990341274951706,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "middle-camera",
+              "thresholds": [
+                114,
+                115
+              ],
+              "iou": 0.9988697372139023,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "middle-camera",
+              "thresholds": [
+                114,
+                116
+              ],
+              "iou": 0.9971743430347556,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "middle-camera",
+              "thresholds": [
+                115,
+                116
+              ],
+              "iou": 0.9983026874115983,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "lower-camera",
+              "thresholds": [
+                114,
+                115
+              ],
+              "iou": 0.9983188568226394,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "lower-camera",
+              "thresholds": [
+                114,
+                116
+              ],
+              "iou": 0.997198094704399,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "lower-camera",
+              "thresholds": [
+                115,
+                116
+              ],
+              "iou": 0.9988773505472917,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "flash",
+              "thresholds": [
+                114,
+                115
+              ],
+              "iou": 1,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "flash",
+              "thresholds": [
+                114,
+                116
+              ],
+              "iou": 0.998139534883721,
+              "boundsDrift": 0
+            },
+            {
+              "openingId": "flash",
+              "thresholds": [
+                115,
+                116
+              ],
+              "iou": 0.998139534883721,
+              "boundsDrift": 0
+            }
+          ],
+          "primaryOpenings": [
+            {
+              "openingId": "upper-camera",
+              "pixels": 3106,
+              "bounds": {
+                "minX": 392,
+                "minY": 67,
+                "maxX": 462,
+                "maxY": 123
+              },
+              "centroid": {
+                "x": 428.5260785576304,
+                "y": 95.70701867353509
+              }
+            },
+            {
+              "openingId": "middle-camera",
+              "pixels": 3535,
+              "bounds": {
+                "minX": 380,
+                "minY": 131,
+                "maxX": 451,
+                "maxY": 193
+              },
+              "centroid": {
+                "x": 415.81626591230554,
+                "y": 162.44512022630835
+              }
+            },
+            {
+              "openingId": "lower-camera",
+              "pixels": 3563,
+              "bounds": {
+                "minX": 367,
+                "minY": 200,
+                "maxX": 439,
+                "maxY": 262
+              },
+              "centroid": {
+                "x": 403.2215829357283,
+                "y": 231.53255683412854
+              }
+            },
+            {
+              "openingId": "flash",
+              "pixels": 1075,
+              "bounds": {
+                "minX": 467,
+                "minY": 113,
+                "maxX": 507,
+                "maxY": 146
+              },
+              "centroid": {
+                "x": 486.8795348837209,
+                "y": 129.9893023255814
+              }
+            }
+          ]
+        },
+        "rectification": {
+          "kind": "projective-silhouette-rectification-plus-local-affine-registration-of-four-observed-openings-and-horizontal-scale-calibration-from-two-observed-circular-camera-openings",
+          "sourceCorners": [
+            {
+              "x": 1174.2229708744621,
+              "y": 230.36827900948037
+            },
+            {
+              "x": 1525.4123805761176,
+              "y": 225.19779011065634
+            },
+            {
+              "x": 1607.756682943109,
+              "y": 902.0834980406554
+            },
+            {
+              "x": 1179.9905151107318,
+              "y": 897.3392638452248
+            }
+          ],
+          "outerLineFits": {
+            "left": {
+              "slope": 0.00864736902714019,
+              "intercept": 1172.23089135372,
+              "rms": 0.4193580700575844,
+              "points": 293,
+              "candidates": 421
+            },
+            "right": {
+              "slope": 0.12165170781757335,
+              "intercept": 1498.0166848124127,
+              "rms": 0.3429727331631849,
+              "points": 421,
+              "candidates": 421
+            },
+            "top": {
+              "slope": -0.014722792760796855,
+              "intercept": 247.6561204646323,
+              "rms": 0.3500131208267412,
+              "points": 213,
+              "candidates": 218
+            },
+            "bottom": {
+              "slope": 0.011090718603276019,
+              "intercept": 884.2523210875969,
+              "rms": 0.4190609510627021,
+              "points": 218,
+              "candidates": 218
+            }
+          },
+          "calibrationOpenings": [
+            {
+              "openingId": "middle-camera",
+              "normalizedBounds": {
+                "minX": 0.10499011130419589,
+                "minY": 0.1398355256488249,
+                "maxX": 0.260911107486671,
+                "maxY": 0.21741940359544148
+              },
+              "targetAspectForCircle": 0.49758454503343336
+            },
+            {
+              "openingId": "lower-camera",
+              "normalizedBounds": {
+                "minX": 0.103191975463509,
+                "minY": 0.2260254215179589,
+                "maxX": 0.2609375034181778,
+                "maxY": 0.3043261102778125
+              },
+              "targetAspectForCircle": 0.49637342988483824
+            }
+          ],
+          "circleCalibratedBodyAspect": 0.4969789874591358,
+          "targetBodyAspect": 0.4969789874591358,
+          "officialDeviceAspect": 0.4797001873828857,
+          "targetBodyWidth": 336,
+          "targetBodyHeight": 677,
+          "rectificationPadding": 16,
+          "rectifiedWidth": 368,
+          "rectifiedHeight": 709,
+          "rectifiedCorners": [
+            {
+              "x": 16,
+              "y": 16
+            },
+            {
+              "x": 351,
+              "y": 16
+            },
+            {
+              "x": 351,
+              "y": 692
+            },
+            {
+              "x": 16,
+              "y": 692
+            }
+          ],
+          "openingAlignment": {
+            "openingIds": [
+              "middle-camera",
+              "lower-camera",
+              "flash"
+            ],
+            "openingFramePoints": [
+              {
+                "x": 415.81626591230554,
+                "y": 162.44512022630835
+              },
+              {
+                "x": 403.2215829357283,
+                "y": 231.53255683412854
+              },
+              {
+                "x": 486.8795348837209,
+                "y": 129.9893023255814
+              }
+            ],
+            "targetUnitPoints": [
+              {
+                "x": 0.18326980364876436,
+                "y": 0.17873436734169762
+              },
+              {
+                "x": 0.18127964279801143,
+                "y": 0.2651364913753622
+              },
+              {
+                "x": 0.32727115391114797,
+                "y": 0.13389922481491512
+              }
+            ],
+            "openingFrameToUnit": [
+              0.0021960703687672538,
+              0.00037153859657343565,
+              -0.7902466087617805,
+              -0.00006516461938518377,
+              0.0012387403631289413,
+              0.004603548826379642,
+              0,
+              0,
+              1
+            ],
+            "targetToOpeningFrame": [
+              1.3472891905847217,
+              -0.20025463825916345,
+              338.94202854825613,
+              0.07087489026712857,
+              1.1836543533969803,
+              -4.993104107806773,
+              0,
+              0,
+              1
+            ]
+          },
+          "openingMappingQa": [
+            {
+              "threshold": 79,
+              "openingThreshold": 114,
+              "filledSourceOpenings": {
+                "components": 4,
+                "pixels": 5033
+              },
+              "mappedOpeningPixels": 7028,
+              "mappedOutsideBodyPixels": 0
+            },
+            {
+              "threshold": 80,
+              "openingThreshold": 115,
+              "filledSourceOpenings": {
+                "components": 4,
+                "pixels": 5003
+              },
+              "mappedOpeningPixels": 7018,
+              "mappedOutsideBodyPixels": 0
+            },
+            {
+              "threshold": 81,
+              "openingThreshold": 116,
+              "filledSourceOpenings": {
+                "components": 4,
+                "pixels": 4944
+              },
+              "mappedOpeningPixels": 7011,
+              "mappedOutsideBodyPixels": 0
+            }
+          ],
+          "minimumThresholdIou": 0.9995775417521915,
+          "maximumBoundsDrift": 1,
+          "thresholdStability": [
+            {
+              "threshold": 79,
+              "iouWithPrimary": 0.9998116509938856,
+              "boundsDriftFromPrimary": 0
+            },
+            {
+              "threshold": 80,
+              "iouWithPrimary": 1,
+              "boundsDriftFromPrimary": 0
+            },
+            {
+              "threshold": 81,
+              "iouWithPrimary": 0.9995775417521915,
+              "boundsDriftFromPrimary": 1
+            }
+          ],
+          "silhouetteSampling": "destination-pixel-center-to-source-pixel-cell-nearest-neighbor",
+          "spatialTransform": "projective transform with pixel-center nearest-neighbor sampling for the directly segmented silhouette and one three-correspondence local affine transform for the four directly segmented opening masks; no boundary or opening is synthesized"
+        },
+        "transform": {
+          "kind": "dual-real-video-frame-segmentation-projective-silhouette-rectification-local-affine-opening-registration-and-alpha-only-neutral-matte-relighting",
+          "geometrySource": "Verified Amazon exact-ASIN real unboxing video: the 17.8-second flat unobstructed frame supplies the complete physical silhouette and the 6.5-second frame supplies only the four complete brightly backed physical openings",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 368,
+            "height": 709
+          },
+          "sourceRgbUsed": false,
+          "fullyTransparentRgb": "zeroed",
+          "edgeBlurSigmaForRgbLightingOnly": 6,
+          "filledCompressionArtifactComponents": 1,
+          "filledCompressionArtifactPixels": 2,
+          "shadowAffectedSourceOpeningsReplaced": 4,
+          "inferredOpeningPixels": 0
+        },
+        "sharedAlphaSha256": "17cdfbe7361ffdfabd00c1dcdc0a2e1541d090f53c2586ca4ded625cf6f75bb5",
+        "significantOpenings": [
+          {
+            "componentIndex": 0,
+            "pixels": 1923,
+            "bounds": {
+              "minX": 51,
+              "minY": 56,
+              "maxX": 103,
+              "maxY": 104
+            },
+            "centerX": 0.2023121387283237,
+            "centerY": 0.09572901325478646,
+            "width": 0.1531791907514451,
+            "height": 0.07216494845360824,
+            "aspect": 1.0816326530612246,
+            "openingId": "upper-camera"
+          },
+          {
+            "componentIndex": 2,
+            "pixels": 2201,
+            "bounds": {
+              "minX": 51,
+              "minY": 110,
+              "maxX": 103,
+              "maxY": 162
+            },
+            "centerX": 0.2023121387283237,
+            "centerY": 0.17820324005891017,
+            "width": 0.1531791907514451,
+            "height": 0.0780559646539028,
+            "aspect": 1,
+            "openingId": "middle-camera"
+          },
+          {
+            "componentIndex": 3,
+            "pixels": 2223,
+            "bounds": {
+              "minX": 50,
+              "minY": 168,
+              "maxX": 103,
+              "maxY": 221
+            },
+            "centerX": 0.20086705202312138,
+            "centerY": 0.26435935198821797,
+            "width": 0.15606936416184972,
+            "height": 0.07952871870397643,
+            "aspect": 1,
+            "openingId": "lower-camera"
+          },
+          {
+            "componentIndex": 1,
+            "pixels": 671,
+            "bounds": {
+              "minX": 111,
+              "minY": 92,
+              "maxX": 140,
+              "maxY": 120
+            },
+            "centerX": 0.342485549132948,
+            "centerY": 0.13402061855670103,
+            "width": 0.08670520231213873,
+            "height": 0.042709867452135494,
+            "aspect": 1.0344827586206897,
+            "openingId": "flash"
+          }
+        ],
+        "expectedOpeningCount": 4,
+        "openingQaPassed": true
+      },
+      "black": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a15-4g-5g-black-v1-tauri-real-video-alpha-matte.png",
+        "sha256": "97c2d0183600f5c4d73fc49d73db92338386ae5036390d6aaf7c9d939d67e597",
+        "pixelSha256": "5ae9e5173769887af1d5b05a479ea936d8d739f54c0e1638b204a03e9cf2d363",
+        "alphaSha256": "17cdfbe7361ffdfabd00c1dcdc0a2e1541d090f53c2586ca4ded625cf6f75bb5",
+        "width": 368,
+        "height": 709,
+        "alphaBounds": {
+          "minX": 7,
+          "minY": 15,
+          "maxX": 352,
+          "maxY": 693
+        }
+      },
+      "white": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a15-4g-5g-white-v1-tauri-real-video-alpha-matte.png",
+        "sha256": "0ce53ad46b54b32df885656be485c521e00cd2bbb153081cb604fbfdea630456",
+        "pixelSha256": "960aac7769f9a2b22366614003ea4e7af2efb45be2a234761cf693843cd10451",
+        "alphaSha256": "17cdfbe7361ffdfabd00c1dcdc0a2e1541d090f53c2586ca4ded625cf6f75bb5",
+        "width": 368,
+        "height": 709,
+        "alphaBounds": {
+          "minX": 7,
+          "minY": 15,
+          "maxX": 352,
+          "maxY": 693
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireVerifiedDimensions": true,
+    "shopifyStorageOnly": true,
+    "allowedDestinations": [
+      "Shopify Files",
+      "charme_product.body_image_black",
+      "charme_product.body_image_white"
+    ],
+    "forbiddenDestinations": [
+      "Shopify Product Media",
+      "Shopify variant media associations"
+    ]
+  }
+}

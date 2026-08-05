@@ -1,0 +1,1954 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-02T18:44:51.819Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/supcase-a23-amazon-video-case-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/supcase-a23-amazon-video-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/supcase-a23-amazon-video-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "Amazon ASIN B0BMFRJYLG explicitly identifies the real SUPCASE Galaxy A23 4G / 5G case and the exact-ASIN product video.",
+    "The HLS manifests and all ten segments are byte stable; the 52-second complete empty rear-shell frame is pixel locked.",
+    "Samsung independently identifies the A23 4G and A23 5G models and reports identical 165.4 x 76.9 x 8.4 mm dimensions.",
+    "The directly observed outer contour remains stable across edge-fit thresholds 1.5, 1.625, and 1.75 and retains the physical side structures without inferred boundary pixels.",
+    "The directly observed camera opening is preserved as the sole significant opening and remains inside the body contour.",
+    "The red outer-edge and blue opening-edge overlay confirms a complete physical contour with transparent canvas margin.",
+    "Black and White candidates share exact binary alpha, contain zero hidden RGB, use neutral RGB channels, and retain transparent canvas corners."
+  ],
+  "summary": {
+    "sourceCandidates": 1,
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a23-4g-5g",
+      "modelName": "Galaxy A23 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "The exact SUPCASE ASIN explicitly names Galaxy A23 4G / 5G in its title and states that it is designed exclusively for the Galaxy A23 4G/5G 2022 release.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "The real empty rear-shell frame directly supplies the complete outer boundary and camera opening; the high-contrast overlay confirms the physical side structures, opening topology, and unclipped transparent margin.",
+        "evidence": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/reviews/galaxy-a23-4g-5g-supcase-real-video-physical-edge-overlay.png",
+          "encodedSha256": "0964b3d003fe4be78091ce56381ebf78a7ee29c144da95d519e5ad0d998e69af",
+          "decodedPixelSha256": "42f3245dcc34ea0cca7eae3b9ea932b4401c0d461547e4cf8d96c360d6196d4a",
+          "width": 915,
+          "height": 785,
+          "sourceCrop": {
+            "left": 92,
+            "top": 700,
+            "width": 915,
+            "height": 785
+          },
+          "outerEdgeColour": "#ff2038",
+          "openingEdgeColour": "#006cff",
+          "bodyFillOpacity": 0.14901960784313725,
+          "geometryUse": "visual review only; never sampled by candidate generation"
+        }
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "widthMm": 76.9,
+        "heightMm": 165.4,
+        "depthMm": 8.4,
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "165.4 x 76.9 x 8.4",
+        "reportedOrder": "height x width x depth",
+        "compatibleNetworks": [
+          "4G LTE",
+          "5G"
+        ],
+        "directPageVerification": {
+          "verifiedAt": "2026-08-02T17:11:26.959Z",
+          "evidence": [
+            {
+              "network": "4G LTE",
+              "modelName": "Galaxy A23",
+              "productCode": "SM-A235FZKGXSA",
+              "supportModel": "SM-A235F/DS",
+              "sourcePageUrl": "https://www.samsung.com/au/support/model/SM-A235FZKGXSA/",
+              "apiEndpoint": "https://api.samsung.com/model",
+              "apiQuery": {
+                "key": "56FE13336ABF4709AFCF7704B24D83F0",
+                "siteCode": "au",
+                "modelCode": "SM-A235FZKGXSA",
+                "type": "json",
+                "option": "16",
+                "disclaimer": ""
+              },
+              "reportedLabel": "Dimension (HxWxD, mm)",
+              "reportedValue": "165.4 x 76.9 x 8.4",
+              "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+              "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+              "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD",
+              "expectedInfraExcludes": "5G",
+              "sourcePageFinalUrl": "https://www.samsung.com/au/support/model/SM-A235FZKGXSA/",
+              "sourcePageHttpStatus": 200,
+              "sourcePageEncodedSha256": "26d81adee43775a79d3ab824a5ab2b4ad0f78a9e71247c1baa619c65d7df697a",
+              "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=au&modelCode=SM-A235FZKGXSA&type=json&option=16&disclaimer=",
+              "apiHttpStatus": 200,
+              "apiStatusCode": 200,
+              "dimensionVerified": true,
+              "networkIdentityVerified": true
+            },
+            {
+              "network": "5G",
+              "modelName": "Galaxy A23 5G",
+              "productCode": "SM-A236BZKUEUB",
+              "supportModel": "SM-A236B/DSN",
+              "sourcePageUrl": "https://www.samsung.com/uk/support/model/SM-A236BZKUEUB/",
+              "apiEndpoint": "https://api.samsung.com/model",
+              "apiQuery": {
+                "key": "56FE13336ABF4709AFCF7704B24D83F0",
+                "siteCode": "uk",
+                "modelCode": "SM-A236BZKUEUB",
+                "type": "json",
+                "option": "16",
+                "disclaimer": ""
+              },
+              "reportedLabel": "Dimension (HxWxD, mm)",
+              "reportedValue": "165.4 x 76.9 x 8.4",
+              "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+              "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+              "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD, 5G Sub6 FDD, 5G Sub6 TDD",
+              "sourcePageFinalUrl": "https://www.samsung.com/uk/support/model/SM-A236BZKUEUB/",
+              "sourcePageHttpStatus": 200,
+              "sourcePageEncodedSha256": "18a87f3838f090121e48878ad4eef12982086bb58b76fb85a22d0f6afbda071e",
+              "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A236BZKUEUB&type=json&option=16&disclaimer=",
+              "apiHttpStatus": 200,
+              "apiStatusCode": 200,
+              "dimensionVerified": true,
+              "networkIdentityVerified": true
+            }
+          ]
+        }
+      },
+      "verifiedRetailSource": {
+        "manufacturer": "SUPCASE",
+        "retailer": "Amazon US",
+        "asin": "B0BMFRJYLG",
+        "productTitle": "SUPCASE for Samsung Galaxy A23 4G / 5G Case with Kickstand, Black | Built-in Screen Protector, Rotatable Belt-Clip, Military-Grade Drop Protection, Full-Body Rugged, Unicorn Beetle Pro",
+        "productRecordUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+        "videoUrl": "https://www.amazon.com/live/video/078e1f444883490eaeecd4b0e0353edd",
+        "videoTitle": "Product Overview Video",
+        "hlsEvidence": {
+          "master": {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8",
+            "bytes": 737,
+            "encodedSha256": "f8d59a2e98bbeba93f17347d8e8975266187e2072fc310f7bcd1293f922b5d49",
+            "repeatedFetchByteIdentical": true
+          },
+          "variant": {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080.m3u8",
+            "bytes": 683,
+            "encodedSha256": "f7bd05827698987c821f0ba8710e3acc3b710ff888cdbd657e15187d7a96d6af",
+            "repeatedFetchByteIdentical": true
+          },
+          "segments": [
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00001.ts",
+              "expectedBytes": 1290244,
+              "expectedSha256": "e20e3f3d0cbe8b1681c15982d82bbc172307cd589414d9d25e8ee2161e1ae806",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00002.ts",
+              "expectedBytes": 2073640,
+              "expectedSha256": "00b4a67bafa60206c0dda53efdfe3975c27cc508ecdd7fb718346ce90a3a3355",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00003.ts",
+              "expectedBytes": 1864584,
+              "expectedSha256": "aa4946ba8dfedc16e862e137072b927545f7ce26e0620ca0fae66f3bd0da5aad",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00004.ts",
+              "expectedBytes": 1805552,
+              "expectedSha256": "75d709cf41d7ccbb12074fac7c15344cf021db06ad0756498512268426fe2c73",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00005.ts",
+              "expectedBytes": 1893724,
+              "expectedSha256": "8e2962019ebe9ee16e67be59d7f8158f87e91002d551b94f350c1be7dca6d5f5",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00006.ts",
+              "expectedBytes": 2010660,
+              "expectedSha256": "26f021d31f7905916e3290be33740c250907d533bcce2c939ddda4bcddebf62f",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00007.ts",
+              "expectedBytes": 2471072,
+              "expectedSha256": "ac1a15671fe1b1b31a3a26a52d41efa5dea17fcfd9da653c92b73a4cda71b60f",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00008.ts",
+              "expectedBytes": 1629584,
+              "expectedSha256": "14d2b0f0d7fb81b00c07a92aac2becbfa6c5d6396ada94a6a62ec2c6efafdd10",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00009.ts",
+              "expectedBytes": 1034376,
+              "expectedSha256": "5360c5a93c0c8b40ea5ab445406783ce06e4c263cb695684fc861a6e46b941fa",
+              "repeatedFetchByteIdentical": true
+            },
+            {
+              "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00010.ts",
+              "expectedBytes": 422624,
+              "expectedSha256": "3329fc3be9ce7ef1ec367b2b5766e2be067e896fb87c9f936851ff7edec2463b",
+              "repeatedFetchByteIdentical": true
+            }
+          ],
+          "stream": {
+            "width": 1080,
+            "height": 1920,
+            "averageFrameRate": "30000/1001",
+            "nominalFrameRate": "30000/1001",
+            "playlistDurationSeconds": 58
+          },
+          "frame": {
+            "timestampSeconds": 52,
+            "width": 1080,
+            "height": 1920,
+            "channels": 3,
+            "encodedBytes": 2094762,
+            "encodedSha256": "da6ba6dfc29ab6ac064ddd4a565211bdf1392e96f48108cd365b9dad47598064",
+            "decodedPixelSha256": "0f28a2adccf45a63006fcc4fb9f16c9daf01f22b25af04ac40764d0d3a2db3e7"
+          }
+        },
+        "frame": {
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a23-4g-5g-verified-amazon-B0BMFRJYLG-real-video-frame-52s.png",
+          "sourceUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+          "encodedSha256": "da6ba6dfc29ab6ac064ddd4a565211bdf1392e96f48108cd365b9dad47598064",
+          "decodedPixelSha256": "0f28a2adccf45a63006fcc4fb9f16c9daf01f22b25af04ac40764d0d3a2db3e7",
+          "frameTimestampSeconds": 52,
+          "geometryUse": "accepted-real-product-video-frame-complete-empty-rear-shell-separately-visible-with-no-phone-inserted"
+        }
+      },
+      "geometryQa": {
+        "sourceGeometry": {
+          "sourceQualification": {
+            "minimumThresholdIou": 0.9967833861717664,
+            "maximumBoundsDrift": 0,
+            "stability": [
+              {
+                "threshold": 118,
+                "iouWithPrimary": 0.9967833861717664,
+                "boundsDriftFromPrimary": 0,
+                "bounds": {
+                  "minX": 140,
+                  "minY": 748,
+                  "maxX": 958,
+                  "maxY": 1436
+                },
+                "pixels": 279827,
+                "cameraOpening": {
+                  "pixels": 16204,
+                  "bounds": {
+                    "minX": 200,
+                    "minY": 964,
+                    "maxX": 381,
+                    "maxY": 1121
+                  }
+                },
+                "filledComponents": 104,
+                "filledPixels": 1308,
+                "outerLines": {
+                  "top": {
+                    "center": {
+                      "x": 189.06666666666666,
+                      "y": 935.2166666666667
+                    },
+                    "direction": {
+                      "x": 0.5236591626315634,
+                      "y": -0.8519278616127129
+                    },
+                    "normal": {
+                      "x": 0.8519278616127129,
+                      "y": 0.5236591626315634
+                    },
+                    "constant": -650.8059375813256,
+                    "rms": 0.24112041779702506,
+                    "points": 60,
+                    "candidates": 60
+                  },
+                  "right": {
+                    "center": {
+                      "x": 657,
+                      "y": 934.9916142557652
+                    },
+                    "direction": {
+                      "x": 0.8538731883366214,
+                      "y": 0.5204811026731447
+                    },
+                    "normal": {
+                      "x": -0.5204811026731447,
+                      "y": 0.8538731883366214
+                    },
+                    "constant": -456.40818627631853,
+                    "rms": 0.2805133198146781,
+                    "points": 477,
+                    "candidates": 477
+                  },
+                  "bottom": {
+                    "center": {
+                      "x": 887.7045454545455,
+                      "y": 1286.621212121212
+                    },
+                    "direction": {
+                      "x": 0.5206366431437862,
+                      "y": -0.8537783587184498
+                    },
+                    "normal": {
+                      "x": 0.8537783587184498,
+                      "y": 0.5206366431437862
+                    },
+                    "constant": -1427.7650787214666,
+                    "rms": 0.435904218912862,
+                    "points": 132,
+                    "candidates": 198
+                  },
+                  "left": {
+                    "center": {
+                      "x": 402.98,
+                      "y": 1190.28
+                    },
+                    "direction": {
+                      "x": 0.8621166756804188,
+                      "y": 0.5067098158845391
+                    },
+                    "normal": {
+                      "x": -0.5067098158845391,
+                      "y": 0.8621166756804188
+                    },
+                    "constant": -821.9663151237374,
+                    "rms": 1.671724892683335,
+                    "points": 100,
+                    "candidates": 144
+                  }
+                },
+                "sourceCorners": [
+                  {
+                    "x": 130.66601036607278,
+                    "y": 1030.227218929168
+                  },
+                  {
+                    "x": 316.70561089486495,
+                    "y": 727.5640930567972
+                  },
+                  {
+                    "x": 981.5075102432456,
+                    "y": 1132.7961935120188
+                  },
+                  {
+                    "x": 803.06009699893,
+                    "y": 1425.4274203064194
+                  }
+                ]
+              },
+              {
+                "threshold": 119,
+                "iouWithPrimary": 0.9982438642111637,
+                "boundsDriftFromPrimary": 0,
+                "bounds": {
+                  "minX": 140,
+                  "minY": 748,
+                  "maxX": 958,
+                  "maxY": 1436
+                },
+                "pixels": 280237,
+                "cameraOpening": {
+                  "pixels": 16110,
+                  "bounds": {
+                    "minX": 200,
+                    "minY": 964,
+                    "maxX": 379,
+                    "maxY": 1121
+                  }
+                },
+                "filledComponents": 107,
+                "filledPixels": 1268,
+                "outerLines": {
+                  "top": {
+                    "center": {
+                      "x": 189.06666666666666,
+                      "y": 935.2166666666667
+                    },
+                    "direction": {
+                      "x": 0.5236591626315634,
+                      "y": -0.8519278616127129
+                    },
+                    "normal": {
+                      "x": 0.8519278616127129,
+                      "y": 0.5236591626315634
+                    },
+                    "constant": -650.8059375813256,
+                    "rms": 0.24112041779702506,
+                    "points": 60,
+                    "candidates": 60
+                  },
+                  "right": {
+                    "center": {
+                      "x": 657,
+                      "y": 934.9874213836478
+                    },
+                    "direction": {
+                      "x": 0.8538749097358364,
+                      "y": 0.5204782786280494
+                    },
+                    "normal": {
+                      "x": -0.5204782786280494,
+                      "y": 0.8538749097358364
+                    },
+                    "constant": -456.4080709794762,
+                    "rms": 0.2803531955582727,
+                    "points": 477,
+                    "candidates": 477
+                  },
+                  "bottom": {
+                    "center": {
+                      "x": 887.7272727272727,
+                      "y": 1286.621212121212
+                    },
+                    "direction": {
+                      "x": 0.5205158873143889,
+                      "y": -0.853851984276733
+                    },
+                    "normal": {
+                      "x": 0.853851984276733,
+                      "y": 0.5205158873143889
+                    },
+                    "constant": -1427.6944751795418,
+                    "rms": 0.43269692482822986,
+                    "points": 132,
+                    "candidates": 199
+                  },
+                  "left": {
+                    "center": {
+                      "x": 404.0425531914894,
+                      "y": 1190.5425531914893
+                    },
+                    "direction": {
+                      "x": 0.8593067486431772,
+                      "y": 0.5114605671371855
+                    },
+                    "normal": {
+                      "x": -0.5114605671371855,
+                      "y": 0.8593067486431772
+                    },
+                    "constant": -816.38941710145,
+                    "rms": 1.1414964020710223,
+                    "points": 94,
+                    "candidates": 143
+                  }
+                },
+                "sourceCorners": [
+                  {
+                    "x": 131.74552456311588,
+                    "y": 1028.4709845555617
+                  },
+                  {
+                    "x": 316.70679548088816,
+                    "y": 727.5621658837242
+                  },
+                  {
+                    "x": 981.5048400330076,
+                    "y": 1132.7889009927655
+                  },
+                  {
+                    "x": 801.9286447630303,
+                    "y": 1427.3649060619916
+                  }
+                ]
+              },
+              {
+                "threshold": 120,
+                "iouWithPrimary": 1,
+                "boundsDriftFromPrimary": 0,
+                "bounds": {
+                  "minX": 140,
+                  "minY": 748,
+                  "maxX": 958,
+                  "maxY": 1436
+                },
+                "pixels": 280730,
+                "cameraOpening": {
+                  "pixels": 15973,
+                  "bounds": {
+                    "minX": 200,
+                    "minY": 964,
+                    "maxX": 379,
+                    "maxY": 1121
+                  }
+                },
+                "filledComponents": 95,
+                "filledPixels": 1209,
+                "outerLines": {
+                  "top": {
+                    "center": {
+                      "x": 189.06666666666666,
+                      "y": 935.2166666666667
+                    },
+                    "direction": {
+                      "x": 0.5236591626315634,
+                      "y": -0.8519278616127129
+                    },
+                    "normal": {
+                      "x": 0.8519278616127129,
+                      "y": 0.5236591626315634
+                    },
+                    "constant": -650.8059375813256,
+                    "rms": 0.24112041779702506,
+                    "points": 60,
+                    "candidates": 60
+                  },
+                  "right": {
+                    "center": {
+                      "x": 657,
+                      "y": 934.9748427672956
+                    },
+                    "direction": {
+                      "x": 0.853872909583039,
+                      "y": 0.5204815599809424
+                    },
+                    "normal": {
+                      "x": -0.5204815599809424,
+                      "y": 0.853872909583039
+                    },
+                    "constant": -456.3933044731759,
+                    "rms": 0.278319448122174,
+                    "points": 477,
+                    "candidates": 477
+                  },
+                  "bottom": {
+                    "center": {
+                      "x": 887.8076923076923,
+                      "y": 1286.4769230769232
+                    },
+                    "direction": {
+                      "x": 0.5206539978783387,
+                      "y": -0.8537677755064915
+                    },
+                    "normal": {
+                      "x": 0.8537677755064915,
+                      "y": 0.5206539978783387
+                    },
+                    "constant": -1427.790951717314,
+                    "rms": 0.41142630115392353,
+                    "points": 130,
+                    "candidates": 199
+                  },
+                  "left": {
+                    "center": {
+                      "x": 403.1775700934579,
+                      "y": 1190.4579439252336
+                    },
+                    "direction": {
+                      "x": 0.8611197356609427,
+                      "y": 0.5084022038260929
+                    },
+                    "normal": {
+                      "x": -0.5084022038260929,
+                      "y": 0.8611197356609427
+                    },
+                    "constant": -820.1504648196035,
+                    "rms": 1.394126052833071,
+                    "points": 107,
+                    "candidates": 156
+                  }
+                },
+                "sourceCorners": [
+                  {
+                    "x": 130.96330635627479,
+                    "y": 1029.743555593792
+                  },
+                  {
+                    "x": 316.71322189379407,
+                    "y": 727.5517109149285
+                  },
+                  {
+                    "x": 981.5290356576389,
+                    "y": 1132.7927812947999
+                  },
+                  {
+                    "x": 802.5662736243971,
+                    "y": 1426.2556949807554
+                  }
+                ]
+              },
+              {
+                "threshold": 121,
+                "iouWithPrimary": 1,
+                "boundsDriftFromPrimary": 0,
+                "bounds": {
+                  "minX": 140,
+                  "minY": 748,
+                  "maxX": 958,
+                  "maxY": 1436
+                },
+                "pixels": 280730,
+                "cameraOpening": {
+                  "pixels": 15973,
+                  "bounds": {
+                    "minX": 200,
+                    "minY": 964,
+                    "maxX": 379,
+                    "maxY": 1121
+                  }
+                },
+                "filledComponents": 95,
+                "filledPixels": 1209,
+                "outerLines": {
+                  "top": {
+                    "center": {
+                      "x": 189.06666666666666,
+                      "y": 935.2166666666667
+                    },
+                    "direction": {
+                      "x": 0.5236591626315634,
+                      "y": -0.8519278616127129
+                    },
+                    "normal": {
+                      "x": 0.8519278616127129,
+                      "y": 0.5236591626315634
+                    },
+                    "constant": -650.8059375813256,
+                    "rms": 0.24112041779702506,
+                    "points": 60,
+                    "candidates": 60
+                  },
+                  "right": {
+                    "center": {
+                      "x": 657,
+                      "y": 934.9748427672956
+                    },
+                    "direction": {
+                      "x": 0.853872909583039,
+                      "y": 0.5204815599809424
+                    },
+                    "normal": {
+                      "x": -0.5204815599809424,
+                      "y": 0.853872909583039
+                    },
+                    "constant": -456.3933044731759,
+                    "rms": 0.278319448122174,
+                    "points": 477,
+                    "candidates": 477
+                  },
+                  "bottom": {
+                    "center": {
+                      "x": 887.8076923076923,
+                      "y": 1286.4769230769232
+                    },
+                    "direction": {
+                      "x": 0.5206539978783387,
+                      "y": -0.8537677755064915
+                    },
+                    "normal": {
+                      "x": 0.8537677755064915,
+                      "y": 0.5206539978783387
+                    },
+                    "constant": -1427.790951717314,
+                    "rms": 0.41142630115392353,
+                    "points": 130,
+                    "candidates": 199
+                  },
+                  "left": {
+                    "center": {
+                      "x": 403.1775700934579,
+                      "y": 1190.4579439252336
+                    },
+                    "direction": {
+                      "x": 0.8611197356609427,
+                      "y": 0.5084022038260929
+                    },
+                    "normal": {
+                      "x": -0.5084022038260929,
+                      "y": 0.8611197356609427
+                    },
+                    "constant": -820.1504648196035,
+                    "rms": 1.394126052833071,
+                    "points": 107,
+                    "candidates": 156
+                  }
+                },
+                "sourceCorners": [
+                  {
+                    "x": 130.96330635627479,
+                    "y": 1029.743555593792
+                  },
+                  {
+                    "x": 316.71322189379407,
+                    "y": 727.5517109149285
+                  },
+                  {
+                    "x": 981.5290356576389,
+                    "y": 1132.7927812947999
+                  },
+                  {
+                    "x": 802.5662736243971,
+                    "y": 1426.2556949807554
+                  }
+                ]
+              },
+              {
+                "threshold": 122,
+                "iouWithPrimary": 0.9985132385789691,
+                "boundsDriftFromPrimary": 0,
+                "bounds": {
+                  "minX": 140,
+                  "minY": 748,
+                  "maxX": 958,
+                  "maxY": 1436
+                },
+                "pixels": 281148,
+                "cameraOpening": {
+                  "pixels": 15828,
+                  "bounds": {
+                    "minX": 200,
+                    "minY": 964,
+                    "maxX": 379,
+                    "maxY": 1121
+                  }
+                },
+                "filledComponents": 101,
+                "filledPixels": 1130,
+                "outerLines": {
+                  "top": {
+                    "center": {
+                      "x": 189.06666666666666,
+                      "y": 935.2166666666667
+                    },
+                    "direction": {
+                      "x": 0.5236591626315634,
+                      "y": -0.8519278616127129
+                    },
+                    "normal": {
+                      "x": 0.8519278616127129,
+                      "y": 0.5236591626315634
+                    },
+                    "constant": -650.8059375813256,
+                    "rms": 0.24112041779702506,
+                    "points": 60,
+                    "candidates": 60
+                  },
+                  "right": {
+                    "center": {
+                      "x": 657,
+                      "y": 934.9664570230608
+                    },
+                    "direction": {
+                      "x": 0.8538934293887778,
+                      "y": 0.5204478948431557
+                    },
+                    "normal": {
+                      "x": -0.5204478948431557,
+                      "y": 0.8538934293887778
+                    },
+                    "constant": -456.42744743894343,
+                    "rms": 0.27799651710579,
+                    "points": 477,
+                    "candidates": 477
+                  },
+                  "bottom": {
+                    "center": {
+                      "x": 887.8230769230769,
+                      "y": 1286.4769230769232
+                    },
+                    "direction": {
+                      "x": 0.5205035266312418,
+                      "y": -0.8538595193381873
+                    },
+                    "normal": {
+                      "x": 0.8538595193381873,
+                      "y": 0.5205035266312418
+                    },
+                    "constant": -1427.6919611101362,
+                    "rms": 0.4077770548320962,
+                    "points": 130,
+                    "candidates": 199
+                  },
+                  "left": {
+                    "center": {
+                      "x": 404.02803738317755,
+                      "y": 1190.9719626168223
+                    },
+                    "direction": {
+                      "x": 0.8586792430512535,
+                      "y": 0.5125133730478905
+                    },
+                    "normal": {
+                      "x": -0.5125133730478905,
+                      "y": 0.8586792430512535
+                    },
+                    "constant": -815.5931311099073,
+                    "rms": 1.3493348222008557,
+                    "points": 107,
+                    "candidates": 158
+                  }
+                },
+                "sourceCorners": [
+                  {
+                    "x": 131.75192015260023,
+                    "y": 1028.4605797326121
+                  },
+                  {
+                    "x": 316.7087437636301,
+                    "y": 727.558996271754
+                  },
+                  {
+                    "x": 981.5246908230396,
+                    "y": 1132.7641989314102
+                  },
+                  {
+                    "x": 801.4452432741917,
+                    "y": 1428.1753588171357
+                  }
+                ]
+              }
+            ]
+          },
+          "method": "closed-gradient-paths-in-fixed-narrow-corridors-over-a-pixel-locked-real-video-frame",
+          "roi": {
+            "left": 92,
+            "top": 700,
+            "width": 915,
+            "height": 785
+          },
+          "edgeBlurSigma": 2,
+          "edgeSampleDistance": 2,
+          "primaryThreshold": 1.625,
+          "stabilityThresholds": [
+            1.5,
+            1.625,
+            1.75
+          ],
+          "minimumThresholdIou": 0.9997756657918819,
+          "requiredMinimumThresholdIou": 0.995,
+          "maximumBoundsDrift": 0,
+          "allowedMaximumBoundsDrift": 4,
+          "stability": [
+            {
+              "threshold": 1.5,
+              "iouWithPrimary": 0.9998540068011466,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 47,
+                "minY": 48,
+                "maxX": 866,
+                "maxY": 735
+              },
+              "pixels": 280835,
+              "openingPixels": 18537,
+              "outerDiagnostics": {
+                "guidePoints": 2259,
+                "tracedPoints": 2255,
+                "minimumGradientResponse": 1.5017301038063806,
+                "medianGradientResponse": 121.2088718513186,
+                "maximumGradientResponse": 144.37805779355443,
+                "minimumOffset": -9,
+                "maximumOffset": 15,
+                "gradientDirection": "brighter-background-to-darker-shell",
+                "closedPathScore": 182466.81242064002
+              },
+              "openingDiagnostics": {
+                "guidePoints": 521,
+                "tracedPoints": 520,
+                "minimumGradientResponse": 2.73738551269048,
+                "medianGradientResponse": 67.410110826129,
+                "maximumGradientResponse": 132.30864161039665,
+                "minimumOffset": -11,
+                "maximumOffset": 11,
+                "gradientDirection": "darker-shell-to-brighter-opening",
+                "closedPathScore": 27332.393312049513
+              },
+              "outerLines": {
+                "top": {
+                  "center": {
+                    "x": 92.59122005951495,
+                    "y": 241.0148853240405
+                  },
+                  "direction": {
+                    "x": 0.5225749795054635,
+                    "y": -0.8525933326005221
+                  },
+                  "normal": {
+                    "x": 0.8525933326005221,
+                    "y": 0.5225749795054635
+                  },
+                  "constant": -204.89100563881226,
+                  "rms": 0.28616746532029735,
+                  "points": 55,
+                  "candidates": 55
+                },
+                "right": {
+                  "center": {
+                    "x": 556.6021143369962,
+                    "y": 229.27084157660153
+                  },
+                  "direction": {
+                    "x": 0.8539459035576142,
+                    "y": 0.5203617912540944
+                  },
+                  "normal": {
+                    "x": -0.5203617912540944,
+                    "y": 0.8539459035576142
+                  },
+                  "constant": 93.84957726266998,
+                  "rms": 0.29128029242684106,
+                  "points": 589,
+                  "candidates": 612
+                },
+                "bottom": {
+                  "center": {
+                    "x": 768.7900969841177,
+                    "y": 665.1297757218118
+                  },
+                  "direction": {
+                    "x": 0.5373938596491361,
+                    "y": -0.8433313937067709
+                  },
+                  "normal": {
+                    "x": 0.8433313937067709,
+                    "y": 0.5373938596491361
+                  },
+                  "constant": -1005.7814813002882,
+                  "rms": 1.5787065116739205,
+                  "points": 60,
+                  "candidates": 68
+                },
+                "left": {
+                  "center": {
+                    "x": 538.7204293642892,
+                    "y": 664.2430607242059
+                  },
+                  "direction": {
+                    "x": 0.8544903143340717,
+                    "y": 0.5194673259303796
+                  },
+                  "normal": {
+                    "x": -0.5194673259303796,
+                    "y": 0.8544903143340717
+                  },
+                  "constant": -287.7416008865193,
+                  "rms": 0.30995372025990103,
+                  "points": 174,
+                  "candidates": 204
+                }
+              },
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 909.5003171799966,
+                  "y": 444.3134340835694
+                },
+                {
+                  "x": 704.957128515389,
+                  "y": 765.3027592730574
+                }
+              ]
+            },
+            {
+              "threshold": 1.625,
+              "iouWithPrimary": 1,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 47,
+                "minY": 48,
+                "maxX": 866,
+                "maxY": 735
+              },
+              "pixels": 280794,
+              "openingPixels": 18537,
+              "outerDiagnostics": {
+                "guidePoints": 2259,
+                "tracedPoints": 2255,
+                "minimumGradientResponse": 1.6409754639409186,
+                "medianGradientResponse": 121.2088718513186,
+                "maximumGradientResponse": 144.37805779355443,
+                "minimumOffset": -9,
+                "maximumOffset": 15,
+                "gradientDirection": "brighter-background-to-darker-shell",
+                "closedPathScore": 182114.02471244056
+              },
+              "openingDiagnostics": {
+                "guidePoints": 521,
+                "tracedPoints": 520,
+                "minimumGradientResponse": 2.73738551269048,
+                "medianGradientResponse": 67.410110826129,
+                "maximumGradientResponse": 132.30864161039665,
+                "minimumOffset": -11,
+                "maximumOffset": 11,
+                "gradientDirection": "darker-shell-to-brighter-opening",
+                "closedPathScore": 27332.393312049513
+              },
+              "outerLines": {
+                "top": {
+                  "center": {
+                    "x": 92.59122005951495,
+                    "y": 241.0148853240405
+                  },
+                  "direction": {
+                    "x": 0.5225749795054635,
+                    "y": -0.8525933326005221
+                  },
+                  "normal": {
+                    "x": 0.8525933326005221,
+                    "y": 0.5225749795054635
+                  },
+                  "constant": -204.89100563881226,
+                  "rms": 0.28616746532029735,
+                  "points": 55,
+                  "candidates": 55
+                },
+                "right": {
+                  "center": {
+                    "x": 556.6021143369962,
+                    "y": 229.27084157660153
+                  },
+                  "direction": {
+                    "x": 0.8539459035576142,
+                    "y": 0.5203617912540944
+                  },
+                  "normal": {
+                    "x": -0.5203617912540944,
+                    "y": 0.8539459035576142
+                  },
+                  "constant": 93.84957726266998,
+                  "rms": 0.29128029242684106,
+                  "points": 589,
+                  "candidates": 612
+                },
+                "bottom": {
+                  "center": {
+                    "x": 768.6620705813084,
+                    "y": 664.5565831950413
+                  },
+                  "direction": {
+                    "x": 0.5256560926140836,
+                    "y": -0.850697168384669
+                  },
+                  "normal": {
+                    "x": 0.850697168384669,
+                    "y": 0.5256560926140836
+                  },
+                  "constant": -1003.2268637314874,
+                  "rms": 1.665498944804812,
+                  "points": 61,
+                  "candidates": 66
+                },
+                "left": {
+                  "center": {
+                    "x": 538.7204293642892,
+                    "y": 664.2430607242059
+                  },
+                  "direction": {
+                    "x": 0.8544903143340717,
+                    "y": 0.5194673259303796
+                  },
+                  "normal": {
+                    "x": -0.5194673259303796,
+                    "y": 0.8544903143340717
+                  },
+                  "constant": -287.7416008865193,
+                  "rms": 0.30995372025990103,
+                  "points": 174,
+                  "candidates": 204
+                }
+              },
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 906.0515522043007,
+                  "y": 442.21188934532415
+                },
+                {
+                  "x": 706.0131120218113,
+                  "y": 765.9447196547095
+                }
+              ]
+            },
+            {
+              "threshold": 1.75,
+              "iouWithPrimary": 0.9997756657918819,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 47,
+                "minY": 48,
+                "maxX": 866,
+                "maxY": 735
+              },
+              "pixels": 280805,
+              "openingPixels": 18537,
+              "outerDiagnostics": {
+                "guidePoints": 2259,
+                "tracedPoints": 2256,
+                "minimumGradientResponse": 1.7647058823528141,
+                "medianGradientResponse": 121.2088718513186,
+                "maximumGradientResponse": 144.37805779355443,
+                "minimumOffset": -9,
+                "maximumOffset": 15,
+                "gradientDirection": "brighter-background-to-darker-shell",
+                "closedPathScore": 182027.44077690353
+              },
+              "openingDiagnostics": {
+                "guidePoints": 521,
+                "tracedPoints": 520,
+                "minimumGradientResponse": 2.73738551269048,
+                "medianGradientResponse": 67.410110826129,
+                "maximumGradientResponse": 132.30864161039665,
+                "minimumOffset": -11,
+                "maximumOffset": 11,
+                "gradientDirection": "darker-shell-to-brighter-opening",
+                "closedPathScore": 27332.393312049513
+              },
+              "outerLines": {
+                "top": {
+                  "center": {
+                    "x": 92.59122005951495,
+                    "y": 241.0148853240405
+                  },
+                  "direction": {
+                    "x": 0.5225749795054635,
+                    "y": -0.8525933326005221
+                  },
+                  "normal": {
+                    "x": 0.8525933326005221,
+                    "y": 0.5225749795054635
+                  },
+                  "constant": -204.89100563881226,
+                  "rms": 0.28616746532029735,
+                  "points": 55,
+                  "candidates": 55
+                },
+                "right": {
+                  "center": {
+                    "x": 556.6021143369962,
+                    "y": 229.27084157660153
+                  },
+                  "direction": {
+                    "x": 0.8539459035576142,
+                    "y": 0.5203617912540944
+                  },
+                  "normal": {
+                    "x": -0.5203617912540944,
+                    "y": 0.8539459035576142
+                  },
+                  "constant": 93.84957726266998,
+                  "rms": 0.29128029242684106,
+                  "points": 589,
+                  "candidates": 612
+                },
+                "bottom": {
+                  "center": {
+                    "x": 768.3983726450438,
+                    "y": 664.2913182162024
+                  },
+                  "direction": {
+                    "x": 0.5252314190880295,
+                    "y": -0.8509594328772523
+                  },
+                  "normal": {
+                    "x": 0.8509594328772523,
+                    "y": 0.5252314190880295
+                  },
+                  "constant": -1002.7825151643838,
+                  "rms": 1.850545905421702,
+                  "points": 66,
+                  "candidates": 66
+                },
+                "left": {
+                  "center": {
+                    "x": 538.7204293642892,
+                    "y": 664.2430607242059
+                  },
+                  "direction": {
+                    "x": 0.8544903143340717,
+                    "y": 0.5194673259303796
+                  },
+                  "normal": {
+                    "x": -0.5194673259303796,
+                    "y": 0.8544903143340717
+                  },
+                  "constant": -287.7416008865193,
+                  "rms": 0.30995372025990103,
+                  "points": 174,
+                  "candidates": 204
+                }
+              },
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 905.6295440098099,
+                  "y": 441.95473378184613
+                },
+                {
+                  "x": 705.7531408260145,
+                  "y": 765.7866762695077
+                }
+              ]
+            }
+          ],
+          "edgeSearchRadius": 24,
+          "edgeMaximumOffsetStep": 8,
+          "edgeTransitionPenalty": 4,
+          "edgeGuidePenalty": 0.5,
+          "outerGuide": [
+            {
+              "x": 232,
+              "y": 49
+            },
+            {
+              "x": 250,
+              "y": 51
+            },
+            {
+              "x": 272,
+              "y": 60
+            },
+            {
+              "x": 300,
+              "y": 77
+            },
+            {
+              "x": 360,
+              "y": 112
+            },
+            {
+              "x": 420,
+              "y": 148
+            },
+            {
+              "x": 480,
+              "y": 184
+            },
+            {
+              "x": 540,
+              "y": 220
+            },
+            {
+              "x": 600,
+              "y": 256
+            },
+            {
+              "x": 660,
+              "y": 292
+            },
+            {
+              "x": 720,
+              "y": 328
+            },
+            {
+              "x": 780,
+              "y": 364
+            },
+            {
+              "x": 825,
+              "y": 391
+            },
+            {
+              "x": 850,
+              "y": 411
+            },
+            {
+              "x": 866,
+              "y": 438
+            },
+            {
+              "x": 869,
+              "y": 462
+            },
+            {
+              "x": 862,
+              "y": 487
+            },
+            {
+              "x": 848,
+              "y": 516
+            },
+            {
+              "x": 834,
+              "y": 545
+            },
+            {
+              "x": 819,
+              "y": 575
+            },
+            {
+              "x": 804,
+              "y": 605
+            },
+            {
+              "x": 789,
+              "y": 635
+            },
+            {
+              "x": 773,
+              "y": 665
+            },
+            {
+              "x": 756,
+              "y": 694
+            },
+            {
+              "x": 736,
+              "y": 716
+            },
+            {
+              "x": 708,
+              "y": 730
+            },
+            {
+              "x": 675,
+              "y": 733
+            },
+            {
+              "x": 640,
+              "y": 721
+            },
+            {
+              "x": 590,
+              "y": 695
+            },
+            {
+              "x": 540,
+              "y": 667
+            },
+            {
+              "x": 490,
+              "y": 639
+            },
+            {
+              "x": 440,
+              "y": 611
+            },
+            {
+              "x": 390,
+              "y": 583
+            },
+            {
+              "x": 345,
+              "y": 556
+            },
+            {
+              "x": 300,
+              "y": 528
+            },
+            {
+              "x": 255,
+              "y": 501
+            },
+            {
+              "x": 210,
+              "y": 476
+            },
+            {
+              "x": 165,
+              "y": 451
+            },
+            {
+              "x": 125,
+              "y": 431
+            },
+            {
+              "x": 90,
+              "y": 411
+            },
+            {
+              "x": 62,
+              "y": 386
+            },
+            {
+              "x": 50,
+              "y": 358
+            },
+            {
+              "x": 49,
+              "y": 330
+            },
+            {
+              "x": 55,
+              "y": 300
+            },
+            {
+              "x": 68,
+              "y": 270
+            },
+            {
+              "x": 84,
+              "y": 240
+            },
+            {
+              "x": 101,
+              "y": 210
+            },
+            {
+              "x": 118,
+              "y": 180
+            },
+            {
+              "x": 136,
+              "y": 150
+            },
+            {
+              "x": 154,
+              "y": 120
+            },
+            {
+              "x": 171,
+              "y": 92
+            },
+            {
+              "x": 190,
+              "y": 68
+            },
+            {
+              "x": 210,
+              "y": 55
+            }
+          ],
+          "openingGuide": [
+            {
+              "x": 117,
+              "y": 282
+            },
+            {
+              "x": 140,
+              "y": 270
+            },
+            {
+              "x": 170,
+              "y": 270
+            },
+            {
+              "x": 200,
+              "y": 280
+            },
+            {
+              "x": 230,
+              "y": 300
+            },
+            {
+              "x": 255,
+              "y": 322
+            },
+            {
+              "x": 276,
+              "y": 345
+            },
+            {
+              "x": 286,
+              "y": 370
+            },
+            {
+              "x": 284,
+              "y": 392
+            },
+            {
+              "x": 270,
+              "y": 410
+            },
+            {
+              "x": 250,
+              "y": 420
+            },
+            {
+              "x": 225,
+              "y": 422
+            },
+            {
+              "x": 200,
+              "y": 414
+            },
+            {
+              "x": 175,
+              "y": 402
+            },
+            {
+              "x": 150,
+              "y": 386
+            },
+            {
+              "x": 130,
+              "y": 368
+            },
+            {
+              "x": 115,
+              "y": 347
+            },
+            {
+              "x": 108,
+              "y": 325
+            },
+            {
+              "x": 109,
+              "y": 303
+            }
+          ],
+          "edgeFitGuides": {
+            "top": {
+              "start": {
+                "x": 96,
+                "y": 277
+              },
+              "end": {
+                "x": 218,
+                "y": 95
+              },
+              "corridor": 24
+            },
+            "right": {
+              "start": {
+                "x": 300,
+                "y": 77
+              },
+              "end": {
+                "x": 825,
+                "y": 391
+              },
+              "corridor": 12
+            },
+            "bottom": {
+              "start": {
+                "x": 790,
+                "y": 635
+              },
+              "end": {
+                "x": 755,
+                "y": 695
+              },
+              "corridor": 8
+            },
+            "left": {
+              "start": {
+                "x": 440,
+                "y": 620
+              },
+              "end": {
+                "x": 640,
+                "y": 722
+              },
+              "corridor": 12
+            }
+          },
+          "primarySourceBounds": {
+            "minX": 47,
+            "minY": 48,
+            "maxX": 866,
+            "maxY": 735
+          },
+          "primarySourcePixels": 280794,
+          "primaryCameraOpeningPixels": 18537,
+          "primaryOuterDiagnostics": {
+            "guidePoints": 2259,
+            "tracedPoints": 2255,
+            "minimumGradientResponse": 1.6409754639409186,
+            "medianGradientResponse": 121.2088718513186,
+            "maximumGradientResponse": 144.37805779355443,
+            "minimumOffset": -9,
+            "maximumOffset": 15,
+            "gradientDirection": "brighter-background-to-darker-shell",
+            "closedPathScore": 182114.02471244056
+          },
+          "primaryOpeningDiagnostics": {
+            "guidePoints": 521,
+            "tracedPoints": 520,
+            "minimumGradientResponse": 2.73738551269048,
+            "medianGradientResponse": 67.410110826129,
+            "maximumGradientResponse": 132.30864161039665,
+            "minimumOffset": -11,
+            "maximumOffset": 11,
+            "gradientDirection": "darker-shell-to-brighter-opening",
+            "closedPathScore": 27332.393312049513
+          },
+          "maximumSourceCornerDrift": 3.4487649756958945,
+          "cornerStability": [
+            {
+              "threshold": 1.5,
+              "maximumCornerDrift": 3.4487649756958945,
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 909.5003171799966,
+                  "y": 444.3134340835694
+                },
+                {
+                  "x": 704.957128515389,
+                  "y": 765.3027592730574
+                }
+              ]
+            },
+            {
+              "threshold": 1.625,
+              "maximumCornerDrift": 0,
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 906.0515522043007,
+                  "y": 442.21188934532415
+                },
+                {
+                  "x": 706.0131120218113,
+                  "y": 765.9447196547095
+                }
+              ]
+            },
+            {
+              "threshold": 1.75,
+              "maximumCornerDrift": 0.4220081944907861,
+              "sourceCorners": [
+                {
+                  "x": 24.71098241140531,
+                  "y": 351.763084728624
+                },
+                {
+                  "x": 224.01002938628525,
+                  "y": 26.602016349068496
+                },
+                {
+                  "x": 905.6295440098099,
+                  "y": 441.95473378184613
+                },
+                {
+                  "x": 705.7531408260145,
+                  "y": 765.7866762695077
+                }
+              ]
+            }
+          ]
+        },
+        "rectification": {
+          "kind": "single-projective-rectification-from-four-robust-fitted-observed-physical-outer-edges",
+          "sourceCorners": [
+            {
+              "x": 24.71098241140531,
+              "y": 351.763084728624
+            },
+            {
+              "x": 224.01002938628525,
+              "y": 26.602016349068496
+            },
+            {
+              "x": 906.0515522043007,
+              "y": 442.21188934532415
+            },
+            {
+              "x": 706.0131120218113,
+              "y": 765.9447196547095
+            }
+          ],
+          "outerLineFits": {
+            "top": {
+              "center": {
+                "x": 92.59122005951495,
+                "y": 241.0148853240405
+              },
+              "direction": {
+                "x": 0.5225749795054635,
+                "y": -0.8525933326005221
+              },
+              "normal": {
+                "x": 0.8525933326005221,
+                "y": 0.5225749795054635
+              },
+              "constant": -204.89100563881226,
+              "rms": 0.28616746532029735,
+              "points": 55,
+              "candidates": 55
+            },
+            "right": {
+              "center": {
+                "x": 556.6021143369962,
+                "y": 229.27084157660153
+              },
+              "direction": {
+                "x": 0.8539459035576142,
+                "y": 0.5203617912540944
+              },
+              "normal": {
+                "x": -0.5203617912540944,
+                "y": 0.8539459035576142
+              },
+              "constant": 93.84957726266998,
+              "rms": 0.29128029242684106,
+              "points": 589,
+              "candidates": 612
+            },
+            "bottom": {
+              "center": {
+                "x": 768.6620705813084,
+                "y": 664.5565831950413
+              },
+              "direction": {
+                "x": 0.5256560926140836,
+                "y": -0.850697168384669
+              },
+              "normal": {
+                "x": 0.850697168384669,
+                "y": 0.5256560926140836
+              },
+              "constant": -1003.2268637314874,
+              "rms": 1.665498944804812,
+              "points": 61,
+              "candidates": 66
+            },
+            "left": {
+              "center": {
+                "x": 538.7204293642892,
+                "y": 664.2430607242059
+              },
+              "direction": {
+                "x": 0.8544903143340717,
+                "y": 0.5194673259303796
+              },
+              "normal": {
+                "x": -0.5194673259303796,
+                "y": 0.8544903143340717
+              },
+              "constant": -287.7416008865193,
+              "rms": 0.30995372025990103,
+              "points": 174,
+              "candidates": 204
+            }
+          },
+          "officialDimensions": {
+            "widthMm": 76.9,
+            "heightMm": 165.4
+          },
+          "officialDeviceAspect": 0.46493349455864574,
+          "targetBodyWidth": 371,
+          "targetBodyHeight": 798,
+          "temporaryPadding": 96,
+          "rectifiedWidth": 563,
+          "rectifiedHeight": 990,
+          "destinationCorners": [
+            {
+              "x": 96.5,
+              "y": 96.5
+            },
+            {
+              "x": 466.5,
+              "y": 96.5
+            },
+            {
+              "x": 466.5,
+              "y": 893.5
+            },
+            {
+              "x": 96.5,
+              "y": 893.5
+            }
+          ],
+          "primaryMappedForegroundBounds": {
+            "minX": 76.84233825659932,
+            "minY": 95.90606308920896,
+            "maxX": 469.85507049784513,
+            "maxY": 896.671182174499
+          },
+          "primaryRectifiedBounds": {
+            "minX": 76,
+            "minY": 95,
+            "maxX": 469,
+            "maxY": 896
+          },
+          "transparentMargins": {
+            "left": 76,
+            "top": 95,
+            "right": 93,
+            "bottom": 93
+          },
+          "minimumThresholdIou": 0.999772404400671,
+          "maximumBoundsDrift": 0,
+          "stability": [
+            {
+              "threshold": 1.5,
+              "iouWithPrimary": 0.9998531657465053,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 76,
+                "minY": 95,
+                "maxX": 469,
+                "maxY": 896
+              },
+              "mappedForegroundBounds": {
+                "minX": 76.84233825659932,
+                "minY": 95.90606308920896,
+                "maxX": 469.85507049784513,
+                "maxY": 896.671182174499
+              }
+            },
+            {
+              "threshold": 1.625,
+              "iouWithPrimary": 1,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 76,
+                "minY": 95,
+                "maxX": 469,
+                "maxY": 896
+              },
+              "mappedForegroundBounds": {
+                "minX": 76.84233825659932,
+                "minY": 95.90606308920896,
+                "maxX": 469.85507049784513,
+                "maxY": 896.671182174499
+              }
+            },
+            {
+              "threshold": 1.75,
+              "iouWithPrimary": 0.999772404400671,
+              "boundsDriftFromPrimary": 0,
+              "bounds": {
+                "minX": 76,
+                "minY": 95,
+                "maxX": 469,
+                "maxY": 896
+              },
+              "mappedForegroundBounds": {
+                "minX": 76.84233825659932,
+                "minY": 95.90606308920896,
+                "maxX": 469.85507049784513,
+                "maxY": 896.413861314081
+              }
+            }
+          ],
+          "silhouetteSampling": "destination-pixel-center-to-source-pixel-cell-nearest-neighbor",
+          "spatialTransform": "one fixed projective transform applied to the directly observed silhouette and its directly observed sole opening; the valid inverse-sampling domain is bounded by forward-mapping every observed foreground pixel center"
+        },
+        "transform": {
+          "kind": "real-video-segmentation-single-projective-rectification-and-alpha-only-neutral-matte-relighting",
+          "crop": {
+            "left": 60,
+            "top": 79,
+            "width": 426,
+            "height": 834
+          },
+          "outputMargins": {
+            "left": 16,
+            "top": 16,
+            "right": 16,
+            "bottom": 16
+          },
+          "sourceRgbUsed": false,
+          "fullyTransparentRgb": "zeroed",
+          "edgeBlurSigmaForRgbLightingOnly": 6,
+          "morphologyOperations": 0,
+          "inferredBoundaryPixels": 0,
+          "inferredOpeningPixels": 0
+        },
+        "sharedAlphaSha256": "3ecc5240edfd4ddda0f6d89c2aeb37425e3aa9fc0197ae7144db5b1c3cda8022",
+        "significantOpenings": [
+          {
+            "pixels": 17954,
+            "bounds": {
+              "minX": 131,
+              "minY": 149,
+              "maxX": 252,
+              "maxY": 333
+            },
+            "centerX": 0.2560646900269542,
+            "centerY": 0.18107769423558898,
+            "width": 0.3288409703504043,
+            "height": 0.23182957393483708,
+            "aspect": 0.6594594594594595,
+            "openingId": "camera"
+          }
+        ],
+        "expectedOpeningCount": 1,
+        "openingQaPassed": true
+      },
+      "black": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a23-4g-5g-black-v1-supcase-real-video-alpha-matte.png",
+        "sha256": "8df07cd1c9114ac88c2f6df8fc8a52af50ffc6e0b74cedf1b59122ed930027a6",
+        "pixelSha256": "aa7fc39e3ace473ca780edaecf174b043b8cd8984e69fbe25476aecd4b18fc62",
+        "alphaSha256": "3ecc5240edfd4ddda0f6d89c2aeb37425e3aa9fc0197ae7144db5b1c3cda8022",
+        "width": 426,
+        "height": 834,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 409,
+          "maxY": 817
+        }
+      },
+      "white": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a23-4g-5g-white-v1-supcase-real-video-alpha-matte.png",
+        "sha256": "91de68bf83fa9c075599c8f1db19b7d280216ce1c38067e8993425a668d82ff3",
+        "pixelSha256": "0ce450393eb2508dd1a37b035fdd7414662c112fea7c5725001ee678aaea734b",
+        "alphaSha256": "3ecc5240edfd4ddda0f6d89c2aeb37425e3aa9fc0197ae7144db5b1c3cda8022",
+        "width": 426,
+        "height": 834,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 409,
+          "maxY": 817
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireVerifiedDimensions": true,
+    "shopifyStorageOnly": true,
+    "allowedDestinations": [
+      "Shopify Files",
+      "charme_product.body_image_black",
+      "charme_product.body_image_white"
+    ],
+    "forbiddenDestinations": [
+      "Shopify Product Media",
+      "Shopify variant media associations"
+    ]
+  }
+}

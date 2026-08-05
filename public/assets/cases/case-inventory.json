@@ -1,20 +1,20 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T00:37:46.928Z",
-    "totalModels": 87,
+    "generatedAt": "2026-07-31T10:36:54.497Z",
+    "totalModels": 89,
     "byBrand": {
-      "Apple": 34,
+      "Apple": 36,
       "Google": 18,
       "Samsung": 28,
       "Xiaomi": 4,
       "Huawei": 3
     },
     "counts": {
-      "withoutGelComplete": 43,
-      "withGelComplete": 49,
-      "fullyComplete": 41,
+      "withoutGelComplete": 44,
+      "withGelComplete": 30,
+      "fullyComplete": 23,
       "requestedTotal": 46,
-      "requestedMissingShell": 37
+      "requestedMissingShell": 36
     }
   },
   "models": [
@@ -27,6 +27,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 942,
+          "sourceHeight": 1830,
+          "left": 0,
+          "top": 0,
+          "width": 942,
+          "height": 1830
+        },
+        "white": {
+          "sourceWidth": 902,
+          "sourceHeight": 1743,
+          "left": 0,
+          "top": 0,
+          "width": 902,
+          "height": 1743
+        }
       },
       "withGel": {
         "black": true,
@@ -46,6 +64,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 937,
+          "sourceHeight": 1842,
+          "left": 0,
+          "top": 0,
+          "width": 937,
+          "height": 1842
+        },
+        "white": {
+          "sourceWidth": 889,
+          "sourceHeight": 1770,
+          "left": 0,
+          "top": 0,
+          "width": 889,
+          "height": 1770
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -63,6 +99,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 925,
+          "sourceHeight": 1831,
+          "left": 0,
+          "top": 0,
+          "width": 925,
+          "height": 1831
+        },
+        "white": {
+          "sourceWidth": 886,
+          "sourceHeight": 1776,
+          "left": 0,
+          "top": 0,
+          "width": 886,
+          "height": 1776
+        }
       },
       "withGel": {
         "black": true,
@@ -82,6 +136,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1818,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1818
+        },
+        "white": {
+          "sourceWidth": 887,
+          "sourceHeight": 1774,
+          "left": 0,
+          "top": 0,
+          "width": 887,
+          "height": 1774
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -99,6 +171,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 928,
+          "sourceHeight": 1825,
+          "left": 0,
+          "top": 0,
+          "width": 928,
+          "height": 1825
+        },
+        "white": {
+          "sourceWidth": 896,
+          "sourceHeight": 1756,
+          "left": 0,
+          "top": 0,
+          "width": 896,
+          "height": 1756
+        }
       },
       "withGel": {
         "black": true,
@@ -118,6 +208,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 308,
+          "sourceHeight": 631,
+          "left": 0,
+          "top": 0,
+          "width": 308,
+          "height": 631
+        },
+        "white": {
+          "sourceWidth": 875,
+          "sourceHeight": 1797,
+          "left": 0,
+          "top": 0,
+          "width": 875,
+          "height": 1797
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -135,6 +243,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 918,
+          "sourceHeight": 1836,
+          "left": 0,
+          "top": 0,
+          "width": 918,
+          "height": 1836
+        },
+        "white": {
+          "sourceWidth": 871,
+          "sourceHeight": 1805,
+          "left": 0,
+          "top": 0,
+          "width": 871,
+          "height": 1805
+        }
       },
       "withGel": {
         "black": true,
@@ -154,6 +280,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1835,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1835
+        },
+        "white": {
+          "sourceWidth": 884,
+          "sourceHeight": 1779,
+          "left": 0,
+          "top": 0,
+          "width": 884,
+          "height": 1779
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -171,6 +315,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 930,
+          "sourceHeight": 1845,
+          "left": 0,
+          "top": 0,
+          "width": 930,
+          "height": 1845
+        },
+        "white": {
+          "sourceWidth": 894,
+          "sourceHeight": 1760,
+          "left": 0,
+          "top": 0,
+          "width": 894,
+          "height": 1760
+        }
       },
       "withGel": {
         "black": true,
@@ -190,6 +352,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1833,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1833
+        },
+        "white": {
+          "sourceWidth": 868,
+          "sourceHeight": 1811,
+          "left": 0,
+          "top": 0,
+          "width": 868,
+          "height": 1811
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -208,6 +388,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 918,
+          "sourceHeight": 1840,
+          "left": 0,
+          "top": 0,
+          "width": 918,
+          "height": 1840
+        },
+        "white": {
+          "sourceWidth": 886,
+          "sourceHeight": 1776,
+          "left": 0,
+          "top": 0,
+          "width": 886,
+          "height": 1776
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -221,216 +419,492 @@
       "brand": "Apple",
       "name": "iPhone 14",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1831,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1831
+        },
+        "white": {
+          "sourceWidth": 941,
+          "sourceHeight": 1672,
+          "left": 0,
+          "top": 0,
+          "width": 941,
+          "height": 1672
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-14-plus",
       "brand": "Apple",
       "name": "iPhone 14 Plus",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 918,
+          "sourceHeight": 1836,
+          "left": 0,
+          "top": 0,
+          "width": 918,
+          "height": 1836
+        },
+        "white": {
+          "sourceWidth": 887,
+          "sourceHeight": 1774,
+          "left": 0,
+          "top": 0,
+          "width": 887,
+          "height": 1774
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-14-pro",
       "brand": "Apple",
       "name": "iPhone 14 Pro",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 915,
+          "sourceHeight": 1831,
+          "left": 0,
+          "top": 0,
+          "width": 915,
+          "height": 1831
+        },
+        "white": {
+          "sourceWidth": 888,
+          "sourceHeight": 1772,
+          "left": 0,
+          "top": 0,
+          "width": 888,
+          "height": 1772
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": true
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-14-pro-max",
       "brand": "Apple",
       "name": "iPhone 14 Pro Max",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 912,
+          "sourceHeight": 1831,
+          "left": 0,
+          "top": 0,
+          "width": 912,
+          "height": 1831
+        },
+        "white": {
+          "sourceWidth": 878,
+          "sourceHeight": 1792,
+          "left": 0,
+          "top": 0,
+          "width": 878,
+          "height": 1792
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-15",
       "brand": "Apple",
       "name": "iPhone 15",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 916,
+          "sourceHeight": 1827,
+          "left": 0,
+          "top": 0,
+          "width": 916,
+          "height": 1827
+        },
+        "white": {
+          "sourceWidth": 887,
+          "sourceHeight": 1774,
+          "left": 0,
+          "top": 0,
+          "width": 887,
+          "height": 1774
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-15-plus",
       "brand": "Apple",
       "name": "iPhone 15 Plus",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 913,
+          "sourceHeight": 1833,
+          "left": 0,
+          "top": 0,
+          "width": 913,
+          "height": 1833
+        },
+        "white": {
+          "sourceWidth": 883,
+          "sourceHeight": 1781,
+          "left": 0,
+          "top": 0,
+          "width": 883,
+          "height": 1781
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-15-pro",
       "brand": "Apple",
       "name": "iPhone 15 Pro",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 910,
+          "sourceHeight": 1828,
+          "left": 0,
+          "top": 0,
+          "width": 910,
+          "height": 1828
+        },
+        "white": {
+          "sourceWidth": 885,
+          "sourceHeight": 1777,
+          "left": 0,
+          "top": 0,
+          "width": 885,
+          "height": 1777
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-15-pro-max",
       "brand": "Apple",
       "name": "iPhone 15 Pro Max",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 906,
+          "sourceHeight": 1832,
+          "left": 0,
+          "top": 0,
+          "width": 906,
+          "height": 1832
+        },
+        "white": {
+          "sourceWidth": 884,
+          "sourceHeight": 1779,
+          "left": 0,
+          "top": 0,
+          "width": 884,
+          "height": 1779
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-16",
       "brand": "Apple",
       "name": "iPhone 16",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 305,
+          "sourceHeight": 633,
+          "left": 0,
+          "top": 0,
+          "width": 305,
+          "height": 633
+        },
+        "white": {
+          "sourceWidth": 871,
+          "sourceHeight": 1806,
+          "left": 0,
+          "top": 0,
+          "width": 871,
+          "height": 1806
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": true
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-16-plus",
       "brand": "Apple",
       "name": "iPhone 16 Plus",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 318,
+          "sourceHeight": 666,
+          "left": 0,
+          "top": 0,
+          "width": 318,
+          "height": 666
+        },
+        "white": {
+          "sourceWidth": 866,
+          "sourceHeight": 1817,
+          "left": 0,
+          "top": 0,
+          "width": 866,
+          "height": 1817
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": true
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-16-pro",
       "brand": "Apple",
       "name": "iPhone 16 Pro",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 305,
+          "sourceHeight": 650,
+          "left": 0,
+          "top": 0,
+          "width": 305,
+          "height": 650
+        },
+        "white": {
+          "sourceWidth": 906,
+          "sourceHeight": 1737,
+          "left": 0,
+          "top": 0,
+          "width": 906,
+          "height": 1737
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": true
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-16-pro-max",
       "brand": "Apple",
       "name": "iPhone 16 Pro Max",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 898,
+          "sourceHeight": 1832,
+          "left": 0,
+          "top": 0,
+          "width": 898,
+          "height": 1832
+        },
+        "white": {
+          "sourceWidth": 883,
+          "sourceHeight": 1781,
+          "left": 0,
+          "top": 0,
+          "width": 883,
+          "height": 1781
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": true
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
+    },
+    {
+      "id": "iphone-16e",
+      "brand": "Apple",
+      "name": "iPhone 16e",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withoutGelBounds": {},
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-17",
@@ -441,6 +915,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 900,
+          "sourceHeight": 1806,
+          "left": 0,
+          "top": 0,
+          "width": 900,
+          "height": 1806
+        },
+        "white": {
+          "sourceWidth": 885,
+          "sourceHeight": 1777,
+          "left": 0,
+          "top": 0,
+          "width": 885,
+          "height": 1777
+        }
       },
       "withGel": {
         "black": true,
@@ -460,6 +952,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 904,
+          "sourceHeight": 1807,
+          "left": 0,
+          "top": 0,
+          "width": 904,
+          "height": 1807
+        },
+        "white": {
+          "sourceWidth": 877,
+          "sourceHeight": 1792,
+          "left": 0,
+          "top": 0,
+          "width": 877,
+          "height": 1792
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -478,6 +988,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 902,
+          "sourceHeight": 1817,
+          "left": 0,
+          "top": 0,
+          "width": 902,
+          "height": 1817
+        },
+        "white": {
+          "sourceWidth": 880,
+          "sourceHeight": 1788,
+          "left": 0,
+          "top": 0,
+          "width": 880,
+          "height": 1788
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -485,78 +1013,186 @@
       },
       "status": "complete",
       "needs": []
+    },
+    {
+      "id": "iphone-17e",
+      "brand": "Apple",
+      "name": "iPhone 17e",
+      "requested": false,
+      "liveInCatalog": false,
+      "withoutGel": {
+        "black": false,
+        "white": false
+      },
+      "withoutGelBounds": {},
+      "withGel": {
+        "black": false,
+        "white": false,
+        "glitter": false
+      },
+      "status": "missing (none)",
+      "needs": [
+        "without-gel/black",
+        "without-gel/white",
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-7",
       "brand": "Apple",
       "name": "iPhone 7",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1834,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1834
+        },
+        "white": {
+          "sourceWidth": 889,
+          "sourceHeight": 1770,
+          "left": 0,
+          "top": 0,
+          "width": 889,
+          "height": 1770
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-7-plus",
       "brand": "Apple",
       "name": "iPhone 7 Plus",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 926,
+          "sourceHeight": 1836,
+          "left": 0,
+          "top": 0,
+          "width": 926,
+          "height": 1836
+        },
+        "white": {
+          "sourceWidth": 889,
+          "sourceHeight": 1770,
+          "left": 0,
+          "top": 0,
+          "width": 889,
+          "height": 1770
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-8",
       "brand": "Apple",
       "name": "iPhone 8",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 920,
+          "sourceHeight": 1834,
+          "left": 0,
+          "top": 0,
+          "width": 920,
+          "height": 1834
+        },
+        "white": {
+          "sourceWidth": 891,
+          "sourceHeight": 1766,
+          "left": 0,
+          "top": 0,
+          "width": 891,
+          "height": 1766
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-8-plus",
       "brand": "Apple",
       "name": "iPhone 8 Plus",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 926,
+          "sourceHeight": 1836,
+          "left": 0,
+          "top": 0,
+          "width": 926,
+          "height": 1836
+        },
+        "white": {
+          "sourceWidth": 885,
+          "sourceHeight": 1778,
+          "left": 0,
+          "top": 0,
+          "width": 885,
+          "height": 1778
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-air",
@@ -567,6 +1203,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 318,
+          "sourceHeight": 650,
+          "left": 0,
+          "top": 0,
+          "width": 318,
+          "height": 650
+        },
+        "white": {
+          "sourceWidth": 877,
+          "sourceHeight": 1793,
+          "left": 0,
+          "top": 0,
+          "width": 877,
+          "height": 1793
+        }
       },
       "withGel": {
         "black": true,
@@ -581,54 +1235,117 @@
       "brand": "Apple",
       "name": "iPhone X",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 935,
+          "sourceHeight": 1834,
+          "left": 0,
+          "top": 0,
+          "width": 935,
+          "height": 1834
+        },
+        "white": {
+          "sourceWidth": 887,
+          "sourceHeight": 1774,
+          "left": 0,
+          "top": 0,
+          "width": 887,
+          "height": 1774
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-xs",
       "brand": "Apple",
       "name": "iPhone XS",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 934,
+          "sourceHeight": 1836,
+          "left": 0,
+          "top": 0,
+          "width": 934,
+          "height": 1836
+        },
+        "white": {
+          "sourceWidth": 887,
+          "sourceHeight": 1774,
+          "left": 0,
+          "top": 0,
+          "width": 887,
+          "height": 1774
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "iphone-xs-max",
       "brand": "Apple",
       "name": "iPhone XS Max",
       "requested": false,
-      "liveInCatalog": true,
+      "liveInCatalog": false,
       "withoutGel": {
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 923,
+          "sourceHeight": 1830,
+          "left": 0,
+          "top": 0,
+          "width": 923,
+          "height": 1830
+        },
+        "white": {
+          "sourceWidth": 877,
+          "sourceHeight": 1792,
+          "left": 0,
+          "top": 0,
+          "width": 877,
+          "height": 1792
+        }
+      },
       "withGel": {
-        "black": true,
-        "white": true,
+        "black": false,
+        "white": false,
         "glitter": false
       },
-      "status": "complete",
-      "needs": []
+      "status": "shell-only (needs gel)",
+      "needs": [
+        "with-gel/black",
+        "with-gel/white"
+      ]
     },
     {
       "id": "pixel-10",
@@ -640,6 +1357,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -663,6 +1381,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 641,
+          "sourceHeight": 1364,
+          "left": 2,
+          "top": 2,
+          "width": 637,
+          "height": 1360
+        },
+        "white": {
+          "sourceWidth": 641,
+          "sourceHeight": 1364,
+          "left": 2,
+          "top": 2,
+          "width": 637,
+          "height": 1360
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -681,6 +1417,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -704,6 +1441,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -727,6 +1465,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -750,6 +1489,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 637,
+          "sourceHeight": 1380,
+          "left": 2,
+          "top": 2,
+          "width": 633,
+          "height": 1376
+        },
+        "white": {
+          "sourceWidth": 637,
+          "sourceHeight": 1380,
+          "left": 2,
+          "top": 2,
+          "width": 633,
+          "height": 1376
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -768,6 +1525,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -791,6 +1549,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -814,6 +1573,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 591,
+          "sourceHeight": 1260,
+          "left": 2,
+          "top": 2,
+          "width": 587,
+          "height": 1256
+        },
+        "white": {
+          "sourceWidth": 591,
+          "sourceHeight": 1260,
+          "left": 2,
+          "top": 2,
+          "width": 587,
+          "height": 1256
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -832,6 +1609,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -855,6 +1633,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -878,6 +1657,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 649,
+          "sourceHeight": 1372,
+          "left": 2,
+          "top": 2,
+          "width": 645,
+          "height": 1368
+        },
+        "white": {
+          "sourceWidth": 649,
+          "sourceHeight": 1372,
+          "left": 2,
+          "top": 2,
+          "width": 645,
+          "height": 1368
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -896,6 +1693,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -919,6 +1717,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -942,6 +1741,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 593,
+          "sourceHeight": 1260,
+          "left": 2,
+          "top": 2,
+          "width": 589,
+          "height": 1256
+        },
+        "white": {
+          "sourceWidth": 593,
+          "sourceHeight": 1260,
+          "left": 2,
+          "top": 2,
+          "width": 589,
+          "height": 1256
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -960,6 +1777,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -983,6 +1801,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1006,6 +1825,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1029,6 +1849,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1052,6 +1873,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1075,6 +1897,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1098,6 +1921,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1121,6 +1945,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1144,6 +1969,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1167,6 +1993,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1190,6 +2017,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1213,6 +2041,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1236,6 +2065,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1256,8 +2086,18 @@
       "requested": true,
       "liveInCatalog": true,
       "withoutGel": {
-        "black": false,
+        "black": true,
         "white": false
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 1920,
+          "sourceHeight": 1280,
+          "left": 664,
+          "top": 42,
+          "width": 592,
+          "height": 1196
+        }
       },
       "withGel": {
         "black": true,
@@ -1266,7 +2106,6 @@
       },
       "status": "gel-only (missing plain shell)",
       "needs": [
-        "without-gel/black",
         "without-gel/white"
       ]
     },
@@ -1277,19 +2116,34 @@
       "requested": true,
       "liveInCatalog": true,
       "withoutGel": {
-        "black": false,
-        "white": false
+        "black": true,
+        "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 1920,
+          "sourceHeight": 1280,
+          "left": 664,
+          "top": 42,
+          "width": 592,
+          "height": 1196
+        },
+        "white": {
+          "sourceWidth": 1920,
+          "sourceHeight": 1280,
+          "left": 664,
+          "top": 42,
+          "width": 592,
+          "height": 1196
+        }
       },
       "withGel": {
         "black": true,
         "white": true,
         "glitter": false
       },
-      "status": "gel-only (missing plain shell)",
-      "needs": [
-        "without-gel/black",
-        "without-gel/white"
-      ]
+      "status": "complete",
+      "needs": []
     },
     {
       "id": "galaxy-s22-ultra",
@@ -1300,6 +2154,16 @@
       "withoutGel": {
         "black": true,
         "white": false
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 630,
+          "sourceHeight": 1370,
+          "left": 2,
+          "top": 2,
+          "width": 626,
+          "height": 1366
+        }
       },
       "withGel": {
         "black": true,
@@ -1321,6 +2185,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": true,
         "white": true,
@@ -1342,6 +2207,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1365,6 +2231,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": true,
         "white": true,
@@ -1386,6 +2253,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 646,
+          "sourceHeight": 1394,
+          "left": 2,
+          "top": 2,
+          "width": 642,
+          "height": 1390
+        },
+        "white": {
+          "sourceWidth": 646,
+          "sourceHeight": 1394,
+          "left": 2,
+          "top": 2,
+          "width": 642,
+          "height": 1390
+        }
+      },
       "withGel": {
         "black": true,
         "white": true,
@@ -1402,7 +2287,17 @@
       "liveInCatalog": true,
       "withoutGel": {
         "black": false,
-        "white": false
+        "white": true
+      },
+      "withoutGelBounds": {
+        "white": {
+          "sourceWidth": 1920,
+          "sourceHeight": 1280,
+          "left": 664,
+          "top": 42,
+          "width": 592,
+          "height": 1196
+        }
       },
       "withGel": {
         "black": true,
@@ -1411,8 +2306,7 @@
       },
       "status": "gel-only (missing plain shell)",
       "needs": [
-        "without-gel/black",
-        "without-gel/white"
+        "without-gel/black"
       ]
     },
     {
@@ -1425,6 +2319,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1446,7 +2341,17 @@
       "liveInCatalog": true,
       "withoutGel": {
         "black": false,
-        "white": false
+        "white": true
+      },
+      "withoutGelBounds": {
+        "white": {
+          "sourceWidth": 1920,
+          "sourceHeight": 1280,
+          "left": 665,
+          "top": 42,
+          "width": 590,
+          "height": 1196
+        }
       },
       "withGel": {
         "black": true,
@@ -1455,8 +2360,7 @@
       },
       "status": "gel-only (missing plain shell)",
       "needs": [
-        "without-gel/black",
-        "without-gel/white"
+        "without-gel/black"
       ]
     },
     {
@@ -1468,6 +2372,24 @@
       "withoutGel": {
         "black": true,
         "white": true
+      },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 620,
+          "sourceHeight": 1283,
+          "left": 2,
+          "top": 2,
+          "width": 616,
+          "height": 1279
+        },
+        "white": {
+          "sourceWidth": 620,
+          "sourceHeight": 1283,
+          "left": 2,
+          "top": 2,
+          "width": 616,
+          "height": 1279
+        }
       },
       "withGel": {
         "black": true,
@@ -1487,6 +2409,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1510,6 +2433,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1533,6 +2457,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1556,6 +2481,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 608,
+          "sourceHeight": 1335,
+          "left": 2,
+          "top": 2,
+          "width": 604,
+          "height": 1331
+        },
+        "white": {
+          "sourceWidth": 608,
+          "sourceHeight": 1335,
+          "left": 2,
+          "top": 2,
+          "width": 604,
+          "height": 1331
+        }
+      },
       "withGel": {
         "black": false,
         "white": false,
@@ -1577,6 +2520,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1600,6 +2544,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1623,6 +2568,24 @@
         "black": true,
         "white": true
       },
+      "withoutGelBounds": {
+        "black": {
+          "sourceWidth": 622,
+          "sourceHeight": 1370,
+          "left": 2,
+          "top": 2,
+          "width": 618,
+          "height": 1366
+        },
+        "white": {
+          "sourceWidth": 622,
+          "sourceHeight": 1370,
+          "left": 2,
+          "top": 2,
+          "width": 618,
+          "height": 1366
+        }
+      },
       "withGel": {
         "black": false,
         "white": false,
@@ -1644,6 +2607,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1667,6 +2631,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1690,6 +2655,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1713,6 +2679,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": true,
         "white": true,
@@ -1734,6 +2701,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1757,6 +2725,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,
@@ -1780,6 +2749,7 @@
         "black": false,
         "white": false
       },
+      "withoutGelBounds": {},
       "withGel": {
         "black": false,
         "white": false,

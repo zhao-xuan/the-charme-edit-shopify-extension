@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:34:54.747Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-live-catalog-gap-source-audit.json",
+  "source": "Official RhinoShield SolidSuit product metadata and materials/body PNG service",
+  "summary": {
+    "total": 12,
+    "black": 8,
+    "darkStructure": 1,
+    "lightNeutral": 3,
+    "written": 12,
+    "alreadyCurrent": 0
+  },
+  "assets": [
+    {
+      "modelId": "galaxy-s22",
+      "deviceHandle": "samsung-galaxy-s22",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S22 SolidSuit Black",
+      "sku": "SSA0324252",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324252?device-handle=samsung-galaxy-s22&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-official-black-rhinoshield-SSA0324252.png",
+      "encodedSha256": "07ca2d2e097e0a05422d3c5186e44d2dcce1f16d8f474d64ce71a6f4733591ed",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 612,
+        "minY": 233,
+        "maxX": 1387,
+        "maxY": 1765
+      },
+      "visiblePixelCount": 1014855,
+      "opaquePixelCount": 1008175,
+      "meanOpaqueRgb": [
+        38.209,
+        39.168,
+        39.083
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "deviceHandle": "samsung-galaxy-s22-plus",
+      "role": "dark-structure",
+      "finish": "Carbon Fiber / Black",
+      "officialTitle": "Galaxy S22+ SolidSuit Carbon Fiber / Black",
+      "sku": "SSA0324349",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-plus",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324349?device-handle=samsung-galaxy-s22-plus&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-plus-official-carbon-fiber-black-rhinoshield-SSA0324349.png",
+      "encodedSha256": "02eb72e80dda60f8fa257c9716fd45093077419a3fa1d0a251a48a2bae3ba4e2",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 607,
+        "minY": 228,
+        "maxX": 1387,
+        "maxY": 1772
+      },
+      "visiblePixelCount": 1041670,
+      "opaquePixelCount": 1035348,
+      "meanOpaqueRgb": [
+        37.767,
+        38.972,
+        38.81
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "deviceHandle": "samsung-galaxy-s22-ultra",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S22 Ultra SolidSuit Black",
+      "sku": "SSA0324452",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s22-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324452?device-handle=samsung-galaxy-s22-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s22-ultra-official-black-rhinoshield-SSA0324452.png",
+      "encodedSha256": "ad7b1f7991f236293c17dceeaf8a1c08451d6cb8c0ace338e1672c7ef0e83e84",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 612,
+        "minY": 219,
+        "maxX": 1385,
+        "maxY": 1771
+      },
+      "visiblePixelCount": 1074172,
+      "opaquePixelCount": 1067013,
+      "meanOpaqueRgb": [
+        38.212,
+        39.209,
+        39.097
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s23",
+      "deviceHandle": "samsung-galaxy-s23",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S23 SolidSuit Black",
+      "sku": "SST0327352",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327352?device-handle=samsung-galaxy-s23&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-official-black-rhinoshield-SST0327352.png",
+      "encodedSha256": "ff21d81fb6f1e1014591532ad36956661bbef640dfa8cdb9a759221f5249a024",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 595,
+        "minY": 212,
+        "maxX": 1398,
+        "maxY": 1791
+      },
+      "visiblePixelCount": 1120960,
+      "opaquePixelCount": 1111713,
+      "meanOpaqueRgb": [
+        70.52,
+        69.555,
+        69.703
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "deviceHandle": "samsung-galaxy-s23-plus",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S23+ SolidSuit Black",
+      "sku": "SST0327452",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-plus",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327452?device-handle=samsung-galaxy-s23-plus&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-plus-official-black-rhinoshield-SST0327452.png",
+      "encodedSha256": "653aee634c1b6a6ca37222b1d94b15c1ef1854380c2f7ce449dc5b597038d346",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 598,
+        "minY": 211,
+        "maxX": 1396,
+        "maxY": 1789
+      },
+      "visiblePixelCount": 1132573,
+      "opaquePixelCount": 1121708,
+      "meanOpaqueRgb": [
+        47.802,
+        45.627,
+        45.409
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "deviceHandle": "samsung-galaxy-s23-ultra",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S23 Ultra SolidSuit Black",
+      "sku": "SST0327552",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s23-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0327552?device-handle=samsung-galaxy-s23-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s23-ultra-official-black-rhinoshield-SST0327552.png",
+      "encodedSha256": "d8101421f0a1390bbe5a50f19241ed7ed623d5a0971a5052ac6c8e1f2413161c",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 605,
+        "minY": 217,
+        "maxX": 1390,
+        "maxY": 1784
+      },
+      "visiblePixelCount": 1084046,
+      "opaquePixelCount": 1077896,
+      "meanOpaqueRgb": [
+        69.843,
+        69.118,
+        69.518
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "deviceHandle": "samsung-galaxy-s24",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S24 SolidSuit Black",
+      "sku": "SST0331452",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331452?device-handle=samsung-galaxy-s24&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-official-black-rhinoshield-SST0331452.png",
+      "encodedSha256": "87db0822c05417ef395112d52fc5d1d688cff56f67d2cead3efc33b1dc50f38b",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 605,
+        "minY": 220,
+        "maxX": 1389,
+        "maxY": 1778
+      },
+      "visiblePixelCount": 1085042,
+      "opaquePixelCount": 1072850,
+      "meanOpaqueRgb": [
+        69.098,
+        69.098,
+        69.098
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "deviceHandle": "samsung-galaxy-s24",
+      "role": "light-neutral",
+      "finish": "Shell Beige",
+      "officialTitle": "Galaxy S24 SolidSuit Shell Beige",
+      "sku": "SST033140B",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST033140B?device-handle=samsung-galaxy-s24&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-official-shell-beige-rhinoshield-SST033140B.png",
+      "encodedSha256": "d4e5ef6c58a7c127968fc488346446a80610eb7cb99470a76ab3c330cae37b8f",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 605,
+        "minY": 220,
+        "maxX": 1390,
+        "maxY": 1778
+      },
+      "visiblePixelCount": 1085150,
+      "opaquePixelCount": 1072869,
+      "meanOpaqueRgb": [
+        212.254,
+        205.645,
+        195.284
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "deviceHandle": "samsung-galaxy-s24-plus",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S24+ SolidSuit Black",
+      "sku": "SST0331552",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-plus",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331552?device-handle=samsung-galaxy-s24-plus&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-plus-official-black-rhinoshield-SST0331552.png",
+      "encodedSha256": "b02641113aeb5e5073a005968c069e1ff164b35ce7b5677a1980b8342d0d248a",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 609,
+        "minY": 220,
+        "maxX": 1390,
+        "maxY": 1778
+      },
+      "visiblePixelCount": 1086714,
+      "opaquePixelCount": 1074741,
+      "meanOpaqueRgb": [
+        78.185,
+        78.185,
+        78.004
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "deviceHandle": "samsung-galaxy-s24-plus",
+      "role": "light-neutral",
+      "finish": "Shell Beige",
+      "officialTitle": "Galaxy S24+ SolidSuit Shell Beige",
+      "sku": "SST033150B",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-plus",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST033150B?device-handle=samsung-galaxy-s24-plus&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-plus-official-shell-beige-rhinoshield-SST033150B.png",
+      "encodedSha256": "d43345c8bb292f96e9c872291e18ca83680a8ca570cf6de124def8655a9689a7",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 608,
+        "minY": 220,
+        "maxX": 1390,
+        "maxY": 1778
+      },
+      "visiblePixelCount": 1086980,
+      "opaquePixelCount": 1074766,
+      "meanOpaqueRgb": [
+        211.511,
+        205.153,
+        195.041
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "deviceHandle": "samsung-galaxy-s24-ultra",
+      "role": "black",
+      "finish": "Black",
+      "officialTitle": "Galaxy S24 Ultra SolidSuit Black",
+      "sku": "SST0331652",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331652?device-handle=samsung-galaxy-s24-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-ultra-official-black-rhinoshield-SST0331652.png",
+      "encodedSha256": "d95996146d4bfc1939cd7e7834ce0eeeaae4c1c059c0d7757e52d1f2ebc72edb",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 600,
+        "minY": 219,
+        "maxX": 1394,
+        "maxY": 1781
+      },
+      "visiblePixelCount": 1091139,
+      "opaquePixelCount": 1081374,
+      "meanOpaqueRgb": [
+        76.542,
+        76.775,
+        76.79
+      ],
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "deviceHandle": "samsung-galaxy-s24-ultra",
+      "role": "light-neutral",
+      "finish": "Shell Beige",
+      "officialTitle": "Galaxy S24 Ultra SolidSuit Shell Beige",
+      "sku": "SST033160B",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-ultra",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST033160B?device-handle=samsung-galaxy-s24-ultra&size=2000&lossless=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-ultra-official-shell-beige-rhinoshield-SST033160B.png",
+      "encodedSha256": "536c850ca4e32c50446f90d2031238971dd56f4fe383c7b475b302c6f7d1f078",
+      "repeatedFetchByteIdentical": true,
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "hasAlpha": true,
+      "alphaBounds": {
+        "minX": 600,
+        "minY": 219,
+        "maxX": 1394,
+        "maxY": 1781
+      },
+      "visiblePixelCount": 1091517,
+      "opaquePixelCount": 1081461,
+      "meanOpaqueRgb": [
+        210.499,
+        204.011,
+        193.932
+      ],
+      "writeStatus": "written"
+    }
+  ]
+}

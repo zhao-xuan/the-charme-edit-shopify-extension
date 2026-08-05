@@ -10,7 +10,7 @@
  * Everything is drawn in product millimetres × a high DPI factor, mirroring the
  * on-screen coordinate space so the proof matches the live preview exactly.
  */
-import { resolveAsset } from './assets'
+import { resolveAsset } from './assets.js'
 
 const DPI = 6 // px per mm
 function roundRect(ctx, x, y, w, h, r) {
@@ -38,6 +38,24 @@ function loadImage(src) {
   return p
 }
 
+export function drawProductPhoto(ctx, img, bounds, width, height) {
+  if (bounds) {
+    ctx.drawImage(
+      img,
+      bounds.left,
+      bounds.top,
+      bounds.width,
+      bounds.height,
+      0,
+      0,
+      width,
+      height,
+    )
+    return
+  }
+  ctx.drawImage(img, 0, 0, width, height)
+}
+
 async function drawProduct(ctx, product, color, S) {
   const W = product.widthMm * S
   const H = product.heightMm * S
@@ -51,7 +69,7 @@ async function drawProduct(ctx, product, color, S) {
   if (photoSrc) {
     const img = await loadImage(photoSrc).catch(() => null)
     if (img) {
-      ctx.drawImage(img, 0, 0, W, H)
+      drawProductPhoto(ctx, img, product.caseImageBounds?.[color.id], W, H)
       return
     }
   }

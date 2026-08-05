@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-02T13:16:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-case-sources.json",
+  "browserEvidencePath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-browser-record.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "The live-browser Best Buy GraphQL response locks SKU 6267400, model NS-MSGN9TC, exact title, selected cv1d source, and cv11d packaging evidence.",
+    "The source and packaging bytes remain hash locked, and the geometry source is fetched twice with byte-identical responses.",
+    "The source is a real near-orthogonal empty-shell photograph with its complete outer boundary and T-shaped opening directly visible.",
+    "Topology-normalized geometry remains stable at thresholds 9, 10, and 11 with IoU of at least 0.995 and no more than four pixels of bounds drift.",
+    "The strict Galaxy Note 9 profile finds exactly one camera-and-fingerprint opening and no unexpected significant holes after transparent-material normalization.",
+    "Black and White outputs share exact alpha, contain zero hidden RGB, use neutral RGB channels, and retain transparent canvas corners.",
+    "Physical dimensions come from the archived first-party Samsung page identity and Samsung model API response for SM-N960FZBABTU."
+  ],
+  "summary": {
+    "sourceCandidates": 1,
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1,
+    "modelsBlockedByCatalogIdentity": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-note-9",
+      "modelName": "Galaxy Note 9",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "catalogIdentityEvidence": "The live Best Buy record names Samsung Galaxy Note9 and locks Insignia model NS-MSGN9TC, SKU 6267400, the selected cv1d source, and the photographed model-marked packaging.",
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "The real empty transparent shell is near-orthogonal and fully visible; its complete outer boundary and single T-shaped camera-and-fingerprint opening are directly segmented from the source photograph."
+      },
+      "officialDimensions": {
+        "manufacturer": "Samsung",
+        "modelCode": "SM-N960FZBABTU",
+        "modelFamilyCode": "SM-N960F",
+        "widthMm": 76.4,
+        "heightMm": 161.9,
+        "depthMm": 8.8,
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedValue": "161.9 x 76.4 x 8.8",
+        "reportedOrder": "height x width x depth",
+        "sourcePageUrl": "https://web.archive.org/web/20191020010618id_/https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+        "originalSourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+        "sourcePageTitle": "Specifications | Samsung Galaxy Note9",
+        "apiEndpoint": "https://api.samsung.com/model",
+        "apiQuery": {
+          "key": "56FE13336ABF4709AFCF7704B24D83F0",
+          "siteCode": "uk",
+          "modelCode": "SM-N960FZBABTU",
+          "type": "json",
+          "option": "16",
+          "disclaimer": ""
+        },
+        "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+        "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+        "directPageVerification": {
+          "manufacturer": "Samsung",
+          "modelId": "galaxy-note-9",
+          "modelCode": "SM-N960FZBABTU",
+          "modelFamilyCode": "SM-N960F",
+          "sourcePageUrl": "https://web.archive.org/web/20191020010618id_/https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+          "originalSourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+          "sourcePageTitle": "Specifications | Samsung Galaxy Note9",
+          "sourcePageHttpStatus": 200,
+          "archivedPageHttpStatus": 200,
+          "modelIdentityFound": true,
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "uk",
+            "modelCode": "SM-N960FZBABTU",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "161.9 x 76.4 x 8.8",
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-02T13:21:56.092Z",
+          "verificationMethod": "Verified SM-N960F and SM-N960FZBABTU in the archived first-party Samsung UK page, then read the exact Dimension (HxWxD, mm) item from Samsung api.samsung.com/model for SM-N960FZBABTU."
+        }
+      },
+      "verifiedRetailSource": {
+        "manufacturer": "Insignia",
+        "retailer": "Best Buy US",
+        "sku": "6267400",
+        "gtin": null,
+        "modelNumber": "NS-MSGN9TC",
+        "productTitle": "Insignia™ Soft shell Case for Samsung Galaxy Note9 Clear NS-MSGN9TC - Best Buy",
+        "productRecordUrl": "https://www.bestbuy.com/product/insignia-soft-shell-case-for-samsung-galaxy-note9-clear/J2FPJKGX96?intl=nosplash",
+        "productRecordVerificationMethod": "live-browser-bestbuy-graphql",
+        "productRecordEvidencePath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-browser-record.json",
+        "productRecordCanonicalSha256": "9e20508ef3b5c506ac8144ccede65ae9de7e119b81f4596d89791c4f4b20a6a9",
+        "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv1d.jpg",
+        "galleryImageId": "6267400cv1d.jpg",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-9-verified-bestbuy-6267400-gallery-cv1d.jpg",
+        "sha256": "aed2a6a13429104d336d466f6480cf9634ef45e7b6c734897604c93dc0134062",
+        "packagingIdentityEvidence": {
+          "galleryImageId": "6267400cv11d.jpg",
+          "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv11d.jpg",
+          "expectedEncodedSha256": "9f7a02cf22640d50b52e108b8eef41809ff260e42add142260ec1d4a4d8ad670",
+          "expectedWidth": 1203,
+          "expectedHeight": 2400,
+          "visibleIdentity": "Photographed retail package visibly states For Samsung Galaxy Note 9, INSIGNIA, Soft Shell Case, and NS-MSGN9TC.",
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-note-9-verified-bestbuy-6267400-packaging-cv11d.jpg",
+          "encodedSha256": "9f7a02cf22640d50b52e108b8eef41809ff260e42add142260ec1d4a4d8ad670",
+          "format": "jpeg",
+          "width": 1203,
+          "height": 2400,
+          "channels": 3,
+          "writeStatus": "written"
+        }
+      },
+      "geometryQa": {
+        "foregroundThreshold": 10,
+        "stabilityThresholds": [
+          9,
+          10,
+          11
+        ],
+        "minimumThresholdIou": 0.999657586666589,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 0,
+        "allowedMaximumBoundsDrift": 4,
+        "stabilityMaskTransform": "two-pass enclosed-region normalization followed by strict galaxy-note-9-centered-t-opening-single opening verification",
+        "sharedAlphaSha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+        "significantOpenings": [
+          {
+            "pixels": 571881,
+            "bounds": {
+              "minX": 658,
+              "minY": 600,
+              "maxX": 1758,
+              "maxY": 1336
+            },
+            "centerX": 0.5004142502071252,
+            "centerY": 0.1936,
+            "width": 0.45608947804473904,
+            "height": 0.1474,
+            "aspect": 1.4938941655359566,
+            "componentIndex": 0,
+            "openingId": "camera-and-fingerprint"
+          }
+        ],
+        "cameraOpeningProfile": {
+          "id": "galaxy-note-9-centered-t-opening-single",
+          "normalizeInternalTransparencyForStability": true,
+          "primaryThreshold": 10,
+          "stabilityThresholds": [
+            9,
+            10,
+            11
+          ],
+          "rejectUnexpectedSignificant": true,
+          "openings": [
+            {
+              "id": "camera-and-fingerprint",
+              "minPixels": 500000,
+              "centerX": [
+                0.49,
+                0.51
+              ],
+              "centerY": [
+                0.18,
+                0.21
+              ],
+              "width": [
+                0.44,
+                0.48
+              ],
+              "height": [
+                0.13,
+                0.17
+              ],
+              "aspect": [
+                1.35,
+                1.65
+              ]
+            }
+          ]
+        },
+        "cameraOpeningProfilePassed": true,
+        "unexpectedSignificantHoles": [],
+        "explicitSourceOpeningTransform": {
+          "openings": [],
+          "clearedPixels": 0
+        }
+      },
+      "black": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-black-v1-spigen-alpha-matte.png",
+        "sha256": "b5d112733360f8ba04d992e5e93e748e22e8c9c556847bbe1c9c3877f9f23d67",
+        "pixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+        "alphaSha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+        "width": 2414,
+        "height": 5000,
+        "alphaBounds": {
+          "minX": 0,
+          "minY": 0,
+          "maxX": 2413,
+          "maxY": 4999
+        }
+      },
+      "white": {
+        "sourceKind": "derived-verified-retail-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-white-v1-spigen-alpha-matte.png",
+        "sha256": "b86a5a1f30694a1dce5961e5c0dfe4c4f119fca23c315aa877a336b7562212de",
+        "pixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+        "alphaSha256": "852fbc0cdf4e68e21a02a5dc1d3e6444dba08ff01d17dd56ce0af150dd3316cf",
+        "width": 2414,
+        "height": 5000,
+        "alphaBounds": {
+          "minX": 0,
+          "minY": 0,
+          "maxX": 2413,
+          "maxY": 4999
+        }
+      }
+    }
+  ],
+  "blockedModels": [],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireVerifiedDimensions": true,
+    "shopifyStorageOnly": true,
+    "allowedDestinations": [
+      "Shopify Files",
+      "charme_product.body_image_black",
+      "charme_product.body_image_white"
+    ],
+    "forbiddenDestinations": [
+      "Shopify Product Media",
+      "Shopify variant media associations"
+    ]
+  }
+}

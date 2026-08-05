@@ -94,6 +94,8 @@ const DICT = {
     'picker.gelColour': 'Gel colour',
     'picker.colour': 'Colour',
     'picker.model': 'Model',
+    'picker.availableNow': 'Available now',
+    'picker.comingSoon': 'Coming soon',
 
     // Summary / preview
     'summary.previewAlt': 'Your design preview',
@@ -203,6 +205,8 @@ const DICT = {
     'picker.gelColour': '凝胶颜色',
     'picker.colour': '颜色',
     'picker.model': '型号',
+    'picker.availableNow': '现已推出',
+    'picker.comingSoon': '即将推出',
 
     'summary.previewAlt': '你的设计预览',
     'summary.indicative': '红色轮廓的挂饰仅供示意。',
@@ -305,6 +309,8 @@ const DICT = {
     'picker.gelColour': 'Couleur du gel',
     'picker.colour': 'Couleur',
     'picker.model': 'Modèle',
+    'picker.availableNow': 'Disponible',
+    'picker.comingSoon': 'Bientôt disponible',
 
     'summary.previewAlt': 'Aperçu de votre création',
     'summary.indicative': 'Les breloques entourées en rouge sont indicatives.',
@@ -407,6 +413,8 @@ const DICT = {
     'picker.gelColour': 'Gel-Farbe',
     'picker.colour': 'Farbe',
     'picker.model': 'Modell',
+    'picker.availableNow': 'Jetzt verfügbar',
+    'picker.comingSoon': 'Demnächst verfügbar',
 
     'summary.previewAlt': 'Vorschau deines Designs',
     'summary.indicative': 'Rot umrandete Anhänger sind Richtwerte.',
@@ -509,6 +517,8 @@ const DICT = {
     'picker.gelColour': 'Color del gel',
     'picker.colour': 'Color',
     'picker.model': 'Modelo',
+    'picker.availableNow': 'Disponible ahora',
+    'picker.comingSoon': 'Próximamente',
 
     'summary.previewAlt': 'Vista previa de tu diseño',
     'summary.indicative': 'Los dijes con contorno rojo son indicativos.',
@@ -611,6 +621,8 @@ const DICT = {
     'picker.gelColour': 'ジェルの色',
     'picker.colour': '色',
     'picker.model': 'モデル',
+    'picker.availableNow': '販売中',
+    'picker.comingSoon': '近日発売',
 
     'summary.previewAlt': 'デザインのプレビュー',
     'summary.indicative': '赤い枠のチャームは参考です。',

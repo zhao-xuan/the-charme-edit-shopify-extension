@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "source": "Verified Best Buy exact-SKU product record, real empty-shell photograph, and photographed retail packaging for the Insignia Galaxy Note9 case",
+  "reviewedAt": "2026-08-02T13:16:00.000Z",
+  "geometryAcceptanceCriteria": [
+    "The exact Galaxy Note9 target, Insignia model NS-MSGN9TC, and Best Buy SKU 6267400 are present in the live product record.",
+    "The selected full-resolution cv1d source URL and the cv11d photographed packaging URL occur in that exact product record and their bytes are hash locked.",
+    "The source is a real near-orthogonal photograph of the complete empty transparent shell on a uniform white background, with physical surface texture, refraction, and handling marks visible.",
+    "The complete shell boundary and complete T-shaped camera-and-fingerprint opening are directly visible; no missing geometry is invented.",
+    "Foreground extraction must remain stable across three adjacent thresholds with IoU of at least 0.995 and no more than four pixels of bounds drift."
+  ],
+  "products": {
+    "galaxy-note9-soft-shell": {
+      "retailer": "Best Buy US",
+      "sku": "6267400",
+      "gtin": null,
+      "modelNumber": "NS-MSGN9TC",
+      "shortTitle": "Insignia™ - Soft shell Case for Samsung Galaxy Note9 - Clear",
+      "title": "Insignia™ Soft shell Case for Samsung Galaxy Note9 Clear NS-MSGN9TC - Best Buy",
+      "productRecordUrl": "https://www.bestbuy.com/product/insignia-soft-shell-case-for-samsung-galaxy-note9-clear/J2FPJKGX96?intl=nosplash",
+      "browserEvidencePath": "reference/case-history/generated/all-phone-real-image-completion/insignia-note9-bestbuy-browser-record.json",
+      "expectedCanonicalProductSha256": "9e20508ef3b5c506ac8144ccede65ae9de7e119b81f4596d89791c4f4b20a6a9"
+    }
+  },
+  "officialDimensions": {
+    "galaxy-note-9": {
+      "manufacturer": "Samsung",
+      "modelCode": "SM-N960FZBABTU",
+      "modelFamilyCode": "SM-N960F",
+      "widthMm": 76.4,
+      "heightMm": 161.9,
+      "depthMm": 8.8,
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "161.9 x 76.4 x 8.8",
+      "reportedOrder": "height x width x depth",
+      "sourcePageUrl": "https://web.archive.org/web/20191020010618id_/https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+      "originalSourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-note9/specs/",
+      "sourcePageTitle": "Specifications | Samsung Galaxy Note9",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "uk",
+        "modelCode": "SM-N960FZBABTU",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645"
+    }
+  },
+  "candidates": [
+    {
+      "targetModelId": "galaxy-note-9",
+      "targetModelName": "Galaxy Note 9",
+      "sourceModelId": "galaxy-note-9",
+      "product": "galaxy-note9-soft-shell",
+      "publicationEligible": true,
+      "eligibilityReason": "The live Best Buy record names Samsung Galaxy Note9 and locks Insignia model NS-MSGN9TC, SKU 6267400, the selected cv1d source, and the photographed model-marked packaging.",
+      "galleryImageId": "6267400cv1d.jpg",
+      "galleryPosition": 3,
+      "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv1d.jpg",
+      "expectedEncodedSha256": "aed2a6a13429104d336d466f6480cf9634ef45e7b6c734897604c93dc0134062",
+      "expectedWidth": 2414,
+      "expectedHeight": 5000,
+      "identityEvidence": {
+        "galleryImageId": "6267400cv11d.jpg",
+        "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6267/6267400cv11d.jpg",
+        "expectedEncodedSha256": "9f7a02cf22640d50b52e108b8eef41809ff260e42add142260ec1d4a4d8ad670",
+        "expectedWidth": 1203,
+        "expectedHeight": 2400,
+        "visibleIdentity": "Photographed retail package visibly states For Samsung Galaxy Note 9, INSIGNIA, Soft Shell Case, and NS-MSGN9TC."
+      },
+      "geometryReview": "accepted-near-orthogonal-real-empty-shell-complete-boundary-and-t-opening-directly-visible",
+      "geometrySource": "Verified Best Buy exact-SKU Insignia real empty-case photograph with directly visible outer-shell and T-shaped opening boundaries",
+      "derivedSourceKind": "derived-verified-retail-source"
+    }
+  ]
+}

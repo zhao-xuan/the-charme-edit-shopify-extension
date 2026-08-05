@@ -1,0 +1,1016 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-01T20:40:46.058Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 22,
+    "updated": 0,
+    "alreadyCurrent": 22,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 22,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 22,
+    "productVariantsUpdated": 44,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a12-4g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "d9f3521b145dbe084cdc7dd466dfb423af05aaaa5c0610a9366f510dad203293",
+      "pixelSha256": "41799fa8f928c07a5a786ffe887a70fcf15f0213e7cab7e82a22b1b2e739fd4c",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780163962",
+      "fileId": "gid://shopify/MediaImage/71387021508986",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a12-4g-black-without-gel-derived-official-source-d9f3521b145d.png?v=1785616652",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a12-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 24013,
+        "sha256": "a19e25c1160b5afaf9574027d33d57fb72c34e4acde27ea9e9e9cec76fc4bc01",
+        "pixelSha256": "41799fa8f928c07a5a786ffe887a70fcf15f0213e7cab7e82a22b1b2e739fd4c",
+        "pixelWidth": 550,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 628650,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a12-4g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "fc417ed1c8471471982e0beee924f9fae8d663e993aff33259d522ba56f81744",
+      "pixelSha256": "ee4d4fc06040740df6ef3909f111e8f7d9a7dc6aec1bfa5a33dc6ee59a934661",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780163962",
+      "fileId": "gid://shopify/MediaImage/71387022950778",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a12-4g-white-without-gel-derived-official-source-fc417ed1c847.png?v=1785616656",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a12-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17945,
+        "sha256": "bef697801c014aaa8572d5c9ff9f28bf025e3f423df8938420eaff99ed0a9ba9",
+        "pixelSha256": "ee4d4fc06040740df6ef3909f111e8f7d9a7dc6aec1bfa5a33dc6ee59a934661",
+        "pixelWidth": 550,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 628650,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a21s-4g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "b0f0cb241b7be4a9a42a180133426991b49e0f11e4e86a2faf7a3f034fbf6529",
+      "pixelSha256": "09d7ca585573d44d3fdce16f9262c35330f712e5038a0b90304cef8d2a264309",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780196730",
+      "fileId": "gid://shopify/MediaImage/71387024064890",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a21s-4g-black-without-gel-derived-official-source-b0f0cb241b7b.png?v=1785616660",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a21s-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 22416,
+        "sha256": "817b722c0ff60b4039fb09df998be2a4b629e049880d23c4bc6ce626cd9081c8",
+        "pixelSha256": "09d7ca585573d44d3fdce16f9262c35330f712e5038a0b90304cef8d2a264309",
+        "pixelWidth": 549,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 626958,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a21s-4g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "0a12bd89d38d63eabc9f7c2f70930ff18a54da683bef3cb5048a4ef042f385ff",
+      "pixelSha256": "7b6ee4703d997116cf9938a898392191e1c4791b05eff6d6162bb0b7da36e536",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780196730",
+      "fileId": "gid://shopify/MediaImage/71387025441146",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a21s-4g-white-without-gel-derived-official-source-0a12bd89d38d.png?v=1785616664",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a21s-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17542,
+        "sha256": "f003ec885fdb9c1828e2f5393b132518f46dfe23cbc19fdeefde577b63f2885c",
+        "pixelSha256": "7b6ee4703d997116cf9938a898392191e1c4791b05eff6d6162bb0b7da36e536",
+        "pixelWidth": 549,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 626958,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a25",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "942812132440d1c35cc249f3e656e77e060f044417a4aecb77cab748753051e0",
+      "pixelSha256": "980845585b7c697ade7ac7a7c8cc37a578bdd4af4b9e528e51bcf1ca1104bc3d",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780229498",
+      "fileId": "gid://shopify/MediaImage/71387026751866",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a25-black-without-gel-derived-official-source-942812132440.png?v=1785616668",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a25",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 28855,
+        "sha256": "5f1a575365851fdadae4e4f09d9f934020c1e28cc06aaeaef94f83046136be03",
+        "pixelSha256": "980845585b7c697ade7ac7a7c8cc37a578bdd4af4b9e528e51bcf1ca1104bc3d",
+        "pixelWidth": 564,
+        "pixelHeight": 1141,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 643524,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a25",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "d967224ef08f94c6728df08f6fe5af2f29aec994cd4620d55cb30568728c0851",
+      "pixelSha256": "ef433db199ba82bbba99948f1a6f31c0cd869cfdd6edac9671d8388a44522f89",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780229498",
+      "fileId": "gid://shopify/MediaImage/71387027865978",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a25-white-without-gel-derived-official-source-d967224ef08f.png?v=1785616672",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a25",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 19926,
+        "sha256": "935a00bf031302eac230f72e56b18c414b6a57f88eb1d57c2178711d3b649b7a",
+        "pixelSha256": "ef433db199ba82bbba99948f1a6f31c0cd869cfdd6edac9671d8388a44522f89",
+        "pixelWidth": 564,
+        "pixelHeight": 1141,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 643524,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a26-5g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "142531c1cff39af745b080f2ba66200577142bf381daa1603e3a9f78aba54fa5",
+      "pixelSha256": "2057ea203f97c717e49d6cd697d2f979629ef9d9698697870a18e13fecfabf55",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780262266",
+      "fileId": "gid://shopify/MediaImage/71387028947322",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a26-5g-black-without-gel-derived-official-source-142531c1cff3.png?v=1785616677",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a26-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 22893,
+        "sha256": "347349889b51440efa3e35b8c50f9e7df51c4b334436b559a500625004130d17",
+        "pixelSha256": "2057ea203f97c717e49d6cd697d2f979629ef9d9698697870a18e13fecfabf55",
+        "pixelWidth": 561,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 640662,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a26-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "0e29aa21e5ea8493049ad7f5c6e85e2eca7d5f0690debb33d47a77c51d91bf1d",
+      "pixelSha256": "8d2fef8fe6e5f209a7e0b1706e9046c9a4b8720d866a45e1e745a8c058f7e2ca",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780262266",
+      "fileId": "gid://shopify/MediaImage/71387030356346",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a26-5g-white-without-gel-derived-official-source-0e29aa21e5ea.png?v=1785616681",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a26-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17368,
+        "sha256": "728760daa0ac78f861b449023b8badcde8d23ad0789736dd5289850fc090d7f1",
+        "pixelSha256": "8d2fef8fe6e5f209a7e0b1706e9046c9a4b8720d866a45e1e745a8c058f7e2ca",
+        "pixelWidth": 561,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 640662,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a32-5g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "ce09c327d933fa1b2460865bbf2134c29a43b6086bc452afd809a9458c90363c",
+      "pixelSha256": "d068d7227c0c7995a099f729a0c7bb59972053f0b1f40a8838c94c140115c814",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780295034",
+      "fileId": "gid://shopify/MediaImage/71387032224122",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a32-5g-black-without-gel-derived-official-source-ce09c327d933.png?v=1785616685",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a32-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 23269,
+        "sha256": "968f2b5d6bb1627677131d2baa3f7c2bc946179909f214b7242b7f2f81fc8dc8",
+        "pixelSha256": "d068d7227c0c7995a099f729a0c7bb59972053f0b1f40a8838c94c140115c814",
+        "pixelWidth": 550,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 628100,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a32-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "11390cca72bb76a04658d2bf47592ebe927dccf64af4b87b08e4b20ecfaea232",
+      "pixelSha256": "27a394db5d6976c3585ebea4e5b2f3f77ee20d3dfe6a1e899d63973253e3e302",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780295034",
+      "fileId": "gid://shopify/MediaImage/71387033862522",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a32-5g-white-without-gel-derived-official-source-11390cca72bb.png?v=1785616689",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a32-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17483,
+        "sha256": "eb315b64ae768ebe0881cb2e800e3158ce396a51a2e014b7ce8485b464a63345",
+        "pixelSha256": "27a394db5d6976c3585ebea4e5b2f3f77ee20d3dfe6a1e899d63973253e3e302",
+        "pixelWidth": 550,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 628100,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a33",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "21086f19391b6d1c38036781070b57deb3636159efa89ff057fb17c8526df0cb",
+      "pixelSha256": "6a6f6cbcb2888a9c6427535338ae6856aec41a64c08e4f8f3bb3218787cee74b",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780327802",
+      "fileId": "gid://shopify/MediaImage/71387035009402",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a33-black-without-gel-derived-official-source-21086f19391b.png?v=1785616693",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a33",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17103,
+        "sha256": "3b5da8fcfd0f27b044a9bd69abe5202b185291f46dd4ee4de8b475888642028f",
+        "pixelSha256": "6a6f6cbcb2888a9c6427535338ae6856aec41a64c08e4f8f3bb3218787cee74b",
+        "pixelWidth": 553,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 632079,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a33",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "8ce22b836934e586d9f19adbce8d96cdf283214ff240ac267022275f8144f3a8",
+      "pixelSha256": "e9fc98a9a34f9cbba7fc2b9a6725ded466b3f920be66a332c06f4541b5216c48",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780327802",
+      "fileId": "gid://shopify/MediaImage/71387036320122",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a33-white-without-gel-derived-official-source-8ce22b836934.png?v=1785616697",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a33",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 11280,
+        "sha256": "b5af8a4e19d9d7aa0e2e1290f1483cd55c29112f8bbbb0eac3c9a1c3fd5facf4",
+        "pixelSha256": "e9fc98a9a34f9cbba7fc2b9a6725ded466b3f920be66a332c06f4541b5216c48",
+        "pixelWidth": 553,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 632079,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a34",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "efcd40bf98b2279b79a2e152b3286e600905e28e88e5b23cfbb5e1acb53a2e01",
+      "pixelSha256": "68bda6d3ebc1c37230482e4d035b76d803d86e620e2b6f4816011cfaef1bd29f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780360570",
+      "fileId": "gid://shopify/MediaImage/71387037401466",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a34-black-without-gel-derived-official-source-efcd40bf98b2.png?v=1785616700",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a34",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 27122,
+        "sha256": "d7c1de472545ebb4242cdea86901f83bfe192618d23703682406405a6d2e57de",
+        "pixelSha256": "68bda6d3ebc1c37230482e4d035b76d803d86e620e2b6f4816011cfaef1bd29f",
+        "pixelWidth": 571,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 652082,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a34",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "4026eaf066572018502454908b553dcddbdcd29aa1e94e7d34a79e9e223a53cd",
+      "pixelSha256": "ffaf4be849db6cdcf0e17fef29a15e3569b6066bcf7182de1a64b15c56f105bc",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780360570",
+      "fileId": "gid://shopify/MediaImage/71387038417274",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a34-white-without-gel-derived-official-source-4026eaf06657.png?v=1785616704",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a34",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 19658,
+        "sha256": "4fdd8c373dc18ffceaf9228baebf1705a9861ba7b800ae3ab53c8f0f691f6086",
+        "pixelSha256": "ffaf4be849db6cdcf0e17fef29a15e3569b6066bcf7182de1a64b15c56f105bc",
+        "pixelWidth": 571,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 652082,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a35",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "434bc2b783d0256bd8091a3c70a93e49e4c26a4ca14b34bfb509b3bcf08673ca",
+      "pixelSha256": "e7c238720b85ffe1be4f1f87beadbe6927c45dddd29ee355b021425b316c78b3",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780393338",
+      "fileId": "gid://shopify/MediaImage/71387039793530",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a35-black-without-gel-derived-official-source-434bc2b783d0.png?v=1785616708",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a35",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 27545,
+        "sha256": "e1aa87a65e8ebad8dcfa8ad88c0fe160fa1399c6944a52a4e17b020decf7f7a7",
+        "pixelSha256": "e7c238720b85ffe1be4f1f87beadbe6927c45dddd29ee355b021425b316c78b3",
+        "pixelWidth": 568,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 648656,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a35",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "d467a3fed8032e3bef591c834d8da4268aadcf5574035f45aa36dfbddf66b97b",
+      "pixelSha256": "499347e7b1fe5cba32a7cf9c0c023fa37372fc477d961c0dd86d6acdbee14f98",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780393338",
+      "fileId": "gid://shopify/MediaImage/71387041038714",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a35-white-without-gel-derived-official-source-d467a3fed803.png?v=1785616712",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a35",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 20051,
+        "sha256": "bb6bad8ec5db78afcbc9165c2b2aa51309c0ba666d83fc03e48ec48f3af3ae0a",
+        "pixelSha256": "499347e7b1fe5cba32a7cf9c0c023fa37372fc477d961c0dd86d6acdbee14f98",
+        "pixelWidth": 568,
+        "pixelHeight": 1142,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 648656,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a36-5g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "0357cf30f47c30a1bcb28cdcae0a31e06a0bf5687694d8b0a2865fd2daa388e9",
+      "pixelSha256": "1282f74c61bb00dc45666f8ec8a453eacbb77b0663806b752a9d2eae550b2724",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780426106",
+      "fileId": "gid://shopify/MediaImage/71387042513274",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a36-5g-black-without-gel-derived-official-source-0357cf30f47c.png?v=1785616715",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a36-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 24675,
+        "sha256": "4cf4ca7c2e1101d8f04a167c9c738576beb5f2a6e21a68214f9829e1b4836e66",
+        "pixelSha256": "1282f74c61bb00dc45666f8ec8a453eacbb77b0663806b752a9d2eae550b2724",
+        "pixelWidth": 567,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 648081,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a36-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "a3a7e10ffa0cdf5e023adce957e235380b631d9509fc581fd6a25e7bb18f46ee",
+      "pixelSha256": "ce43a614b0c32bb65e384c2a1174cc32761aea645891fc839d49fa64f71a8500",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780426106",
+      "fileId": "gid://shopify/MediaImage/71387043889530",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a36-5g-white-without-gel-derived-official-source-a3a7e10ffa0c.png?v=1785616720",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a36-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 19152,
+        "sha256": "1c9d67bed1bdab3ab826bb73fd65a19d8f360e538291bb1654bf0f766f7a5134",
+        "pixelSha256": "ce43a614b0c32bb65e384c2a1174cc32761aea645891fc839d49fa64f71a8500",
+        "pixelWidth": 567,
+        "pixelHeight": 1143,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 648081,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a50",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "9288824871195256cf5f36b56a01a499faae9bd78541ae73ccca47db9534781e",
+      "pixelSha256": "18105c0f9d753509996b9d4ab4e9566fbe2d49584c72b40040e40e0f56a20a45",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780458874",
+      "fileId": "gid://shopify/MediaImage/71387045233018",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a50-black-without-gel-derived-official-source-928882487119.png?v=1785616724",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a50",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17754,
+        "sha256": "d1ae004a6d688d9a1d45e646d29f5834f161d19e6ca83a7ef3b717965553d139",
+        "pixelSha256": "18105c0f9d753509996b9d4ab4e9566fbe2d49584c72b40040e40e0f56a20a45",
+        "pixelWidth": 468,
+        "pixelHeight": 954,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 446472,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a50",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "9b1bd0f593c3eec55844cfc6fa6dd74bb5f484daf21932c982694a45fe6e9a31",
+      "pixelSha256": "02c296556865e4cc4b17effbac4e02113e7876afc293c5b7bd9c7edaf0559748",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780458874",
+      "fileId": "gid://shopify/MediaImage/71387046707578",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a50-white-without-gel-derived-official-source-9b1bd0f593c3.png?v=1785616729",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a50",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 13873,
+        "sha256": "355d7b89826c62b1f4fe918bc8e557615366b627a15b0e5075f1ec599a706412",
+        "pixelSha256": "02c296556865e4cc4b17effbac4e02113e7876afc293c5b7bd9c7edaf0559748",
+        "pixelWidth": 468,
+        "pixelHeight": 954,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 446472,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a51-4g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "20f7ebc39a65ff9a9d69f6a3a68b8da82ae60994c9346996d00cef53ba010840",
+      "pixelSha256": "946baad05267dc16915a30c6ce0cd558d73ef5429aa64a7789b335850530ab4f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471780491642",
+      "fileId": "gid://shopify/MediaImage/71387048083834",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a51-4g-black-without-gel-derived-official-source-20f7ebc39a65.png?v=1785616733",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a51-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 19066,
+        "sha256": "0e2b04b92bcf37eb54180d54bfcc3d435928526491901cba7bfa069755474852",
+        "pixelSha256": "946baad05267dc16915a30c6ce0cd558d73ef5429aa64a7789b335850530ab4f",
+        "pixelWidth": 464,
+        "pixelHeight": 958,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 444512,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a51-4g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "184d1e899082884ba147e652c10dd9bacd80f4ada3b174324e659357b7fa768c",
+      "pixelSha256": "aca72223b1cc283b6d25f5b14dd5560fc3b86c7ec8255a5670c21dafc2a230fb",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471780491642",
+      "fileId": "gid://shopify/MediaImage/71387049329018",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a51-4g-white-without-gel-derived-official-source-184d1e899082.png?v=1785616737",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a51-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 14996,
+        "sha256": "f52edf9d225c50b404834d236d524133b779b3734cdc7b256ea5c2a403f0e968",
+        "pixelSha256": "aca72223b1cc283b6d25f5b14dd5560fc3b86c7ec8255a5670c21dafc2a230fb",
+        "pixelWidth": 464,
+        "pixelHeight": 958,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 444512,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-a12-4g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387050443130",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305184634",
+        "gid://shopify/ProductVariant/57101305315706"
+      ]
+    },
+    {
+      "modelId": "galaxy-a12-4g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387052638586",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101305217402",
+        "gid://shopify/ProductVariant/57101305282938"
+      ]
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387053392250",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101304004986",
+        "gid://shopify/ProductVariant/57101304136058"
+      ]
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387054473594",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101304037754",
+        "gid://shopify/ProductVariant/57101304103290"
+      ]
+    },
+    {
+      "modelId": "galaxy-a25",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387055161722",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303415162",
+        "gid://shopify/ProductVariant/57101303546234"
+      ]
+    },
+    {
+      "modelId": "galaxy-a25",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387055817082",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303447930",
+        "gid://shopify/ProductVariant/57101303513466"
+      ]
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387056472442",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303218554",
+        "gid://shopify/ProductVariant/57101303349626"
+      ]
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387057324410",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303251322",
+        "gid://shopify/ProductVariant/57101303316858"
+      ]
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387058241914",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303021946",
+        "gid://shopify/ProductVariant/57101303153018"
+      ]
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387059159418",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101303054714",
+        "gid://shopify/ProductVariant/57101303120250"
+      ]
+    },
+    {
+      "modelId": "galaxy-a33",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387060011386",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302825338",
+        "gid://shopify/ProductVariant/57101302956410"
+      ]
+    },
+    {
+      "modelId": "galaxy-a33",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387060797818",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302858106",
+        "gid://shopify/ProductVariant/57101302923642"
+      ]
+    },
+    {
+      "modelId": "galaxy-a34",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387062043002",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302628730",
+        "gid://shopify/ProductVariant/57101302759802"
+      ]
+    },
+    {
+      "modelId": "galaxy-a34",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387063222650",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302661498",
+        "gid://shopify/ProductVariant/57101302727034"
+      ]
+    },
+    {
+      "modelId": "galaxy-a35",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387064435066",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302432122",
+        "gid://shopify/ProductVariant/57101302563194"
+      ]
+    },
+    {
+      "modelId": "galaxy-a35",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387065254266",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302464890",
+        "gid://shopify/ProductVariant/57101302530426"
+      ]
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387066401146",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302235514",
+        "gid://shopify/ProductVariant/57101302366586"
+      ]
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387067122042",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101302268282",
+        "gid://shopify/ProductVariant/57101302333818"
+      ]
+    },
+    {
+      "modelId": "galaxy-a50",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387067842938",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301842298",
+        "gid://shopify/ProductVariant/57101301973370"
+      ]
+    },
+    {
+      "modelId": "galaxy-a50",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387068793210",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301875066",
+        "gid://shopify/ProductVariant/57101301940602"
+      ]
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387069940090",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301645690",
+        "gid://shopify/ProductVariant/57101301776762"
+      ]
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387070890362",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101301678458",
+        "gid://shopify/ProductVariant/57101301743994"
+      ]
+    }
+  ]
+}

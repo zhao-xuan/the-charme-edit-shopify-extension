@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T19:50:12.120Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-samsung-icecat-s10-lite-pair-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "productMediaReady": 2,
+    "productMediaAltsMatched": 2,
+    "variantAssociationsMatched": 4,
+    "expectedVariantAssociations": 4,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 2,
+    "productMediaExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2,
+    "productMediaAcceptablePixelMatches": 2
+  },
+  "images": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "a4cc80e7216b4916e7a224b29cde88b2e057356fdf9175506d105830c9603df5",
+      "sourceFileId": "gid://shopify/MediaImage/71386231374202",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471776493946",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71386232586618",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "556fd0b018a22abae9ffdd38e3d02ee560f52d3c94ce130e55168b944c081665",
+        "pixelSha256": "3cbd846edb65498d9428eb229cdfd66d32ae5fc0a23c75eb83d78811f27b97fe",
+        "width": 927,
+        "height": 1944,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "556fd0b018a22abae9ffdd38e3d02ee560f52d3c94ce130e55168b944c081665",
+        "pixelSha256": "3cbd846edb65498d9428eb229cdfd66d32ae5fc0a23c75eb83d78811f27b97fe",
+        "width": 927,
+        "height": 1944,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "88e82ada03b7112199d1259eb6f44000fbc8e35355c01f2cc3e97ea44e012b3d",
+      "sourceFileId": "gid://shopify/MediaImage/71386231996794",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471776493946",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71386233110906",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "39642b16fcafe2d5d64116367245f9c22f0125292e0799c6cbb281a052d7b099",
+        "pixelSha256": "0fc5dd6c238d4ee7c18132ce7420267c11645bad92559ab24f6f7058821d0f53",
+        "width": 927,
+        "height": 1944,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "39642b16fcafe2d5d64116367245f9c22f0125292e0799c6cbb281a052d7b099",
+        "pixelSha256": "0fc5dd6c238d4ee7c18132ce7420267c11645bad92559ab24f6f7058821d0f53",
+        "width": 927,
+        "height": 1944,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:20:40.153Z",
+  "auditPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-source-audit-after-batch-1.json",
+  "provenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-asset-provenance.json",
+  "source": "Official same-model RhinoShield plain Black product PNGs with deterministic RGB-only White derivation",
+  "summary": {
+    "derived": 1,
+    "exactAlphaMatches": 1
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a14-5g",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a14-5g-official-black-rhinoshield-SST0330352.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0330352?device-handle=samsung-galaxy-a14-5g&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a14-5g",
+      "sourceOfficialTitle": "Galaxy A14 (5G) SolidSuit Black",
+      "sourceSku": "SST0330352",
+      "sourceEncodedSha256": "1a2ab4a4f17fa691010b8cf3b5342bb6082b73fc6c89ae1e85b98dcaf1bcd386",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a14-5g-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "e45c8687255dedf8a4458580e84508723185e578f667d7736fc3f3b68d1bac6b",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            33,
+            160
+          ],
+          [
+            48,
+            220
+          ],
+          [
+            68.425,
+            246
+          ],
+          [
+            77,
+            252
+          ],
+          [
+            80,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "db71debcce06bbceaa0c0a5fea23b78a22091bfb8b8c01c84ba2695e346ba9e7",
+        "outputSha256": "db71debcce06bbceaa0c0a5fea23b78a22091bfb8b8c01c84ba2695e346ba9e7",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1113705,
+        "transparentPixels": 2886295,
+        "bounds": {
+          "minX": 611,
+          "minY": 208,
+          "maxX": 1380,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 33,
+          "p5": 48,
+          "p50": 68.425,
+          "p95": 77,
+          "p99": 80
+        },
+        "maximumChannelSpread": 5
+      },
+      "outputStats": {
+        "visiblePixels": 1113705,
+        "transparentPixels": 2886295,
+        "bounds": {
+          "minX": 611,
+          "minY": 208,
+          "maxX": 1380,
+          "maxY": 1791
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "campaign": "official-phone-case-crawl",
+  "brand": "google",
+  "reviewedAt": "2026-08-03",
+  "sourcePolicy": "Google Store product pages and Google-owned image CDN only. Publication requires an exact-model, complete, straight-on rear phone-in-case image with visible camera hardware.",
+  "summary": {
+    "targets": 17,
+    "approved": 0,
+    "rejectedOfficialGallery": 13,
+    "missingOfficialProductPage": 4
+  },
+  "candidates": [
+    {
+      "modelId": "pixel-10-pro-xl",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_10_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official gallery contains empty-case renders. Its only phone-in-case lifestyle image is angled and cropped."
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_10_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official gallery contains empty-case renders. Its only phone-in-case lifestyle image is angled and cropped."
+    },
+    {
+      "modelId": "pixel-10",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_10_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official gallery contains empty-case renders. Its only phone-in-case lifestyle image is angled and cropped."
+    },
+    {
+      "modelId": "pixel-9a",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_9a_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery does not provide a complete, straight-on rear phone-in-case image."
+    },
+    {
+      "modelId": "pixel-9-pro-xl",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_9_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery provides empty-case renders rather than a complete rear handset in the case."
+    },
+    {
+      "modelId": "pixel-9-pro",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_9_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery provides empty-case renders rather than a complete rear handset in the case."
+    },
+    {
+      "modelId": "pixel-9",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_9_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery provides empty-case renders rather than a complete rear handset in the case."
+    },
+    {
+      "modelId": "pixel-8a",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_8a_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery does not provide a complete, straight-on rear phone-in-case image."
+    },
+    {
+      "modelId": "pixel-8-pro",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_8_pro_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery provides empty-case renders rather than a complete rear handset in the case."
+    },
+    {
+      "modelId": "pixel-8",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_8_phone_case?hl=en-US",
+      "rejectionReason": "The official product gallery provides empty-case renders rather than a complete rear handset in the case."
+    },
+    {
+      "modelId": "pixel-7a",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_7a_case?hl=en-US",
+      "sourceImageUrl": "https://lh3.googleusercontent.com/dspLkd9VIxFFignk0wp7RcWeDOqy9pa2WmqmuzhMuPSvIz5kY5FqemiNPNqtsb-izD3OhgZ0KlgSGWyyZvvBTLglsNVr8aB15Q=s16383-e365-rw-v1",
+      "rejectionReason": "Direct visual review confirms the straight rear gallery render is an empty case with a blank camera opening; the phone-in-case image is hand-held lifestyle photography."
+    },
+    {
+      "modelId": "pixel-7-pro",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/google_pixel_7_pro_case?hl=en-US",
+      "sourceImageUrl": "https://lh3.googleusercontent.com/-Wy0EM5im3wYZu92e2_Es7ZJkakShMKgvjDsLiWVwZXeLaPzodr110C-Ce97Ik56_H8FVkXyIO9RYWY0wGFDFAQ-plrJGPfkKF6k=s16383-e365-rw-v1",
+      "rejectionReason": "Direct visual review confirms the straight rear gallery render is an empty case with a blank camera opening."
+    },
+    {
+      "modelId": "pixel-7",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "official-gallery-ineligible",
+      "sourcePageUrl": "https://store.google.com/us/product/pixel_7_case?hl=en-US",
+      "sourceImageUrl": "https://lh3.googleusercontent.com/XylxHAhhQm-DEbt6myUNsCYeWHgVl5qRqRldU0jopmvsOS1Di1NzBGgnP1YnxlJeeEeRbWBjmX1qd_xNYY5FA-E0i1PiiZD0sIU5=s16383-e365-rw-v1",
+      "rejectionReason": "Direct visual review confirms the straight rear gallery render is an empty case with a blank camera opening."
+    },
+    {
+      "modelId": "pixel-6a",
+      "status": "missing",
+      "publish": false,
+      "reviewStatus": "official-product-page-unavailable",
+      "rejectionReason": "No first-party Pixel 6a case page appears in any current Google Store locale sitemap; guessed historical product slugs redirect away from a case product."
+    },
+    {
+      "modelId": "pixel-6-pro",
+      "status": "missing",
+      "publish": false,
+      "reviewStatus": "official-product-page-unavailable",
+      "rejectionReason": "No first-party Pixel 6 Pro case page appears in any current Google Store locale sitemap; guessed historical product slugs redirect away from a case product."
+    },
+    {
+      "modelId": "pixel-6",
+      "status": "missing",
+      "publish": false,
+      "reviewStatus": "official-product-page-unavailable",
+      "rejectionReason": "No first-party Pixel 6 case page appears in any current Google Store locale sitemap; guessed historical product slugs redirect away from a case product."
+    },
+    {
+      "modelId": "pixel-5",
+      "status": "missing",
+      "publish": false,
+      "reviewStatus": "official-product-page-unavailable",
+      "rejectionReason": "No first-party Pixel 5 case page appears in any current Google Store locale sitemap; guessed historical product slugs redirect away from a case product."
+    }
+  ]
+}

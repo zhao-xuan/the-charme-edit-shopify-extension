@@ -1,0 +1,1105 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T08:59:05.827Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-rhinoshield-11-pair-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 22,
+    "sourceFilesReady": 22,
+    "metaobjectReferencesMatched": 22,
+    "productMediaReady": 22,
+    "productMediaAltsMatched": 22,
+    "variantAssociationsMatched": 44,
+    "expectedVariantAssociations": 44,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 22,
+    "productMediaExactPixelMatches": 22,
+    "sourceFileAcceptablePixelMatches": 22,
+    "productMediaAcceptablePixelMatches": 22
+  },
+  "images": [
+    {
+      "modelId": "galaxy-a55",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384040735098",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471704994170",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384045388154",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de0558e831f05ea5c06ab0aa2f08ceb5bfd630b4c7cfa2e911b5af01631b831e",
+        "pixelSha256": "fcf88d5cbf704198670699c77fb79f3aeadba141a172d8b956763b31a9291d87",
+        "width": 784,
+        "height": 1556,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de0558e831f05ea5c06ab0aa2f08ceb5bfd630b4c7cfa2e911b5af01631b831e",
+        "pixelSha256": "fcf88d5cbf704198670699c77fb79f3aeadba141a172d8b956763b31a9291d87",
+        "width": 784,
+        "height": 1556,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s23-fe",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384040997242",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705026938",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384045584762",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "38f083d87936b60ac8802623e8329e9a1eb9dee1f0b8aa3d3d478df4f0be7729",
+        "pixelSha256": "61bc962705cb5c70df6acfe61a0a5bae6cb79a5a1df5078acf602fb0088a46fc",
+        "width": 805,
+        "height": 1583,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "38f083d87936b60ac8802623e8329e9a1eb9dee1f0b8aa3d3d478df4f0be7729",
+        "pixelSha256": "61bc962705cb5c70df6acfe61a0a5bae6cb79a5a1df5078acf602fb0088a46fc",
+        "width": 805,
+        "height": 1583,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s24-fe",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384041226618",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705059706",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384045814138",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f386bc8409487cfe35444ffba7e43dd0bbef2abcf10a6763d431472a9e782a0d",
+        "pixelSha256": "8928483c7ede275c2b45f1dfc23a418844ead44e0303d4367727d05f8dd496ff",
+        "width": 780,
+        "height": 1557,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f386bc8409487cfe35444ffba7e43dd0bbef2abcf10a6763d431472a9e782a0d",
+        "pixelSha256": "8928483c7ede275c2b45f1dfc23a418844ead44e0303d4367727d05f8dd496ff",
+        "width": 780,
+        "height": 1557,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384041423226",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705092474",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384045846906",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3a024a500ded97fcf6d434ec7062e9db7423baa325fa2f88b601e6bed88868ff",
+        "pixelSha256": "ad9792dab7dc5d04c0d79aed0a3af2b9791a0271267202bbfeb1dacc004323cb",
+        "width": 790,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3a024a500ded97fcf6d434ec7062e9db7423baa325fa2f88b601e6bed88868ff",
+        "pixelSha256": "ad9792dab7dc5d04c0d79aed0a3af2b9791a0271267202bbfeb1dacc004323cb",
+        "width": 790,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25-plus",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384041619834",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705125242",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384045912442",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "206675a7fd7f18829345ba19baacde3913785c2a2ec6db3d81b4e19eb7dd325a",
+        "pixelSha256": "6bf4066f37c7dd54e9179d8b22e34c5c771393d1dd49549c0f7b2fac221e4488",
+        "width": 785,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "206675a7fd7f18829345ba19baacde3913785c2a2ec6db3d81b4e19eb7dd325a",
+        "pixelSha256": "6bf4066f37c7dd54e9179d8b22e34c5c771393d1dd49549c0f7b2fac221e4488",
+        "width": 785,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25-ultra",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384041816442",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705158010",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046043514",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f9a5b2f8d429e5233eb0dd01f9786a024055d6511a704da6fec3357a52194d12",
+        "pixelSha256": "04b775aba3b5225965a5a71b3057c4389d12eae5a7c5bc12b0d89d05918021f8",
+        "width": 783,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f9a5b2f8d429e5233eb0dd01f9786a024055d6511a704da6fec3357a52194d12",
+        "pixelSha256": "04b775aba3b5225965a5a71b3057c4389d12eae5a7c5bc12b0d89d05918021f8",
+        "width": 783,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-8-pro",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384042078586",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705190778",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046207354",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3d618fa86482a2abdb3d153813307e04c658187a83c06cbbdae287f0e918b043",
+        "pixelSha256": "cf2314b0696ac3877f28f186c73e5836023ef98619ae19fef143ecb545afd4b4",
+        "width": 787,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3d618fa86482a2abdb3d153813307e04c658187a83c06cbbdae287f0e918b043",
+        "pixelSha256": "cf2314b0696ac3877f28f186c73e5836023ef98619ae19fef143ecb545afd4b4",
+        "width": 787,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-8a",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384042209658",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705223546",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046240122",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e5065f9c611f2ea9177c7d87400326303830efe3cb798ec76ae2873b8953caa1",
+        "pixelSha256": "0e61c65bfa63d2241b1c72d64c1cb95a269d2ca9dab7ea86352231413262031b",
+        "width": 798,
+        "height": 1584,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e5065f9c611f2ea9177c7d87400326303830efe3cb798ec76ae2873b8953caa1",
+        "pixelSha256": "0e61c65bfa63d2241b1c72d64c1cb95a269d2ca9dab7ea86352231413262031b",
+        "width": 798,
+        "height": 1584,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384042406266",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705256314",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046371194",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c6eacbdede6008aaffd4586774f6b81e6347e182e44ed1849e09d53d910dc9e8",
+        "pixelSha256": "3e362683482329911b827c4a7ef0885fe77351097696f5547b64fef5e42e3d83",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c6eacbdede6008aaffd4586774f6b81e6347e182e44ed1849e09d53d910dc9e8",
+        "pixelSha256": "3e362683482329911b827c4a7ef0885fe77351097696f5547b64fef5e42e3d83",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9-pro",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384042733946",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705289082",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046731642",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c6eacbdede6008aaffd4586774f6b81e6347e182e44ed1849e09d53d910dc9e8",
+        "pixelSha256": "3e362683482329911b827c4a7ef0885fe77351097696f5547b64fef5e42e3d83",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "c6eacbdede6008aaffd4586774f6b81e6347e182e44ed1849e09d53d910dc9e8",
+        "pixelSha256": "3e362683482329911b827c4a7ef0885fe77351097696f5547b64fef5e42e3d83",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9-pro-xl",
+      "finish": "black",
+      "sourceFileId": "gid://shopify/MediaImage/71384043159930",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705321850",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384046895482",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "49156ee180b8dd1f2216d35122e5e0cc558ac042e39f335884509e17ba1dfadb",
+        "pixelSha256": "f129212692bd494a4a02eadde1263b12359ebb673aece361dfafde6da6178dfc",
+        "width": 769,
+        "height": 1553,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "49156ee180b8dd1f2216d35122e5e0cc558ac042e39f335884509e17ba1dfadb",
+        "pixelSha256": "f129212692bd494a4a02eadde1263b12359ebb673aece361dfafde6da6178dfc",
+        "width": 769,
+        "height": 1553,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a55",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384043651450",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471704994170",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047026554",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "033c5cf98bf898ff7ecf4ffcff3f22aa30c457b7ecfa913090a91e97080fe295",
+        "pixelSha256": "157af14aa87c685105781aa755c87c64e116b822831a6fed6452546b723794d2",
+        "width": 784,
+        "height": 1556,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "033c5cf98bf898ff7ecf4ffcff3f22aa30c457b7ecfa913090a91e97080fe295",
+        "pixelSha256": "157af14aa87c685105781aa755c87c64e116b822831a6fed6452546b723794d2",
+        "width": 784,
+        "height": 1556,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s23-fe",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044077434",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705026938",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047223162",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a3375c470ef1c7454a91cdc80274973d92cc9227a849c3c2fad10103afc3cdc8",
+        "pixelSha256": "ce77a5721023a8468cc2d05d2a7216c049385bf4d65b07280548b296e30c7071",
+        "width": 805,
+        "height": 1583,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a3375c470ef1c7454a91cdc80274973d92cc9227a849c3c2fad10103afc3cdc8",
+        "pixelSha256": "ce77a5721023a8468cc2d05d2a7216c049385bf4d65b07280548b296e30c7071",
+        "width": 805,
+        "height": 1583,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s24-fe",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044241274",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705059706",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047255930",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6940bb5efacc3f697e169eafd64d857e0c61fa1df3d57df4e57c5f7dbdc4310c",
+        "pixelSha256": "1aabd59d260b7b761221344f64c29aa79bc3074503fefc0ca328dcf3d708e0c4",
+        "width": 780,
+        "height": 1557,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "6940bb5efacc3f697e169eafd64d857e0c61fa1df3d57df4e57c5f7dbdc4310c",
+        "pixelSha256": "1aabd59d260b7b761221344f64c29aa79bc3074503fefc0ca328dcf3d708e0c4",
+        "width": 780,
+        "height": 1557,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044437882",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705092474",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047452538",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de44207c1ee448e5fe82a0db8e378ee94a07d849d37f4627d3ffe60dd665dd64",
+        "pixelSha256": "f72aa612f84c551544f5a320df5b20bb51d025020549f5874fd24154f696e0b3",
+        "width": 790,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de44207c1ee448e5fe82a0db8e378ee94a07d849d37f4627d3ffe60dd665dd64",
+        "pixelSha256": "f72aa612f84c551544f5a320df5b20bb51d025020549f5874fd24154f696e0b3",
+        "width": 790,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25-plus",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044470650",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705125242",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047485306",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "8494883d428c042afa2b98205592f08c6dad6c2340542cfd9d56213dad97165d",
+        "pixelSha256": "880d75a2401dd980134d3cc07f6abcb264b713a3a387defc9c794e305c210e9e",
+        "width": 785,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "8494883d428c042afa2b98205592f08c6dad6c2340542cfd9d56213dad97165d",
+        "pixelSha256": "880d75a2401dd980134d3cc07f6abcb264b713a3a387defc9c794e305c210e9e",
+        "width": 785,
+        "height": 1565,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-s25-ultra",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044503418",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705158010",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047649146",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "53670a421d3c1ce987c534d38db8f6fd936bcb301b1a1efac05b3e3ae8ba2179",
+        "pixelSha256": "116e6c961025429a4ad4918dba430e94399a9dae12ef361e08aaed68caa0bc12",
+        "width": 783,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "53670a421d3c1ce987c534d38db8f6fd936bcb301b1a1efac05b3e3ae8ba2179",
+        "pixelSha256": "116e6c961025429a4ad4918dba430e94399a9dae12ef361e08aaed68caa0bc12",
+        "width": 783,
+        "height": 1564,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-8-pro",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044667258",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705190778",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047681914",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "914b8fad07cd723c350aedba5bbff110ea75db055af66ec411ce195e284b23d8",
+        "pixelSha256": "327ee883c7ff227b4ba7d17c8875f3dbf926e798d6797284a1d31e9722ba0db1",
+        "width": 787,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "914b8fad07cd723c350aedba5bbff110ea75db055af66ec411ce195e284b23d8",
+        "pixelSha256": "327ee883c7ff227b4ba7d17c8875f3dbf926e798d6797284a1d31e9722ba0db1",
+        "width": 787,
+        "height": 1591,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-8a",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044765562",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705223546",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047780218",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9f1ddabbc75e6874420d5081b0fe9a16c9f59301a2121f200445a2a8164670e0",
+        "pixelSha256": "5744a7068392999b0c1012a69b2da24f4c2b9ccd1510beb74833f523cf3e7f2b",
+        "width": 798,
+        "height": 1584,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "9f1ddabbc75e6874420d5081b0fe9a16c9f59301a2121f200445a2a8164670e0",
+        "pixelSha256": "5744a7068392999b0c1012a69b2da24f4c2b9ccd1510beb74833f523cf3e7f2b",
+        "width": 798,
+        "height": 1584,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044863866",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705256314",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047944058",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de2618d8b736999020882c7901fcae53495191b26004cba7073083a69f192919",
+        "pixelSha256": "dcd01237c6f199ca4438b878e1ae0fbdb63839c52ad1b3804d3baa8458542655",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de2618d8b736999020882c7901fcae53495191b26004cba7073083a69f192919",
+        "pixelSha256": "dcd01237c6f199ca4438b878e1ae0fbdb63839c52ad1b3804d3baa8458542655",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9-pro",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384044896634",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705289082",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384047976826",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de2618d8b736999020882c7901fcae53495191b26004cba7073083a69f192919",
+        "pixelSha256": "dcd01237c6f199ca4438b878e1ae0fbdb63839c52ad1b3804d3baa8458542655",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "de2618d8b736999020882c7901fcae53495191b26004cba7073083a69f192919",
+        "pixelSha256": "dcd01237c6f199ca4438b878e1ae0fbdb63839c52ad1b3804d3baa8458542655",
+        "width": 770,
+        "height": 1550,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "pixel-9-pro-xl",
+      "finish": "white",
+      "sourceFileId": "gid://shopify/MediaImage/71384045289850",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471705321850",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71384048075130",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bebaf7f9720b92b7dd749d7ed6b812ac4cc810648b78dda8dbff15498b1b7af7",
+        "pixelSha256": "7daa9e89793ad74f306ff0d4a1b87bdafe2d73ec51e7d0a32945c8d42e292979",
+        "width": 769,
+        "height": 1553,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bebaf7f9720b92b7dd749d7ed6b812ac4cc810648b78dda8dbff15498b1b7af7",
+        "pixelSha256": "7daa9e89793ad74f306ff0d4a1b87bdafe2d73ec51e7d0a32945c8d42e292979",
+        "width": 769,
+        "height": 1553,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

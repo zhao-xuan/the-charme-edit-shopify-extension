@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T19:46:07.362Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/samsung-icecat-case-pair-sources.json",
+  "source": "Samsung-branded accessory records and original product images mirrored by Open Icecat",
+  "summary": {
+    "models": 1,
+    "assets": 2,
+    "repeatedFetchByteIdentical": 2,
+    "productRecordsVerified": 2,
+    "written": 2,
+    "alreadyCurrent": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "compatibility": "Galaxy S10 Lite",
+      "officialDeviceDimensions": {
+        "widthMm": 75.6,
+        "heightMm": 162.5,
+        "depthMm": 8.1,
+        "sourceUrl": "https://www.samsungmobilepress.com/media-assets/galaxy_s10_lite?tab=specs"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "finish": "black",
+      "sourceKind": "official-samsung-accessory-image",
+      "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500858",
+      "sourceUrl": "https://images.icecat.biz/img/gallery/77500858_3829847329.jpg",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-black-samsung-EF-PG770TBEGEU.jpg",
+      "encodedSha256": "d027e688d14d38f73a1ac5f4cc19907398e68518e896d7ae5c6da36f5a79a5f3",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "icecatId": 77500858,
+        "title": "Samsung EF-PG770 mobile phone case 17 cm (6.7\") Cover Black",
+        "manufacturer": "Samsung",
+        "mpn": "EF-PG770TBEGEU",
+        "gtin": "8806090273803",
+        "compatibility": "Galaxy S10 Lite",
+        "galleryNumber": "5",
+        "galleryWidth": 3000,
+        "galleryHeight": 2000
+      },
+      "format": "jpeg",
+      "width": 3000,
+      "height": 2000,
+      "channels": 3,
+      "writeStatus": "written"
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "finish": "white",
+      "sourceKind": "official-samsung-accessory-image",
+      "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500860",
+      "sourceUrl": "https://images.icecat.biz/img/gallery/77500860_0374373524.jpg",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-white-samsung-EF-PG770TWEGEU.jpg",
+      "encodedSha256": "521774bf2d1c93adeae78dc368ed6d5e906a58968e18d20082e607c5298c19a7",
+      "repeatedFetchByteIdentical": true,
+      "productRecordVerified": true,
+      "productRecord": {
+        "icecatId": 77500860,
+        "title": "Samsung EF-PG770 mobile phone case 17 cm (6.7\") Cover White",
+        "manufacturer": "Samsung",
+        "mpn": "EF-PG770TWEGEU",
+        "gtin": "8806090273773",
+        "compatibility": "Galaxy S10 Lite",
+        "galleryNumber": "5",
+        "galleryWidth": 3000,
+        "galleryHeight": 2000
+      },
+      "format": "jpeg",
+      "width": 3000,
+      "height": 2000,
+      "channels": 3,
+      "writeStatus": "written"
+    }
+  ]
+}

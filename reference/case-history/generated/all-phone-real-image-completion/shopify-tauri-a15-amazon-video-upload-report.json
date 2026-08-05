@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T14:58:12.933Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "name": "Galaxy A15 4G / 5G",
+      "widthMm": 76.8,
+      "heightMm": 160.1,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "name": "Galaxy A15 4G / 5G",
+      "widthMm": 76.8,
+      "heightMm": 160.1,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471866638714"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-a15-4g-5g",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "aebb357585dd3c27056b09bd74b4eba10b075e095ddf8b829aa969934ae5d042",
+      "pixelSha256": "540f2b1d2bfbeeadf1064f82f09763f54067b5343415b495ceb1012b886cddb4",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471866638714",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393470513530",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a15-4g-5g-black-without-gel-derived-verified-retail-source-aebb357585dd.png?v=1785682687",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a15-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a15-4g-5g-black-v1-tauri-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 14482,
+        "sha256": "a86dd4ee8f92f06e60f0a7451a02ccaac90b96955afda73336d62e04a2467a4d",
+        "pixelSha256": "540f2b1d2bfbeeadf1064f82f09763f54067b5343415b495ceb1012b886cddb4",
+        "pixelWidth": 346,
+        "pixelHeight": 679,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 234934,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a15-4g-5g",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "6c17777bdd348a75809b71e8dedb5cdaee31e538a294380e5c49e1cfdf0806c3",
+      "pixelSha256": "d9e00f302db99ff67ea2ea32f7e1e943dd94ec9db8b793697deffae57c3931ee",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471866638714",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393470546298",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a15-4g-5g-white-without-gel-derived-verified-retail-source-6c17777bdd34.png?v=1785682691",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-a15-4g-5g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a15-4g-5g-white-v1-tauri-real-video-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 10244,
+        "sha256": "e67910b9d9247f531f4be0aa6ea19bf73059b29e835753ea994e5e7ba79ea64a",
+        "pixelSha256": "d9e00f302db99ff67ea2ea32f7e1e943dd94ec9db8b793697deffae57c3931ee",
+        "pixelWidth": 346,
+        "pixelHeight": 679,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 234934,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

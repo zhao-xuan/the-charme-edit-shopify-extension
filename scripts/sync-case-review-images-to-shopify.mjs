@@ -31,6 +31,10 @@ const store = process.env.SHOPIFY_STORE
 const clientId = process.env.SHOPIFY_CLIENT_ID
 const clientSecret = process.env.SHOPIFY_CLIENT_SECRET
 
+if (!filesOnly) {
+  throw new Error('Product/variant media sync is disabled for customizer-only case images; pass --files-only')
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const productModelName = (value) => titleCase(value.replace(/-/g, ' ')).replace(/^Iphone\b/, 'iPhone')
 const titleCase = (value) => value.replace(/\b\w/g, (letter) => letter.toUpperCase())

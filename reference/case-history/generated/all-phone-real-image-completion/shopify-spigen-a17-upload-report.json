@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T16:27:18.701Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-a17",
+      "name": "Galaxy A17",
+      "widthMm": 77.9,
+      "heightMm": 164.4,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-a17",
+      "name": "Galaxy A17",
+      "widthMm": 77.9,
+      "heightMm": 164.4,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471876174202"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-a17",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "c5902bb47c158298aeb4ff279abfb42c79da8cc7bd4dd3a8c33d99542f08ec1d",
+      "pixelSha256": "c5b8ef8b316f89473334be8d29411a1839c934670bc522017a68a0989868db4f",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471876174202",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393719976314",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a17-black-without-gel-derived-official-source-c5902bb47c15.png?v=1785688032",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a17",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a17-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 30989,
+        "sha256": "ba38ded1ff08f393e91c12be8e93bb9eb3b98a7ba3a38160480f0fa55435d3e2",
+        "pixelSha256": "c5b8ef8b316f89473334be8d29411a1839c934670bc522017a68a0989868db4f",
+        "pixelWidth": 744,
+        "pixelHeight": 1509,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1122696,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-a17",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "b32e88d5b66b500c416600f60f600c0cdcd1583da6c4d6ac21cbc0a653b7409b",
+      "pixelSha256": "3ad2c68b2649e21ebc48c5edf61d7dfaecc442d70fc719b7bbcf2dce31617d73",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471876174202",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71393720598906",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a17-white-without-gel-derived-official-source-b32e88d5b66b.png?v=1785688037",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a17",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a17-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 21999,
+        "sha256": "17fea055758c6f14f7ede9d27fb9e8443fc094d432c48930dc45e24e533ed32d",
+        "pixelSha256": "3ad2c68b2649e21ebc48c5edf61d7dfaecc442d70fc719b7bbcf2dce31617d73",
+        "pixelWidth": 744,
+        "pixelHeight": 1509,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1122696,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T10:22:54.604Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-note-10-plus",
+      "name": "Galaxy Note 10 Plus",
+      "widthMm": 77.2,
+      "heightMm": 162.3,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-note-10-plus",
+      "name": "Galaxy Note 10 Plus",
+      "widthMm": 77.2,
+      "heightMm": 162.3,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471836557690"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-note-10-plus",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "e0332e6340052f68bb559fb6d6c96c386ccb8728828481f504ce9bdb5f8c523a",
+      "pixelSha256": "0b3fbe33d87e73b2c480ac21cf9eac3da84f63d5b8858da82b7826772f7fc80e",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471836557690",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392038224250",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-plus-black-without-gel-derived-verified-retail-source-e0332e634005.png?v=1785666169",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-note-10-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-10-plus-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 8323,
+        "sha256": "44a0a80189b2c1a0811f939bbe7e1cc9b10fb45442d0ab6d742b24fd59cb7435",
+        "pixelSha256": "0b3fbe33d87e73b2c480ac21cf9eac3da84f63d5b8858da82b7826772f7fc80e",
+        "pixelWidth": 246,
+        "pixelHeight": 494,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 121524,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-note-10-plus",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "f15c24849df0e31d4e9618b0a278a71a94b6b029aa5096b4d709f0ae971c8e0d",
+      "pixelSha256": "33af3ba3d9cee5dfb5022eb017a02c5a3230b5d92ebe7d69c426ec29889f06e8",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471836557690",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392038322554",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-plus-white-without-gel-derived-verified-retail-source-f15c24849df0.png?v=1785666173",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-note-10-plus",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-10-plus-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 6311,
+        "sha256": "562e40505559a9b10a3903c16f485703ff3f49fe0bbfc97d88fda444f394a48e",
+        "pixelSha256": "33af3ba3d9cee5dfb5022eb017a02c5a3230b5d92ebe7d69c426ec29889f06e8",
+        "pixelWidth": 246,
+        "pixelHeight": 494,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 121524,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

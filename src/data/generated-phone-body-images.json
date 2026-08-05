@@ -1,0 +1,120 @@
+{
+  "galaxy-a12-4g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a12-4g-black-1a9307579b94.png"
+  },
+  "galaxy-a13-4g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a13-4g-black-cae992da7b72.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a13-4g-white-1df69fbb6d59.png"
+  },
+  "galaxy-a14-5g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a14-5g-black-d0e15d9da8ba.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a14-5g-white-ea8f126917b9.png"
+  },
+  "galaxy-a53": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a53-black-18732dae2f96.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a53-white-2cf87a40cca5.png"
+  },
+  "galaxy-a54": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a54-black-b555cdb81955.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a54-white-feeb5a8d2203.png"
+  },
+  "galaxy-a55": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a55-black-f3a2e8e45526.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a55-white-d229d2eecf51.png"
+  },
+  "galaxy-a56-5g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a56-5g-black-2ec02cc23d4d.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a56-5g-white-75cf3196d570.png"
+  },
+  "galaxy-a71-4g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a71-4g-black-32b3a783e346.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a71-4g-white-c8e3d8c099da.png"
+  },
+  "galaxy-a73": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-a73-black-394f0576cb0b.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-a73-white-c1d01daa0e53.png"
+  },
+  "galaxy-s10-4g": {
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s10-4g-white-6d680a90ed85.png"
+  },
+  "galaxy-s20-4g-5g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s20-4g-5g-black-e142d221fe7f.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s20-4g-5g-white-e495b16421f6.png"
+  },
+  "galaxy-s20-fe-4g-5g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s20-fe-4g-5g-black-320e68f99c89.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s20-fe-4g-5g-white-dab93b43a842.png"
+  },
+  "galaxy-s20-ultra-4g-5g": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s20-ultra-4g-5g-black-9df75e305d19.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s20-ultra-4g-5g-white-1954ff3569e4.png"
+  },
+  "galaxy-s21": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s21-black-9388be3947e7.png"
+  },
+  "galaxy-s21-fe": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s21-fe-black-aceaf0e90ce9.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s21-fe-white-6e97c57b58ac.png"
+  },
+  "galaxy-s21-plus": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s21-plus-black-e25a0e4a7c30.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s21-plus-white-d06136287fee.png"
+  },
+  "galaxy-s21-ultra": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s21-ultra-black-cb43815ecd35.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s21-ultra-white-0f5ef1ec78cd.png"
+  },
+  "galaxy-s22": {
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s22-white-10b12cf9c792.png"
+  },
+  "galaxy-s22-ultra": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s22-ultra-black-d4b498ee4ec2.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s22-ultra-white-af10dd5767f2.png"
+  },
+  "galaxy-s23": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s23-black-25600b43ff34.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s23-white-c12937f4e479.png"
+  },
+  "galaxy-s23-fe": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s23-fe-black-d3a5c0d65692.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s23-fe-white-8895690a131d.png"
+  },
+  "galaxy-s23-plus": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s23-plus-black-b2ccbaa279dd.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s23-plus-white-6859fe58ae99.png"
+  },
+  "galaxy-s23-ultra": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s23-ultra-black-d51cd3d1ccee.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s23-ultra-white-87c1738d6f65.png"
+  },
+  "galaxy-s24": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s24-black-023e2ebc5f09.png"
+  },
+  "galaxy-s24-fe": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s24-fe-black-6e74b1ba43f3.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s24-fe-white-d644bb97704c.png"
+  },
+  "galaxy-s24-plus": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s24-plus-black-abc3063f6a08.png"
+  },
+  "galaxy-s24-ultra": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s24-ultra-black-2b134a7fe3bf.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s24-ultra-white-270b83817a88.png"
+  },
+  "galaxy-s25": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s25-black-80eecf4481fc.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s25-white-9ac59ec29fea.png"
+  },
+  "galaxy-s25-plus": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s25-plus-black-94d901bd3a5b.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s25-plus-white-6e18db3204b3.png"
+  },
+  "galaxy-s25-ultra": {
+    "black": "/assets/cases/generated-phone-bodies/galaxy-s25-ultra-black-07105ffde09c.png",
+    "white": "/assets/cases/generated-phone-bodies/galaxy-s25-ultra-white-e031f7d9dc2d.png"
+  },
+  "iphone-xr": {
+    "black": "/assets/cases/generated-phone-bodies/iphone-xr-black-764373cffd08.png",
+    "white": "/assets/cases/generated-phone-bodies/iphone-xr-white-bb3c1071109a.png"
+  }
+}

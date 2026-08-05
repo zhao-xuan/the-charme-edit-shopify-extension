@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "appliedAt": "2026-08-01T20:43:54.055Z",
+  "status": "updated",
+  "reason": "The verified Samsung Galaxy A72 product is LTE/4G; no official Galaxy A72 5G product identity was found.",
+  "oldName": "Galaxy A72 4G / 5G",
+  "newName": "Galaxy A72 4G",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "option": {
+    "id": "gid://shopify/ProductOption/17812991672698",
+    "name": "Phone Model"
+  },
+  "optionValueId": "gid://shopify/ProductOptionValue/12296908800378",
+  "variantIds": [
+    "gid://shopify/ProductVariant/57101300040058",
+    "gid://shopify/ProductVariant/57101300138362",
+    "gid://shopify/ProductVariant/57101300105594",
+    "gid://shopify/ProductVariant/57101300171130",
+    "gid://shopify/ProductVariant/57101300072826",
+    "gid://shopify/ProductVariant/57101300203898"
+  ],
+  "invariants": {
+    "optionValueIdPreserved": true,
+    "variantMembershipPreserved": true,
+    "variants": 6
+  }
+}

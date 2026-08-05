@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-31T15:26:00.897Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-source-audit.json",
+  "warning": "An image endpoint response does not prove that the candidate SKU was an official White product variant.",
+  "summary": {
+    "candidate-endpoint-only-no-finish-provenance": 2,
+    "candidate-endpoint-unavailable": 21,
+    "not-probed-black-sku-does-not-end-52": 3
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a14-5g",
+      "deviceHandle": "samsung-galaxy-a14-5g",
+      "blackSku": "SST0330352",
+      "candidateSku": "SST0330353",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0330353?device-handle=samsung-galaxy-a14-5g&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-a53",
+      "deviceHandle": "samsung-galaxy-a53",
+      "blackSku": "SSA0324649",
+      "classification": "not-probed-black-sku-does-not-end-52"
+    },
+    {
+      "modelId": "galaxy-a54",
+      "deviceHandle": "samsung-galaxy-a54",
+      "blackSku": "SST0327952",
+      "candidateSku": "SST0327953",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0327953?device-handle=samsung-galaxy-a54&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-a55",
+      "deviceHandle": "samsung-galaxy-a55",
+      "blackSku": "SST0332152",
+      "candidateSku": "SST0332153",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0332153?device-handle=samsung-galaxy-a55&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-a73",
+      "deviceHandle": "samsung-galaxy-a73",
+      "blackSku": "SSA0324752",
+      "candidateSku": "SSA0324753",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0324753?device-handle=samsung-galaxy-a73&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s21",
+      "deviceHandle": "samsung-galaxy-s21",
+      "blackSku": "SSA0319949",
+      "classification": "not-probed-black-sku-does-not-end-52"
+    },
+    {
+      "modelId": "galaxy-s21-fe",
+      "deviceHandle": "samsung-galaxy-s21-fe",
+      "blackSku": "SSA0322552",
+      "candidateSku": "SSA0322553",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0322553?device-handle=samsung-galaxy-s21-fe&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s21-plus",
+      "deviceHandle": "samsung-galaxy-s21-plus",
+      "blackSku": "SSA0320052",
+      "candidateSku": "SSA0320053",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0320053?device-handle=samsung-galaxy-s21-plus&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s21-ultra",
+      "deviceHandle": "samsung-galaxy-s21-ultra",
+      "blackSku": "SSA0320152",
+      "candidateSku": "SSA0320153",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0320153?device-handle=samsung-galaxy-s21-ultra&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s23-fe",
+      "deviceHandle": "samsung-galaxy-s23-fe",
+      "blackSku": "SST0330752",
+      "candidateSku": "SST0330753",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0330753?device-handle=samsung-galaxy-s23-fe&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s24-fe",
+      "deviceHandle": "samsung-galaxy-s24-fe",
+      "blackSku": "SST0333352",
+      "candidateSku": "SST0333353",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0333353?device-handle=samsung-galaxy-s24-fe&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s25",
+      "deviceHandle": "samsung-galaxy-s25",
+      "blackSku": "SST0334352",
+      "candidateSku": "SST0334353",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0334353?device-handle=samsung-galaxy-s25&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s25-plus",
+      "deviceHandle": "samsung-galaxy-s25-plus",
+      "blackSku": "SST0334452",
+      "candidateSku": "SST0334453",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0334453?device-handle=samsung-galaxy-s25-plus&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "galaxy-s25-ultra",
+      "deviceHandle": "samsung-galaxy-s25-ultra",
+      "blackSku": "SST0334552",
+      "candidateSku": "SST0334553",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0334553?device-handle=samsung-galaxy-s25-ultra&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-6",
+      "deviceHandle": "google-pixel-6",
+      "blackSku": "SSA0223352",
+      "candidateSku": "SSA0223353",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0223353?device-handle=google-pixel-6&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-6-pro",
+      "deviceHandle": "google-pixel-6-pro",
+      "blackSku": "SSA0223452",
+      "candidateSku": "SSA0223453",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SSA0223453?device-handle=google-pixel-6-pro&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-6a",
+      "deviceHandle": "google-pixel-6a",
+      "blackSku": "SST0228049",
+      "classification": "not-probed-black-sku-does-not-end-52"
+    },
+    {
+      "modelId": "pixel-7",
+      "deviceHandle": "google-pixel-7",
+      "blackSku": "SST0225852",
+      "candidateSku": "SST0225853",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0225853?device-handle=google-pixel-7&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 200,
+      "candidateContentType": "image/png",
+      "classification": "candidate-endpoint-only-no-finish-provenance",
+      "encodedSha256": "59193b416bda8ce4b3d7521e0143c0e0a3bcda34850dbd5be627145d075697eb",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "alphaBounds": {
+        "minX": 600,
+        "minY": 198,
+        "maxX": 1393,
+        "maxY": 1805,
+        "pixelCount": 1114002
+      },
+      "opaquePixelCount": 1106905,
+      "meanRgb": [
+        224.643,
+        222.913,
+        222.955
+      ],
+      "visuallyNearWhite": false
+    },
+    {
+      "modelId": "pixel-7-pro",
+      "deviceHandle": "google-pixel-7-pro",
+      "blackSku": "SST0225952",
+      "candidateSku": "SST0225953",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0225953?device-handle=google-pixel-7-pro&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 200,
+      "candidateContentType": "image/png",
+      "classification": "candidate-endpoint-only-no-finish-provenance",
+      "encodedSha256": "9f98a0003c150ac68d7a5bf98cdda0b7617482a05797692ac9396321356fb656",
+      "width": 2000,
+      "height": 2000,
+      "channels": 4,
+      "alphaBounds": {
+        "minX": 605,
+        "minY": 201,
+        "maxX": 1390,
+        "maxY": 1800,
+        "pixelCount": 1099303
+      },
+      "opaquePixelCount": 1092627,
+      "meanRgb": [
+        232.405,
+        231.034,
+        231.074
+      ],
+      "visuallyNearWhite": false
+    },
+    {
+      "modelId": "pixel-7a",
+      "deviceHandle": "google-pixel-7a",
+      "blackSku": "SST0228152",
+      "candidateSku": "SST0228153",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0228153?device-handle=google-pixel-7a&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-8",
+      "deviceHandle": "google-pixel-8",
+      "blackSku": "SST0230152",
+      "candidateSku": "SST0230153",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0230153?device-handle=google-pixel-8&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-8-pro",
+      "deviceHandle": "google-pixel-8-pro",
+      "blackSku": "SST0230252",
+      "candidateSku": "SST0230253",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0230253?device-handle=google-pixel-8-pro&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-8a",
+      "deviceHandle": "google-pixel-8a",
+      "blackSku": "SST0231952",
+      "candidateSku": "SST0231953",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0231953?device-handle=google-pixel-8a&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-9",
+      "deviceHandle": "google-pixel-9",
+      "blackSku": "SST0232252",
+      "candidateSku": "SST0232253",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0232253?device-handle=google-pixel-9&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-9-pro",
+      "deviceHandle": "google-pixel-9-pro",
+      "blackSku": "SST0232252",
+      "candidateSku": "SST0232253",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0232253?device-handle=google-pixel-9-pro&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    },
+    {
+      "modelId": "pixel-9-pro-xl",
+      "deviceHandle": "google-pixel-9-pro-xl",
+      "blackSku": "SST0232352",
+      "candidateSku": "SST0232353",
+      "candidateUrl": "https://image.rhinoshield.app/materials/body/SST0232353?device-handle=google-pixel-9-pro-xl&size=2000&lossless=1",
+      "productPageStatus": 200,
+      "candidateMentionedOnProductPage": false,
+      "candidateStatus": 404,
+      "candidateContentType": "application/text",
+      "classification": "candidate-endpoint-unavailable"
+    }
+  ]
+}

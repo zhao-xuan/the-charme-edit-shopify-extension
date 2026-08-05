@@ -1,0 +1,3971 @@
+{
+  "schemaVersion": 1,
+  "campaign": "official-phone-case-crawl",
+  "generatedAt": "2026-08-03T15:36:56.787Z",
+  "sourcePolicy": "Samsung-owned product pages and image CDN only. Every candidate requires visual review before publication.",
+  "sourceSitemaps": [
+    "https://www.samsung.com/uk/im-sitemap.xml",
+    "https://www.samsung.com/uk/business/b2b-sitemap.xml"
+  ],
+  "summary": {
+    "targets": 77,
+    "candidates": 53,
+    "modelsWithCandidates": 35,
+    "missingModels": 42,
+    "approved": 53,
+    "publishedEditorAssets": 48,
+    "preservedExistingOverrides": 5,
+    "rejectedPreservedSources": 18
+  },
+  "candidates": [
+    {
+      "modelId": "galaxy-s26-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-ultra-clear-case-transparent-ef-qs948ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26ultra-qs948-ef-qs948ctegww-550759558?$ORIGIN_PNG$",
+      "sourceImageRole": "Clear Case for Galaxy S26 Ultra Front Transparent ",
+      "sourceSku": "EF-QS948CTEGWW",
+      "apiModelCode": "EF-QS948CTEGWW",
+      "apiDisplayName": "Clear Case for Galaxy S26 Ultra",
+      "apiColour": "Transparent",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-ultra-other-7231a0834068.png",
+      "sha256": "7231a0834068528227330a55411d6dab15a45aac265142bfdb048a079b186ff9",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7171533203125,
+      "visibleBounds": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.4899665551839465,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s26-ultra-black-7231a0834068.png",
+        "sha256": "760f4881d3748a1fba90f0dd49551e0308a17af6d249760e652e3313f7370337",
+        "pixelSha256": "3bfa09e6dddc402a7d5a6da383eeb6bb1d9a77d3254250816aa6b0a2d95d0c1b",
+        "widthPx": 586,
+        "heightPx": 1196,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s26-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-plus-clear-case-transparent-ef-qs947ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26plus-qs947-ef-qs947ctegww-550759436?$ORIGIN_PNG$",
+      "sourceImageRole": "Clear Case for Galaxy S26+ Front Transparent ",
+      "sourceSku": "EF-QS947CTEGWW",
+      "apiModelCode": "EF-QS947CTEGWW",
+      "apiDisplayName": "Clear Case for Galaxy S26+",
+      "apiColour": "Transparent",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-plus-other-66698b8a4a9a.png",
+      "sha256": "66698b8a4a9abdca4567f30fa400a3b64e843cdc4d5d73fc0874b040b1647dac",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.718701171875,
+      "visibleBounds": {
+        "left": 666,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 587,
+        "height": 1196
+      },
+      "visibleAspect": 0.4908026755852843,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s26-plus-black-66698b8a4a9a.png",
+        "sha256": "d36a964b7a4ebeccbc79d537da022b0ea5dc80f0fc250052bf7617912c4408d9",
+        "pixelSha256": "01cf330f8a94f9ed040a67d146eb1216138b1142b0ddcfbe28868b928889c8cc",
+        "widthPx": 587,
+        "heightPx": 1196,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s26",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-clear-case-transparent-ef-qs942ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-qs942-ef-qs942ctegww-550759125?$ORIGIN_PNG$",
+      "sourceImageRole": "Clear Case for Galaxy S26 Front Transparent ",
+      "sourceSku": "EF-QS942CTEGWW",
+      "apiModelCode": "EF-QS942CTEGWW",
+      "apiDisplayName": "Clear Case for Galaxy S26",
+      "apiColour": "Transparent",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-other-894410e9f2f9.png",
+      "sha256": "894410e9f2f99c2cfe6600a88822687cbf0a94970efe3b1043e34e562e7c88c3",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7190743001302083,
+      "visibleBounds": {
+        "left": 667,
+        "top": 42,
+        "right": 1252,
+        "bottom": 1237,
+        "width": 586,
+        "height": 1196
+      },
+      "visibleAspect": 0.4899665551839465,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s26-black-894410e9f2f9.png",
+        "sha256": "d3e2eced01a6e9406b5bae24ba024704fa186bcde118943d386ebe52cee02d8a",
+        "pixelSha256": "ebafa8fe8f0ae990926184c5d4353d61fe3b3f730f71d6b64f90734e6aac2ef7",
+        "widthPx": 586,
+        "heightPx": 1196,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-ultra-silicone-case-white-ef-ps928twegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24ultra-ps928-ef-ps928twegww-539546857?$ORIGIN_PNG$",
+      "sourceImageRole": "front White",
+      "sourceSku": "EF-PS928TWEGWW",
+      "apiModelCode": "EF-PS928TWEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S24 Ultra",
+      "apiColour": "White",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-ultra-white-7de246e53cf0.png",
+      "sha256": "7de246e53cf0c8d17356bc4e17864ce3322d5e6cc8ca09df7ff86c7705ef3094",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7067431640625,
+      "visibleBounds": {
+        "left": 658,
+        "top": 43,
+        "right": 1261,
+        "bottom": 1236,
+        "width": 604,
+        "height": 1194
+      },
+      "visibleAspect": 0.5058626465661642,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-ultra-white-7de246e53cf0.png",
+        "sha256": "6825655ed211ef3c56ad21313103eefd2745671bfe599187197c60d6ca3da510",
+        "pixelSha256": "466fb273819b5fb44372f5b5f2fea284ad1499d1851618e99fccb107ff7194fb",
+        "widthPx": 604,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "violet",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-ultra-silicone-case-dark-violet-ef-ps928teegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24ultra-ps928-ef-ps928teegww-539546818?$ORIGIN_PNG$",
+      "sourceImageRole": "front Dark Violet",
+      "sourceSku": "EF-PS928TEEGWW",
+      "apiModelCode": "EF-PS928TEEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S24 Ultra",
+      "apiColour": "Dark Violet",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-ultra-violet-5df8495468d2.png",
+      "sha256": "5df8495468d2cb828450fea8e2ca512bf599b45ce7fa81b688fa51bbef2df37b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7067431640625,
+      "visibleBounds": {
+        "left": 658,
+        "top": 43,
+        "right": 1261,
+        "bottom": 1236,
+        "width": 604,
+        "height": 1194
+      },
+      "visibleAspect": 0.5058626465661642,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-ultra-black-5df8495468d2.png",
+        "sha256": "4c40e157b874a4d01d6a035c8fe478819a8a21f87e35f2565e8a265b64eb5a7f",
+        "pixelSha256": "7df9092a1d2b460a3bfd6f68a0a139b3742cecdcc700ea4358c9d4d1c2d92e49",
+        "widthPx": 604,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "status": "candidate-found",
+      "publish": false,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-plus-silicone-case-white-ef-ps926twegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24plus-ps926-ef-ps926twegww-539550866?$ORIGIN_PNG$",
+      "sourceImageRole": "front White",
+      "sourceSku": "EF-PS926TWEGWW",
+      "apiModelCode": "EF-PS926TWEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S24+",
+      "apiColour": "White",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-plus-white-ff56ecf4502f.png",
+      "sha256": "ff56ecf4502f9bd558efddf78bcd2c528727f5bfa265edd451c6e8ba5ba2a27c",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7166617838541667,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "accepted-existing-override-preserved",
+        "editorPath": "/assets/cases/case-without-gel/galaxy-s24-plus-white.png",
+        "transform": "No derived asset; the existing reviewed override remains authoritative"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "violet",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-plus-silicone-case-dark-violet-ef-ps926teegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24plus-ps926-ef-ps926teegww-539550827?$ORIGIN_PNG$",
+      "sourceImageRole": "front Dark Violet",
+      "sourceSku": "EF-PS926TEEGWW",
+      "apiModelCode": "EF-PS926TEEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S24+",
+      "apiColour": "Dark Violet",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-plus-violet-7c19a5eaf58b.png",
+      "sha256": "7c19a5eaf58b566f86f4496ff20ce0846bc2b85e3e8df1ce4000b898b49ad85b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7166617838541667,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-plus-black-7c19a5eaf58b.png",
+        "sha256": "3e7ac674bbc68d6b436cb3d952a0781f490b46cbfb087a2d70c914f2a736e662",
+        "pixelSha256": "bcf8f88ca08a91e92c423476c2f4efe40b95af72bac6a680526e8950ab07de6b",
+        "widthPx": 588,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24",
+      "status": "candidate-found",
+      "publish": false,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s24-silicone-case-white-ef-ps921twegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24-ps921-ef-ps921twegww-539546475?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PS921TWEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-white-98f90a2b055a.png",
+      "sha256": "98f90a2b055a56d66bc5fc3b033df9b323fa5de557cce3cb7a9f8e175e11ccaf",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7156608072916667,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "accepted-existing-override-preserved",
+        "editorPath": "/assets/cases/case-without-gel/galaxy-s24-white.png",
+        "transform": "No derived asset; the existing reviewed override remains authoritative"
+      }
+    },
+    {
+      "modelId": "galaxy-s24",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "violet",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-silicone-case-dark-violet-ef-ps921teegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2401/gallery/uk-galaxy-s24-ps921-ef-ps921teegww-539546436?$ORIGIN_PNG$",
+      "sourceImageRole": "front Dark Violet",
+      "sourceSku": "EF-PS921TEEGWW",
+      "apiModelCode": "EF-PS921TEEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S24",
+      "apiColour": "Dark Violet",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-violet-fdb6c707aaf5.png",
+      "sha256": "fdb6c707aaf59c45b11f2eee9981b8702b1905c97801a4af2dfc99beafd10062",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7156608072916667,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-black-fdb6c707aaf5.png",
+        "sha256": "f81b5dc62a44d35c88e8a6024ac839f7a4f47c0a7b7dbc34760f39a14eb6513f",
+        "pixelSha256": "088dfb8e98d659f11bf8605f4f03c0882b671cb22388c30e51c68dc8faa3068f",
+        "widthPx": 590,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s23-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s23-ultra-clear-case-transparent-ef-qs918ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2302/gallery/uk-galaxy-s23-ultra-clear-case-ef-qs918-ef-qs918ctegww-534918744?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QS918CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s23-ultra-other-491015feee73.png",
+      "sha256": "491015feee7343adc71ceaa579e9096086bf246818bfd22eeb4b44b7e6a1b560",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7197591145833333,
+      "visibleBounds": {
+        "left": 671,
+        "top": 43,
+        "right": 1248,
+        "bottom": 1236,
+        "width": 578,
+        "height": 1194
+      },
+      "visibleAspect": 0.48408710217755446,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s23-ultra-black-491015feee73.png",
+        "sha256": "bd68e0625185d4065c48743babd7db760c5c412b4b9d50907b7108bd3a3dbc28",
+        "pixelSha256": "3bc0949c90e5dab4fef58035e37d4802d38e647990ea3a8225b0875b6f6f47fe",
+        "widthPx": 578,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s23-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s23-plus-clear-case-transparent-ef-qs916ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2302/gallery/uk-galaxy-s23-plus-clear-case-ef-qs916-ef-qs916ctegww-534917831?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QS916CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s23-plus-other-3b3242fa50a4.png",
+      "sha256": "3b3242fa50a472349111108e346a076090480b88024a059885752a5d1d7bee2e",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7174808756510417,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s23-plus-black-3b3242fa50a4.png",
+        "sha256": "270765fc6c509d3a8130c0c4050460427bd8e17a634c2b4fdd008eb7add4e602",
+        "pixelSha256": "7690acd9fbd75f8212e8ab13c6910f8e778188b5277d0c5876cffbb3b21c71fb",
+        "widthPx": 588,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s23",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s23-clear-case-transparent-ef-qs911ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2302/gallery/uk-galaxy-s23-clear-case-ef-qs911-ef-qs911ctegww-534916551?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QS911CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s23-other-319b316182c9.png",
+      "sha256": "319b316182c91075bd4b9e9811fc9d0c7883c63e527ce78a105bf527e436dc5f",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7154012044270833,
+      "visibleBounds": {
+        "left": 663,
+        "top": 43,
+        "right": 1255,
+        "bottom": 1236,
+        "width": 593,
+        "height": 1194
+      },
+      "visibleAspect": 0.4966499162479062,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s23-black-319b316182c9.png",
+        "sha256": "7826e226274028ede84a7d780d43b2ff048150e6e386f477e5eec4abca79375b",
+        "pixelSha256": "27f6dacc8f10eddb30080fa5c040c0190675dc0b9f3283eb46e389bb46ab065d",
+        "widthPx": 593,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-edge",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-edge-silicone-case-black-ef-ps937cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ps_2504/gallery/uk-galaxy-s25edge-ps937-ef-ps937cbegww-546170194?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PS937CBEGWW",
+      "apiModelCode": "EF-PS937CBEGWW",
+      "apiDisplayName": "Galaxy S25 Edge Silicone Case",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-edge-black-0e001ce28843.png",
+      "sha256": "0e001ce288438e706eee6ce6c582502d4005922c9ee277f7acb1d978e396e9cf",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7163106282552083,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-edge-black-0e001ce28843.png",
+        "sha256": "53cd0a85831ee6155807e991fd5a503ee370f8408885f7fbc64f221d8f9b8a88",
+        "pixelSha256": "b4b86af7fee35cab02adf14d9dfaaa232374510830cf0ed0c9ed1ccec355020d",
+        "widthPx": 588,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-edge",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-edge-silicone-case-light-gray-ef-ps937cjegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ps_2504/gallery/uk-galaxy-s25edge-ps937-ef-ps937cjegww-546170209?$ORIGIN_PNG$",
+      "sourceImageRole": "front Light Gray",
+      "sourceSku": "EF-PS937CJEGWW",
+      "apiModelCode": "EF-PS937CJEGWW",
+      "apiDisplayName": "Galaxy S25 Edge Silicone Case",
+      "apiColour": "Light Grey",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-edge-white-398906419777.png",
+      "sha256": "398906419777c842aafd5be4c42d6aeef667e10d7d1865cb195b5f194709566d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.716258544921875,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-edge-white-398906419777.png",
+        "sha256": "9a183dd45489baa8c4a007330e85131bb3be4868af0a6cf07b71f4b2f8ac1ce0",
+        "pixelSha256": "d0dbff6d36604b712b4f1c770502da49b440fd0cf5c00d3d81320af7cab7195f",
+        "widthPx": 588,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-ultra-silicone-case-black-ef-ps938cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25ultra-ps938-ef-ps938cbegww-544502457?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PS938CBEGWW",
+      "apiModelCode": "EF-PS938CBEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25 Ultra",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-ultra-black-90c5a9707b10.png",
+      "sha256": "90c5a9707b10423bab051d800856cb678607212100a6fa9f652d148b2fc76cfe",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7164835611979167,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1251,
+        "bottom": 1236,
+        "width": 585,
+        "height": 1194
+      },
+      "visibleAspect": 0.4899497487437186,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-ultra-black-90c5a9707b10.png",
+        "sha256": "cc0aa6fcb07ab589178822d5510875d6a3ca58aa157e710716fc04a43cc18ca3",
+        "pixelSha256": "2fd70649958f39413ec605eb27e9800f96597c6ff8f683c21aaccb2a3cbbfb10",
+        "widthPx": 585,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "grey",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-ultra-silicone-case-grey-ef-ps938cjegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25ultra-ps938-ef-ps938cjegww-544502464?$ORIGIN_PNG$",
+      "sourceImageRole": "front Gray",
+      "sourceSku": "EF-PS938CJEGWW",
+      "apiModelCode": "EF-PS938CJEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25 Ultra",
+      "apiColour": "Grey",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-ultra-grey-8b092d323527.png",
+      "sha256": "8b092d3235270264c8516832303cd547e1e04e88f48c6a8852537632a726f52b",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7164835611979167,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1251,
+        "bottom": 1236,
+        "width": 585,
+        "height": 1194
+      },
+      "visibleAspect": 0.4899497487437186,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-ultra-white-8b092d323527.png",
+        "sha256": "9ac2516608d6d704fe154c497611cfe16c8dbca22979cb2388c2d3adb02383ab",
+        "pixelSha256": "5c3837db0d24c2dabef1302e77d218e06a676e5fdbfec6cf131f6021db5de41e",
+        "widthPx": 585,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-plus-silicone-case-black-ef-ps936cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25plus-ps936-ef-ps936cbegww-544501184?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PS936CBEGWW",
+      "apiModelCode": "EF-PS936CBEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25+",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-plus-black-c7069b774339.png",
+      "sha256": "c7069b7743395d557dca59083c81ddac880f19af805d429bea6e2ffcd58f8691",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7175785319010417,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787269681742,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-plus-black-c7069b774339.png",
+        "sha256": "19ad69df14cb15bc6922fd610a7abec0433348f4e6d62c0a820943af1694df39",
+        "pixelSha256": "23aa3122b1a7aea0856f7b3c876acaab2d3d83d0ca9dc95b13c9a8a2f2f03cdd",
+        "widthPx": 586,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-plus-silicone-case-blue-ef-ps936cnegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25plus-ps936-ef-ps936cnegww-544501205?$ORIGIN_PNG$",
+      "sourceImageRole": "front Blue",
+      "sourceSku": "EF-PS936CNEGWW",
+      "apiModelCode": "EF-PS936CNEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25+",
+      "apiColour": "Blue",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-plus-blue-7ba60c2ccdfb.png",
+      "sha256": "7ba60c2ccdfbab96167b99370afc627023d5651def8628589f76f91a28f2da3f",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7175785319010417,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787269681742,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-plus-white-7ba60c2ccdfb.png",
+        "sha256": "283e0ae833923ce678513e5bdf2ff5fe5220a68ac2b3dea8371294ea708290a6",
+        "pixelSha256": "36d3cec23a95221bf1cd0a5d0af4b4dca55bfb177d69add849897d146086596a",
+        "widthPx": 586,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-silicone-case-black-ef-ps931cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25-ps931-ef-ps931cbegww-544500790?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PS931CBEGWW",
+      "apiModelCode": "EF-PS931CBEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-black-0968a9af0ff1.png",
+      "sha256": "0968a9af0ff1afffd9dd39d2daf1c864f54d741e5accab87b37a6a66b0445065",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7157991536458334,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-black-0968a9af0ff1.png",
+        "sha256": "bd071b3ab1832b95f87e006d59a4ff9cf6249972180252c093e17ff0b4a30b47",
+        "pixelSha256": "83df272db425a3f868a3f8ed8648f2748d09bed31e8ab461a63e656c6a6d955a",
+        "widthPx": 590,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s25",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s25-silicone-case-blue-ef-ps931cnegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2501/gallery/uk-galaxy-s25-ps931-ef-ps931cnegww-544500811?$ORIGIN_PNG$",
+      "sourceImageRole": "front Blue",
+      "sourceSku": "EF-PS931CNEGWW",
+      "apiModelCode": "EF-PS931CNEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy S25",
+      "apiColour": "Blue",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s25-blue-a9e119563669.png",
+      "sha256": "a9e119563669d1986ee4c456a9c574e04e32f58eec3fdc5a3aaf63dabfb05d75",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7157991536458334,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s25-white-a9e119563669.png",
+        "sha256": "f2cf94d0b02ce09d26bb1039ab0a35f9543423ce08d50194d56aa32055630a04",
+        "pixelSha256": "ad1f38081b520df96b06c52764aa6d3946c50770b5943d6dd8a2ad40055ba553",
+        "widthPx": 590,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-fe",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-fe-silicone-case-black-ef-ps721cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-ps721cbegww/gallery/uk-galaxy-s24-fe-silicone-case-ps721-ef-ps721cbegww-543678468?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PS721CBEGWW",
+      "apiModelCode": "EF-PS721CBEGWW",
+      "apiDisplayName": "Silicone Case for S24 FE",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-fe-black-f48314cedea9.png",
+      "sha256": "f48314cedea9e3efbab46656a90f1f11a9f2d47c731240577cb9532c909500b1",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.6983072916666667,
+      "visibleBounds": {
+        "left": 658,
+        "top": 22,
+        "right": 1261,
+        "bottom": 1257,
+        "width": 604,
+        "height": 1236
+      },
+      "visibleAspect": 0.4886731391585761,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-fe-black-f48314cedea9.png",
+        "sha256": "d463ed9f7c4ec2163131450f561f06623184687a14979ec52b0a8996d5950123",
+        "pixelSha256": "4a12e6b503b9617fb7159b1e5aac63ccc7ee618bf502be086859bfc84ff2d32a",
+        "widthPx": 604,
+        "heightPx": 1236,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s24-fe",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "gray",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s24-fe-silicone-case-gray-ef-ps721cjegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-ps721cjegww/gallery/uk-galaxy-s24-fe-silicone-case-ps721-ef-ps721cjegww-543678487?$ORIGIN_PNG$",
+      "sourceImageRole": "front Gray",
+      "sourceSku": "EF-PS721CJEGWW",
+      "apiModelCode": "EF-PS721CJEGWW",
+      "apiDisplayName": "Silicone Case for S24 FE",
+      "apiColour": "Grey",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-fe-gray-cf0fe71e9097.png",
+      "sha256": "cf0fe71e9097d6a5778dee1b0cdfa4e84cd8e300316a40c8f12a0b08520b56e1",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.6983199055989583,
+      "visibleBounds": {
+        "left": 658,
+        "top": 22,
+        "right": 1261,
+        "bottom": 1257,
+        "width": 604,
+        "height": 1236
+      },
+      "visibleAspect": 0.4886731391585761,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s24-fe-white-cf0fe71e9097.png",
+        "sha256": "25315e3396337e9c41ad665de8cb3df6cca0f572e2e6c9c1f714ce9168d80bc6",
+        "pixelSha256": "b93b07c51a588c37dd6de9097e2592fc6fc4800d20af9124f2249d5c9a490608",
+        "widthPx": 604,
+        "heightPx": 1236,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s23-fe",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s23-fe-silicone-case-graphite-ef-ps711tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-ps711tbegww/gallery/uk-galaxy-s23-fe-silicone-case-ps711-ef-ps711tbegww-538996520?$ORIGIN_PNG$",
+      "sourceImageRole": "front Graphite",
+      "sourceSku": "EF-PS711TBEGWW",
+      "apiModelCode": "EF-PS711TBEGWW",
+      "apiDisplayName": "Silicone Case for S23 FE",
+      "apiColour": "Graphite",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s23-fe-black-2d1c7fb5a7f5.png",
+      "sha256": "2d1c7fb5a7f560975934e1d5cf7d8620d8d1a604aeb33ec3cb32ddfd914848b6",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7128153483072917,
+      "visibleBounds": {
+        "left": 661,
+        "top": 43,
+        "right": 1258,
+        "bottom": 1236,
+        "width": 598,
+        "height": 1194
+      },
+      "visibleAspect": 0.5008375209380235,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s23-fe-black-2d1c7fb5a7f5.png",
+        "sha256": "9b017b17ca316e3ce1514d82526e751f0ecd00e9181d4c745e1fd175ce7291e2",
+        "pixelSha256": "6010b2b9df40423ca2af4a187308dcd0e4f3f1765330f4b70603814f97389623",
+        "widthPx": 598,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s23-fe",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s23-fe-silicone-case-light-gray-ef-ps711twegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-ps711twegww/gallery/uk-galaxy-s23-fe-silicone-case-ps711-ef-ps711twegww-538996562?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PS711TWEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s23-fe-white-fee2520e1847.png",
+      "sha256": "fee2520e18476f26272ea8587d26123a439be54edc5eeeebda034e3b5a3ea51d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7128072102864583,
+      "visibleBounds": {
+        "left": 661,
+        "top": 43,
+        "right": 1258,
+        "bottom": 1236,
+        "width": 598,
+        "height": 1194
+      },
+      "visibleAspect": 0.5008375209380235,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s23-fe-white-fee2520e1847.png",
+        "sha256": "32bf734eda14f46d4e02d30279d6704678b88a9b68e68e1111a7c07ad7a8e4d5",
+        "pixelSha256": "0e95070ff626acbf6a3c09414bfeca6db4643b4e53368cec91c54ef07e8f4761",
+        "widthPx": 598,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-ultra-silicone-cover-black-ef-ps908tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-ps908-ef-ps908tbegww-530886284?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PS908TBEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-ultra-black-728b37a49bd8.png",
+      "sha256": "728b37a49bd8582055de85656d86f1ec2faad1f1e0390f64cd904018bf29f6c1",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7179366048177084,
+      "visibleBounds": {
+        "left": 669,
+        "top": 43,
+        "right": 1249,
+        "bottom": 1236,
+        "width": 581,
+        "height": 1194
+      },
+      "visibleAspect": 0.48659966499162477,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s22-ultra-black-728b37a49bd8.png",
+        "sha256": "19d60a0011ac65a63162d548dd43a1af70ac72968188d2bfc28d255a795660db",
+        "pixelSha256": "44879669a53a3104f898ade6665744106668d3769d58ecf65ec528c1e3525374",
+        "widthPx": 581,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s22-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-ultra-leather-cover-light-grey-ef-vs908ljegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-vs908-ef-vs908ljegww-530885130?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-VS908LJEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-ultra-white-486355b4b994.png",
+      "sha256": "486355b4b994ba53773a780685e88b686a71f9b70df7ad7b9c97a606536dbff1",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.716162109375,
+      "visibleBounds": {
+        "left": 666,
+        "top": 43,
+        "right": 1253,
+        "bottom": 1236,
+        "width": 588,
+        "height": 1194
+      },
+      "visibleAspect": 0.49246231155778897,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s22-ultra-white-486355b4b994.png",
+        "sha256": "3ab513e47ff2f9d32fa7defc8d8dcf5d1f0d5ac72248481d0ac198371ef3f3cf",
+        "pixelSha256": "e88cc62263ebfb897f7cee78253e2b24d6bb3eca9249f36a2371666389360908",
+        "widthPx": 588,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "status": "candidate-found",
+      "publish": false,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-plus-leather-cover-light-grey-ef-vs906ljegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-vs906-ef-vs906ljegww-530883387?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-VS906LJEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-plus-white-df160143f0c7.png",
+      "sha256": "df160143f0c7ede6fbe616b0af8704c8886213f8ea5b43535f703cd1754eb92f",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7147432454427083,
+      "visibleBounds": {
+        "left": 662,
+        "top": 43,
+        "right": 1257,
+        "bottom": 1236,
+        "width": 596,
+        "height": 1194
+      },
+      "visibleAspect": 0.4991624790619765,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "accepted-existing-override-preserved",
+        "editorPath": "/assets/cases/case-without-gel/galaxy-s22-plus-white.png",
+        "transform": "No derived asset; the existing reviewed override remains authoritative"
+      }
+    },
+    {
+      "modelId": "galaxy-s22-plus",
+      "status": "candidate-found",
+      "publish": false,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-plus-silicone-cover-arctic-blue-ef-ps906tlegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-ps906-ef-ps906tlegww-530883645?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PS906TLEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-plus-blue-532d8abd731c.png",
+      "sha256": "532d8abd731cfccfd3ccd54aa1a91ee0bbf79adbbf920a26c2e18d38d67b06cc",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7158756510416666,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "accepted-existing-override-preserved",
+        "editorPath": "/assets/cases/case-without-gel/galaxy-s22-plus-black.png",
+        "transform": "No derived asset; the existing reviewed override remains authoritative"
+      }
+    },
+    {
+      "modelId": "galaxy-s22",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-leather-cover-light-grey-ef-vs901lgegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-vs901-ef-vs901lgegww-530875198?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-VS901LGEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-white-4debe7a837b5.png",
+      "sha256": "4debe7a837b53e56541297f2bcf0ae6f62aba3e68df51723bdaef0eceb17631a",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.713310546875,
+      "visibleBounds": {
+        "left": 660,
+        "top": 43,
+        "right": 1259,
+        "bottom": 1236,
+        "width": 600,
+        "height": 1194
+      },
+      "visibleAspect": 0.5025125628140703,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s22-white-4debe7a837b5.png",
+        "sha256": "8c90486995fbc547ee34ce466b55680f51e7a287d045ef570d6a74fad74f7d95",
+        "pixelSha256": "df06ed1b2e9c6f0c5f2a8bce0722dee9f2e66cfe0bedaa97d043210307d848eb",
+        "widthPx": 600,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s22",
+      "status": "candidate-found",
+      "publish": false,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s22-silicone-cover-arctic-blue-ef-ps901tlegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-ef-ps901-ef-ps901tlegww-530878108?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PS901TLEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s22-blue-3f59e5a67820.png",
+      "sha256": "3f59e5a678207709c7a05f2aa56445c3c28f599979533874de0e03967ea2458d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.71560791015625,
+      "visibleBounds": {
+        "left": 665,
+        "top": 43,
+        "right": 1254,
+        "bottom": 1236,
+        "width": 590,
+        "height": 1194
+      },
+      "visibleAspect": 0.49413735343383586,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "accepted-existing-override-preserved",
+        "editorPath": "/assets/cases/case-without-gel/galaxy-s22-black.png",
+        "transform": "No derived asset; the existing reviewed override remains authoritative"
+      }
+    },
+    {
+      "modelId": "galaxy-s21-ultra",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s21-ultra-5g-leather-cover-ef-vg998lbegww-ef-vg998laegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-leather-cover-galaxy-s21-ultra-5g-ef-vg998laegww-363960631?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-VG998LAEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s21-ultra-other-3176011bb05a.png",
+      "sha256": "3176011bb05a744ec22be4f3367125e7bb4824aadaa6c06b346a0eaff6059ebd",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7294258626302084,
+      "visibleBounds": {
+        "left": 680,
+        "top": 43,
+        "right": 1241,
+        "bottom": 1236,
+        "width": 562,
+        "height": 1194
+      },
+      "visibleAspect": 0.47068676716917923,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s21-ultra-black-3176011bb05a.png",
+        "sha256": "4c717d1daf047af5e8d4d2ed856ba4d0905c82b9c5ba80891ca981d3bb316a68",
+        "pixelSha256": "f3159ff1a50ac95bb07016790040fc489e10d66d1a24e55361200b015493045e",
+        "widthPx": 562,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s21",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-s21-5g-silicone-cover-ef-pg991-ef-pg991tjegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-silicone-cover-galaxy-s21-5g-ef-pg991tjegww-363855200?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PG991TJEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s21-other-1cb97526b0a5.png",
+      "sha256": "1cb97526b0a56ed4ea90abcd902bede7c486678e43d27abce029a29ee413b023",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7207027180989584,
+      "visibleBounds": {
+        "left": 669,
+        "top": 43,
+        "right": 1250,
+        "bottom": 1236,
+        "width": 582,
+        "height": 1194
+      },
+      "visibleAspect": 0.48743718592964824,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-s21-black-1cb97526b0a5.png",
+        "sha256": "2136401ab24d9f97e1b91a4dcd09c87792f070bf28d9a081b65833e9c56ae9eb",
+        "pixelSha256": "bd34da1686f095a156c63d1ddae9a5b7f1641cacd82829c4d2443b4d3998deac",
+        "widthPx": 582,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-note-10-plus",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/leather-cover-galaxy-note10-plus-ef-vn975laegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/uk-leather-cover-galaxy-note10-plus-ef-vn975laegww-backbrown-179461345?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-VN975LAEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-note-10-plus-other-d8f65bb5830a.png",
+      "sha256": "d8f65bb5830af9fe7db98c9c646f0b6d3e2a47c10858dbaeebab56809aadd120",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.71672607421875,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1250,
+        "bottom": 1237,
+        "width": 584,
+        "height": 1195
+      },
+      "visibleAspect": 0.4887029288702929,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-note-10-plus-black-d8f65bb5830a.png",
+        "sha256": "d84c9d633df5293fa4b4182ba1d1c20452921c26b43fc8a53305eec233bea013",
+        "pixelSha256": "dbc47f84c589b1aed8e9806b8253de6d7ab3ec61a21a050765e4ea40ba77998e",
+        "widthPx": 584,
+        "heightPx": 1195,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a55",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a55-5g-silicone-case-black-ef-pa556tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa556tbegww/gallery/uk-galaxy-a55-5g-silicone-case-ef-pa556-ef-pa556tbegww-539993258?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PA556TBEGWW",
+      "apiModelCode": "EF-PA556TBEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy A55",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a55-black-facd4e9b3663.png",
+      "sha256": "facd4e9b366318fa3611e232bd9ba8f17b58420e1134b34b01807d715d89637f",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7150203450520833,
+      "visibleBounds": {
+        "left": 664,
+        "top": 43,
+        "right": 1255,
+        "bottom": 1236,
+        "width": 592,
+        "height": 1194
+      },
+      "visibleAspect": 0.49581239530988275,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a55-black-facd4e9b3663.png",
+        "sha256": "dfcc543fd7344ac0fe0014ab611d254c4751fcb5d9a427d49f254866daa80c97",
+        "pixelSha256": "efcc2b74af6c68fba4b0dcb58f38d2c8e09345599de3966cc5703ce7f8094a9c",
+        "widthPx": 592,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a55",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a55-5g-silicone-case-light-blue-ef-pa556tlegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa556tlegww/gallery/uk-galaxy-a55-5g-silicone-case-ef-pa556-ef-pa556tlegww-539993271?$ORIGIN_PNG$",
+      "sourceImageRole": "front Light Blue",
+      "sourceSku": "EF-PA556TLEGWW",
+      "apiModelCode": "EF-PA556TLEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy A55",
+      "apiColour": "Light Blue",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a55-blue-26e7f93f7d31.png",
+      "sha256": "26e7f93f7d31dca0829c11c63f2ab8aa81d4c7cef197ac45a1132c432dda1845",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7150203450520833,
+      "visibleBounds": {
+        "left": 664,
+        "top": 43,
+        "right": 1255,
+        "bottom": 1236,
+        "width": 592,
+        "height": 1194
+      },
+      "visibleAspect": 0.49581239530988275,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a55-white-26e7f93f7d31.png",
+        "sha256": "62545feb288ccaee25e2649ddb4377cb563625778d250eb3d481a828801cc04c",
+        "pixelSha256": "c3494fcc3fcebc9651cf1de4b7e2b2a2dc08e992bc7fd0f2794c51868795e990",
+        "widthPx": 592,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a54",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a54-5g-silicone-case-black-ef-pa546tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa546tbegww/gallery/uk-galaxy-a54-5g-silicone-case-ef-pa546-ef-pa546tbegww-535793628?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PA546TBEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a54-black-9ad2e45246cf.png",
+      "sha256": "9ad2e45246cfe61a7989f83a7e15b9e1e70684cca039d5954bf653d5b286e6b8",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7149287923177083,
+      "visibleBounds": {
+        "left": 662,
+        "top": 43,
+        "right": 1257,
+        "bottom": 1236,
+        "width": 596,
+        "height": 1194
+      },
+      "visibleAspect": 0.4991624790619765,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a54-black-9ad2e45246cf.png",
+        "sha256": "8aa08cc3632f501e03ded58d39e7ec79537a2d5fd5b9d86472f992426f95b3d5",
+        "pixelSha256": "a6657f3f63f6e68ade6503bc859fe269a52f33b19908ea599a4b666342779720",
+        "widthPx": 596,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a54",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a54-5g-silicone-case-lime-ef-pa546tgegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa546tgegww/gallery/uk-galaxy-a54-5g-silicone-case-ef-pa546-454168-ef-pa546tgegww-535793773?$ORIGIN_PNG$",
+      "sourceImageRole": "front Lime",
+      "sourceSku": "EF-PA546TGEGWW",
+      "apiModelCode": "EF-PA546TGEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy A54",
+      "apiColour": "Lime",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a54-other-164d6aaaa042.png",
+      "sha256": "164d6aaaa04229c0ad0a549ea638b2cd58faa0dbc28f8b1a3e2376af847ad88a",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7149287923177083,
+      "visibleBounds": {
+        "left": 662,
+        "top": 43,
+        "right": 1257,
+        "bottom": 1236,
+        "width": 596,
+        "height": 1194
+      },
+      "visibleAspect": 0.4991624790619765,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a54-white-164d6aaaa042.png",
+        "sha256": "ac867a16fbc5c32ec8f130883064f8e93d177614b164ab0c2c34cc5bc14fd69b",
+        "pixelSha256": "39f7e793da5171cd0aa07fd7da12ad2ed12497c3c72eec626fd5c67f3805354c",
+        "widthPx": 596,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a53",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a53-5g-silicone-cover-black-ef-pa536tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-galaxy-a53-5g-silicone-cover-ef-pa536-ef-pa536tbegww-531417774?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PA536TBEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a53-black-026be453e776.png",
+      "sha256": "026be453e77682a2cd33a54d92c8510a510522b0d5eeb86e0cde74b38dfdd458",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.723719482421875,
+      "visibleBounds": {
+        "left": 673,
+        "top": 43,
+        "right": 1246,
+        "bottom": 1236,
+        "width": 574,
+        "height": 1194
+      },
+      "visibleAspect": 0.4807370184254606,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a53-black-026be453e776.png",
+        "sha256": "56d58f2b07176d79e2bc358bb274cf1187a70a7304f3fcce093fa591e8d2067c",
+        "pixelSha256": "99ade55d9b50321a0d51787dbdbab65add14e099742eb11a2ecff2058320a762",
+        "widthPx": 574,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a53",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "blue",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a53-5g-silicone-cover-arctic-blue-ef-pa536tlegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/2202/gallery/uk-galaxy-a53-5g-silicone-cover-ef-pa536-ef-pa536tlegww-531417787?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-PA536TLEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a53-blue-b59fca03d01a.png",
+      "sha256": "b59fca03d01af9096c80e64831766d1c0b8a94d0f0728a19cdd47cef87e5ebfc",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.723719482421875,
+      "visibleBounds": {
+        "left": 673,
+        "top": 43,
+        "right": 1246,
+        "bottom": 1236,
+        "width": 574,
+        "height": 1194
+      },
+      "visibleAspect": 0.4807370184254606,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a53-white-b59fca03d01a.png",
+        "sha256": "20a4fff2fc5d2d208f9a5f4938ffb9fe63ea78e70480f4f22ecff4b66c917db9",
+        "pixelSha256": "5dcdee75814ad7a39203515058a03dc52ba686db20852a93be39cbf45659d787",
+        "widthPx": 574,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a35-5g-silicone-case-black-ef-pa356tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa356tbegww/gallery/uk-galaxy-a35-5g-silicone-case-ef-pa356-ef-pa356tbegww-540275693?$ORIGIN_PNG$",
+      "sourceImageRole": "front Black",
+      "sourceSku": "EF-PA356TBEGWW",
+      "apiModelCode": "EF-PA356TBEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy A35",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a35-black-db0479cd4da2.png",
+      "sha256": "db0479cd4da2ec108f67f19f69a117e6c1c33745168066df726eee6b214edd5c",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7138326009114583,
+      "visibleBounds": {
+        "left": 662,
+        "top": 43,
+        "right": 1257,
+        "bottom": 1236,
+        "width": 596,
+        "height": 1194
+      },
+      "visibleAspect": 0.4991624790619765,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a35-black-db0479cd4da2.png",
+        "sha256": "00eba148a5a8ba80791584912832c05c956ae7c8b5219eb33fc58e63fc4b8d15",
+        "pixelSha256": "86de6c831e9323cd337a839a3b3ff44fa5e316d3a17cd341ccf268e22c191b1d",
+        "widthPx": 596,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a35-5g-silicone-case-lime-ef-pa356tmegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-pa356tmegww/gallery/uk-galaxy-a35-5g-silicone-case-ef-pa356-ef-pa356tmegww-540275738?$ORIGIN_PNG$",
+      "sourceImageRole": "front Lime",
+      "sourceSku": "EF-PA356TMEGWW",
+      "apiModelCode": "EF-PA356TMEGWW",
+      "apiDisplayName": "Silicone Case for Galaxy A35",
+      "apiColour": "Lime",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a35-other-10c4793ce7cf.png",
+      "sha256": "10c4793ce7cfc214e19a6082233ef16ad27e43fed2b0cee23197d5f8dc7ddd31",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7138326009114583,
+      "visibleBounds": {
+        "left": 662,
+        "top": 43,
+        "right": 1257,
+        "bottom": 1236,
+        "width": 596,
+        "height": 1194
+      },
+      "visibleAspect": 0.4991624790619765,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a35-white-10c4793ce7cf.png",
+        "sha256": "ea2148f9be54ee9bd4248449ec49e5916cd28d6da658951eb43b59228cfe14e5",
+        "pixelSha256": "3a41ac1a685bb7dd0dd9c118de5bae46ca664ed8475db23f13004ef3e1a5ba93",
+        "widthPx": 596,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a34",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a34-5g-clear-case-transparent-ef-qa346ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa346ctegww/gallery/uk-galaxy-a34-5g-clear-case-ef-qa346-ef-qa346ctegww-535800581?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA346CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a34-other-29f5a32de0b3.png",
+      "sha256": "29f5a32de0b358eb001918be35bc66fb31b12ff29ea03f81387b91b302d060e3",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.716112060546875,
+      "visibleBounds": {
+        "left": 663,
+        "top": 43,
+        "right": 1256,
+        "bottom": 1236,
+        "width": 594,
+        "height": 1194
+      },
+      "visibleAspect": 0.49748743718592964,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a34-black-29f5a32de0b3.png",
+        "sha256": "c972b267102fdd5d6071a6bf1856b050b246e7200299f38938e9733e935b9b4b",
+        "pixelSha256": "6d075e16ce464580001484e06d4463693e0119208e533d697cd6504090a63293",
+        "widthPx": 594,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a33-5g-soft-clear-cover-black-ef-qa336tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa336tbegww/gallery/uk-galaxy-a33-5g-soft-clear-cover-ef-qa336tbegww-531418394?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA336TBEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a33-black-27fbc51101b1.png",
+      "sha256": "27fbc51101b1a93ad04a70fc7aecafa2c00b328e2e946c6cc22cb9531d01431d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7230867513020833,
+      "visibleBounds": {
+        "left": 669,
+        "top": 43,
+        "right": 1249,
+        "bottom": 1236,
+        "width": 581,
+        "height": 1194
+      },
+      "visibleAspect": 0.48659966499162477,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a33-black-27fbc51101b1.png",
+        "sha256": "e546fb0b75da25d925190cb4a5336a0bed38743ed107d2ee0005a08cb8094f67",
+        "pixelSha256": "10941c93300487b62a9d66ce9a4b43a6ea6ec08936fcac316cda31752878fe32",
+        "widthPx": 581,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a33-5g-soft-clear-cover-transparent-ef-qa336ttegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa336ttegww/gallery/uk-galaxy-a33-5g-soft-clear-cover-ef-qa336ttegww-531418408?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA336TTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a33-other-857877eff585.png",
+      "sha256": "857877eff585d1624a6c49f12958d9119f43df30636a0bac5a3a9766d15340d1",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7230867513020833,
+      "visibleBounds": {
+        "left": 669,
+        "top": 43,
+        "right": 1249,
+        "bottom": 1236,
+        "width": 581,
+        "height": 1194
+      },
+      "visibleAspect": 0.48659966499162477,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a33-white-857877eff585.png",
+        "sha256": "3c62db0539b1713092e0256fc8e6e18d199c1cedb2f0c8173e5b110963dc42d6",
+        "pixelSha256": "787f6c87e23713b0e28d16a314658673458fb976ced7fab3b6aaae2993a2352a",
+        "widthPx": 581,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a32-5g-soft-clear-cover-ef-qa326-ef-qa326tbegeu/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa326tbegeu/gallery/uk-galaxy-a32-qa326-ef-qa326tbegeu-401838490?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA326TBEGEU",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a32-5g-other-021a18d86327.png",
+      "sha256": "021a18d8632780806e685c051d47d9e7c5e354221289cd2795be64fe9da6e1d6",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7252421061197917,
+      "visibleBounds": {
+        "left": 672,
+        "top": 43,
+        "right": 1244,
+        "bottom": 1237,
+        "width": 573,
+        "height": 1195
+      },
+      "visibleAspect": 0.4794979079497908,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a32-5g-black-021a18d86327.png",
+        "sha256": "f26ccade14c3a72ab057e0f18a2b40c19edd34a9a08de254bd3a608bd9ce7270",
+        "pixelSha256": "8f9fa2721dc0815fdd09941b23a590ae587a730f8321e640e0a4bbc5d28d0d77",
+        "widthPx": 573,
+        "heightPx": 1195,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a25",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a25-5g-clear-case-transparent-ef-qa256ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa256ctegww/gallery/uk-galaxy-a25-5g-clear-case-qa256-ef-qa256ctegww-539243112?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA256CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a25-other-ae79cbde7fdf.png",
+      "sha256": "ae79cbde7fdf1d3f1418d7e7723d5664da68bc7f52af13a3c5b2a46fd59ca7c5",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7212849934895833,
+      "visibleBounds": {
+        "left": 670,
+        "top": 43,
+        "right": 1248,
+        "bottom": 1236,
+        "width": 579,
+        "height": 1194
+      },
+      "visibleAspect": 0.4849246231155779,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a25-black-ae79cbde7fdf.png",
+        "sha256": "136e6415440660be114c935e240ad7c831e767939e459d2bd55625d6d231bcdc",
+        "pixelSha256": "c4ee38ea7adfa45e75efc6f1729adb979df6e9d19d87b2194362d67f9822d5c1",
+        "widthPx": 579,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a22-5g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a22-5g-soft-clear-cover-ef-qa226tbegeu/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa226tbegeu/gallery/uk-galaxy-a22-5g-soft-clear-cover-qa226-ef-qa226tbegeu-474675492?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA226TBEGEU",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a22-5g-other-329f18a0d94f.png",
+      "sha256": "329f18a0d94fc5ac36957aa08741d8029e0929c51eecc6c13256d6bbbf42ccf6",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7293986002604167,
+      "visibleBounds": {
+        "left": 677,
+        "top": 43,
+        "right": 1241,
+        "bottom": 1236,
+        "width": 565,
+        "height": 1194
+      },
+      "visibleAspect": 0.4731993299832496,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a22-5g-black-329f18a0d94f.png",
+        "sha256": "4a99899c4be822dc8e804338df17f9497da51f2b32d77ff64d74f0c4b73a73b0",
+        "pixelSha256": "a5f09deb149798a23c3dcfc1656bc43548e86200c26bd4143479317e5578c188",
+        "widthPx": 565,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a17",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a17-5g-clear-case-transparent-ef-qa176ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa176ctegww/gallery/uk-galaxy-a17-5g-clear-case-ef-qa176-ef-qa176ctegww-548591224?$ORIGIN_PNG$",
+      "sourceImageRole": "Clear Case for Galaxy A17 4G | A17 5G Front Transparent ",
+      "sourceSku": "EF-QA176CTEGWW",
+      "apiModelCode": "EF-QA176CTEGWW",
+      "apiDisplayName": "Clear Case for Galaxy A17 4G | A17 5G",
+      "apiColour": "Transparent",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a17-other-aae4fc1cef27.png",
+      "sha256": "aae4fc1cef277e9aaed596134907d2391f6c4f6f99cb0a6d0325b742ed7dbf52",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.722276611328125,
+      "visibleBounds": {
+        "left": 672,
+        "top": 43,
+        "right": 1247,
+        "bottom": 1236,
+        "width": 576,
+        "height": 1194
+      },
+      "visibleAspect": 0.4824120603015075,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a17-black-aae4fc1cef27.png",
+        "sha256": "aa88e76f14c1df6b1e5ca515aa07ac27296ae8bdae9813aa8cf3b40b2a04a799",
+        "pixelSha256": "a795672c4ef27739a80e290402854172eaff1b476144fe920ce68454560bc61f",
+        "widthPx": 576,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a16",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-a16-5g-clear-case-transparent-ef-qa166ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa166ctegww/gallery/uk-galaxy-a16-5g-clear-case-ef-qa166-ef-qa166ctegww-544199514?$ORIGIN_PNG$",
+      "sourceImageRole": "front Transparent",
+      "sourceSku": "EF-QA166CTEGWW",
+      "apiModelCode": "EF-QA166CTEGWW",
+      "apiDisplayName": "Clear Case for A16 | A16 5G",
+      "apiColour": "Transparent",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a16-other-1910c2db184c.png",
+      "sha256": "1910c2db184c989c2062c43de605b7266db815d5e8799d7cc3be03634ae1ce9d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7229545084635417,
+      "visibleBounds": {
+        "left": 672,
+        "top": 43,
+        "right": 1247,
+        "bottom": 1236,
+        "width": 576,
+        "height": 1194
+      },
+      "visibleAspect": 0.4824120603015075,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a16-black-1910c2db184c.png",
+        "sha256": "360a24f91c0cd39ba2d62fc1a0bf28c509eac70f5645ec8eae90d13febcb691d",
+        "pixelSha256": "23e314478db80b0dd26a8eef719c84c61ee266485f26fd05f25c6105d73d89ed",
+        "widthPx": 576,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a15---a15-5g-clear-case-transparent-ef-qa156ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa156ctegww/gallery/uk-galaxy-a15-and-a15-5g-clear-case-ef-qa156-ef-qa156ctegww-539609657?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA156CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a15-4g-5g-other-ae96d0b1c1eb.png",
+      "sha256": "ae96d0b1c1eb5b5cae0c01fcc035449074970e07244ba5bae2afa2d24880a296",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7179488118489583,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787269681742,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a15-4g-5g-black-ae96d0b1c1eb.png",
+        "sha256": "53f16d3b89397a26587015d4a5feadb46f6ac0f91a7eb99eff807a326d0b72c9",
+        "pixelSha256": "57e7cb1bf06e86d608002d73018ea34697b2c9c9fde3b03bf9cfc228fa0f5c2b",
+        "widthPx": 586,
+        "heightPx": 1194,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a14-5g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a14-5g-clear-case-transparent-ef-qa146ctegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa146ctegww/gallery/uk-galaxy-a14-5g-clear-case-ef-qa146-ef-qa146ctegww-535675320?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA146CTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a14-5g-other-0683b5f896c3.png",
+      "sha256": "0683b5f896c3ed3d1e55c004d924ada71a6aa5de94a028ce1367f233b5bb0815",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7276542154947917,
+      "visibleBounds": {
+        "left": 676,
+        "top": 43,
+        "right": 1244,
+        "bottom": 1235,
+        "width": 569,
+        "height": 1193
+      },
+      "visibleAspect": 0.47694886839899414,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a14-5g-black-0683b5f896c3.png",
+        "sha256": "957ae85d10bdb9c312b2399b2fb374410e20001e35632afcad9d35214fad2f74",
+        "pixelSha256": "fcf115c280f7da4985170a83d5e6e3c4db7e51373d2d1f8fbd561e652d190ea1",
+        "widthPx": 569,
+        "heightPx": 1193,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a13-4g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a13-soft-clear-cover-black-ef-qa135tbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa135tbegww/gallery/uk-galaxy-a13-soft-clear-cover-ef-qa135-ef-qa135tbegww-531889421?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA135TBEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a13-4g-black-fedc261d15a1.png",
+      "sha256": "fedc261d15a1448ccbe0d4aa7bf42003471e426a511c529eb49465c0e5844a5d",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.72568359375,
+      "visibleBounds": {
+        "left": 669,
+        "top": 42,
+        "right": 1250,
+        "bottom": 1237,
+        "width": 582,
+        "height": 1196
+      },
+      "visibleAspect": 0.4866220735785953,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a13-4g-black-fedc261d15a1.png",
+        "sha256": "a687d45799ae9053fc856c3834e6a46e7e7fc960c348653b1542ca81f11e097a",
+        "pixelSha256": "e8c43cf069e719c4cc08bc6d484e7263a4a839a7dfa1bf077ea4fab2e104ea12",
+        "widthPx": 582,
+        "heightPx": 1196,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-a13-4g",
+      "status": "candidate-found",
+      "publish": true,
+      "reviewStatus": "accepted",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a13-soft-clear-cover-transparent-ef-qa135ttegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa135ttegww/gallery/uk-galaxy-a13-soft-clear-cover-ef-qa135-ef-qa135ttegww-531889435?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA135TTEGWW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a13-4g-other-03f6b8df60d1.png",
+      "sha256": "03f6b8df60d12972abcdaebe21e0c671f1d1e454a6ce7ffd588bcb1824c36b88",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.72568359375,
+      "visibleBounds": {
+        "left": 669,
+        "top": 42,
+        "right": 1250,
+        "bottom": 1237,
+        "width": 582,
+        "height": 1196
+      },
+      "visibleAspect": 0.4866220735785953,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a13-4g-white-03f6b8df60d1.png",
+        "sha256": "7ae5dbe13939820ac6ffbae10828089bfd4f67c56078afe0013470c13538964f",
+        "pixelSha256": "4f8dd14bc0fe2fc524955a26b29def23240ce0bd938b3be5964238caa6abe134",
+        "widthPx": 582,
+        "heightPx": 1196,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      }
+    },
+    {
+      "modelId": "galaxy-s26-edge",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-z-flip-7",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 8,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip7-kindsuit-case-black-ef-vf766pbegww/",
+          "sku": "EF-VF766PBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.9105"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip7-kindsuit-case-camel-ef-vf766paegww/",
+          "sku": "EF-VF766PAEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.9105"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip7-kindsuit-case-taupe-ef-vf766pjegww/",
+          "sku": "EF-VF766PJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.9105"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip7-clear-case-transparent-ef-af766ctegww/",
+          "sku": "EF-AF766CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.9121"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-fold-7",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 12,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-silicone-case-black-ef-mf966cbegww/",
+          "sku": "EF-MF966CBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8970"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-carbon-shield-case-black-ef-xf966sbegww/",
+          "sku": "EF-XF966SBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8995"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-silicone-case-blue-ef-mf966cnegww/",
+          "sku": "EF-MF966CNEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8970"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-silicone-case-grey-ef-mf966cjegww/",
+          "sku": "EF-MF966CJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8970"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-silicone-case-mint-ef-mf966cmegww/",
+          "sku": "EF-MF966CMEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8970"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold7-clear-case-transparent-ef-af966ctegww/",
+          "sku": "EF-AF966CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8995"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-fold-6",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 8,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold6-silicone-case-white-ef-mf956twegww/",
+          "sku": "EF-MF956TWEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8626"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold6-silicone-case-gray-ef-mf956tjegww/",
+          "sku": "EF-MF956TJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8626"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-fold6-kindsuit-case-gray-ef-vf956pjegww/",
+          "sku": "EF-VF956PJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8660"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold6-kindsuit-case-tan-ef-vf956paegww/",
+          "sku": "EF-VF956PAEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8660"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold6-clear-case-transparent-ef-qf956ctegww/",
+          "sku": "EF-QF956CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8652"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/slim-clear-case-for-galaxy-z-fold6-transparent-gp-fff956ycatw/",
+          "sku": "GP-FFF956YCATW",
+          "error": "Official image is not a straight-on tall case: visible aspect 1.5000"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-flip-6",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 24,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-flip7-fe-silicone-case-black-ef-pf741tbegww/",
+          "sku": "EF-PF741TBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-flip7-fe-silicone-case-white-ef-pf741twegww/",
+          "sku": "EF-PF741TWEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-silicone-case-blue-ef-pf741tlegww/",
+          "sku": "EF-PF741TLEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-silicone-case-gray-ef-pf741tjegww/",
+          "sku": "EF-PF741TJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-silicone-case-mint-ef-pf741tmegww/",
+          "sku": "EF-PF741TMEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-silicone-case-navy-ef-pf741tnegww/",
+          "sku": "EF-PF741TNEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-silicone-case-yellow-ef-pf741tyegww/",
+          "sku": "EF-PF741TYEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7119"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-kindsuit-case-gray-ef-vf741pjegww/",
+          "sku": "EF-VF741PJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8660"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-kindsuit-case-mint-ef-vf741pmegww/",
+          "sku": "EF-VF741PMEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8660"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-kindsuit-case-yellow-ef-vf741pyegww/",
+          "sku": "EF-VF741PYEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8660"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-z-flip6-clear-case-transparent-ef-qf741ctegww/",
+          "sku": "EF-QF741CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.7186"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/mobile-accessories/slim-clear-case-for-galaxy-z-flip6-transparent-gp-fff741ycatw/",
+          "sku": "GP-FFF741YCATW",
+          "error": "Official image is not a straight-on tall case: visible aspect 1.5000"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-fold-5",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 2,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold5-eco-leather-case-black-ef-vf946pbegww/",
+          "sku": "EF-VF946PBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8417"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold5-eco-leather-case-icy-blue-ef-vf946plegww/",
+          "sku": "EF-VF946PLEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8417"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-flip-5",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-z-flip-4",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 1,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-flip4-clear-slim-cover-transparent-ef-qf721ctegww/",
+          "sku": "EF-QF721CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8727"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-fold-4",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 3,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold4-leather-cover-black-ef-vf936lbegww/",
+          "sku": "EF-VF936LBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8425"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold4-leather-cover-graygreen-ef-vf936ljegww/",
+          "sku": "EF-VF936LJEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8425"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/clear-edge-cover-for-galaxy-z-fold4-ef-qf936ctegww/",
+          "sku": "EF-QF936CTEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8442"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-fold-3",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 2,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold3-5g-silicone-cover-ef-pf926tbegww/",
+          "sku": "EF-PF926TBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8116"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-fold3-5g-silicone-cover-ef-pf926twegww/",
+          "sku": "EF-PF926TWEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8116"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-z-flip-3",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 3,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-flip3-5g-leather-cover-ef-vf711lbegww/",
+          "sku": "EF-VF711LBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8668"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-flip3-5g-leather-cover-ef-vf711lyegww/",
+          "sku": "EF-VF711LYEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8668"
+        },
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-z-flip3-5g-aramid-cover-ef-xf711sbegww/",
+          "sku": "EF-XF711SBEGWW",
+          "error": "Official image is not a straight-on tall case: visible aspect 0.8526"
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s21-plus",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s21-fe",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-note-10",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s10e",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-note-9",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s9",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-s8",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a73",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a72-4g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a70",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a52-a52s-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a50",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a40",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a23-4g-5g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "status": "no-official-page-match",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 0,
+      "attempts": []
+    },
+    {
+      "modelId": "galaxy-a12-4g",
+      "status": "no-usable-download",
+      "publish": false,
+      "reviewStatus": "missing",
+      "candidatePageCount": 1,
+      "attempts": [
+        {
+          "pageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a12-soft-clear-cover-ef-qa125-ef-qa125ttegeu/",
+          "sku": "EF-QA125TTEGEU",
+          "error": "Rejected by direct visual review"
+        }
+      ]
+    }
+  ],
+  "reviewedAt": "2026-08-03T15:49:13.157Z",
+  "reviewedSetDigest": "e2a9032d752a31116940123dffc61f16366fb65197b193f72e0f437460d9ee5f",
+  "reviewPolicy": "Direct visual approval is required in addition to source, model, resolution, aspect, alpha-hole, and obstruction gates.",
+  "rejectedSources": [
+    {
+      "modelId": "galaxy-s26",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-silicone-magnet-case-black-ef-es942cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-es942-ef-es942cbegww-550758945?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26 Front Black ",
+      "sourceSku": "EF-ES942CBEGWW",
+      "apiModelCode": "EF-ES942CBEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-black-11cbe20f48ca.png",
+      "sha256": "11cbe20f48ca201de62dde3c4c85553dd434f22023395c295411a6522bbc80dc",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.715023193359375,
+      "visibleBounds": {
+        "left": 665,
+        "top": 42,
+        "right": 1254,
+        "bottom": 1237,
+        "width": 590,
+        "height": 1196
+      },
+      "visibleAspect": 0.49331103678929766,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "modelId": "galaxy-s26",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-silicone-magnet-case-white-ef-es942cwegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-es942-ef-es942cwegww-550758970?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26 Front White ",
+      "sourceSku": "EF-ES942CWEGWW",
+      "apiModelCode": "EF-ES942CWEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26",
+      "apiColour": "White",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-white-3886facead21.png",
+      "sha256": "3886facead211a1e2282ac208facefffae2f1de69be7fe44bf6d6bf0c8f75ec9",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.715023193359375,
+      "visibleBounds": {
+        "left": 665,
+        "top": 42,
+        "right": 1254,
+        "bottom": 1237,
+        "width": 590,
+        "height": 1196
+      },
+      "visibleAspect": 0.49331103678929766,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "modelId": "galaxy-s26-plus",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-plus-silicone-magnet-case-black-ef-es947cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26plus-es947-ef-es947cbegww-550759389?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26+ Front Black ",
+      "sourceSku": "EF-ES947CBEGWW",
+      "apiModelCode": "EF-ES947CBEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26+",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-plus-black-459692982e60.png",
+      "sha256": "459692982e60c6ef6c3936a5342db70472f1aae558f245e751f0d3c5792a3cf8",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7166556803385417,
+      "visibleBounds": {
+        "left": 666,
+        "top": 42,
+        "right": 1253,
+        "bottom": 1237,
+        "width": 588,
+        "height": 1196
+      },
+      "visibleAspect": 0.4916387959866221,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "modelId": "galaxy-s26-plus",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-plus-silicone-magnet-case-white-ef-es947cwegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26plus-es947-ef-es947cwegww-550759414?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26+ Front White ",
+      "sourceSku": "EF-ES947CWEGWW",
+      "apiModelCode": "EF-ES947CWEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26+",
+      "apiColour": "White",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-plus-white-66c998dea2b4.png",
+      "sha256": "66c998dea2b4d6875a6e0c05a7cb19595658ef24a25ad9fb670975dd9b6d81e0",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7166556803385417,
+      "visibleBounds": {
+        "left": 666,
+        "top": 42,
+        "right": 1253,
+        "bottom": 1237,
+        "width": 588,
+        "height": 1196
+      },
+      "visibleAspect": 0.4916387959866221,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "modelId": "galaxy-s26-ultra",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-ultra-silicone-magnet-case-black-ef-es948cbegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26ultra-es948-ef-es948cbegww-550759506?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26 Ultra Front Black ",
+      "sourceSku": "EF-ES948CBEGWW",
+      "apiModelCode": "EF-ES948CBEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26 Ultra",
+      "apiColour": "Black",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-ultra-black-527bacdc51bf.png",
+      "sha256": "527bacdc51bf502d6fbc9bdeb02600b2e2c66441c4d20c34fb17a161f40f4f12",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7165934244791666,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787269681742,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "modelId": "galaxy-s26-ultra",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "white",
+      "sourceColour": "white",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/mobile-accessories/galaxy-s26-ultra-silicone-magnet-case-white-ef-es948cwegww/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26ultra-es948-ef-es948cwegww-550759531?$ORIGIN_PNG$",
+      "sourceImageRole": "Silicone Magnet Case for Galaxy S26 Ultra Front White ",
+      "sourceSku": "EF-ES948CWEGWW",
+      "apiModelCode": "EF-ES948CWEGWW",
+      "apiDisplayName": "Silicone Magnet Case for Galaxy S26 Ultra",
+      "apiColour": "White",
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s26-ultra-white-ff69aade6313.png",
+      "sha256": "ff69aade63136e1eebad637a66967e4d2e509c8b2426fd6903db105082e87e41",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7165934244791666,
+      "visibleBounds": {
+        "left": 667,
+        "top": 43,
+        "right": 1252,
+        "bottom": 1236,
+        "width": 586,
+        "height": 1194
+      },
+      "visibleAspect": 0.490787269681742,
+      "rejectionReason": "Large magnetic ring obstructs the usable case back"
+    },
+    {
+      "sourceSku": "EF-PG780TVEGEU",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Front-screen render; rear case and camera hardware are not visible"
+    },
+    {
+      "sourceSku": "EF-PS911TUEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "EF-PS916TUEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "EF-PS918TUEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "modelId": "galaxy-a12-4g",
+      "sourceSku": "EF-QA125TTEGEU",
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a12-soft-clear-cover-ef-qa125-ef-qa125ttegeu/",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Front-screen render; rear case and camera hardware are not visible"
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "other",
+      "finishFallback": true,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/galaxy-a32-5g-soft-clear-cover-ef-qa326-ef-qa326tbegeu/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/ef-qa326tbegeu/gallery/uk-galaxy-a32-qa326-ef-qa326tbegeu-401838490?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "EF-QA326TBEGEU",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-a32-5g-other-021a18d86327.png",
+      "sha256": "021a18d8632780806e685c051d47d9e7c5e354221289cd2795be64fe9da6e1d6",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.7252421061197917,
+      "visibleBounds": {
+        "left": 672,
+        "top": 43,
+        "right": 1244,
+        "bottom": 1237,
+        "width": 573,
+        "height": 1195
+      },
+      "visibleAspect": 0.4794979079497908,
+      "cameraTransparentHoles": {
+        "count": 0,
+        "largestAreaPx": 0,
+        "largestFraction": 0
+      },
+      "reviewedBy": "direct-visual-review",
+      "reviewNotes": "Exact-model complete rear-view phone-in-case image; straight-on, unobstructed, and camera hardware visible.",
+      "publication": {
+        "status": "published-editor-asset",
+        "editorPath": "/assets/cases/official-phone-case-images/galaxy-a32-5g-black-021a18d86327.png",
+        "sha256": "f26ccade14c3a72ab057e0f18a2b40c19edd34a9a08de254bd3a608bd9ce7270",
+        "pixelSha256": "8f9fa2721dc0815fdd09941b23a590ae587a730f8321e640e0a4bbc5d28d0d77",
+        "widthPx": 573,
+        "heightPx": 1195,
+        "transform": "Transparent canvas cropped to the recorded alpha bounds; no resize, recolour, composite, or pixel change"
+      },
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "EF-VS911LBEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "EF-VS916LBEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "EF-VS918LBEGWW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Empty case shell; phone and camera hardware are absent"
+    },
+    {
+      "sourceSku": "GP-FPA516KDATW",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "rejectionReason": "Wrong A51 network model and front-screen render"
+    },
+    {
+      "modelId": "galaxy-s24",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/shldair-case-for-galaxy-s24-black-gp-fps921sbjbw/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/gp-fps921sbjbw/gallery/uk-shldair-case-for-galaxy-s24-gp-fps921sbjbw-541733522?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "GP-FPS921SBJBW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-black-4984bf66d045.png",
+      "sha256": "4984bf66d0457c82c2a4b7593d2c5b8d8e521214c7ca438f8857b165e28dc78e",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.768016357421875,
+      "visibleBounds": {
+        "left": 658,
+        "top": 88,
+        "right": 1218,
+        "bottom": 1180,
+        "width": 561,
+        "height": 1093
+      },
+      "visibleAspect": 0.5132662397072278,
+      "rejectionReason": "Third-party Shieldon carbon-fibre case is visibly branded and textured"
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "status": "rejected",
+      "publish": false,
+      "reviewStatus": "rejected",
+      "reviewRequirements": [
+        "exact-model",
+        "complete-phone-in-case",
+        "rear-view",
+        "straight-on",
+        "camera-hardware-visible"
+      ],
+      "targetFinish": "black",
+      "sourceColour": "black",
+      "finishFallback": false,
+      "sourcePageUrl": "https://www.samsung.com/uk/business/mobile-accessories/shldair-case-for-galaxy-s24-ultra-black-gp-fps928sbjbw/",
+      "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/uk/gp-fps928sbjbw/gallery/uk-shldair-case-for-galaxy-s24-ultra-gp-fps928sbjbw-541733804?$ORIGIN_PNG$",
+      "sourceImageRole": "page-main",
+      "sourceSku": "GP-FPS928SBJBW",
+      "apiModelCode": null,
+      "apiDisplayName": null,
+      "apiColour": null,
+      "sourcePath": "reference/case-history/generated/official-phone-case-crawl/originals/galaxy-s24-ultra-black-81943f15195f.png",
+      "sha256": "81943f15195f9d333c57f3c393561dcf092db1c9b094231e39cde0b1402b1d37",
+      "format": "png",
+      "widthPx": 1920,
+      "heightPx": 1280,
+      "channels": 4,
+      "hasAlpha": true,
+      "transparentPixelFraction": 0.763072509765625,
+      "visibleBounds": {
+        "left": 658,
+        "top": 91,
+        "right": 1222,
+        "bottom": 1182,
+        "width": 565,
+        "height": 1092
+      },
+      "visibleAspect": 0.5173992673992674,
+      "rejectionReason": "Third-party Shieldon carbon-fibre case is visibly branded and textured"
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-01T10:32:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceAuditPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-android-source-audit-normalized-handles.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-handle-asset-provenance.json",
+  "derivationProvenancePaths": [
+    "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-black-derived-white-provenance.json",
+    "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-neutral-white-provenance.json",
+    "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-normalized-textured-derived-plain-provenance.json"
+  ],
+  "acceptanceCriteria": [
+    "Official RhinoShield source is for the exact target phone body geometry.",
+    "Every downloaded source was byte-identical across two independent fetches.",
+    "Derived outputs preserve source alpha without spatial or alpha transforms.",
+    "Derived outputs contain zero RGB beneath fully transparent pixels.",
+    "Neutral-gray pair review shows transparent cutouts, matching Black/White geometry, and no texture or periodic artifacts.",
+    "Physical width and height are supported by an official Samsung page.",
+    "Combined 4G/5G labels require official evidence of shared body dimensions."
+  ],
+  "summary": {
+    "modelsVisuallyAccepted": 9,
+    "candidateImagesVisuallyAccepted": 18,
+    "modelsPublicationEligible": 8,
+    "candidateImagesPublicationEligible": 16,
+    "modelsBlocked": 1
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a13-4g",
+      "modelName": "Galaxy A13 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a13-4g-official-black-rhinoshield-SST0327852.png",
+        "sha256": "b81a6bf9e152c8e49ef67935197d02954f6d12b1f5dbd358ff90a0abb5d28c93"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a13-4g-white-v1-rhinoshield-black-luminance-remap.png",
+        "sha256": "c6eb843770b98b32ba7b4052cf893ea7edb5c9e8c1e0e70885f3e3cd05fa192f"
+      },
+      "officialDimensions": {
+        "widthMm": 76.4,
+        "heightMm": 165.1,
+        "depthMm": 8.8,
+        "reportedValue": "165.1 x 76.4 x 8.8",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://www.samsung.com/africa_en/smartphones/galaxy-a/galaxy-a13-black-64gb-sm-a135fzkgafa/"
+      }
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "modelName": "Galaxy A56 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a56-5g-official-black-rhinoshield-SST0334652.png",
+        "sha256": "6b5873c162eb9cf89d3011e43f7f1090673a12c9f6f71aafb763b77f33f0c3f0"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a56-5g-white-v1-rhinoshield-shell-beige-neutralized.png",
+        "sha256": "5d1ac65e2687582e198b21dd5f4ab3b9745e4b4eee849e784a4d53adb0582aac"
+      },
+      "officialDimensions": {
+        "widthMm": 77.5,
+        "heightMm": 162.2,
+        "depthMm": 7.4,
+        "reportedValue": "162.2 x 77.5 x 7.4mm, 198g",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://news.samsung.com/global/samsung-marks-a-step-forward-with-ai-for-everyone-by-introducing-new-galaxy-a56-5g-galaxy-a36-5g-and-galaxy-a26-5g"
+      }
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "modelName": "Galaxy A71 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a71-4g-black-v1-rhinoshield-carbon-texture-neutralized.png",
+        "sha256": "81e95ea9c476b753f77f1d462a8b2567e1627c950ab2fa991dd6f4dd24011605"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a71-4g-white-v1-rhinoshield-carbon-texture-neutralized.png",
+        "sha256": "17ae680ebe23de071afa8f08fe1383144fec638890d340f0ee09310a1b79bc1c"
+      },
+      "officialDimensions": {
+        "widthMm": 76,
+        "heightMm": 163.6,
+        "depthMm": 7.7,
+        "reportedValue": "163.6 x 76.0 x 7.7mm / 179g",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://news.samsung.com/global/samsung-announces-new-galaxy-a71-and-galaxy-a51"
+      }
+    },
+    {
+      "modelId": "galaxy-a72-4g-5g",
+      "modelName": "Galaxy A72 4G / 5G",
+      "reviewStatus": "accepted-image-blocked-catalog",
+      "publicationEligible": false,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a72-4g-5g-official-black-rhinoshield-SSA0320852.png",
+        "sha256": "364f2d0ca5101b478d97800763cafdebfe2eb2cf73b4166adb7df9cda659525f"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a72-4g-5g-white-v1-rhinoshield-black-luminance-remap.png",
+        "sha256": "be809336aefbdd2fb2488c97092cd9dafe3b1aab04a9e10a48b1cadef42201c0"
+      },
+      "officialDimensions": {
+        "widthMm": 77.4,
+        "heightMm": 165,
+        "depthMm": 8.4,
+        "reportedValue": "77.4 x 165.0 x 8.4mm / 203g",
+        "reportedOrder": "width x height x depth",
+        "sourceUrl": "https://img.global.news.samsung.com/global/wp-content/uploads/2021/03/Infographic_Galaxy-A72-Product-Specifications_main_FF.jpg"
+      },
+      "blockReason": "Samsung's official A72 specification identifies an LTE model, and no official Galaxy A72 5G product could be verified. Rename the combined catalog target to Galaxy A72 4G before publication."
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "modelName": "Galaxy S10 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-4g-official-black-rhinoshield-SSA0309952.png",
+        "sha256": "2992ef720d04bf58d1d79a2228e8fe8b02ec249e04010ec22621a4e596836654"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-4g-white-v1-rhinoshield-black-luminance-remap.png",
+        "sha256": "e9fd0da807c4d1bbe1623fdff6ddae3c688b7c038a7d6cae49d08e6de57da98b"
+      },
+      "officialDimensions": {
+        "widthMm": 70.4,
+        "heightMm": 149.9,
+        "depthMm": 7.8,
+        "reportedValue": "70.4 x 149.9 x 7.8mm, 157g",
+        "reportedOrder": "width x height x depth",
+        "sourceUrl": "https://news.samsung.com/global/samsung-raises-the-bar-with-galaxy-s10-more-screen-cameras-and-choices"
+      }
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "modelName": "Galaxy S20 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-4g-5g-official-black-rhinoshield-SSA0316052.png",
+        "sha256": "baa0a8bc76ce0f531821eea31cb5b096b0fc17af5f9418e2614fc91f4d84ae76"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-4g-5g-white-v1-rhinoshield-black-luminance-remap.png",
+        "sha256": "2e20b26b7a436a0a9841ccba3cecdce0c4436d51a8e5e682ab060ec14800e833"
+      },
+      "officialDimensions": {
+        "widthMm": 69.1,
+        "heightMm": 151.7,
+        "depthMm": 7.9,
+        "reportedValue": "151.7 x 69.1 x 7.9mm",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://news.samsung.com/global/introducing-the-samsung-galaxy-s20-change-the-way-you-experience-the-world",
+        "sharedBodyEvidence": "The same Samsung table lists one body size and separate 5G and LTE configurations."
+      }
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "modelName": "Galaxy S20 FE 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-fe-4g-5g-black-v1-rhinoshield-carbon-texture-neutralized.png",
+        "sha256": "d95eb9a012d3f97a21b6c73f6d2076ce877ce85cf0e0be65c316ef00f30fab44"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-fe-4g-5g-white-v1-rhinoshield-carbon-texture-neutralized.png",
+        "sha256": "f0f119f8ab8601ac0c1f8bc002155d2d26773903e410c7171ddba41f6de0a514"
+      },
+      "officialDimensions": {
+        "widthMm": 74.5,
+        "heightMm": 159.8,
+        "depthMm": 8.4,
+        "reportedValue": "74.5 x 159.8 x 8.4mm, 190g",
+        "reportedOrder": "width x height x depth",
+        "sourceUrl": "https://news.samsung.com/global/unveiling-samsung-galaxy-s20-fe-fan-favorite-features-at-an-accessible-price-point",
+        "sharedBodyEvidence": "The same Samsung table lists one body size and both LTE and 5G memory and network configurations."
+      }
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "modelName": "Galaxy S20+ 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-plus-4g-5g-black-v1-rhinoshield-leather-texture-neutralized.png",
+        "sha256": "1032bf1f0a8cbd70d1d411a874652275d9bfc3bd14035bf69825395421579241"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s20-plus-4g-5g-white-v1-rhinoshield-leather-texture-neutralized.png",
+        "sha256": "e344a70889d6ca1a4df08e1c1d6a9d68a77a1ee36bcef32c8461d4b3a21df08f"
+      },
+      "officialDimensions": {
+        "widthMm": 73.7,
+        "heightMm": 161.9,
+        "depthMm": 7.8,
+        "reportedValue": "161.9 x 73.7 x 7.8mm",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://news.samsung.com/global/introducing-the-samsung-galaxy-s20-change-the-way-you-experience-the-world",
+        "sharedBodyEvidence": "The same Samsung table lists one body size and separate 5G and LTE configurations."
+      }
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "modelName": "Galaxy S20 Ultra 4G / 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "black": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-ultra-4g-5g-official-black-rhinoshield-SSA0315952.png",
+        "sha256": "6011e90ab4743b6af5d99e4547b7052909c0dc68ca9903573ea9154965aea741"
+      },
+      "white": {
+        "sourceKind": "official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s20-ultra-4g-5g-official-white-rhinoshield-SSA0315953.png",
+        "sha256": "02b35b14f1bf640d5c92c5019ef171e358d45e08a1cbbb023ad8cc8b19fd6046"
+      },
+      "officialDimensions": {
+        "widthMm": 76,
+        "heightMm": 166.9,
+        "depthMm": 8.8,
+        "reportedValue": "166.9 x 76.0 x 8.8mm",
+        "reportedOrder": "height x width x depth",
+        "sourceUrl": "https://news.samsung.com/global/introducing-the-samsung-galaxy-s20-change-the-way-you-experience-the-world",
+        "sharedBodyEvidence": "The same Samsung table lists one body size and 5G/LTE configurations."
+      }
+    }
+  ],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

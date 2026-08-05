@@ -195,7 +195,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       style={isMobile ? { top: 8, maxWidth: 'calc(100vw - 16px)', paddingBottom: 0 } : undefined}
       styles={isMobile ? { body: { maxHeight: 'calc(100dvh - 150px)', overflowY: 'auto' } } : undefined}
       footer={null}
-      title={<span className="display" style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
+      title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
     >
       {loading || !previewUrl ? (
         <div style={{ height: 360, display: 'grid', placeItems: 'center', gap: 14 }}>
@@ -275,7 +275,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             <Divider style={{ margin: '10px 0' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span>{t('price.total')}</span>
-              <span className="display" style={{ fontSize: 26 }}>{formatMoney(total)}</span>
+              <span style={{ fontSize: 26, fontWeight: 600 }}>{formatMoney(total)}</span>
             </div>
             <Button
               type="primary"

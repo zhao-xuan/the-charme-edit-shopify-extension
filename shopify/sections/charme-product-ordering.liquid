@@ -1,0 +1,789 @@
+{%- liquid
+  assign selected_product = closest.product | default: product
+  assign product_has_media = false
+  if selected_product.media.size > 0
+    assign product_has_media = true
+  endif
+
+  assign content_width = 'page-width'
+  if section.settings.content_width == 'content-full-width'
+    assign content_width = 'full-width'
+  endif
+
+  assign selected_variant = selected_product.selected_or_first_available_variant
+  assign selected_finish = selected_variant.option1 | default: ''
+  assign selected_finish_down = selected_finish | downcase
+  assign selected_model = selected_variant.option2 | default: ''
+  assign selected_model_down = selected_model | downcase
+  assign editor_product_source = selected_model | replace: '+', ' plus '
+  assign editor_product = editor_product_source | handleize
+  assign editor_case = 'white'
+  assign editor_gel = 'white'
+
+  if selected_model_down contains 'any other'
+    assign editor_product = 'other'
+  endif
+  if selected_finish_down contains 'black'
+    assign editor_case = 'black'
+    assign editor_gel = 'black'
+  elsif selected_finish_down contains 'glitter'
+    assign editor_gel = 'glitter'
+  endif
+
+  assign manual_charms_url = section.settings.manual_charms_link
+  if manual_charms_url == blank
+    assign manual_charms_url = routes.collections_url | append: '/add-on-charms'
+  endif
+-%}
+
+<script type="application/ld+json">
+  {{ selected_product | structured_data }}
+</script>
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  id="CharmeProductOrdering-{{ section.id }}"
+  class="charme-product-ordering section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %} --charme-order-gap: {{ section.settings.gap }}px;"
+>
+  <div class="charme-product-ordering__heading">
+    {% content_for 'block',
+      type: 'group',
+      id: 'product-heading',
+      closest.product: selected_product
+    %}
+  </div>
+
+  {% if product_has_media %}
+    <div class="charme-product-ordering__gallery" data-testid="product-information-media">
+      {% content_for 'block',
+        type: '_product-media-gallery',
+        id: 'media-gallery',
+        closest.product: selected_product
+      %}
+    </div>
+  {% endif %}
+
+  <header class="charme-order-guide__header">
+    <h2>{{ section.settings.order_heading }}</h2>
+    {% if section.settings.order_subheading != blank %}
+      <p>{{ section.settings.order_subheading }}</p>
+    {% endif %}
+    <span class="charme-order-guide__flourish" aria-hidden="true"></span>
+  </header>
+
+  <div class="charme-product-ordering__paths">
+    <article class="charme-order-path charme-order-path--design" aria-labelledby="CharmeDesignHeading-{{ section.id }}">
+      <span class="charme-order-path__badge">{{ section.settings.design_badge }}</span>
+      <div class="charme-order-path__intro">
+        <h2 id="CharmeDesignHeading-{{ section.id }}">{{ section.settings.design_heading }}</h2>
+        <p>{{ section.settings.design_text }}</p>
+      </div>
+
+      <div class="charme-order-path__image">
+        {% if section.settings.customiser_image != blank %}
+          {{
+            section.settings.customiser_image
+            | image_url: width: 1400
+            | image_tag:
+              widths: '480, 720, 960, 1200, 1400',
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              loading: 'lazy'
+          }}
+        {% else %}
+          <span class="charme-order-path__placeholder" aria-hidden="true"></span>
+        {% endif %}
+      </div>
+
+      <a
+        class="button charme-order-path__button"
+        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=185473892730' | url_encode }}&amp;cart_bridge=1"
+        data-charme-own-design
+      >
+        <span>{{ section.settings.design_button_label }}</span>
+        <span class="charme-order-path__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <p class="charme-order-path__note">{{ section.settings.design_note }}</p>
+    </article>
+
+    <article class="product-details charme-order-path charme-order-path--standard" aria-labelledby="CharmeStandardHeading-{{ section.id }}">
+      <span class="charme-order-path__badge">{{ section.settings.standard_badge }}</span>
+      <div class="charme-order-path__intro">
+        <h2 id="CharmeStandardHeading-{{ section.id }}">{{ section.settings.standard_heading }}</h2>
+        <p>{{ section.settings.standard_text }}</p>
+      </div>
+      <div class="charme-order-path__selector">
+        <h3 class="charme-manual-step">{{ section.settings.manual_step_one }}</h3>
+        {% content_for 'block',
+          type: 'group',
+          id: 'standard-order',
+          closest.product: selected_product
+        %}
+        <div class="charme-manual-step charme-manual-step--charms">
+          <h3>{{ section.settings.manual_step_two }}</h3>
+          <a class="button charme-order-path__button" href="{{ manual_charms_url }}">
+            <span>{{ section.settings.manual_button_label }}</span>
+            <span class="charme-order-path__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <p class="charme-order-path__note">{{ section.settings.standard_note }}</p>
+    </article>
+  </div>
+
+  <div class="charme-product-ordering__after">
+    {% content_for 'block',
+      type: 'group',
+      id: 'after-order',
+      closest.product: selected_product
+    %}
+    {% content_for 'block',
+      type: 'accordion',
+      id: 'product-faq',
+      closest.product: selected_product
+    %}
+  </div>
+
+  <div class="charme-product-ordering__apps">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var rootSelector = '#CharmeProductOrdering-{{ section.id }}';
+    var bindingKey = {{ section.id | json }};
+    var bindings = window.__charmeOrderingBindings = window.__charmeOrderingBindings || {};
+
+    function syncDesignLink() {
+      var root = document.querySelector(rootSelector);
+      if (!root) return;
+      var target = root.querySelector('[data-charme-own-design]');
+      var source = root.querySelector('.add-charms-here-button');
+      if (target && source && source.href) target.href = source.href;
+    }
+
+    function syncCarouselSlides() {
+      var root = document.querySelector(rootSelector);
+      var track = root && root.querySelector('.charme-product-ordering__gallery slideshow-slides');
+      if (!track) return;
+      var trackRect = track.getBoundingClientRect();
+      var slides = track.querySelectorAll('slideshow-slide.product-media-container');
+      slides.forEach(function (slide) {
+        var rect = slide.getBoundingClientRect();
+        var intersection = Math.max(0, Math.min(rect.right, trackRect.right) - Math.max(rect.left, trackRect.left));
+        var isVisible = rect.width > 0 && intersection / rect.width >= 0.7;
+        slide.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+      });
+    }
+
+    function syncSection() {
+      syncDesignLink();
+      syncCarouselSlides();
+    }
+
+    if (bindings[bindingKey]) {
+      bindings[bindingKey]();
+      return;
+    }
+
+    var timer;
+    function scheduleSync() {
+      clearTimeout(timer);
+      timer = setTimeout(syncSection, 40);
+    }
+
+    bindings[bindingKey] = syncSection;
+    document.addEventListener('change', scheduleSync);
+    document.addEventListener('input', scheduleSync);
+    window.addEventListener('popstate', scheduleSync);
+    window.addEventListener('resize', scheduleSync);
+    new MutationObserver(scheduleSync).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['href'],
+      childList: true,
+      subtree: true
+    });
+    syncSection();
+    setTimeout(syncSection, 250);
+  })();
+</script>
+
+{% stylesheet %}
+  .charme-product-ordering {
+    gap: clamp(28px, 4vw, 56px) 0;
+  }
+
+  .charme-product-ordering__heading,
+  .charme-product-ordering__gallery,
+  .charme-order-guide__header,
+  .charme-product-ordering__paths,
+  .charme-product-ordering__after,
+  .charme-product-ordering__apps {
+    grid-column: 2;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .charme-product-ordering__heading > .group-block,
+  .charme-order-path > .group-block,
+  .charme-product-ordering__after > .group-block {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .charme-product-ordering__after .group-block-content,
+  .charme-product-ordering__after .shopify-block,
+  .charme-product-ordering__after .shopify-app-block,
+  .charme-product-ordering__after .Avada-Bundle-Offer__Upsell,
+  .charme-product-ordering__after .AOV-Upsell__Preview {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .charme-product-ordering__gallery,
+  .charme-product-ordering__gallery media-gallery,
+  .charme-product-ordering__gallery slideshow-component {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .charme-product-ordering__gallery media-gallery {
+    --viewport-offset: 260px;
+    --charme-gallery-gap: clamp(12px, 1.4vw, 22px);
+    --slideshow-gap: var(--charme-gallery-gap);
+    --media-radius: 0px;
+  }
+
+  .charme-product-ordering__gallery slideshow-container,
+  .charme-product-ordering__gallery slideshow-slide,
+  .charme-product-ordering__gallery .product-media,
+  .charme-product-ordering__gallery .product-media > * {
+    border-radius: 0 !important;
+  }
+
+  .charme-product-ordering__gallery slideshow-slides {
+    gap: var(--charme-gallery-gap);
+    padding-block-end: 12px;
+    scrollbar-color: rgb(var(--color-foreground-rgb) / 0.42) transparent;
+    scrollbar-width: thin;
+  }
+
+  .charme-product-ordering__gallery slideshow-slides::-webkit-scrollbar {
+    width: auto;
+    height: 8px;
+  }
+
+  .charme-product-ordering__gallery slideshow-slides::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .charme-product-ordering__gallery slideshow-slides::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 0;
+    background: rgb(var(--color-foreground-rgb) / 0.42);
+    background-clip: content-box;
+  }
+
+  .charme-product-ordering__gallery slideshow-slide.product-media-container {
+    --slide-width: 43%;
+
+    width: var(--slide-width);
+    flex: 0 0 var(--slide-width);
+    aspect-ratio: 1 / 1.25;
+  }
+
+  .charme-product-ordering__gallery slideshow-component slideshow-slides > slideshow-slide.product-media-container {
+    content-visibility: auto;
+  }
+
+  .charme-product-ordering__gallery slideshow-slide .product-media {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: inherit;
+  }
+
+  .charme-product-ordering__gallery slideshow-controls {
+    display: none;
+  }
+
+  @media screen and (min-width: 990px) {
+    .charme-product-ordering__gallery slideshow-slide.product-media-container {
+      --slide-width: 28.75%;
+    }
+  }
+
+  .charme-order-guide__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block-end: 4px;
+    text-align: center;
+  }
+
+  .charme-order-guide__header h2 {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: var(--font-heading--weight);
+    letter-spacing: 0;
+    line-height: 1.08;
+  }
+
+  .charme-order-guide__header p {
+    max-width: 620px;
+    margin: 14px 0 0;
+    color: rgb(var(--color-foreground-rgb) / 0.68);
+    font-size: 1.125rem;
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  .charme-order-guide__flourish {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 1px;
+    margin-block-start: 26px;
+    background: rgb(var(--color-foreground-rgb) / 0.14);
+  }
+
+  .charme-order-guide__flourish::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    background: rgb(var(--color-background-rgb));
+    content: '';
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .charme-product-ordering__paths {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(48px, 7vw, 92px);
+    align-items: stretch;
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  .charme-order-path {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.13);
+    border-radius: 8px;
+    padding: clamp(28px, 3vw, 42px);
+    background: rgb(var(--color-background-rgb) / 0.6);
+  }
+
+  .charme-product-ordering__paths::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.13);
+    border-radius: 50%;
+    background: rgb(var(--color-background-rgb));
+    color: rgb(var(--color-foreground-rgb) / 0.68);
+    content: 'OR';
+    font-family: var(--font-body--family);
+    font-size: 0.75rem;
+    place-items: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .charme-order-path--standard {
+    align-self: stretch;
+  }
+
+  .charme-order-path__badge {
+    align-self: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgb(var(--color-foreground-rgb) / 0.06);
+    color: rgb(var(--color-foreground-rgb) / 0.78);
+    font-family: var(--font-body--family);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .charme-order-path__intro {
+    margin-block: 16px 22px;
+    text-align: center;
+  }
+
+  .charme-order-path__intro h2 {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: var(--font-heading--weight);
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  .charme-order-path__intro p {
+    max-width: 330px;
+    margin: 10px auto 0;
+    color: rgb(var(--color-foreground-rgb) / 0.68);
+    font-size: 0.9375rem;
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  .charme-order-path__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-block-start: 24px;
+    border-radius: 0;
+    padding-inline: 28px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .charme-order-path--design > .charme-order-path__button {
+    margin-block-start: auto;
+    background: rgb(var(--color-foreground-rgb));
+    color: rgb(var(--color-background-rgb));
+  }
+
+  .charme-order-path__arrow {
+    font-size: 1.35em;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .charme-order-path__image {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 1 / 1.12;
+    min-height: 0;
+    margin-block: 2px 22px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .charme-order-path__image img,
+  .charme-order-path__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .charme-order-path__note {
+    margin: 16px 0 0;
+    color: rgb(var(--color-foreground-rgb) / 0.62);
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .charme-order-path__selector {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .charme-manual-step {
+    margin: 0 0 18px;
+    font-family: var(--font-body--family);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .charme-manual-step--charms {
+    margin-block-start: 28px;
+    border-block-start: 1px solid var(--color-border);
+    padding-block-start: 28px;
+  }
+
+  .charme-manual-step--charms h3 {
+    margin: 0;
+    font: inherit;
+    letter-spacing: 0;
+  }
+
+  .charme-order-path--standard .variant-picker,
+  .charme-order-path--standard .variant-picker button,
+  .charme-order-path--standard .variant-picker input,
+  .charme-order-path--standard .variant-picker select,
+  .charme-order-path--standard .product-form-buttons,
+  .charme-order-path--standard .product-form-buttons button,
+  .charme-order-path--standard .product-form-buttons input,
+  .charme-order-path--standard .product-form-buttons select {
+    font-family: var(--font-body--family) !important;
+  }
+
+  .charme-order-path--standard .product-options-step-one .cvs__heading,
+  .charme-order-path--standard .product-form-step,
+  .charme-order-path--standard .add-charms-here-button,
+  .charme-order-path--standard .accelerated-checkout-block {
+    display: none !important;
+  }
+
+  .charme-order-path--standard .product-options-step-one + .variant-picker,
+  .charme-order-path--standard .product-options-step-one ~ .buy-buttons-block {
+    margin-block-start: 0;
+  }
+
+  .charme-product-ordering__after {
+    display: grid;
+    gap: var(--charme-order-gap);
+  }
+
+  @media screen and (max-width: 749px) {
+    .charme-product-ordering {
+      gap: 28px 0;
+    }
+
+    .charme-order-guide__header {
+      padding-block-end: 4px;
+    }
+
+    .charme-order-guide__header h2 {
+      font-size: 2.35rem;
+    }
+
+    .charme-order-guide__header p {
+      margin-block-start: 12px;
+      font-size: 1rem;
+    }
+
+    .charme-product-ordering__paths {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 54px auto;
+      gap: 0;
+    }
+
+    .charme-product-ordering__gallery slideshow-slide.product-media-container {
+      --slide-width: 84%;
+    }
+
+    .charme-product-ordering__paths > .charme-order-path--design,
+    .charme-product-ordering__paths > .charme-order-path--standard {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .charme-product-ordering__paths > .charme-order-path--design {
+      grid-row: 1;
+    }
+
+    .charme-product-ordering__paths > .charme-order-path--standard {
+      grid-row: 3;
+    }
+
+    .charme-product-ordering__paths::after {
+      position: static;
+      grid-column: 1;
+      grid-row: 2;
+      place-self: center;
+      transform: none;
+    }
+
+    .charme-order-path {
+      padding: 28px 20px;
+    }
+
+    .charme-order-path__intro h2 {
+      font-size: 2rem;
+    }
+
+    .charme-order-path__image {
+      aspect-ratio: 1 / 1.08;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Charme product ordering",
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "order_heading",
+      "label": "Order guide heading",
+      "default": "How to order a custom case?"
+    },
+    {
+      "type": "text",
+      "id": "order_subheading",
+      "label": "Order guide subheading",
+      "default": "Choose how you’d like to create your one-of-a-kind case."
+    },
+    {
+      "type": "text",
+      "id": "design_badge",
+      "label": "Option 1 badge",
+      "default": "Option 1"
+    },
+    {
+      "type": "text",
+      "id": "design_heading",
+      "label": "Option 1 heading",
+      "default": "Design it yourself"
+    },
+    {
+      "type": "text",
+      "id": "design_text",
+      "label": "Option 1 description",
+      "default": "Use our customiser to build your perfect case, your way."
+    },
+    {
+      "type": "text",
+      "id": "design_button_label",
+      "label": "Design button label",
+      "default": "Start designing"
+    },
+    {
+      "type": "image_picker",
+      "id": "customiser_image",
+      "label": "Customiser illustration"
+    },
+    {
+      "type": "text",
+      "id": "design_note",
+      "label": "Option 1 note",
+      "default": "Full control over every detail"
+    },
+    {
+      "type": "text",
+      "id": "standard_badge",
+      "label": "Option 2 badge",
+      "default": "Option 2"
+    },
+    {
+      "type": "text",
+      "id": "standard_heading",
+      "label": "Option 2 heading",
+      "default": "Order manually"
+    },
+    {
+      "type": "text",
+      "id": "standard_text",
+      "label": "Option 2 description",
+      "default": "We’ll handcraft your case based on your choices."
+    },
+    {
+      "type": "text",
+      "id": "manual_step_one",
+      "label": "Manual step 1",
+      "default": "Step 1: select your phone model and gel"
+    },
+    {
+      "type": "text",
+      "id": "manual_step_two",
+      "label": "Manual step 2",
+      "default": "Step 2: choose 12-15 charms (we will design for you)"
+    },
+    {
+      "type": "text",
+      "id": "manual_button_label",
+      "label": "Manual button label",
+      "default": "Add charms"
+    },
+    {
+      "type": "text",
+      "id": "standard_note",
+      "label": "Option 2 note",
+      "default": "Quick & guided process"
+    },
+    {
+      "type": "url",
+      "id": "manual_charms_link",
+      "label": "Manual charms link"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "options": [
+        {
+          "value": "content-center-aligned",
+          "label": "Page"
+        },
+        {
+          "value": "content-full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "content-center-aligned"
+    },
+    {
+      "type": "checkbox",
+      "id": "equal_columns",
+      "label": "Use equal image sizing hint",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Content gap",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

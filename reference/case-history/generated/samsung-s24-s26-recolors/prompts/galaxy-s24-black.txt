@@ -1,0 +1,11 @@
+Edit IMAGE 1 and generate exactly ONE new downloadable transparent PNG.
+
+IMAGE 1 is the authoritative straight-on Galaxy S24 phone-in-case product image. Change only the violet silicone case material to smooth matte BLACK silicone.
+
+IDENTITY LOCK: preserve the exact Galaxy S24 phone, complete outer silhouette, physical width-to-height ratio 0.494137, rounded corners, side buttons, camera opening, lens count, lens positions, flash, sensors, logo, lighting, highlights and framing. Do not redraw, add, remove, move, resize, crop or mirror any hardware or geometry.
+
+COLOUR LOCK: the complete case body must read as neutral deep black matte silicone. Recolour the case only. Never tint, cover, desaturate or alter the phone, camera glass, lenses, flash, sensors, metal rings or logo. No violet, blue, grey or transparent case material may remain.
+
+ALPHA AND COMPOSITION LOCK: preserve IMAGE 1's transparent canvas and centred, full-product composition. The area outside the product must be genuine alpha 0. No backdrop, checkerboard, floor, shadow, glow, haze, halo, margin colour or extra object. Keep the complete case fully visible and uncropped.
+
+No Gel, resin, charms, pattern, carbon fibre, magnetic ring, decoration, hand, packaging, text, watermark, comparison, grid or explanation. Return exactly ONE image and no prose.

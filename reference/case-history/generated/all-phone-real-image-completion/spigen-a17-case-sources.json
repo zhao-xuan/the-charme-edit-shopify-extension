@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "targetModelId": "galaxy-a17",
+  "targetModelName": "Galaxy A17",
+  "sourceModelId": "galaxy-a17-5g",
+  "catalogIdentity": {
+    "coverageAuditPath": "reference/case-history/generated/all-phone-real-image-completion/shopify-case-coverage-audit.json",
+    "coverageModelId": "galaxy-a17",
+    "coverageModelName": "Galaxy A17",
+    "reason": "The live Shopify case catalog defines galaxy-a17 as Galaxy A17; Spigen's same-SKU official media explicitly states that its physical shell is designed for Galaxy A17/A17 5G."
+  },
+  "product": {
+    "manufacturer": "Spigen",
+    "productId": "7295548358703",
+    "title": "Galaxy A Series - Rugged Armor",
+    "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+    "variantTitle": "Galaxy A17 5G / Matte Black / In Stock",
+    "sku": "ACS09844",
+    "gtin": "8800283312409",
+    "mediaAlt": "ACS09844 - Galaxy A 17 5G Rugged armor showing inside",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+    "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a17-5g-official-spigen-ACS09844-inner.jpg",
+    "expectedWidth": 1830,
+    "expectedHeight": 1830,
+    "expectedEncodedSha256": "cbd93678526be0064c8d3bb3487e023490abf035f083d05155c6bc6929a38340",
+    "compatibilityMedia": {
+      "alt": "ACS09844 - Galaxy A 17 5G Rugged armor showing the back, partial side and bottom. Designed for Galaxy A17/A17 5G",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/id_saag5g_rugged_armor_blk_01.jpg?v=1756848798",
+      "expectedWidth": 1600,
+      "expectedHeight": 2000,
+      "expectedEncodedSha256": "4867c0b24ffe8c5f4ef7aa9d31c400abdbe05f37c663146ed56a15bc45d2141a"
+    },
+    "geometryReview": "accepted-complete-orthogonal-real-empty-shell-with-directly-visible-outer-boundary-and-camera-openings"
+  },
+  "officialModels": [
+    {
+      "network": "4G",
+      "manufacturer": "Samsung",
+      "modelName": "Galaxy A17",
+      "modelCode": "SM-A175FZKNMEA",
+      "modelFamilyCode": "SM-A175F",
+      "sourcePageUrl": "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-black-128gb-sm-a175fzknmea/",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "levant",
+        "modelCode": "SM-A175FZKNMEA",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "expectedInfraIncludes": "4G LTE",
+      "expectedInfraExcludes": "5G",
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "164.4 x 77.9 x 7.5",
+      "heightMm": 164.4,
+      "widthMm": 77.9,
+      "depthMm": 7.5,
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+      "plmItems": [
+        {
+          "itemPath": "General > Dimension (Height, mm)",
+          "userKey": "ITM01039",
+          "value": "164.4"
+        },
+        {
+          "itemPath": "General > Dimension (Width, mm)",
+          "userKey": "ITM01038",
+          "value": "77.9"
+        },
+        {
+          "itemPath": "General > Dimension (Depth, mm)",
+          "userKey": "ITM01040",
+          "value": "7.5"
+        }
+      ]
+    },
+    {
+      "network": "5G",
+      "manufacturer": "Samsung",
+      "modelName": "Galaxy A17 5G",
+      "modelCode": "SM-A176BZKAEUB",
+      "modelFamilyCode": "SM-A176B",
+      "supportModel": "SM-A176B/DS",
+      "sourcePageUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a17-5g-black-128gb-sm-a176bzkaeub/",
+      "apiEndpoint": "https://api.samsung.com/model",
+      "apiQuery": {
+        "key": "56FE13336ABF4709AFCF7704B24D83F0",
+        "siteCode": "uk",
+        "modelCode": "SM-A176BZKAEUB",
+        "type": "json",
+        "option": "16",
+        "disclaimer": ""
+      },
+      "expectedInfraIncludes": "5G Sub6",
+      "reportedLabel": "Dimension (HxWxD, mm)",
+      "reportedValue": "164.4 x 77.9 x 7.5",
+      "heightMm": 164.4,
+      "widthMm": 77.9,
+      "depthMm": 7.5,
+      "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+      "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+      "plmItems": [
+        {
+          "itemPath": "General > Dimension (Height, mm)",
+          "userKey": "ITM01039",
+          "value": "164.4"
+        },
+        {
+          "itemPath": "General > Dimension (Width, mm)",
+          "userKey": "ITM01038",
+          "value": "77.9"
+        },
+        {
+          "itemPath": "General > Dimension (Depth, mm)",
+          "userKey": "ITM01040",
+          "value": "7.5"
+        }
+      ]
+    }
+  ]
+}

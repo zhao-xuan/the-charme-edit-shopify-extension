@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-08-02T16:01:52.198Z",
+  "scope": "customizer-only-shopify-files-and-charme-product-references",
+  "productMediaRequired": false,
+  "variantMediaRequired": false,
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-nillkin-a22-youtube-video-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "requestedTargets": 1,
+    "targetDefinitionsMatched": 1,
+    "images": 2,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 2,
+    "sourceFilesReady": 2,
+    "metaobjectReferencesMatched": 2,
+    "legacyProductMediaIdsRecorded": 0,
+    "forbiddenReportedProductMediaPresent": 0,
+    "sourceFileExactPixelMatches": 2,
+    "sourceFileAcceptablePixelMatches": 2
+  },
+  "targets": [
+    {
+      "modelId": "galaxy-a22-5g",
+      "metaobjectId": "gid://shopify/Metaobject/471873618298",
+      "expected": {
+        "modelId": "galaxy-a22-5g",
+        "name": "Galaxy A22 5G",
+        "widthMm": 76.4,
+        "heightMm": 167.2,
+        "kind": "phone",
+        "basePrice": 26
+      },
+      "actual": {
+        "name": "Galaxy A22 5G",
+        "kind": "phone",
+        "basePrice": 26,
+        "widthMm": 76.4,
+        "heightMm": 167.2,
+        "legacyId": "galaxy-a22-5g"
+      },
+      "matches": true
+    }
+  ],
+  "images": [
+    {
+      "modelId": "galaxy-a22-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "08fbd1c1d0dd07b92f500672f8d29ab514445715b35ebf2359bc314afe6decd0",
+      "sourceFileId": "gid://shopify/MediaImage/71393649820026",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471873618298",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "0574f6902da3a5cd424a5e2faa303d3ea58193a7cd3f75c2e2aaaab4e2d585d5",
+        "pixelSha256": "24c18d5dbeb231400793b6bc29139828a497aaaeda716380bb382be484b6219d",
+        "width": 400,
+        "height": 854,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a22-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "7ba8302e8c8ffa600967254db36531d1507c7ae8fadda498cb83f84bf86c0741",
+      "sourceFileId": "gid://shopify/MediaImage/71393649852794",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471873618298",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "legacyProductMediaId": null,
+      "legacyProductMediaAbsent": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f425bce3447e795ce6ef95f4ae72ed6b0b55132d93714ea94ff83434541a2601",
+        "pixelSha256": "495b1ab3092275542d772f15107ec8ccf9a34054bde0d311d9bf97b9ce19d1a3",
+        "width": 400,
+        "height": 854,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

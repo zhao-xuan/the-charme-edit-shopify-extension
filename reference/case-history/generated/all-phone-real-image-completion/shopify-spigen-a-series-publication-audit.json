@@ -1,0 +1,1151 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-01T20:41:00.001Z",
+  "sourceReport": "reference/case-history/generated/all-phone-real-image-completion/shopify-spigen-a-series-upload-report.json",
+  "product": {
+    "id": "gid://shopify/Product/15420349284730",
+    "handle": "custom-charm-phone-case",
+    "title": "Custom phone case - made to order"
+  },
+  "valid": true,
+  "summary": {
+    "images": 22,
+    "localExpectedPixelMatches": 0,
+    "recordedSourceFileHashFallbacks": 22,
+    "sourceFilesReady": 22,
+    "metaobjectReferencesMatched": 22,
+    "productMediaReady": 22,
+    "productMediaAltsMatched": 22,
+    "variantAssociationsMatched": 44,
+    "expectedVariantAssociations": 44,
+    "unexpectedVariantAssociations": 0,
+    "sourceFileExactPixelMatches": 22,
+    "productMediaExactPixelMatches": 22,
+    "sourceFileAcceptablePixelMatches": 22,
+    "productMediaAcceptablePixelMatches": 22
+  },
+  "images": [
+    {
+      "modelId": "galaxy-a12-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e3b0d26526f1088f80ebd7ab20535ffbe187eb3745d7db0f4e06d32fe7882e51",
+      "sourceFileId": "gid://shopify/MediaImage/71387021508986",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780163962",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387050443130",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a19e25c1160b5afaf9574027d33d57fb72c34e4acde27ea9e9e9cec76fc4bc01",
+        "pixelSha256": "41799fa8f928c07a5a786ffe887a70fcf15f0213e7cab7e82a22b1b2e739fd4c",
+        "width": 550,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "a19e25c1160b5afaf9574027d33d57fb72c34e4acde27ea9e9e9cec76fc4bc01",
+        "pixelSha256": "41799fa8f928c07a5a786ffe887a70fcf15f0213e7cab7e82a22b1b2e739fd4c",
+        "width": 550,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a12-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f1c94631f864333f42b42ac03cf52fb9a2351102db4b7d8b78d4f79a007c9287",
+      "sourceFileId": "gid://shopify/MediaImage/71387022950778",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780163962",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387052638586",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bef697801c014aaa8572d5c9ff9f28bf025e3f423df8938420eaff99ed0a9ba9",
+        "pixelSha256": "ee4d4fc06040740df6ef3909f111e8f7d9a7dc6aec1bfa5a33dc6ee59a934661",
+        "width": 550,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bef697801c014aaa8572d5c9ff9f28bf025e3f423df8938420eaff99ed0a9ba9",
+        "pixelSha256": "ee4d4fc06040740df6ef3909f111e8f7d9a7dc6aec1bfa5a33dc6ee59a934661",
+        "width": 550,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "7b68fb54f5146f24c5cdc91c9e6a1c51f086e736a15e217c8365b68214a54e57",
+      "sourceFileId": "gid://shopify/MediaImage/71387024064890",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780196730",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387053392250",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "817b722c0ff60b4039fb09df998be2a4b629e049880d23c4bc6ce626cd9081c8",
+        "pixelSha256": "09d7ca585573d44d3fdce16f9262c35330f712e5038a0b90304cef8d2a264309",
+        "width": 549,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "817b722c0ff60b4039fb09df998be2a4b629e049880d23c4bc6ce626cd9081c8",
+        "pixelSha256": "09d7ca585573d44d3fdce16f9262c35330f712e5038a0b90304cef8d2a264309",
+        "width": 549,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "f3ae71f7dda8606a082dd2c3f8a160d391d4331c8249ca90a66d5800fe7ba2a2",
+      "sourceFileId": "gid://shopify/MediaImage/71387025441146",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780196730",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387054473594",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f003ec885fdb9c1828e2f5393b132518f46dfe23cbc19fdeefde577b63f2885c",
+        "pixelSha256": "7b6ee4703d997116cf9938a898392191e1c4791b05eff6d6162bb0b7da36e536",
+        "width": 549,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f003ec885fdb9c1828e2f5393b132518f46dfe23cbc19fdeefde577b63f2885c",
+        "pixelSha256": "7b6ee4703d997116cf9938a898392191e1c4791b05eff6d6162bb0b7da36e536",
+        "width": 549,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a25",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "2358526593abd893cc8604b6bddffb651c55264876698557105a39b26444ca25",
+      "sourceFileId": "gid://shopify/MediaImage/71387026751866",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780229498",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387055161722",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5f1a575365851fdadae4e4f09d9f934020c1e28cc06aaeaef94f83046136be03",
+        "pixelSha256": "980845585b7c697ade7ac7a7c8cc37a578bdd4af4b9e528e51bcf1ca1104bc3d",
+        "width": 564,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "5f1a575365851fdadae4e4f09d9f934020c1e28cc06aaeaef94f83046136be03",
+        "pixelSha256": "980845585b7c697ade7ac7a7c8cc37a578bdd4af4b9e528e51bcf1ca1104bc3d",
+        "width": 564,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a25",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "b98cc2ba8e801099e5a64b90b978cccbf3ba0580c1bb7ca71653a0b94bf157cc",
+      "sourceFileId": "gid://shopify/MediaImage/71387027865978",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780229498",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387055817082",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "935a00bf031302eac230f72e56b18c414b6a57f88eb1d57c2178711d3b649b7a",
+        "pixelSha256": "ef433db199ba82bbba99948f1a6f31c0cd869cfdd6edac9671d8388a44522f89",
+        "width": 564,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "935a00bf031302eac230f72e56b18c414b6a57f88eb1d57c2178711d3b649b7a",
+        "pixelSha256": "ef433db199ba82bbba99948f1a6f31c0cd869cfdd6edac9671d8388a44522f89",
+        "width": 564,
+        "height": 1141,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "bb88233cae3bd3363b35a7338bf1d17d9314c6da26a2ee9fcb9b8563be3d9ec2",
+      "sourceFileId": "gid://shopify/MediaImage/71387028947322",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780262266",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387056472442",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "347349889b51440efa3e35b8c50f9e7df51c4b334436b559a500625004130d17",
+        "pixelSha256": "2057ea203f97c717e49d6cd697d2f979629ef9d9698697870a18e13fecfabf55",
+        "width": 561,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "347349889b51440efa3e35b8c50f9e7df51c4b334436b559a500625004130d17",
+        "pixelSha256": "2057ea203f97c717e49d6cd697d2f979629ef9d9698697870a18e13fecfabf55",
+        "width": 561,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "a31e99e2343a5d2fd3e3a20fb2a0ace6f1e5f372a7d8aba69b97ec386fdeb1c9",
+      "sourceFileId": "gid://shopify/MediaImage/71387030356346",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780262266",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387057324410",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "728760daa0ac78f861b449023b8badcde8d23ad0789736dd5289850fc090d7f1",
+        "pixelSha256": "8d2fef8fe6e5f209a7e0b1706e9046c9a4b8720d866a45e1e745a8c058f7e2ca",
+        "width": 561,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "728760daa0ac78f861b449023b8badcde8d23ad0789736dd5289850fc090d7f1",
+        "pixelSha256": "8d2fef8fe6e5f209a7e0b1706e9046c9a4b8720d866a45e1e745a8c058f7e2ca",
+        "width": 561,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "8c53972cda81dfdbe23e03656687db03df7eaaf66c06abc678be0b88ae3e903c",
+      "sourceFileId": "gid://shopify/MediaImage/71387032224122",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780295034",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387058241914",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "968f2b5d6bb1627677131d2baa3f7c2bc946179909f214b7242b7f2f81fc8dc8",
+        "pixelSha256": "d068d7227c0c7995a099f729a0c7bb59972053f0b1f40a8838c94c140115c814",
+        "width": 550,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "968f2b5d6bb1627677131d2baa3f7c2bc946179909f214b7242b7f2f81fc8dc8",
+        "pixelSha256": "d068d7227c0c7995a099f729a0c7bb59972053f0b1f40a8838c94c140115c814",
+        "width": 550,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e46b05f4d4127f4588b5147b81a0054c9e706c86a904bc633975c5572bd21f57",
+      "sourceFileId": "gid://shopify/MediaImage/71387033862522",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780295034",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387059159418",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "eb315b64ae768ebe0881cb2e800e3158ce396a51a2e014b7ce8485b464a63345",
+        "pixelSha256": "27a394db5d6976c3585ebea4e5b2f3f77ee20d3dfe6a1e899d63973253e3e302",
+        "width": 550,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "eb315b64ae768ebe0881cb2e800e3158ce396a51a2e014b7ce8485b464a63345",
+        "pixelSha256": "27a394db5d6976c3585ebea4e5b2f3f77ee20d3dfe6a1e899d63973253e3e302",
+        "width": 550,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "549617612a63954bbbbf9139bc7b28fe7f439186040cbdbe0df657a7ab044071",
+      "sourceFileId": "gid://shopify/MediaImage/71387035009402",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780327802",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387060011386",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3b5da8fcfd0f27b044a9bd69abe5202b185291f46dd4ee4de8b475888642028f",
+        "pixelSha256": "6a6f6cbcb2888a9c6427535338ae6856aec41a64c08e4f8f3bb3218787cee74b",
+        "width": 553,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "3b5da8fcfd0f27b044a9bd69abe5202b185291f46dd4ee4de8b475888642028f",
+        "pixelSha256": "6a6f6cbcb2888a9c6427535338ae6856aec41a64c08e4f8f3bb3218787cee74b",
+        "width": 553,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "20c1499800d1a367be3611a63231ab401609f71398328b716fcc70189a9b313f",
+      "sourceFileId": "gid://shopify/MediaImage/71387036320122",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780327802",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387060797818",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b5af8a4e19d9d7aa0e2e1290f1483cd55c29112f8bbbb0eac3c9a1c3fd5facf4",
+        "pixelSha256": "e9fc98a9a34f9cbba7fc2b9a6725ded466b3f920be66a332c06f4541b5216c48",
+        "width": 553,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "b5af8a4e19d9d7aa0e2e1290f1483cd55c29112f8bbbb0eac3c9a1c3fd5facf4",
+        "pixelSha256": "e9fc98a9a34f9cbba7fc2b9a6725ded466b3f920be66a332c06f4541b5216c48",
+        "width": 553,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a34",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e33b62a20f3708448629943467e76698adeb8e850cf3e3b8c6d7720ec90a60a3",
+      "sourceFileId": "gid://shopify/MediaImage/71387037401466",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780360570",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387062043002",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d7c1de472545ebb4242cdea86901f83bfe192618d23703682406405a6d2e57de",
+        "pixelSha256": "68bda6d3ebc1c37230482e4d035b76d803d86e620e2b6f4816011cfaef1bd29f",
+        "width": 571,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d7c1de472545ebb4242cdea86901f83bfe192618d23703682406405a6d2e57de",
+        "pixelSha256": "68bda6d3ebc1c37230482e4d035b76d803d86e620e2b6f4816011cfaef1bd29f",
+        "width": 571,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a34",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "def756f4b2320dacb979ee107f6efaad2381da364b670054070aa6956a26ee9f",
+      "sourceFileId": "gid://shopify/MediaImage/71387038417274",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780360570",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387063222650",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4fdd8c373dc18ffceaf9228baebf1705a9861ba7b800ae3ab53c8f0f691f6086",
+        "pixelSha256": "ffaf4be849db6cdcf0e17fef29a15e3569b6066bcf7182de1a64b15c56f105bc",
+        "width": 571,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4fdd8c373dc18ffceaf9228baebf1705a9861ba7b800ae3ab53c8f0f691f6086",
+        "pixelSha256": "ffaf4be849db6cdcf0e17fef29a15e3569b6066bcf7182de1a64b15c56f105bc",
+        "width": 571,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "d69b556a9967487b959db112828070cab9cbb4160c844ba06c2e9cf3be3aa62c",
+      "sourceFileId": "gid://shopify/MediaImage/71387039793530",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780393338",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387064435066",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e1aa87a65e8ebad8dcfa8ad88c0fe160fa1399c6944a52a4e17b020decf7f7a7",
+        "pixelSha256": "e7c238720b85ffe1be4f1f87beadbe6927c45dddd29ee355b021425b316c78b3",
+        "width": 568,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "e1aa87a65e8ebad8dcfa8ad88c0fe160fa1399c6944a52a4e17b020decf7f7a7",
+        "pixelSha256": "e7c238720b85ffe1be4f1f87beadbe6927c45dddd29ee355b021425b316c78b3",
+        "width": 568,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e27d1ae67c9a47a6867ed1763fec5772fb0869becfff68fd546da498b7e41610",
+      "sourceFileId": "gid://shopify/MediaImage/71387041038714",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780393338",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387065254266",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bb6bad8ec5db78afcbc9165c2b2aa51309c0ba666d83fc03e48ec48f3af3ae0a",
+        "pixelSha256": "499347e7b1fe5cba32a7cf9c0c023fa37372fc477d961c0dd86d6acdbee14f98",
+        "width": 568,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "bb6bad8ec5db78afcbc9165c2b2aa51309c0ba666d83fc03e48ec48f3af3ae0a",
+        "pixelSha256": "499347e7b1fe5cba32a7cf9c0c023fa37372fc477d961c0dd86d6acdbee14f98",
+        "width": 568,
+        "height": 1142,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "4ce37a0e1537f243fbac30a62bc1ef6ef0792d20c7f822e23e6816cf96606edf",
+      "sourceFileId": "gid://shopify/MediaImage/71387042513274",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780426106",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387066401146",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4cf4ca7c2e1101d8f04a167c9c738576beb5f2a6e21a68214f9829e1b4836e66",
+        "pixelSha256": "1282f74c61bb00dc45666f8ec8a453eacbb77b0663806b752a9d2eae550b2724",
+        "width": 567,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "4cf4ca7c2e1101d8f04a167c9c738576beb5f2a6e21a68214f9829e1b4836e66",
+        "pixelSha256": "1282f74c61bb00dc45666f8ec8a453eacbb77b0663806b752a9d2eae550b2724",
+        "width": 567,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "4aad6df4955fd658cf083f097a3aadf8763386c970f0f154de977d357a4d4c01",
+      "sourceFileId": "gid://shopify/MediaImage/71387043889530",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780426106",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387067122042",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "1c9d67bed1bdab3ab826bb73fd65a19d8f360e538291bb1654bf0f766f7a5134",
+        "pixelSha256": "ce43a614b0c32bb65e384c2a1174cc32761aea645891fc839d49fa64f71a8500",
+        "width": 567,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "1c9d67bed1bdab3ab826bb73fd65a19d8f360e538291bb1654bf0f766f7a5134",
+        "pixelSha256": "ce43a614b0c32bb65e384c2a1174cc32761aea645891fc839d49fa64f71a8500",
+        "width": 567,
+        "height": 1143,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a50",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "4546b8cbc47521cb26e8a79ab06575dc8278d4cb27d6b58ea48b75fd8d2a33c5",
+      "sourceFileId": "gid://shopify/MediaImage/71387045233018",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780458874",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387067842938",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d1ae004a6d688d9a1d45e646d29f5834f161d19e6ca83a7ef3b717965553d139",
+        "pixelSha256": "18105c0f9d753509996b9d4ab4e9566fbe2d49584c72b40040e40e0f56a20a45",
+        "width": 468,
+        "height": 954,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "d1ae004a6d688d9a1d45e646d29f5834f161d19e6ca83a7ef3b717965553d139",
+        "pixelSha256": "18105c0f9d753509996b9d4ab4e9566fbe2d49584c72b40040e40e0f56a20a45",
+        "width": 468,
+        "height": 954,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a50",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "9d989493b712529ddb8ef6ae270dcd3d30ea9d3f9c0fc3bcfa903735282142db",
+      "sourceFileId": "gid://shopify/MediaImage/71387046707578",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780458874",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387068793210",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "355d7b89826c62b1f4fe918bc8e557615366b627a15b0e5075f1ec599a706412",
+        "pixelSha256": "02c296556865e4cc4b17effbac4e02113e7876afc293c5b7bd9c7edaf0559748",
+        "width": 468,
+        "height": 954,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "355d7b89826c62b1f4fe918bc8e557615366b627a15b0e5075f1ec599a706412",
+        "pixelSha256": "02c296556865e4cc4b17effbac4e02113e7876afc293c5b7bd9c7edaf0559748",
+        "width": 468,
+        "height": 954,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "finish": "black",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "16bbf4ddebf54c83f623876f97ef58017dba98bcf4caaedb4104a0c9cf5887d7",
+      "sourceFileId": "gid://shopify/MediaImage/71387048083834",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780491642",
+      "fieldKey": "body_image_black",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387069940090",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "0e2b04b92bcf37eb54180d54bfcc3d435928526491901cba7bfa069755474852",
+        "pixelSha256": "946baad05267dc16915a30c6ce0cd558d73ef5429aa64a7789b335850530ab4f",
+        "width": 464,
+        "height": 958,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "0e2b04b92bcf37eb54180d54bfcc3d435928526491901cba7bfa069755474852",
+        "pixelSha256": "946baad05267dc16915a30c6ce0cd558d73ef5429aa64a7789b335850530ab4f",
+        "width": 464,
+        "height": 958,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "finish": "white",
+      "expectedPixelSource": "recorded-source-file-hash",
+      "localPixelSha256": "e380b3050a0e464ca6e54e51cfd37a8efea86f824cb6e98a5bec522aee2fd8ff",
+      "sourceFileId": "gid://shopify/MediaImage/71387049329018",
+      "sourceFileStatus": "READY",
+      "metaobjectId": "gid://shopify/Metaobject/471780491642",
+      "fieldKey": "body_image_white",
+      "metaobjectReferenceMatches": true,
+      "productMediaId": "gid://shopify/MediaImage/71387070890362",
+      "productMediaStatus": "READY",
+      "productMediaType": "IMAGE",
+      "altMatches": true,
+      "sourceFileCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f52edf9d225c50b404834d236d524133b779b3734cdc7b256ea5c2a403f0e968",
+        "pixelSha256": "aca72223b1cc283b6d25f5b14dd5560fc3b86c7ec8255a5670c21dafc2a230fb",
+        "width": 464,
+        "height": 958,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      },
+      "productMediaCdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "byteSha256": "f52edf9d225c50b404834d236d524133b779b3734cdc7b256ea5c2a403f0e968",
+        "pixelSha256": "aca72223b1cc283b6d25f5b14dd5560fc3b86c7ec8255a5670c21dafc2a230fb",
+        "width": 464,
+        "height": 958,
+        "channels": 4,
+        "exact": true,
+        "acceptable": true,
+        "difference": {
+          "dimensionsMatch": true,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0
+        }
+      }
+    }
+  ]
+}

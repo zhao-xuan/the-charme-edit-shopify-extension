@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T13:29:32.412Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-note-9",
+      "name": "Galaxy Note 9",
+      "widthMm": 76.4,
+      "heightMm": 161.9,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-note-9",
+      "name": "Galaxy Note 9",
+      "widthMm": 76.4,
+      "heightMm": 161.9,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471854743930"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-note-9",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "b5d112733360f8ba04d992e5e93e748e22e8c9c556847bbe1c9c3877f9f23d67",
+      "pixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471854743930",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392770294138",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-9-black-without-gel-derived-verified-retail-source-b5d112733360.png?v=1785677356",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-note-9",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 166160,
+        "sha256": "02d7173e84912cf94bd85207938131d3685151a44b62cb05c15dc79eedf29eb1",
+        "pixelSha256": "165d7d31aa762a9a63ec63126ddc1a043df21b7eb5a3637fb2fdc4b94786ea44",
+        "pixelWidth": 2414,
+        "pixelHeight": 5000,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 12070000,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-note-9",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "b86a5a1f30694a1dce5961e5c0dfe4c4f119fca23c315aa877a336b7562212de",
+      "pixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471854743930",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392771047802",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-9-white-without-gel-derived-verified-retail-source-b86a5a1f3069.png?v=1785677370",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-note-9",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-note-9-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 140824,
+        "sha256": "820ed2995a05c0de430feb54eaab6fcc18827f640681e39a815efc263829ac52",
+        "pixelSha256": "2653c7b6e89645c5145eeac1b9304fc1c52a7a8150fe470df2bfee1f9225abf5",
+        "pixelWidth": 2414,
+        "pixelHeight": 5000,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 12070000,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

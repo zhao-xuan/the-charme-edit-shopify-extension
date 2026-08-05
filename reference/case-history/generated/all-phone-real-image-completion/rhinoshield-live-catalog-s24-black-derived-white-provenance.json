@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T09:37:10.099Z",
+  "auditPath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-live-catalog-gap-source-audit.json",
+  "provenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-live-catalog-gap-asset-provenance.json",
+  "source": "Official same-model RhinoShield plain Black product PNGs with deterministic RGB-only White derivation",
+  "summary": {
+    "derived": 3,
+    "exactAlphaMatches": 3
+  },
+  "results": [
+    {
+      "modelId": "galaxy-s24",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-official-black-rhinoshield-SST0331452.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331452?device-handle=samsung-galaxy-s24&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24",
+      "sourceOfficialTitle": "Galaxy S24 SolidSuit Black",
+      "sourceSku": "SST0331452",
+      "sourceEncodedSha256": "87db0822c05417ef395112d52fc5d1d688cff56f67d2cead3efc33b1dc50f38b",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s24-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "a566e8759595c80e091dc761a57a544e7298f845e0c00e04d2594424f43c8540",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            40,
+            160
+          ],
+          [
+            53,
+            220
+          ],
+          [
+            70,
+            246
+          ],
+          [
+            77,
+            252
+          ],
+          [
+            80,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "f26eccd7dbfef3088eca0293160b763b8f3d1a446c9a0e959284582ddc5319d6",
+        "outputSha256": "f26eccd7dbfef3088eca0293160b763b8f3d1a446c9a0e959284582ddc5319d6",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1085042,
+        "transparentPixels": 2914958,
+        "bounds": {
+          "minX": 605,
+          "minY": 220,
+          "maxX": 1389,
+          "maxY": 1778
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 40,
+          "p5": 53,
+          "p50": 70,
+          "p95": 77,
+          "p99": 80
+        },
+        "maximumChannelSpread": 3
+      },
+      "outputStats": {
+        "visiblePixels": 1085042,
+        "transparentPixels": 2914958,
+        "bounds": {
+          "minX": 605,
+          "minY": 220,
+          "maxX": 1389,
+          "maxY": 1778
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s24-plus",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-plus-official-black-rhinoshield-SST0331552.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331552?device-handle=samsung-galaxy-s24-plus&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-plus",
+      "sourceOfficialTitle": "Galaxy S24+ SolidSuit Black",
+      "sourceSku": "SST0331552",
+      "sourceEncodedSha256": "b02641113aeb5e5073a005968c069e1ff164b35ce7b5677a1980b8342d0d248a",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s24-plus-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "0ab64f39bd7a8ea37917bebc6ee5fdb9eb04fca440cb4782f30b75f8728d33ce",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            46,
+            160
+          ],
+          [
+            61,
+            220
+          ],
+          [
+            80,
+            246
+          ],
+          [
+            84,
+            252
+          ],
+          [
+            87,
+            254
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "24732ba7670d005ab9f0161bf3b7bcb405c0a5fef1411171797c2c0f76a5997e",
+        "outputSha256": "24732ba7670d005ab9f0161bf3b7bcb405c0a5fef1411171797c2c0f76a5997e",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1086714,
+        "transparentPixels": 2913286,
+        "bounds": {
+          "minX": 609,
+          "minY": 220,
+          "maxX": 1390,
+          "maxY": 1778
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 46,
+          "p5": 61,
+          "p50": 80,
+          "p95": 84,
+          "p99": 87
+        },
+        "maximumChannelSpread": 3
+      },
+      "outputStats": {
+        "visiblePixels": 1086714,
+        "transparentPixels": 2913286,
+        "bounds": {
+          "minX": 609,
+          "minY": 220,
+          "maxX": 1390,
+          "maxY": 1778
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        },
+        "maximumChannelSpread": 0
+      }
+    },
+    {
+      "modelId": "galaxy-s24-ultra",
+      "finish": "white",
+      "candidateVersion": "derived-official-black-source",
+      "sourceKind": "derived-official-source",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s24-ultra-official-black-rhinoshield-SST0331652.png",
+      "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0331652?device-handle=samsung-galaxy-s24-ultra&size=2000&lossless=1",
+      "sourceProductPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s24-ultra",
+      "sourceOfficialTitle": "Galaxy S24 Ultra SolidSuit Black",
+      "sourceSku": "SST0331652",
+      "sourceEncodedSha256": "d95996146d4bfc1939cd7e7834ce0eeeaae4c1c059c0d7757e52d1f2ebc72edb",
+      "outputPath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s24-ultra-white-v1-rhinoshield-black-luminance-remap.png",
+      "outputEncodedSha256": "58d44229435f7bcd8619c37b62b0d9d4cc64dc1fd839ed87d7beb52b07f10dee",
+      "width": 2000,
+      "height": 2000,
+      "transform": {
+        "kind": "global-monotonic-luminance-remap",
+        "spatialTransform": "none",
+        "alphaTransform": "none",
+        "sourceControlPoints": [
+          [
+            0,
+            48
+          ],
+          [
+            47,
+            160
+          ],
+          [
+            55,
+            220
+          ],
+          [
+            79,
+            246
+          ],
+          [
+            85,
+            253
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "targetOpaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 252,
+          "p99": 254
+        }
+      },
+      "alphaIdentity": {
+        "sourceSha256": "8d85aa346440c8fd65c16bfe8f0f41530ee7b0edcf66695351396897da5762cd",
+        "outputSha256": "8d85aa346440c8fd65c16bfe8f0f41530ee7b0edcf66695351396897da5762cd",
+        "exact": true
+      },
+      "sourceStats": {
+        "visiblePixels": 1091139,
+        "transparentPixels": 2908861,
+        "bounds": {
+          "minX": 600,
+          "minY": 219,
+          "maxX": 1394,
+          "maxY": 1781
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 47,
+          "p5": 55,
+          "p50": 79,
+          "p95": 85,
+          "p99": 85
+        },
+        "maximumChannelSpread": 1
+      },
+      "outputStats": {
+        "visiblePixels": 1091139,
+        "transparentPixels": 2908861,
+        "bounds": {
+          "minX": 600,
+          "minY": 219,
+          "maxX": 1394,
+          "maxY": 1781
+        },
+        "edgePixels": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opaqueLuma": {
+          "p1": 160,
+          "p5": 220,
+          "p50": 246,
+          "p95": 253,
+          "p99": 253
+        },
+        "maximumChannelSpread": 0
+      }
+    }
+  ]
+}

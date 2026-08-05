@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T08:25:15.414Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 2,
+    "productVariantsUpdated": 4,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [
+    {
+      "modelId": "pixel-5",
+      "name": "Pixel 5",
+      "widthMm": 70.4,
+      "heightMm": 144.7,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "pixel-5",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "83f921e6a329f7c342e10fa5dcab5ab598925de82ac19a16a507120328110051",
+      "pixelSha256": "168af3d6d2578c34fe564c9fd261b9cf853fedda68170c346ea415f3acc79ed6",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471825449338",
+      "fileId": "gid://shopify/MediaImage/71391716180346",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-5-black-without-gel-derived-official-source-83f921e6a329.png?v=1785659060",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-5",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 17001,
+        "sha256": "524948b3a6f554f2638d69efe112a36d75351b3adbeacd91d44c433b5e396815",
+        "pixelSha256": "168af3d6d2578c34fe564c9fd261b9cf853fedda68170c346ea415f3acc79ed6",
+        "pixelWidth": 479,
+        "pixelHeight": 951,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 455529,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "pixel-5",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "27bc4094621ca7f7be1f1b55bcb9e0eef624f4e445d3b15e439c6e3fe5f81826",
+      "pixelSha256": "9fb81176a8b54eb8f62e66db5b9ac3e3b7dc73afde7be19297c333564dbb5324",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471825449338",
+      "fileId": "gid://shopify/MediaImage/71391716802938",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-5-white-without-gel-derived-official-source-27bc4094621c.png?v=1785659064",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "pixel-5",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-5-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 12182,
+        "sha256": "c868ab74e7ab3447b803860fee01a966846fecb112c6620f70b3bc7cbad7c126",
+        "pixelSha256": "9fb81176a8b54eb8f62e66db5b9ac3e3b7dc73afde7be19297c333564dbb5324",
+        "pixelWidth": 479,
+        "pixelHeight": 951,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 455529,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "pixel-5",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71391716966778",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308526970",
+        "gid://shopify/ProductVariant/57101308658042"
+      ]
+    },
+    {
+      "modelId": "pixel-5",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71391717065082",
+      "mediaStatus": "reused",
+      "altStatus": "current",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101308559738",
+        "gid://shopify/ProductVariant/57101308625274"
+      ]
+    }
+  ]
+}

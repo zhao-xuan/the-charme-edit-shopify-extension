@@ -1,0 +1,151 @@
+{
+  "galaxy-a13-4g": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a13-4g-black-fedc261d15a1.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a13-4g-white-03f6b8df60d1.png"
+  },
+  "galaxy-a14-5g": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a14-5g-black-0683b5f896c3.png"
+  },
+  "galaxy-a15-4g-5g": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a15-4g-5g-black-ae96d0b1c1eb.png"
+  },
+  "galaxy-a16": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a16-black-1910c2db184c.png"
+  },
+  "galaxy-a17": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a17-black-aae4fc1cef27.png"
+  },
+  "galaxy-a22-5g": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a22-5g-black-329f18a0d94f.png"
+  },
+  "galaxy-a25": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a25-black-ae79cbde7fdf.png"
+  },
+  "galaxy-a32-5g": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a32-5g-black-021a18d86327.png"
+  },
+  "galaxy-a33": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a33-black-27fbc51101b1.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a33-white-857877eff585.png"
+  },
+  "galaxy-a34": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a34-black-29f5a32de0b3.png"
+  },
+  "galaxy-a35": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a35-black-db0479cd4da2.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a35-white-10c4793ce7cf.png"
+  },
+  "galaxy-a53": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a53-black-026be453e776.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a53-white-b59fca03d01a.png"
+  },
+  "galaxy-a54": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a54-black-9ad2e45246cf.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a54-white-164d6aaaa042.png"
+  },
+  "galaxy-a55": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-a55-black-facd4e9b3663.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-a55-white-26e7f93f7d31.png"
+  },
+  "galaxy-note-10-plus": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-note-10-plus-black-d8f65bb5830a.png"
+  },
+  "galaxy-s21": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s21-black-1cb97526b0a5.png"
+  },
+  "galaxy-s21-ultra": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s21-ultra-black-3176011bb05a.png"
+  },
+  "galaxy-s22": {
+    "black": "/assets/cases/case-without-gel/galaxy-s22-black.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s22-white-4debe7a837b5.png"
+  },
+  "galaxy-s22-plus": {
+    "black": "/assets/cases/case-without-gel/galaxy-s22-plus-black.png",
+    "white": "/assets/cases/case-without-gel/galaxy-s22-plus-white.png"
+  },
+  "galaxy-s22-ultra": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s22-ultra-black-728b37a49bd8.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s22-ultra-white-486355b4b994.png"
+  },
+  "galaxy-s23": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s23-black-319b316182c9.png"
+  },
+  "galaxy-s23-fe": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s23-fe-black-2d1c7fb5a7f5.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s23-fe-white-fee2520e1847.png"
+  },
+  "galaxy-s23-plus": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s23-plus-black-3b3242fa50a4.png"
+  },
+  "galaxy-s23-ultra": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s23-ultra-black-491015feee73.png"
+  },
+  "galaxy-s24": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s24-black-112facc67f69.png",
+    "white": "/assets/cases/case-without-gel/galaxy-s24-white.png"
+  },
+  "galaxy-s24-fe": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s24-fe-black-f48314cedea9.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s24-fe-white-cf0fe71e9097.png"
+  },
+  "galaxy-s24-plus": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s24-plus-black-661322f91d88.png",
+    "white": "/assets/cases/case-without-gel/galaxy-s24-plus-white.png"
+  },
+  "galaxy-s24-ultra": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s24-ultra-black-25dfa7708561.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s24-ultra-white-7de246e53cf0.png"
+  },
+  "galaxy-s25": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s25-black-0968a9af0ff1.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s25-white-5696355f1ecf.png"
+  },
+  "galaxy-s25-edge": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s25-edge-black-0e001ce28843.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s25-edge-white-398906419777.png"
+  },
+  "galaxy-s25-plus": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s25-plus-black-c7069b774339.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s25-plus-white-3b13e7428e60.png"
+  },
+  "galaxy-s25-ultra": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s25-ultra-black-90c5a9707b10.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s25-ultra-white-9acb64251169.png"
+  },
+  "galaxy-s26": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s26-black-4c91a500bef8.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s26-white-3919023b1c56.png"
+  },
+  "galaxy-s26-plus": {
+    "black": "/assets/cases/official-phone-case-images/galaxy-s26-plus-black-47fd41f8aac6.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s26-plus-white-b6b9124620c9.png"
+  },
+  "galaxy-s26-ultra": {
+    "black": "/assets/cases/case-without-gel/galaxy-s26-ultra-black.png",
+    "white": "/assets/cases/official-phone-case-images/galaxy-s26-ultra-white-2c57e230a615.png"
+  },
+  "pixel-10-pro": {
+    "black": "/assets/cases/case-without-gel/pixel-10-pro-black.png",
+    "white": "/assets/cases/case-without-gel/pixel-10-pro-white.png"
+  },
+  "pixel-6-pro": {
+    "black": "/assets/cases/case-without-gel/pixel-6-pro-black.png",
+    "white": "/assets/cases/case-without-gel/pixel-6-pro-white.png"
+  },
+  "pixel-7-pro": {
+    "black": "/assets/cases/case-without-gel/pixel-7-pro-black.png",
+    "white": "/assets/cases/case-without-gel/pixel-7-pro-white.png"
+  },
+  "pixel-8-pro": {
+    "black": "/assets/cases/case-without-gel/pixel-8-pro-black.png",
+    "white": "/assets/cases/case-without-gel/pixel-8-pro-white.png"
+  },
+  "pixel-9-pro": {
+    "black": "/assets/cases/case-without-gel/pixel-9-pro-black.png",
+    "white": "/assets/cases/case-without-gel/pixel-9-pro-white.png"
+  },
+  "xiaomi-14": {
+    "white": "/assets/cases/official-phone-case-images/xiaomi-14-white-da976308e59e.png"
+  }
+}

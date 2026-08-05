@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-01T19:50:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/samsung-icecat-case-pair-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/samsung-icecat-case-pair-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/samsung-icecat-case-pair-derived-provenance.json",
+  "acceptanceCriteria": [
+    "Samsung product records identify both cases as exact Galaxy S10 Lite accessories.",
+    "Each source image is byte-identical across two independent downloads.",
+    "Independent black and white foreground segmentations have matching bounds and IoU of at least 0.999.",
+    "The shared output alpha contains the complete outer body, left-side button geometry, bottom opening, and exactly one enclosed camera opening.",
+    "Black and White candidates have exact matching alpha, transparent openings, zero hidden RGB, neutral channels, and no Samsung logo or white-background residue.",
+    "Physical dimensions are supported by Samsung Mobile Press."
+  ],
+  "summary": {
+    "modelsVisuallyAccepted": 1,
+    "candidateImagesVisuallyAccepted": 2,
+    "modelsPublicationEligible": 1
+  },
+  "models": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "modelName": "Galaxy S10 Lite",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "officialDimensions": {
+        "widthMm": 75.6,
+        "heightMm": 162.5,
+        "depthMm": 8.1,
+        "reportedValue": "75.6 x 162.5 x 8.1mm, 186g",
+        "reportedOrder": "width x height x depth",
+        "sourceUrl": "https://www.samsungmobilepress.com/media-assets/galaxy_s10_lite?tab=specs"
+      },
+      "sourcePairGeometry": {
+        "foregroundThreshold": 3,
+        "pairMaskIou": 0.9997034663674261,
+        "minimumPairMaskIou": 0.999,
+        "boundsMatch": true,
+        "sharedAlphaSha256": "9a448c1677ccb153fb4f14758097195f4a12e86174cfec0b06202e893c38eec2",
+        "significantEnclosedOpenings": 1
+      },
+      "sources": [
+        {
+          "finish": "black",
+          "manufacturer": "Samsung",
+          "mpn": "EF-PG770TBEGEU",
+          "gtin": "8806090273803",
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500858",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500858_3829847329.jpg",
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-black-samsung-EF-PG770TBEGEU.jpg",
+          "sha256": "d027e688d14d38f73a1ac5f4cc19907398e68518e896d7ae5c6da36f5a79a5f3"
+        },
+        {
+          "finish": "white",
+          "manufacturer": "Samsung",
+          "mpn": "EF-PG770TWEGEU",
+          "gtin": "8806090273773",
+          "productRecordUrl": "https://live.icecat.biz/api?shopname=openIcecat-live&lang=en&icecat_id=77500860",
+          "sourceUrl": "https://images.icecat.biz/img/gallery/77500860_0374373524.jpg",
+          "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s10-lite-official-white-samsung-EF-PG770TWEGEU.jpg",
+          "sha256": "521774bf2d1c93adeae78dc368ed6d5e906a58968e18d20082e607c5298c19a7"
+        }
+      ],
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-black-v1-samsung-silicone-alpha-matte.png",
+        "sha256": "b0da31c2f047f17486259663f893056e4082149cb7f2ba648e38e2cadc6f505e"
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-white-v1-samsung-silicone-alpha-matte.png",
+        "sha256": "0da4eb366aa157efc595d5b69b486f68744c1c369d513bc356674eccc212c5d8"
+      }
+    }
+  ],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

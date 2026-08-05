@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T17:11:26.959Z",
+  "inputPath": "reference/case-history/generated/all-phone-real-image-completion/supcase-a23-amazon-video-case-sources.json",
+  "source": "Hash-locked exact-ASIN SUPCASE real product video plus separate official Samsung A23 4G and 5G identity records",
+  "summary": {
+    "assets": 1,
+    "amazonProductHtmlFetchesVerified": 2,
+    "amazonVideoHtmlFetchesVerified": 2,
+    "hlsManifestsRepeatedFetchByteIdentical": 2,
+    "hlsSegmentsRepeatedFetchByteIdentical": 10,
+    "realFramesPixelVerified": 1,
+    "officialModelsVerified": 2,
+    "sourceQualified": 1,
+    "publicationEligible": 0,
+    "shopifyWrites": 0,
+    "productMediaWrites": 0,
+    "variantMediaAssociations": 0,
+    "written": 1,
+    "alreadyCurrent": 0
+  },
+  "assets": [
+    {
+      "targetModelId": "galaxy-a23-4g-5g",
+      "targetModelName": "Galaxy A23 4G / 5G",
+      "sourceModelId": "galaxy-a23-4g-5g",
+      "sourceKind": "verified-amazon-exact-asin-real-product-video-frame",
+      "derivedSourceKind": "not-yet-derived",
+      "derivationEligible": true,
+      "publicationEligible": false,
+      "publicationBlock": "Source bytes are qualified, but projective rectification, independent geometry review, and storage-only publication audit have not yet passed.",
+      "compatibilityReason": "The exact SUPCASE ASIN explicitly names Galaxy A23 4G / 5G in its title and states that it is designed exclusively for the Galaxy A23 4G/5G 2022 release.",
+      "geometrySource": "The complete real SUPCASE rear shell separately visible at 52 seconds; the front frame and belt holster are excluded.",
+      "geometryReview": "accepted-real-product-video-frame-complete-empty-rear-shell-separately-visible-with-no-phone-inserted",
+      "sourceUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a23-4g-5g-verified-amazon-B0BMFRJYLG-real-video-frame-52s.png",
+      "encodedSha256": "da6ba6dfc29ab6ac064ddd4a565211bdf1392e96f48108cd365b9dad47598064",
+      "decodedPixelSha256": "0f28a2adccf45a63006fcc4fb9f16c9daf01f22b25af04ac40764d0d3a2db3e7",
+      "width": 1080,
+      "height": 1920,
+      "channels": 3,
+      "format": "png",
+      "writeStatus": "written",
+      "amazonEvidence": {
+        "product": {
+          "retailer": "Amazon US",
+          "asin": "B0BMFRJYLG",
+          "brand": "SUPCASE",
+          "productPageUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+          "title": "SUPCASE for Samsung Galaxy A23 4G / 5G Case with Kickstand, Black | Built-in Screen Protector, Rotatable Belt-Clip, Military-Grade Drop Protection, Full-Body Rugged, Unicorn Beetle Pro",
+          "compatibilityStatement": "Designed exclusively for the Galaxy A23 4G/5G 2022 release"
+        },
+        "videoIdentity": {
+          "pageUrl": "https://www.amazon.com/live/video/078e1f444883490eaeecd4b0e0353edd",
+          "title": "Product Overview Video",
+          "creator": "Amazon Product Imaging",
+          "creatorType": "Person",
+          "uploadDate": "2024-12-06T18:22:39.949Z",
+          "marketplaceId": "ATVPDKIKX0DER",
+          "aciContentId": "amzn1.ive.seller.video.078e1f444883490eaeecd4b0e0353edd",
+          "mediaObjectId": "078e1f444883490eaeecd4b0e0353edd",
+          "mediaAsin": "B0BMFRJYLG",
+          "parentAsin": "B0BMFRJYLG",
+          "hlsUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8"
+        },
+        "productPageFetchesVerified": [
+          {
+            "finalUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+            "httpStatus": 200,
+            "encodedSha256": "48078fc45f048ce8613ea3b342f746cdeab4cb8e0a99f8a8615320844338a9df",
+            "bytes": 2268365
+          },
+          {
+            "finalUrl": "https://www.amazon.com/SUPCASE-A23-Full-Body-Belt-Clip-Kickstand/dp/B0BMFRJYLG?th=1&psc=1",
+            "httpStatus": 200,
+            "encodedSha256": "76b4e9775c9ee2460e398a61251e66b04d6317b389c2ef22d1837b12293371d5",
+            "bytes": 2328537
+          }
+        ],
+        "videoPageFetchesVerified": [
+          {
+            "finalUrl": "https://www.amazon.com/live/video/078e1f444883490eaeecd4b0e0353edd",
+            "httpStatus": 200,
+            "encodedSha256": "0cec7d2631488b1ca294e6d8c370648275119505415a786fed575cb28b01f587",
+            "bytes": 303244,
+            "structuredVideo": {
+              "@context": "http://schema.org",
+              "@type": "VideoObject",
+              "name": "Watch Product Overview Video on Amazon Live",
+              "thumbnailUrl": "https://m.media-amazon.com/images/I/71And+cwV9L.jpg",
+              "uploadDate": "2024-12-06T18:22:39.949Z",
+              "contentUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8",
+              "description": "Shop with expert advice from Amazon Product Imaging in their latest video Product Overview Video",
+              "duration": "PT0M57S",
+              "author": {
+                "@type": "Person",
+                "name": "Amazon Product Imaging"
+              },
+              "inLanguage": "en"
+            },
+            "activeDataVerified": true
+          },
+          {
+            "finalUrl": "https://www.amazon.com/live/video/078e1f444883490eaeecd4b0e0353edd",
+            "httpStatus": 200,
+            "encodedSha256": "1aafe2a5ec01ab592a8c66858171de7328c624efbdd4c1456bb7dfe8a37f4604",
+            "bytes": 304482,
+            "structuredVideo": {
+              "@context": "http://schema.org",
+              "@type": "VideoObject",
+              "name": "Watch Product Overview Video on Amazon Live",
+              "thumbnailUrl": "https://m.media-amazon.com/images/I/71And+cwV9L.jpg",
+              "uploadDate": "2024-12-06T18:22:39.949Z",
+              "contentUrl": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8",
+              "description": "Shop with expert advice from Amazon Product Imaging in their latest video Product Overview Video",
+              "duration": "PT0M57S",
+              "author": {
+                "@type": "Person",
+                "name": "Amazon Product Imaging"
+              },
+              "inLanguage": "en"
+            },
+            "activeDataVerified": true
+          }
+        ]
+      },
+      "hlsEvidence": {
+        "master": {
+          "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls.m3u8",
+          "bytes": 737,
+          "encodedSha256": "f8d59a2e98bbeba93f17347d8e8975266187e2072fc310f7bcd1293f922b5d49",
+          "repeatedFetchByteIdentical": true
+        },
+        "variant": {
+          "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080.m3u8",
+          "bytes": 683,
+          "encodedSha256": "f7bd05827698987c821f0ba8710e3acc3b710ff888cdbd657e15187d7a96d6af",
+          "repeatedFetchByteIdentical": true
+        },
+        "segments": [
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00001.ts",
+            "expectedBytes": 1290244,
+            "expectedSha256": "e20e3f3d0cbe8b1681c15982d82bbc172307cd589414d9d25e8ee2161e1ae806",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00002.ts",
+            "expectedBytes": 2073640,
+            "expectedSha256": "00b4a67bafa60206c0dda53efdfe3975c27cc508ecdd7fb718346ce90a3a3355",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00003.ts",
+            "expectedBytes": 1864584,
+            "expectedSha256": "aa4946ba8dfedc16e862e137072b927545f7ce26e0620ca0fae66f3bd0da5aad",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00004.ts",
+            "expectedBytes": 1805552,
+            "expectedSha256": "75d709cf41d7ccbb12074fac7c15344cf021db06ad0756498512268426fe2c73",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00005.ts",
+            "expectedBytes": 1893724,
+            "expectedSha256": "8e2962019ebe9ee16e67be59d7f8158f87e91002d551b94f350c1be7dca6d5f5",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00006.ts",
+            "expectedBytes": 2010660,
+            "expectedSha256": "26f021d31f7905916e3290be33740c250907d533bcce2c939ddda4bcddebf62f",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00007.ts",
+            "expectedBytes": 2471072,
+            "expectedSha256": "ac1a15671fe1b1b31a3a26a52d41efa5dea17fcfd9da653c92b73a4cda71b60f",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00008.ts",
+            "expectedBytes": 1629584,
+            "expectedSha256": "14d2b0f0d7fb81b00c07a92aac2becbfa6c5d6396ada94a6a62ec2c6efafdd10",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00009.ts",
+            "expectedBytes": 1034376,
+            "expectedSha256": "5360c5a93c0c8b40ea5ab445406783ce06e4c263cb695684fc861a6e46b941fa",
+            "repeatedFetchByteIdentical": true
+          },
+          {
+            "url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/74eb9fe1-fb16-4a7b-8e3c-f9d99ae0a71a/default.vertical.jobtemplate.hls1080_00010.ts",
+            "expectedBytes": 422624,
+            "expectedSha256": "3329fc3be9ce7ef1ec367b2b5766e2be067e896fb87c9f936851ff7edec2463b",
+            "repeatedFetchByteIdentical": true
+          }
+        ],
+        "stream": {
+          "width": 1080,
+          "height": 1920,
+          "averageFrameRate": "30000/1001",
+          "nominalFrameRate": "30000/1001",
+          "playlistDurationSeconds": 58
+        },
+        "frame": {
+          "timestampSeconds": 52,
+          "width": 1080,
+          "height": 1920,
+          "channels": 3,
+          "encodedBytes": 2094762,
+          "encodedSha256": "da6ba6dfc29ab6ac064ddd4a565211bdf1392e96f48108cd365b9dad47598064",
+          "decodedPixelSha256": "0f28a2adccf45a63006fcc4fb9f16c9daf01f22b25af04ac40764d0d3a2db3e7"
+        }
+      },
+      "officialModelEvidence": [
+        {
+          "network": "4G LTE",
+          "modelName": "Galaxy A23",
+          "productCode": "SM-A235FZKGXSA",
+          "supportModel": "SM-A235F/DS",
+          "sourcePageUrl": "https://www.samsung.com/au/support/model/SM-A235FZKGXSA/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "au",
+            "modelCode": "SM-A235FZKGXSA",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "165.4 x 76.9 x 8.4",
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD",
+          "expectedInfraExcludes": "5G",
+          "sourcePageFinalUrl": "https://www.samsung.com/au/support/model/SM-A235FZKGXSA/",
+          "sourcePageHttpStatus": 200,
+          "sourcePageEncodedSha256": "26d81adee43775a79d3ab824a5ab2b4ad0f78a9e71247c1baa619c65d7df697a",
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=au&modelCode=SM-A235FZKGXSA&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "dimensionVerified": true,
+          "networkIdentityVerified": true
+        },
+        {
+          "network": "5G",
+          "modelName": "Galaxy A23 5G",
+          "productCode": "SM-A236BZKUEUB",
+          "supportModel": "SM-A236B/DSN",
+          "sourcePageUrl": "https://www.samsung.com/uk/support/model/SM-A236BZKUEUB/",
+          "apiEndpoint": "https://api.samsung.com/model",
+          "apiQuery": {
+            "key": "56FE13336ABF4709AFCF7704B24D83F0",
+            "siteCode": "uk",
+            "modelCode": "SM-A236BZKUEUB",
+            "type": "json",
+            "option": "16",
+            "disclaimer": ""
+          },
+          "reportedLabel": "Dimension (HxWxD, mm)",
+          "reportedValue": "165.4 x 76.9 x 8.4",
+          "specItemKey": "PSP-AD097D7D-4E92-4F29-B396-F1C5FFC994A9",
+          "specItemId": "PSA-90A9A78C-8B3B-4FF0-A4F8-B0CBE2EFC645",
+          "expectedInfra": "2G GSM, 3G WCDMA, 4G LTE FDD, 4G LTE TDD, 5G Sub6 FDD, 5G Sub6 TDD",
+          "sourcePageFinalUrl": "https://www.samsung.com/uk/support/model/SM-A236BZKUEUB/",
+          "sourcePageHttpStatus": 200,
+          "sourcePageEncodedSha256": "18a87f3838f090121e48878ad4eef12982086bb58b76fb85a22d0f6afbda071e",
+          "apiUrl": "https://api.samsung.com/model?key=56FE13336ABF4709AFCF7704B24D83F0&siteCode=uk&modelCode=SM-A236BZKUEUB&type=json&option=16&disclaimer=",
+          "apiHttpStatus": 200,
+          "apiStatusCode": 200,
+          "dimensionVerified": true,
+          "networkIdentityVerified": true
+        }
+      ],
+      "segmentation": {
+        "method": "seeded-max-rgb-connected-dark-component-with-enclosed-surface-artifact-fill",
+        "seed": {
+          "x": 650,
+          "y": 1100
+        },
+        "primaryThreshold": 120,
+        "stabilityThresholds": [
+          118,
+          119,
+          120,
+          121,
+          122
+        ],
+        "minimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 4,
+        "observedMinimumThresholdIou": 0.9967833861717664,
+        "observedMaximumBoundsDrift": 0,
+        "expectedBounds": {
+          "minX": [
+            140,
+            140
+          ],
+          "minY": [
+            748,
+            748
+          ],
+          "maxX": [
+            958,
+            958
+          ],
+          "maxY": [
+            1436,
+            1436
+          ]
+        },
+        "expectedForegroundPixels": [
+          279827,
+          281148
+        ],
+        "expectedSignificantInternalComponents": 1,
+        "minimumSignificantInternalPixels": 10000,
+        "cameraOpening": {
+          "primaryPixels": 15973,
+          "expectedPixels": [
+            15828,
+            16204
+          ],
+          "expectedBounds": {
+            "minX": [
+              200,
+              200
+            ],
+            "minY": [
+              964,
+              964
+            ],
+            "maxX": [
+              379,
+              381
+            ],
+            "maxY": [
+              1121,
+              1121
+            ]
+          }
+        },
+        "surfaceArtifactPolicy": "Fill enclosed threshold gaps below the significant-component cutoff; preserve the sole significant camera opening; reject any additional significant enclosed component.",
+        "morphologyOperations": 0,
+        "inferredBoundaryPixels": 0,
+        "inferredOpeningPixels": 0
+      },
+      "compatibilityPolicy": {
+        "controllingEvidence": "The exact SUPCASE ASIN explicitly names Galaxy A23 4G / 5G in its title and states that it is designed exclusively for the Galaxy A23 4G/5G 2022 release.",
+        "supportingEvidence": "Samsung independently identifies SM-A235F/DS as Galaxy A23 4G LTE and SM-A236B/DSN as Galaxy A23 5G and reports identical 165.4 x 76.9 x 8.4 mm dimensions.",
+        "excludedModel": "Galaxy A23 5G UW",
+        "dimensionsAloneAuthorizeCompatibility": false
+      },
+      "publicationPolicy": {
+        "sourceVerificationPublishesNothing": true,
+        "productMediaAllowed": false,
+        "variantMediaAssociationsAllowed": false,
+        "allowedDestinationsAfterIndependentReview": [
+          "Shopify Files",
+          "charme_product.body_image_black",
+          "charme_product.body_image_white"
+        ]
+      }
+    }
+  ]
+}

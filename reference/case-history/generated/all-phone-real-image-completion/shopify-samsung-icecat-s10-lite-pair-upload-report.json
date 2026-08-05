@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-01T19:49:56.828Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 2,
+    "productVariantsUpdated": 4,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s10-lite",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "2082da1b5d1da3faa2c7b28f5e9f41c1802e785d3a2b21ae7116fb0aa9adb8f8",
+      "pixelSha256": "3cbd846edb65498d9428eb229cdfd66d32ae5fc0a23c75eb83d78811f27b97fe",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471776493946",
+      "fileId": "gid://shopify/MediaImage/71386231374202",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-lite-black-without-gel-derived-official-source-2082da1b5d1d.png?v=1785613756",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s10-lite",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-black-v1-samsung-silicone-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 36006,
+        "sha256": "556fd0b018a22abae9ffdd38e3d02ee560f52d3c94ce130e55168b944c081665",
+        "pixelSha256": "3cbd846edb65498d9428eb229cdfd66d32ae5fc0a23c75eb83d78811f27b97fe",
+        "pixelWidth": 927,
+        "pixelHeight": 1944,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1802088,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-s10-lite",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "3b09dfcf2cc88db53c9d25335ddbdee7f3a23e08ebcbcd1f9d602e6ea3a25427",
+      "pixelSha256": "0fc5dd6c238d4ee7c18132ce7420267c11645bad92559ab24f6f7058821d0f53",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471776493946",
+      "fileId": "gid://shopify/MediaImage/71386231996794",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-lite-white-without-gel-derived-official-source-3b09dfcf2cc8.png?v=1785613761",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-s10-lite",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10-lite-white-v1-samsung-silicone-alpha-matte.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 30323,
+        "sha256": "39642b16fcafe2d5d64116367245f9c22f0125292e0799c6cbb281a052d7b099",
+        "pixelSha256": "0fc5dd6c238d4ee7c18132ce7420267c11645bad92559ab24f6f7058821d0f53",
+        "pixelWidth": 927,
+        "pixelHeight": 1944,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1802088,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-s10-lite",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71386232586618",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101298303354",
+        "gid://shopify/ProductVariant/57101298434426"
+      ]
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71386233110906",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101298336122",
+        "gid://shopify/ProductVariant/57101298401658"
+      ]
+    }
+  ]
+}

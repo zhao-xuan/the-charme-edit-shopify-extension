@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-02T10:28:56.961Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-derived-retail-real-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 2,
+    "alreadyCurrent": 0,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 1
+  },
+  "requestedTargets": [
+    {
+      "modelId": "galaxy-s10e",
+      "name": "Galaxy S10e",
+      "widthMm": 69.9,
+      "heightMm": 142.2,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [
+    {
+      "modelId": "galaxy-s10e",
+      "name": "Galaxy S10e",
+      "widthMm": 69.9,
+      "heightMm": 142.2,
+      "kind": "phone",
+      "basePrice": 26,
+      "metaobjectId": "gid://shopify/Metaobject/471837409658"
+    }
+  ],
+  "results": [
+    {
+      "status": "updated",
+      "modelId": "galaxy-s10e",
+      "finish": "black",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "95857fd23ce66f04eac83465ea00c82c67f801ad1c9390b5ca802df27c494e4c",
+      "pixelSha256": "75126d72503bd046ebbef97d22d00ae6c416c0f0d3ac331b272c22891966d40d",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471837409658",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392050282874",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10e-black-without-gel-derived-verified-retail-source-95857fd23ce6.png?v=1785666531",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-s10e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10e-black-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 8612,
+        "sha256": "480b332658f90c3ee87a14df91c085a8d90b588a1f98dd705ca99f1540fc08ab",
+        "pixelSha256": "75126d72503bd046ebbef97d22d00ae6c416c0f0d3ac331b272c22891966d40d",
+        "pixelWidth": 254,
+        "pixelHeight": 494,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 125476,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "galaxy-s10e",
+      "finish": "white",
+      "candidateVersion": "derived-verified-retail-source",
+      "sha256": "5999622df2517ecfd9bb4aa871dea608aeb62f15d0cc0f68a4468677d64f7aab",
+      "pixelSha256": "de747c549eedffd0ca5c918c3929902632fc60bdcac12ae546e99fd3d9ad31f9",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471837409658",
+      "previousFileId": null,
+      "previousUrl": null,
+      "fileId": "gid://shopify/MediaImage/71392050315642",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10e-white-without-gel-derived-verified-retail-source-5999622df251.png?v=1785666535",
+      "sourceKind": "derived-verified-retail-source",
+      "sourceModelId": "galaxy-s10e",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s10e-white-v1-spigen-alpha-matte.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 6010,
+        "sha256": "02a47bd7628f1b52ea01bb4487628028d1f372ac1d3651fc55aea2bedf227e8b",
+        "pixelSha256": "de747c549eedffd0ca5c918c3929902632fc60bdcac12ae546e99fd3d9ad31f9",
+        "pixelWidth": 254,
+        "pixelHeight": 494,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 125476,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

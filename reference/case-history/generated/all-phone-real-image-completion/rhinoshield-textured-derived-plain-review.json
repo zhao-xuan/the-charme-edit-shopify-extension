@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-01T10:13:10.310Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "provenancePath": "reference/case-history/generated/all-phone-real-image-completion/rhinoshield-textured-derived-plain-provenance.json",
+  "scope": "Manual publication review for deterministic plain Black and White cases derived from official same-model RhinoShield sources.",
+  "acceptanceCriteria": [
+    "Official source is for the exact target phone model.",
+    "Output alpha is byte-identical to the official source alpha.",
+    "No spatial or alpha transform is used.",
+    "Fully transparent pixels contain zero RGB.",
+    "Neutral-gray composite shows open transparent cutouts, a smooth plain finish, and no periodic bands.",
+    "Physical width and height are supported by an official device-manufacturer page."
+  ],
+  "summary": {
+    "modelsAccepted": 3,
+    "candidatesAccepted": 6,
+    "candidatesRejected": 2,
+    "acceptedAutomatedQaPassed": 6,
+    "acceptedVisualQaPassed": 6,
+    "rejectedPublishable": 0
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a53",
+      "modelName": "Galaxy A53",
+      "officialCaseEvidence": {
+        "sku": "SSA0324649",
+        "title": "Galaxy A53 SolidSuit Carbon Fiber / Black",
+        "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a53-official-carbon-fiber-black-rhinoshield-SSA0324649.png",
+        "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0324649?device-handle=samsung-galaxy-a53&size=2000&lossless=1",
+        "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a53",
+        "sha256": "e99a400a4bf7b5a775d43b824025c180fea5e905ab9df1e61b2e2a756953482c",
+        "alphaSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88"
+      },
+      "officialDimensions": {
+        "widthMm": 74.8,
+        "heightMm": 159.6,
+        "depthMm": 8.1,
+        "reportedValue": "74.8 x 159.6 x 8.1mm",
+        "reportedOrder": "width x height x depth",
+        "sourcePublisher": "Samsung Newsroom",
+        "sourceUrl": "https://news.samsung.com/global/galaxy-a53-5g-and-galaxy-a33-5g-awesome-mobile-experiences-open-to-everyone"
+      }
+    },
+    {
+      "modelId": "galaxy-s21",
+      "modelName": "Galaxy S21",
+      "officialCaseEvidence": {
+        "sku": "SSA0319949",
+        "title": "Galaxy S21 SolidSuit Carbon Fiber / Black",
+        "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-s21-official-carbon-fiber-black-rhinoshield-SSA0319949.png",
+        "sourceUrl": "https://image.rhinoshield.app/materials/body/SSA0319949?device-handle=samsung-galaxy-s21&size=2000&lossless=1",
+        "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s21",
+        "sha256": "c5e6e7a77b25b29c17c9edd6c083860c96bc752cf40f17ee8dc9aab78bf5bc06",
+        "alphaSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b"
+      },
+      "officialDimensions": {
+        "widthMm": 71.2,
+        "heightMm": 151.7,
+        "depthMm": 7.9,
+        "reportedValue": "151.7 x 71.2 x 7.9",
+        "reportedOrder": "height x width x depth",
+        "sourcePublisher": "Samsung UK",
+        "sourceUrl": "https://www.samsung.com/uk/smartphones/galaxy-s21-5g/specs/"
+      }
+    },
+    {
+      "modelId": "pixel-6a",
+      "modelName": "Pixel 6a",
+      "officialCaseEvidence": {
+        "sku": "SST0228049",
+        "title": "Pixel 6a SolidSuit Carbon Fiber / Black",
+        "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/pixel-6a-official-carbon-fiber-black-rhinoshield-SST0228049.png",
+        "sourceUrl": "https://image.rhinoshield.app/materials/body/SST0228049?device-handle=google-pixel-6a&size=2000&lossless=1",
+        "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-6a",
+        "sha256": "7aa89ee15be82819dfcd72128c39f5cd818ccbe2f2face6b197eae8cacd066d2",
+        "alphaSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7"
+      },
+      "officialDimensions": {
+        "widthMm": 71.8,
+        "heightMm": 152.2,
+        "depthMm": 8.9,
+        "reportedValue": "152.2 height x 71.8 width x 8.9 depth (mm)",
+        "reportedOrder": "height x width x depth",
+        "sourcePublisher": "Google Pixel Phone Help",
+        "sourceUrl": "https://support.google.com/pixelphone/answer/7158570?hl=en#zippy=%2Cpixel-a"
+      }
+    }
+  ],
+  "accepted": [
+    {
+      "modelId": "galaxy-a53",
+      "finish": "black",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-black-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "7bdf08d56c8ff3298224e8c39ece013a2f3f44448b9f763762751fcbae63ccd4",
+      "alphaSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    },
+    {
+      "modelId": "galaxy-a53",
+      "finish": "white",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-white-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "4c532266d0cc07be4319989ed69e6674f9dc46f2f9beb51c76eb942d96c88a20",
+      "alphaSha256": "3a8070f9c58b1de827f4f000f919ac366463f6bd7911ede246b6e0052a80ac88",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    },
+    {
+      "modelId": "galaxy-s21",
+      "finish": "black",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-black-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "e7ddc447a41d59f90236962949443d3e6b48a39dd0f0548a66f6c8308e9b83e3",
+      "alphaSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    },
+    {
+      "modelId": "galaxy-s21",
+      "finish": "white",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-s21-white-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "e240f8e4fb1317b8183d09250d4233ac823230adb23f8056ee77140f9182d5b5",
+      "alphaSha256": "9ff2de74b31e923c0dcf1d8f2878c8fe44b40b966f864b9e7b0c2d6819f0184b",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    },
+    {
+      "modelId": "pixel-6a",
+      "finish": "black",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6a-black-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "c6ddd23b36c70fab37880eab4b9df2dfdd2f5241cf280ba7cd934edc756f7a2e",
+      "alphaSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    },
+    {
+      "modelId": "pixel-6a",
+      "finish": "white",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/pixel-6a-white-v1-rhinoshield-carbon-texture-neutralized.png",
+      "sha256": "b5d7b47eaa5112b4c2a81523edc496bba7e20c6be76d399e478fc363c661dcea",
+      "alphaSha256": "dcad1a98b389b7197765990b301554a41a9104b978ba8669610e5d3da1127bf7",
+      "automatedQa": "passed",
+      "visualQa": "passed-by-review",
+      "reviewStatus": "accepted"
+    }
+  ],
+  "rejected": [
+    {
+      "modelId": "galaxy-a53",
+      "finish": "black",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-black-gpt-v1.png",
+      "sha256": "f591418d023bcc80f5d04de20fc98179960fa440cc72644f78e6bcb2f7a4a506",
+      "sourceKind": "gpt-generated",
+      "reviewStatus": "rejected",
+      "publish": false,
+      "reasons": [
+        "GPT changed the case geometry instead of preserving the official same-model silhouette.",
+        "Candidate cannot satisfy exact official-source alpha identity."
+      ]
+    },
+    {
+      "modelId": "galaxy-a53",
+      "finish": "black",
+      "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a53-black-gpt-v2.png",
+      "sha256": "25beb0e5765202a50689d679ace097b38c0c6cc7780ca77c7e0d1bc311efa6a3",
+      "sourceKind": "gpt-generated",
+      "reviewStatus": "rejected",
+      "publish": false,
+      "reasons": [
+        "GPT changed the case geometry instead of preserving the official same-model silhouette.",
+        "Candidate cannot satisfy exact official-source alpha identity."
+      ]
+    }
+  ],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requireExactPathAndSha256": true,
+    "neverPublishRejectedCandidates": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

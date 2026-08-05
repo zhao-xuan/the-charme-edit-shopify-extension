@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-01T20:35:00.000Z",
+  "reviewedBy": "GitHub Copilot visual inspection in VS Code",
+  "sourceManifestPath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a-series-case-sources.json",
+  "sourceProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a-series-case-asset-provenance.json",
+  "derivationProvenancePath": "reference/case-history/generated/all-phone-real-image-completion/spigen-a-series-case-derived-provenance.json",
+  "acceptanceCriteria": [
+    "Official Spigen product records, variant titles, media identity, SKU, and GTIN identify the exact target geometry.",
+    "Every official source is byte-identical across repeated downloads and its local SHA-256 remains locked.",
+    "Foreground threshold samples 11, 12, and 13 retain IoU of at least 0.995 with no more than four pixels of bounds drift.",
+    "Artifact cleanup preserves every significant upper-right camera opening while removing enclosed texture-derived cracks.",
+    "Black and White outputs use the exact same alpha, preserve transparent openings, contain zero hidden RGB, and have neutral RGB channels.",
+    "Visual review confirms a complete orthogonal body, clean outer edge, transparent background, exact camera geometry, and matched Black/White framing.",
+    "Physical width and height are supported by a directly verified official Samsung product page."
+  ],
+  "summary": {
+    "sourceCandidates": 15,
+    "modelsVisuallyAccepted": 11,
+    "candidateImagesVisuallyAccepted": 22,
+    "modelsPublicationEligible": 11,
+    "modelsBlockedByCatalogIdentity": 4
+  },
+  "models": [
+    {
+      "modelId": "galaxy-a12-4g",
+      "modelName": "Galaxy A12 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 75.8,
+        "heightMm": 164,
+        "depthMm": 8.9,
+        "reportedValue": "164.0 x 75.8 x 8.9",
+        "sourceUrl": "https://www.samsung.com/sg/business/smartphones/galaxy-a/galaxy-a12-a125-sm-a125fzkhxsp/",
+        "sourcePageTitle": "Galaxy A12 Black 128 GB | Samsung Business Singapore",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a12_rugged_armor_05.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a12-official-spigen-ACS02786-inner.jpg",
+        "sha256": "c1294d1f187772b7764d3e8f653f446c23468eec3b12e386ba4dd1f2003a7257",
+        "sku": "ACS02786",
+        "gtin": "8809756645785"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9987313730568135,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 18,
+        "filledArtifactPixels": 22
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-black-v1-spigen-alpha-matte.png",
+        "sha256": "269a4039eeaf7bf1a0e8dedb3f2869eeeafb7ad0e6897c081958d9431b9e2427",
+        "pixelSha256": "e3b0d26526f1088f80ebd7ab20535ffbe187eb3745d7db0f4e06d32fe7882e51",
+        "alphaSha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+        "width": 582,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a12-4g-white-v1-spigen-alpha-matte.png",
+        "sha256": "622b742ced43d0d6d23442b921f7a35574b3ebd639c4f13a487cb2a6f2ca9991",
+        "pixelSha256": "f1c94631f864333f42b42ac03cf52fb9a2351102db4b7d8b78d4f79a007c9287",
+        "alphaSha256": "4c3134cd318d09c976f40467aa32d296405f2f87ff47d8ff25cb9c099366dc23",
+        "width": 582,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "modelName": "Galaxy A21s 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 75.3,
+        "heightMm": 163.7,
+        "depthMm": 8.9,
+        "reportedValue": "163.7 x 75.3 x 8.9",
+        "sourceUrl": "https://www.samsung.com/sa_en/smartphones/galaxy-a/galaxy-a21s-black-128gb-sm-a217fzkjksa/",
+        "sourcePageTitle": "Samsung Galaxy A21s - Black 128GB | Samsung KSA",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a21s_ruggedarmor_02.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a21s-official-spigen-ACS00974-inner.jpg",
+        "sha256": "c882bb9ec49ce7334ea81f5616af2b74dd8e2cfbe2b0dc28c8280ad619a8ebbe",
+        "sku": "ACS00974",
+        "gtin": "8809685629269"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9991648914098404,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 12,
+        "filledArtifactPixels": 6708
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-black-v1-spigen-alpha-matte.png",
+        "sha256": "55c6c114b8122872253abd4b0ebf38f502e1467b8fadccd988d72c71fd6bf719",
+        "pixelSha256": "7b68fb54f5146f24c5cdc91c9e6a1c51f086e736a15e217c8365b68214a54e57",
+        "alphaSha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+        "width": 581,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 564,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a21s-4g-white-v1-spigen-alpha-matte.png",
+        "sha256": "c0577ff8825344d8e9ce99427a3594064fa22542afacaf197d2b2c4f04969bc4",
+        "pixelSha256": "f3ae71f7dda8606a082dd2c3f8a160d391d4331c8249ca90a66d5800fe7ba2a2",
+        "alphaSha256": "afc9faa85e3e3f24857e117392b61d06524543a399e73a021bcfb6a4568dd8fa",
+        "width": 581,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 564,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a25",
+      "modelName": "Galaxy A25",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 76.5,
+        "heightMm": 161,
+        "depthMm": 8.3,
+        "reportedValue": "161.0 x 76.5 x 8.3",
+        "sourceUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a25-5g-blue-128gb-sm-a256bzbdeub/",
+        "sourcePageTitle": "Samsung Galaxy A25 Smartphone | View Specs | Samsung Business UK",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a25_5g_ruggedarmor_02.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a25-5g-official-spigen-ACS06831-inner.jpg",
+        "sha256": "e936c91afede43d004dc1be05a5c148af1cbf72ff95b79f5b27bf958d172abc3",
+        "sku": "ACS06831",
+        "gtin": "8809971221382"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9986725767020534,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 3,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+        "significantCameraOpenings": 4,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 301,
+        "filledArtifactPixels": 332
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-black-v1-spigen-alpha-matte.png",
+        "sha256": "889ec2fce1379fec9eb0f66b4c417e936d99dcbeeafa17eb031ff6913d2d1994",
+        "pixelSha256": "2358526593abd893cc8604b6bddffb651c55264876698557105a39b26444ca25",
+        "alphaSha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+        "width": 596,
+        "height": 1173,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 579,
+          "maxY": 1156
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a25-white-v1-spigen-alpha-matte.png",
+        "sha256": "806ae89adfec86386c8b5f6ccb17768f7af49486d6b0528b127db21bd99f13b9",
+        "pixelSha256": "b98cc2ba8e801099e5a64b90b978cccbf3ba0580c1bb7ca71653a0b94bf157cc",
+        "alphaSha256": "4a6f2f26284017797c524941a3bce397eb52d080f13fe055f2c484b8ba8df251",
+        "width": 596,
+        "height": 1173,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 579,
+          "maxY": 1156
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "modelName": "Galaxy A26 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 77.5,
+        "heightMm": 164,
+        "depthMm": 7.7,
+        "reportedValue": "164.0 x 77.5 x 7.7",
+        "sourceUrl": "https://www.samsung.com/be/smartphones/galaxy-a/galaxy-a26-5g-black-128gb-sm-a266bzkbeub/",
+        "sourcePageTitle": "Galaxy A26 | 128GB | Black | Smartphones | Samsung BE",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a26_5g_liquid_air_blk_02.jpg?v=1747163480",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a26-5g-official-spigen-ACS09290-inner.jpg",
+        "sha256": "8d22c8a4aea08b9a200bd4f9df403e6b21baad79fd94bf397dbddfea1f3d6b86",
+        "sku": "ACS09290",
+        "gtin": "8800283301168"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9989698423040057,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 4,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+        "significantCameraOpenings": 2,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 198,
+        "filledArtifactPixels": 237
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-black-v1-spigen-alpha-matte.png",
+        "sha256": "4f2823e590fb499456f4f1bd94b1238642e0fcd5655ca8795657656c85e0b631",
+        "pixelSha256": "bb88233cae3bd3363b35a7338bf1d17d9314c6da26a2ee9fcb9b8563be3d9ec2",
+        "alphaSha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+        "width": 593,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a26-5g-white-v1-spigen-alpha-matte.png",
+        "sha256": "e17f5f53b1f31cbe783ad74c614d605db19e5a79c8ecbbe8af8c4fb92d3d3378",
+        "pixelSha256": "a31e99e2343a5d2fd3e3a20fb2a0ace6f1e5f372a7d8aba69b97ec386fdeb1c9",
+        "alphaSha256": "48e34d7ca62777b15084b5b360b8e33ba7f712ba229a6a564a55bdd4d1443fa2",
+        "width": 593,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 576,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "modelName": "Galaxy A32 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 76.1,
+        "heightMm": 164.2,
+        "depthMm": 9.1,
+        "reportedValue": "164.2 x 76.1 x 9.1",
+        "sourceUrl": "https://www.samsung.com/ie/business/smartphones/galaxy-a/galaxy-a32-5g-sm-a326bzwueua/",
+        "sourcePageTitle": "Buy White Samsung Galaxy A32 5G | Samsung Business Ireland",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a32_5g_rugged_armor_02.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a32-5g-official-spigen-ACS03046-inner.jpg",
+        "sha256": "0a35c1cfdc372eaa3aed561e920c9be60d809bfa693efc780f8769da2e5f02df",
+        "sku": "ACS03046",
+        "gtin": "8809756648120"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9988525530694206,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 126,
+        "filledArtifactPixels": 299
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-black-v1-spigen-alpha-matte.png",
+        "sha256": "a8e7e485ebea474f89e195e1d3fa81cc6de3c661ba9e5d74c69cafbaaa72a2cf",
+        "pixelSha256": "8c53972cda81dfdbe23e03656687db03df7eaaf66c06abc678be0b88ae3e903c",
+        "alphaSha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+        "width": 582,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a32-5g-white-v1-spigen-alpha-matte.png",
+        "sha256": "e1a032645d971249fa577497ceb27bfcc43894fd71d2e2766c465c670372a35b",
+        "pixelSha256": "e46b05f4d4127f4588b5147b81a0054c9e706c86a904bc633975c5572bd21f57",
+        "alphaSha256": "da3e82c5b2586090c864774e717823063b72759c0c43cdea9e79f0e98f04170e",
+        "width": 582,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 565,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a33",
+      "modelName": "Galaxy A33",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 74,
+        "heightMm": 159.7,
+        "depthMm": 8.1,
+        "reportedValue": "159.7 x 74.0 x 8.1",
+        "sourceUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a33-5g-awesome-blue-128gb-sm-a336blbgeub/",
+        "sourcePageTitle": "Galaxy A33 5G | Specs & Camera | Samsung Business UK",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-tough-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a33_5g_tougharmor_03.jpg?v=1746740945",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a33-5g-official-spigen-ACS04319-inner.jpg",
+        "sha256": "1ebb3e393ed8d5aba50fe8ddf2c4837db9330b9686058801223afba28d52a2ea",
+        "sku": "ACS04319",
+        "gtin": "8809811858914"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.999259267060554,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 18,
+        "filledArtifactPixels": 28
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-black-v1-spigen-alpha-matte.png",
+        "sha256": "044f0d1edb012e5fa357b743c29053237cc7f6e3a16524d80e88c6a19a9f670d",
+        "pixelSha256": "549617612a63954bbbbf9139bc7b28fe7f439186040cbdbe0df657a7ab044071",
+        "alphaSha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+        "width": 585,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 568,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a33-white-v1-spigen-alpha-matte.png",
+        "sha256": "7f073bebe04b56db0f1173d8925e5924576c07812aad5fcc546ee2a5c705bf55",
+        "pixelSha256": "20c1499800d1a367be3611a63231ab401609f71398328b716fcc70189a9b313f",
+        "alphaSha256": "8c25d8ba96d3e20c13aca563c135bdc4d1bfa492fa1ca34b673d8d969a784b88",
+        "width": 585,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 568,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a34",
+      "modelName": "Galaxy A34",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 78.1,
+        "heightMm": 161.3,
+        "depthMm": 8.2,
+        "reportedValue": "161.3 x 78.1 x 8.2",
+        "sourceUrl": "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a34-5g-lime-256gb-sm-a346blgeeub/",
+        "sourcePageTitle": "Samsung Galaxy A34 5G | View Specs | Samsung Business UK",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_sp64a_liquidair_06.jpg?v=1747162470",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a34-5g-official-spigen-ACS05905-inner.jpg",
+        "sha256": "dfb6f974b842b83d54ba4f4a11706ae0569e40b6a80eebe072a68f84171e0064",
+        "sku": "ACS05905",
+        "gtin": "8809896742634"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.998812386133071,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+        "significantCameraOpenings": 4,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 85,
+        "filledArtifactPixels": 92
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-black-v1-spigen-alpha-matte.png",
+        "sha256": "b7fa4ec8534229d609fa3cff86e8b5cd25ef2d73c4c1bd2c9f49d6963a4af89a",
+        "pixelSha256": "e33b62a20f3708448629943467e76698adeb8e850cf3e3b8c6d7720ec90a60a3",
+        "alphaSha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+        "width": 603,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 586,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a34-white-v1-spigen-alpha-matte.png",
+        "sha256": "2ce2cf9cb84b54ec60b3a6b8e128cc5f138e5f00434c66f362f30d7a86a5f013",
+        "pixelSha256": "def756f4b2320dacb979ee107f6efaad2381da364b670054070aa6956a26ee9f",
+        "alphaSha256": "5444ff72999bb835333e2b9d7c546522714f4cf061d03c7f80641868b4751389",
+        "width": 603,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 586,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a35",
+      "modelName": "Galaxy A35",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 78,
+        "heightMm": 161.7,
+        "depthMm": 8.2,
+        "reportedValue": "161.7 x 78.0 x 8.2",
+        "sourceUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a35-5g-awesome-navy-128gb-sm-a356bzkbeub/",
+        "sourcePageTitle": "Samsung Galaxy A35 5G | Specs, Camera & Battery | Samsung UK",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_sp668_liquidair_blk_011.jpg?v=1747162915",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a35-5g-official-spigen-ACS07519-inner.jpg",
+        "sha256": "adeabaa8fc4efccd36c66a3eef2bbd7d1357152c8f55bd17bfba536671da7993",
+        "sku": "ACS07519",
+        "gtin": "8809971224314"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9991291603133708,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+        "significantCameraOpenings": 4,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 408,
+        "filledArtifactPixels": 1334
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-black-v1-spigen-alpha-matte.png",
+        "sha256": "19c56bf5e7823e828b15cd4f827786d49242f299769b87723e202b3c95bb9a5e",
+        "pixelSha256": "d69b556a9967487b959db112828070cab9cbb4160c844ba06c2e9cf3be3aa62c",
+        "alphaSha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+        "width": 600,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 583,
+          "maxY": 1157
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a35-white-v1-spigen-alpha-matte.png",
+        "sha256": "018a635b548d9496977da07464864900673bc86fefd40b46d292bb6fc2cd9b00",
+        "pixelSha256": "e27d1ae67c9a47a6867ed1763fec5772fb0869becfff68fd546da498b7e41610",
+        "alphaSha256": "cd57fac0fb8d56fcc8702fec60be4773ccf4382314c271ee2359c5d2837fe45e",
+        "width": 600,
+        "height": 1174,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 583,
+          "maxY": 1157
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "modelName": "Galaxy A36 5G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 78.2,
+        "heightMm": 162.9,
+        "depthMm": 7.4,
+        "reportedValue": "162.9 x 78.2 x 7.4",
+        "sourceUrl": "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a36-5g-awesome-lavender-256gb-sm-a366blvgeub/",
+        "sourcePageTitle": "Samsung Galaxy A36 5G | Features & Specs | Samsung UK",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a36_5g_liquid_air_blk_01.jpg?v=1747163480",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a36-5g-official-spigen-ACS09199-inner.jpg",
+        "sha256": "c7b1d3b114a9ecd46cab97dcc4d7197a92cc01bf7ec77debd2327772cd2b65aa",
+        "sku": "ACS09199",
+        "gtin": "8800283300291"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9988117058753234,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+        "significantCameraOpenings": 2,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 68,
+        "filledArtifactPixels": 86
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-black-v1-spigen-alpha-matte.png",
+        "sha256": "9495585c2c91210c06785bc32652149d35ec8837c01b24e1f3845e9604d43ff9",
+        "pixelSha256": "4ce37a0e1537f243fbac30a62bc1ef6ef0792d20c7f822e23e6816cf96606edf",
+        "alphaSha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+        "width": 599,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 582,
+          "maxY": 1158
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a36-5g-white-v1-spigen-alpha-matte.png",
+        "sha256": "b5d09e0535c0668b49a65f3cbfa300ea3257625dd93c236630b52d52166ccb31",
+        "pixelSha256": "4aad6df4955fd658cf083f097a3aadf8763386c970f0f154de977d357a4d4c01",
+        "alphaSha256": "4d7e3237a07c2782318f0bb71b9302bfaa53f14be0cd4e792b6bca0423a98db1",
+        "width": 599,
+        "height": 1175,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 582,
+          "maxY": 1158
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a50",
+      "modelName": "Galaxy A50",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 74.7,
+        "heightMm": 158.5,
+        "depthMm": 7.7,
+        "reportedValue": "158.5 x 74.7 x 7.7",
+        "sourceUrl": "https://www.samsung.com/ie/business/smartphones/galaxy-a/galaxy-a50-sm-a505fzksbtu/",
+        "sourcePageTitle": "Samsung Galaxy A50 (Black) | Samsung Business Ireland",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a50_ruggedarmor_04.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a50-official-spigen-611CS26199-inner.jpg",
+        "sha256": "54d3e049f27b1bf8572bf5064eede450b821edf942ee4d5c8bd64101b45b3b20",
+        "sku": "611CS26199",
+        "gtin": "8809640255984"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9992009882139834,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 1,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 1,
+        "filledArtifactPixels": 1
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-black-v1-spigen-alpha-matte.png",
+        "sha256": "75785798e2c9409a441ccf59148a3ec2ba073eb5ae37f892815280b838af0fa3",
+        "pixelSha256": "4546b8cbc47521cb26e8a79ab06575dc8278d4cb27d6b58ea48b75fd8d2a33c5",
+        "alphaSha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+        "width": 500,
+        "height": 986,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 483,
+          "maxY": 969
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a50-white-v1-spigen-alpha-matte.png",
+        "sha256": "8cefbaf408b5d2fa483907918eb83c89d0e2ab15e13e502d6c4c9508284e5cd2",
+        "pixelSha256": "9d989493b712529ddb8ef6ae270dcd3d30ea9d3f9c0fc3bcfa903735282142db",
+        "alphaSha256": "1b82e47e0386392bfcfd3f867bdc88e30a8fcc9b08ec2ed26bd7ca43cf88cbca",
+        "width": 500,
+        "height": 986,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 483,
+          "maxY": 969
+        }
+      }
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "modelName": "Galaxy A51 4G",
+      "reviewStatus": "accepted",
+      "publicationEligible": true,
+      "visualReview": {
+        "status": "accepted",
+        "criteria": "Complete orthogonal body, exact camera openings, clean outer edge, transparent background, and matched Black/White geometry."
+      },
+      "officialDimensions": {
+        "widthMm": 73.6,
+        "heightMm": 158.5,
+        "depthMm": 7.9,
+        "reportedValue": "158.5 x 73.6 x 7.9",
+        "sourceUrl": "https://www.samsung.com/ie/business/smartphones/galaxy-a/galaxy-a51-sm-a515fzkveua/",
+        "sourcePageTitle": "Buy Galaxy A51 4G, Black | View Prices | Samsung Business Ireland",
+        "reportedLabel": "Dimension (HxWxD, mm)",
+        "reportedOrder": "height x width x depth",
+        "directPageVerification": {
+          "httpStatus": 200,
+          "modelIdentityFound": true,
+          "reportedValueFound": true,
+          "verifiedAt": "2026-08-01T20:35:00.000Z"
+        }
+      },
+      "officialSource": {
+        "manufacturer": "Spigen",
+        "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a51_ruggedarmor_02.jpg?v=1746728490",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a51-official-spigen-ACS00563-inner.jpg",
+        "sha256": "46122da580a8a8da878561ea927b05d0749217164d5d0fc1c584272294e9f232",
+        "sku": "ACS00563",
+        "gtin": "8809685624257"
+      },
+      "geometryQa": {
+        "foregroundThreshold": 12,
+        "minimumThresholdIou": 0.9987789722089239,
+        "requiredMinimumThresholdIou": 0.995,
+        "maximumBoundsDrift": 2,
+        "allowedMaximumBoundsDrift": 4,
+        "sharedAlphaSha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+        "significantCameraOpenings": 1,
+        "upperRightCameraHolePassed": true,
+        "filledArtifactComponents": 12,
+        "filledArtifactPixels": 28
+      },
+      "black": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-black-v1-spigen-alpha-matte.png",
+        "sha256": "9e01bb3aae8e9c4f6b8e0d297800671d3383369bce330c52fa9bbb993e0ac118",
+        "pixelSha256": "16bbf4ddebf54c83f623876f97ef58017dba98bcf4caaedb4104a0c9cf5887d7",
+        "alphaSha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+        "width": 496,
+        "height": 990,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 479,
+          "maxY": 973
+        }
+      },
+      "white": {
+        "sourceKind": "derived-official-source",
+        "path": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a51-4g-white-v1-spigen-alpha-matte.png",
+        "sha256": "e215efa040f6c9d562a59316eff7453579d7121ff24fc4fa335f1a891b44840a",
+        "pixelSha256": "e380b3050a0e464ca6e54e51cfd37a8efea86f824cb6e98a5bec522aee2fd8ff",
+        "alphaSha256": "941261656a3bee05b0d8d8187dae6581144676e31fbe4f8fc45420ade550c6c8",
+        "width": 496,
+        "height": 990,
+        "alphaBounds": {
+          "minX": 16,
+          "minY": 16,
+          "maxX": 479,
+          "maxY": 973
+        }
+      }
+    }
+  ],
+  "blockedModels": [
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "modelName": "Galaxy A15 4G / 5G",
+      "reviewStatus": "accepted-image-blocked-catalog",
+      "publicationEligible": false,
+      "blockReason": "Blocked: the target combines 4G and 5G, while the official media explicitly identifies Galaxy A15 5G and no first-party cross-compatibility evidence is recorded.",
+      "sourceModelId": "galaxy-a15-5g",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-liquid-air.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a15_5g_liquidair_black_02.jpg?v=1747162915",
+      "sku": "ACS07246",
+      "gtin": "8809971221320"
+    },
+    {
+      "modelId": "galaxy-a16",
+      "modelName": "Galaxy A16",
+      "reviewStatus": "accepted-image-blocked-catalog",
+      "publicationEligible": false,
+      "blockReason": "Blocked: the target is generation-unspecified, while the official source proves Galaxy A16 5G and a separate A16 4G handset exists.",
+      "sourceModelId": "galaxy-a16-5g",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a16_5g_rugged_armor_05.jpg?v=1746728490",
+      "sku": "ACS08891",
+      "gtin": "8809971237215"
+    },
+    {
+      "modelId": "galaxy-a17",
+      "modelName": "Galaxy A17",
+      "reviewStatus": "accepted-image-blocked-catalog",
+      "publicationEligible": false,
+      "blockReason": "Blocked: the target is generation-unspecified and must not inherit evidence that explicitly proves only Galaxy A17 5G.",
+      "sourceModelId": "galaxy-a17-5g",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-rugged-armor.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_galaxy_a17_5g_rugged_armor_blk_02.jpg?v=1756848931",
+      "sku": "ACS09844",
+      "gtin": "8800283312409"
+    },
+    {
+      "modelId": "galaxy-a52-a52s-4g-5g",
+      "modelName": "Galaxy A52 / A52S 4G / 5G",
+      "reviewStatus": "accepted-image-blocked-catalog",
+      "publicationEligible": false,
+      "blockReason": "Blocked: the target combines A52, A52 5G, and A52s, while the selected official media explicitly identifies A52 5G and no first-party all-model compatibility statement is recorded.",
+      "sourceModelId": "galaxy-a52-5g",
+      "productRecordUrl": "https://www.spigen.com/products/galaxy-a-series-case-tough-armor.js",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0808/0067/files/detail_web_galaxy_a52_5g_tougharmor_black_03.jpg?v=1746742240",
+      "sku": "ACS02319",
+      "gtin": "8809756641800"
+    }
+  ],
+  "publicationPolicy": {
+    "acceptedOnly": true,
+    "requirePublicationEligible": true,
+    "requireExactPathAndSha256": true,
+    "requireOfficialDimensions": true,
+    "requireShopifyFileMetaobjectProductMediaAndAllVariantAssociations": true
+  }
+}

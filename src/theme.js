@@ -1,7 +1,7 @@
 /**
  * Charmé Edit design tokens for Ant Design's ConfigProvider.
  * Warm cream canvas, dusty-rouge primary, antique-gold accents — echoing the
- * thecharmeedit.com aesthetic (Cormorant Garamond display + Jost body).
+ * thecharmeedit.com aesthetic (Cormorant Garamond display + Helvetica body).
  */
 export const charme = {
   cream: '#F7F1E8',
@@ -27,7 +27,7 @@ export const theme = {
     colorBorderSecondary: '#EEE6D9',
     borderRadius: 10,
     fontFamily:
-      "'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "'Helvetica Neue', Helvetica, Arial, sans-serif",
     fontSize: 14,
     controlHeight: 38,
     wireframe: false,

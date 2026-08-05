@@ -1,0 +1,1520 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-01T10:19:26.044Z",
+  "catalogUrl": "https://charme-customizer.pages.dev/api/catalog",
+  "source": "RHINOSHIELD public SolidSuit product-page Nuxt data",
+  "scope": "Missing Shopify-backed Samsung and Google Pixel models only; no image bytes downloaded.",
+  "summary": {
+    "black-and-white": 1,
+    "black-and-light-neutral": 1,
+    "black-only": 4,
+    "textured-dark-and-white": 0,
+    "textured-dark-and-light-neutral": 0,
+    "textured-dark-only": 3,
+    "variants-without-black": 0,
+    "unsupported": 50,
+    "error": 0
+  },
+  "categories": {
+    "black-and-white": [
+      "galaxy-s20-ultra-4g-5g"
+    ],
+    "black-and-light-neutral": [
+      "galaxy-a56-5g"
+    ],
+    "black-only": [
+      "galaxy-a13-4g",
+      "galaxy-a72-4g-5g",
+      "galaxy-s10-4g",
+      "galaxy-s20-4g-5g"
+    ],
+    "textured-dark-and-white": [],
+    "textured-dark-and-light-neutral": [],
+    "textured-dark-only": [
+      "galaxy-a71-4g",
+      "galaxy-s20-fe-4g-5g",
+      "galaxy-s20-plus-4g-5g"
+    ],
+    "variants-without-black": [],
+    "unsupported": [
+      "galaxy-a12-4g",
+      "galaxy-a15-4g-5g",
+      "galaxy-a16",
+      "galaxy-a17",
+      "galaxy-a21s-4g",
+      "galaxy-a22-5g",
+      "galaxy-a23-4g-5g",
+      "galaxy-a25",
+      "galaxy-a26-5g",
+      "galaxy-a32-5g",
+      "galaxy-a33",
+      "galaxy-a34",
+      "galaxy-a35",
+      "galaxy-a36-5g",
+      "galaxy-a40",
+      "galaxy-a50",
+      "galaxy-a51-4g",
+      "galaxy-a52-a52s-4g-5g",
+      "galaxy-a70",
+      "galaxy-note-10",
+      "galaxy-note-10-plus",
+      "galaxy-note-20-4g-5g",
+      "galaxy-note-20-ultra-4g-5g",
+      "galaxy-note-9",
+      "galaxy-s10-lite",
+      "galaxy-s10-plus",
+      "galaxy-s10e",
+      "galaxy-s25-edge",
+      "galaxy-s26",
+      "galaxy-s26-edge",
+      "galaxy-s26-plus",
+      "galaxy-s26-ultra",
+      "galaxy-s8",
+      "galaxy-s9",
+      "galaxy-s9-plus",
+      "galaxy-z-flip-3",
+      "galaxy-z-flip-4",
+      "galaxy-z-flip-5",
+      "galaxy-z-flip-6",
+      "galaxy-z-flip-7",
+      "galaxy-z-fold-3",
+      "galaxy-z-fold-4",
+      "galaxy-z-fold-5",
+      "galaxy-z-fold-6",
+      "galaxy-z-fold-7",
+      "pixel-10",
+      "pixel-10-pro",
+      "pixel-10-pro-xl",
+      "pixel-5",
+      "pixel-9a"
+    ],
+    "error": []
+  },
+  "results": [
+    {
+      "modelId": "galaxy-a12-4g",
+      "deviceHandle": "samsung-galaxy-a12",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a12-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a12",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a12",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a13-4g",
+      "deviceHandle": "samsung-galaxy-a13",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a13-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a13",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a13",
+          "variants": 3
+        }
+      ],
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy A13 (4G) SolidSuit Black",
+        "sku": "SST0327852",
+        "mainBodySku": "SST0327852",
+        "shopifyVariantId": 39615882559749
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy A13 (4G) SolidSuit Black",
+          "sku": "SST0327852",
+          "mainBodySku": "SST0327852",
+          "shopifyVariantId": 39615882559749
+        },
+        {
+          "title": "Galaxy A13 (4G) SolidSuit Carbon Fiber / Black",
+          "sku": "SST0327849",
+          "mainBodySku": "SST0327849",
+          "shopifyVariantId": 39616907608325
+        },
+        {
+          "title": "Galaxy A13 (4G) SolidSuit Violet",
+          "sku": "SST03278P1",
+          "mainBodySku": "SST03278P1",
+          "shopifyVariantId": 39615882625285
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a15-4g-5g",
+      "deviceHandle": "samsung-galaxy-a15",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a15-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a15",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a15",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a16",
+      "deviceHandle": "samsung-galaxy-a16",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a16",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a16",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a16",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a16",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a16",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a17",
+      "deviceHandle": "samsung-galaxy-a17",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a17",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a17",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a17",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a17",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a17",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a21s-4g",
+      "deviceHandle": "samsung-galaxy-a21s",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a21s-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a21s",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a21s",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a22-5g",
+      "deviceHandle": "samsung-galaxy-a22",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a22-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a22",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a22",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a23-4g-5g",
+      "deviceHandle": "samsung-galaxy-a23",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a23-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a23",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a23",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a25",
+      "deviceHandle": "samsung-galaxy-a25",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a25",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a25",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a25",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a25",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a25",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a26-5g",
+      "deviceHandle": "samsung-galaxy-a26",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a26-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a26",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a26",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a32-5g",
+      "deviceHandle": "samsung-galaxy-a32",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a32-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a32",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a32",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a33",
+      "deviceHandle": "samsung-galaxy-a33",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a33",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a33",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a33",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a33",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a33",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a34",
+      "deviceHandle": "samsung-galaxy-a34",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a34",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a34",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a34",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a34",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a34",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a35",
+      "deviceHandle": "samsung-galaxy-a35",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a35",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a35",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a35",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a35",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a35",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a36-5g",
+      "deviceHandle": "samsung-galaxy-a36",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a36-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a36",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a36",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a40",
+      "deviceHandle": "samsung-galaxy-a40",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a40",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a40",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a40",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a40",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a40",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a50",
+      "deviceHandle": "samsung-galaxy-a50",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a50",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a50",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a50",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a50",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a50",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a51-4g",
+      "deviceHandle": "samsung-galaxy-a51",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a51-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a51",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a51",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a52-a52s-4g-5g",
+      "deviceHandle": "samsung-galaxy-a52-a52s",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a52-a52s-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a52-a52s",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a52-a52s",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a56-5g",
+      "deviceHandle": "samsung-galaxy-a56",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a56-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a56",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a56",
+          "variants": 3
+        }
+      ],
+      "category": "black-and-light-neutral",
+      "black": {
+        "title": "Galaxy A56 SolidSuit Black",
+        "sku": "SST0334652",
+        "mainBodySku": "SST0334652",
+        "shopifyVariantId": 0
+      },
+      "texturedDark": null,
+      "light": {
+        "title": "Galaxy A56 SolidSuit Shell Beige",
+        "sku": "SST033460B",
+        "mainBodySku": "SST033460B",
+        "shopifyVariantId": 0
+      },
+      "variants": [
+        {
+          "title": "Galaxy A56 SolidSuit Shell Beige",
+          "sku": "SST033460B",
+          "mainBodySku": "SST033460B",
+          "shopifyVariantId": 0
+        },
+        {
+          "title": "Galaxy A56 SolidSuit Black",
+          "sku": "SST0334652",
+          "mainBodySku": "SST0334652",
+          "shopifyVariantId": 0
+        },
+        {
+          "title": "Galaxy A56 SolidSuit Raspberry Sorbet",
+          "sku": "SST033463P",
+          "mainBodySku": "SST033463P",
+          "shopifyVariantId": 0
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a70",
+      "deviceHandle": "samsung-galaxy-a70",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a70",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a70",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a70",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a70",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a70",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-a71-4g",
+      "deviceHandle": "samsung-galaxy-a71",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a71-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a71",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a71",
+          "variants": 1
+        }
+      ],
+      "category": "textured-dark-only",
+      "black": null,
+      "texturedDark": {
+        "title": "Galaxy A71 (4G) SolidSuit Carbon Fiber / Black",
+        "sku": "SSA0317349",
+        "mainBodySku": "SSA0317349",
+        "shopifyVariantId": 39589598626053
+      },
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy A71 (4G) SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0317349",
+          "mainBodySku": "SSA0317349",
+          "shopifyVariantId": 39589598626053
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-a72-4g-5g",
+      "deviceHandle": "samsung-galaxy-a72",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-a72-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-a72",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-a72",
+          "variants": 2
+        }
+      ],
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy A72 SolidSuit Black",
+        "sku": "SSA0320852",
+        "mainBodySku": "SSA0320852",
+        "shopifyVariantId": 39609880051973
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy A72 SolidSuit Black",
+          "sku": "SSA0320852",
+          "mainBodySku": "SSA0320852",
+          "shopifyVariantId": 39609880051973
+        },
+        {
+          "title": "Galaxy A72 SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0320849",
+          "mainBodySku": "SSA0320849",
+          "shopifyVariantId": 39587458318597
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-note-10",
+      "deviceHandle": "samsung-galaxy-note-10",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-note-10",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-note-10-plus",
+      "deviceHandle": "samsung-galaxy-note-10-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10-plus",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-note-10-plus",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10-plus",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-10-plus",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-note-20-4g-5g",
+      "deviceHandle": "samsung-galaxy-note-20",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-note-20-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-note-20",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-note-20-ultra-4g-5g",
+      "deviceHandle": "samsung-galaxy-note-20-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-note-20-ultra-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-note-20-ultra",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-20-ultra",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-note-9",
+      "deviceHandle": "samsung-galaxy-note-9",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-9",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-9",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-note-9",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-9",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-note-9",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s10-4g",
+      "deviceHandle": "samsung-galaxy-s10",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s10-4g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-4g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-4g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s10",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10",
+          "variants": 1
+        }
+      ],
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S10 (4G) SolidSuit Black",
+        "sku": "SSA0309952",
+        "mainBodySku": "SSA0309952",
+        "shopifyVariantId": 39609879036165
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S10 (4G) SolidSuit Black",
+          "sku": "SSA0309952",
+          "mainBodySku": "SSA0309952",
+          "shopifyVariantId": 39609879036165
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s10-lite",
+      "deviceHandle": "samsung-galaxy-s10-lite",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-lite",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-lite",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s10-lite",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-lite",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-lite",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s10-plus",
+      "deviceHandle": "samsung-galaxy-s10-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-plus",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s10-plus",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-plus",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10-plus",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s10e",
+      "deviceHandle": "samsung-galaxy-s10e",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10e",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10e",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s10e",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10e",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s10e",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s20-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s20-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s20",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20",
+          "variants": 3
+        }
+      ],
+      "category": "black-only",
+      "black": {
+        "title": "Galaxy S20 (4G/5G) SolidSuit Black",
+        "sku": "SSA0316052",
+        "mainBodySku": "SSA0316052",
+        "shopifyVariantId": 39609879527685
+      },
+      "texturedDark": null,
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S20 (4G/5G) SolidSuit Black",
+          "sku": "SSA0316052",
+          "mainBodySku": "SSA0316052",
+          "shopifyVariantId": 39609879527685
+        },
+        {
+          "title": "Galaxy S20 (4G/5G) SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0316049",
+          "mainBodySku": "SSA0316049",
+          "shopifyVariantId": 39589600493829
+        },
+        {
+          "title": "Galaxy S20 (4G/5G) SolidSuit Leather / Black",
+          "sku": "SSA0316061",
+          "mainBodySku": "SSA0316061",
+          "shopifyVariantId": 39589600526597
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s20-fe-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-fe",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s20-fe-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s20-fe",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-fe",
+          "variants": 1
+        }
+      ],
+      "category": "textured-dark-only",
+      "black": null,
+      "texturedDark": {
+        "title": "Galaxy S20 FE (4G/5G) SolidSuit Carbon Fiber / Black",
+        "sku": "SSA0319549",
+        "mainBodySku": "SSA0319549",
+        "shopifyVariantId": 39589597118725
+      },
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S20 FE (4G/5G) SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0319549",
+          "mainBodySku": "SSA0319549",
+          "shopifyVariantId": 39589597118725
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s20-plus-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s20-plus-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s20-plus",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-plus",
+          "variants": 1
+        }
+      ],
+      "category": "textured-dark-only",
+      "black": null,
+      "texturedDark": {
+        "title": "Galaxy S20+ (4G/5G) SolidSuit Leather / Black",
+        "sku": "SSA0315861",
+        "mainBodySku": "SSA0315861",
+        "shopifyVariantId": 39589601050885
+      },
+      "light": null,
+      "variants": [
+        {
+          "title": "Galaxy S20+ (4G/5G) SolidSuit Leather / Black",
+          "sku": "SSA0315861",
+          "mainBodySku": "SSA0315861",
+          "shopifyVariantId": 39589601050885
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s20-ultra-4g-5g",
+      "deviceHandle": "samsung-galaxy-s20-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s20-ultra-4g-5g",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra-4g-5g",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra-4g-5g",
+          "variants": 0
+        },
+        {
+          "deviceHandle": "samsung-galaxy-s20-ultra",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s20-ultra",
+          "variants": 4
+        }
+      ],
+      "category": "black-and-white",
+      "black": {
+        "title": "Galaxy S20 Ultra (4G) SolidSuit Black",
+        "sku": "SSA0315952",
+        "mainBodySku": "SSA0315952",
+        "shopifyVariantId": 39609879593221
+      },
+      "texturedDark": null,
+      "light": {
+        "title": "Galaxy S20 Ultra (4G) SolidSuit White",
+        "sku": "SSA0315953",
+        "mainBodySku": "SSA0315953",
+        "shopifyVariantId": 39609879625989
+      },
+      "variants": [
+        {
+          "title": "Galaxy S20 Ultra (4G) SolidSuit Black",
+          "sku": "SSA0315952",
+          "mainBodySku": "SSA0315952",
+          "shopifyVariantId": 39609879593221
+        },
+        {
+          "title": "Galaxy S20 Ultra (4G) SolidSuit White",
+          "sku": "SSA0315953",
+          "mainBodySku": "SSA0315953",
+          "shopifyVariantId": 39609879625989
+        },
+        {
+          "title": "Galaxy S20 Ultra (4G) SolidSuit Blush Pink",
+          "sku": "SSA0315957",
+          "mainBodySku": "SSA0315957",
+          "shopifyVariantId": 39589599936773
+        },
+        {
+          "title": "Galaxy S20 Ultra (4G) SolidSuit Carbon Fiber / Black",
+          "sku": "SSA0315949",
+          "mainBodySku": "SSA0315949",
+          "shopifyVariantId": 39589599969541
+        }
+      ]
+    },
+    {
+      "modelId": "galaxy-s25-edge",
+      "deviceHandle": "samsung-galaxy-s25-edge",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s25-edge",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s25-edge",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s25-edge",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s25-edge",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s25-edge",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s26",
+      "deviceHandle": "samsung-galaxy-s26",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s26",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s26-edge",
+      "deviceHandle": "samsung-galaxy-s26-edge",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-edge",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-edge",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s26-edge",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-edge",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-edge",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s26-plus",
+      "deviceHandle": "samsung-galaxy-s26-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-plus",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s26-plus",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-plus",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-plus",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s26-ultra",
+      "deviceHandle": "samsung-galaxy-s26-ultra",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-ultra",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-ultra",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s26-ultra",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-ultra",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s26-ultra",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s8",
+      "deviceHandle": "samsung-galaxy-s8",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s8",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s8",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s8",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s8",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s8",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s9",
+      "deviceHandle": "samsung-galaxy-s9",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s9",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-s9-plus",
+      "deviceHandle": "samsung-galaxy-s9-plus",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9-plus",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9-plus",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-s9-plus",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9-plus",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-s9-plus",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-flip-3",
+      "deviceHandle": "samsung-galaxy-z-flip-3",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-3",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-3",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-flip-3",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-3",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-3",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-flip-4",
+      "deviceHandle": "samsung-galaxy-z-flip-4",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-4",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-4",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-flip-4",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-4",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-4",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-flip-5",
+      "deviceHandle": "samsung-galaxy-z-flip-5",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-5",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-5",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-flip-5",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-5",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-5",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-flip-6",
+      "deviceHandle": "samsung-galaxy-z-flip-6",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-6",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-6",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-flip-6",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-6",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-6",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-flip-7",
+      "deviceHandle": "samsung-galaxy-z-flip-7",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-7",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-7",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-flip-7",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-7",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-flip-7",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-fold-3",
+      "deviceHandle": "samsung-galaxy-z-fold-3",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-3",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-3",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-fold-3",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-3",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-3",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-fold-4",
+      "deviceHandle": "samsung-galaxy-z-fold-4",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-4",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-4",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-fold-4",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-4",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-4",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-fold-5",
+      "deviceHandle": "samsung-galaxy-z-fold-5",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-5",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-5",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-fold-5",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-5",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-5",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-fold-6",
+      "deviceHandle": "samsung-galaxy-z-fold-6",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-6",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-6",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-fold-6",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-6",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-6",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "galaxy-z-fold-7",
+      "deviceHandle": "samsung-galaxy-z-fold-7",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-7",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-7",
+      "handleAttempts": [
+        {
+          "deviceHandle": "samsung-galaxy-z-fold-7",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-7",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=samsung-galaxy-z-fold-7",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "pixel-10",
+      "deviceHandle": "google-pixel-10",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10",
+      "handleAttempts": [
+        {
+          "deviceHandle": "google-pixel-10",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "pixel-10-pro",
+      "deviceHandle": "google-pixel-10-pro",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro",
+      "handleAttempts": [
+        {
+          "deviceHandle": "google-pixel-10-pro",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "pixel-10-pro-xl",
+      "deviceHandle": "google-pixel-10-pro-xl",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro-xl",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro-xl",
+      "handleAttempts": [
+        {
+          "deviceHandle": "google-pixel-10-pro-xl",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro-xl",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-10-pro-xl",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "pixel-5",
+      "deviceHandle": "google-pixel-5",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-5",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-5",
+      "handleAttempts": [
+        {
+          "deviceHandle": "google-pixel-5",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-5",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-5",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    },
+    {
+      "modelId": "pixel-9a",
+      "deviceHandle": "google-pixel-9a",
+      "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-9a",
+      "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-9a",
+      "handleAttempts": [
+        {
+          "deviceHandle": "google-pixel-9a",
+          "productPageUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-9a",
+          "finalUrl": "https://rhinoshield.io/products/solidsuit/buy?device=google-pixel-9a",
+          "variants": 0
+        }
+      ],
+      "category": "unsupported",
+      "black": null,
+      "texturedDark": null,
+      "light": null,
+      "variants": []
+    }
+  ]
+}

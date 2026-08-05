@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-01T20:45:30.925Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields plus custom-charm-phone-case product/variant media.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 2,
+    "productVariantsUpdated": 4,
+    "productTargetsCreated": 0
+  },
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a72-4g",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "7c27f35791726751fdd4eddb01f133a15ccd8ed2c98a80b9bfaa0bfcf20ecdab",
+      "pixelSha256": "fcf9411010c6dbfdfebf5fcae4524710147903c4f5f9bf0c179b0ebfa6ced4ee",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471781278074",
+      "fileId": "gid://shopify/MediaImage/71387174895994",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a72-4g-black-without-gel-derived-official-source-7c27f3579172.png?v=1785617104",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a72-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/galaxy-a72-4g-5g-official-black-rhinoshield-SSA0320852.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 765900,
+        "sha256": "d1d5e407508d9a861ff034f9e3227684e9d89d64b20f698d954e70fd51d7d703",
+        "pixelSha256": "fcf9411010c6dbfdfebf5fcae4524710147903c4f5f9bf0c179b0ebfa6ced4ee",
+        "pixelWidth": 750,
+        "pixelHeight": 1530,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1147500,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "galaxy-a72-4g",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "3b3a1c056e1b8269fd779fd38805d1c1675af6eba38ccc12ee5102d9ba9a1e31",
+      "pixelSha256": "7772170d9786053268d179a9c51c46aec2a87dad927a444b55051fe16183d85c",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471781278074",
+      "fileId": "gid://shopify/MediaImage/71387176763770",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a72-4g-white-without-gel-derived-official-source-3b3a1c056e1b.png?v=1785617110",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "galaxy-a72-4g",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/candidates/galaxy-a72-4g-5g-white-v1-rhinoshield-black-luminance-remap.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 412975,
+        "sha256": "4b48f9d044a1efdc9212a81926d5dfd734488a8b75e4099018c23cc33adf1fac",
+        "pixelSha256": "7772170d9786053268d179a9c51c46aec2a87dad927a444b55051fe16183d85c",
+        "pixelWidth": 750,
+        "pixelHeight": 1530,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1147500,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": [
+    {
+      "modelId": "galaxy-a72-4g",
+      "finish": "black",
+      "mediaId": "gid://shopify/MediaImage/71387178926458",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101300072826",
+        "gid://shopify/ProductVariant/57101300203898"
+      ]
+    },
+    {
+      "modelId": "galaxy-a72-4g",
+      "finish": "white",
+      "mediaId": "gid://shopify/MediaImage/71387179843962",
+      "mediaStatus": "reused",
+      "variantIds": [
+        "gid://shopify/ProductVariant/57101300105594",
+        "gid://shopify/ProductVariant/57101300171130"
+      ]
+    }
+  ]
+}
