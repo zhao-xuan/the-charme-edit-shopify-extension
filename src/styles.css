@@ -1767,6 +1767,26 @@ h4,
   border: 1px solid var(--line);
   background: #fff;
 }
+.cross-sell-admin-option__preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+.cross-sell-admin-option__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  color: var(--ink-soft);
+  font-size: 11px;
+  text-align: center;
+  background: var(--cream);
+  border: 1px dashed var(--line);
+}
 .cross-sell-admin-option__image-editor {
   min-width: 0;
   text-align: center;

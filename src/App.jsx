@@ -88,6 +88,27 @@ function editorEditState() {
 
 const editorEdit = editorEditState()
 
+function configureEditorCurrency() {
+  if (typeof window === 'undefined') return
+  const params = new URLSearchParams(window.location.search)
+  const active = String(params.get('currency') || '').trim().toUpperCase()
+  const rate = Number(params.get('currency_rate'))
+  if (!/^[A-Z]{3}$/.test(active) || !(rate > 0)) return
+
+  const config = window.CharmeConfig || {}
+  window.CharmeConfig = {
+    ...config,
+    ...(params.get('locale') ? { locale: params.get('locale') } : {}),
+    currency: {
+      base: config.currency?.base || 'GBP',
+      active,
+      rate,
+    },
+  }
+}
+
+configureEditorCurrency()
+
 const editorCart =
   typeof window === 'undefined'
     ? null

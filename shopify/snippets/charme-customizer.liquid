@@ -115,7 +115,8 @@
       locale: {{ request.locale.iso_code | json }},
       currency: {
         base: {{ shop.currency | json }},
-        active: {{ cart.currency.iso_code | default: shop.currency | json }}
+        active: {{ cart.currency.iso_code | default: shop.currency | json }},
+        rate: {{ cart.currency.rate | default: 1 | json }}
       },
       {%- comment -%} presets temporarily hidden {%- endcomment -%}
       {%- comment -%} presetHandle: {{ cfg_preset | strip | json }}, {%- endcomment -%}

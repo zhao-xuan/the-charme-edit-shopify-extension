@@ -132,7 +132,21 @@ const _defCache = new Map() // type -> Set(fieldKeys)
 async function ensureDefinition(env, type) {
   if (_defCache.has(type)) return _defCache.get(type)
   const meta = DEF_META[type]
-  const found = await shopifyAdmin(env, Q_DEF, { type })
+  const fallbackKeys = new Set(meta.fields.map(([key]) => key))
+  let found
+  try {
+    found = await shopifyAdmin(env, Q_DEF, { type })
+  } catch (error) {
+    // Existing stores do not need definition introspection to list or update
+    // their typed records. Some app installs grant metaobject CRUD without the
+    // separate definition-read scope, so use the schema we already own rather
+    // than making the entire catalog appear empty.
+    if (/read_metaobject_definitions/i.test(String(error?.message || error))) {
+      _defCache.set(type, fallbackKeys)
+      return fallbackKeys
+    }
+    throw error
+  }
   let def = found.metaobjectDefinitionByType
   if (!def) {
     const res = await shopifyAdmin(env, M_DEF_CREATE, {

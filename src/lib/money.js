@@ -14,7 +14,7 @@
  * active locale + currency (so symbol placement, grouping and the number of
  * decimals — e.g. JPY has none — are all correct for the buyer).
  */
-import { currentLocale } from './i18n'
+import { currentLocale } from './i18n.js'
 
 /** Resolve the live currency context (base + active + rate + locale). */
 function currencyContext() {

@@ -47,6 +47,7 @@ import {
   ThunderboltOutlined,
 } from '@ant-design/icons'
 import { allProducts, productGroups } from '../data/products'
+import patchData from '../data/patches.json'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
@@ -66,6 +67,7 @@ import {
   patchProduct,
   renameTaxonomy,
   saveSettings,
+  setOverride,
   setToken,
   syncDiscounts,
   fetchShopifyProducts,
@@ -1004,6 +1006,86 @@ function CharmsTab({ draft, set, cloud }) {
   )
 }
 
+function PatchesTab({ cloud }) {
+  const { message } = App.useApp()
+  const patches = patchData.patches || []
+  const [selectedPatchId, setSelectedPatchId] = useState(() => patches[0]?.id || null)
+  const selectedPatch = patches.find((patch) => patch.id === selectedPatchId) || patches[0] || null
+  const savedScale = Number(cloud?.data?.overrides?.charmSizes?.[selectedPatch?.id]) || 1
+  const [scale, setScale] = useState(savedScale)
+
+  useEffect(() => setScale(savedScale), [selectedPatch?.id, savedScale])
+
+  const saveSize = async () => {
+    if (!selectedPatch) return
+    try {
+      await setOverride('charm', selectedPatch.id, { sizeScale: scale })
+      await cloud.refresh()
+      message.success(`Saved ${selectedPatch.name} at ${Math.round(scale * 100)}%.`)
+    } catch (error) {
+      message.error(error.message || 'Could not save the patch size.')
+    }
+  }
+
+  const scaleFor = (patch) => Number(cloud?.data?.overrides?.charmSizes?.[patch.id]) || 1
+
+  return (
+    <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <Card size="small" title={`Tote patches (${patches.length})`}>
+          <p className="hint" style={{ marginTop: 0 }}>
+            Select a patch to set the size customers see on The Charmé Edit Tote.
+          </p>
+          <Table
+            size="small"
+            rowKey="id"
+            onRow={(patch) => ({ onClick: () => setSelectedPatchId(patch.id) })}
+            rowClassName={(patch) => patch.id === selectedPatch?.id ? 'admin-pick-row is-selected' : 'admin-pick-row'}
+            pagination={false}
+            dataSource={patches}
+            columns={[
+              { title: 'Art', width: 52, render: (_, patch) => <Image src={resolveAsset(patch.src)} width={34} height={34} style={{ objectFit: 'contain' }} /> },
+              { title: 'Patch', dataIndex: 'name', ellipsis: true },
+              { title: 'Base size', width: 120, render: (_, patch) => `${patch.widthMm}×${patch.heightMm} mm` },
+              { title: 'Scale', width: 80, render: (_, patch) => `${Math.round(scaleFor(patch) * 100)}%` },
+            ]}
+          />
+        </Card>
+      </Space>
+
+      <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start' }}>
+        <RightPanel title="Tote decoration studio">
+          {selectedPatch ? (
+            <Space direction="vertical" size={12} style={{ width: '100%' }}>
+              <Image src={resolveAsset(selectedPatch.src)} alt={selectedPatch.name} height={160} style={{ objectFit: 'contain' }} />
+              <strong>{selectedPatch.name}</strong>
+              <span className="hint">
+                {(selectedPatch.widthMm * scale).toFixed(1)} × {(selectedPatch.heightMm * scale).toFixed(1)} mm · {Math.round(scale * 100)}%
+              </span>
+              <Slider min={0.5} max={2} step={0.05} value={scale} onChange={setScale} />
+              <Button type="primary" icon={<SaveOutlined />} onClick={saveSize}>Save patch size</Button>
+            </Space>
+          ) : <Empty description="No patch selected" image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+        </RightPanel>
+      </div>
+    </div>
+  )
+}
+
+function DecorationsTab({ draft, set, cloud }) {
+  const [section, setSection] = useState('charms')
+  return (
+    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Segmented
+        value={section}
+        onChange={setSection}
+        options={[{ value: 'charms', label: 'Charms' }, { value: 'patches', label: 'Patches' }]}
+      />
+      {section === 'charms' ? <CharmsTab draft={draft} set={set} cloud={cloud} /> : <PatchesTab cloud={cloud} />}
+    </Space>
+  )
+}
+
 // ---------------------------------------------------------------------------
 // Products
 // ---------------------------------------------------------------------------
@@ -1541,11 +1623,12 @@ function ProductsTab({ draft, set, cloud }) {
     }
   }
 
-  const createVariantsFor = async (model) => {
+  const createVariantsFor = async (product) => {
+    if (product.kind !== 'phone') return
     setBusy(true)
     try {
-      const r = await caseVariantAction({ action: 'addModel', model, price: form.basePrice })
-      message.success(`Created ${r.created || 0} variant(s) for “${model}”.`)
+      const r = await caseVariantAction({ action: 'addModel', model: product.name, price: product.basePrice })
+      message.success(`Created ${r.created || 0} variant(s) for “${product.name}”.`)
       loadCase()
     } catch (e) { message.error(e.message || 'Could not create variants.') }
     finally { setBusy(false) }
@@ -1595,7 +1678,8 @@ function ProductsTab({ draft, set, cloud }) {
   const applyBulkPrice = async () => {
     const price = Number(bulkPrice)
     if (bulkPrice == null || bulkPrice === '' || Number.isNaN(price)) return message.warning('Enter a price first.')
-    const names = new Set(rows.filter((r) => selectedRowKeys.includes(r.id)).map((r) => r.name))
+    const names = new Set(rows.filter((r) => selectedRowKeys.includes(r.id) && r.kind === 'phone').map((r) => r.name))
+    if (!names.size) return message.warning('Select one or more phone models to update their variants.')
     const ids = (caseData.variants || []).filter((v) => names.has(v.model)).map((v) => v.id)
     if (!ids.length) return message.warning('The selected models have no live variants yet.')
     setBusy(true)
@@ -1737,7 +1821,11 @@ function ProductsTab({ draft, set, cloud }) {
             loading={cloud?.loading || caseLoading}
             onRow={pickRow}
             rowClassName={rowCls}
-            rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+            rowSelection={{
+              selectedRowKeys,
+              onChange: setSelectedRowKeys,
+              getCheckboxProps: (r) => ({ disabled: r.kind !== 'phone' }),
+            }}
             scroll={{ x: 'max-content' }}
             pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
             dataSource={rows}
@@ -1745,6 +1833,22 @@ function ProductsTab({ draft, set, cloud }) {
             columns={[
               { title: 'Photo', dataIndex: 'src', width: 52, render: (s, r) => (r.variantOnly ? <Tag color="blue">live</Tag> : <Image src={resolveAsset(s)} width={36} height={36} style={{ objectFit: 'contain' }} />) },
               { title: 'Model', dataIndex: 'name', ellipsis: true, fixed: 'left', width: 150 },
+              {
+                title: 'Base (£)',
+                key: 'base-price',
+                width: 92,
+                render: (_, r) => r.kind !== 'phone' ? (
+                  <InputNumber
+                    key={`${r.id}:${r.basePrice}`}
+                    size="small"
+                    min={0}
+                    step={0.5}
+                    defaultValue={r.basePrice}
+                    onBlur={(e) => cloud.repriceProduct(r, e.target.value)}
+                    style={{ width: 74 }}
+                  />
+                ) : <span style={{ color: '#ccc' }}>—</span>,
+              },
               ...colours.map((c) => ({
                 title: `${c.name} (£)`,
                 key: `col-${c.name}`,
@@ -1771,9 +1875,9 @@ function ProductsTab({ draft, set, cloud }) {
                 key: 'sync',
                 width: 96,
                 render: (_, r) => {
-                  const missing = colours.length && colours.some((c) => !variantAt[r.name]?.[c.name])
+                  const missing = r.kind === 'phone' && colours.length && colours.some((c) => !variantAt[r.name]?.[c.name])
                   return missing ? (
-                    <Button size="small" icon={<PlusOutlined />} loading={busy} onClick={() => createVariantsFor(r.name)}>
+                    <Button size="small" icon={<PlusOutlined />} loading={busy} onClick={() => createVariantsFor(r)}>
                       Variants
                     </Button>
                   ) : null
@@ -3055,7 +3159,7 @@ function useCloud(draft, set) {
     setLoading(true)
     try {
       const cat = await fetchCatalog()
-      setData({ products: cat.products || [], charms: cat.charms || [] })
+      setData({ products: cat.products || [], charms: cat.charms || [], overrides: cat.overrides || {} })
     } catch {
       /* offline / no backend in local dev — leave lists empty */
     } finally {
@@ -3465,10 +3569,10 @@ export default function AdminPage() {
             key: 'charms',
             label: (
               <span>
-                <TagsOutlined /> Charms
+                <TagsOutlined /> Decorations
               </span>
             ),
-            children: <CharmsTab draft={draft} set={set} cloud={cloud} />,
+            children: <DecorationsTab draft={draft} set={set} cloud={cloud} />,
           },
           {
             key: 'taxonomy',

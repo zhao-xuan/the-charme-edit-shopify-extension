@@ -97,7 +97,7 @@
 
       <a
         class="button charme-order-path__button"
-        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=185473892730' | url_encode }}&amp;cart_bridge=1"
+        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;currency={{ cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=185473892730' | url_encode }}&amp;cart_bridge=1"
         data-charme-own-design
       >
         <span>{{ section.settings.design_button_label }}</span>
@@ -730,7 +730,7 @@
       "type": "text",
       "id": "design_note",
       "label": "Option 1 note",
-      "default": "Full control over every detail"
+      "default": "Currently supports iPhone and Samsung Galaxy S24–S26. If Option 1 is unavailable, please use Option 2."
     },
     {
       "type": "text",
