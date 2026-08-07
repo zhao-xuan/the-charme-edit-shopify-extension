@@ -315,6 +315,7 @@ async function main() {
   })
 
   const forbiddenReportedMediaPresent = [...scope.mediaIds].filter((mediaId) => liveMediaIds.has(mediaId))
+  const sourceFilesAttachedToProductMedia = [...scope.sourceFileIds].filter((fileId) => liveMediaIds.has(fileId))
 
   const imageReadback = await mapLimit(scope.entries, 3, async (entry) => {
     const { result } = entry
@@ -351,6 +352,7 @@ async function main() {
     metaobjectReferencesMatched: imageReadback.filter((entry) => entry.metaobjectReferenceMatches).length,
     legacyProductMediaIdsRecorded: scope.mediaIds.size,
     forbiddenReportedProductMediaPresent: forbiddenReportedMediaPresent.length,
+    sourceFilesAttachedToProductMedia: sourceFilesAttachedToProductMedia.length,
     sourceFileExactPixelMatches: imageReadback.filter((entry) => entry.sourceFileCdn.exact).length,
     sourceFileAcceptablePixelMatches: imageReadback.filter((entry) => entry.sourceFileCdn.acceptable).length,
   }
@@ -360,6 +362,7 @@ async function main() {
     && summary.sourceFilesReady === expectedImages
     && summary.metaobjectReferencesMatched === expectedImages
     && summary.forbiddenReportedProductMediaPresent === 0
+    && summary.sourceFilesAttachedToProductMedia === 0
     && summary.sourceFileAcceptablePixelMatches === expectedImages
   )
   const audit = {

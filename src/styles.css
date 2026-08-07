@@ -1,6 +1,6 @@
-/* Brand display font. The UI body uses the system Helvetica stack below so the
-  embedded widget does not depend on a theme-provided sans-serif font. */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+/* Match the storefront typography even when the widget is embedded in a theme
+   that does not expose its font settings to the widget bundle. */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&display=swap');
 
 :root {
   --cream: #f7f1e8;
@@ -14,6 +14,9 @@
   --blush: #e7c9c2;
   --line: #e4d8c7;
   --shadow: 0 18px 50px -28px rgba(46, 42, 38, 0.45);
+  --charme-font-body: 'Amiri', Georgia, serif;
+  --charme-font-heading: 'Amiri', Georgia, serif;
+  --charme-font-accent: 'Azeret Mono', ui-monospace, monospace;
 }
 
 * {
@@ -30,16 +33,15 @@ body,
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--charme-font-body);
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
 }
 
-/* Customizer controls follow the Figma system: an editorial display face with
-   compact sans-serif controls, square corners, and a quiet ink-on-paper palette. */
+/* Customizer controls use the same body, heading, and accent roles as the shop. */
 .app-shell,
 .mobile-shell {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--charme-font-body);
 }
 .app-shell .ant-btn,
 .mobile-shell .ant-btn,
@@ -56,13 +58,14 @@ body {
 .app-shell .ant-select-selection-item,
 .mobile-shell .ant-select-selection-item,
 .ant-select-dropdown .ant-select-item {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: var(--charme-font-body) !important;
 }
 .app-shell .ant-btn,
 .mobile-shell .ant-btn {
   min-height: 32px;
   background: var(--paper);
   color: var(--ink);
+  font-family: var(--charme-font-accent) !important;
 }
 .app-shell .ant-btn:hover,
 .mobile-shell .ant-btn:hover {
@@ -92,7 +95,7 @@ body {
   border-radius: 0;
   background: var(--paper);
   box-shadow: none;
-  font-family: inherit;
+  font-family: var(--charme-font-accent);
 }
 .app-shell .ant-segmented-item,
 .mobile-shell .ant-segmented-item {
@@ -204,7 +207,7 @@ h2,
 h3,
 h4,
 .display {
-  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-family: var(--charme-font-heading);
   letter-spacing: 0.2px;
   font-weight: 600;
 }
@@ -245,7 +248,7 @@ h4,
   border-radius: 4px;
   background: transparent;
   color: var(--ink);
-  font-family: inherit;
+  font-family: var(--charme-font-accent);
   font-size: 13px;
   font-weight: 600;
   line-height: 1;
@@ -269,7 +272,7 @@ h4,
   min-width: 0;
 }
 .brand .mark {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--charme-font-heading);
   font-size: 23px;
   font-weight: 600;
   color: var(--ink);
@@ -277,6 +280,7 @@ h4,
   white-space: nowrap;
 }
 .brand .sub {
+  font-family: var(--charme-font-accent);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -403,6 +407,7 @@ h4,
 }
 
 .eyebrow {
+  font-family: var(--charme-font-accent);
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -446,6 +451,7 @@ h4,
   color: var(--ink);
 }
 .base-card__label {
+  font-family: var(--charme-font-accent);
   font-size: 12px;
   letter-spacing: 0.4px;
 }
@@ -628,7 +634,7 @@ h4,
   font-family: inherit;
 }
 .customizer-error strong {
-  font: 600 24px/1.2 'Cormorant Garamond', serif;
+  font: 600 24px/1.2 var(--charme-font-heading);
 }
 .customizer-error button {
   border: 1px solid #2e2a26;
@@ -799,7 +805,7 @@ h4,
 /* price-only meta (charm cards now show just the price) */
 .charm-card .meta--price {
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--charme-font-heading);
   font-size: 15px;
   color: var(--ink);
 }
@@ -844,6 +850,7 @@ h4,
   margin-top: 14px;
 }
 .charms-bar__title {
+  font-family: var(--charme-font-accent);
   font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -851,6 +858,7 @@ h4,
   font-weight: 600;
 }
 .charms-bar__count {
+  font-family: var(--charme-font-accent);
   font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1050,7 +1058,7 @@ h4,
   justify-content: space-between;
 }
 .price-row .total {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--charme-font-heading);
   font-size: 30px;
   font-weight: 600;
 }
@@ -1162,6 +1170,7 @@ h4,
     flex-wrap: wrap;
   }
   .mobile-head__step {
+    font-family: var(--charme-font-accent);
     flex: none;
     font-size: 12px;
     font-weight: 600;
@@ -1196,6 +1205,7 @@ h4,
     flex: 1.7 1 0;
   }
   .mobile-head__label {
+    font-family: var(--charme-font-accent);
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.4px;
@@ -1226,6 +1236,27 @@ h4,
     position: relative;
     display: flex;
     overflow: hidden;
+  }
+  .stage-attention {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: max-content;
+    max-width: 100%;
+    min-height: 30px;
+    padding: 7px 10px;
+    border: 1px solid rgba(212, 56, 13, 0.45);
+    border-radius: 6px;
+    background: rgba(255, 244, 242, 0.92);
+    color: #9f2f12;
+    box-shadow: 0 3px 12px rgba(46, 42, 38, 0.12);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    pointer-events: none;
+  }
+  .stage-attention__icon {
+    flex: none;
   }
   /* Centre the case in the preview between the top controls and the bottom
      Step 2 bar: a little top breathing room + just enough bottom space to clear
@@ -1736,18 +1767,29 @@ h4,
   border: 1px solid var(--line);
   background: #fff;
 }
-.cross-sell-admin-option__preview,
-.cross-sell-admin-option__placeholder {
-  width: 96px;
+.cross-sell-admin-option__image-editor {
+  min-width: 0;
+  text-align: center;
+}
+.cross-sell-admin-option__upload .ant-upload {
+  padding: 6px 4px !important;
+}
+.cross-sell-admin-option__upload img {
+  display: block;
+  width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
-  border: 1px solid var(--line);
+  object-fit: contain;
   background: var(--cream);
 }
-.cross-sell-admin-option__placeholder {
-  display: grid;
-  place-items: center;
+.image-drop__action {
+  display: block;
+  margin-top: 4px;
   color: var(--ink-soft);
+  font-size: 11px;
+}
+.cross-sell-admin-option__image-editor > .ant-btn {
+  height: auto;
+  padding: 3px 0 0;
   font-size: 11px;
 }
 .cross-sell-admin-option__fields {
@@ -2039,7 +2081,7 @@ h4,
   min-height: 0;
   overflow-y: auto;
   width: 100%;
-  max-width: 1040px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 22px 20px 60px;
 }
@@ -2053,7 +2095,7 @@ h4,
 }
 .admin-title {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--charme-font-heading);
   font-size: 28px;
   font-weight: 600;
   color: var(--ink);
@@ -2090,6 +2132,214 @@ h4,
   font-size: 12px;
   line-height: 1.5;
   color: var(--ink-soft);
+}
+.admin-products-layout {
+  display: grid;
+  grid-template-columns: minmax(380px, 420px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.admin-products-index,
+.admin-products-studio {
+  min-width: 0;
+}
+.admin-products-studio {
+  position: sticky;
+  top: 8px;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  padding-right: 3px;
+}
+.admin-products-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.admin-products-bulk {
+  display: grid;
+  grid-template-columns: auto minmax(90px, 120px) minmax(140px, auto);
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbf8f2;
+  font-size: 12px;
+}
+.admin-product-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+.admin-product-cell .ant-image,
+.admin-product-cell img {
+  flex: none;
+  object-fit: contain;
+  border-radius: 5px;
+  background: #faf7f2;
+}
+.admin-product-cell > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.admin-products-index .ant-table .ant-btn-text,
+.admin-decorations-index .ant-table .ant-btn-text {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+}
+.admin-product-cell__live {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 5px;
+  background: #f0f5f1;
+  color: #497052;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.admin-product-price {
+  white-space: nowrap;
+  font-size: 12px;
+}
+.admin-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.admin-product-preview {
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #faf7f2;
+}
+.admin-product-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.admin-product-fields label,
+.admin-product-variant__price {
+  display: grid;
+  gap: 4px;
+}
+.admin-product-fields label > span,
+.admin-product-variant__price > span {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+.admin-product-fields__name {
+  grid-column: 1 / -1;
+}
+.admin-product-variants {
+  margin: 18px 0 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.admin-product-variants__heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+.admin-product-variant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.admin-product-variant {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.8fr) minmax(110px, 1.2fr);
+  gap: 9px 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+.admin-product-variant__head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.admin-product-variant__head img {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  object-fit: contain;
+  border-radius: 5px;
+  background: #faf7f2;
+}
+.admin-product-variant__head > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.admin-product-image-drop .ant-upload.ant-upload-drag .ant-upload-btn {
+  padding: 0 !important;
+}
+.admin-product-image-drop .ant-upload.ant-upload-drag p {
+  padding: 8px !important;
+  font-size: 12px;
+}
+.admin-product-image-drop .anticon-inbox {
+  display: none;
+}
+.admin-variant-image-drop .ant-upload.ant-upload-drag .ant-upload-btn {
+  padding: 0 !important;
+}
+.admin-variant-image-drop .ant-upload.ant-upload-drag p {
+  padding: 5px 3px !important;
+  font-size: 11px;
+  line-height: 1.25;
+}
+.admin-variant-image-drop .anticon-inbox {
+  display: none;
+}
+.admin-colour-add {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin: 12px 0 5px;
+}
+.admin-decorations-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 460px);
+  gap: 18px;
+  align-items: start;
+}
+.admin-decorations-index,
+.admin-decorations-studio {
+  min-width: 0;
+}
+.admin-decorations-studio {
+  position: sticky;
+  top: 8px;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  padding-right: 3px;
+}
+.admin-tools-tabs > .ant-tabs-nav {
+  margin-bottom: 18px;
 }
 /* batch-extract: a checkbox that spans the grid, tuning sliders, review pane */
 .admin-grid label.admin-check,
@@ -2209,6 +2459,19 @@ h4,
   color: var(--ink-soft);
 }
 @media (max-width: 760px) {
+  .admin-products-layout,
+  .admin-decorations-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-products-studio,
+  .admin-decorations-studio {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+  .admin-product-variant-grid {
+    grid-template-columns: 1fr;
+  }
   .admin-extract {
     grid-template-columns: 1fr;
   }
@@ -2217,6 +2480,17 @@ h4,
   }
 }
 @media (max-width: 640px) {
+  .admin-product-cell .ant-image {
+    display: none;
+  }
+  .admin-products-toolbar,
+  .admin-products-bulk,
+  .admin-product-fields {
+    grid-template-columns: 1fr;
+  }
+  .admin-product-fields__name {
+    grid-column: auto;
+  }
   .admin-grid {
     grid-template-columns: 1fr;
   }

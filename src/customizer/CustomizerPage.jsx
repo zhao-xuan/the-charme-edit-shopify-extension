@@ -19,7 +19,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, charmByLabel, itemById } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, itemById } from '../lib/catalog'
 import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
@@ -57,8 +57,6 @@ function crossSellImage(option, groups) {
   return resolveAsset(option.image || blank.white || blank.default || blank.natural || blank.black || null)
 }
 
-// Max characters accepted by "Type a word" (letters + digits combined).
-const MAX_WORD_LEN = 14
 const MOBILE_SPLITTER_GUIDE_KEY = 'charme.mobileSplitterGuide.v1'
 
 function hasSeenMobileSplitterGuide() {
@@ -770,144 +768,6 @@ export default function CustomizerPage({
     [activateCharm],
   )
 
-  // "Type a word" — turn typed text into letter/number charms laid out on the
-  // case as ONE draggable group. Accepts a mix of letters and digits: each
-  // character is resolved against the right tray section (digits → "Numbers",
-  // letters → "Letters & initials"). `opts.category` is the finish tab
-  // (gold/silver/…) so the letters match the row the button lives in.
-  // `opts.placement` = top|middle|bottom; `opts.arc` = rainbow arch vs straight.
-  const addWord = useCallback(
-    (text, opts = {}) => {
-      const raw = String(text || '').toUpperCase().replace(/\s+/g, ' ').trim()
-      if (!raw) return
-      const missing = []
-      const picks = []
-      for (const ch of raw.slice(0, MAX_WORD_LEN).split('')) {
-        if (ch === ' ') continue
-        // Digits come from the "Numbers" section; everything else from letters.
-        const collection = /[0-9]/.test(ch) ? 'Numbers' : 'Letters & initials'
-        const charm = charmByLabel(collection, ch, opts.category)
-        if (charm) picks.push(charm)
-        else missing.push(ch)
-      }
-      const room = MAX_CHARMS - placedRef.current.length
-      if (room <= 0) {
-        message.warning(t('msg.maxCharms', { n: MAX_CHARMS }))
-        return
-      }
-      const place = picks.slice(0, room)
-      if (!place.length) {
-        message.warning(t('msg.charsUnavailable'))
-        return
-      }
-
-      const { outer } = product.printable
-      const marginMm = 4
-      const gapMm = 1.4
-      const vGapMm = 2
-      const usableW = Math.max(10, outer.wMm - marginMm * 2)
-      const centerX = outer.xMm + outer.wMm / 2
-      const arc = !!opts.arc && place.length > 1
-
-      // Uniform scale so the word tends to fit the width, never below a letter's
-      // own min scale.
-      const natW = place.reduce((s, c) => s + c.widthMm, 0) + gapMm * (place.length - 1)
-      const sGuess = natW > usableW ? usableW / natW : 1
-      const items = place.map((c) => {
-        const sc = Math.min(Math.max(sGuess, c.minScale || 0.8), c.maxScale || 1.5)
-        return { charm: c, scale: sc, w: c.widthMm * sc, h: c.heightMm * sc }
-      })
-      const rowH = Math.max.apply(null, items.map((i) => i.h))
-
-      // Vertical anchor from the requested placement.
-      const place3 = opts.placement || 'middle'
-      const anchorY =
-        place3 === 'top'
-          ? outer.yMm + marginMm + rowH / 2
-          : place3 === 'bottom'
-            ? outer.yMm + outer.hMm - marginMm - rowH / 2
-            : outer.yMm + outer.hMm / 2
-
-      const built = []
-
-      if (arc) {
-        // Single rainbow arch: circle centred below the apex; each letter sits on
-        // the upper arc and tilts along the tangent.
-        const totalW = items.reduce((s, i) => s + i.w, 0) + gapMm * (items.length - 1)
-        const sag = Math.min(totalW * 0.18, outer.hMm * 0.14)
-        const R = (totalW * totalW) / (8 * Math.max(0.5, sag)) + sag / 2
-        // Apex sits at anchorY but nudge down for "top" so the ends stay inside.
-        const apexY = place3 === 'top' ? anchorY + sag : anchorY
-        let acc = 0
-        for (const it of items) {
-          const chordX = acc + it.w / 2 - totalW / 2
-          acc += it.w + gapMm
-          const a = Math.asin(Math.max(-1, Math.min(1, chordX / R)))
-          const pc = makePlaced(it.charm, {
-            cxMm: centerX + chordX,
-            cyMm: apexY + R - R * Math.cos(a),
-            rot: (a * 180) / Math.PI,
-          })
-          pc.scale = it.scale
-          built.push(clampToPrintable(pc))
-        }
-      } else {
-        // Straight row(s): wrap to extra rows if it doesn't fit one line.
-        const rows = []
-        let cur = []
-        let curW = 0
-        for (const it of items) {
-          const add = (cur.length ? gapMm : 0) + it.w
-          if (cur.length && curW + add > usableW) {
-            rows.push(cur)
-            cur = []
-            curW = 0
-          }
-          cur.push(it)
-          curW += (cur.length > 1 ? gapMm : 0) + it.w
-        }
-        if (cur.length) rows.push(cur)
-
-        const blockH = rows.length * rowH + (rows.length - 1) * vGapMm
-        // Keep the whole block anchored: top→block starts at anchor, bottom→ends there.
-        let y =
-          place3 === 'top'
-            ? anchorY + rowH / 2 - rowH / 2
-            : place3 === 'bottom'
-              ? anchorY - blockH + rowH / 2
-              : anchorY - blockH / 2 + rowH / 2
-        for (const row of rows) {
-          const rowW = row.reduce((s, i) => s + i.w, 0) + gapMm * (row.length - 1)
-          let x = centerX - rowW / 2
-          for (const it of row) {
-            const pc = makePlaced(it.charm, { cxMm: x + it.w / 2, cyMm: y, rot: 0 })
-            pc.scale = it.scale
-            built.push(clampToPrintable(pc))
-            x += it.w + gapMm
-          }
-          y += rowH + vGapMm
-        }
-      }
-
-      pushHistory()
-      const groupId = uid()
-      const tagged = built.map((b) => ({ ...b, groupId, groupLabel: raw }))
-      setPlaced((p) => {
-        const free = MAX_CHARMS - p.length
-        return [...p, ...tagged.slice(0, Math.max(0, free))]
-      })
-      if (tagged.length) {
-        setWordGroups((gs) => [...gs, { id: groupId, label: raw, broken: false }])
-        setSelectedGroupId(groupId)
-        setSelectedUid(null)
-      }
-      if (missing.length) {
-        message.info(t('msg.skipped', { chars: [...new Set(missing)].join(' ') }))
-      }
-    },
-    [product, makePlaced, clampToPrintable, pushHistory, message],
-  )
-
   const stageNode = (
     <ProductStage
       ref={stageApi}
@@ -976,7 +836,6 @@ export default function CustomizerPage({
       rows
       activeKey={catKey}
       onActivate={onTrayActivate}
-      onTypeWord={addWord}
       onPointerDown={isMobile ? undefined : onTrayPointerDown}
       wordGroups={wordGroups}
       selectedGroupId={selectedGroupId}
@@ -997,7 +856,6 @@ export default function CustomizerPage({
       rows
       activeKey={catKey}
       onActivate={onTrayActivate}
-      onTypeWord={addWord}
       wordGroups={wordGroups}
       selectedGroupId={selectedGroupId}
       onSelectGroup={selectGroup}
@@ -1257,14 +1115,6 @@ export default function CustomizerPage({
           <div className="mobile-stage">
             {stageNode}
             {zoomDock}
-            {validation.problems > 0 && (
-              <div className="stage-attention" role="alert">
-                <WarningFilled className="stage-attention__icon" />
-                <span>
-                  {tn('price.needAttention', validation.problems)}
-                </span>
-              </div>
-            )}
             <div
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
             >
@@ -1274,6 +1124,12 @@ export default function CustomizerPage({
                 </span>
               </div>
               <div className="mobile-stage-notices">
+                {validation.problems > 0 && (
+                  <div className="stage-attention" role="alert">
+                    <WarningFilled className="stage-attention__icon" />
+                    <span>{tn('price.needAttention', validation.problems)}</span>
+                  </div>
+                )}
                 {mockupNotice}
                 <span className="mobile-stage-recommend">{stepTwoHint}</span>
               </div>

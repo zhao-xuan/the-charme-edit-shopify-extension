@@ -223,7 +223,9 @@ function buildCatalog() {
       charmSizes,
     )
   })
-  const PATCHES = patchData.patches.map((p) => ({ ...p, kind: 'tote', src: resolveAsset(p.src) }))
+  const PATCHES = patchData.patches.map((patch) =>
+    applySizeOverride({ ...patch, kind: 'tote', src: resolveAsset(patch.src) }, charmSizes),
+  )
   return { CHARMS, PATCHES, ITEMS_BY_KIND: { phone: CHARMS, tote: PATCHES } }
 }
 

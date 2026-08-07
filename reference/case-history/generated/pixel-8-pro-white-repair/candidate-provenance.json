@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "campaign": "pixel-8-pro-white-repair-v1",
+  "publish": false,
+  "candidates": [
+    {
+      "key": "pixel-8-pro:white",
+      "modelId": "pixel-8-pro",
+      "modelName": "Pixel 8 Pro",
+      "finish": "white",
+      "repairAttempt": 2,
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "sourcePath": "public/assets/cases/case-without-gel/pixel-8-pro-black.png",
+      "sourceSha256": "e54cfa2b324d1caccdfcf3f1e1d48bc8cc54beee34fa3369c5e314fd13e29e3f",
+      "submittedPrompt": "Edit this exact source image; do not redraw or reinterpret the phone. Change ONLY the exterior matte-black phone case shell to a clean matte white finish. Preserve the Pixel 8 Pro camera bar, all three lenses, the flash, the small temperature-sensor dot, metal camera bar, buttons, shadows, alignment, silhouette, scale, framing, transparent background, and alpha edges exactly. Do not add Gel, decorations, logo, texture, background, halo, crop, or extra hardware. Return one transparent PNG of the complete phone and white case in the same straight-on rear view.",
+      "submittedPromptSha256": "57df7ce21f1e8746f8b3fbad2631ca32d1206dee00b3d18978322524e4756059",
+      "candidatePath": "reference/case-history/generated/pixel-8-pro-white-repair/candidates/pixel-8-pro-white-gpt-v2-4614d49f4cc2.png",
+      "sha256": "4614d49f4cc2701adae40d06775d09f9623b47d68ddfb8c8dcc0570ac4aa26d8",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "conversationUrl": "https://chatgpt.com/c/6a74fb02-6a4c-83eb-91d6-a51781124090",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000b43c8246be1fab76c455a2db&ts=496125&p=fs&cid=1&sig=ffdb165fb442ef16c189e6c3f65a1183d17ce1aa92bcf77a7949f4d3e49d27ab&v=0",
+      "automatedQa": {
+        "passed": false,
+        "failures": [
+          "transparent-corners",
+          "canvas-edge-leak",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ],
+        "targetAspect": 0.470717,
+        "aspectDriftPercent": 171.84,
+        "candidate": {
+          "visibleBoundsPx": {
+            "left": 0,
+            "top": 46,
+            "right": 983,
+            "bottom": 814,
+            "width": 984,
+            "height": 769
+          },
+          "widthFill": 0.960938,
+          "heightFill": 0.500651,
+          "visibleAspect": 1.279584,
+          "alphaStats": {
+            "transparent": 1283757,
+            "partial": 201416,
+            "opaque": 87691
+          },
+          "cornerAlpha": {
+            "topLeft": 0,
+            "topRight": 0,
+            "bottomRight": 2,
+            "bottomLeft": 0
+          },
+          "edgePixels": {
+            "top": 18,
+            "right": 258,
+            "bottom": 25,
+            "left": 381
+          },
+          "haloPixelsOutsideDilatedCore": 42378
+        }
+      },
+      "reviewStatus": "rejected",
+      "failureReasons": [
+        "wrong-finish",
+        "alpha-background",
+        "geometry",
+        "cropped"
+      ],
+      "reviewNotes": "The Pixel 8 Pro camera bar remains broadly recognizable, but the exterior shell is still dark grey/black rather than matte White. The product is redrawn as a wide, cropped close-up with nontransparent pixels on every canvas edge; only 50.07% of the canvas height contains alpha >= 128, aspect drift is 171.84%, and 42,378 halo pixels remain. This candidate must never enter the runtime trust manifest.",
+      "recordedAt": "2026-08-06T21:33:11Z"
+    },
+    {
+      "key": "pixel-8-pro:white",
+      "modelId": "pixel-8-pro",
+      "modelName": "Pixel 8 Pro",
+      "finish": "white",
+      "repairAttempt": 3,
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "sourcePath": "public/assets/cases/case-without-gel/pixel-8-pro-black.png",
+      "sourceSha256": "e54cfa2b324d1caccdfcf3f1e1d48bc8cc54beee34fa3369c5e314fd13e29e3f",
+      "submittedPrompt": "Discard the previous generated result. Start again from the one attached original pixel-8-pro-black.png; it is the sole geometry and hardware source. The rejected result stayed dark and became a cropped horizontal close-up (171.84% silhouette-aspect drift, nontransparent pixels on all four edges, 42,378 halo pixels). Produce ONE complete straight-on rear Pixel 8 Pro phone-and-case cut-out, vertically centered and fully visible. Preserve the attached source's exact tall silhouette and camera/body geometry: visible width/height aspect 0.470717, same scale, same framing, and a transparent margin on all four sides; do not crop, zoom, widen, shorten, rotate, or redraw. Change ONLY the exterior matte-black case shell to neutral clean matte white that visibly reads white, not silver or dark grey. Preserve the original shell shading and texture, plus the metal camera bar, three lenses, flash, microphone dot, temperature sensor, buttons, and every alignment exactly. The phone/case interior must be opaque; use partial alpha only for the immediate anti-aliased edge. Everything outside the silhouette must be alpha 0: all four corners transparent, zero nontransparent canvas-edge pixels, no haze, shadow, halo, background, Gel, logo, or extra hardware. Return one transparent PNG.",
+      "submittedPromptSha256": "d9732e7200c9fd6bb5eeb0aad6a05a3477059572c822f229cc3e370dcb81b84f",
+      "candidatePath": "reference/case-history/generated/pixel-8-pro-white-repair/candidates/pixel-8-pro-white-gpt-v3-fb13c20dc836.png",
+      "sha256": "fb13c20dc83667ae306dfff07873b72d1abe1ce4989259f98b1f2bec6a2cb22e",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "conversationUrl": "https://chatgpt.com/c/6a74fe3b-e3a0-83eb-8fa8-4f6b50c0d90b",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000840881f4a5e89e8a34a3a2fe&ts=496125&p=fs&cid=1&sig=7bd8c56a5fd90ac6639cd3543873885a43e00df696e0de1dd1b7059796febc3a&v=0",
+      "automatedQa": {
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "alpha-halo"
+        ],
+        "targetAspect": 0.470717,
+        "aspectDriftPercent": 0.2,
+        "candidate": {
+          "visibleBoundsPx": {
+            "left": 161,
+            "top": 29,
+            "right": 859,
+            "bottom": 1516,
+            "width": 699,
+            "height": 1488
+          },
+          "widthFill": 0.682617,
+          "heightFill": 0.96875,
+          "visibleAspect": 0.469758,
+          "alphaStats": {
+            "transparent": 535812,
+            "partial": 365962,
+            "opaque": 671090
+          },
+          "cornerAlpha": {
+            "topLeft": 0,
+            "topRight": 0,
+            "bottomRight": 0,
+            "bottomLeft": 0
+          },
+          "edgePixels": {
+            "top": 0,
+            "right": 19,
+            "bottom": 0,
+            "left": 8
+          },
+          "haloPixelsOutsideDilatedCore": 1954
+        }
+      },
+      "reviewStatus": "rejected",
+      "failureReasons": [
+        "alpha-background",
+        "framing"
+      ],
+      "reviewNotes": "The matte White finish, complete vertical silhouette, Pixel 8 Pro hardware, and 0.20% aspect drift pass visual review. The exact PNG is still rejected because a broad grey partial-alpha background remains around the phone, 27 nontransparent pixels touch the left/right canvas edges, 1,954 halo pixels sit outside the dilated core, and the visible fill misses the locked framing thresholds. This candidate must never enter the runtime trust manifest.",
+      "recordedAt": "2026-08-06T21:39:31Z"
+    },
+    {
+      "key": "pixel-8-pro:white",
+      "modelId": "pixel-8-pro",
+      "modelName": "Pixel 8 Pro",
+      "finish": "white",
+      "repairAttempt": 4,
+      "publish": false,
+      "generator": "ChatGPT image generation",
+      "sourcePath": "reference/case-history/generated/pixel-8-pro-white-repair/candidates/pixel-8-pro-white-gpt-v3-fb13c20dc836.png",
+      "sourceSha256": "fb13c20dc83667ae306dfff07873b72d1abe1ce4989259f98b1f2bec6a2cb22e",
+      "submittedPrompt": "Perform an alpha-only cleanup on the one attached PNG. This is a technical transparency repair, not a redesign or regeneration. Preserve the complete Pixel 8 Pro phone and matte White case exactly as supplied: every visible RGB color, texture, highlight, shadow inside the physical product, camera bar, all three lenses, flash, microphone dot, temperature sensor, buttons, silhouette, 0.469758 visible aspect, position, scale, and 1024 x 1536 framing must remain unchanged. Do not recolor, redraw, sharpen, blur, crop, zoom, resize, move, rotate, or add anything. Change ONLY the alpha outside the physical phone/case silhouette. The current file has a broad grey semi-transparent field around the phone, 1,954 isolated halo pixels, and 27 nontransparent pixels touching the left/right canvas edges. Set every pixel outside the product and its immediate one-pixel anti-aliased contour to alpha 0. Keep the product interior opaque and preserve only the true immediate anti-aliased edge. Required output: one 1024 x 1536 RGBA PNG with all four corners alpha 0, zero nontransparent pixels on every canvas edge, no grey field, haze, drop shadow, glow, halo, background, Gel, logo, or extra hardware. Return only the cleaned transparent PNG.",
+      "submittedPromptSha256": "b1bed03cac3e108d96cb3e577c4c60f3e8d5e233637860db45846f4ddad25383",
+      "candidatePath": "reference/case-history/generated/pixel-8-pro-white-repair/candidates/pixel-8-pro-white-gpt-v4-a4996e71099f.png",
+      "sha256": "a4996e71099f4123030e62c49be10ba00a496a4f8f3702241d3370e6ff620f4c",
+      "widthPx": 1024,
+      "heightPx": 1536,
+      "conversationUrl": "https://chatgpt.com/c/6a75022f-25dc-83eb-a26c-3c6d65b7a0ab",
+      "sourceUrl": "https://chatgpt.com/backend-api/estuary/content?id=file_000000000d8481f49840528e510ccdec&ts=496125&p=fs&cid=1&sig=8cffebf2ad63eac488a67e9338f673092c748307c7b15a3df41d738866c915fc&v=0",
+      "automatedQa": {
+        "passed": false,
+        "failures": [
+          "canvas-edge-leak",
+          "width-fill",
+          "height-fill",
+          "aspect-ratio",
+          "alpha-halo"
+        ],
+        "targetAspect": 0.470717,
+        "aspectDriftPercent": 1.49,
+        "candidate": {
+          "visibleBoundsPx": {
+            "left": 169,
+            "top": 43,
+            "right": 851,
+            "bottom": 1515,
+            "width": 683,
+            "height": 1473
+          },
+          "widthFill": 0.666992,
+          "heightFill": 0.958984,
+          "visibleAspect": 0.46368,
+          "alphaStats": {
+            "transparent": 1199246,
+            "partial": 262696,
+            "opaque": 110922
+          },
+          "cornerAlpha": {
+            "topLeft": 0,
+            "topRight": 0,
+            "bottomRight": 0,
+            "bottomLeft": 0
+          },
+          "edgePixels": {
+            "top": 0,
+            "right": 11,
+            "bottom": 0,
+            "left": 7
+          },
+          "haloPixelsOutsideDilatedCore": 60360
+        }
+      },
+      "sourceFidelityQa": {
+        "passed": false,
+        "sourceCandidateSha256": "fb13c20dc83667ae306dfff07873b72d1abe1ce4989259f98b1f2bec6a2cb22e",
+        "alphaChangedPixels": 894181,
+        "coreMaskIoU": 0.282889,
+        "coreIntersectionPixels": 291941,
+        "rgbChangedPixels": 263316,
+        "rgbChangedFraction": 0.901949,
+        "rgbDeltaGreaterThan5Pixels": 163825,
+        "rgbDeltaGreaterThan5Fraction": 0.561158,
+        "meanAbsoluteRgbDelta": 9.586537,
+        "maximumRgbDelta": 255
+      },
+      "reviewStatus": "rejected",
+      "failureReasons": [
+        "alpha-background",
+        "geometry",
+        "framing",
+        "source-fidelity"
+      ],
+      "reviewNotes": "This alpha-only cleanup request is rejected. The output visibly redraws the supplied White phone with a dark grey centre gradient instead of preserving its RGB content. Against v3, 90.19% of pixels in the shared alpha>=128 product region changed RGB, 56.12% changed by more than 5 in at least one channel, and core-mask IoU is only 0.282889. Strict image QA also finds 60,360 halo pixels, 18 nontransparent side-edge pixels, 1.49% aspect drift, and framing below the locked fill thresholds. This candidate must never enter the runtime trust manifest.",
+      "recordedAt": "2026-08-06T21:57:04Z"
+    }
+  ]
+}

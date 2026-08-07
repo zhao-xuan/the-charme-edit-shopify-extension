@@ -1,7 +1,7 @@
 /**
  * Charmé Edit design tokens for Ant Design's ConfigProvider.
  * Warm cream canvas, dusty-rouge primary, antique-gold accents — echoing the
- * thecharmeedit.com aesthetic (Cormorant Garamond display + Helvetica body).
+ * thecharmeedit.com aesthetic (Amiri body/headings + Azeret Mono accents).
  */
 export const charme = {
   cream: '#F7F1E8',
@@ -26,8 +26,7 @@ export const theme = {
     colorBorder: charme.line,
     colorBorderSecondary: '#EEE6D9',
     borderRadius: 10,
-    fontFamily:
-      "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontFamily: "'Amiri', Georgia, serif",
     fontSize: 14,
     controlHeight: 38,
     wireframe: false,

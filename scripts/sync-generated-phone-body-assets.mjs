@@ -14,6 +14,7 @@ const candidateRoot = path.join(
 )
 const assetRoot = path.join(repoRoot, 'public/assets/cases/generated-phone-bodies')
 const mapPath = path.join(repoRoot, 'src/data/generated-phone-body-images.json')
+const runtimeExclusions = new Set(['iphone-xr:black', 'iphone-xr:white'])
 
 const sha256 = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex')
 
@@ -41,7 +42,9 @@ async function copyExact(sourcePath, destinationPath, expectedSha256) {
 async function main() {
   const provenance = JSON.parse(await fs.readFile(provenancePath, 'utf8'))
   const candidates = provenance.candidates.filter((candidate) => (
-    candidate.candidatePath && !candidate.modelId.startsWith('pixel-')
+    candidate.candidatePath
+    && !candidate.modelId.startsWith('pixel-')
+    && !runtimeExclusions.has(`${candidate.modelId}:${candidate.finish}`)
   ))
   const seenTargets = new Set()
   const imageMap = {}

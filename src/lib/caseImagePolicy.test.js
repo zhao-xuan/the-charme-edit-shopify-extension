@@ -6,6 +6,9 @@ import { ANDROID_LAUNCH_MODEL_IDS, trustedCaseImages } from './caseImagePolicy.j
 const officialImages = JSON.parse(
   readFileSync(new URL('../data/official-phone-case-images.json', import.meta.url), 'utf8'),
 )
+const generatedImages = JSON.parse(
+  readFileSync(new URL('../data/generated-phone-body-images.json', import.meta.url), 'utf8'),
+)
 const officialImageBounds = JSON.parse(
   readFileSync(new URL('../data/official-phone-case-image-bounds.json', import.meta.url), 'utf8'),
 )
@@ -29,6 +32,16 @@ test('Pixel models expose only Case Review images in the official manifest', () 
     { ...unreviewedInputs, officialImages: { white: 'official-white.png' } },
   )
   assert.deepEqual(images, { white: 'official-white.png' })
+})
+
+test('Pixel 8 Pro keeps reviewed Black and disables the unsafe White finish', () => {
+  assert.deepEqual(officialImages['pixel-8-pro'], {
+    black: '/assets/cases/case-without-gel/pixel-8-pro-black.png',
+  })
+})
+
+test('iPhone XR cannot be overridden by rejected generated phone bodies', () => {
+  assert.equal(generatedImages['iphone-xr'], undefined)
 })
 
 test('Samsung S24-S26 official finishes replace every unreviewed source', () => {
@@ -119,4 +132,15 @@ test('Apple retains its existing remote and generated image precedence', () => {
     unreviewedInputs,
   )
   assert.deepEqual(images, { white: 'generated-white.png', black: 'generated-black.png' })
+})
+
+test('Apple keeps a remote finish when only the other finish has a generated override', () => {
+  const images = trustedCaseImages(
+    { brand: 'apple', blankImage: { white: 'legacy-white.png' } },
+    {
+      remoteProduct: { src: 'remote-white.png', srcBlack: 'remote-black.png' },
+      generatedImages: { black: 'generated-black.png' },
+    },
+  )
+  assert.deepEqual(images, { white: 'remote-white.png', black: 'generated-black.png' })
 })

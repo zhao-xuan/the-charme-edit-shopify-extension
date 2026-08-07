@@ -71,18 +71,17 @@
   .charme-trigger-wrap--left{display:flex;justify-content:flex-start}
   .charme-trigger-wrap--center{display:flex;justify-content:center}
   .charme-trigger-wrap--right{display:flex;justify-content:flex-end}
-  .charme-trigger{font:inherit;cursor:pointer;border:0;border-radius:0;padding:14px 30px;background:#AEC6D5;color:#1a1614;font-size:16px;letter-spacing:.02em;width:100%}
+  .charme-trigger{font-family:'Azeret Mono',ui-monospace,monospace;font-size:16px;font-weight:500;line-height:normal;cursor:pointer;border:0;border-radius:0;padding:14px 30px;background:#AEC6D5;color:#1a1614;letter-spacing:0;width:100%}
   .charme-trigger:hover{opacity:.9}
   .charme-modal{position:fixed;inset:0;z-index:2147483000}
   .charme-modal[hidden]{display:none}
-  .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column}
+  .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;font-family:'Amiri',Georgia,serif}
   .charme-modal__topbar{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;padding:8px 16px;border-bottom:1px solid #e4d8c7;background:#f4edda}
-  .charme-back{display:inline-flex;align-items:center;gap:8px;font:inherit;cursor:pointer;border:0;border-radius:0;background:transparent;color:#2e2a26;font-size:15px;padding:8px 10px;z-index:1}
+  .charme-back{display:inline-flex;align-items:center;gap:8px;font-family:'Azeret Mono',ui-monospace,monospace;font-size:15px;font-weight:500;line-height:normal;cursor:pointer;border:0;border-radius:0;background:transparent;color:#2e2a26;padding:8px 10px;z-index:1}
   .charme-back:hover{opacity:.65}
   .charme-back__arrow{font-size:18px;line-height:1}
-  /* Charmé logo replaces the store menu, centred in the nav bar (matches the
-     app's serif brand mark). */
-  .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond','Playfair Display',Georgia,serif;font-size:23px;font-weight:600;letter-spacing:.02em;color:#2e2a26;white-space:nowrap;pointer-events:none}
+  /* Charmé logo replaces the store menu, centred in the nav bar. */
+  .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Amiri',Georgia,serif;font-size:23px;font-weight:700;letter-spacing:0;color:#2e2a26;white-space:nowrap;pointer-events:none}
   .charme-logo-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-height:40px;width:auto;pointer-events:none}
   .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
   body.charme-modal-open{overflow:hidden}
@@ -128,11 +127,11 @@
   })();
 </script>
 
-{%- comment -%} Brand fonts so the nav bar + widget render in the Charmé serif even
+{%- comment -%} Store fonts so the nav bar + widget match the theme typography even
   when the theme doesn't already load them. {%- endcomment -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="{{ cfg_api_base }}/widget/charme-customizer.css">
 <script src="{{ cfg_api_base }}/widget/charme-customizer.js" defer></script>
 

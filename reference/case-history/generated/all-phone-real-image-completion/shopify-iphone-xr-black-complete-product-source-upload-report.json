@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-06T22:43:13.762Z",
+  "provenancePath": null,
+  "sourceMode": "official-source",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 1,
+    "updated": 0,
+    "alreadyCurrent": 1,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 1,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-xr",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "95976631e4c77351ce955295cf97f9859f7447055be2ce66ad2b951ae22ce77b",
+      "pixelSha256": "c0edbbb66995766a3fa3435fa908f846b53232f596260527096b26c69c0f6f3d",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471570907514",
+      "fileId": "gid://shopify/MediaImage/71430333366650",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-black-without-gel-official-source-95976631e4c7.png?v=1786056178",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-xr",
+      "sourcePath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-black-rhinoshield-product-SST0108552.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 641486,
+        "sha256": "6f1e4fe84de82c2285368421b37a7a6fd16c9fbdf5aed5ef3c9993f7df48c235",
+        "pixelSha256": "c0edbbb66995766a3fa3435fa908f846b53232f596260527096b26c69c0f6f3d",
+        "pixelWidth": 839,
+        "pixelHeight": 1587,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1331493,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

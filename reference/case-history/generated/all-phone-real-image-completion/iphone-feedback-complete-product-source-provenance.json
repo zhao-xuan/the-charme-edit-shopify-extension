@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "campaign": "iphone-feedback-complete-product-source-correction",
+  "recordedAt": "2026-08-06T13:56:50Z",
+  "provider": "RHINOSHIELD",
+  "sourceRule": {
+    "acceptedEndpoint": "https://image.rhinoshield.app/v2/products/{sku}",
+    "rejectedEndpoint": "https://image.rhinoshield.app/materials/body/{sku}",
+    "reason": "The v2 products endpoint returns the official complete phone-and-case composite. The materials/body endpoint is only the case-body layer and leaves the camera opening empty."
+  },
+  "archiveTransform": {
+    "inputFormat": "webp",
+    "outputFormat": "png",
+    "operation": "Lossless decode and PNG encode with no resize or pixel edits",
+    "widthPx": 2000,
+    "heightPx": 2000,
+    "decodedPixelIdentityVerified": true
+  },
+  "sources": [
+    {
+      "modelId": "iphone-12-pro",
+      "finish": "black",
+      "sku": "SST0118552",
+      "deviceColor": "morning-mist",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/SST0118552?device-handle=iphone-12-pro&device-color=morning-mist&size=2000&lossless=1",
+      "sourceResponseSha256": "ee5025d05a36fdea5a3a1041ab96e2e41ffdd4b850a0ad4d26fe713fc78a92c1",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-12-pro-official-black-rhinoshield-product-SST0118552.png",
+      "archivedSha256": "9975b11ff86ee60efb2dc79c5ef02e21f0152b95e8b06e2def7cfa4103c80ec9",
+      "pixelSha256": "a9ba22aec1cbe4d5261ea0bcb49a7845f1c3858413174dc0a9860f5245b85c8e",
+      "visualQa": "Complete case and phone; triangular triple lenses, flash, LiDAR, and microphone visible."
+    },
+    {
+      "modelId": "iphone-16",
+      "finish": "black",
+      "sku": "NST0132552",
+      "deviceColor": "black-43474a",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/NST0132552?device-handle=iphone-16&device-color=black-43474a&size=2000&lossless=1",
+      "sourceResponseSha256": "653c847ff727b508a5b78862ac30f0c16e4d9b23a0a751fedea35b3b25376c9a",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16-official-black-rhinoshield-product-NST0132552.png",
+      "archivedSha256": "d3e2a281c58957151d075934850892693cd5efd782b43735ef0c3ca46213333c",
+      "pixelSha256": "559f846a0fe3be3deaec80ca202413a727b1435c2d2bfdb6e4f854060404c530",
+      "visualQa": "Complete case and phone; two vertically stacked lenses and separate flash visible."
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "black",
+      "sku": "NST0132752",
+      "deviceColor": "black-titanium-505153",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/NST0132752?device-handle=iphone-16-pro&device-color=black-titanium-505153&size=2000&lossless=1",
+      "sourceResponseSha256": "16fd30c8c0f8a98caa3e2feb02b201988ad6e224947a9eddf8cd1d402a17b435",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16-pro-official-black-rhinoshield-product-NST0132752.png",
+      "archivedSha256": "b89acc6c4397b52b73aea35ec05a258a04b84012ff0e31d3bb0d468feeb93691",
+      "pixelSha256": "b71f488b61502958f57f9cf16accf7cb8253dc866560b8a56ea2f86b43e4a5d3",
+      "visualQa": "Complete case and phone; triangular triple lenses, flash, LiDAR, and microphone visible."
+    },
+    {
+      "modelId": "iphone-16-plus",
+      "finish": "black",
+      "sku": "NST0132652",
+      "deviceColor": "black-43474a",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/NST0132652?device-handle=iphone-16-plus&device-color=black-43474a&size=2000&lossless=1",
+      "sourceResponseSha256": "77899fba407d9ff6844179d7bb2b4019bd9e8c7ff48897fb0297f2d3e8b55ff7",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16-plus-official-black-rhinoshield-product-NST0132652.png",
+      "archivedSha256": "49f52d8844cad1b44eb1326385a1da3a9c2c4e1418d1ab925b44c870bb37dc3c",
+      "pixelSha256": "7dd0482911f93aca83a8fe09ed2594169943ebd3f33878842c7a5f252562721c",
+      "visualQa": "Complete case and phone; two vertically stacked lenses and separate flash visible."
+    },
+    {
+      "modelId": "iphone-air",
+      "finish": "black",
+      "sku": "NST0135152",
+      "deviceColor": "black",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/NST0135152?device-handle=iphone-air&device-color=black&size=2000&lossless=1",
+      "sourceResponseSha256": "f721d46f5a9cec0e865e83b538ad8c8534a4b00fa228df6ce3da23532f1599f3",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-air-official-black-rhinoshield-product-NST0135152.png",
+      "archivedSha256": "b25b206b8c42214451a5843e0adf8c3c28e4860fa6ef91c5d52824f7ffbdd9b3",
+      "pixelSha256": "cdfb5ca1fdb1365f183efc0a048a09088258db3b90f49c4790180013b4e6d0a9",
+      "visualQa": "Complete case and phone; single lens, microphone, and flash visible in the full camera plateau."
+    },
+    {
+      "modelId": "iphone-14",
+      "finish": "white",
+      "sku": "SST0126053",
+      "deviceColor": "morning-mist",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/SST0126053?device-handle=iphone-14&device-color=morning-mist&size=2000&lossless=1",
+      "sourceResponseSha256": "4b3d0df8031ed900cb4b463d115cf1457ae0254f07458c6573d6158758e8d255",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-14-official-white-rhinoshield-product-SST0126053.png",
+      "archivedSha256": "52f74906c1e06720a662e7f34ddce5cf71ae8a70ccf921c3c85775c7a88312c2",
+      "pixelSha256": "8647475c1beb3ed654ecaefd3c0dc5e0a50cf8cda40050b4e5c059e35e55e0dc",
+      "visualQa": "Complete case and phone; two diagonal lenses, flash, and microphone visible."
+    },
+    {
+      "modelId": "iphone-xr",
+      "finish": "black",
+      "sku": "SST0108552",
+      "deviceColor": "morning-mist",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/SST0108552?device-handle=iphone-xr&device-color=morning-mist&size=2000&lossless=1",
+      "sourceResponseSha256": "0696af0bb2a5ea7fb64d76abb519f1f7d1ffb200b9da12292d02c57aa994ebab",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-black-rhinoshield-product-SST0108552.png",
+      "archivedSha256": "38f0d908059870c1ebc85e885864b2af944f3ee903c0da3ed17525edf5be6331",
+      "pixelSha256": "3e6dc417712051872cb593998dcf9cb3067267ec6d5170f01e0a4f9620d78e9c",
+      "visualQa": "Complete case and phone; actual single lens, microphone, and flash visible inside the correctly proportioned camera opening."
+    },
+    {
+      "modelId": "iphone-xr",
+      "finish": "white",
+      "sku": "SST0108553",
+      "deviceColor": "morning-mist",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/SST0108553?device-handle=iphone-xr&device-color=morning-mist&size=2000&lossless=1",
+      "sourceResponseSha256": "368942c8c73bfb2635c789a35927323d273a46dcc91ec1fcd6f7f7bea898b87f",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-xr-official-white-rhinoshield-product-SST0108553.png",
+      "archivedSha256": "b764db16d862a643962e9bc087d247a3f1468aa826ebe6ae1977a839fc0d2dbc",
+      "pixelSha256": "7c66b10aabe693cc9b4f5a96c207862439962d3e5eaf77fdae514a99ca52f0cd",
+      "visualQa": "Complete case and phone; actual single lens, microphone, and flash visible inside the camera opening."
+    },
+    {
+      "modelId": "iphone-11-pro-max",
+      "finish": "white",
+      "sku": "SST0114953",
+      "deviceColor": "morning-mist",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/SST0114953?device-handle=iphone-11-pro-max&device-color=morning-mist&size=2000&lossless=1",
+      "sourceResponseSha256": "6bdbfa4de78e0543589860235d4adb9327515655840230695c794e42e91fdccd",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-11-pro-max-official-white-rhinoshield-product-SST0114953.png",
+      "archivedSha256": "c7915a752fb6ae7d2287db58dc34d3011757a7db7af284b0a9bdf7c3487c0fe7",
+      "pixelSha256": "e90f8d30e4a28e3bccbfe39e15712af817db8a0feeac2eac621d0ffd9a03781a",
+      "visualQa": "Complete case and phone; triangular triple lenses, flash, and microphone visible."
+    },
+    {
+      "modelId": "iphone-16-pro",
+      "finish": "white",
+      "sku": "NST0132753",
+      "deviceColor": "black-titanium-505153",
+      "sourceUrl": "https://image.rhinoshield.app/v2/products/NST0132753?device-handle=iphone-16-pro&device-color=black-titanium-505153&size=2000&lossless=1",
+      "sourceResponseSha256": "d27a10307f60dadbda8b3aa61d90d94900c70d67d39f687346f1b9506b395d2c",
+      "archivedPath": "reference/case-history/generated/all-phone-real-image-completion/references/iphone-16-pro-official-white-rhinoshield-product-NST0132753.png",
+      "archivedSha256": "6f1f3f1596807e72810792d27e8fa437479cb12c273424c5ddde53f72f4d9413",
+      "pixelSha256": "51318b5ead7171e3e55701867f8e8b0d6ed43df32491630375cd65cdb3971b42",
+      "visualQa": "Complete case and phone; triangular triple lenses, flash, LiDAR, and microphone visible."
+    }
+  ],
+  "qa": {
+    "visualReview": "passed-by-direct-review",
+    "fullPhoneAndCaseVisible": true,
+    "cameraHardwareVisible": true,
+    "caseBodyOnlyLayersExcluded": true,
+    "aiGeneratedSourcesExcluded": true,
+    "decodedPixelChecksPassed": 10
+  }
+}

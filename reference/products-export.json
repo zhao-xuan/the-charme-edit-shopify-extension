@@ -4360,14 +4360,14 @@
   {
     "id": "tote-tj",
     "group": "tote",
-    "name": "Trader Joe's Tote",
+    "name": "The Charmé Edit Tote",
     "kind": "tote",
     "basePrice": 16,
-    "widthMm": 400,
-    "heightMm": 607,
+    "widthMm": 442.2,
+    "heightMm": 596.6,
     "radiusMm": 8,
     "blankImage": {
-      "natural": "/assets/totes/tj-natural.png"
+      "natural": "/assets/totes/charme-natural.png"
     },
     "colors": [
       {
@@ -4380,18 +4380,35 @@
     ],
     "printable": {
       "outer": {
-        "xMm": 40,
-        "yMm": 285,
-        "wMm": 320,
-        "hMm": 249,
+        "xMm": 22,
+        "yMm": 300,
+        "wMm": 398.2,
+        "hMm": 250,
         "rMm": 8
       },
       "obstacles": [
         {
-          "type": "circle",
-          "cxMm": 180,
-          "cyMm": 476,
-          "rMm": 44,
+          "type": "rect",
+          "xMm": 120,
+          "yMm": 300,
+          "wMm": 34,
+          "hMm": 250,
+          "label": "left strap"
+        },
+        {
+          "type": "rect",
+          "xMm": 290,
+          "yMm": 300,
+          "wMm": 34,
+          "hMm": 250,
+          "label": "right strap"
+        },
+        {
+          "type": "rect",
+          "xMm": 165,
+          "yMm": 490,
+          "wMm": 120,
+          "hMm": 38,
           "label": "logo"
         }
       ]
@@ -4400,11 +4417,11 @@
   {
     "id": "frame-5x7",
     "group": "frame",
-    "name": "Photo Frame · 5×7”",
+    "name": "Photo Frame · 4×6”",
     "kind": "frame",
     "basePrice": 24,
-    "widthMm": 184,
-    "heightMm": 248,
+    "widthMm": 154,
+    "heightMm": 202,
     "radiusMm": 4,
     "colors": [
       {
@@ -4444,15 +4461,15 @@
       "outer": {
         "xMm": 16,
         "yMm": 16,
-        "wMm": 152,
-        "hMm": 216,
+        "wMm": 122,
+        "hMm": 170,
         "rMm": 4
       },
       "opening": {
-        "xMm": 38,
-        "yMm": 38,
-        "wMm": 108,
-        "hMm": 172,
+        "xMm": 32,
+        "yMm": 31,
+        "wMm": 90,
+        "hMm": 140,
         "rMm": 3
       }
     }

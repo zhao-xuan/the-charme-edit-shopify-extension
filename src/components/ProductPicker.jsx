@@ -134,7 +134,7 @@ export default function ProductPicker({
           return (
             <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
               <strong>{p.name}</strong>
-              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 17 }}>{formatMoney(p.basePrice, { whole: true })}</span>
+              <span style={{ fontSize: 17 }}>{formatMoney(p.basePrice, { whole: true })}</span>
             </span>
           )
         }}
@@ -148,7 +148,7 @@ export default function ProductPicker({
             filter: opt.data.disabled ? 'grayscale(1)' : 'none',
           }}>
             <strong>{opt.data.name}</strong>
-            <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: opt.data.disabled ? 14 : 18 }}>
+            <span style={{ fontSize: opt.data.disabled ? 14 : 18 }}>
               {opt.data.disabled ? t('picker.comingSoon') : formatMoney(opt.data.price, { whole: true })}
             </span>
           </div>

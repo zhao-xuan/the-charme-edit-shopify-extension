@@ -1,12 +1,23 @@
 {
-  "generatedAt": "2026-06-13T23:40:59.785Z",
-  "source": "amazon.co.uk EXZMA Trader Joe’s cotton canvas tote (B0CRQ6ZX8F)",
+  "generatedAt": "2026-08-07T00:35:08.838Z",
+  "source": "merchant-supplied Charme tote reference",
   "totes": {
     "tote-tj": {
-      "src": "/assets/totes/tj-natural.png",
-      "pxW": 450,
-      "pxH": 683,
-      "aspect": 0.6589
+      "src": "/assets/totes/charme-natural.png",
+      "pxW": 931,
+      "pxH": 1256,
+      "aspect": 0.7412,
+      "widthMm": 442.2,
+      "heightMm": 596.6,
+      "calibration": {
+        "reference": "handle apex to body top",
+        "distancePx": 600,
+        "distanceMm": 285,
+        "mmPerPx": 0.475,
+        "handleApexY": 0,
+        "bodyTopY": 600,
+        "bodyTopMm": 285
+      }
     }
   }
 }

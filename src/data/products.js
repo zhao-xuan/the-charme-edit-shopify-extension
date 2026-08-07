@@ -502,29 +502,33 @@ const FRAME_COLOURS = [
 const FRAME_BASE_PRICE = 24
 
 /**
- * Build the photo-frame product. Real-ish 5×7" tabletop frame: a 152×216mm
- * outer moulding with a 22mm border around a 108×172mm photo opening, sat on a
- * 16mm margin so overhanging charms have room to render.
+ * Build the measured 4×6" tabletop frame: a 122×170mm outer moulding around a
+ * 90×140mm visible photo opening. The measured rails are 16mm left/right and
+ * 15mm top/bottom. A 16mm canvas margin leaves room for overhanging charms.
  */
 function makeFrame() {
   const margin = 16
-  const outerW = 152
-  const outerH = 216
-  const border = 22
+  const outerW = 122
+  const outerH = 170
+  const openingW = 90
+  const openingH = 140
+  const insetX = (outerW - openingW) / 2
+  const insetY = (outerH - openingH) / 2
   const widthMm = outerW + margin * 2
   const heightMm = outerH + margin * 2
   const outer = { xMm: margin, yMm: margin, wMm: outerW, hMm: outerH, rMm: 4 }
   const opening = {
-    xMm: margin + border,
-    yMm: margin + border,
-    wMm: outerW - border * 2,
-    hMm: outerH - border * 2,
+    xMm: margin + insetX,
+    yMm: margin + insetY,
+    wMm: openingW,
+    hMm: openingH,
     rMm: 3,
   }
   return {
+    // Stable legacy key used by saved cross-sell settings and variant maps.
     id: 'frame-5x7',
     group: 'frame',
-    name: 'Photo Frame · 5×7”',
+    name: 'Photo Frame · 4×6”',
     kind: 'frame',
     basePrice: FRAME_BASE_PRICE,
     widthMm,
@@ -562,32 +566,31 @@ const BASE_PRODUCT_GROUPS = [
     key: 'tote',
     label: 'Totes',
     platform: 'tote',
-    blurb: 'The classic Trader Joe’s cotton canvas tote.',
+    blurb: 'The Charmé Edit natural canvas tote.',
     products: [
       {
         id: 'tote-tj',
         group: 'tote',
-        name: "Trader Joe's Tote",
+        name: 'The Charmé Edit Tote',
         kind: 'tote',
         basePrice: 16,
-        // Matches the trimmed photo aspect (450×683 ≈ 0.659) so patch sizes
-        // stay physically accurate on the real bag image.
-        widthMm: 400,
-        heightMm: 607,
+        // Calibrated from the supplied photo: handle apex to body top is
+        // 600px = 285mm, or 0.475mm per source pixel.
+        widthMm: 442.2,
+        heightMm: 596.6,
         radiusMm: 8,
-        // Real Trader Joe's cotton canvas tote (see scripts/process-tote.mjs).
         blankImage: {
-          natural: '/assets/totes/tj-natural.png',
+          natural: '/assets/totes/charme-natural.png',
         },
         colors: [
           { id: 'natural', label: "Natural canvas", shell: '#e9dec6', edge: '#1c2740', glitter: false },
         ],
-        // Calibrated to the photo: cream front panel below the top hem (≈47%),
-        // above the navy base (≈88%), clear of the red Trader Joe's crest.
         printable: {
-          outer: { xMm: 40, yMm: 285, wMm: 320, hMm: 249, rMm: 8 },
+          outer: { xMm: 22, yMm: 300, wMm: 398.2, hMm: 250, rMm: 8 },
           obstacles: [
-            { type: 'circle', cxMm: 180, cyMm: 476, rMm: 44, label: 'logo' },
+            { type: 'rect', xMm: 120, yMm: 300, wMm: 34, hMm: 250, label: 'left strap' },
+            { type: 'rect', xMm: 290, yMm: 300, wMm: 34, hMm: 250, label: 'right strap' },
+            { type: 'rect', xMm: 165, yMm: 490, wMm: 120, hMm: 38, label: 'logo' },
           ],
         },
       },
@@ -645,6 +648,33 @@ function buildCustomProduct(raw) {
   }
 }
 
+function scalePrintable(printable, scaleX, scaleY) {
+  if (!printable || (scaleX === 1 && scaleY === 1)) return printable
+  const scaleRadius = Math.min(scaleX, scaleY)
+  const scaleRect = (rect) => ({
+    ...rect,
+    xMm: rect.xMm == null ? rect.xMm : +(rect.xMm * scaleX).toFixed(2),
+    yMm: rect.yMm == null ? rect.yMm : +(rect.yMm * scaleY).toFixed(2),
+    wMm: rect.wMm == null ? rect.wMm : +(rect.wMm * scaleX).toFixed(2),
+    hMm: rect.hMm == null ? rect.hMm : +(rect.hMm * scaleY).toFixed(2),
+    rMm: rect.rMm == null ? rect.rMm : +(rect.rMm * scaleRadius).toFixed(2),
+  })
+  const scaleObstacle = (obstacle) => obstacle.type === 'circle'
+    ? {
+        ...obstacle,
+        cxMm: +(obstacle.cxMm * scaleX).toFixed(2),
+        cyMm: +(obstacle.cyMm * scaleY).toFixed(2),
+        rMm: +(obstacle.rMm * scaleRadius).toFixed(2),
+      }
+    : scaleRect(obstacle)
+  return {
+    ...printable,
+    outer: scaleRect(printable.outer),
+    ...(printable.opening ? { opening: scaleRect(printable.opening) } : {}),
+    obstacles: (printable.obstacles || []).map(scaleObstacle),
+  }
+}
+
 /**
  * Fold the merchant overrides into the catalogue: apply per-model price
  * overrides (from the Cloudflare API + local admin), then append a "Custom"
@@ -664,7 +694,31 @@ function applyAdminOverrides(groups) {
     admin.productPrices[id] ?? remoteProductPrice[id] ?? remotePrices[id] ?? fallback
   const withRemoteImage = (product) => {
     const remoteProduct = remoteProducts.get(product.id)
-    if (product.kind !== 'phone') return product
+    if (product.kind !== 'phone') {
+      if (!remoteProduct) return product
+      const isLegacyToteReference =
+        product.id === 'tote-tj' &&
+        Number(remoteProduct.widthMm) === 400 &&
+        Number(remoteProduct.heightMm) === 607 &&
+        /\/tote-tj-white\.png(?:\?|$)/.test(remoteProduct.src || '')
+      if (isLegacyToteReference) return product
+      const widthMm = Number(remoteProduct.widthMm) || product.widthMm
+      const heightMm = Number(remoteProduct.heightMm) || product.heightMm
+      const scaleX = widthMm / product.widthMm
+      const scaleY = heightMm / product.heightMm
+      const remoteImage = remoteProduct.src
+      const blankImage = remoteImage
+        ? Object.fromEntries(['default', ...(product.colors || []).map((color) => color.id)].map((key) => [key, remoteImage]))
+        : product.blankImage
+      return {
+        ...product,
+        ...(remoteProduct.name ? { name: remoteProduct.name } : {}),
+        widthMm,
+        heightMm,
+        blankImage,
+        printable: scalePrintable(product.printable, scaleX, scaleY),
+      }
+    }
     const blankImage = trustedCaseImages(product, {
       remoteProduct,
       generatedImages: GENERATED_PHONE_BODY_IMAGES[product.id],

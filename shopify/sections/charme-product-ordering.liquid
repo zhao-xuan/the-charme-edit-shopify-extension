@@ -178,9 +178,24 @@
       });
     }
 
+    function syncManualPurchase() {
+      var root = document.querySelector(rootSelector);
+      var button = root && root.querySelector('.charme-order-path--standard .add-to-cart-button');
+      if (!button) return;
+      var labels = button.querySelectorAll('span');
+      for (var index = 0; index < labels.length; index += 1) {
+        if (labels[index].textContent.trim() === 'Add to cart') {
+          labels[index].textContent = 'Confirm my case choice';
+          break;
+        }
+      }
+      button.setAttribute('aria-label', 'Confirm my case choice');
+    }
+
     function syncSection() {
       syncDesignLink();
       syncCarouselSlides();
+      syncManualPurchase();
     }
 
     if (bindings[bindingKey]) {
@@ -328,7 +343,7 @@
   .charme-order-guide__header h2 {
     margin: 0;
     font-family: var(--font-heading--family);
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-size: clamp(2rem, 3vw, 2.25rem);
     font-weight: var(--font-heading--weight);
     letter-spacing: 0;
     line-height: 1.08;
@@ -404,7 +419,7 @@
     transform: translate(-50%, -50%);
   }
 
-  .charme-order-path--standard {
+  .charme-product-ordering .charme-order-path--standard {
     align-self: stretch;
   }
 
@@ -412,10 +427,11 @@
     align-self: center;
     padding: 6px 14px;
     border-radius: 999px;
-    background: rgb(var(--color-foreground-rgb) / 0.06);
-    color: rgb(var(--color-foreground-rgb) / 0.78);
+    background: rgb(var(--color-foreground-rgb));
+    color: rgb(var(--color-background-rgb));
     font-family: var(--font-body--family);
     font-size: 0.6875rem;
+    font-weight: 600;
     letter-spacing: 0.08em;
     line-height: 1;
     text-transform: uppercase;
@@ -429,7 +445,7 @@
   .charme-order-path__intro h2 {
     margin: 0;
     font-family: var(--font-heading--family);
-    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-size: clamp(1.625rem, 2.25vw, 1.75rem);
     font-weight: var(--font-heading--weight);
     letter-spacing: 0;
     line-height: 1.1;
@@ -445,15 +461,33 @@
   }
 
   .charme-order-path__button {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     margin-block-start: 24px;
     border-radius: 0;
     padding-inline: 28px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .charme-order-path__button,
+  .charme-order-path--standard .add-to-cart-button,
+  .charme-order-path--standard .add-to-cart-button .add-to-cart-text,
+  .charme-order-path--standard .add-to-cart-button .add-to-cart-text--added,
+  .charme-order-path--standard .add-to-cart-button .add-to-cart-text--added span {
+    font-family: var(--font-body--family) !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  .charme-order-path--standard .add-to-cart-button {
+    align-items: center !important;
+    justify-items: center !important;
+    text-align: center !important;
   }
 
   .charme-order-path--design > .charme-order-path__button {
@@ -463,6 +497,8 @@
   }
 
   .charme-order-path__arrow {
+    position: absolute;
+    inset-inline-end: 28px;
     font-size: 1.35em;
     font-weight: 300;
     line-height: 1;
@@ -512,7 +548,7 @@
   }
 
   .charme-manual-step--charms {
-    margin-block-start: 28px;
+    margin-block: auto 0 0;
     border-block-start: 1px solid var(--color-border);
     padding-block-start: 28px;
   }
@@ -532,6 +568,24 @@
   .charme-order-path--standard .product-form-buttons input,
   .charme-order-path--standard .product-form-buttons select {
     font-family: var(--font-body--family) !important;
+  }
+
+  .charme-order-path--standard label,
+  .charme-order-path--standard button,
+  .charme-order-path--standard input,
+  .charme-order-path--standard select,
+  .charme-order-path--standard option {
+    font-family: var(--font-body--family) !important;
+  }
+
+  .charme-order-path--standard quantity-selector-component,
+  .charme-order-path--standard .quantity-selector,
+  .charme-order-path--standard .product-form-buttons__quantity {
+    display: none !important;
+  }
+
+  .charme-order-path--standard .product-form-buttons {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   .charme-order-path--standard .product-options-step-one .cvs__heading,
@@ -556,12 +610,16 @@
       gap: 28px 0;
     }
 
+    .charme-product-ordering__heading + .charme-product-ordering__gallery {
+      margin-block-start: -14px;
+    }
+
     .charme-order-guide__header {
       padding-block-end: 4px;
     }
 
     .charme-order-guide__header h2 {
-      font-size: 2.35rem;
+      font-size: 2rem;
     }
 
     .charme-order-guide__header p {
@@ -606,7 +664,7 @@
     }
 
     .charme-order-path__intro h2 {
-      font-size: 2rem;
+      font-size: 1.625rem;
     }
 
     .charme-order-path__image {
@@ -690,7 +748,7 @@
       "type": "text",
       "id": "standard_text",
       "label": "Option 2 description",
-      "default": "We’ll handcraft your case based on your choices."
+      "default": "We’ll design for you based on your charm selection"
     },
     {
       "type": "text",
