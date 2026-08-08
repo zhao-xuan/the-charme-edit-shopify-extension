@@ -10,9 +10,10 @@
  * ({ base, active, rate, locale }) so the widget can render buyer-local prices.
  *
  * `formatMoney(gbp)` therefore: (1) converts the GBP amount to the active
- * currency using that rate, then (2) formats it with `Intl.NumberFormat` in the
- * active locale + currency (so symbol placement, grouping and the number of
- * decimals — e.g. JPY has none — are all correct for the buyer).
+ * currency using that rate, (2) rounds the converted price up to a whole
+ * presentment-currency unit, matching the merchant's Shopify Markets round-up
+ * policy, then (3) formats it with `Intl.NumberFormat` in the active locale +
+ * currency.
  */
 import { currentLocale } from './i18n.js'
 
@@ -37,7 +38,8 @@ function currencyContext() {
 /** Convert a base-currency (GBP) amount into the buyer's active currency. */
 export function convert(gbp) {
   const { rate } = currencyContext()
-  return (Number(gbp) || 0) * rate
+  const raw = (Number(gbp) || 0) * rate
+  return Math.ceil(raw - Number.EPSILON)
 }
 
 /** The active presentment currency code (e.g. 'GBP', 'USD', 'EUR', 'JPY'). */
@@ -50,21 +52,28 @@ export function activeCurrency() {
  * active currency.
  *
  * @param {number} gbp   Amount in the shop base currency (GBP).
- * @param {object} [opts]
- * @param {boolean} [opts.whole]  Drop the minor units (e.g. "£52" for the CTA).
  */
-export function formatMoney(gbp, opts = {}) {
+export function formatMoney(gbp) {
   const { active, locale } = currencyContext()
   const raw = convert(gbp)
-  const amount = opts.whole ? Math.round(raw) : raw
+  const amount = raw
+  return formatCurrency(amount, active, locale)
+}
+
+/** Format an amount already supplied by Shopify in the active currency. */
+export function formatPresentmentMoney(amount) {
+  const { active, locale } = currencyContext()
+  return formatCurrency(Number(amount) || 0, active, locale)
+}
+
+function formatCurrency(amount, active, locale) {
   try {
     return new Intl.NumberFormat(locale || undefined, {
       style: 'currency',
       currency: active,
-      ...(opts.whole ? { minimumFractionDigits: 0, maximumFractionDigits: 0 } : {}),
     }).format(amount)
   } catch {
     // Unknown/unsupported currency code → plain number prefixed with the code.
-    return `${active} ${amount.toFixed(opts.whole ? 0 : 2)}`
+    return `${active} ${amount.toFixed(2)}`
   }
 }

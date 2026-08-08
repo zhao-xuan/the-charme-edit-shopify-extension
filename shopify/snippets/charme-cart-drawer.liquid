@@ -40,8 +40,8 @@
 
 {%- assign cc_threshold   = free_shipping_threshold | default: 4500 -%}
 {%- assign cc_announce    = announcement_text -%}
-{%- assign cc_xcollection = cross_sell_collection | default: 'add-on-charms' -%}
-{%- assign cc_xtitle      = cross_sell_title | default: 'Make it more special' -%}
+{%- assign cc_xcollection = cross_sell_collection | default: 'accessories' -%}
+{%- assign cc_xtitle      = cross_sell_title | default: 'Buy 2 cases, get a FREE phone strap' -%}
 {%- assign cc_note_label  = note_label | default: 'Add a message for your design ✨' -%}
 {%- assign cc_xcol        = collections[cc_xcollection] -%}
 
@@ -50,6 +50,7 @@
   data-threshold="{{ cc_threshold }}"
   data-rec-intent="{{ recommendations_intent | default: 'related' }}"
   data-money-format="{{ shop.money_format | escape }}"
+  data-currency="{{ cart.currency.iso_code | default: localization.country.currency.iso_code | default: shop.currency | escape }}"
 >
   {%- comment -%} Floating cart button (bottom-right). {%- endcomment -%}
   <button type="button" class="cc-fab" data-cc-open aria-label="Open cart">
@@ -100,15 +101,16 @@
         <section class="cc-xsell">
           <h3 class="cc-xsell__title">{{ cc_xtitle }}</h3>
           <div class="cc-xsell__track">
-            {%- for product in cc_xcol.products limit: 12 -%}
-              {%- assign first_variant = product.selected_or_first_available_variant -%}
-              <div class="cc-xcard">
-                <a href="{{ product.url }}" class="cc-xcard__media" tabindex="-1">
-                  {{ product.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: product.title }}
-                </a>
-                <div class="cc-xcard__info">
+            {%- for product in cc_xcol.products limit: 24 -%}
+              {%- assign product_title_downcase = product.title | downcase -%}
+              {%- if product_title_downcase contains 'phone strap' -%}
+                {%- assign first_variant = product.selected_or_first_available_variant -%}
+                <article class="cc-xcard">
+                  <a href="{{ product.url }}" class="cc-xcard__media" tabindex="-1">
+                    {{ product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: product.title }}
+                  </a>
                   <div class="cc-xcard__title">{{ product.title }}</div>
-                  {%- if product.variants.size > 1 -%}
+                  <div class="cc-xcard__info">
                     <select class="cc-xcard__variant" aria-label="{{ product.title | escape }} options">
                       {%- for v in product.variants -%}
                         <option value="{{ v.id }}" data-price="{{ v.price }}" {% unless v.available %}disabled{% endunless %}>
@@ -116,15 +118,13 @@
                         </option>
                       {%- endfor -%}
                     </select>
-                  {%- else -%}
-                    <input type="hidden" class="cc-xcard__variant" value="{{ first_variant.id }}" data-price="{{ first_variant.price }}">
-                  {%- endif -%}
-                  <button type="button" class="cc-xcard__add" data-cc-xadd {% unless product.available %}disabled{% endunless %}>
-                    {%- if product.available -%}Add{%- else -%}Sold out{%- endif -%}
-                  </button>
-                </div>
-                <div class="cc-xcard__price" data-cc-xprice>{{ first_variant.price | money }}</div>
-              </div>
+                    <div class="cc-xcard__price" data-cc-xprice>{{ first_variant.price | money }}</div>
+                    <button type="button" class="cc-xcard__add" data-cc-xadd {% unless product.available %}disabled{% endunless %}>
+                      {%- if product.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+                    </button>
+                  </div>
+                </article>
+              {%- endif -%}
             {%- endfor -%}
           </div>
         </section>
@@ -136,7 +136,7 @@
       </details>
 
       <details class="cc-discount">
-        <summary>Add a discount code</summary>
+        <summary>Add a Discount Code</summary>
         <div class="cc-discount__row">
           <input type="text" data-cc-discount-input placeholder="Enter discount code" autocomplete="off">
           <button type="button" data-cc-discount-apply>Apply</button>
@@ -161,44 +161,52 @@
         Checkout · <span data-cc-checkout-total></span>
       </button>
       <a href="{{ routes.cart_url }}" class="cc-gotocart">Go to cart</a>
+      <div class="cc-secure">
+        <p class="cc-secure__label">Checkout securit</p>
+        <div class="cc-payments" aria-label="Accepted payment methods">
+          {%- for payment_type in shop.enabled_payment_types limit: 8 -%}
+            {{ payment_type | payment_type_svg_tag }}
+          {%- endfor -%}
+        </div>
+      </div>
     </footer>
   </aside>
 </div>
 
 <style>
   #charme-cart{
-    --cc-bg:#faf5e9; --cc-fg:#3d3530; --cc-muted:#8a7f74; --cc-line:#e7ddca;
-    --cc-accent:#3d3530; --cc-sale:#b0402f; --cc-badge:#9f1010; --cc-progress:#e0a92e; --cc-radius:12px;
-    --cc-width:400px; --cc-z:2147483000;
-    font-family:var(--font-paragraph--family,Helvetica,Arial,sans-serif);color:var(--cc-fg);
+    --cc-bg:#f7f0df;--cc-fg:#3d3530;--cc-muted:#756b62;--cc-line:rgba(61,53,48,.12);
+    --cc-accent:#3d3530;--cc-sale:#9f1010;--cc-badge:#9f1010;--cc-progress:#e09b4a;
+    --cc-width:450px;--cc-z:2147483000;
+    color:var(--cc-fg);font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;
   }
   #charme-cart *{box-sizing:border-box}
 
-  /* Floating button */
-  .cc-fab{position:fixed;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;
-    border:0;border-radius:50%;background:var(--cc-accent);color:#f7f0df;display:flex;align-items:center;
-    justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);z-index:calc(var(--cc-z) - 2)}
+  .cc-fab{position:fixed;right:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;
+    padding:0;border:0;border-radius:50%;background:var(--cc-accent);color:var(--cc-bg);display:flex;
+    align-items:center;justify-content:center;cursor:pointer;box-shadow:none;z-index:calc(var(--cc-z) - 2)}
   .cc-fab:hover{opacity:.92}
   .cc-fab__badge{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;
-    background:var(--cc-badge);color:#fff;font-size:12px;line-height:20px;text-align:center;font-weight:600}
+    background:var(--cc-badge);color:#fff;font-size:12px;line-height:20px;text-align:center;font-weight:700}
 
-  /* Backdrop + drawer */
   .cc-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:calc(var(--cc-z) - 1);
-    opacity:0;transition:opacity .3s;pointer-events:none}
+    opacity:0;transition:opacity .28s;pointer-events:none}
   .cc-backdrop.cc-show{opacity:1;pointer-events:auto}
-  .cc-drawer{position:fixed;top:0;right:0;height:100dvh;width:var(--cc-width);max-width:100vw;background:var(--cc-bg);
-    z-index:var(--cc-z);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s ease;
-    box-shadow:-4px 0 24px rgba(0,0,0,.15)}
+  .cc-drawer{position:fixed;inset:0 0 0 auto;width:var(--cc-width);max-width:100vw;height:100dvh;
+    padding:0 20px;overflow-x:hidden;overflow-y:auto;background:var(--cc-bg);z-index:var(--cc-z);display:block;
+    transform:translateX(100%);transition:transform .35s ease;box-shadow:none;overscroll-behavior:contain}
   .cc-drawer.cc-show{transform:translateX(0)}
   .cc-drawer[hidden],.cc-backdrop[hidden]{display:none}
 
-  .cc-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--cc-line)}
-  .cc-head__title{margin:0;font-size:22px;font-weight:600;font-family:var(--font-heading--family,inherit)}
-  .cc-x{border:0;background:none;font-size:26px;line-height:1;cursor:pointer;color:var(--cc-fg);padding:0 4px}
+  .cc-head{position:sticky;top:0;z-index:3;height:61px;margin:0 -20px;padding:0 20px;display:flex;
+    align-items:center;justify-content:space-between;background:var(--cc-bg);border-bottom:1px solid var(--cc-line)}
+  .cc-head__title{margin:0;font:700 22px/1.2 Helvetica,Arial,sans-serif;letter-spacing:0}
+  .cc-x{width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--cc-fg);font:700 27px/1 Helvetica,Arial,sans-serif;cursor:pointer}
 
-  .cc-announce{background:#e8a44c;color:#fff;text-align:center;font-weight:600;font-size:13px;padding:10px 16px}
+  .cc-announce{min-height:40px;margin:0 -20px;padding:10px 20px;background:#e89b4a;color:var(--cc-bg);
+    text-align:center;font-size:14px;font-weight:700;line-height:20px}
 
-  .cc-milestone{padding:14px 20px 12px;background:rgba(61,53,48,.04);border-bottom:1px solid var(--cc-line)}
+  .cc-milestone{margin:0 -20px;padding:14px 20px 12px;background:rgba(61,53,48,.04);border-bottom:1px solid var(--cc-line)}
   .cc-milestone__text{margin:0 0 12px;font-size:13px;text-align:center}
   .cc-milestone__text b{font-weight:700}
   .cc-milestone__track{position:relative;height:24px;display:flex;align-items:center;margin:0 12px}
@@ -211,77 +219,87 @@
   .cc-milestone.cc-unlocked .cc-ms-truck,.cc-milestone.cc-unlocked .cc-ms-gift{border-color:#3f9f57;color:#3f9f57}
   .cc-milestone__labels{display:flex;justify-content:space-between;font-size:11px;color:var(--cc-muted);margin-top:8px}
 
-  .cc-body{flex:1 1 auto;overflow-y:auto;padding:8px 20px 20px}
+  .cc-body{padding:0;overflow:visible}
   .cc-empty{padding:40px 0;text-align:center;color:var(--cc-muted)}
 
-  /* Line item */
-  .cc-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--cc-line)}
-  .cc-item__media{width:64px}
-  .cc-item__media img{width:100%;height:auto;border-radius:8px;object-fit:cover;background:#fff}
-  .cc-item--design .cc-item__media img{object-fit:contain;max-height:96px}
-  .cc-item__main{min-width:0}
-  .cc-item__head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-  .cc-item__title{font-weight:600;font-size:14px;margin:0}
-  .cc-item__variant{font-size:12px;color:var(--cc-muted);margin:2px 0 0}
-  .cc-item__tag{display:inline-block;background:#eadfca;color:#6b5f4f;font-size:11px;font-weight:600;
-    padding:2px 7px;border-radius:6px;margin:6px 4px 0 0}
+  .cc-item{min-height:234px;padding:16px 5px;border-bottom:1px solid var(--cc-line)}
+  .cc-item--design{min-height:0;padding-bottom:24px}
+  .cc-item__top{display:grid;grid-template-columns:108px minmax(0,1fr);gap:14px;align-items:start}
+  .cc-item__media{width:108px;height:82px;display:flex;align-items:center;justify-content:center}
+  .cc-item__media img{display:block;max-width:100%;max-height:82px;width:auto;height:auto;object-fit:contain;background:transparent}
+  .cc-item--design .cc-item__media{height:118px}
+  .cc-item--design .cc-item__media img{max-height:118px}
+  .cc-item__main{min-width:0;padding-top:1px}
+  .cc-item__title{margin:0;font-size:14px;font-weight:700;line-height:20px}
+  .cc-item__variant{display:-webkit-box;overflow:hidden;margin:0;font-size:14px;line-height:20px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .cc-item__tag{display:inline-block;margin:5px 4px 0 0;padding:2px 6px;border-radius:0;background:#eadfca;color:#6b5f4f;font-size:11px;font-weight:700}
   .cc-item__tag--discount{background:#e7f3ea;color:#2f7d43}
-  .cc-detail{list-style:none;margin:8px 0 0;padding:8px 10px;background:rgba(61,53,48,.05);border-radius:8px;font-size:12px;line-height:1.6}
+  .cc-detail{list-style:none;margin:14px 0 0;padding:10px 0;border-top:1px solid var(--cc-line);border-bottom:1px solid var(--cc-line);font-size:12px;line-height:1.6}
   .cc-detail li{display:flex;justify-content:space-between;gap:10px}
-  .cc-detail li.cc-detail__total{font-weight:600;border-top:1px solid var(--cc-line);margin-top:4px;padding-top:4px}
-  .cc-item__bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
-  .cc-item__edit{font-size:12px;text-decoration:underline;color:inherit;cursor:pointer}
-  .cc-item__price{font-weight:600;font-size:14px;white-space:nowrap}
+  .cc-detail li span:first-child{min-width:0;overflow-wrap:anywhere}
+  .cc-detail li span:last-child{white-space:nowrap}
+  .cc-detail li.cc-detail__total{margin-top:5px;padding-top:5px;border-top:1px solid var(--cc-line);font-weight:700}
+  .cc-item__controls{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
+  .cc-item__actions,.cc-item__purchase{display:flex;align-items:center;gap:16px}
+  .cc-item__edit,.cc-remove{padding:0;border:0;background:transparent;color:var(--cc-fg);font:400 14px/20px Helvetica,Arial,sans-serif;text-decoration:underline;cursor:pointer}
+  .cc-item__price{font-size:14px;font-weight:700;white-space:nowrap}
   .cc-item__price s{color:var(--cc-muted);font-weight:400;margin-right:6px}
   .cc-item__price--sale{color:var(--cc-sale)}
-  .cc-qty{display:inline-flex;align-items:center;gap:2px}
-  .cc-qty button{border:0;background:none;width:24px;height:24px;cursor:pointer;font-size:16px;color:var(--cc-fg);line-height:1}
-  .cc-qty span{min-width:24px;text-align:center;font-size:13px}
-  .cc-remove{border:0;background:none;color:var(--cc-muted);cursor:pointer;padding:2px;display:inline-flex;line-height:0}
-  .cc-remove:hover{color:var(--cc-sale)}
+  .cc-qty{height:42px;display:inline-flex;align-items:stretch;background:#fff}
+  .cc-qty button,.cc-qty span{width:29px;height:42px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-right:1px solid var(--cc-line);background:#fff;color:var(--cc-fg);font:400 16px/1 Helvetica,Arial,sans-serif}
+  .cc-qty button{cursor:pointer}
+  .cc-qty button:last-child{border-right:0}
+  .cc-qty span{font-size:14px}
+  .cc-remove:hover,.cc-item__edit:hover{color:var(--cc-sale)}
 
-  /* Cross-sell (compact horizontal cards, swipe one at a time) */
-  .cc-xsell{margin-top:16px}
-  .cc-xsell__title{font-size:14px;font-weight:600;margin:0 0 8px}
-  .cc-xsell__track{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .cc-xcard{flex:0 0 92%;scroll-snap-align:start;display:grid;grid-template-columns:60px 1fr auto;gap:10px;align-items:center;
-    background:#fff;border:1px solid var(--cc-line);border-radius:10px;padding:8px 10px}
-  .cc-xcard__media{width:60px;height:60px;border-radius:8px;overflow:hidden;background:#f4ecdb}
+  .cc-xsell{margin:0 -20px;padding:26px 20px 30px;border-bottom:1px solid var(--cc-line)}
+  .cc-xsell__title{margin:0 0 22px;font:700 14px/20px Helvetica,Arial,sans-serif;letter-spacing:0}
+  .cc-xsell__track{display:flex;gap:10px;margin-right:-20px;padding:0 20px 4px 0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cc-xsell__track::-webkit-scrollbar{display:none}
+  .cc-xcard{flex:0 0 188px;scroll-snap-align:start;display:flex;flex-direction:column;padding:10px 12px 12px;background:rgba(255,255,255,.26);border:0;border-radius:0}
+  .cc-xcard__media{display:block;width:164px;height:164px;overflow:hidden;background:#fff}
   .cc-xcard__media img{width:100%;height:100%;object-fit:cover}
-  .cc-xcard__info{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .cc-xcard__title{font-size:13px;font-weight:600;line-height:1.25}
-  .cc-xcard__variant{font-size:12px;padding:4px 6px;border:1px solid var(--cc-line);border-radius:6px;background:#fff;max-width:100%}
-  .cc-xcard__add{align-self:flex-start;border:0;background:var(--cc-accent);color:#f7f0df;font-size:12px;font-weight:600;
-    padding:6px 16px;border-radius:6px;cursor:pointer}
+  .cc-xcard__title{height:20px;overflow:hidden;font-size:14px;line-height:20px;white-space:nowrap;text-overflow:ellipsis}
+  .cc-xcard__info{min-width:0;display:flex;flex:1;flex-direction:column}
+  .cc-xcard__variant{width:100%;height:38px;padding:0 10px;border:1px solid var(--cc-line);border-radius:0;background:#fbf6ea;color:var(--cc-fg);font:700 13px/1 Helvetica,Arial,sans-serif;text-overflow:ellipsis}
+  .cc-xcard__price{margin:5px 0 9px;font-size:14px;font-weight:700;line-height:20px;white-space:nowrap}
+  .cc-xcard__add{width:100%;height:42px;padding:0;border:0;border-radius:0;background:var(--cc-accent);color:var(--cc-bg);font:700 14px/42px Helvetica,Arial,sans-serif;cursor:pointer}
   .cc-xcard__add:hover{opacity:.9}
   .cc-xcard__add:disabled{opacity:.5;cursor:not-allowed}
-  .cc-xcard__price{font-size:13px;font-weight:600;white-space:nowrap}
 
-  /* Note + discount */
-  .cc-note,.cc-discount{margin-top:16px;border-top:1px solid var(--cc-line);padding-top:12px}
-  .cc-note summary,.cc-discount summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;text-decoration:underline}
+  .cc-note,.cc-discount{margin:0;padding:24px 5px 0}
+  .cc-discount{margin-top:20px;border-top:1px solid var(--cc-line)}
+  .cc-note summary,.cc-discount summary{cursor:pointer;font-size:16px;font-weight:700;line-height:22px;list-style:none;text-decoration:underline}
   .cc-note summary::-webkit-details-marker,.cc-discount summary::-webkit-details-marker{display:none}
-  .cc-note textarea{width:100%;margin-top:8px;border:1px solid var(--cc-line);border-radius:8px;padding:8px;font:inherit;font-size:13px;background:#fff;resize:vertical}
+  .cc-note textarea{width:100%;margin-top:10px;padding:10px;border:1px solid var(--cc-line);border-radius:0;background:#fff;color:var(--cc-fg);font:400 14px/1.4 Helvetica,Arial,sans-serif;resize:vertical}
   .cc-discount__row{display:flex;gap:8px;margin-top:8px}
-  .cc-discount__row input{flex:1;border:1px solid var(--cc-line);border-radius:8px;padding:8px;font:inherit;font-size:13px;background:#fff}
-  .cc-discount__row button{border:0;background:var(--cc-accent);color:#f7f0df;font-weight:600;padding:0 16px;border-radius:8px;cursor:pointer}
+  .cc-discount__row input{min-width:0;flex:1;height:42px;padding:0 10px;border:1px solid var(--cc-line);border-radius:0;background:#fff;color:var(--cc-fg);font:400 14px/1 Helvetica,Arial,sans-serif}
+  .cc-discount__row button{height:42px;padding:0 18px;border:0;border-radius:0;background:var(--cc-accent);color:var(--cc-bg);font-weight:700;cursor:pointer}
   .cc-discount__chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-  .cc-chip{display:inline-flex;align-items:center;gap:6px;background:#e7f3ea;color:#2f7d43;font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px}
+  .cc-chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:0;background:#e7f3ea;color:#2f7d43;font-size:12px;font-weight:700}
   .cc-chip button{border:0;background:none;color:inherit;cursor:pointer;font-size:13px;line-height:1;padding:0}
   .cc-discount__note{font-size:11px;color:var(--cc-muted);margin:8px 0 0}
   .cc-discount__msg{font-size:12px;color:var(--cc-sale);margin:8px 0 0}
 
-  /* Footer */
-  .cc-foot{border-top:1px solid var(--cc-line);padding:16px 20px;background:var(--cc-bg)}
-  .cc-saved{background:#e7f3ea;color:#2f7d43;font-size:13px;font-weight:600;text-align:center;padding:8px;border-radius:8px;margin-bottom:12px}
+  .cc-foot{margin-top:28px;padding:16px 5px 30px;border-top:1px solid var(--cc-line);background:var(--cc-bg)}
+  .cc-saved{margin-bottom:12px;padding:8px;border-radius:0;background:#e7f3ea;color:#2f7d43;font-size:13px;font-weight:700;text-align:center}
   .cc-taxes{display:flex;justify-content:space-between;font-size:12px;color:var(--cc-muted);padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid var(--cc-line)}
-  .cc-subtotal{display:flex;justify-content:space-between;font-weight:600;font-size:16px;margin-bottom:12px}
-  .cc-checkout{width:100%;border:0;background:var(--cc-accent);color:#f7f0df;font-size:15px;font-weight:600;padding:16px;border-radius:10px;cursor:pointer}
+  .cc-subtotal{display:flex;justify-content:space-between;margin-bottom:12px;padding:5px 0;font-size:14px;font-weight:700}
+  .cc-checkout{width:100%;height:50px;padding:0;border:0;border-radius:0;background:var(--cc-accent);color:var(--cc-bg);font:700 15px/50px Helvetica,Arial,sans-serif;cursor:pointer}
   .cc-checkout:hover{opacity:.94}
-  .cc-gotocart{display:block;text-align:center;margin-top:10px;font-size:13px;text-decoration:underline;color:var(--cc-fg)}
+  .cc-gotocart{display:block;margin-top:13px;color:var(--cc-fg);font-size:14px;font-weight:700;text-align:center;text-decoration:underline}
+  .cc-secure{margin-top:20px;text-align:center}
+  .cc-secure__label{margin:0 0 10px;font-size:12px;font-weight:700;line-height:17px}
+  .cc-payments{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px}
+  .cc-payments svg{width:38px;height:24px}
 
   body.cc-open{overflow:hidden}
-  @media (max-width:480px){#charme-cart{--cc-width:100vw}.cc-fab{top:auto;bottom:16px;transform:none}}
+  @media (max-width:480px){
+    #charme-cart{--cc-width:100vw}
+    .cc-item__top{grid-template-columns:92px minmax(0,1fr)}
+    .cc-item__media{width:92px}
+    .cc-item__purchase{gap:10px}
+  }
 </style>
 
 <script>
@@ -292,34 +310,46 @@
 
   var THRESHOLD = parseInt(root.getAttribute('data-threshold'), 10) || 0;
   var MONEY_FORMAT = root.getAttribute('data-money-format') || '£{{amount}}';
+  var CURRENCY = root.getAttribute('data-currency') || 'GBP';
   var drawer = root.querySelector('.cc-drawer');
   var backdrop = root.querySelector('.cc-backdrop');
+  var closeTimer;
 
   var $ = function (sel, ctx) { return (ctx || root).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || root).querySelectorAll(sel)); };
 
   function money(cents) {
-    if (window.Shopify && Shopify.formatMoney) { try { return Shopify.formatMoney(cents, MONEY_FORMAT); } catch (e) {} }
-    return '£' + (Math.round(cents) / 100).toFixed(2);
+    try {
+      return new Intl.NumberFormat(document.documentElement.lang || undefined, {
+        style: 'currency', currency: CURRENCY
+      }).format((Number(cents) || 0) / 100);
+    } catch (error) {
+      if (window.Shopify && Shopify.formatMoney) { try { return Shopify.formatMoney(cents, MONEY_FORMAT); } catch (e) {} }
+      return CURRENCY + ' ' + ((Number(cents) || 0) / 100).toFixed(2);
+    }
   }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  var TRASH = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>';
-
   /* ------------------------------------------------------------------ open/close */
   function open() {
+    clearTimeout(closeTimer);
+    closeTimer = null;
     drawer.hidden = false; backdrop.hidden = false;
-    requestAnimationFrame(function () { drawer.classList.add('cc-show'); backdrop.classList.add('cc-show'); });
+    drawer.scrollTop = 0;
+    requestAnimationFrame(function () {
+      drawer.classList.add('cc-show'); backdrop.classList.add('cc-show'); drawer.scrollTop = 0;
+    });
     document.body.classList.add('cc-open');
-    refresh();
+    refresh().then(function () { drawer.scrollTop = 0; }).catch(function () { drawer.scrollTop = 0; });
   }
   function close() {
+    clearTimeout(closeTimer);
     drawer.classList.remove('cc-show'); backdrop.classList.remove('cc-show');
     document.body.classList.remove('cc-open');
-    setTimeout(function () { drawer.hidden = true; backdrop.hidden = true; }, 350);
+    closeTimer = setTimeout(function () { drawer.hidden = true; backdrop.hidden = true; }, 350);
   }
 
   /* ------------------------------------------------------------------ cart ops */
@@ -386,21 +416,28 @@
     var media = proof
       ? '<img src="' + esc(proof) + '" alt="Design preview">'
       : (base.image ? '<img src="' + esc(base.image) + '" alt="">' : '');
+    var variant = base.variant_title || [base.properties && base.properties.Model, base.properties && base.properties.Finish]
+      .filter(Boolean).join(' / ');
+    var editHref = base.handle
+      ? '/products/' + esc(base.handle) + '?charme_edit=' + encodeURIComponent(base.key)
+      : '/cart';
 
     return '<div class="cc-item cc-item--design" data-keys="' + esc(keys.join(',')) + '">' +
-      '<div class="cc-item__media">' + media + '</div>' +
-      '<div class="cc-item__main">' +
-        '<div class="cc-item__head">' +
+      '<div class="cc-item__top">' +
+        '<div class="cc-item__media">' + media + '</div>' +
+        '<div class="cc-item__main">' +
           '<p class="cc-item__title">Custom Charm Case</p>' +
-          '<button type="button" class="cc-remove" data-cc-remove-group aria-label="Remove">' + TRASH + '</button>' +
+          (variant ? '<p class="cc-item__variant">' + esc(variant) + '</p>' : '') +
+          lineTags(base) +
         '</div>' +
-        (base.variant_title ? '<p class="cc-item__variant">' + esc(base.variant_title) + '</p>' : '') +
-        lineTags(base) +
-        '<ul class="cc-detail">' + rows + '</ul>' +
-        '<div class="cc-item__bottom">' +
-          '<a class="cc-item__edit" href="/products/' + esc(base.handle) + '?charme_edit=' + encodeURIComponent(base.key) + '">Edit design</a>' +
-          '<span class="cc-item__price">' + money(total) + '</span>' +
+      '</div>' +
+      '<ul class="cc-detail">' + rows + '</ul>' +
+      '<div class="cc-item__controls">' +
+        '<div class="cc-item__actions">' +
+          '<a class="cc-item__edit" href="' + editHref + '">Edit design</a>' +
+          '<button type="button" class="cc-remove" data-cc-remove-group>Remove</button>' +
         '</div>' +
+        '<span class="cc-item__price">' + money(total) + '</span>' +
       '</div>' +
     '</div>';
   }
@@ -412,15 +449,17 @@
       : money(it.final_line_price);
     var media = it.image ? '<img src="' + esc(it.image) + '" alt="">' : '';
     return '<div class="cc-item" data-key="' + esc(it.key) + '">' +
-      '<div class="cc-item__media">' + media + '</div>' +
-      '<div class="cc-item__main">' +
-        '<div class="cc-item__head">' +
+      '<div class="cc-item__top">' +
+        '<div class="cc-item__media">' + media + '</div>' +
+        '<div class="cc-item__main">' +
           '<p class="cc-item__title">' + esc(it.product_title || it.title) + '</p>' +
-          '<button type="button" class="cc-remove" data-cc-remove aria-label="Remove">' + TRASH + '</button>' +
+          (it.variant_title ? '<p class="cc-item__variant">' + esc(it.variant_title) + '</p>' : '') +
+          lineTags(it) +
         '</div>' +
-        (it.variant_title ? '<p class="cc-item__variant">' + esc(it.variant_title) + '</p>' : '') +
-        lineTags(it) +
-        '<div class="cc-item__bottom">' +
+      '</div>' +
+      '<div class="cc-item__controls">' +
+        '<button type="button" class="cc-remove" data-cc-remove>Remove</button>' +
+        '<div class="cc-item__purchase">' +
           '<div class="cc-qty">' +
             '<button type="button" data-cc-dec aria-label="Decrease">&minus;</button>' +
             '<span>' + it.quantity + '</span>' +
@@ -440,7 +479,7 @@
         if (rendered[tok]) return;
         rendered[tok] = 1;
         var group = cart.items.filter(function (x) { return x.properties && x.properties._design_token === tok; });
-        html += (group.length > 1) ? renderDesign(group) : renderLine(it);
+        html += renderDesign(group);
       } else {
         html += renderLine(it);
       }
@@ -448,58 +487,14 @@
     return html;
   }
 
-  // Cross-sell: prefer live Shopify product recommendations (based on what's in
-  // the cart); if none are returned, keep the Liquid-rendered collection fallback.
-  var XSELL_INTENT = root.getAttribute('data-rec-intent') || 'related';
-  var _recSeed = null;
-  function imgUrl(u) { if (!u) return ''; return u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=120'; }
-  function recCard(p) {
-    var v0 = (p.variants || []).filter(function (v) { return v.available; })[0] || (p.variants || [])[0];
-    if (!v0) return '';
-    var img = p.featured_image || (p.images && p.images[0]) || '';
-    var sel;
-    if ((p.variants || []).length > 1) {
-      sel = '<select class="cc-xcard__variant" aria-label="' + esc(p.title) + ' options">' +
-        p.variants.map(function (v) {
-          return '<option value="' + v.id + '" data-price="' + v.price + '"' + (v.available ? '' : ' disabled') + '>' +
-            esc(v.title) + (v.available ? '' : ' \u2014 sold out') + '</option>';
-        }).join('') + '</select>';
-    } else {
-      sel = '<input type="hidden" class="cc-xcard__variant" value="' + v0.id + '" data-price="' + v0.price + '">';
-    }
-    return '<div class="cc-xcard">' +
-      '<a href="' + esc(p.url) + '" class="cc-xcard__media" tabindex="-1">' + (img ? '<img src="' + esc(imgUrl(img)) + '" loading="lazy" alt="">' : '') + '</a>' +
-      '<div class="cc-xcard__info">' +
-        '<div class="cc-xcard__title">' + esc(p.title) + '</div>' +
-        sel +
-        '<button type="button" class="cc-xcard__add" data-cc-xadd' + (p.available ? '' : ' disabled') + '>' + (p.available ? 'Add' : 'Sold out') + '</button>' +
-      '</div>' +
-      '<div class="cc-xcard__price" data-cc-xprice>' + money(v0.price) + '</div>' +
-    '</div>';
-  }
-  function renderCrosssell(cart) {
-    var track = $('.cc-xsell__track');
-    if (!track) return; // no cross-sell section on the page
-    var seed = null;
-    (cart.items || []).some(function (it) {
-      if (!(it.properties && it.properties._role === 'charm')) { seed = it; return true; }
-      return false;
-    });
-    if (!seed) seed = (cart.items || [])[0];
-    if (!seed || !seed.product_id) return;         // empty cart → keep fallback
-    if (_recSeed === seed.product_id) return;      // already loaded for this product
-    _recSeed = seed.product_id;
-    fetch('/recommendations/products.json?product_id=' + seed.product_id + '&limit=10&intent=' + encodeURIComponent(XSELL_INTENT),
-      { headers: { Accept: 'application/json' } })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var products = (data && data.products) || [];
-        var inCart = {}; (cart.items || []).forEach(function (it) { inCart[it.product_id] = 1; });
-        products = products.filter(function (p) { return !inCart[p.id]; });
-        if (!products.length) return;              // no recs → keep Liquid fallback
-        track.innerHTML = products.map(recCard).join('');
-      })
-      .catch(function () { _recSeed = null; });
+  if (window.__CHARME_CART_TEST__) {
+    window.__CHARME_CART_TEST__ = {
+      logicalCount: logicalCount,
+      renderDesign: renderDesign,
+      renderLine: renderLine,
+      renderItems: renderItems
+    };
+    return;
   }
 
   function renderMilestone(cart) {
@@ -568,7 +563,6 @@
     var note = $('[data-cc-note]');
     if (note && document.activeElement !== note) note.value = cart.note || '';
 
-    renderCrosssell(cart);
     renderMilestone(cart);
     renderDiscounts(cart);
   }

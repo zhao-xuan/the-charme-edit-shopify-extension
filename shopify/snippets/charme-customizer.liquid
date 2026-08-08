@@ -118,6 +118,7 @@
         active: {{ cart.currency.iso_code | default: shop.currency | json }},
         rate: {{ cart.currency.rate | default: 1 | json }}
       },
+      country: {{ localization.country.iso_code | default: cart.currency.country.iso_code | json }},
       {%- comment -%} presets temporarily hidden {%- endcomment -%}
       {%- comment -%} presetHandle: {{ cfg_preset | strip | json }}, {%- endcomment -%}
       height: "100%",
@@ -184,6 +185,7 @@
       if (m.product) window.CharmeConfig.defaultProductId = m.product;
       if (m.caseColourId) window.CharmeConfig.caseColourId = m.caseColourId;
       if (m.gelColourId) window.CharmeConfig.gelColourId = m.gelColourId;
+      window.CharmeConfig.variantId = vid;
     }
 
     function ensureMounted(tries) {

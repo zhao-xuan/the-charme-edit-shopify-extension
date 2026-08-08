@@ -574,10 +574,10 @@ const BASE_PRODUCT_GROUPS = [
         name: 'The Charmé Edit Tote',
         kind: 'tote',
         basePrice: 16,
-        // Calibrated from the supplied photo: handle apex to body top is
-        // 600px = 285mm, or 0.475mm per source pixel.
-        widthMm: 442.2,
-        heightMm: 596.6,
+        // The canvas includes the handles. The bag body itself is 420 x 360mm;
+        // its photo is normalized to this shared physical coordinate space.
+        widthMm: 420,
+        heightMm: 630.7,
         radiusMm: 8,
         blankImage: {
           natural: '/assets/totes/charme-natural.png',
@@ -586,11 +586,11 @@ const BASE_PRODUCT_GROUPS = [
           { id: 'natural', label: "Natural canvas", shell: '#e9dec6', edge: '#1c2740', glitter: false },
         ],
         printable: {
-          outer: { xMm: 22, yMm: 300, wMm: 398.2, hMm: 250, rMm: 8 },
+          outer: { xMm: 21, yMm: 270.7, wMm: 378, hMm: 304, rMm: 8 },
           obstacles: [
-            { type: 'rect', xMm: 120, yMm: 300, wMm: 34, hMm: 250, label: 'left strap' },
-            { type: 'rect', xMm: 290, yMm: 300, wMm: 34, hMm: 250, label: 'right strap' },
-            { type: 'rect', xMm: 165, yMm: 490, wMm: 120, hMm: 38, label: 'logo' },
+            { type: 'rect', xMm: 114, yMm: 270.7, wMm: 32.3, hMm: 304, label: 'left strap' },
+            { type: 'rect', xMm: 275, yMm: 270.7, wMm: 32.3, hMm: 304, label: 'right strap' },
+            { type: 'rect', xMm: 157, yMm: 501.8, wMm: 114, hMm: 46.2, label: 'logo' },
           ],
         },
       },

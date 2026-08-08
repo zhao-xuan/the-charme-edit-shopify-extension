@@ -6,10 +6,11 @@
  * the pipeline removes the handle watermark, trims the alpha edge, and saves a
  * transparent photoreal product layer.
  *
- * Physical dimensions use the measured 285mm from the handle apex to the top
- * edge of the tote body. Run `npm run tote`; by default the calibrated 1280x1699
- * source is expected at .tote-src/charme-tote-reference.jpg. An explicit source
- * path may be supplied as the first argument.
+ * The bag body is 420mm wide by 360mm high. The source photo includes handles,
+ * so the body is normalized independently while the handle section is retained.
+ * Run `npm run tote`; by default the calibrated 1280x1699 source is expected at
+ * .tote-src/charme-tote-reference.jpg. An explicit source path may be supplied
+ * as the first argument.
  * -------------------------------------------------------------------------
  */
 import sharp from 'sharp'
@@ -30,8 +31,8 @@ const SOURCE_WIDTH = 1280
 const SOURCE_HEIGHT = 1699
 const HANDLE_APEX_Y = 233
 const BODY_TOP_Y = 833
-const REFERENCE_DISTANCE_MM = 285
-const MM_PER_PX = REFERENCE_DISTANCE_MM / (BODY_TOP_Y - HANDLE_APEX_Y)
+const BODY_WIDTH_MM = 420
+const BODY_HEIGHT_MM = 360
 
 const round = (value, precision = 2) => Number(value.toFixed(precision))
 
@@ -138,29 +139,50 @@ async function main() {
       top: cropTop,
       height: alphaBox.top + alphaBox.height - cropTop,
     }
-    const outputPath = join(OUT_IMG, 'charme-natural.png')
-    await sharp(segmented.data, {
+    const cropped = await sharp(segmented.data, {
       raw: { width: segmented.info.width, height: segmented.info.height, channels: 4 },
     })
       .extract(box)
+      .png()
+      .toBuffer()
+    const bodyTopY = BODY_TOP_Y - box.top
+    const pxPerMm = box.width / BODY_WIDTH_MM
+    const targetBodyHeight = Math.round(BODY_HEIGHT_MM * pxPerMm)
+    const outputHeight = bodyTopY + targetBodyHeight
+    const outputPath = join(OUT_IMG, 'charme-natural.png')
+    const handle = await sharp(cropped)
+      .extract({ left: 0, top: 0, width: box.width, height: bodyTopY })
+      .png()
+      .toBuffer()
+    const body = await sharp(cropped)
+      .extract({ left: 0, top: bodyTopY, width: box.width, height: box.height - bodyTopY })
+      .resize({ width: box.width, height: targetBodyHeight, fit: 'fill' })
+      .png()
+      .toBuffer()
+    await sharp({
+      create: { width: box.width, height: outputHeight, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } },
+    })
+      .composite([{ input: handle, top: 0, left: 0 }, { input: body, top: bodyTopY, left: 0 }])
       .png({ compressionLevel: 9, palette: false })
       .toFile(outputPath)
 
     const tote = {
       src: '/assets/totes/charme-natural.png',
       pxW: box.width,
-      pxH: box.height,
-      aspect: round(box.width / box.height, 4),
-      widthMm: round(box.width * MM_PER_PX, 1),
-      heightMm: round(box.height * MM_PER_PX, 1),
+      pxH: outputHeight,
+      aspect: round(box.width / outputHeight, 4),
+      widthMm: BODY_WIDTH_MM,
+      heightMm: round(outputHeight / pxPerMm, 1),
       calibration: {
-        reference: 'handle apex to body top',
-        distancePx: BODY_TOP_Y - HANDLE_APEX_Y,
-        distanceMm: REFERENCE_DISTANCE_MM,
-        mmPerPx: round(MM_PER_PX, 4),
+        reference: 'bag body width',
+        distancePx: box.width,
+        distanceMm: BODY_WIDTH_MM,
+        mmPerPx: round(1 / pxPerMm, 4),
         handleApexY: HANDLE_APEX_Y - box.top,
-        bodyTopY: BODY_TOP_Y - box.top,
-        bodyTopMm: round((BODY_TOP_Y - box.top) * MM_PER_PX, 1),
+        bodyTopY,
+        bodyTopMm: round(bodyTopY / pxPerMm, 1),
+        bodyWidthMm: BODY_WIDTH_MM,
+        bodyHeightMm: BODY_HEIGHT_MM,
       },
     }
     await writeFile(OUT_DATA, `${JSON.stringify({
@@ -168,8 +190,8 @@ async function main() {
       source: 'merchant-supplied Charme tote reference',
       totes: { 'tote-tj': tote },
     }, null, 2)}\n`)
-    console.log(`tote blank ${box.width}x${box.height}px = ${tote.widthMm}x${tote.heightMm}mm -> ${outputPath}`)
-    console.log(`calibration ${tote.calibration.distancePx}px = ${REFERENCE_DISTANCE_MM}mm; body top ${tote.calibration.bodyTopMm}mm`)
+    console.log(`tote blank ${box.width}x${outputHeight}px = ${tote.widthMm}x${tote.heightMm}mm -> ${outputPath}`)
+    console.log(`body ${BODY_WIDTH_MM}x${BODY_HEIGHT_MM}mm; body top ${tote.calibration.bodyTopMm}mm`)
   } finally {
     await rm(temp, { recursive: true, force: true })
   }

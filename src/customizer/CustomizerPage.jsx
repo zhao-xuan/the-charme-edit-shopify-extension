@@ -25,7 +25,7 @@ import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
 import { charmPricingGroupFor } from '../lib/charmPricing'
-import { formatMoney } from '../lib/money'
+import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 
@@ -58,6 +58,14 @@ function crossSellImage(option, groups) {
 }
 
 const MOBILE_SPLITTER_GUIDE_KEY = 'charme.mobileSplitterGuide.v1'
+
+function initialCasePresentmentPrice(initialCasePresentmentPrice) {
+  if (typeof window === 'undefined') return null
+  if (Number.isFinite(initialCasePresentmentPrice) && initialCasePresentmentPrice > 0) return initialCasePresentmentPrice
+  const params = new URLSearchParams(window.location.search)
+  const amount = Number(params.get('case_price'))
+  return amount > 0 ? amount : null
+}
 
 function hasSeenMobileSplitterGuide() {
   if (typeof window === 'undefined') return true
@@ -123,6 +131,7 @@ export default function CustomizerPage({
   initialLayout,
   initialCaseColourId,
   initialGelColourId,
+  initialCasePresentmentPrice: initialCasePrice,
 }) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
@@ -253,7 +262,11 @@ export default function CustomizerPage({
 
   const stageApi = useRef(null)
 
-  const product = findProduct(productId)
+  const catalogProduct = findProduct(productId)
+  const presentmentCasePrice = initialCasePresentmentPrice(initialCasePrice)
+  const product = presentmentCasePrice && catalogProduct?.kind === 'phone'
+    ? { ...catalogProduct, presentmentPrice: presentmentCasePrice }
+    : catalogProduct
   const color = useMemo(
     () => deriveColor(product, caseColourId, gelColourId),
     [product, caseColourId, gelColourId],
@@ -768,32 +781,6 @@ export default function CustomizerPage({
     [activateCharm],
   )
 
-  const stageNode = (
-    <ProductStage
-      ref={stageApi}
-      product={geometryProduct}
-      color={color}
-      placed={placed}
-      flags={validation.flags}
-      selectedUid={selectedUid}
-      onSelect={setSelectedUid}
-      onMove={moveCharm}
-      onTransform={transformCharm}
-      onRemove={removeCharm}
-      onCheckpoint={pushHistory}
-      wordGroups={wordGroups}
-      selectedGroupId={selectedGroupId}
-      confirmGroupId={confirmGroupId}
-      onSelectGroup={selectGroup}
-      onMoveGroup={moveGroup}
-      onRequestBreak={setConfirmGroupId}
-      onCancelBreak={() => setConfirmGroupId(null)}
-      onBreakGroup={breakGroup}
-      zoom={zoom}
-      onZoomChange={setZoom}
-    />
-  )
-
   const zoomDock = (
     <div className="zoom-dock">
       <Button
@@ -987,6 +974,7 @@ export default function CustomizerPage({
       productId={productId}
       caseColourId={caseColourId}
       gelColourId={gelColourId}
+      presentmentPrice={presentmentCasePrice}
       onGroupChange={handleGroup}
       onProductChange={handleProduct}
       onCaseColourChange={setCaseColourId}
@@ -1014,7 +1002,10 @@ export default function CustomizerPage({
 
   // Order CTA total + noun (case / tote / frame) for the Step 3 bar.
   const orderNoun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
-  const orderTotal = formatMoney(product.basePrice + placedCharmsTotal(placed), { whole: true })
+  const charmTotal = placedCharmsTotal(placed)
+  const orderTotal = product.presentmentPrice
+    ? formatPresentmentMoney(product.presentmentPrice + convert(charmTotal), { whole: true })
+    : formatMoney(product.basePrice + charmTotal, { whole: true })
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).
@@ -1047,16 +1038,57 @@ export default function CustomizerPage({
       onClick={() => setMockupNoticeOpen((open) => !open)}
     >
       <InfoCircleOutlined className="mockup-notice__icon" />
-      <span>{t(mockupNoticeOpen ? 'notice.mockup' : 'notice.mockupShort')}</span>
+      <span className="mockup-notice__label">{t('notice.mockupShort')}</span>
       {mockupNoticeOpen ? <UpOutlined /> : <DownOutlined />}
+      {mockupNoticeOpen && (
+        <span className="mockup-notice__details">
+          <span>{t('notice.mockup')}</span>
+          <span>{t('step2.mobileHint')}</span>
+          <span>{stepTwoHint}</span>
+        </span>
+      )}
     </button>
+  )
+
+  const stageNode = (
+    <ProductStage
+      ref={stageApi}
+      product={geometryProduct}
+      color={color}
+      placed={placed}
+      flags={validation.flags}
+      selectedUid={selectedUid}
+      onSelect={setSelectedUid}
+      onMove={moveCharm}
+      onTransform={transformCharm}
+      onRemove={removeCharm}
+      onCheckpoint={pushHistory}
+      wordGroups={wordGroups}
+      selectedGroupId={selectedGroupId}
+      confirmGroupId={confirmGroupId}
+      onSelectGroup={selectGroup}
+      onMoveGroup={moveGroup}
+      onRequestBreak={setConfirmGroupId}
+      onCancelBreak={() => setConfirmGroupId(null)}
+      onBreakGroup={breakGroup}
+      zoom={zoom}
+      onZoomChange={setZoom}
+      fitPadding={isMobile ? 34 : undefined}
+      stageOverlay={isMobile ? mockupNotice : null}
+    />
   )
 
   return (
     <>
       {isMobile ? (
         <>
-        <div className="mobile-shell" ref={mobileShellRef}>
+        <div
+          className="mobile-shell"
+          ref={mobileShellRef}
+          onContextMenu={(event) => event.preventDefault()}
+          onSelectStart={(event) => event.preventDefault()}
+          onDragStart={(event) => event.preventDefault()}
+        >
           <header className="mobile-head">
             <div className="mobile-head__top">
               <span className="mobile-head__step">{t('step1.mobile')}</span>
@@ -1118,21 +1150,6 @@ export default function CustomizerPage({
             <div
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
             >
-              <div className="mobile-step-overlay__body">
-                <span className="mobile-step-overlay__hint">
-                  {t('step2.mobileHint')}
-                </span>
-              </div>
-              <div className="mobile-stage-notices">
-                {validation.problems > 0 && (
-                  <div className="stage-attention" role="alert">
-                    <WarningFilled className="stage-attention__icon" />
-                    <span>{tn('price.needAttention', validation.problems)}</span>
-                  </div>
-                )}
-                {mockupNotice}
-                <span className="mobile-stage-recommend">{stepTwoHint}</span>
-              </div>
               <div className="mobile-step2-bar">
                 <button
                   type="button"

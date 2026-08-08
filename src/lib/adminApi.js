@@ -78,6 +78,15 @@ export async function fetchCatalog() {
 export const addCharms = async (charms) =>
   handle(await fetch(url('/api/admin/charms'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify({ charms }) }))
 
+export const addPatches = async (patches) =>
+  handle(await fetch(url('/api/admin/patches'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify({ patches }) }))
+
+export const patchPatch = async (id, patch) =>
+  handle(await fetch(url('/api/admin/patches'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify({ id, ...patch }) }))
+
+export const deletePatch = async (id) =>
+  handle(await fetch(url('/api/admin/patches'), { method: 'DELETE', headers: await authHeaders(), body: JSON.stringify({ id }) }))
+
 export const patchCharm = async (id, patch) =>
   handle(await fetch(url('/api/admin/charms'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify({ id, ...patch }) }))
 
@@ -122,6 +131,10 @@ export const syncDiscounts = async () =>
 /** List the store's Shopify products (for bundle / product pickers). */
 export const fetchShopifyProducts = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
+
+/** List Shopify variants that can be used as native-cart billing lines. */
+export const fetchShopifyVariants = async () =>
+  handle(await fetch(url('/api/admin/shopify-variants'), { headers: await authHeaders() }))
 
 /** List the store's Shopify collections (for the bundle "whole collection" picker). */
 export const fetchShopifyCollections = async (q) =>

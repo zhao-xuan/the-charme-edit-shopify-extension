@@ -321,3 +321,32 @@ test('GPT transparent single-charm import maps the alpha subject to the entered 
   assert.equal(result.pieces[0].heightMm, 24)
   assert.equal(result.pieces[0].longMm, 30)
 })
+
+test('GPT transparent plain-background import separates multiple components at one reference scale', () => {
+  const width = 180
+  const height = 100
+  const data = new Uint8ClampedArray(width * height * 4)
+  const fill = (left, top, right, bottom, color) => {
+    for (let y = top; y <= bottom; y++) for (let x = left; x <= right; x++) data.set([...color, 255], (y * width + x) * 4)
+  }
+  fill(20, 20, 79, 79, [200, 50, 50])
+  fill(120, 35, 149, 64, [50, 80, 200])
+  const result = extractTransparentPieces({ data, width, height }, { standaloneLongMm: 30, renderOutput: false })
+  assert.equal(result.pieces.length, 2)
+  assert.deepEqual(result.pieces.map((piece) => piece.longMm), [30, 15])
+})
+
+test('plain-background extraction separates multiple decorations using one reference scale', () => {
+  const width = 240
+  const height = 160
+  const data = new Uint8ClampedArray(width * height * 4)
+  for (let pixel = 0; pixel < width * height; pixel++) data.set([255, 255, 255, 255], pixel * 4)
+  const fill = (left, top, right, bottom, color) => {
+    for (let y = top; y <= bottom; y++) for (let x = left; x <= right; x++) data.set([...color, 255], (y * width + x) * 4)
+  }
+  fill(30, 35, 89, 94, [190, 40, 60])
+  fill(150, 50, 179, 79, [40, 90, 190])
+  const result = extractPieces({ data, width, height }, { mode: 'standalone', standaloneLongMm: 30, renderOutput: false })
+  assert.equal(result.pieces.length, 2)
+  assert.deepEqual(result.pieces.map((piece) => piece.longMm), [30, 15])
+})

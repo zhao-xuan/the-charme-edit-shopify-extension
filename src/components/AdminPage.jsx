@@ -48,6 +48,7 @@ import {
 } from '@ant-design/icons'
 import { allProducts, productGroups } from '../data/products'
 import patchData from '../data/patches.json'
+import ProductCanvas from './ProductCanvas'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
@@ -56,14 +57,17 @@ import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, extractTransparentPieces, loadImageData, tierFromMm } from '../lib/segment'
 import {
   addCharms,
+  addPatches,
   addProduct,
   deleteCharm,
+  deletePatch,
   deleteProduct,
   fetchCatalog,
   fetchSettings,
   getToken,
   isShopifyEmbedded,
   patchCharm,
+  patchPatch,
   patchProduct,
   renameTaxonomy,
   saveSettings,
@@ -71,6 +75,7 @@ import {
   setToken,
   syncDiscounts,
   fetchShopifyProducts,
+  fetchShopifyVariants,
   fetchShopifyCollections,
   fetchCaseVariants,
   updateCaseVariant,
@@ -144,6 +149,48 @@ const TIER_OPTS = [
   { value: 'midi', label: 'Feature · Midi', type: 2, price: 2 },
   { value: 'mini', label: 'Filler · Mini (scatter)', type: 3, price: 2 },
 ]
+
+function ShopifyVariantSelect({ value, variants, loading, onChange }) {
+  const selectedValue = value == null ? '' : String(value)
+  const selected = variants.find((variant) => String(variant.id) === selectedValue)
+  const label = (variant, includePrice = false) => (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, minWidth: 0, maxWidth: '100%' }}>
+      {variant.imageUrl ? (
+        <img
+          src={variant.imageUrl}
+          alt=""
+          style={{ width: 24, height: 24, flex: '0 0 24px', objectFit: 'contain', borderRadius: 2 }}
+        />
+      ) : (
+        <span style={{ width: 24, height: 24, flex: '0 0 24px', background: 'var(--paper-dark)', borderRadius: 2 }} />
+      )}
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        {variant.productTitle} · {variant.title}{includePrice ? ` · £${Number(variant.price).toFixed(2)}${variant.available ? '' : ' · Sold out'}` : ''}
+      </span>
+    </span>
+  )
+  return (
+    <Select
+      size="small"
+      value={selectedValue || undefined}
+      loading={loading}
+      showSearch
+      allowClear
+      optionFilterProp="searchText"
+      placeholder="Link Shopify variant"
+      style={{ width: 250 }}
+      onClick={(event) => event.stopPropagation()}
+      onChange={(shopifyVariantId) => onChange(shopifyVariantId || null)}
+      labelRender={() => selected ? label(selected) : 'Link Shopify variant'}
+      options={variants.map((variant) => ({
+        value: variant.id,
+        label: label(variant, true),
+        searchText: `${variant.productTitle} ${variant.title} ${variant.handle}`,
+        disabled: !variant.available,
+      }))}
+    />
+  )
+}
 
 /** Read a file, downscale to <=900px, and return a PNG data URL + dimensions. */
 function readImageFile(file, maxDim = 900) {
@@ -574,10 +621,12 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
 // ---------------------------------------------------------------------------
 // Custom charms
 // ---------------------------------------------------------------------------
-function CharmPricingGroupsPanel() {
+function CharmPricingGroupsPanel({ subcategories = [] }) {
   const { message } = App.useApp()
   const [groups, setGroups] = useState(() => DEFAULT_CHARM_PRICING_GROUPS.map((g) => ({ ...g })))
+  const [billingVariants, setBillingVariants] = useState([])
   const [loading, setLoading] = useState(true)
+  const [variantsLoading, setVariantsLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
@@ -593,13 +642,55 @@ function CharmPricingGroupsPanel() {
     return () => { alive = false }
   }, [message])
 
+  useEffect(() => {
+    let alive = true
+    fetchShopifyVariants()
+      .then((data) => alive && setBillingVariants(data.variants || []))
+      .catch((err) => alive && message.error(`Could not load Shopify billing variants: ${err.message}`))
+      .finally(() => alive && setVariantsLoading(false))
+    return () => { alive = false }
+  }, [message])
+
   const update = (id, patch) => {
-    setGroups((current) => current.map((group) => (group.id === id ? { ...group, ...patch } : group)))
+    setGroups((current) => current.map((group) => {
+      if (group.id !== id) return group
+      if (patch.price == null) return { ...group, ...patch }
+      const matchingVariant = billingVariants.find(
+        (variant) => variant.id === group.shopifyVariantId && Number(variant.price) === Number(patch.price),
+      )
+      return { ...group, ...patch, shopifyVariantId: matchingVariant ? group.shopifyVariantId : '' }
+    }))
   }
+
+  const add = () => {
+    setGroups((current) => [
+      ...current,
+      {
+        id: `pricing-group-${rid()}`,
+        label: 'New grouped price',
+        enabled: true,
+        collection: '',
+        quantity: 1,
+        price: 0,
+        shopifyVariantId: '',
+      },
+    ])
+  }
+
+  const remove = (id) => setGroups((current) => current.filter((group) => group.id !== id))
 
   const save = async () => {
     try {
       setSaving(true)
+      if (groups.some((group) => !group.collection.trim())) {
+        message.warning('Choose a Shopify sub-category for every grouped price.')
+        return
+      }
+      const subgroups = groups.map((group) => group.collection.trim().toLowerCase())
+      if (new Set(subgroups).size !== subgroups.length) {
+        message.warning('Each Shopify sub-category can have only one grouped price.')
+        return
+      }
       const next = normalizeCharmPricingGroups(groups)
       await saveSettings({ charmPricingGroups: next })
       setGroups(next.map((group) => ({ ...group })))
@@ -619,7 +710,7 @@ function CharmPricingGroupsPanel() {
         type="info"
         showIcon
         message="One price per started quantity block"
-        description="Styles in the same group share the allowance. A seventh Filling Stone starts a second 6-piece block."
+        description="Choose a real Shopify sub-category. Every charm in it shares the allowance, so a seventh Filling Stone starts a second 6-piece block."
       />
       {groups.map((group) => (
         <div key={group.id} style={{ borderBottom: '1px solid var(--line)', paddingBottom: 14 }}>
@@ -630,6 +721,7 @@ function CharmPricingGroupsPanel() {
               aria-label={`${group.id} label`}
               style={{ fontWeight: 600 }}
             />
+            <Button type="text" danger icon={<DeleteOutlined />} onClick={() => remove(group.id)} aria-label={`Remove ${group.label}`} />
             <Switch
               checked={group.enabled}
               onChange={(enabled) => update(group.id, { enabled })}
@@ -639,19 +731,15 @@ function CharmPricingGroupsPanel() {
           </div>
           <div className="admin-grid" style={{ marginBottom: 10 }}>
             <label>
-              <span>Collection</span>
-              <Input
+              <span>Sub-category</span>
+              <Select
                 value={group.collection}
-                onChange={(e) => update(group.id, { collection: e.target.value })}
-                placeholder="Shopify charm collection"
-              />
-            </label>
-            <label>
-              <span>Exact charm name (optional)</span>
-              <Input
-                value={group.nameEquals}
-                onChange={(e) => update(group.id, { nameEquals: e.target.value })}
-                placeholder="Blank matches the whole collection"
+                onChange={(collection) => update(group.id, { collection })}
+                options={subcategories.map((collection) => ({ value: collection, label: collection }))}
+                placeholder="Choose a Shopify sub-category"
+                style={{ width: '100%' }}
+                showSearch
+                optionFilterProp="label"
               />
             </label>
           </div>
@@ -680,11 +768,23 @@ function CharmPricingGroupsPanel() {
             </label>
           </div>
           <label style={{ display: 'grid', gap: 5, marginTop: 10 }}>
-            <span style={{ fontSize: 12 }}>Shopify billing variant ID</span>
-            <Input
-              value={group.shopifyVariantId}
-              onChange={(e) => update(group.id, { shopifyVariantId: e.target.value.trim() })}
-              placeholder="Required for native cart mode"
+            <span style={{ fontSize: 12 }}>Shopify billing variant</span>
+            <Select
+              value={group.shopifyVariantId || undefined}
+              onChange={(shopifyVariantId) => update(group.id, { shopifyVariantId })}
+              loading={variantsLoading}
+              showSearch
+              allowClear
+              optionFilterProp="label"
+              placeholder="Choose a matching Shopify variant"
+              options={billingVariants
+                .filter((variant) => Number(variant.price) === Number(group.price))
+                .map((variant) => ({
+                  value: variant.id,
+                  label: `${variant.productTitle} · ${variant.title} · £${variant.price.toFixed(2)}${variant.available ? '' : ' · Sold out'}`,
+                  disabled: !variant.available,
+                }))}
+              notFoundContent={variantsLoading ? 'Loading…' : `No Shopify variants priced at £${Number(group.price).toFixed(2)}`}
             />
           </label>
         </div>
@@ -693,9 +793,10 @@ function CharmPricingGroupsPanel() {
         type="warning"
         showIcon
         message="Native cart pricing"
-        description="Keep each billing variant's Shopify price equal to the block price above. Draft orders use the configured price directly."
+        description="Choose a matching Shopify variant for native cart mode; its price must equal the block price. Draft orders use the configured price directly."
       />
       <Space wrap>
+        <Button icon={<PlusOutlined />} onClick={add}>Add grouped price</Button>
         <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
           Save grouped pricing
         </Button>
@@ -709,6 +810,8 @@ function CharmPricingGroupsPanel() {
 
 function CharmsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
+  const [shopifyVariants, setShopifyVariants] = useState([])
+  const [variantsLoading, setVariantsLoading] = useState(true)
   const [form, setForm] = useState({
     name: '',
     category: 'gold',
@@ -722,6 +825,15 @@ function CharmsTab({ draft, set, cloud }) {
   })
   const [query, setQuery] = useState('')
   const [extracting, setExtracting] = useState(false)
+
+  useEffect(() => {
+    let alive = true
+    fetchShopifyVariants()
+      .then((data) => alive && setShopifyVariants(data.variants || []))
+      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
+      .finally(() => alive && setVariantsLoading(false))
+    return () => { alive = false }
+  }, [message])
 
   const autoExtractCharm = async () => {
     if (!form.image?.src) return message.warning('Upload the charm photo first.')
@@ -850,6 +962,18 @@ function CharmsTab({ draft, set, cloud }) {
               { title: 'Category', dataIndex: 'category', width: 100, render: (c) => <Tag>{c}</Tag> },
               { title: 'Size', width: 104, render: (_, r) => `${r.widthMm}×${r.heightMm} mm` },
               {
+                title: 'Shopify variant',
+                width: 244,
+                render: (_, r) => (
+                  <ShopifyVariantSelect
+                    value={r.shopifyVariantId}
+                    variants={shopifyVariants}
+                    loading={variantsLoading}
+                    onChange={(shopifyVariantId) => cloud.updateCharm(r, { shopifyVariantId })}
+                  />
+                ),
+              },
+              {
                 title: 'Price (£)',
                 width: 96,
                 render: (_, r) => (
@@ -886,7 +1010,7 @@ function CharmsTab({ draft, set, cloud }) {
       <div style={{ flex: '1 1 360px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 24px)', overflowY: 'auto' }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
           <RightPanel title="Grouped pricing">
-            <CharmPricingGroupsPanel />
+            <CharmPricingGroupsPanel subcategories={subcategories} />
           </RightPanel>
 
           <RightPanel title="Charm studio">
@@ -1007,14 +1131,40 @@ function CharmsTab({ draft, set, cloud }) {
 }
 
 function PatchesTab({ cloud }) {
-  const { message } = App.useApp()
-  const patches = patchData.patches || []
+  const { message, modal } = App.useApp()
+  const [query, setQuery] = useState('')
+  const [shopifyVariants, setShopifyVariants] = useState([])
+  const [variantsLoading, setVariantsLoading] = useState(true)
+  const patches = useMemo(() => {
+    const remote = cloud?.data?.patches || []
+    const remoteIds = new Set(remote.map((patch) => patch.id))
+    const hidden = cloud?.data?.overrides?.charmHidden || {}
+    const prices = cloud?.data?.overrides?.charmPrices || {}
+    return [...remote, ...(patchData.patches || []).filter((patch) => !remoteIds.has(patch.id))]
+      .map((patch) => ({ ...patch, hidden: !!patch.hidden || !!hidden[patch.id], price: prices[patch.id] ?? patch.price }))
+  }, [cloud?.data?.patches, cloud?.data?.overrides])
+  const visiblePatches = useMemo(() => {
+    const normalized = query.trim().toLowerCase()
+    return patches.filter((patch) => !normalized || `${patch.name} ${patch.collection}`.toLowerCase().includes(normalized))
+  }, [patches, query])
+  const remotePatchIds = useMemo(() => new Set((cloud?.data?.patches || []).map((patch) => patch.id)), [cloud?.data?.patches])
+  const tote = useMemo(() => allProducts().find((product) => product.id === 'tote-tj'), [])
+  const toteColor = tote?.colors?.[0]
   const [selectedPatchId, setSelectedPatchId] = useState(() => patches[0]?.id || null)
   const selectedPatch = patches.find((patch) => patch.id === selectedPatchId) || patches[0] || null
   const savedScale = Number(cloud?.data?.overrides?.charmSizes?.[selectedPatch?.id]) || 1
   const [scale, setScale] = useState(savedScale)
 
   useEffect(() => setScale(savedScale), [selectedPatch?.id, savedScale])
+
+  useEffect(() => {
+    let alive = true
+    fetchShopifyVariants()
+      .then((data) => alive && setShopifyVariants(data.variants || []))
+      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
+      .finally(() => alive && setVariantsLoading(false))
+    return () => { alive = false }
+  }, [message])
 
   const saveSize = async () => {
     if (!selectedPatch) return
@@ -1028,26 +1178,80 @@ function PatchesTab({ cloud }) {
   }
 
   const scaleFor = (patch) => Number(cloud?.data?.overrides?.charmSizes?.[patch.id]) || 1
+  const updatePatch = async (patch, changes) => {
+    try {
+      if (remotePatchIds.has(patch.id)) await patchPatch(patch.id, changes)
+      else await setOverride('charm', patch.id, changes)
+      await cloud.refresh()
+    } catch (error) {
+      message.error(error.message || 'Could not update the patch.')
+    }
+  }
+  const removePatch = (patch) => modal.confirm({
+    title: remotePatchIds.has(patch.id) ? `Delete "${patch.name}"?` : `Hide "${patch.name}" from the Tote catalogue?`,
+    okText: remotePatchIds.has(patch.id) ? 'Delete' : 'Hide',
+    okButtonProps: { danger: true },
+    onOk: async () => {
+      try {
+        if (remotePatchIds.has(patch.id)) await deletePatch(patch.id)
+        else await setOverride('charm', patch.id, { hidden: true })
+        await cloud.refresh()
+        message.success(remotePatchIds.has(patch.id) ? 'Deleted.' : 'Hidden.')
+      } catch (error) {
+        message.error(error.message || 'Could not remove the patch.')
+      }
+    },
+  })
+  const totePreviewScale = tote ? Math.min(400 / tote.widthMm, 440 / tote.heightMm) : 0
+  const patchWidth = selectedPatch ? selectedPatch.widthMm * scale * totePreviewScale : 0
+  const patchHeight = selectedPatch ? selectedPatch.heightMm * scale * totePreviewScale : 0
+  const patchCenterX = tote ? (tote.printable.outer.xMm + tote.printable.outer.wMm / 2) * totePreviewScale : 0
+  // Keep the preview patch above the printed logo while showing its real scale.
+  const patchCenterY = tote ? 410 * totePreviewScale : 0
 
   return (
     <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
-        <Card size="small" title={`Tote patches (${patches.length})`}>
+        <Card size="small" title={`Patches — re-price, hide or size (${visiblePatches.length})`}>
           <p className="hint" style={{ marginTop: 0 }}>
-            Select a patch to set the size customers see on The Charmé Edit Tote.
+            Manage the Tote patch catalogue. Select a patch to preview and set its on-Tote size.
           </p>
+          <Input.Search
+            allowClear
+            placeholder="Search patches by name…"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            style={{ maxWidth: 360, marginBottom: 12 }}
+          />
           <Table
             size="small"
             rowKey="id"
+            loading={cloud?.loading}
             onRow={(patch) => ({ onClick: () => setSelectedPatchId(patch.id) })}
             rowClassName={(patch) => patch.id === selectedPatch?.id ? 'admin-pick-row is-selected' : 'admin-pick-row'}
-            pagination={false}
-            dataSource={patches}
+            pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
+            dataSource={visiblePatches}
             columns={[
               { title: 'Art', width: 52, render: (_, patch) => <Image src={resolveAsset(patch.src)} width={34} height={34} style={{ objectFit: 'contain' }} /> },
               { title: 'Patch', dataIndex: 'name', ellipsis: true },
-              { title: 'Base size', width: 120, render: (_, patch) => `${patch.widthMm}×${patch.heightMm} mm` },
+              { title: 'Collection', dataIndex: 'collection', width: 112, ellipsis: true },
+              { title: 'Size', width: 104, render: (_, patch) => `${patch.widthMm}×${patch.heightMm} mm` },
+              {
+                title: 'Shopify variant',
+                width: 244,
+                render: (_, patch) => (
+                  <ShopifyVariantSelect
+                    value={patch.shopifyVariantId}
+                    variants={shopifyVariants}
+                    loading={variantsLoading}
+                    onChange={(shopifyVariantId) => updatePatch(patch, { shopifyVariantId })}
+                  />
+                ),
+              },
+              { title: 'Price (£)', width: 96, render: (_, patch) => <InputNumber size="small" min={0} defaultValue={patch.price} onBlur={(event) => updatePatch(patch, { price: Number(event.target.value) })} style={{ width: 76 }} /> },
+              { title: 'Shown', width: 70, render: (_, patch) => <Switch size="small" checked={!patch.hidden} onChange={() => updatePatch(patch, { hidden: !patch.hidden })} /> },
               { title: 'Scale', width: 80, render: (_, patch) => `${Math.round(scaleFor(patch) * 100)}%` },
+              { title: '', width: 40, render: (_, patch) => <Button type="text" danger icon={<DeleteOutlined />} onClick={(event) => { event.stopPropagation(); removePatch(patch) }} /> },
             ]}
           />
         </Card>
@@ -1057,7 +1261,37 @@ function PatchesTab({ cloud }) {
         <RightPanel title="Tote decoration studio">
           {selectedPatch ? (
             <Space direction="vertical" size={12} style={{ width: '100%' }}>
-              <Image src={resolveAsset(selectedPatch.src)} alt={selectedPatch.name} height={160} style={{ objectFit: 'contain' }} />
+              {tote && toteColor && (
+                <div
+                  aria-label={`${selectedPatch.name} on The Charmé Edit Tote`}
+                  style={{
+                    position: 'relative',
+                    width: tote.widthMm * totePreviewScale,
+                    height: tote.heightMm * totePreviewScale,
+                    maxWidth: '100%',
+                    margin: '0 auto',
+                    overflow: 'hidden',
+                    background: '#f6f2ea',
+                  }}
+                >
+                  <ProductCanvas product={tote} color={toteColor} scale={totePreviewScale} />
+                  <img
+                    src={resolveAsset(selectedPatch.src)}
+                    alt=""
+                    style={{
+                      position: 'absolute',
+                      width: patchWidth,
+                      height: patchHeight,
+                      left: patchCenterX - patchWidth / 2,
+                      top: patchCenterY - patchHeight / 2,
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.26))',
+                      pointerEvents: 'none',
+                      transition: 'width .06s linear, height .06s linear, left .06s linear, top .06s linear',
+                    }}
+                  />
+                </div>
+              )}
               <strong>{selectedPatch.name}</strong>
               <span className="hint">
                 {(selectedPatch.widthMm * scale).toFixed(1)} × {(selectedPatch.heightMm * scale).toFixed(1)} mm · {Math.round(scale * 100)}%
@@ -2382,7 +2616,19 @@ function DiscountTab({ cloud }) {
             <div className="cross-sell-admin-option__fields">
               <Input placeholder="Option label" value={opt.label} onChange={(e) => updOpt(i, { label: e.target.value })} />
               <Input placeholder="Button label" value={opt.buttonLabel || ''} onChange={(e) => updOpt(i, { buttonLabel: e.target.value })} />
-              <Input placeholder="Image URL (optional; model image used when blank)" value={opt.image || ''} onChange={(e) => updOpt(i, { image: e.target.value })} />
+              <div>
+                <ImageDrop
+                  value={opt.image ? { src: opt.image } : null}
+                  onChange={(image) => updOpt(i, { image: image?.src || '' })}
+                  hint="Click or drop the popup image"
+                  maxDim={1200}
+                />
+                {opt.image && (
+                  <Button size="small" type="link" onClick={() => updOpt(i, { image: '' })}>
+                    Use model photo
+                  </Button>
+                )}
+              </div>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <Select placeholder="Group" value={opt.group || undefined} onChange={(v) => updOpt(i, { group: v, productId: '' })} options={groups.map((g) => ({ value: g.key, label: g.label }))} style={{ width: 150 }} />
                 <Select
@@ -2649,7 +2895,7 @@ function DiscountTab({ cloud }) {
 // ---------------------------------------------------------------------------
 // Batch extract — auto-cut many charms from one product photo + auto-size them
 // ---------------------------------------------------------------------------
-function BatchExtractTab({ draft, set }) {
+function BatchExtractTab({ draft, set, cloud }) {
   const { message } = App.useApp()
   const [photo, setPhoto] = useState(null) // group shot: charms laid on the product
   const [body, setBody] = useState(null) // blank product body (becomes the product)
@@ -2671,6 +2917,7 @@ function BatchExtractTab({ draft, set }) {
   const [pieces, setPieces] = useState([]) // editable extracted pieces
   const runSeq = useRef(0)
   const standalone = form.photoMode === 'standalone'
+  const isPatch = form.kind === 'tote'
   const gptPrompt = useMemo(() => gptCutoutPrompt(form), [form])
 
   const onPhoto = (img) => {
@@ -2717,14 +2964,15 @@ function BatchExtractTab({ draft, set }) {
         out.pieces.map((p, i) => ({
           ...p,
           include: true,
+          catalogueTarget: isPatch ? 'patch' : 'charm',
           name: standalone
-            ? form.productName.trim() || 'Charm'
-            : `${form.productName.trim() || 'Charm'} ${i + 1}`,
+            ? form.productName.trim() || (isPatch ? 'Patch' : 'Charm')
+            : `${form.productName.trim() || (isPatch ? 'Patch' : 'Charm')} ${i + 1}`,
           category: form.category,
         })),
       )
-      if (standalone && !out.pieces.length) message.info('No isolated charm detected — use a clean, plain background with the whole charm visible.')
-      else if (standalone) message.success('Detected and cut out 1 charm. Verify its real size below.')
+      if (standalone && !out.pieces.length) message.info('No isolated decorations detected — use a clean, plain background with each item separated.')
+      else if (standalone) message.success(`Detected and cut out ${out.pieces.length} decoration${out.pieces.length === 1 ? '' : 's'}. Verify sizes below.`)
       else if (!out.product.detected) message.warning('Could not find the product outline. Use a clean, contrasting background and keep the whole product visible.')
       else if (!out.pieces.length) message.info('No pieces detected — try lowering the colour-difference threshold or the min size.')
       else message.success(`Detected ${out.pieces.length} pieces.`)
@@ -2745,22 +2993,25 @@ function BatchExtractTab({ draft, set }) {
   }
 
   const importGpt = async () => {
-    if (!photo?.src) return message.warning('Upload the original charms-on-product photo first.')
+    if (!photo?.src) return message.warning(`Upload the original ${standalone ? 'plain-background decoration' : 'decorations-on-product'} photo first.`)
     if (!gptPhoto?.src) return message.warning('Upload the transparent PNG returned by GPT.')
     const widthMm = Number(form.widthMm) || 0
     const heightMm = Number(form.heightMm) || 0
-    if (!widthMm || !heightMm) return message.warning('Enter the product width and height in mm.')
+    const standaloneLongMm = Number(form.standaloneLongMm) || 0
+    if (standalone ? !standaloneLongMm : !widthMm || !heightMm) {
+      return message.warning(standalone ? 'Enter the largest/reference decoration long side in mm.' : 'Enter the product width and height in mm.')
+    }
     const seq = ++runSeq.current
     setBusy(true)
     try {
       const sourceData = await loadImageData(photo.src, 1200)
-      const source = extractPieces(sourceData, {
+      const source = standalone ? null : extractPieces(sourceData, {
         productLongMm: Math.max(widthMm, heightMm),
         pieceTol: tune.pieceTol,
         minPieceMm: tune.minPieceMm,
         warmOnly: tune.warmOnly,
       })
-      if (!source.product.detected) {
+      if (!standalone && !source.product.detected) {
         message.warning('Could not find the product outline in the original photo, so its real-world scale cannot be calculated.')
         return
       }
@@ -2770,18 +3021,25 @@ function BatchExtractTab({ draft, set }) {
       if (Math.abs(sourceAspect / gptAspect - 1) > 0.03) {
         throw new Error('The GPT PNG changed the canvas aspect ratio. Ask GPT to preserve the source canvas and try again.')
       }
-      const mmPerPx = source.mmPerPx * (sourceData.width / gptData.width)
+      const mmPerPx = standalone ? 0 : source.mmPerPx * (sourceData.width / gptData.width)
       const out = extractTransparentPieces(gptData, {
         mmPerPx,
+        standaloneLongMm: standalone ? standaloneLongMm : undefined,
         minPieceMm: tune.minPieceMm,
         maxPieceMm: 55,
       })
       if (seq !== runSeq.current) return
-      setResult({ overlay: out.overlay, mmPerPx, product: source.product, mode: 'gpt' })
+      setResult({
+        overlay: out.overlay,
+        mmPerPx: out.mmPerPx,
+        product: source?.product || { detected: false, mode: 'standalone', pxW: 0, pxH: 0, longMm: 0 },
+        mode: 'gpt',
+      })
       setPieces(out.pieces.map((piece, index) => ({
         ...piece,
         include: true,
-        name: `${form.productName.trim() || 'Charm'} ${index + 1}`,
+        catalogueTarget: isPatch ? 'patch' : 'charm',
+        name: `${form.productName.trim() || (isPatch ? 'Patch' : 'Charm')}${out.pieces.length > 1 ? ` ${index + 1}` : ''}`,
         category: form.category,
       })))
       if (!out.pieces.length) message.info('No transparent charm components were found in the GPT PNG.')
@@ -2809,17 +3067,22 @@ function BatchExtractTab({ draft, set }) {
 
   const selected = pieces.filter((p) => p.include)
 
-  const commit = () => {
-    const addProduct = !standalone && form.makeProduct
+  const commit = async () => {
+    const target = selected[0]?.catalogueTarget || (isPatch ? 'patch' : 'charm')
+    const isPatchTarget = target === 'patch'
+    if (selected.some((piece) => (piece.catalogueTarget || target) !== target)) {
+      return message.warning('Extracted charms and patches cannot be saved together. Save each catalogue set separately.')
+    }
+    const addProduct = !isPatchTarget && !standalone && form.makeProduct
     if (addProduct && !body?.src) return message.warning('Upload the product body photo, or turn off “Also add the product”.')
     if (!selected.length) return message.warning('Select at least one detected piece.')
     const widthMm = Number(form.widthMm) || 81
     const heightMm = Number(form.heightMm) || 167
-    const charms = selected.map((p) => ({
-      id: `custom-charm-${slug(p.name)}-${rid()}`,
-      name: p.name.trim() || 'Charm',
-      collection: form.productName.trim() ? `${form.productName.trim()} set` : 'Custom',
-      category: p.category,
+    const decorations = selected.map((p) => ({
+      id: `${isPatchTarget ? 'patch' : 'custom-charm'}-${slug(p.name)}-${rid()}`,
+      name: p.name.trim() || (isPatchTarget ? 'Patch' : 'Charm'),
+      collection: form.productName.trim() ? `${form.productName.trim()} set` : isPatchTarget ? 'Custom patches' : 'Custom',
+      ...(!isPatchTarget ? { category: p.category } : {}),
       tier: p.tier,
       type: p.type,
       price: Number(p.price) || 0,
@@ -2831,8 +3094,22 @@ function BatchExtractTab({ draft, set }) {
       minScale: 1,
       maxScale: 1,
     }))
+    if (isPatchTarget) {
+      try {
+        await addPatches(decorations)
+        await cloud.refresh()
+        message.success(`Saved ${decorations.length} patch${decorations.length > 1 ? 'es' : ''} to the Tote catalogue.`)
+        setPieces([])
+        setResult(null)
+        setPhoto(null)
+        setGptPhoto(null)
+      } catch (error) {
+        message.error(error.message || 'Could not save the patches.')
+      }
+      return
+    }
     set((d) => {
-      const next = { ...d, customCharms: [...charms, ...(d.customCharms || [])] }
+      const next = { ...d, customCharms: [...decorations, ...(d.customCharms || [])] }
       if (addProduct && body?.src) {
         const product = {
           id: `custom-prod-${slug(form.productName || 'product')}-${rid()}`,
@@ -2849,7 +3126,7 @@ function BatchExtractTab({ draft, set }) {
       return next
     })
     message.success(
-      `Added ${charms.length} charm${charms.length > 1 ? 's' : ''}${addProduct ? ' + 1 product' : ''} — Save changes to publish.`,
+      `Added ${decorations.length} charm${decorations.length > 1 ? 's' : ''}${addProduct ? ' + 1 product' : ''} — Save changes to publish.`,
     )
     setPieces([])
     setResult(null)
@@ -2862,8 +3139,8 @@ function BatchExtractTab({ draft, set }) {
       <Alert
         type="info"
         showIcon
-        message="Auto-extract charms from a photo"
-        description="Choose a group photo with charms laid on a known-size product, or a single charm photographed on a clean plain background. The studio removes the background and prepares transparent catalogue artwork."
+        message="Auto-extract decorations from a photo"
+        description="Choose decorations on a known-size product, or one or more separated decorations on a clean plain background. The studio removes the background and prepares transparent catalogue artwork."
       />
 
       <Card size="small" title="1 · Photo & size">
@@ -2875,21 +3152,21 @@ function BatchExtractTab({ draft, set }) {
             onChange={onPhotoMode}
             options={[
               { value: 'product', label: 'Multiple charms on a product' },
-              { value: 'standalone', label: 'Single charm on a plain background' },
+              { value: 'standalone', label: 'Plain background (one or more)' },
             ]}
             style={{ marginTop: 6, marginBottom: 14 }}
           />
         </label>
         <div className="admin-grid">
           <label>
-            <span>{standalone ? 'Single-charm photo' : 'Charms-on-product photo'}</span>
+            <span>{standalone ? 'Decoration photo on a plain background' : 'Decorations-on-product photo'}</span>
             <ImageDrop
               value={photo}
               onChange={onPhoto}
               maxDim={1600}
               hint={standalone
-                ? 'Click or drop one charm on a clean plain background'
-                : 'Click or drop the photo of charms laid on the product'}
+                ? 'Click or drop separated decorations on a clean plain background'
+                : 'Click or drop the photo of decorations laid on the product'}
             />
           </label>
           {!standalone && (
@@ -2904,29 +3181,29 @@ function BatchExtractTab({ draft, set }) {
             </label>
           )}
           <label>
-            <span>{standalone ? 'Charm name' : 'Product name'}</span>
+            <span>{standalone ? (isPatch ? 'Patch name' : 'Charm name') : 'Product name'}</span>
             <Input
               value={form.productName}
               onChange={(e) => setForm((f) => ({ ...f, productName: e.target.value }))}
-              placeholder={standalone ? 'e.g. Gold star' : 'e.g. Cottagecore set'}
+              placeholder={standalone ? (isPatch ? 'e.g. Embroidered patch' : 'e.g. Gold star') : 'e.g. Cottagecore set'}
             />
           </label>
-          {!standalone && (
-            <label>
-              <span>Decoration set</span>
-              <Select
-                value={form.kind}
-                onChange={(v) => setForm((f) => ({ ...f, kind: v }))}
-                options={[
-                  { value: 'phone', label: 'Charms' },
-                  { value: 'tote', label: 'Patches' },
-                ]}
-                style={{ width: '100%' }}
-              />
-            </label>
-          )}
           <label>
-            <span>{standalone ? 'Charm real long side (mm)' : 'Product real width (mm)'}</span>
+            <span>Decoration set</span>
+            <Select
+              value={form.kind}
+              onChange={(v) => setForm((f) => v === 'tote'
+                ? { ...f, kind: v, productName: standalone ? f.productName : 'The Charmé Edit Tote', widthMm: 420, heightMm: 360, makeProduct: false }
+                : { ...f, kind: v })}
+              options={[
+                { value: 'phone', label: 'Charms' },
+                { value: 'tote', label: 'Patches' },
+              ]}
+              style={{ width: '100%' }}
+            />
+          </label>
+          <label>
+            <span>{standalone ? 'Largest/reference decoration real long side (mm)' : 'Product real width (mm)'}</span>
             <InputNumber
               min={standalone ? 0.1 : 10}
               step={standalone ? 0.1 : 1}
@@ -2946,15 +3223,15 @@ function BatchExtractTab({ draft, set }) {
               />
             </label>
           )}
-          <label>
-            <span>Default charm category</span>
+          {!isPatch && <label>
+            <span>Default {isPatch ? 'patch' : 'charm'} category</span>
             <Select
               value={form.category}
               onChange={(v) => setForm((f) => ({ ...f, category: v }))}
               options={CAT_OPTS}
               style={{ width: '100%' }}
             />
-          </label>
+          </label>}
           {!standalone && (
             <label className="admin-check">
               <Checkbox
@@ -2998,21 +3275,23 @@ function BatchExtractTab({ draft, set }) {
           Detect & cut pieces
         </Button>
 
-        {!standalone && <Divider style={{ margin: '18px 0 14px' }} />}
-        {!standalone && <div className="gpt-extract__toggle">
+        <Divider style={{ margin: '18px 0 14px' }} />
+        <div className="gpt-extract__toggle">
           <Switch size="small" checked={gptOpen} onChange={setGptOpen} aria-label="Use GPT-assisted cut-outs" />
           <div>
             <strong>Optional · GPT-assisted cut-outs</strong>
             <p className="hint">Use this when subtle, transparent or crowded pieces need a cleaner background removal.</p>
           </div>
-        </div>}
-        {!standalone && gptOpen && (
+        </div>
+        {gptOpen && (
           <div className="gpt-extract">
             <Alert
               type="warning"
               showIcon
               message="GPT is a fallback, not a measurement authority"
-              description="Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding it."
+              description={standalone
+                ? 'Upload the same plain-background photo to GPT. The returned PNG must preserve its canvas, positions and scale; the largest/reference decoration sets the shared millimetre scale.'
+                : 'Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding it.'}
             />
             <label>
               <span>1 · Copy this prompt and send it with the original photo</span>
@@ -3083,13 +3362,13 @@ function BatchExtractTab({ draft, set }) {
                           onChange={(e) => patchPiece(i, { name: e.target.value })}
                         />
                         <Space size={6} wrap>
-                          <Select
+                          {!isPatch && <Select
                             size="small"
                             value={p.category}
                             onChange={(v) => patchPiece(i, { category: v })}
                             options={CAT_OPTS}
                             style={{ width: 100 }}
-                          />
+                          />}
                           <span className="extract-piece__size">
                             <InputNumber
                               size="small"
@@ -3133,7 +3412,7 @@ function BatchExtractTab({ draft, set }) {
           </Spin>
           <Divider style={{ margin: '14px 0' }} />
           <Button type="primary" icon={<ThunderboltOutlined />} onClick={commit} disabled={!selected.length}>
-            Add {selected.length} charm{selected.length === 1 ? '' : 's'}
+            {isPatch ? 'Save' : 'Add'} {selected.length} {isPatch ? `patch${selected.length === 1 ? '' : 'es'}` : `charm${selected.length === 1 ? '' : 's'}`}
             {!standalone && form.makeProduct ? ' + product' : ''}
           </Button>
         </Card>
@@ -3159,7 +3438,7 @@ function useCloud(draft, set) {
     setLoading(true)
     try {
       const cat = await fetchCatalog()
-      setData({ products: cat.products || [], charms: cat.charms || [], overrides: cat.overrides || {} })
+      setData({ products: cat.products || [], charms: cat.charms || [], patches: cat.patches || [], overrides: cat.overrides || {} })
     } catch {
       /* offline / no backend in local dev — leave lists empty */
     } finally {
@@ -3599,7 +3878,7 @@ export default function AdminPage() {
                 <ScissorOutlined /> Auto-extract
               </span>
             ),
-            children: <BatchExtractTab draft={draft} set={set} />,
+            children: <BatchExtractTab draft={draft} set={set} cloud={cloud} />,
           },
         ]}
       />

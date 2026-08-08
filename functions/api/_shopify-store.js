@@ -22,6 +22,7 @@ import { shopifyAdmin, uploadImageFile, fileDelete } from './_lib.js'
 /** Metaobject type keys (one "table" each). */
 export const TYPES = {
   charm: 'charme_charm',
+  patch: 'charme_patch',
   product: 'charme_product',
   override: 'charme_override',
   preset: 'charme_preset',
@@ -94,6 +95,7 @@ const PRODUCT_FIELD_DEFS = [
   ['legacy_id', 'Legacy id', 'single_line_text_field'],
 ]
 const OVERRIDE_FIELD_DEFS = [['data', 'Data', 'json']]
+const PATCH_FIELD_DEFS = [['data', 'Data', 'json']]
 const PRESET_FIELD_DEFS = [
   ['title', 'Title', 'single_line_text_field'],
   ['data', 'Data', 'json'],
@@ -101,6 +103,7 @@ const PRESET_FIELD_DEFS = [
 
 const DEF_META = {
   [TYPES.charm]: { name: 'Charmé charm', fields: CHARM_FIELD_DEFS, keyBy: 'legacy_id' },
+  [TYPES.patch]: { name: 'Charmé patch', fields: PATCH_FIELD_DEFS, keyBy: 'handle' },
   [TYPES.product]: { name: 'Charmé product', fields: PRODUCT_FIELD_DEFS, keyBy: 'legacy_id' },
   [TYPES.override]: { name: 'Charmé override', fields: OVERRIDE_FIELD_DEFS, keyBy: 'handle' },
   [TYPES.preset]: { name: 'Charmé preset', fields: PRESET_FIELD_DEFS, keyBy: 'handle' },
@@ -347,6 +350,15 @@ export async function saveRecord(env, type, id, record, imageGids = {}) {
   const fields = Object.entries(raw)
     .filter(([k, v]) => defKeys.has(k) && v !== '' && v != null)
     .map(([key, value]) => ({ key, value: String(value) }))
+
+  if (
+    type === TYPES.charm &&
+    Object.prototype.hasOwnProperty.call(record, 'shopifyVariantId') &&
+    !record.shopifyVariantId &&
+    defKeys.has('shopify_variant_id')
+  ) {
+    fields.push({ key: 'shopify_variant_id', value: '' })
+  }
 
   const existing = await findNode(env, type, id)
   if (existing) {

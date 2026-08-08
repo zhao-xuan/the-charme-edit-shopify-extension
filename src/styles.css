@@ -279,6 +279,11 @@ h4,
   line-height: 1;
   white-space: nowrap;
 }
+.brand--editor .brand-logo {
+  display: block;
+  width: min(128px, calc(100vw - 190px));
+  height: auto;
+}
 .brand .sub {
   font-family: var(--charme-font-accent);
   font-size: 11px;
@@ -667,7 +672,7 @@ h4,
   color: #2e2a26;
   box-shadow: 0 3px 12px rgba(46, 42, 38, 0.1);
   font-family: inherit;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0;
@@ -677,9 +682,18 @@ h4,
 .mockup-notice.is-open {
   width: min(470px, calc(100% - 20px));
 }
+.mockup-notice__details {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 4px;
+  padding-top: 2px;
+  color: var(--ink-soft);
+  font-size: 10.5px;
+  font-weight: 400;
+}
 .mockup-notice__icon {
   color: var(--rouge);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* selection toolbar floating above a selected charm */
@@ -1230,6 +1244,12 @@ h4,
     display: flex;
     flex-direction: column;
   }
+  .mobile-shell,
+  .mobile-shell * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
   .mobile-stage {
     flex: 1 1 auto;
     min-height: 0;
@@ -1264,6 +1284,8 @@ h4,
   .mobile-stage .stage-wrap {
     padding-top: 6px;
     padding-bottom: 34px;
+    touch-action: none;
+    overscroll-behavior: none;
     /* Keep the mobile preview on the original warm cream (the desktop stage uses
        a whiter background to match the Figma; mobile is unchanged). */
     background:
@@ -1533,50 +1555,22 @@ h4,
     margin-bottom: 6px;
     opacity: 1;
   }
-  .mobile-stage-notices {
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    width: min(88%, 470px);
-    margin: 0 0 6px 12px;
-    pointer-events: auto;
-  }
-  .mobile-stage-notices .mockup-notice {
-    position: static;
-    transform: none;
+  .mobile-stage .stage-wrap > .mockup-notice {
+    left: 2px;
+    bottom: 46px;
+    z-index: 76;
     width: max-content;
-    max-width: 100%;
+    max-width: calc(100% - 4px);
     min-height: 30px;
     padding: 5px 8px;
+    font-size: 9px;
   }
-  .mobile-stage-notices .mockup-notice.is-open {
-    width: 100%;
-  }
-  .mobile-stage-recommend {
-    display: block;
-    width: max-content;
-    max-width: 100%;
-    padding: 5px 8px;
-    border: 1px solid rgba(125, 105, 84, 0.28);
-    border-radius: 6px;
-    background: rgba(255, 253, 249, 0.52);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    color: var(--ink-soft);
-    box-shadow: 0 3px 12px rgba(46, 42, 38, 0.1);
-    font-size: 10.5px;
-    line-height: 1.3;
+  .mobile-stage .stage-wrap > .mockup-notice.is-open {
+    width: min(300px, calc(100vw - 12px));
   }
   .mobile-step-overlay--warn .mobile-step-overlay__body {
     background-color: rgba(255, 244, 242, 0.7);
     border: 1px solid rgba(212, 56, 13, 0.55);
-  }
-  .mobile-step-overlay__hint {
-    font-size: 10.5px;
-    line-height: 1.3;
-    color: var(--ink-soft);
   }
   .mobile-step-overlay__hint--warn {
     display: flex;

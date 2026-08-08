@@ -679,42 +679,16 @@ export function extractTransparentPieces(imageData, opts) {
     return { mmPerPx, pieces: [], overlay: renderOutput ? buildOverlay(imageData, null, []) : null }
   }
 
-  if (standaloneLongMm > 0) {
-    const bbox = {
-      minx: foregroundMinX,
-      miny: foregroundMinY,
-      maxx: foregroundMaxX,
-      maxy: foregroundMaxY,
-      w: foregroundMaxX - foregroundMinX + 1,
-      h: foregroundMaxY - foregroundMinY + 1,
-    }
-    mmPerPx = standaloneLongMm / Math.max(bbox.w, bbox.h)
-    const widthMm = +(bbox.w * mmPerPx).toFixed(1)
-    const heightMm = +(bbox.h * mmPerPx).toFixed(1)
-    const longMm = Math.max(widthMm, heightMm)
-    const comp = { label: 1, bbox, area: foreground }
-    const cut = renderOutput
-      ? cutAlphaComponent(data, W, mask, comp, alphaThreshold)
-      : { dataUrl: null, pxW: bbox.w, pxH: bbox.h }
-    const piece = {
-      ...cut,
-      widthMm,
-      heightMm,
-      longMm,
-      areaPx: foreground,
-      bbox,
-      source: 'gpt',
-      ...tierFromMm(longMm),
-    }
-    return { mmPerPx, pieces: [piece], overlay: renderOutput ? buildOverlay(imageData, null, [piece]) : null }
-  }
-
-  if (!mmPerPx) {
+  if (!mmPerPx && !standaloneLongMm) {
     return { mmPerPx, pieces: [], overlay: renderOutput ? buildOverlay(imageData, null, []) : null }
   }
 
-  const minArea = Math.max(8, Math.round(sq(minPieceMm / mmPerPx) * 0.35))
+  const minArea = standaloneLongMm ? 8 : Math.max(8, Math.round(sq(minPieceMm / mmPerPx) * 0.35))
   const { labels, comps } = connectedComponents(mask, W, H, minArea)
+  if (standaloneLongMm) {
+    const largestLongPx = Math.max(...comps.map((comp) => Math.max(comp.bbox.w, comp.bbox.h)))
+    mmPerPx = largestLongPx ? standaloneLongMm / largestLongPx : 0
+  }
   const pieces = []
   for (const comp of comps.sort((a, b) => (a.bbox.miny - b.bbox.miny) || (a.bbox.minx - b.bbox.minx))) {
     const widthMm = +(comp.bbox.w * mmPerPx).toFixed(1)
@@ -757,7 +731,7 @@ function borderBackground(data, W, H) {
   return { color, noise: median(deviations) }
 }
 
-/** Extract one isolated charm photographed on a clean, plain backdrop. */
+/** Extract one or more isolated decorations photographed on a clean, plain backdrop. */
 function extractStandalonePiece(imageData, opts) {
   const { data, width: W, height: H } = imageData
   const renderOutput = opts.renderOutput !== false
@@ -781,36 +755,36 @@ function extractStandalonePiece(imageData, opts) {
     return !touchesFrame && boxFraction >= 0.005 && boxFraction <= 0.85
   }).sort((a, b) => b.area - a.area)
 
-  const comp = candidates[0]
-  if (!comp) {
+  if (!candidates.length) {
     const product = { detected: false, mode: 'standalone', pxW: 0, pxH: 0, longMm: 0, detector: 'border-background' }
     return { mmPerPx: 0, product, pieces: [], overlay: renderOutput ? buildOverlay(imageData, null, []) : null }
   }
 
   const fullFrame = { minx: 0, miny: 0, maxx: W - 1, maxy: H - 1, w: W, h: H }
-  comp.productBox = fullFrame
   const onImage = () => true
   const exterior = { left: background, right: background, top: background, bottom: background }
   const matteTolerance = Math.max(14, noise * 6, Math.min(32, pieceTol * 0.55))
-  const cut = cutComponent(data, W, H, labels, comp, background, exterior, onImage, matteTolerance, renderOutput)
-  if (!cut) {
+  const cuts = []
+  for (const comp of candidates.sort((a, b) => (a.bbox.miny - b.bbox.miny) || (a.bbox.minx - b.bbox.minx))) {
+    comp.productBox = fullFrame
+    const cut = cutComponent(data, W, H, labels, comp, background, exterior, onImage, matteTolerance, renderOutput)
+    if (cut) cuts.push(cut)
+  }
+  if (!cuts.length) {
     const product = { detected: false, mode: 'standalone', pxW: 0, pxH: 0, longMm: 0, detector: 'border-background' }
     return { mmPerPx: 0, product, pieces: [], overlay: renderOutput ? buildOverlay(imageData, null, []) : null }
   }
-
-  const subjectLongPx = Math.max(cut.pxW, cut.pxH)
+  // One photographed reference sets a shared scale for every disconnected
+  // decoration. Calibrate from final alpha bounds, not the dilated detector box.
+  const subjectLongPx = Math.max(...cuts.map((cut) => Math.max(cut.pxW, cut.pxH)))
   const standaloneLongMm = Math.max(0.1, Number(opts.standaloneLongMm) || 15)
   const mmPerPx = standaloneLongMm / subjectLongPx
-  const widthMm = +(cut.pxW * mmPerPx).toFixed(1)
-  const heightMm = +(cut.pxH * mmPerPx).toFixed(1)
-  const longMm = Math.max(widthMm, heightMm)
-  const piece = {
-    ...cut,
-    widthMm,
-    heightMm,
-    longMm,
-    source: 'standalone',
-    ...tierFromMm(longMm),
+  const pieces = []
+  for (const cut of cuts) {
+    const widthMm = +(cut.pxW * mmPerPx).toFixed(1)
+    const heightMm = +(cut.pxH * mmPerPx).toFixed(1)
+    const longMm = Math.max(widthMm, heightMm)
+    pieces.push({ ...cut, widthMm, heightMm, longMm, source: 'standalone', ...tierFromMm(longMm) })
   }
   const product = {
     detected: false,
@@ -823,8 +797,8 @@ function extractStandalonePiece(imageData, opts) {
   return {
     mmPerPx,
     product,
-    pieces: [piece],
-    overlay: renderOutput ? buildOverlay(imageData, null, [piece]) : null,
+    pieces,
+    overlay: renderOutput ? buildOverlay(imageData, null, pieces) : null,
   }
 }
 

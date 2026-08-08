@@ -320,21 +320,21 @@ export async function renderBothVersions(product, color, placed) {
  * unique charms (which vary in size, shape, colour & pattern). `variableUids`
  * is the set of placed-charm uids to mark.
  */
-export async function renderPreview(product, color, placed, variableUids = []) {
+export async function renderPreview(product, color, placed, variableUids = [], dpi = DPI) {
   const canvas = document.createElement('canvas')
-  canvas.width = Math.round(product.widthMm * DPI)
-  canvas.height = Math.round(product.heightMm * DPI)
+  canvas.width = Math.round(product.widthMm * dpi)
+  canvas.height = Math.round(product.heightMm * dpi)
   const ctx = canvas.getContext('2d')
 
   await Promise.all(placed.map((c) => loadImage(c.src).catch(() => null)))
-  await drawProduct(ctx, product, color, DPI)
+  await drawProduct(ctx, product, color, dpi)
 
   const variable = new Set(variableUids)
   for (const charm of placed) {
     const img = await loadImage(charm.src).catch(() => null)
-    if (img) drawCharmImage(ctx, img, charm, DPI)
-    else drawPlaceholder(ctx, charm, DPI)
-    if (variable.has(charm.uid)) drawVariableOutline(ctx, charm, DPI)
+    if (img) drawCharmImage(ctx, img, charm, dpi)
+    else drawPlaceholder(ctx, charm, dpi)
+    if (variable.has(charm.uid)) drawVariableOutline(ctx, charm, dpi)
   }
 
   return canvas.toDataURL('image/png')

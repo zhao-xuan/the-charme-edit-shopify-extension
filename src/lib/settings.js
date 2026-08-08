@@ -12,11 +12,11 @@ import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from './cha
 
 export const DEFAULT_SETTINGS = {
   // Prompt shown under "Add my custom … to cart".
-  crossSellHint: 'Customise your second product for extra 10% off',
+  crossSellHint: 'Customise your second product',
   // Cross-sell popup shown on the cart after add-to-cart.
   crossSell: {
     enabled: true,
-    title: 'Would you like to customise your second product (extra 10% off)?',
+    title: 'Would you like to customise your second product?',
     discountCode: '',
     // Each option deep-links into the customizer for a product group/model.
     options: [
@@ -88,19 +88,15 @@ export function settings() {
 function mergeDefaults(data) {
   const d = data && typeof data === 'object' ? data : {}
   const storedPricingGroups = normalizeCharmPricingGroups(
-    d.charmPricingGroups || DEFAULT_SETTINGS.charmPricingGroups,
+    Array.isArray(d.charmPricingGroups) ? d.charmPricingGroups : DEFAULT_SETTINGS.charmPricingGroups,
   )
-  const storedPricingIds = new Set(storedPricingGroups.map((group) => group.id))
   return {
     ...DEFAULT_SETTINGS,
     ...d,
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
-    charmPricingGroups: [
-      ...storedPricingGroups,
-      ...DEFAULT_CHARM_PRICING_GROUPS.filter((group) => !storedPricingIds.has(group.id)),
-    ],
+    charmPricingGroups: storedPricingGroups,
     variantSelector: {
       ...DEFAULT_SETTINGS.variantSelector,
       ...(d.variantSelector || {}),

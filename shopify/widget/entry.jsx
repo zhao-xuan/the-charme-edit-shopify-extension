@@ -34,6 +34,24 @@ import { createCartHandler } from './shopifyCart'
 
 let mounted = false
 
+async function contextualCasePrice(cfg) {
+  const variantId = String(cfg.variantId || '')
+  const country = String(cfg.country || '').toUpperCase()
+  if (!/^\d{8,20}$/.test(variantId) || !/^[A-Z]{2}$/.test(country)) return null
+  try {
+    const endpoint = new URL('/api/shopify/contextual-price', cfg.apiBase || window.location.origin)
+    endpoint.searchParams.set('variant', variantId)
+    endpoint.searchParams.set('country', country)
+    const response = await fetch(endpoint, { headers: { accept: 'application/json' } })
+    const data = await response.json().catch(() => ({}))
+    const amount = Number(data.amount)
+    if (!response.ok || !(amount > 0) || data.currency !== cfg.currency?.active) return null
+    return amount
+  } catch {
+    return null
+  }
+}
+
 /**
  * Mount the customizer into its container. Idempotent — calling it again is a
  * no-op (the button-popup mode calls this on first open). Exposed on the IIFE
@@ -58,6 +76,11 @@ export async function mount() {
     const { default: CustomizerPage } = await import('../../src/customizer/CustomizerPage')
 
     const onPlaceOrder = createCartHandler(cfg)
+    const presentmentCasePrice = await contextualCasePrice(cfg) || Number(cfg.casePrice)
+    const currencyRate = Number(cfg.currency?.rate)
+    const initialCaseBasePrice = presentmentCasePrice > 0 && currencyRate > 0
+      ? presentmentCasePrice / currencyRate
+      : undefined
 
     // Digitised design preset: if this placement maps to a saved design (by Shopify
     // product handle), load it so the customer opens onto that arrangement and can
@@ -98,6 +121,7 @@ export async function mount() {
                   initialProductId={(initialLayout && initialLayout.productId) || cfg.defaultProductId || undefined}
                   initialCaseColourId={(initialLayout && initialLayout.caseColourId) || cfg.caseColourId || undefined}
                   initialGelColourId={(initialLayout && initialLayout.gelColourId) || cfg.gelColourId || undefined}
+                  initialCaseBasePrice={initialCaseBasePrice}
                   initialLayout={initialLayout || undefined}
                 />
               </div>

@@ -5,18 +5,20 @@
     "tote-tj": {
       "src": "/assets/totes/charme-natural.png",
       "pxW": 931,
-      "pxH": 1256,
-      "aspect": 0.7412,
-      "widthMm": 442.2,
-      "heightMm": 596.6,
+      "pxH": 1398,
+      "aspect": 0.666,
+      "widthMm": 420,
+      "heightMm": 630.7,
       "calibration": {
-        "reference": "handle apex to body top",
-        "distancePx": 600,
-        "distanceMm": 285,
-        "mmPerPx": 0.475,
+        "reference": "bag body width",
+        "distancePx": 931,
+        "distanceMm": 420,
+        "mmPerPx": 0.4511,
         "handleApexY": 0,
         "bodyTopY": 600,
-        "bodyTopMm": 285
+        "bodyTopMm": 270.7,
+        "bodyWidthMm": 420,
+        "bodyHeightMm": 360
       }
     }
   }

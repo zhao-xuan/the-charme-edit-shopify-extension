@@ -19,6 +19,7 @@ const VARIANT_FINISH_VALUES = {
 const apply = process.argv.includes('--apply')
 const verify = process.argv.includes('--verify')
 const filesOnly = process.argv.includes('--files-only')
+const customizerOnly = process.argv.includes('--customizer-only')
 const modelIds = new Set(
   process.argv.flatMap((argument, index) => argument === '--model' ? [process.argv[index + 1]] : [])
     .filter(Boolean),
@@ -31,8 +32,8 @@ const store = process.env.SHOPIFY_STORE
 const clientId = process.env.SHOPIFY_CLIENT_ID
 const clientSecret = process.env.SHOPIFY_CLIENT_SECRET
 
-if (!filesOnly) {
-  throw new Error('Product/variant media sync is disabled for customizer-only case images; pass --files-only')
+if (!filesOnly && !customizerOnly) {
+  throw new Error('Product/variant media sync is disabled; pass --files-only or --customizer-only')
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -267,7 +268,9 @@ async function main() {
   const customizerUpdates = images.filter((image) => image.finish === 'Black' || image.finish === 'White')
   const scope = filesOnly
     ? `${images.length} Shopify Files; no product, variant, or metaobject media updates`
-    : `${images.length} case-review variant images, ${customizerUpdates.length} customizer images`
+    : customizerOnly
+      ? `${customizerUpdates.length} customizer metaobject images; no product or variant media updates`
+      : `${images.length} case-review variant images, ${customizerUpdates.length} customizer images`
   console.log(`${apply ? 'APPLY' : 'DRY RUN'}: ${scope}`)
   for (const image of images) {
     console.log(`- ${image.model} / ${image.finish}: ${image.url}`)
@@ -300,7 +303,7 @@ async function main() {
   const targetCustomizerUpdates = targetImages.filter((entry) => entry.metaobject && (
     entry.image.finish === 'Black' || entry.image.finish === 'White'
   ))
-  const targetVariantUpdates = targetImages.filter((entry) => entry.variantIds.length)
+  const targetVariantUpdates = customizerOnly ? [] : targetImages.filter((entry) => entry.variantIds.length)
   const variantUpdateCount = targetVariantUpdates.reduce((count, entry) => count + entry.variantIds.length, 0)
   console.log(
     `Shopify coverage: ${targetImages.length}/${images.length} image assets, ` +
@@ -320,8 +323,9 @@ async function main() {
     return
   }
 
+  const uploadTargets = customizerOnly ? targetCustomizerUpdates : targetImages
   const files = new Map()
-  for (const { image } of targetImages) {
+  for (const { image } of uploadTargets) {
     files.set(`${image.modelId}\u0000${image.finish}`, await uploadFile(image))
     await sleep(250)
   }

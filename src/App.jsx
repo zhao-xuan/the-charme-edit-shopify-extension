@@ -132,6 +132,7 @@ function editorInitialState() {
     initialProductId: params.get('product') || undefined,
     initialCaseColourId: params.get('case') || undefined,
     initialGelColourId: params.get('gel') || undefined,
+    initialCasePresentmentPrice: Number(params.get('case_price')) || undefined,
   }
   if (!editorEdit.layout) return requested
   return {
@@ -234,8 +235,12 @@ export default function App() {
           <ArrowLeftOutlined aria-hidden="true" />
           <span>{t('action.back')}</span>
         </button>
-        <div className="brand">
-          <span className="mark">The Charmé Edit</span>
+        <div className="brand brand--editor">
+          <img
+            className="brand-logo"
+            src="/assets/branding/the-charme-edit-logo.png"
+            alt="The Charmé Edit"
+          />
         </div>
       </header>
       <CustomizerPage

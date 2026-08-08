@@ -11,20 +11,18 @@ export const DEFAULT_CHARM_PRICING_GROUPS = [
   },
   {
     id: 'mini-stones',
-    label: 'Mini Stone',
+    label: 'Mini Stones',
     enabled: true,
-    collection: 'Stones',
-    nameEquals: 'Mini Stone',
+    collection: 'Mini Stones',
     quantity: 8,
     price: 2,
     shopifyVariantId: '56450845344122',
   },
   {
     id: 'midi-stones',
-    label: 'Midi Stone',
+    label: 'Midi Stones',
     enabled: true,
-    collection: 'Stones',
-    nameEquals: 'Midi Stone',
+    collection: 'Midi Stone',
     quantity: 3,
     price: 2,
     shopifyVariantId: '56014395212154',
@@ -33,9 +31,7 @@ export const DEFAULT_CHARM_PRICING_GROUPS = [
     id: 'natural-shells',
     label: 'Natural Shells',
     enabled: true,
-    collection: 'Shells',
-    nameEquals: 'Natural Shell',
-    priceEquals: 0.5,
+    collection: 'Mini Shells',
     quantity: 3,
     price: 2,
     shopifyVariantId: '55868894216570',
@@ -44,37 +40,40 @@ export const DEFAULT_CHARM_PRICING_GROUPS = [
 
 const clean = (value) => String(value || '').trim().toLowerCase()
 
+const LEGACY_SUBCATEGORY_MIGRATIONS = {
+  'mini-stones': { from: 'Stones', to: 'Mini Stones' },
+  'midi-stones': { from: 'Stones', to: 'Midi Stone' },
+  'natural-shells': { from: 'Shells', to: 'Mini Shells' },
+}
+
 export function normalizeCharmPricingGroups(groups) {
-  if (!Array.isArray(groups) || !groups.length) return DEFAULT_CHARM_PRICING_GROUPS
+  if (!Array.isArray(groups)) return DEFAULT_CHARM_PRICING_GROUPS
+  if (!groups.length) return []
   const normalized = groups
-    .map((group, index) => ({
-      ...group,
-      id: String(group.id || `pricing-group-${index + 1}`),
-      label: String(group.label || group.collection || `Pricing group ${index + 1}`),
-      enabled: group.enabled !== false,
-      collection: String(group.collection || '').trim(),
-      nameEquals: String(group.nameEquals || '').trim(),
-      priceEquals:
-        group.priceEquals === '' || group.priceEquals == null
-          ? null
-          : Number(group.priceEquals),
-      quantity: Math.max(1, Math.round(Number(group.quantity) || 1)),
-      price: Math.max(0, Number(group.price) || 0),
-      shopifyVariantId: String(group.shopifyVariantId || '').trim(),
-    }))
-    .filter((group) => group.collection || group.nameEquals)
+    .map((group, index) => {
+      const id = String(group.id || `pricing-group-${index + 1}`)
+      const legacy = LEGACY_SUBCATEGORY_MIGRATIONS[id]
+      const collection = String(group.collection || '').trim()
+      const subgroup = legacy && clean(collection) === clean(legacy.from) ? legacy.to : collection
+      return {
+        id,
+        label: String(group.label || subgroup || `Pricing group ${index + 1}`),
+        enabled: group.enabled !== false,
+        collection: subgroup,
+        quantity: Math.max(1, Math.round(Number(group.quantity) || 1)),
+        price: Math.max(0, Number(group.price) || 0),
+        shopifyVariantId: String(group.shopifyVariantId || '').trim(),
+      }
+    })
+    .filter((group) => group.collection)
   return normalized.length ? normalized : DEFAULT_CHARM_PRICING_GROUPS
 }
 
 export function charmPricingGroupFor(charm, groups = DEFAULT_CHARM_PRICING_GROUPS) {
   const collection = clean(charm?.collection)
-  const name = clean(charm?.name)
   return normalizeCharmPricingGroups(groups).find((group) => {
     if (!group.enabled) return false
-    if (group.collection && clean(group.collection) !== collection) return false
-    if (group.nameEquals && clean(group.nameEquals) !== name) return false
-    if (group.priceEquals != null && Number(charm?.price) !== group.priceEquals) return false
-    return true
+    return clean(group.collection) === collection
   }) || null
 }
 

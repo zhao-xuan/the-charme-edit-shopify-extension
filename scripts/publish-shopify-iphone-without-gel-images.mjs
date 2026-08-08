@@ -28,6 +28,7 @@ const fillCaseReviewSources = process.argv.includes('--fill-case-review-sources'
 const allCaseReviewSources = process.argv.includes('--all-case-review-sources')
 const syncProductMedia = process.argv.includes('--sync-product-media')
 const pairAlignReviewedSources = process.argv.includes('--pair-align-reviewed-sources')
+const preserveCanvas = process.argv.includes('--preserve-canvas')
 const officialSourceSpecs = argumentValues('official-source')
 const derivedSourceSpecs = argumentValues('derived-source')
 const derivedRetailSourceSpecs = argumentValues('derived-retail-source')
@@ -739,6 +740,16 @@ async function reviewedSourceImages() {
       evidence = {
         ...cropped,
         trimmed: true,
+        sourceWidthPx: original.widthPx,
+        sourceHeightPx: original.heightPx,
+      }
+    } else if (preserveCanvas) {
+      if (!original.hasTransparentBackground) {
+        throw new Error(`${source.filePath} must have a transparent background when preserving its canvas`)
+      }
+      evidence = {
+        ...original,
+        trimmed: false,
         sourceWidthPx: original.widthPx,
         sourceHeightPx: original.heightPx,
       }

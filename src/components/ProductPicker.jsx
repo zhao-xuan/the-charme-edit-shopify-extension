@@ -1,7 +1,7 @@
 import { Select, Space } from 'antd'
 import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
 import { productGroups, hasCaseImage, productsByAvailability } from '../data/products'
-import { formatMoney } from '../lib/money'
+import { formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 
 // Representative icon per base platform, shown on the Step 1 selector cards.
@@ -26,7 +26,8 @@ const toOption = (p) => ({
   value: p.id,
   name: p.name,
   price: p.basePrice,
-  label: `${p.name} · ${formatMoney(p.basePrice, { whole: true })}`,
+  kind: p.kind,
+  label: p.name,
   disabled: !hasCaseImage(p),
 })
 
@@ -89,6 +90,7 @@ export default function ProductPicker({
   onProductChange,
   onCaseColourChange,
   onGelColourChange,
+  presentmentPrice,
 }) {
   const PRODUCT_GROUPS = productGroups()
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
@@ -98,6 +100,10 @@ export default function ProductPicker({
   const gelColours = product.gelColours
 
   const options = buildOptions(group)
+  const formatProductPrice = (candidate) =>
+    candidate.kind === 'phone' && Number(presentmentPrice) > 0
+      ? formatPresentmentMoney(presentmentPrice, { whole: true })
+      : formatMoney(candidate.price ?? candidate.basePrice, { whole: true })
 
   return (
     <div>
@@ -134,7 +140,7 @@ export default function ProductPicker({
           return (
             <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
               <strong>{p.name}</strong>
-              <span style={{ fontSize: 17 }}>{formatMoney(p.basePrice, { whole: true })}</span>
+              <span style={{ fontSize: 17 }}>{formatProductPrice(p)}</span>
             </span>
           )
         }}
@@ -149,7 +155,7 @@ export default function ProductPicker({
           }}>
             <strong>{opt.data.name}</strong>
             <span style={{ fontSize: opt.data.disabled ? 14 : 18 }}>
-              {opt.data.disabled ? t('picker.comingSoon') : formatMoney(opt.data.price, { whole: true })}
+              {opt.data.disabled ? t('picker.comingSoon') : formatProductPrice(opt.data)}
             </span>
           </div>
         )}

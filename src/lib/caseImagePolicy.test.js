@@ -34,9 +34,10 @@ test('Pixel models expose only Case Review images in the official manifest', () 
   assert.deepEqual(images, { white: 'official-white.png' })
 })
 
-test('Pixel 8 Pro keeps reviewed Black and disables the unsafe White finish', () => {
+test('Pixel 8 Pro exposes reviewed Black and White case images', () => {
   assert.deepEqual(officialImages['pixel-8-pro'], {
     black: '/assets/cases/case-without-gel/pixel-8-pro-black.png',
+    white: '/assets/cases/case-without-gel/pixel-8-pro-white.png',
   })
 })
 

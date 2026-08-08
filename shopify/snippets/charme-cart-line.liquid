@@ -15,14 +15,18 @@
 
 {%- assign charme_token = item.properties['_design_token'] -%}
 {%- assign charme_total = 0 -%}
+{%- assign charme_count = 0 -%}
 {%- for charme_it in cart.items -%}
   {%- if charme_it.properties['_design_token'] == charme_token -%}
     {%- assign charme_total = charme_total | plus: charme_it.final_line_price -%}
+    {%- if charme_it.properties['_role'] == 'charm' -%}
+      {%- assign charme_count = charme_count | plus: charme_it.quantity -%}
+    {%- endif -%}
   {%- endif -%}
 {%- endfor -%}
 {%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
 {%- assign charme_layout = item.properties['_layout'] -%}
-{%- assign charme_cart_url = 'https://thecharmeedit.com/cart?preview_theme_id=185473892730' -%}
+{%- assign charme_cart_url = routes.cart_url | append: '?preview_theme_id=' | append: theme.id | prepend: shop.url -%}
 
 <tr
   role="row"
@@ -72,6 +76,8 @@
         </div>
       </dl>
     {%- endif -%}
+
+    <p>Design: {{ charme_count }} charm{% unless charme_count == 1 %}s{% endunless %}</p>
 
     <ul class="charme-bundle-detail">
       <li>
@@ -123,7 +129,8 @@
       class="button button--tertiary cart-items__remove"
       type="button"
       aria-label="{{ 'accessibility.remove_item' | t: title: item.title | escape }}"
-      on:click="/onLineItemRemove/{{ item.index | plus: 1 }}"
+      data-charme-remove-group
+      data-charme-key="{{ item.key | escape }}"
     >
       {{- 'icon-delete.svg' | inline_asset_content -}}
       <span class="visually-hidden">Remove</span>

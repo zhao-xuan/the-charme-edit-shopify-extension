@@ -48,6 +48,8 @@ const ProductStage = forwardRef(function ProductStage(
     onBreakGroup,
     zoom = 1,
     onZoomChange,
+    fitPadding = PAD,
+    stageOverlay = null,
   },
   ref,
 ) {
@@ -91,8 +93,8 @@ const ProductStage = forwardRef(function ProductStage(
   const fitScale =
     size.w && size.h
       ? Math.min(
-          (size.w - PAD * 2) / product.widthMm,
-          (size.h - PAD * 2) / product.heightMm,
+          (size.w - fitPadding * 2) / product.widthMm,
+          (size.h - fitPadding * 2) / product.heightMm,
         )
       : 0
   const scale = Math.max(0.1, fitScale * zoom)
@@ -556,6 +558,7 @@ const ProductStage = forwardRef(function ProductStage(
           )}
         </div>
       )}
+      {typeof stageOverlay === 'function' ? stageOverlay() : stageOverlay}
     </div>
   )
 })

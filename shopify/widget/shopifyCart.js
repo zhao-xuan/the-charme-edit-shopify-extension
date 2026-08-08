@@ -22,23 +22,18 @@ import {
   submitStorefrontCartForm,
 } from '../../src/lib/storefrontCart'
 
-const DEFAULT_CHARM_BY_PRICE = {
-  1: '56027931935098',
-  1.5: '56450822701434',
-  2: '55870432903546',
-  3: '56014459765114',
-}
-
 const variantDetailsCache = new Map()
 
 function token() {
   return 'cd_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
 }
 
-async function uploadProof(uploadEndpoint, dataUrl, designToken) {
+async function uploadProof(uploadEndpoint, dataUrl, designToken, mode = 'standard') {
   if (!uploadEndpoint || !dataUrl) return null
   try {
-    const res = await fetch(uploadEndpoint, {
+    const endpoint = new URL(uploadEndpoint, window.location.origin)
+    if (mode === 'fast') endpoint.searchParams.set('fast', '1')
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ designToken, image: dataUrl }),
@@ -91,15 +86,18 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
   }
 
   const designToken = token()
-  const proofUrl = await uploadProof(cfg.uploadEndpoint, payload.proofs?.sampleUrl, designToken)
+  const proofUrl = await uploadProof(
+    cfg.uploadEndpoint,
+    payload.proofs?.sampleUrl,
+    designToken,
+    payload.proofUploadMode,
+  )
 
-  const byPrice = { ...DEFAULT_CHARM_BY_PRICE, ...(variantMap.charmByPrice || {}) }
   const charmVariant = (charm) =>
     resolveVariant(
       [
         (variantMap.charms || {})[charm.charmId],
         charm.shopifyVariantId,
-        byPrice[String(charm.price)] || byPrice[charm.price],
       ],
       charm.price,
     )
@@ -110,7 +108,6 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
       [
         byGroup[line.rule.id],
         line.rule.shopifyVariantId,
-        byPrice[String(line.unitPrice)] || byPrice[line.unitPrice],
       ],
       line.unitPrice,
     )
@@ -135,8 +132,7 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
   if (unmapped.length) {
     throw new Error(
       `These charms aren’t mapped to a Shopify variant yet: ${[...new Set(unmapped)].join(', ')}. ` +
-        `Set each group’s billing variant in Admin → Charms → Grouped pricing, ` +
-        `or add a variant map entry by group or price.`,
+        `Set an exact Shopify variant for each charm in Admin before accepting this order.`,
     )
   }
 

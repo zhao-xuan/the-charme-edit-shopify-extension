@@ -176,7 +176,7 @@ main.settings = {
   order_subheading: 'Choose how you’d like to create your one-of-a-kind case.',
   design_badge: 'Option 1',
   design_heading: 'Design it yourself',
-  design_text: 'Use our customiser to build your perfect case, your way.',
+  design_text: 'Use our customiser to build your perfect case.',
   design_button_label: 'Start designing',
   design_note: 'Full control over every detail',
   standard_badge: 'Option 2',

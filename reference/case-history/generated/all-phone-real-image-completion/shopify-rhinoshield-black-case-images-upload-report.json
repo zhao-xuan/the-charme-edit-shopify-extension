@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-07T23:06:18.938Z",
+  "provenancePath": null,
+  "sourceMode": "official-source",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 3,
+    "updated": 0,
+    "alreadyCurrent": 3,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 3,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-12-pro",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "b90a6944282d5bdf485370b7e70e2b9914f8c70b632d535e4f6ef3a431e00f39",
+      "pixelSha256": "6077a51e92ce757815222d525d7a7295694604ab98d6dd2c2070b8b171beffa7",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463962898810",
+      "fileId": "gid://shopify/MediaImage/71438597390714",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-black-without-gel-official-source-b90a6944282d.png?v=1786140524",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-12-pro",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-12-pro-black.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 182469,
+        "sha256": "65651d14dd6a40dc2afd115f00b84861deba8469238e9d8ae791ffe618b29a6e",
+        "pixelSha256": "6077a51e92ce757815222d525d7a7295694604ab98d6dd2c2070b8b171beffa7",
+        "pixelWidth": 308,
+        "pixelHeight": 631,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 194348,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "071ee1ebcb7587417b8b601d40f3eca48b536e9078b11136eefdfaddf7001d78",
+      "pixelSha256": "ada056e135851248ffedc478cf79c9b100487a618aee82e05fbfde2e414e03d9",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963390330",
+      "fileId": "gid://shopify/MediaImage/71438597456250",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-black-without-gel-official-source-071ee1ebcb75.png?v=1786140538",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-16",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-16-black.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 177566,
+        "sha256": "bfcd813391656fad859ea771dda031e5ec9587d38843ed57ffcd0cff60350a5c",
+        "pixelSha256": "ada056e135851248ffedc478cf79c9b100487a618aee82e05fbfde2e414e03d9",
+        "pixelWidth": 305,
+        "pixelHeight": 633,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 193065,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-16-plus",
+      "finish": "black",
+      "candidateVersion": "official-source",
+      "sha256": "8caa5d1a88304625fa713927c6ef0747f4d21b441869df3a7b652d010003f3ed",
+      "pixelSha256": "456b05c255a29027400aaecae1a29c1ac6c54ef1a66ae0caf2089c6de2144575",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/463963423098",
+      "fileId": "gid://shopify/MediaImage/71438597521786",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-black-without-gel-official-source-8caa5d1a8830.png?v=1786140548",
+      "sourceKind": "official-source",
+      "sourceModelId": "iphone-16-plus",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-16-plus-black.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 195725,
+        "sha256": "59066138864c2f76dfad886371e88e389fd5d5c8dafecdc849026d35ad5cb1e6",
+        "pixelSha256": "456b05c255a29027400aaecae1a29c1ac6c54ef1a66ae0caf2089c6de2144575",
+        "pixelWidth": 318,
+        "pixelHeight": 666,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 211788,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

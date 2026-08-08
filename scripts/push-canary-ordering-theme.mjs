@@ -23,6 +23,7 @@ const assets = [
   {
     key: 'templates/product.charme-ordering.json',
     localPath: 'shopify/templates/product.charme-ordering.json',
+    matches: templateMatches,
   },
 ]
 
@@ -31,6 +32,17 @@ if (!store || !clientId || !clientSecret) {
 }
 
 const hash = (value) => createHash('sha256').update(value).digest('hex')
+
+function templateMain(value) {
+  return JSON.parse(value.replace(/^\/\*[\s\S]*?\*\/\s*/, '')).sections?.main
+}
+
+function templateMatches(remoteValue, localValue) {
+  const remote = templateMain(remoteValue)
+  const local = templateMain(localValue)
+  return remote?.type === local?.type
+    && JSON.stringify(remote?.settings) === JSON.stringify(local?.settings)
+}
 
 async function accessToken() {
   const response = await fetch(`https://${store}/admin/oauth/access_token`, {
@@ -61,6 +73,16 @@ async function request(path, options = {}) {
   return body
 }
 
+async function verifyAsset(asset, local, expectedHash) {
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const suffix = `&cache_bust=${Date.now()}-${attempt}`
+    const remote = await request(`themes/${CANARY_THEME_ID}/assets.json?asset[key]=${encodeURIComponent(asset.key)}${suffix}`)
+    const remoteValue = remote.asset?.value || ''
+    if (asset.matches ? asset.matches(remoteValue, local) : hash(remoteValue) === expectedHash) return
+  }
+  throw new Error(`${asset.key} readback verification failed.`)
+}
+
 const results = []
 for (const asset of assets) {
   const local = readFileSync(asset.localPath, 'utf8')
@@ -68,7 +90,7 @@ for (const asset of assets) {
   const remoteValue = remote.asset?.value || ''
   const localHash = hash(local)
   const remoteHash = hash(remoteValue)
-  if (localHash === remoteHash) {
+  if (asset.matches ? asset.matches(remoteValue, local) : localHash === remoteHash) {
     results.push({ key: asset.key, action: 'unchanged', sha256: localHash })
     continue
   }
@@ -80,9 +102,7 @@ for (const asset of assets) {
     method: 'PUT',
     body: JSON.stringify({ asset: { key: asset.key, value: local } }),
   })
-  const verified = await request(`themes/${CANARY_THEME_ID}/assets.json?asset[key]=${encodeURIComponent(asset.key)}`)
-  const verifiedHash = hash(verified.asset?.value || '')
-  if (verifiedHash !== localHash) throw new Error(`${asset.key} readback hash mismatch.`)
+  await verifyAsset(asset, local, localHash)
   results.push({ key: asset.key, action: 'uploaded', sha256: localHash })
 }
 

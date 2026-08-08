@@ -137,6 +137,15 @@ function applySizeOverride(charm, charmSizes) {
   }
 }
 
+function enlargeTotePatch(patch) {
+  const scale = 1.08
+  return {
+    ...patch,
+    widthMm: +(Number(patch.widthMm) * scale).toFixed(2),
+    heightMm: +(Number(patch.heightMm) * scale).toFixed(2),
+  }
+}
+
 // The merged catalogue (bundled + remote Shopify + local admin drafts) is built
 // LAZILY, on first access, and memoised.
 //
@@ -158,6 +167,7 @@ function buildCatalog() {
   const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
   const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
   const charmSizes = { ...(REMOTE_OV.charmSizes || {}), ...ADMIN.charmSizes }
+  const charmVariantIds = REMOTE_OV.charmVariantIds || {}
 
   const BASE_CHARMS = charmData.charms
     .filter((c) => !charmHidden[c.id] && !c.hidden)
@@ -204,8 +214,7 @@ function buildCatalog() {
     // the tray) — but they still have a valid price and are billed by price tier
     // / draft order, so the override's `unavailable` flag is intentionally NOT
     // applied here: every catalogue charm stays selectable. Applied LAST so the
-    // variant id / fallback price wins even when the remote catalogue overrode the
-    // bundled charm by id.
+    // bundled fallback price wins only when the merchant catalogue is unavailable.
     //
     // ⚠️ Price precedence: when the merchant manages charms in their Shopify store
     // (hasRemoteCharms), the charm's OWN price — edited in the admin and returned
@@ -218,14 +227,22 @@ function buildCatalog() {
       {
         ...c,
         ...(!hasRemoteCharms && ov.price != null ? { price: ov.price } : {}),
-        ...(ov.variantId ? { shopifyVariantId: ov.variantId } : {}),
+        ...(!hasRemoteCharms && ov.variantId ? { shopifyVariantId: ov.variantId } : {}),
       },
       charmSizes,
     )
   })
-  const PATCHES = patchData.patches.map((patch) =>
-    applySizeOverride({ ...patch, kind: 'tote', src: resolveAsset(patch.src) }, charmSizes),
-  )
+  const remotePatches = REMOTE.patches || []
+  const patchIds = new Set(remotePatches.map((patch) => patch.id))
+  const PATCHES = [...remotePatches, ...patchData.patches.filter((patch) => !patchIds.has(patch.id))]
+    .filter((patch) => !patch.hidden && !charmHidden[patch.id])
+    .map((patch) => applySizeOverride(enlargeTotePatch({
+      ...patch,
+      kind: 'tote',
+      src: resolveAsset(patch.src),
+      price: charmPrices[patch.id] ?? patch.price,
+      shopifyVariantId: patch.shopifyVariantId || charmVariantIds[patch.id],
+    }), charmSizes))
   return { CHARMS, PATCHES, ITEMS_BY_KIND: { phone: CHARMS, tote: PATCHES } }
 }
 

@@ -100,8 +100,14 @@ export async function onRequestPost({ request, env }) {
 
 export async function onRequestPatch({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  const { id, price, hidden, widthMm, heightMm, name, category, collection, src } = (await request.json().catch(() => ({}))) || {}
+  const body = (await request.json().catch(() => ({}))) || {}
+  const { id, price, hidden, widthMm, heightMm, name, category, collection, src, shopifyVariantId } = body
   if (!id) return bad('id required')
+  if (
+    Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId') &&
+    shopifyVariantId != null &&
+    !/^\d+$/.test(String(shopifyVariantId))
+  ) return bad('shopifyVariantId must be a Shopify variant ID or null')
 
   if (shopifyConfigured(env)) {
     const rec = await getRecord(env, TYPES.charm, id)
@@ -113,6 +119,9 @@ export async function onRequestPatch({ request, env }) {
     if (name != null) rec.name = name
     if (category != null) rec.category = category
     if (collection != null) rec.collection = collection
+    if (Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')) {
+      rec.shopifyVariantId = shopifyVariantId == null ? null : String(shopifyVariantId)
+    }
     const imageGids = {}
     if (src && /^data:/.test(src)) {
       const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })

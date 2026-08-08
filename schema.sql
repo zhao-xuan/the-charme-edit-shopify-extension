@@ -60,6 +60,30 @@ CREATE TABLE IF NOT EXISTS overrides (
 CREATE INDEX IF NOT EXISTS idx_charms_category ON charms (category);
 CREATE INDEX IF NOT EXISTS idx_charms_source ON charms (source);
 
+-- Tote-only extracted patches. Kept separate from phone charms so each product
+-- kind has an independent decoration catalogue.
+CREATE TABLE IF NOT EXISTS patches (
+  id          TEXT PRIMARY KEY,
+  name        TEXT NOT NULL,
+  collection  TEXT DEFAULT 'Custom patches',
+  category    TEXT NOT NULL DEFAULT 'unique',
+  tier        TEXT NOT NULL DEFAULT 'midi',
+  type        INTEGER NOT NULL DEFAULT 2,
+  price       REAL NOT NULL DEFAULT 0,
+  width_mm    REAL NOT NULL,
+  height_mm   REAL NOT NULL,
+  px_w        INTEGER,
+  px_h        INTEGER,
+  image_key   TEXT NOT NULL,
+  hidden      INTEGER NOT NULL DEFAULT 0,
+  source      TEXT DEFAULT 'extracted',
+  dup_of      TEXT,
+  dup_score   REAL,
+  bundle      INTEGER NOT NULL DEFAULT 0,
+  bundle_max  INTEGER,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 -- Digitised design PRESETS. Each row is one storefront "custom phone case"
 -- design, keyed by its Shopify product handle. `layout` is the full seedable
 -- customizer arrangement as JSON — { productId, caseColourId, gelColourId,

@@ -47,6 +47,7 @@ export async function onRequestPost({ request, env }) {
     '',
   )
   const key = `proof-${token}`
+  const fast = new URL(request.url).searchParams.get('fast') === '1'
 
   // 1) Keep an instant KV copy (fallback + backwards-compatible /api/image URL).
   let kvUrl = null
@@ -55,7 +56,11 @@ export async function onRequestPost({ request, env }) {
     kvUrl = `${new URL(request.url).origin}/api/image/${key}`
   }
 
-  // 2) Upload to the merchant's Shopify Files so the proof lives in their store.
+  // 2) Mobile checkout uses the KV proof immediately. Shopify Files can spend
+  // several seconds processing an upload, which blocks the cart hand-off.
+  if (fast && kvUrl) return json({ url: kvUrl, shopifyUrl: null, kvUrl, source: 'kv' })
+
+  // Upload to the merchant's Shopify Files so the desktop proof lives in their store.
   let shopifyUrl = null
   try {
     shopifyUrl = await uploadImageToShopifyFiles(env, bytes, {

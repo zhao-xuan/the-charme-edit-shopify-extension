@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-08-07T23:31:04.406Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 1,
+    "alreadyCurrent": 1,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-xr",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "90b9e7926140705fe327ea6e182095393311a73b7ff27fcaf82ade1296e07ad6",
+      "pixelSha256": "0a948a9d5433db639a2337e18e52a007a204edeee21a3f052f436b834bb5231a",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471570907514",
+      "fileId": "gid://shopify/MediaImage/71438759821690",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-black-without-gel-derived-official-source-90b9e7926140.png?v=1786145204",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "iphone-xr",
+      "sourcePath": "reference/case-history/generated/iphone-xr-horizontal-stretch/iphone-xr-black-without-gel-horizontal-stretch.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1456665,
+        "sha256": "90d1ae4ba7163630a4b0065b5b69bb5748ade476c5c3293d0cfb9b61c7e63db9",
+        "pixelSha256": "0a948a9d5433db639a2337e18e52a007a204edeee21a3f052f436b834bb5231a",
+        "pixelWidth": 1024,
+        "pixelHeight": 1536,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572864,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "updated",
+      "modelId": "iphone-xr",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "567f88c8a49afdc9ca69e2a40b2bf4d867aeffa7d3a3668c6a47edefc50255cb",
+      "pixelSha256": "17fbcbabce5afa345e891815be95e4183ebe34a28b669bc085e2ab9edf05d67e",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471570907514",
+      "previousFileId": "gid://shopify/MediaImage/71438759919994",
+      "previousUrl": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-white-without-gel-derived-official-source-080e9a81195a.png?v=1786145211",
+      "fileId": "gid://shopify/MediaImage/71438775222650",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-white-without-gel-derived-official-source-567f88c8a49a.png?v=1786145463",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "iphone-xr",
+      "sourcePath": "reference/case-history/generated/iphone-xr-horizontal-stretch/iphone-xr-white-without-gel-horizontal-stretch.png",
+      "sourceUrl": null,
+      "sourceCrop": null,
+      "reusedUpload": false,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 1203594,
+        "sha256": "0eaefdb154abcefc9d86f264d2b570de09baf7ef8e779dd7d6d18db449835a76",
+        "pixelSha256": "17fbcbabce5afa345e891815be95e4183ebe34a28b669bc085e2ab9edf05d67e",
+        "pixelWidth": 1024,
+        "pixelHeight": 1536,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 1572864,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}

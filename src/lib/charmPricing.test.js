@@ -23,9 +23,9 @@ test('filling styles share each six-piece block', () => {
   assert.equal(charmChargeLines(seven)[0].quantity, 2)
 })
 
-test('mini and midi stones start another block at their boundaries', () => {
-  const mini = { collection: 'Stones', name: 'Mini Stone' }
-  const midi = { collection: 'Stones', name: 'Midi Stone' }
+test('mini and midi stones start another block at their Shopify sub-category boundaries', () => {
+  const mini = { collection: 'Mini Stones', name: 'Mini Stone' }
+  const midi = { collection: 'Midi Stone', name: 'Midi Stone' }
 
   assert.equal(charmPricingTotal(placed(8, mini)), 2)
   assert.equal(charmPricingTotal(placed(9, mini)), 4)
@@ -33,8 +33,8 @@ test('mini and midi stones start another block at their boundaries', () => {
   assert.equal(charmPricingTotal(placed(4, midi)), 4)
 })
 
-test('50p natural shells use the live three-piece pack', () => {
-  const shell = { collection: 'Shells', name: 'Natural Shell', price: 0.5 }
+test('mini shells use the live three-piece pack', () => {
+  const shell = { collection: 'Mini Shells', name: 'Natural Shell', price: 2 }
 
   assert.equal(charmPricingTotal(placed(3, shell)), 2)
   assert.equal(charmPricingTotal(placed(4, shell)), 4)
@@ -44,14 +44,14 @@ test('50p natural shells use the live three-piece pack', () => {
 test('pricing groups accumulate independently', () => {
   const charms = [
     ...placed(7, { collection: 'Filling Stones', name: 'Smoky' }),
-    ...placed(9, { charmId: 'mini', collection: 'Stones', name: 'Mini Stone' }),
-    ...placed(4, { charmId: 'midi', collection: 'Stones', name: 'Midi Stone' }),
+    ...placed(9, { charmId: 'mini', collection: 'Mini Stones', name: 'Mini Stone' }),
+    ...placed(4, { charmId: 'midi', collection: 'Midi Stone', name: 'Midi Stone' }),
   ]
 
   assert.equal(charmPricingTotal(charms), 11)
 })
 
-test('other styles in Stones retain their item prices', () => {
+test('other sub-categories retain their item prices', () => {
   const marble = placed(2, { collection: 'Stones', name: 'Marble Stone', price: 3 })
 
   assert.equal(charmPricingTotal(marble), 6)
@@ -72,6 +72,30 @@ test('an all-empty configuration restores the verified defaults', () => {
     normalizeCharmPricingGroups([{ id: 'empty', collection: '', nameEquals: '' }]),
     DEFAULT_CHARM_PRICING_GROUPS,
   )
+})
+
+test('an explicitly empty configuration disables grouped pricing', () => {
+  const charms = placed(2, { collection: 'Filling Stones', name: 'Cream', price: 5 })
+
+  assert.deepEqual(normalizeCharmPricingGroups([]), [])
+  assert.equal(charmPricingTotal(charms, []), 10)
+})
+
+test('saved legacy groups migrate to their real Shopify sub-categories', () => {
+  const groups = normalizeCharmPricingGroups([
+    { id: 'mini-stones', collection: 'Stones', nameEquals: 'Mini Stone', quantity: 8, price: 2 },
+    { id: 'midi-stones', collection: 'Stones', nameEquals: 'Midi Stone', quantity: 3, price: 2 },
+    { id: 'natural-shells', collection: 'Shells', nameEquals: 'Natural Shell', quantity: 3, price: 2 },
+  ])
+
+  assert.deepEqual(groups.map((group) => group.collection), ['Mini Stones', 'Midi Stone', 'Mini Shells'])
+})
+
+test('a custom group matches every charm in its selected Shopify sub-category', () => {
+  const groups = [{ id: 'stars', label: 'Stars pack', collection: 'Stars', quantity: 2, price: 3 }]
+  const stars = placed(3, { collection: 'Stars', name: 'Gold Star', price: 2 })
+
+  assert.equal(charmPricingTotal(stars, groups), 6)
 })
 
 test('legacy bundles still bill once per charm id', () => {

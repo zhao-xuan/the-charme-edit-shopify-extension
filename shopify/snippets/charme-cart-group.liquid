@@ -169,6 +169,41 @@
     return true;
   }
 
+  function groupedUpdates(cart, targetKey, quantity) {
+    var target = (cart.items || []).find(function (item) { return item.key === targetKey; });
+    var targetToken = target && target.properties && target.properties._design_token;
+    if (!targetToken) return null;
+    var updates = {};
+    (cart.items || []).forEach(function (item) {
+      if (item.properties && item.properties._design_token === targetToken) updates[item.key] = quantity;
+    });
+    return updates;
+  }
+
+  async function updateDesignGroup(targetKey, quantity) {
+    if (window.__charmeGroupUpdating) return false;
+    var cart = await fetch('/cart.js', { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(function (response) {
+      if (!response.ok) throw new Error('Could not read cart');
+      return response.json();
+    });
+    var updates = groupedUpdates(cart, targetKey, quantity);
+    if (!updates) return false;
+    window.__charmeGroupUpdating = true;
+    try {
+      var response = await fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ updates: updates }),
+      });
+      if (!response.ok) throw new Error('Could not update design');
+      window.location.reload();
+    } catch (error) {
+      window.__charmeGroupUpdating = false;
+      throw error;
+    }
+    return true;
+  }
+
   // If a base case line is removed, its charm lines are orphaned — remove them
   // too so the cart stays consistent (charm rows are hidden and can't be removed
   // on their own). Detects any _design_token group that has charms but no base.
@@ -236,6 +271,16 @@
     // when the user opens it.
     document.addEventListener('click', function (e) {
       var t2 = e.target;
+      var groupedRemove = t2 && t2.closest && t2.closest('[data-charme-remove-group]');
+      if (groupedRemove) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        updateDesignGroup(groupedRemove.getAttribute('data-charme-key'), 0).catch(function (error) {
+          console.error('[Charmé] grouped cart removal failed', error);
+          window.alert('We could not remove this design. Please refresh the page to try again.');
+        });
+        return;
+      }
       if (t2 && t2.closest && t2.closest('[data-testid="cart-drawer-trigger"], cart-drawer-component, .cart-drawer, a[href$="/cart"]')) reapply();
       if (t2 && t2.closest && t2.closest('.cart-items__remove')) refresh();
     }, true);

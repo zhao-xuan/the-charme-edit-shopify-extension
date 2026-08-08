@@ -5,7 +5,7 @@ import { renderPreview } from '../lib/exportImage'
 import { categoryLabel, placedCharmsTotal } from '../lib/catalog'
 import { charmChargeLines } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
-import { formatMoney } from '../lib/money'
+import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 
@@ -87,7 +87,9 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     if (open) {
       setLoading(true)
       setPreviewUrl(null)
-      renderPreview(product, color, placed, variableUids)
+      // Mobile proofs are still sharper than their on-screen display, but use
+      // one quarter of the desktop pixels to keep encoding and downloading fast.
+      renderPreview(product, color, placed, variableUids, isMobile ? 3 : 6)
         .then((url) => alive && (setPreviewUrl(url), setLoading(false)))
         .catch(() => alive && setLoading(false))
     }
@@ -97,7 +99,11 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   }, [open, product, color, placed, variableUids])
 
   const charmTotal = placedCharmsTotal(placed)
-  const total = product.basePrice + charmTotal
+  const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
+  const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
+  const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
+  const formatCasePrice = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
+  const formatTotal = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
   // Price globally before arranging rows into visual sections. This preserves
@@ -141,6 +147,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         gelColour: color.gelId ? { id: color.gelId, label: color.gelLabel } : null,
         gelId: color.gelId || null,
         basePrice: product.basePrice,
+        presentmentPrice: product.presentmentPrice || null,
       },
       charms: placed.map((c) => ({
         charmId: c.charmId,
@@ -161,6 +168,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       })),
       total,
       preview: previewUrl,
+      proofUploadMode: isMobile ? 'fast' : 'standard',
       // Legacy proof shape kept so the Shopify cart handler keeps working.
       proofs: { placeholderUrl: previewUrl, sampleUrl: previewUrl },
     }
@@ -250,7 +258,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             <p className="eyebrow" style={{ marginTop: 4 }}>{t('price.orderSummary')}</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
               <span>{product.name}</span>
-              <span>{formatMoney(product.basePrice)}</span>
+              <span>{formatCasePrice(casePrice)}</span>
             </div>
             <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginBottom: 8 }}>{color.label}</div>
             {grouped.map((g) => (
@@ -275,7 +283,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
             <Divider style={{ margin: '10px 0' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span>{t('price.total')}</span>
-              <span style={{ fontSize: 26, fontWeight: 600 }}>{formatMoney(total)}</span>
+              <span style={{ fontSize: 26, fontWeight: 600 }}>{formatTotal(total)}</span>
             </div>
             <Button
               type="primary"
@@ -286,7 +294,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               style={{ marginTop: 12 }}
               onClick={placeOrder}
             >
-              {t('cta.addToCart', { noun, price: formatMoney(total, { whole: true }) })}
+              {t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
             </Button>
           </div>
         </div>

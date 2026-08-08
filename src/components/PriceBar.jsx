@@ -1,12 +1,16 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
 import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../lib/catalog'
-import { formatMoney } from '../lib/money'
+import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 
 export default function PriceBar({ product, placed, validation, onSubmit, crossSellHint, compact }) {
   const charmTotal = placedCharmsTotal(placed)
-  const total = product.basePrice + charmTotal
+  const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
+  const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
+  const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
+  const formatCasePrice = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
+  const formatTotal = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
   const n = placed.length
   const ok = validation.ok
   const problems = validation.problems
@@ -49,19 +53,19 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
 
           <div className="price-row" style={{ marginBottom: 4 }}>
             <span className="hint">
-              {t('price.base', { name: product.name, price: formatMoney(product.basePrice) })}
+              {t('price.base', { name: product.name, price: formatCasePrice(casePrice) })}
               {charmTotal > 0 && <> &nbsp;+&nbsp; {t('price.plusCharms', { price: formatMoney(charmTotal) })}</>}
             </span>
           </div>
           <div className="price-row" style={{ marginBottom: 8 }}>
             <span style={{ fontSize: 13, color: 'var(--ink-soft)' }}>{t('price.estimatedTotal')}</span>
-            <span className="total">{formatMoney(total)}</span>
+            <span className="total">{formatTotal(total)}</span>
           </div>
         </>
       )}
 
       <Button block type="primary" size="large" disabled={n === 0} onClick={onSubmit}>
-        {t('cta.addToCart', { noun, price: formatMoney(total, { whole: true }) })}
+        {t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
       </Button>
       {crossSellHint && !compact && <p className="cross-sell-hint">{crossSellHint}</p>}
     </div>

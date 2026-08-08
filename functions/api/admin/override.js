@@ -20,8 +20,14 @@ export const onRequestOptions = () => new Response(null, { headers: cors })
 
 export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  const { scope, refId, price, hidden, sizeScale } = (await request.json().catch(() => ({}))) || {}
+  const body = (await request.json().catch(() => ({}))) || {}
+  const { scope, refId, price, hidden, sizeScale, shopifyVariantId } = body
   if (!scope || !refId) return bad('scope and refId required')
+  if (
+    Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId') &&
+    shopifyVariantId != null &&
+    !/^\d+$/.test(String(shopifyVariantId))
+  ) return bad('shopifyVariantId must be a Shopify variant ID or null')
 
   if (shopifyConfigured(env)) {
     const handle = overrideHandle(scope, refId)
@@ -33,6 +39,9 @@ export async function onRequestPost({ request, env }) {
     if (price != null) rec.price = price
     if (hidden != null) rec.hidden = !!hidden
     if (sizeScale != null) rec.sizeScale = sizeScale
+    if (Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')) {
+      rec.shopifyVariantId = shopifyVariantId == null ? null : String(shopifyVariantId)
+    }
     await saveRecord(env, TYPES.override, handle, rec)
     return json({ ok: true }, { headers: cors })
   }

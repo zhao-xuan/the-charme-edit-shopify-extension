@@ -45,6 +45,12 @@
   id="CharmeProductOrdering-{{ section.id }}"
   class="charme-product-ordering section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }}"
   style="{% render 'spacing-style', settings: section.settings %} --charme-order-gap: {{ section.settings.gap }}px;"
+  data-charme-market-currency="{{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | escape }}"
+  data-charme-market-country="{{ localization.country.iso_code | default: cart.currency.country.iso_code | escape }}"
+  data-charme-market-rate="{{ cart.currency.rate | default: 1 | escape }}"
+  data-charme-market-locale="{{ request.locale.iso_code | escape }}"
+  data-charme-variant-id="{{ selected_variant.id }}"
+  data-charme-theme-id="{{ theme.id }}"
 >
   <div class="charme-product-ordering__heading">
     {% content_for 'block',
@@ -97,14 +103,14 @@
 
       <a
         class="button charme-order-path__button"
-        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;currency={{ cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=185473892730' | url_encode }}&amp;cart_bridge=1"
+        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=' | append: theme.id | url_encode }}&amp;cart_bridge=1"
         data-charme-own-design
       >
         <span>{{ section.settings.design_button_label }}</span>
         <span class="charme-order-path__arrow" aria-hidden="true">&rarr;</span>
       </a>
 
-      <p class="charme-order-path__note">{{ section.settings.design_note }}</p>
+      <p class="charme-order-path__note">{{ section.settings.design_note | replace: '. If Option', '.<br>If Option' }}</p>
     </article>
 
     <article class="product-details charme-order-path charme-order-path--standard" aria-labelledby="CharmeStandardHeading-{{ section.id }}">
@@ -155,13 +161,74 @@
     var rootSelector = '#CharmeProductOrdering-{{ section.id }}';
     var bindingKey = {{ section.id | json }};
     var bindings = window.__charmeOrderingBindings = window.__charmeOrderingBindings || {};
+    var priceRequestId = 0;
+
+    function selectedVariantId(root) {
+      var input = document.querySelector('form[action*="/cart/add"] [name="id"], [name="id"]');
+      return input && /^\d+$/.test(input.value) ? input.value : root.dataset.charmeVariantId;
+    }
+
+    function setPresentmentCasePrice(root, target) {
+      var variantId = selectedVariantId(root);
+      var country = root.dataset.charmeMarketCountry;
+      if (!variantId || !country) return Promise.resolve();
+
+      var requestId = ++priceRequestId;
+      return fetch(
+        'https://charme-customizer.pages.dev/api/shopify/contextual-price?variant=' +
+          encodeURIComponent(variantId) + '&country=' + encodeURIComponent(country),
+        { headers: { Accept: 'application/json' } }
+      )
+        .then(function (response) {
+          if (!response.ok) throw new Error('Could not load contextual case price');
+          return response.json();
+        })
+        .then(function (price) {
+          if (requestId !== priceRequestId || !price || !(Number(price.amount) > 0)) return;
+          var url = new URL(target.href, window.location.href);
+          var currency = url.searchParams.get('currency');
+          if (currency && price.currency && currency !== price.currency) return;
+          url.searchParams.set('case_price', String(price.amount));
+          target.href = url.toString();
+        })
+        .catch(function () {
+          // The existing link remains available if contextual pricing cannot load.
+        });
+    }
 
     function syncDesignLink() {
       var root = document.querySelector(rootSelector);
       if (!root) return;
       var target = root.querySelector('[data-charme-own-design]');
       var source = root.querySelector('.add-charms-here-button');
-      if (target && source && source.href) target.href = source.href;
+      if (!target || !source || !source.href) return;
+      try {
+        var current = new URL(target.href, window.location.href);
+        var next = new URL(source.href, window.location.href);
+        var market = window.Shopify && window.Shopify.currency || {};
+        var currency = market.active || root.dataset.charmeMarketCurrency || current.searchParams.get('currency');
+        var rate = market.rate || root.dataset.charmeMarketRate || current.searchParams.get('currency_rate');
+        var locale = window.Shopify && window.Shopify.locale || root.dataset.charmeMarketLocale || current.searchParams.get('locale');
+        var casePrice = current.searchParams.get('case_price');
+        if (currency) next.searchParams.set('currency', currency);
+        if (rate) next.searchParams.set('currency_rate', rate);
+        if (casePrice) next.searchParams.set('case_price', casePrice);
+        if (locale) next.searchParams.set('locale', locale);
+        var previewThemeId = root.dataset.charmeThemeId;
+        if (previewThemeId) {
+          var cartUrl = new URL('/cart', window.location.origin);
+          cartUrl.searchParams.set('preview_theme_id', previewThemeId);
+          var returnUrl = new URL(window.location.href);
+          returnUrl.searchParams.set('preview_theme_id', previewThemeId);
+          next.searchParams.set('cart_url', cartUrl.toString());
+          next.searchParams.set('return_to', returnUrl.toString());
+        }
+        target.href = next.toString();
+        return setPresentmentCasePrice(root, target);
+      } catch (error) {
+        target.href = source.href;
+        return Promise.resolve();
+      }
     }
 
     function syncCarouselSlides() {
@@ -214,6 +281,16 @@
     document.addEventListener('input', scheduleSync);
     window.addEventListener('popstate', scheduleSync);
     window.addEventListener('resize', scheduleSync);
+    document.addEventListener('click', function (event) {
+      var target = event.target && event.target.closest('[data-charme-own-design]');
+      if (!target || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      var root = document.querySelector(rootSelector);
+      if (!root) return;
+      syncDesignLink().then(function () {
+        window.location.assign(target.href);
+      });
+    }, true);
     new MutationObserver(scheduleSync).observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['href'],
@@ -523,6 +600,7 @@
   }
 
   .charme-order-path__note {
+    min-height: 2.8em;
     margin: 16px 0 0;
     color: rgb(var(--color-foreground-rgb) / 0.62);
     font-size: 0.8125rem;
@@ -548,7 +626,7 @@
   }
 
   .charme-manual-step--charms {
-    margin-block: auto 0 0;
+    margin-block: auto 0 !important;
     border-block-start: 1px solid var(--color-border);
     padding-block-start: 28px;
   }
@@ -713,7 +791,7 @@
       "type": "text",
       "id": "design_text",
       "label": "Option 1 description",
-      "default": "Use our customiser to build your perfect case, your way."
+      "default": "Use our customiser to build your perfect case."
     },
     {
       "type": "text",
