@@ -102,16 +102,14 @@
             aria-label="{{ 'accessibility.cart' | t }}"
             style="--header-height: 60px;"
           >
-            <scroll-hint
-              class="cart-drawer__items"
-            >
+            <div class="cart-drawer__items">
               {% render 'cart-products' %}
-            </scroll-hint>
 
-            <div
-              class="cart-drawer__summary"
-            >
-              {% render 'cart-summary' %}
+              <div
+                class="cart-drawer__summary"
+              >
+                {% render 'cart-summary' %}
+              </div>
             </div>
           </div>
         {%- endif -%}
@@ -170,12 +168,24 @@
     height: calc(100% - var(--header-height));
     display: flex;
     flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .cart-drawer__items {
+    overflow: visible;
+    height: auto;
+    max-height: none;
+  }
+
+  .cart-drawer__content > .cart-drawer__items {
+    overflow: visible;
   }
 
   .cart-drawer__summary {
     background-color: var(--color-background);
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
+    position: static;
   }
+
 {% endstylesheet %}

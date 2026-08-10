@@ -30,13 +30,64 @@
   /* Keep the design preview (a tall phone-case shot) within the thumbnail cell */
   .cart-items__media-container.charme-proof-container{aspect-ratio:auto !important}
   .charme-proof-img{width:100% !important;height:auto !important;max-height:120px !important;object-fit:contain !important;aspect-ratio:auto !important}
+  .charme-floating-cart{position:fixed;right:10px;top:50%;margin-top:-24px;width:48px;height:48px;border:0;border-radius:24px;background:#3d3530;color:#f7f0df;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3000;box-shadow:0 0 5px grey}
+  .charme-floating-cart:hover{opacity:.94}
+  .charme-floating-cart__badge{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;padding:0 5px;border-radius:20px;background:#9f1010;color:#fff;font-size:12px;font-weight:700;line-height:22px;text-align:center;display:none}
+  .charme-floating-cart__badge:not([hidden]){display:block}
 </style>
 
 <script>
 (function () {
 
+  var floatingButton;
+  var floatingBadge;
+
   var latestCart = null;
   var refreshTimer;
+
+  function ensureFloatingButton() {
+    if (floatingButton && document.body.contains(floatingButton)) return;
+    floatingButton = document.querySelector('[data-charme-floating-cart]');
+    if (!floatingButton) {
+      floatingButton = document.createElement('button');
+      floatingButton.type = 'button';
+      floatingButton.className = 'charme-floating-cart';
+      floatingButton.setAttribute('data-charme-floating-cart', '1');
+      floatingButton.setAttribute('aria-label', 'Open cart');
+      floatingButton.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.8092 6.13574C22.7808 5.74023 22.4156 5.43262 21.9731 5.43262H17.5419V4.25977C17.5419 1.91113 15.0555 0 12 0C8.94453 0 6.45807 1.91113 6.45807 4.25977V5.43262H2.02693C1.58436 5.43262 1.21919 5.74023 1.19085 6.13574L0.00157807 23.2031C-0.0125929 23.4102 0.0691626 23.6123 0.227223 23.7637C0.385283 23.9141 0.606568 24 0.837663 24H23.1623C23.3934 24 23.6147 23.9141 23.7728 23.7637C23.9308 23.6123 24.0126 23.4102 23.9984 23.2031L22.8092 6.13574ZM8.13243 4.25977C8.13243 2.73828 9.86782 1.5 12 1.5C14.1322 1.5 15.8676 2.73828 15.8676 4.25977V5.43262H8.13243V4.25977ZM6.45807 6.93262V8.56152C6.45807 8.97559 6.83306 9.31152 7.29525 9.31152C7.75744 9.31152 8.13243 8.97559 8.13243 8.56152V6.93262H15.8676V8.56152C15.8676 8.97559 16.2426 9.31152 16.7048 9.31152C17.1669 9.31152 17.5419 8.97559 17.5419 8.56152V6.93262H21.186L21.9114 17.333H2.08859L2.81396 6.93262H6.45807ZM1.72825 22.5L2.01889 18.333H21.9811L22.2717 22.5H1.72825Z" fill="currentColor"></path></svg><span class="charme-floating-cart__badge" hidden>0</span>';
+      document.body.appendChild(floatingButton);
+    }
+    floatingBadge = floatingButton.querySelector('.charme-floating-cart__badge');
+    if (!floatingButton.__charmeBound) {
+      floatingButton.__charmeBound = true;
+      floatingButton.addEventListener('click', function () {
+        var trigger = document.querySelector('[data-testid="cart-drawer-trigger"]');
+        if (trigger) {
+          trigger.click();
+          return;
+        }
+        window.location.href = '/cart';
+      });
+    }
+  }
+
+  function logicalCount(cart) {
+    var count = 0;
+    (cart.items || []).forEach(function (item) {
+      if (item && item.properties && item.properties._role === 'charm') return;
+      count += Number(item.quantity) || 0;
+    });
+    return count;
+  }
+
+  function updateFloatingBadge(cart) {
+    ensureFloatingButton();
+    if (!floatingBadge) return;
+    var count = logicalCount(cart);
+    floatingBadge.textContent = String(count);
+    if (count > 0) floatingBadge.removeAttribute('hidden');
+    else floatingBadge.setAttribute('hidden', 'hidden');
+  }
 
   function base64UrlEncode(value) {
     var bytes = new TextEncoder().encode(value);
@@ -240,6 +291,7 @@
     }); }
     catch (e) { return; }
     latestCart = cart;
+    updateFloatingBadge(cart);
     hydrateEditLinks(cart);
     // Visual folding is now done SERVER-SIDE (snippets/charme-cart-line.liquid),
     // so it works in the cart page AND the drawer with no timing issues. Here we
@@ -248,6 +300,7 @@
   }
 
   function boot() {
+    ensureFloatingButton();
     applyAll();
     var t;
     var reapply = function () {

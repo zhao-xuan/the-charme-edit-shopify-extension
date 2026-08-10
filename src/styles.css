@@ -1130,6 +1130,19 @@ h4,
   gap: 6px;
   font-size: 11.5px;
 }
+.summary-mobile-save-tip {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border: 2px solid #b5766e;
+  border-radius: 10px;
+  background: #fff1ee;
+  color: #7d1f16;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(125, 31, 22, 0.12);
+}
 /* little red dashed key matching the "indicative" charm outline */
 .red-key {
   flex: none;

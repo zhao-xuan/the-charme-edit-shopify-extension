@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Restore the default cart drawer while keeping Charmé grouped cart lines.
+// Restore the default cart drawer while keeping Charmé grouped cart lines and
+// disabling the third-party cart overlay that bypasses grouped counts.
 // The theme IDs and asset allow-list are fixed so this script cannot target an
 // unrelated theme.
 //
@@ -10,13 +11,14 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 
 const API_VERSION = '2025-01'
-const CANARY_THEME_IDS = ['185473892730', '185622528378']
+const CANARY_THEME_IDS = ['185622528378']
 const LAYOUT_KEY = 'layout/theme.liquid'
 const SETTINGS_KEY = 'config/settings_data.json'
 const THEME_ASSETS = [
   ['snippets/charme-cart-group.liquid', 'shopify/snippets/charme-cart-group.liquid'],
   ['snippets/charme-cart-line.liquid', 'shopify/snippets/charme-cart-line.liquid'],
   ['snippets/cart-products.liquid', 'shopify/snippets/cart-products.liquid'],
+  ['snippets/cart-drawer.liquid', 'shopify/snippets/cart-drawer.liquid'],
 ]
 const THIRD_PARTY_BLOCK_ID = '2391397090251692709'
 const THIRD_PARTY_BLOCK_TYPE = 'shopify://apps/cartylabs-upsellcart/blocks/app-embed/87f48470-496b-4581-9be3-6b264b1ba440'
@@ -75,7 +77,7 @@ function prepareSettings(value) {
   if (current.cart_type !== 'drawer' && current.cart_type !== 'page') {
     throw new Error(`Unexpected Canary cart_type: ${String(current.cart_type)}`)
   }
-  block.disabled = false
+  block.disabled = true
   current.cart_type = 'drawer'
   return {
     data,
@@ -182,7 +184,7 @@ for (const themeId of CANARY_THEME_IDS) {
     {
       key: SETTINGS_KEY,
       value: preparedSettings.value,
-      changed: currentSettings.blocks[THIRD_PARTY_BLOCK_ID].disabled !== false || currentSettings.cart_type !== 'drawer',
+      changed: currentSettings.blocks[THIRD_PARTY_BLOCK_ID].disabled !== true || currentSettings.cart_type !== 'drawer',
       matches: value => JSON.stringify(parseSettings(value).data) === JSON.stringify(preparedSettings.data),
     },
     {

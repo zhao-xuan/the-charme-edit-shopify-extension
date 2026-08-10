@@ -358,6 +358,149 @@
         </table>
       </div>
     </form>
+
+    {%- assign charme_currency = localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency -%}
+    {%- assign charme_currency_rate = cart.currency.rate | default: 1 -%}
+    {%- assign charme_locale = request.locale.iso_code | default: 'en' -%}
+    {%- assign charme_cart_return = routes.cart_url | append: '?preview_theme_id=' | append: theme.id -%}
+
+    {%- capture charme_second_product_phone_url -%}
+      https://charme-customizer.pages.dev/editor?product=iphone-xr&case=white&gel=white&currency={{ charme_currency | url_encode }}&currency_rate={{ charme_currency_rate | url_encode }}&case_price=52&locale={{ charme_locale | url_encode }}&cart_url={{ charme_cart_return | url_encode }}&cart_bridge=1&return_to={{ charme_cart_return | url_encode }}
+    {%- endcapture -%}
+    {%- capture charme_second_product_frame_url -%}
+      https://charme-customizer.pages.dev/editor?product=frame-5x7&case=white&gel=white&currency={{ charme_currency | url_encode }}&currency_rate={{ charme_currency_rate | url_encode }}&case_price=24&locale={{ charme_locale | url_encode }}&cart_url={{ charme_cart_return | url_encode }}&cart_bridge=1&return_to={{ charme_cart_return | url_encode }}
+    {%- endcapture -%}
+
+    <div class="cart-items__second-product-anchor" aria-hidden="true"></div>
+    <section class="cart-items__second-product" aria-labelledby="cart-items-second-product-title">
+      <h2 id="cart-items-second-product-title" class="cart-items__second-product-title">
+        Would you like to customise your second product?
+      </h2>
+      <p class="cart-items__second-product-subtitle">Buy two cases, get a phone strap for free</p>
+
+      <div class="cart-items__second-product-grid">
+        <article class="cart-items__second-product-card">
+          <img
+            class="cart-items__second-product-image"
+            src="https://cdn.shopify.com/s/files/1/0922/3857/8042/files/charme-cross-sell-phone-case.png?v=1786122536"
+            alt="Customise phone case"
+            loading="lazy"
+            width="900"
+            height="900"
+          >
+          <a class="cart-items__second-product-cta" href="{{ charme_second_product_phone_url | strip }}">
+            Customise phone case
+          </a>
+        </article>
+
+        <article class="cart-items__second-product-card">
+          <img
+            class="cart-items__second-product-image"
+            src="https://cdn.shopify.com/s/files/1/0922/3857/8042/files/charme-cross-sell-photo-frame.png?v=1786122537"
+            alt="Customise photo frame"
+            loading="lazy"
+            width="900"
+            height="900"
+          >
+          <a class="cart-items__second-product-cta" href="{{ charme_second_product_frame_url | strip }}">
+            Customise photo frame
+          </a>
+        </article>
+      </div>
+
+      <p class="cart-items__second-product-skip">
+        <a href="#checkout">No thanks - go to my cart -></a>
+      </p>
+    </section>
+
+    <script>
+      (function () {
+        var script = document.currentScript;
+        if (!script) return;
+
+        var block = script.previousElementSibling;
+        var anchor = block ? block.previousElementSibling : null;
+        if (!block || !anchor) return;
+        if (!block.classList.contains('cart-items__second-product')) return;
+        if (!anchor.classList.contains('cart-items__second-product-anchor')) return;
+
+        function relocateSecondProduct() {
+          var summaryColumn = document.querySelector('main .cart-page__summary');
+          var summaryContainer = summaryColumn ? summaryColumn.querySelector('.cart__summary-container') : null;
+          var desktop = window.matchMedia('(min-width: 990px)').matches;
+
+          if (desktop && summaryColumn) {
+            if (summaryContainer && summaryContainer.parentNode === summaryColumn) {
+              if (block.parentNode !== summaryColumn || block.nextElementSibling !== summaryContainer) {
+                summaryColumn.insertBefore(block, summaryContainer);
+              }
+              return;
+            }
+            if (block.parentNode !== summaryColumn) {
+              summaryColumn.insertBefore(block, summaryColumn.firstChild);
+            }
+            return;
+          }
+
+          if (block.parentNode !== anchor.parentNode || block.previousElementSibling !== anchor) {
+            anchor.parentNode.insertBefore(block, anchor.nextSibling);
+          }
+
+          return !desktop || !!summaryColumn;
+        }
+
+        function ensureRelocated(attempt) {
+          var done = relocateSecondProduct();
+          if (done || attempt >= 10) return;
+          window.setTimeout(function () {
+            ensureRelocated(attempt + 1);
+          }, 120);
+        }
+
+        ensureRelocated(0);
+        document.addEventListener('DOMContentLoaded', function () { ensureRelocated(0); }, { once: true });
+        window.addEventListener('load', function () { ensureRelocated(0); }, { once: true });
+        window.addEventListener('resize', relocateSecondProduct, { passive: true });
+      })();
+    </script>
+
+    {%- assign charme_recommendations = collections['accessories'] -%}
+    {%- if charme_recommendations != blank and charme_recommendations.products_count > 0 -%}
+      <section class="cart-items__recommendations" aria-labelledby="cart-items-recommendations-title">
+        <h2 id="cart-items-recommendations-title" class="cart-items__recommendations-title">
+          Buy 2 cases, get a FREE phone strap
+        </h2>
+        <div class="cart-items__recommendations-track">
+          {%- for product in charme_recommendations.products limit: 24 -%}
+            {%- assign charme_product_title = product.title | downcase -%}
+            {%- if charme_product_title contains 'phone strap' -%}
+              {%- assign charme_variant = product.selected_or_first_available_variant -%}
+              <article class="cart-items__recommendation">
+                <a href="{{ product.url }}" class="cart-items__recommendation-media">
+                  {{ product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: product.title }}
+                </a>
+                <h3 class="cart-items__recommendation-title">{{ product.title }}</h3>
+                <form method="post" action="{{ routes.cart_add_url }}" class="cart-items__recommendation-form">
+                  <select name="id" aria-label="{{ product.title | escape }} options">
+                    {%- for variant in product.variants -%}
+                      <option value="{{ variant.id }}" {% unless variant.available %}disabled{% endunless %}>
+                        {{- variant.title }}{% unless variant.available %} - sold out{% endunless -%}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  <div class="cart-items__recommendation-buy">
+                    <span>{{ charme_variant.price | money }}</span>
+                    <button type="submit" {% unless product.available %}disabled{% endunless %}>
+                      {%- if product.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+                    </button>
+                  </div>
+                </form>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
   {%- endif -%}
 </div>
 
@@ -368,6 +511,17 @@
 
     container-name: cart-items;
     container-type: inline-size;
+    width: 100%;
+  }
+
+  .cart-items__wrapper {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .cart-page__items {
+    min-width: 0;
     width: 100%;
   }
 
@@ -793,5 +947,223 @@
   .cart-items__properties dt,
   .cart-items__properties dd {
     display: inline;
+  }
+
+  .cart-items__recommendations {
+    border-top: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.1);
+    margin-top: var(--margin-xl);
+    padding-top: var(--padding-lg);
+    overflow-x: clip;
+  }
+
+  .cart-items__second-product {
+    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.12);
+    border-radius: var(--style-border-radius-cards);
+    margin-top: var(--margin-xl);
+    padding: var(--padding-lg);
+    background: rgb(var(--color-background-rgb) / 1);
+  }
+
+  .cart-items__second-product-title {
+    font: var(--font-heading-h5);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .cart-items__second-product-subtitle {
+    margin: var(--margin-xs) 0 var(--margin-md);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
+  }
+
+  .cart-items__second-product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gap-sm);
+  }
+
+  .cart-items__second-product-anchor {
+    display: none;
+  }
+
+  .cart-items__second-product-card {
+    min-width: 0;
+  }
+
+  .cart-items__second-product-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.1);
+    background: rgb(var(--color-background-rgb) / 0.85);
+  }
+
+  .cart-items__second-product-cta {
+    align-items: center;
+    background: rgb(var(--color-foreground-rgb) / 0.85);
+    color: rgb(var(--color-background-rgb) / 1);
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-xs);
+    min-height: 44px;
+    padding: 0 var(--padding-sm);
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .cart-items__second-product-cta:hover {
+    opacity: 0.92;
+  }
+
+  .cart-items__second-product-skip {
+    margin: var(--margin-md) 0 0;
+    text-align: center;
+  }
+
+  .cart-items__second-product-skip a {
+    color: rgb(var(--color-foreground-rgb) / 0.85);
+    text-decoration: none;
+  }
+
+  .cart-items__second-product-skip a:hover {
+    text-decoration: underline;
+  }
+
+  .cart-items__recommendations-title,
+  .cart-items__recommendation-title {
+    font: inherit;
+    margin: 0;
+  }
+
+  .cart-items__recommendations-title {
+    margin-bottom: var(--margin-md);
+  }
+
+  .cart-items__recommendations-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(76vw, 210px);
+    gap: var(--gap-sm);
+    max-width: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    padding-bottom: var(--padding-xs);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cart-items__recommendation {
+    width: 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  .cart-items__recommendation-form {
+    min-width: 0;
+  }
+
+
+  .cart-items__recommendation-media,
+  .cart-items__recommendation-media img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .cart-items__recommendation-title {
+    margin-block: var(--margin-xs);
+  }
+
+  .cart-items__recommendation-form select,
+  .cart-items__recommendation-buy button {
+    background: var(--color-background);
+    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.2);
+    color: var(--color-foreground);
+    font: inherit;
+    min-height: 42px;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cart-items__recommendation-form select {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cart-items__recommendation-buy {
+    align-items: center;
+    display: flex;
+    gap: var(--gap-xs);
+    margin-top: var(--margin-xs);
+    min-width: 0;
+  }
+
+  .cart-items__recommendation-buy span {
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+  }
+
+  .cart-items__recommendation-buy button {
+    background: var(--color-primary-button-background);
+    border-color: var(--color-primary-button-background);
+    color: var(--color-primary-button-text);
+    cursor: pointer;
+    flex: 1;
+  }
+
+  .cart-items__recommendation-buy button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 760px) {
+    .cart-items__table {
+      max-width: 100%;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .cart-items__second-product {
+      padding: var(--padding-md);
+    }
+
+    .cart-items__second-product-grid {
+      gap: var(--gap-2xs);
+    }
+
+    .cart-items__second-product-cta {
+      font-size: var(--font-size--sm);
+      min-height: 38px;
+      padding: 0 var(--padding-2xs);
+    }
+
+    .cart-items__recommendations-track {
+      grid-auto-columns: min(62vw, 188px);
+      gap: var(--gap-2xs);
+    }
+
+    .cart-items__recommendations-title {
+      font-size: var(--font-size--lg);
+      margin-bottom: var(--margin-sm);
+    }
+
+    .cart-items__recommendation-title {
+      font-size: var(--font-size--md);
+      margin-block: var(--margin-2xs);
+    }
+
+    .cart-items__recommendation-form select,
+    .cart-items__recommendation-buy button {
+      min-height: 36px;
+      font-size: var(--font-size--sm);
+    }
+
+    .cart-items__recommendation-buy span {
+      font-size: var(--font-size--md);
+    }
   }
 {% endstylesheet %}

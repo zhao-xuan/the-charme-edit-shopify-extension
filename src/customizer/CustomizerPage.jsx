@@ -353,12 +353,20 @@ export default function CustomizerPage({
   }), [productId, caseColourId, gelColourId, placed, wordGroups])
   const [draftsReady, setDraftsReady] = useState(false)
 
+  const hasExplicitStartSelection = Boolean(initialProductId || initialCaseColourId || initialGelColourId)
+
   useEffect(() => {
     const recovery = loadRecoveryDraft()
     setNamedDrafts(listDesignDrafts())
-    if (recovery?.snapshot?.charms?.length && !initialLayout?.charms?.length) applyLayout(recovery.snapshot)
+    if (
+      recovery?.snapshot?.charms?.length &&
+      !initialLayout?.charms?.length &&
+      !hasExplicitStartSelection
+    ) {
+      applyLayout(recovery.snapshot)
+    }
     setDraftsReady(true)
-  }, [applyLayout, initialLayout])
+  }, [applyLayout, hasExplicitStartSelection, initialLayout])
 
   useEffect(() => {
     if (!draftsReady) return
@@ -957,13 +965,15 @@ export default function CustomizerPage({
   const pickCrossSell = (opt) => {
     setCrossSellOpen(false)
     setIsSecondProduct(true)
+    const fallbackProductId = opt.group === 'frame' ? 'frame-5x7' : undefined
+    const targetProductId = opt.productId || fallbackProductId
     const code = (crossSell.discountCode || '').trim()
     if (code && typeof fetch !== 'undefined') {
       // /discount/<CODE> applies the code to the current cart session (store origin).
       fetch(`/discount/${encodeURIComponent(code)}`, { mode: 'no-cors' }).catch(() => {})
     }
     if (opt.group) handleGroup(opt.group)
-    if (opt.productId) handleProduct(opt.productId)
+    if (targetProductId) handleProduct(targetProductId)
     // Start the second product on a clean canvas (wins over the switch resets).
     setPlaced([])
     setSelectedUid(null)

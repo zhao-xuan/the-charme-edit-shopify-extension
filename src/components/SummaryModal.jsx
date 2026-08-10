@@ -79,9 +79,9 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     if (open) {
       setLoading(true)
       setPreviewUrl(null)
-      // Mobile proofs are still sharper than their on-screen display, but use
-      // one quarter of the desktop pixels to keep encoding and downloading fast.
-      renderPreview(product, color, placed, variableUids, isMobile ? 3 : 6)
+      // Keep mobile long-press exports crisp: render at high DPI on all devices
+      // so the saved image remains sharp (phone case + charms).
+      renderPreview(product, color, placed, variableUids, isMobile ? 8 : 6)
         .then((url) => alive && (setPreviewUrl(url), setLoading(false)))
         .catch(() => alive && setLoading(false))
     }
@@ -160,7 +160,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       })),
       total,
       preview: previewUrl,
-      proofUploadMode: isMobile ? 'fast' : 'standard',
+      proofUploadMode: 'standard',
       // Legacy proof shape kept so the Shopify cart handler keeps working.
       proofs: { placeholderUrl: previewUrl, sampleUrl: previewUrl },
     }
@@ -237,14 +237,20 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 {hasUnique && ` ${UNIQUE_NOTE}`}
               </p>
             )}
-            <Button
-              size="small"
-              icon={<DownloadOutlined />}
-              style={{ marginTop: 8 }}
-              onClick={() => downloadPng(previewUrl, `${product.id}-design.png`).catch(() => message.error('Could not download your design.'))}
-            >
-              {t('summary.download')}
-            </Button>
+            {isMobile ? (
+              <p className="summary-mobile-save-tip" role="status" aria-live="polite">
+                Please long press the photo above to save to your photo album
+              </p>
+            ) : (
+              <Button
+                size="small"
+                icon={<DownloadOutlined />}
+                style={{ marginTop: 8 }}
+                onClick={() => downloadPng(previewUrl, `${product.id}-design.png`).catch(() => message.error('Could not download your design.'))}
+              >
+                {t('summary.download')}
+              </Button>
+            )}
           </div>
           <div className="summary-order">
             <p className="eyebrow" style={{ marginTop: 4 }}>{t('price.orderSummary')}</p>
