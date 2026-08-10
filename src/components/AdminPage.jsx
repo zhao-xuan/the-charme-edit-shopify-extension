@@ -51,6 +51,7 @@ import patchData from '../data/patches.json'
 import ProductCanvas from './ProductCanvas'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
+import { crossSellTitle } from '../lib/crossSellTitle'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
@@ -150,7 +151,7 @@ const TIER_OPTS = [
   { value: 'mini', label: 'Filler · Mini (scatter)', type: 3, price: 2 },
 ]
 
-function ShopifyVariantSelect({ value, variants, loading, onChange }) {
+function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true }) {
   const selectedValue = value == null ? '' : String(value)
   const selected = variants.find((variant) => String(variant.id) === selectedValue)
   const label = (variant, includePrice = false) => (
@@ -175,7 +176,7 @@ function ShopifyVariantSelect({ value, variants, loading, onChange }) {
       value={selectedValue || undefined}
       loading={loading}
       showSearch
-      allowClear
+      allowClear={allowClear}
       optionFilterProp="searchText"
       placeholder="Link Shopify variant"
       style={{ width: 250 }}
@@ -817,7 +818,7 @@ function CharmsTab({ draft, set, cloud }) {
     category: 'gold',
     subCategory: '',
     tier: 'midi',
-    price: 2,
+    shopifyVariantId: '',
     widthMm: 16,
     image: null,
     bundle: false,
@@ -869,6 +870,8 @@ function CharmsTab({ draft, set, cloud }) {
   const addCharm = () => {
     if (!form.name.trim()) return message.warning('Give the charm a name.')
     if (!form.image?.src) return message.warning('Upload the charm artwork.')
+    const variant = shopifyVariants.find((item) => String(item.id) === String(form.shopifyVariantId))
+    if (!variant) return message.warning('Choose the Shopify variant that sets this charm’s price.')
     const tier = TIER_OPTS.find((t) => t.value === form.tier)
     const widthMm = Number(form.widthMm) || 16
     const heightMm = +(widthMm * (form.image.h / form.image.w)).toFixed(1)
@@ -880,7 +883,8 @@ function CharmsTab({ draft, set, cloud }) {
       category: form.category,
       tier: tier.value,
       type: tier.type,
-      price: Number(form.price) || 0,
+      price: variant.price,
+      shopifyVariantId: variant.id,
       src: form.image.src,
       pxW: form.image.w,
       pxH: form.image.h,
@@ -894,7 +898,7 @@ function CharmsTab({ draft, set, cloud }) {
       bundleMax: bundle ? Math.max(1, Math.min(MAX_CHARMS, Number(form.bundleMax) || 1)) : null,
     }
     set((d) => ({ ...d, customCharms: [charm, ...(d.customCharms || [])] }))
-    setForm({ name: '', category: 'gold', tier: 'midi', price: 2, widthMm: 16, image: null, bundle: false, bundleMax: 8 })
+    setForm({ name: '', category: 'gold', tier: 'midi', shopifyVariantId: '', widthMm: 16, image: null, bundle: false, bundleMax: 8 })
     message.success('Charm added — Save changes to publish.')
   }
 
@@ -969,6 +973,7 @@ function CharmsTab({ draft, set, cloud }) {
                     value={r.shopifyVariantId}
                     variants={shopifyVariants}
                     loading={variantsLoading}
+                    allowClear={false}
                     onChange={(shopifyVariantId) => cloud.updateCharm(r, { shopifyVariantId })}
                   />
                 ),
@@ -976,15 +981,10 @@ function CharmsTab({ draft, set, cloud }) {
               {
                 title: 'Price (£)',
                 width: 96,
-                render: (_, r) => (
-                  <InputNumber
-                    size="small"
-                    min={0}
-                    defaultValue={r.price}
-                    onBlur={(e) => cloud.repriceCharm(r, Number(e.target.value))}
-                    style={{ width: 76 }}
-                  />
-                ),
+                render: (_, r) => {
+                  const variant = shopifyVariants.find((item) => String(item.id) === String(r.shopifyVariantId))
+                  return variant ? `£${Number(variant.price).toFixed(2)}` : 'Link variant'
+                },
               },
               {
                 title: 'Shown',
@@ -1056,21 +1056,24 @@ function CharmsTab({ draft, set, cloud }) {
                 <Select
                   value={form.tier}
                   onChange={(v) => {
-                    const t = TIER_OPTS.find((x) => x.value === v)
-                    setForm((f) => ({ ...f, tier: v, price: t.price }))
+                    setForm((f) => ({ ...f, tier: v }))
                   }}
                   options={TIER_OPTS}
                   style={{ width: '100%' }}
                 />
               </label>
               <label>
-                <span>Price (£)</span>
-                <InputNumber
-                  min={0}
-                  value={form.price}
-                  onChange={(v) => setForm((f) => ({ ...f, price: v }))}
-                  style={{ width: '100%' }}
+                <span>Shopify billing variant</span>
+                <ShopifyVariantSelect
+                  value={form.shopifyVariantId}
+                  variants={shopifyVariants}
+                  loading={variantsLoading}
+                  allowClear={false}
+                  onChange={(shopifyVariantId) => setForm((f) => ({ ...f, shopifyVariantId }))}
                 />
+                <span className="hint">{form.shopifyVariantId
+                  ? `Price: £${Number(shopifyVariants.find((item) => String(item.id) === String(form.shopifyVariantId))?.price || 0).toFixed(2)}`
+                  : 'Choose a variant to set the price.'}</span>
               </label>
               <label>
                 <span>Real width (mm)</span>
@@ -1117,7 +1120,7 @@ function CharmsTab({ draft, set, cloud }) {
             </div>
             <p className="hint" style={{ margin: '10px 0 0' }}>
               {form.bundle
-                ? `Customers pay £${Number(form.price) || 0} once and may add up to ${form.bundleMax || 1} of this charm.`
+                ? `Customers pay the selected Shopify variant price once and may add up to ${form.bundleMax || 1} of this charm.`
                 : 'Priced per piece — each one added is charged separately.'}
             </p>
             <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
@@ -2490,6 +2493,7 @@ function DiscountTab({ cloud }) {
             crossSell: { ...prev.crossSell, ...(data.crossSell || {}) },
             discounts: { ...prev.discounts, ...(data.discounts || {}) },
           }
+          merged.crossSell.title = crossSellTitle(merged.crossSell.title)
           merged.discounts.bundles = (merged.discounts.bundles || []).map(normalizeBundle)
           return merged
         }),
@@ -2600,14 +2604,14 @@ function DiscountTab({ cloud }) {
         <Switch checked={!!s.crossSell.enabled} onChange={(v) => setCross({ enabled: v })} />
       </label>
       <label style={discFieldStyle}>
-        <span style={{ color: 'var(--ink-soft)' }}>Popup title</span>
-        <Input value={s.crossSell.title} onChange={(e) => setCross({ title: e.target.value })} style={{ maxWidth: 460 }} />
-      </label>
-      <label style={discFieldStyle}>
         <span style={{ color: 'var(--ink-soft)' }}>Auto-apply code for the 2nd product</span>
         <Input value={s.crossSell.discountCode} onChange={(e) => setCross({ discountCode: e.target.value.toUpperCase() })} placeholder="e.g. SECOND10" style={{ maxWidth: 460 }} />
       </label>
       <Divider style={{ margin: '10px 0' }}>Popup product options</Divider>
+      <label style={discFieldStyle}>
+        <span style={{ color: 'var(--ink-soft)' }}>Popup title</span>
+        <Input value={s.crossSell.title} onChange={(e) => setCross({ title: e.target.value })} style={{ maxWidth: 460 }} />
+      </label>
       {(s.crossSell.options || []).map((opt, i) => {
         const preview = crossSellOptionImage(opt, models, groups)
         return (

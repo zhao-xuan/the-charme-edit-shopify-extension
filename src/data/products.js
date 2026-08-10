@@ -20,6 +20,7 @@ import OFFICIAL_PHONE_CASE_IMAGES from './official-phone-case-images.json'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import { loadAdmin } from '../lib/adminStore'
 import { ANDROID_LAUNCH_MODEL_IDS, trustedCaseImages } from '../lib/caseImagePolicy'
+import { measuredCameraKeepout } from '../lib/appleCameraKeepouts.js'
 import { remoteCatalog } from '../lib/remoteCatalog'
 import {
   samsungCameraObstacles,
@@ -61,6 +62,7 @@ function gelOverlaySrc(id) {
 const PLAIN_IPHONE_MODELS = new Set([
   'iphone-7', 'iphone-7-plus', 'iphone-8', 'iphone-8-plus',
   'iphone-x', 'iphone-xs', 'iphone-xs-max',
+  'iphone-xr',
   'iphone-11', 'iphone-11-pro', 'iphone-11-pro-max',
   'iphone-12', 'iphone-12-mini', 'iphone-12-pro', 'iphone-12-pro-max',
   'iphone-13', 'iphone-13-mini', 'iphone-13-pro', 'iphone-13-pro-max',
@@ -71,6 +73,14 @@ const PLAIN_IPHONE_MODELS = new Set([
 ])
 function applyPlainIphoneCase(product) {
   if (!PLAIN_IPHONE_MODELS.has(product.id)) return product
+
+  // These images are measured case renders even when they are not listed in
+  // cases.json. Apply their per-model camera calibration here as well; without
+  // this, older models such as iPhone 7 fall back to the generic 27 × 27 mm
+  // square-dual obstacle despite having a small horizontal single-camera cutout.
+  const camera = measuredCameraKeepout(product, CAMERA_KEEPOUTS[product.id])
+  const hasMeasuredCamera = camera !== null
+
   return {
     ...product,
     gelRender: false,
@@ -78,6 +88,13 @@ function applyPlainIphoneCase(product) {
       white: `/assets/cases/case-without-gel/${product.id}-white.png`,
       black: `/assets/cases/case-without-gel/${product.id}-black.png`,
     },
+    ...(hasMeasuredCamera ? {
+      camera,
+      printable: {
+        ...product.printable,
+        obstacles: [{ type: 'roundedRect', ...camera, label: 'camera' }],
+      },
+    } : {}),
   }
 }
 

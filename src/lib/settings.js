@@ -9,6 +9,7 @@
  */
 import { API_BASE } from './apiBase'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from './charmPricing'
+import { crossSellTitle } from './crossSellTitle'
 
 export const DEFAULT_SETTINGS = {
   // Prompt shown under "Add my custom … to cart".
@@ -59,6 +60,8 @@ export const DEFAULT_SETTINGS = {
     tree: [],
   },
 }
+
+export { crossSellTitle }
 
 let cache = null
 

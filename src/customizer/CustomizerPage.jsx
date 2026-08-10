@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Button, App, Modal, Segmented, Select } from 'antd'
+import { Button, App, Modal, Segmented, Select, Input } from 'antd'
 import {
   ZoomInOutlined,
   ZoomOutOutlined,
@@ -12,6 +12,8 @@ import {
   CompressOutlined,
   DownOutlined,
   UpOutlined,
+  SaveOutlined,
+  FolderOpenOutlined,
 } from '@ant-design/icons'
 import ProductStage from '../components/ProductStage'
 import ProductPicker from '../components/ProductPicker'
@@ -24,10 +26,20 @@ import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayo
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
+import { crossSellTitle } from '../lib/crossSellTitle'
 import { charmPricingGroupFor } from '../lib/charmPricing'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
+import {
+  clearRecoveryDraft,
+  deleteDesignDraft,
+  designSnapshot,
+  listDesignDrafts,
+  loadRecoveryDraft,
+  saveDraft,
+  saveRecoveryDraft,
+} from '../lib/designDrafts'
 
 function useMedia(query) {
   const [match, setMatch] = useState(
@@ -172,6 +184,9 @@ export default function CustomizerPage({
     () => (['glitter', 'white', 'black'].includes(initialGelColourId) ? initialGelColourId : 'glitter'),
   )
   const [placed, setPlaced] = useState([])
+  const [draftsOpen, setDraftsOpen] = useState(false)
+  const [draftName, setDraftName] = useState('')
+  const [namedDrafts, setNamedDrafts] = useState([])
   const [selectedUid, setSelectedUid] = useState(null)
   // "Type a word" groups. Each placed letter/number that belongs to a typed word
   // carries a `groupId`; `wordGroups` holds the metadata { id, label, broken }.
@@ -189,6 +204,7 @@ export default function CustomizerPage({
   const [summaryOpen, setSummaryOpen] = useState(false)
   // Cross-sell popup shown after a product is added to the cart.
   const [crossSellOpen, setCrossSellOpen] = useState(false)
+  const [isSecondProduct, setIsSecondProduct] = useState(false)
   // Set true when the customer taps the order button while charms still overlap
   // or sit outside the craftable area — surfaces a prominent fix-it message next
   // to the case (desktop) and emphasises the Step 2 overlay warning (mobile).
@@ -314,6 +330,8 @@ export default function CustomizerPage({
         rot: it.rot || 0,
         cxMm: it.cxMm,
         cyMm: it.cyMm,
+        groupId: it.groupId,
+        groupLabel: it.groupLabel,
       }
     })
     const fromP = findProduct(layout.productId)
@@ -322,7 +340,53 @@ export default function CustomizerPage({
       placed = adaptLayoutToProduct(placed, fromP, toP)
     }
     setPlaced(placed)
+    setWordGroups(layout.wordGroups || [])
     setSelectedUid(null)
+  }, [])
+
+  const snapshot = useCallback(() => designSnapshot({
+    productId,
+    caseColourId,
+    gelColourId,
+    placed,
+    wordGroups,
+  }), [productId, caseColourId, gelColourId, placed, wordGroups])
+  const [draftsReady, setDraftsReady] = useState(false)
+
+  useEffect(() => {
+    const recovery = loadRecoveryDraft()
+    setNamedDrafts(listDesignDrafts())
+    if (recovery?.snapshot?.charms?.length && !initialLayout?.charms?.length) applyLayout(recovery.snapshot)
+    setDraftsReady(true)
+  }, [applyLayout, initialLayout])
+
+  useEffect(() => {
+    if (!draftsReady) return
+    saveRecoveryDraft(snapshot())
+  }, [draftsReady, snapshot])
+
+  const refreshNamedDrafts = useCallback(() => setNamedDrafts(listDesignDrafts()), [])
+  const saveNamedDraft = useCallback(() => {
+    const saved = saveDraft({ name: draftName, snapshot: snapshot() })
+    if (!saved) {
+      message.error('Could not save this design on this device.')
+      return
+    }
+    setDraftName('')
+    refreshNamedDrafts()
+    message.success('Design saved')
+  }, [draftName, message, refreshNamedDrafts, snapshot])
+  const loadNamedDraft = useCallback((draft) => {
+    applyLayout(draft.snapshot)
+    setDraftsOpen(false)
+    message.success(`Loaded ${draft.name}`)
+  }, [applyLayout, message])
+  const newDesign = useCallback(() => {
+    setPlaced([])
+    setWordGroups([])
+    setSelectedUid(null)
+    clearRecoveryDraft()
+    setDraftsOpen(false)
   }, [])
 
   // Production preset auto-load: when the Shopify placement supplies a digitised
@@ -892,6 +956,7 @@ export default function CustomizerPage({
   // customizer on the chosen product so the customer starts their second piece.
   const pickCrossSell = (opt) => {
     setCrossSellOpen(false)
+    setIsSecondProduct(true)
     const code = (crossSell.discountCode || '').trim()
     if (code && typeof fetch !== 'undefined') {
       // /discount/<CODE> applies the code to the current cart session (store origin).
@@ -989,6 +1054,7 @@ export default function CustomizerPage({
       onSubmit={attemptOrder}
       crossSellHint={appSettings.crossSellHint}
       compact={trayExpanded}
+      isSecondProduct={isSecondProduct}
     />
   )
 
@@ -1146,6 +1212,14 @@ export default function CustomizerPage({
           </header>
           <div className="mobile-stage">
             {stageNode}
+            <Button
+              className="mobile-drafts-button"
+              size="small"
+              icon={<FolderOpenOutlined />}
+              onClick={() => setDraftsOpen(true)}
+            >
+              Design history
+            </Button>
             {zoomDock}
             <div
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
@@ -1188,7 +1262,10 @@ export default function CustomizerPage({
               <div className="mobile-split-guide" role="status" aria-live="polite">
                 <div className="mobile-split-guide__card">
                   <InfoCircleOutlined className="mobile-split-guide__info" />
-                  <span>{t('aria.splitter')}</span>
+                  <span>
+                    <strong>Adjust your workspace</strong>
+                    <small>Drag this bar to resize the preview and charm tray. Your design history is in the top-left corner.</small>
+                  </span>
                   <button
                     type="button"
                     className="mobile-split-guide__close"
@@ -1220,7 +1297,9 @@ export default function CustomizerPage({
             disabled={placed.length === 0}
             onClick={attemptOrder}
           >
-            {t('cta.addToCart', { noun: orderNoun, price: orderTotal })}
+            {isSecondProduct
+              ? t('cta.addSecondProduct', { price: orderTotal })
+              : t('cta.addToCart', { noun: orderNoun, price: orderTotal })}
           </button>
         </div>
         </>
@@ -1234,6 +1313,9 @@ export default function CustomizerPage({
           )}
           <div className="panel panel--left">
             <Tips />
+            <Button block icon={<FolderOpenOutlined />} style={{ marginTop: 12 }} onClick={() => setDraftsOpen(true)}>
+              My design drafts
+            </Button>
             <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
@@ -1328,12 +1410,33 @@ export default function CustomizerPage({
         onPlaceOrder={handlePlaceOrder}
       />
 
+      <Modal open={draftsOpen} title="My design drafts" onCancel={() => setDraftsOpen(false)} footer={null}>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+          <Input value={draftName} maxLength={40} placeholder="Name this design" onChange={(event) => setDraftName(event.target.value)} onPressEnter={saveNamedDraft} />
+          <Button type="primary" icon={<SaveOutlined />} onClick={saveNamedDraft}>Save</Button>
+        </div>
+        {namedDrafts.length ? namedDrafts.map((draft) => (
+          <div key={draft.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 0', borderTop: '1px solid var(--line)' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <strong>{draft.name}</strong>
+              <div className="hint">{new Date(draft.updatedAt).toLocaleString()}</div>
+            </div>
+            <Button size="small" onClick={() => loadNamedDraft(draft)}>Load</Button>
+            <Button size="small" danger icon={<DeleteOutlined />} title="Delete draft" onClick={() => {
+              deleteDesignDraft(draft.id)
+              refreshNamedDrafts()
+            }} />
+          </div>
+        )) : <p className="hint">Save a named copy of your current design here.</p>}
+        <Button block style={{ marginTop: 16 }} onClick={newDesign}>Start a new blank design</Button>
+      </Modal>
+
       <Modal
         open={crossSellOpen}
         onCancel={() => setCrossSellOpen(false)}
         footer={null}
         centered
-        title={crossSell.title || t('crossSell.title')}
+        title={crossSellTitle(crossSell.title || t('crossSell.title'))}
       >
         <p style={{ marginTop: 0, color: 'var(--ink-soft)' }}>
           {t('crossSell.body')}

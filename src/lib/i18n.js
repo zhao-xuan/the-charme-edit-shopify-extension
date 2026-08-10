@@ -87,6 +87,7 @@ const DICT = {
     'price.total': 'Total',
     'price.orderSummary': 'Order summary',
     'cta.addToCart': 'Add my custom {noun} to cart ({price})',
+    'cta.addSecondProduct': 'Add second product to cart ({price})',
 
     // Product picker
     'picker.step1': 'Step 1 · Choose your base',
@@ -199,6 +200,7 @@ const DICT = {
     'price.total': '总计',
     'price.orderSummary': '订单摘要',
     'cta.addToCart': '将我的定制{noun}加入购物车（{price}）',
+    'cta.addSecondProduct': '将第二件商品加入购物车（{price}）',
 
     'picker.step1': '第 1 步 · 选择你的基底',
     'picker.caseColour': '壳子颜色',
@@ -303,6 +305,7 @@ const DICT = {
     'price.total': 'Total',
     'price.orderSummary': 'Récapitulatif',
     'cta.addToCart': 'Ajouter mon {noun} personnalisé au panier ({price})',
+    'cta.addSecondProduct': 'Ajouter le deuxième produit au panier ({price})',
 
     'picker.step1': 'Étape 1 · Choisissez votre base',
     'picker.caseColour': 'Couleur de la coque',
@@ -407,6 +410,7 @@ const DICT = {
     'price.total': 'Summe',
     'price.orderSummary': 'Bestellübersicht',
     'cta.addToCart': 'Meine individuelle {noun} in den Warenkorb ({price})',
+    'cta.addSecondProduct': 'Zweites Produkt in den Warenkorb ({price})',
 
     'picker.step1': 'Schritt 1 · Wähle deine Basis',
     'picker.caseColour': 'Hüllenfarbe',
@@ -511,6 +515,7 @@ const DICT = {
     'price.total': 'Total',
     'price.orderSummary': 'Resumen del pedido',
     'cta.addToCart': 'Añadir mi {noun} personalizada al carrito ({price})',
+    'cta.addSecondProduct': 'Añadir segundo producto al carrito ({price})',
 
     'picker.step1': 'Paso 1 · Elige tu base',
     'picker.caseColour': 'Color de la funda',
@@ -615,6 +620,7 @@ const DICT = {
     'price.total': '合計',
     'price.orderSummary': '注文概要',
     'cta.addToCart': 'カスタム{noun}をカートに追加（{price}）',
+    'cta.addSecondProduct': '2つ目の商品をカートに追加（{price}）',
 
     'picker.step1': 'ステップ1 · ベースを選択',
     'picker.caseColour': 'ケースの色',

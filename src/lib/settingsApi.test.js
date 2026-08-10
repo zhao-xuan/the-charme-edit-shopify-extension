@@ -1,6 +1,14 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { persistCrossSellImages } from '../../functions/api/settings.js'
+import { crossSellTitle } from './crossSellTitle.js'
+
+test('cross-sell titles drop the retired extra 5% off suffix', () => {
+  assert.equal(
+    crossSellTitle('Would you like to customise your second product (extra 5% off)?'),
+    'Would you like to customise your second product?',
+  )
+})
 
 test('popup photos are uploaded without changing the other option fields', async () => {
   const source = {

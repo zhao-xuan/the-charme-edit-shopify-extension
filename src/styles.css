@@ -1257,6 +1257,19 @@ h4,
     display: flex;
     overflow: hidden;
   }
+  .mobile-drafts-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 77;
+    height: 28px;
+    padding-inline: 8px;
+    border-color: rgba(125, 105, 84, 0.32);
+    background: rgba(255, 253, 249, 0.88);
+    box-shadow: 0 2px 8px rgba(46, 42, 38, 0.13);
+    font-family: var(--charme-font-accent);
+    font-size: 10px;
+  }
   .stage-attention {
     display: flex;
     align-items: center;
@@ -1358,6 +1371,16 @@ h4,
     font-weight: 600;
     line-height: 1.35;
     pointer-events: auto;
+  }
+  .mobile-split-guide__card strong,
+  .mobile-split-guide__card small {
+    display: block;
+  }
+  .mobile-split-guide__card small {
+    margin-top: 2px;
+    color: var(--ink-soft);
+    font-size: 11px;
+    font-weight: 400;
   }
   .mobile-split-guide__card::after {
     content: '';

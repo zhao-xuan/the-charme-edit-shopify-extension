@@ -7,7 +7,7 @@
 // catalogue lives in the merchant's own Shopify store — charm metadata in a
 // `charme_charm` METAOBJECT and the cut-out PNG in Shopify FILES. Otherwise we
 // fall back to the legacy Cloudflare D1 + KV store (local dev / un-migrated).
-import { json, bad, requireAdmin, storeImage, makeId, rowToCharm } from '../_lib.js'
+import { json, bad, requireAdmin, shopifyAdmin, storeImage, makeId, rowToCharm } from '../_lib.js'
 import {
   TYPES,
   shopifyConfigured,
@@ -23,6 +23,22 @@ const cors = {
   'access-control-allow-headers': 'authorization,content-type',
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
+
+const Q_VARIANT_PRICE = `
+  query($id: ID!) {
+    node(id: $id) {
+      ... on ProductVariant { id price }
+    }
+  }`
+
+async function shopifyVariantPrice(env, variantId) {
+  const id = String(variantId || '')
+  if (!/^\d+$/.test(id)) throw new Error('shopifyVariantId must be a Shopify variant ID')
+  const data = await shopifyAdmin(env, Q_VARIANT_PRICE, { id: `gid://shopify/ProductVariant/${id}` })
+  const price = Number(data.node?.price)
+  if (!Number.isFinite(price)) throw new Error('Shopify variant was not found')
+  return price
+}
 
 /** Build the stored charm record from an incoming payload + hosted image. */
 function charmRecord(c, id, imageUrl, imageId) {
@@ -47,6 +63,7 @@ function charmRecord(c, id, imageUrl, imageId) {
     dupScore: c.dupScore ?? null,
     bundle,
     bundleMax: bundle ? Math.max(1, Number(c.bundleMax) || 1) : null,
+    shopifyVariantId: c.shopifyVariantId ? String(c.shopifyVariantId) : undefined,
     minScale: 1,
     maxScale: 1,
   }
@@ -62,12 +79,18 @@ export async function onRequestPost({ request, env }) {
     const created = []
     for (const c of items) {
       if (!c.src) return bad(`charm "${c.name}" has no image`)
+      let price
+      try {
+        price = await shopifyVariantPrice(env, c.shopifyVariantId)
+      } catch (error) {
+        return bad(`charm "${c.name}" must use a valid Shopify variant: ${error.message}`)
+      }
       const id = c.id || makeId('charm', c.name || 'charm')
       const { url, id: imageId } = await storeImageToFiles(env, c.src, {
         filename: `${id}.png`,
         alt: c.name || 'Charm',
       })
-      const rec = charmRecord(c, id, url, imageId)
+      const rec = charmRecord({ ...c, price }, id, url, imageId)
       await saveRecord(env, TYPES.charm, id, rec, { image: imageId })
       created.push(rec)
     }
@@ -103,8 +126,11 @@ export async function onRequestPatch({ request, env }) {
   const body = (await request.json().catch(() => ({}))) || {}
   const { id, price, hidden, widthMm, heightMm, name, category, collection, src, shopifyVariantId } = body
   if (!id) return bad('id required')
+  const hasPricePatch = Object.prototype.hasOwnProperty.call(body, 'price')
+  const hasVariantPatch = Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')
+  if (hasPricePatch && !hasVariantPatch) return bad('price is managed by the linked Shopify variant')
   if (
-    Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId') &&
+    hasVariantPatch &&
     shopifyVariantId != null &&
     !/^\d+$/.test(String(shopifyVariantId))
   ) return bad('shopifyVariantId must be a Shopify variant ID or null')
@@ -112,16 +138,22 @@ export async function onRequestPatch({ request, env }) {
   if (shopifyConfigured(env)) {
     const rec = await getRecord(env, TYPES.charm, id)
     if (!rec) return bad('not found', 404)
-    if (price != null) rec.price = price
+    if (hasVariantPatch) {
+      let variantPrice
+      try {
+        variantPrice = await shopifyVariantPrice(env, shopifyVariantId)
+      } catch (error) {
+        return bad(error.message)
+      }
+      rec.shopifyVariantId = String(shopifyVariantId)
+      rec.price = variantPrice
+    }
     if (hidden != null) rec.hidden = !!hidden
     if (widthMm != null) rec.widthMm = widthMm
     if (heightMm != null) rec.heightMm = heightMm
     if (name != null) rec.name = name
     if (category != null) rec.category = category
     if (collection != null) rec.collection = collection
-    if (Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')) {
-      rec.shopifyVariantId = shopifyVariantId == null ? null : String(shopifyVariantId)
-    }
     const imageGids = {}
     if (src && /^data:/.test(src)) {
       const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
@@ -132,7 +164,8 @@ export async function onRequestPatch({ request, env }) {
     return json({ ok: true }, { headers: cors })
   }
 
-  if (price != null) await env.DB.prepare('UPDATE charms SET price = ? WHERE id = ?').bind(price, id).run()
+  if (hasPricePatch || hasVariantPatch) return bad('Shopify pricing is unavailable until Shopify is configured')
+
   if (hidden != null) await env.DB.prepare('UPDATE charms SET hidden = ? WHERE id = ?').bind(hidden ? 1 : 0, id).run()
   if (widthMm != null) await env.DB.prepare('UPDATE charms SET width_mm = ? WHERE id = ?').bind(widthMm, id).run()
   if (heightMm != null) await env.DB.prepare('UPDATE charms SET height_mm = ? WHERE id = ?').bind(heightMm, id).run()

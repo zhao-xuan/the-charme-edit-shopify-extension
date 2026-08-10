@@ -8,6 +8,7 @@ import { settings } from '../lib/settings'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
+import { downloadPng } from '../lib/downloadImage'
 
 const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
@@ -55,15 +56,6 @@ function useMedia(query) {
     return stop
   }, [query])
   return match
-}
-
-function downloadDataUrl(url, name) {
-  const a = document.createElement('a')
-  a.href = url
-  a.download = name
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
 }
 
 export default function SummaryModal({ open, product, color, placed, onClose, onPlaceOrder }) {
@@ -249,7 +241,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               size="small"
               icon={<DownloadOutlined />}
               style={{ marginTop: 8 }}
-              onClick={() => downloadDataUrl(previewUrl, `${product.id}-design.png`)}
+              onClick={() => downloadPng(previewUrl, `${product.id}-design.png`).catch(() => message.error('Could not download your design.'))}
             >
               {t('summary.download')}
             </Button>
