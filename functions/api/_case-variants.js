@@ -110,11 +110,14 @@ export async function getCaseProduct(env, handle = CASE_HANDLE) {
   const modelName = model?.name || 'iPhone Model'
   const variants = variantEdges.map((e) => {
     const v = e.node
+    const selectedOptions = v.selectedOptions || []
+    const extraOptions = selectedOptions.filter((option) => option.name !== colourName && option.name !== modelName)
     return {
       id: v.id,
       price: v.price != null ? Number(v.price) : null,
-      colour: valueOf(v.selectedOptions, colourName),
-      model: valueOf(v.selectedOptions, modelName),
+      colour: valueOf(selectedOptions, colourName),
+      model: valueOf(selectedOptions, modelName),
+      isBaseVariant: extraOptions.every((option) => /^(no|none|without)\b/i.test(String(option.value || '').trim())),
       available: !!v.availableForSale,
       continueSelling: v.inventoryPolicy === 'CONTINUE',
       image: v.image?.url || null,

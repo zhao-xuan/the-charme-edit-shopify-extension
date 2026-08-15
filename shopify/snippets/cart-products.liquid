@@ -362,7 +362,7 @@
     {%- assign charme_currency = localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency -%}
     {%- assign charme_currency_rate = cart.currency.rate | default: 1 -%}
     {%- assign charme_locale = request.locale.iso_code | default: 'en' -%}
-    {%- assign charme_cart_return = routes.cart_url | append: '?preview_theme_id=' | append: theme.id -%}
+    {%- assign charme_cart_return = routes.cart_url -%}
 
     {%- capture charme_second_product_phone_url -%}
       https://charme-customizer.pages.dev/editor?product=iphone-xr&case=white&gel=white&currency={{ charme_currency | url_encode }}&currency_rate={{ charme_currency_rate | url_encode }}&case_price=52&locale={{ charme_locale | url_encode }}&cart_url={{ charme_cart_return | url_encode }}&cart_bridge=1&return_to={{ charme_cart_return | url_encode }}
@@ -1147,12 +1147,12 @@
     }
 
     .cart-items__recommendations-title {
-      font-size: var(--font-size--lg);
+      font-size: var(--font-size--md);
       margin-bottom: var(--margin-sm);
     }
 
     .cart-items__recommendation-title {
-      font-size: var(--font-size--md);
+      font-size: var(--font-size--sm);
       margin-block: var(--margin-2xs);
     }
 

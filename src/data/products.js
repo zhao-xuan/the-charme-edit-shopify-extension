@@ -644,6 +644,7 @@ function buildCustomProduct(raw) {
     group: 'custom',
     name: raw.name || 'Custom product',
     kind: raw.kind === 'tote' ? 'tote' : 'phone',
+    shopifyVariantId: raw.shopifyVariantId || undefined,
     custom: true,
     basePrice: Number(raw.basePrice) || 0,
     widthMm,
@@ -730,6 +731,7 @@ function applyAdminOverrides(groups) {
       return {
         ...product,
         ...(remoteProduct.name ? { name: remoteProduct.name } : {}),
+        ...(remoteProduct.shopifyVariantId ? { shopifyVariantId: String(remoteProduct.shopifyVariantId) } : {}),
         widthMm,
         heightMm,
         blankImage,
@@ -755,6 +757,7 @@ function applyAdminOverrides(groups) {
     }))
     return {
       ...product,
+      ...(remoteProduct?.shopifyVariantId ? { shopifyVariantId: String(remoteProduct.shopifyVariantId) } : {}),
       blankImage,
       caseImageBounds: OFFICIAL_PHONE_CASE_IMAGE_BOUNDS[product.id] || {},
       caseImageAvailability,

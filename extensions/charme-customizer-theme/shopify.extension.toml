@@ -1,0 +1,9 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "theme"
+name = "Charme Customizer"
+handle = "charme-customizer-theme"
+uid = "1e2d2dc8-8533-17c3-8172-20cfa92e22257901eae4"
+
+description = "Embed the Charme full-screen customizer on product pages via an app block."

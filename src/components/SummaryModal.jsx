@@ -140,6 +140,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         gelId: color.gelId || null,
         basePrice: product.basePrice,
         presentmentPrice: product.presentmentPrice || null,
+        shopifyVariantId: product.shopifyVariantId || null,
       },
       charms: placed.map((c) => ({
         charmId: c.charmId,

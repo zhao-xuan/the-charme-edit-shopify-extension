@@ -99,6 +99,8 @@ function configureEditorCurrency() {
   window.CharmeConfig = {
     ...config,
     ...(params.get('locale') ? { locale: params.get('locale') } : {}),
+    ...(params.get('variant') ? { variantId: params.get('variant') } : {}),
+    ...(params.get('country') ? { country: params.get('country') } : {}),
     currency: {
       base: config.currency?.base || 'GBP',
       active,

@@ -26,7 +26,7 @@
 {%- endfor -%}
 {%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
 {%- assign charme_layout = item.properties['_layout'] -%}
-{%- assign charme_cart_url = routes.cart_url | append: '?preview_theme_id=' | append: theme.id | prepend: shop.url -%}
+{%- assign charme_cart_url = routes.cart_url | prepend: shop.url -%}
 
 <tr
   role="row"

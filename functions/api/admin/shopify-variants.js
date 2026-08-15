@@ -11,7 +11,7 @@ export const onRequestOptions = () => new Response(null, { headers: cors })
 
 const Q = `
   query($after: String) {
-    products(first: 250, after: $after, query: "title:*Charm*") {
+    products(first: 250, after: $after) {
       edges { node {
         title handle
         featuredMedia { preview { image { url } } }
@@ -66,6 +66,7 @@ export async function onRequestGet({ request, env }) {
     const records = await Promise.all([
       listRecords(env, TYPES.charm),
       listRecords(env, TYPES.patch),
+      listRecords(env, TYPES.product),
       listRecords(env, TYPES.override),
     ])
     const linkedIds = [...new Set(records

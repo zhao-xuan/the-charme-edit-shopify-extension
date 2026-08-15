@@ -103,7 +103,7 @@
 
       <a
         class="button charme-order-path__button"
-        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | append: '?preview_theme_id=' | append: theme.id | url_encode }}&amp;cart_bridge=1"
+        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;variant={{ selected_variant.id | url_encode }}&amp;country={{ localization.country.iso_code | url_encode }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | url_encode }}&amp;cart_bridge=1"
         data-charme-own-design
       >
         <span>{{ section.settings.design_button_label }}</span>
@@ -209,20 +209,20 @@
         var currency = market.active || root.dataset.charmeMarketCurrency || current.searchParams.get('currency');
         var rate = market.rate || root.dataset.charmeMarketRate || current.searchParams.get('currency_rate');
         var locale = window.Shopify && window.Shopify.locale || root.dataset.charmeMarketLocale || current.searchParams.get('locale');
+        var country = root.dataset.charmeMarketCountry || current.searchParams.get('country');
         var casePrice = current.searchParams.get('case_price');
         if (currency) next.searchParams.set('currency', currency);
         if (rate) next.searchParams.set('currency_rate', rate);
         if (casePrice) next.searchParams.set('case_price', casePrice);
         if (locale) next.searchParams.set('locale', locale);
-        var previewThemeId = root.dataset.charmeThemeId;
-        if (previewThemeId) {
-          var cartUrl = new URL('/cart', window.location.origin);
-          cartUrl.searchParams.set('preview_theme_id', previewThemeId);
-          var returnUrl = new URL(window.location.href);
-          returnUrl.searchParams.set('preview_theme_id', previewThemeId);
-          next.searchParams.set('cart_url', cartUrl.toString());
-          next.searchParams.set('return_to', returnUrl.toString());
-        }
+        if (country) next.searchParams.set('country', country);
+        var variantId = selectedVariantId(root);
+        if (variantId) next.searchParams.set('variant', variantId);
+        var cartUrl = new URL('/cart', window.location.origin);
+        var returnUrl = new URL(window.location.href);
+        returnUrl.searchParams.delete('preview_theme_id');
+        next.searchParams.set('cart_url', cartUrl.toString());
+        next.searchParams.set('return_to', returnUrl.toString());
         target.href = next.toString();
         return setPresentmentCasePrice(root, target);
       } catch (error) {

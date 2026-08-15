@@ -49,7 +49,12 @@ export async function onRequestGet({ request, env }) {
   try {
     const product = await getCaseProduct(env, handle)
     if (!product) return bad('phone-case product not found', 404)
-    return json(product, { headers: cors })
+    const variants = product.variants.filter((variant) => variant.isBaseVariant)
+    const models = product.models.map((model) => ({
+      ...model,
+      variants: variants.filter((variant) => variant.model === model.name),
+    }))
+    return json({ ...product, variants, models }, { headers: cors })
   } catch (e) {
     return bad(`Shopify variants query failed: ${e.message}`, 502)
   }

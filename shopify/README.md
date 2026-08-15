@@ -56,7 +56,22 @@ npx wrangler pages deploy dist --project-name charme-customizer --branch product
 This serves the bundle at
 `https://charme-customizer.pages.dev/widget/charme-customizer.js` (+ `.css`).
 
-## 2. Add the snippet to your theme
+## 2. Add the app block to your theme (recommended)
+
+The app now includes a Theme App Extension block:
+
+- `extensions/charme-customizer-theme/blocks/charme-customizer.liquid`
+
+Install/deploy the app, then in Shopify Theme Editor:
+
+1. Open a product template.
+2. Add block -> Apps -> **Charme customizer**.
+3. Configure the block settings (API base, order mode, variant map JSON).
+
+This is the preferred path for App Store distribution because merchants do not
+need to copy or edit theme code manually.
+
+## 3. Add the snippet to your theme (legacy/manual)
 
 1. **Online Store → Themes → ⋯ → Edit code**.
 2. Under **Snippets**, *Add a new snippet* → name it `charme-customizer` → paste
@@ -64,7 +79,7 @@ This serves the bundle at
 3. In the **theme editor**, add a **Custom Liquid** block where you want it and
    put `{% render 'charme-customizer' %}` (e.g. on a “Build your own case” page).
 
-## 3. Connect orders + payment
+## 4. Connect orders + payment
 
 The section's **Order method** setting has two options.
 
@@ -128,7 +143,7 @@ One-time setup (on the machine with your Cloudflare/Shopify access):
    it returns `503 Shopify backend not configured` — that's expected. Server-side
    base prices: phone £26, tote £16, frame £24; charm prices come from D1.
 
-## 3b. Show it on several products
+## 4b. Show it on several products
 
 The section can go on as many product pages as you like — the same widget, once
 per page:
@@ -148,7 +163,7 @@ Other section settings: **After add to bag** (drawer / cart / stay), **Widget
 height**, and **Advanced → Widget CDN / API base**
 (defaults to `https://charme-customizer.pages.dev`, no trailing slash).
 
-## 4. (Optional) Proof image on cart-mode orders
+## 5. (Optional) Proof image on cart-mode orders
 
 In **Draft order** mode the proof PNG is stored automatically (on your Pages KV,
 linked from the order). For **Native cart** mode you can additionally deploy

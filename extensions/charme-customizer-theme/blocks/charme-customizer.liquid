@@ -1,0 +1,256 @@
+{%- assign cfg_api_base    = block.settings.api_base | default: 'https://charme-customizer.pages.dev' -%}
+{%- assign cfg_btn_label   = block.settings.button_label | default: 'Design your own' -%}
+{%- assign cfg_btn_align   = block.settings.button_align | default: 'center' -%}
+{%- assign cfg_order_mode  = block.settings.order_mode | default: 'cart' -%}
+{%- assign cfg_cart_redir  = block.settings.cart_redirect | default: 'drawer' -%}
+{%- assign cfg_def_group   = block.settings.default_group | default: 'apple' -%}
+{%- assign cfg_def_product = block.settings.default_product | default: '' -%}
+{%- assign cfg_logo        = block.settings.logo_url -%}
+{%- assign uid             = block.id -%}
+
+{%- assign cfg_variant_map = block.settings.variant_map -%}
+
+<div id="charme-root-{{ uid }}" class="charme-trigger-wrap--{{ cfg_btn_align }}" {{ block.shopify_attributes }}>
+  <button type="button" class="charme-trigger" data-charme-open aria-haspopup="dialog">{{ cfg_btn_label | escape }}</button>
+  <div class="charme-modal" data-charme-modal hidden role="dialog" aria-modal="true" aria-label="Charme Customizer">
+    <div class="charme-modal__panel">
+      <div class="charme-modal__topbar">
+        <button type="button" class="charme-back" data-charme-close aria-label="Back to product">
+          <span class="charme-back__arrow" aria-hidden="true">&#8592;</span>
+          <span class="charme-back__label">Back</span>
+        </button>
+        {%- if cfg_logo -%}
+          <img class="charme-logo-img" src="{{ cfg_logo | image_url }}" alt="{{ shop.name | escape }}" width="{{ cfg_logo.width }}" height="{{ cfg_logo.height }}">
+        {%- else -%}
+          <span class="charme-logo">{{ shop.name | escape }}</span>
+        {%- endif -%}
+      </div>
+      <div id="charme-customizer-{{ uid }}" class="charme-customizer"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .charme-trigger-wrap--left{display:flex;justify-content:flex-start}
+  .charme-trigger-wrap--center{display:flex;justify-content:center}
+  .charme-trigger-wrap--right{display:flex;justify-content:flex-end}
+  .charme-trigger{font-family:'Azeret Mono',ui-monospace,monospace;font-size:16px;font-weight:500;line-height:normal;cursor:pointer;border:0;border-radius:0;padding:14px 30px;background:#AEC6D5;color:#1a1614;letter-spacing:0;width:100%}
+  .charme-trigger:hover{opacity:.9}
+  .charme-modal{position:fixed;inset:0;z-index:2147483000}
+  .charme-modal[hidden]{display:none}
+  .charme-modal__panel{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;font-family:'Amiri',Georgia,serif}
+  .charme-modal__topbar{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:56px;padding:8px 16px;border-bottom:1px solid #e4d8c7;background:#f4edda}
+  .charme-back{display:inline-flex;align-items:center;gap:8px;font-family:'Azeret Mono',ui-monospace,monospace;font-size:15px;font-weight:500;line-height:normal;cursor:pointer;border:0;border-radius:0;background:transparent;color:#2e2a26;padding:8px 10px;z-index:1}
+  .charme-back:hover{opacity:.65}
+  .charme-back__arrow{font-size:18px;line-height:1}
+  .charme-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Amiri',Georgia,serif;font-size:23px;font-weight:700;letter-spacing:0;color:#2e2a26;white-space:nowrap;pointer-events:none}
+  .charme-logo-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-height:40px;width:auto;pointer-events:none}
+  .charme-modal__panel .charme-customizer{flex:1 1 auto;min-height:0}
+  body.charme-modal-open{overflow:hidden}
+  @media (max-width:480px){.charme-back__label{display:none}}
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('charme-root-{{ uid }}');
+    if (!root) return;
+
+    var variantMap = { products: {}, charms: {}, charmByPrice: {} };
+    try {
+      variantMap = JSON.parse({{ cfg_variant_map | json }} || '{}');
+    } catch (e) {
+      console.error('[Charme] Variant map is not valid JSON.', e);
+    }
+
+    window.CharmeConfig = {
+      apiBase: {{ cfg_api_base | json }},
+      uploadEndpoint: {{ cfg_api_base | append: '/api/upload-proof' | json }},
+      orderMode: {{ cfg_order_mode | json }},
+      variantMap: variantMap,
+      cartRedirect: {{ cfg_cart_redir | json }},
+      defaultGroup: {{ cfg_def_group | json }},
+      defaultProductId: {{ cfg_def_product | strip | json }},
+      locale: {{ request.locale.iso_code | json }},
+      currency: {
+        base: {{ shop.currency | json }},
+        active: {{ cart.currency.iso_code | default: shop.currency | json }},
+        rate: {{ cart.currency.rate | default: 1 | json }}
+      },
+      country: {{ localization.country.iso_code | default: cart.currency.country.iso_code | json }},
+      height: '100%',
+      mountId: 'charme-customizer-{{ uid }}',
+      lazy: true,
+      shop: {{ shop.permanent_domain | json }}
+    };
+
+    var modal = root.querySelector('[data-charme-modal]');
+    var CHARME_VARIANTS = {
+      {%- if product and product.variants and product.variants.size > 0 -%}
+        {%- for v in product.variants -%}
+        {{ v.id | json }}: [{{ v.option1 | json }}, {{ v.option2 | json }}]{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      {%- endif -%}
+    };
+
+    function slugModel(model) {
+      if (!model) return '';
+      var s = String(model).trim().toLowerCase();
+      if (/^any other/.test(s)) return 'other';
+      return s
+        .replace(/\+/g, ' plus ')
+        .replace(/\//g, ' ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    function mapVariant(caseGel, model) {
+      var out = { product: slugModel(model) };
+      if (caseGel) {
+        out.caseColourId = /^black/i.test(caseGel) ? 'black' : 'white';
+        out.gelColourId = /glitter/i.test(caseGel)
+          ? 'glitter'
+          : (/black/i.test(caseGel) ? 'black' : 'white');
+      }
+      return out;
+    }
+
+    function selectedVariantId() {
+      var byUrl = new URLSearchParams(location.search).get('variant');
+      if (byUrl && CHARME_VARIANTS[byUrl]) return byUrl;
+      var input = document.querySelector('form[action*="/cart/add"] [name="id"], [name="id"]');
+      if (input && CHARME_VARIANTS[input.value]) return input.value;
+      var keys = Object.keys(CHARME_VARIANTS);
+      return keys.length ? keys[0] : null;
+    }
+
+    function applySelectedVariant() {
+      var vid = selectedVariantId();
+      var opt = vid && CHARME_VARIANTS[vid];
+      if (!opt || !window.CharmeConfig) return;
+      var m = mapVariant(opt[0], opt[1]);
+      if (m.product) window.CharmeConfig.defaultProductId = m.product;
+      if (m.caseColourId) window.CharmeConfig.caseColourId = m.caseColourId;
+      if (m.gelColourId) window.CharmeConfig.gelColourId = m.gelColourId;
+      window.CharmeConfig.variantId = vid;
+    }
+
+    function ensureMounted(tries) {
+      if (window.CharmeCustomizer && window.CharmeCustomizer.mount) {
+        window.CharmeCustomizer.mount();
+        window.dispatchEvent(new Event('resize'));
+        return;
+      }
+      if (tries > 0) setTimeout(function () { ensureMounted(tries - 1); }, 80);
+    }
+
+    function open() {
+      applySelectedVariant();
+      if (modal.parentNode !== document.body) document.body.appendChild(modal);
+      modal.hidden = false;
+      document.body.classList.add('charme-modal-open');
+      ensureMounted(80);
+      [0, 60, 200, 500].forEach(function (t) {
+        setTimeout(function () { window.dispatchEvent(new Event('resize')); }, t);
+      });
+    }
+
+    function close() {
+      modal.hidden = true;
+      document.body.classList.remove('charme-modal-open');
+    }
+
+    root.querySelectorAll('[data-charme-open]').forEach(function (b) { b.addEventListener('click', open); });
+    root.querySelectorAll('[data-charme-close]').forEach(function (b) { b.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+
+    try {
+      if (!window.__charmeAutoOpened && new URLSearchParams(location.search).get('charme_edit')) {
+        window.__charmeAutoOpened = true;
+        open();
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{ cfg_api_base }}/widget/charme-customizer.css">
+<script src="{{ cfg_api_base }}/widget/charme-customizer.js" defer></script>
+
+{% schema %}
+{
+  "name": "Charme customizer",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Design your own"
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Button align",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "api_base",
+      "label": "Widget/API base URL",
+      "default": "https://charme-customizer.pages.dev"
+    },
+    {
+      "type": "select",
+      "id": "order_mode",
+      "label": "Order mode",
+      "default": "cart",
+      "options": [
+        { "value": "cart", "label": "Native cart" },
+        { "value": "draft", "label": "Draft order" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "cart_redirect",
+      "label": "After add to cart",
+      "default": "drawer",
+      "options": [
+        { "value": "drawer", "label": "Open drawer" },
+        { "value": "cart", "label": "Go to cart" },
+        { "value": "none", "label": "Stay" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "default_group",
+      "label": "Default group",
+      "default": "apple"
+    },
+    {
+      "type": "text",
+      "id": "default_product",
+      "label": "Default product ID"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_url",
+      "label": "Top logo image (optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "variant_map",
+      "label": "Variant map JSON",
+      "default": "{\n  \"products\": {},\n  \"charms\": {},\n  \"charmByPrice\": {}\n}"
+    }
+  ]
+}
+{% endschema %}

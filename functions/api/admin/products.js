@@ -1,6 +1,6 @@
 // Admin product endpoints (require Bearer ADMIN_TOKEN or a Shopify session token).
-//   POST   /api/admin/products  { name,kind,basePrice,widthMm,heightMm,src(dataURL),colourLabel }
-//   PATCH  /api/admin/products  { id, basePrice?, name? }
+//   POST   /api/admin/products  { name,kind,basePrice,shopifyVariantId?,widthMm,heightMm,src(dataURL),colourLabel }
+//   PATCH  /api/admin/products  { id, basePrice?, name?, shopifyVariantId? }
 //   DELETE /api/admin/products  { id }
 //
 // Storage: Shopify `charme_product` METAOBJECT + Shopify FILES when configured;
@@ -27,6 +27,14 @@ export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const p = (await request.json().catch(() => null)) || {}
   if (!p.src) return bad('product needs a body image')
+  if (
+    Object.prototype.hasOwnProperty.call(p, 'shopifyVariantId') &&
+    p.shopifyVariantId != null &&
+    p.shopifyVariantId !== '' &&
+    !/^\d+$/.test(String(p.shopifyVariantId))
+  ) {
+    return bad('shopifyVariantId must be a Shopify variant ID')
+  }
   const id = p.id || makeId('prod', p.name || 'product')
 
   if (shopifyConfigured(env)) {
@@ -39,6 +47,7 @@ export async function onRequestPost({ request, env }) {
       name: p.name || 'Custom product',
       kind: p.kind === 'tote' ? 'tote' : 'phone',
       basePrice: p.basePrice ?? 26,
+      shopifyVariantId: p.shopifyVariantId ? String(p.shopifyVariantId) : undefined,
       widthMm: p.widthMm || 75,
       heightMm: p.heightMm || 150,
       src: url,
@@ -81,14 +90,27 @@ export async function onRequestPost({ request, env }) {
 
 export async function onRequestPatch({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  const { id, basePrice, name, widthMm, heightMm, src } = (await request.json().catch(() => ({}))) || {}
+  const body = (await request.json().catch(() => ({}))) || {}
+  const { id, basePrice, name, widthMm, heightMm, src, shopifyVariantId } = body
+  const hasVariantPatch = Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')
   if (!id) return bad('id required')
+  if (
+    hasVariantPatch &&
+    shopifyVariantId != null &&
+    shopifyVariantId !== '' &&
+    !/^\d+$/.test(String(shopifyVariantId))
+  ) {
+    return bad('shopifyVariantId must be a Shopify variant ID')
+  }
 
   if (shopifyConfigured(env)) {
     const rec = await getRecord(env, TYPES.product, id)
     if (!rec) return bad('not found', 404)
     if (basePrice != null) rec.basePrice = basePrice
     if (name != null) rec.name = name
+    if (hasVariantPatch) {
+      rec.shopifyVariantId = shopifyVariantId ? String(shopifyVariantId) : undefined
+    }
     if (widthMm != null) rec.widthMm = widthMm
     if (heightMm != null) rec.heightMm = heightMm
     const imageGids = {}

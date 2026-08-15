@@ -31,6 +31,8 @@ import { charmPricingGroupFor } from '../lib/charmPricing'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
+import { fetchVariantDetails } from '../lib/shopifyVariant'
+import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import {
   clearRecoveryDraft,
   deleteDesignDraft,
@@ -77,6 +79,25 @@ function initialCasePresentmentPrice(initialCasePresentmentPrice) {
   const params = new URLSearchParams(window.location.search)
   const amount = Number(params.get('case_price'))
   return amount > 0 ? amount : null
+}
+
+function asVariantId(value) {
+  if (value == null) return null
+  const raw = String(value).trim()
+  if (!raw) return null
+  const digits = raw.match(/(\d{8,20})$/)
+  return digits ? digits[1] : null
+}
+
+function resolveMappedProductVariant(variantMap, productId, caseId, gelId) {
+  const products = variantMap?.products || {}
+  return (
+    products[`${productId}:${gelId}`] ||
+    products[`${productId}:${caseId}`] ||
+    products[productId] ||
+    products[`other:${gelId}`] ||
+    null
+  )
 }
 
 function hasSeenMobileSplitterGuide() {
@@ -175,6 +196,12 @@ export default function CustomizerPage({
 
   const [groupKey, setGroupKey] = useState(startGroup)
   const [productId, setProductId] = useState(resolvedProduct)
+  const [livePresentmentCasePrice, setLivePresentmentCasePrice] = useState(
+    () => initialCasePresentmentPrice(initialCasePrice),
+  )
+  const [liveProductPrices, setLiveProductPrices] = useState({})
+  const priceCacheRef = useRef(new Map())
+  const productPricesCacheRef = useRef(new Map())
   // The Shopify product page's variant selection (iPhone model + case/gel colour)
   // seeds the opening finish so the customizer matches what the customer picked.
   const [caseColourId, setCaseColourId] = useState(
@@ -279,7 +306,7 @@ export default function CustomizerPage({
   const stageApi = useRef(null)
 
   const catalogProduct = findProduct(productId)
-  const presentmentCasePrice = initialCasePresentmentPrice(initialCasePrice)
+  const presentmentCasePrice = livePresentmentCasePrice
   const product = presentmentCasePrice && catalogProduct?.kind === 'phone'
     ? { ...catalogProduct, presentmentPrice: presentmentCasePrice }
     : catalogProduct
@@ -295,6 +322,127 @@ export default function CustomizerPage({
       printable: { ...product.printable, obstacles },
     }
   }, [product, caseColourId])
+
+  // Keep the case base price aligned with the ACTIVE Shopify variant. This runs
+  // only for the storefront phone customizer (when variantMap exists), and
+  // updates whenever model/finish changes.
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (!catalogProduct || catalogProduct.kind !== 'phone') {
+      setLivePresentmentCasePrice(null)
+      return
+    }
+    const cfg = window.CharmeConfig || {}
+    const mapped = resolveMappedProductVariant(
+      cfg.variantMap,
+      catalogProduct.id,
+      color.caseId || color.id,
+      color.gelId || color.caseId || color.id,
+    ) || BASE_PRODUCT_VARIANTS[`${catalogProduct.id}:${color.gelId || color.caseId || color.id}`]
+    const variantId = asVariantId(mapped || cfg.variantId)
+    if (!variantId) {
+      // A product-page launch already supplies the selected Shopify price in
+      // case_price. Do not erase it simply because an optional variant map is
+      // not configured for this merchant yet.
+      return
+    }
+
+    const currency = String(cfg.currency?.active || '').toUpperCase()
+    // Links created before the country parameter existed still carry GBP.
+    // Those represent the UK storefront, so resolve their real UK price rather
+    // than retaining the legacy `case_price` query value.
+    const country = String(cfg.country || (currency === 'GBP' ? 'GB' : '')).toUpperCase()
+    const apiBase = cfg.apiBase || window.location.origin
+    const cacheKey = `${variantId}:${country}:${currency}`
+    const cached = priceCacheRef.current.get(cacheKey)
+    if (Number.isFinite(cached) && cached > 0) {
+      setLivePresentmentCasePrice(cached)
+      return
+    }
+
+    let cancelled = false
+    ;(async () => {
+      let amount = null
+      if (/^[A-Z]{2}$/.test(country)) {
+        try {
+          const endpoint = new URL('/api/shopify/contextual-price', apiBase)
+          endpoint.searchParams.set('variant', variantId)
+          endpoint.searchParams.set('country', country)
+          const res = await fetch(endpoint, { headers: { accept: 'application/json' } })
+          const data = await res.json().catch(() => ({}))
+          const maybe = Number(data.amount)
+          if (res.ok && maybe > 0 && (!currency || data.currency === currency)) amount = maybe
+        } catch {
+          // Fallback below.
+        }
+      }
+      if (!(amount > 0)) {
+        const shopifyRoot = window.Shopify?.routes?.root || '/'
+        const local = await fetchVariantDetails(`${shopifyRoot}variants/${variantId}.js`)
+        const maybeCents = Number(local?.price)
+        if (maybeCents > 0) amount = maybeCents / 100
+      }
+      if (!cancelled) {
+        if (amount > 0) {
+          priceCacheRef.current.set(cacheKey, amount)
+          setLivePresentmentCasePrice(amount)
+        } else {
+          setLivePresentmentCasePrice(null)
+        }
+      }
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [catalogProduct, color.caseId, color.id, color.gelId])
+
+  // Load every visible model's real Shopify price in one request so the desktop
+  // dropdown never falls back to stale metaobject base prices.
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const cfg = window.CharmeConfig || {}
+    const currency = String(cfg.currency?.active || '').toUpperCase()
+    const country = String(cfg.country || (currency === 'GBP' ? 'GB' : '')).toUpperCase()
+    if (!/^[A-Z]{2}$/.test(country)) return
+
+    const entries = Object.entries(BASE_PRODUCT_VARIANTS)
+      .filter(([key]) => key.endsWith(`:${gelColourId}`))
+    const cacheKey = `${country}:${currency}:${gelColourId}`
+    const cached = productPricesCacheRef.current.get(cacheKey)
+    if (cached) {
+      setLiveProductPrices(cached)
+      return
+    }
+
+    let cancelled = false
+    const apiBase = cfg.apiBase || window.location.origin
+    ;(async () => {
+      try {
+        const response = await fetch(new URL('/api/shopify/contextual-prices', apiBase), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ country, variantIds: entries.map(([, variantId]) => variantId) }),
+        })
+        const data = await response.json().catch(() => ({}))
+        if (!response.ok) return
+        const prices = {}
+        for (const [key, variantId] of entries) {
+          const price = data.prices?.[String(variantId)]
+          if (Number(price?.amount) > 0 && (!currency || price.currency === currency)) {
+            prices[key.slice(0, -(gelColourId.length + 1))] = Number(price.amount)
+          }
+        }
+        if (!cancelled) {
+          productPricesCacheRef.current.set(cacheKey, prices)
+          setLiveProductPrices(prices)
+        }
+      } catch {
+        // Keep the selected product's independently resolved price available.
+      }
+    })()
+    return () => { cancelled = true }
+  }, [gelColourId])
 
   // Apply a full saved arrangement (product + case/gel finish + placed charms).
   // Shared by the dev/QA seed hook and the production preset auto-loader. `opts`
@@ -1050,6 +1198,7 @@ export default function CustomizerPage({
       caseColourId={caseColourId}
       gelColourId={gelColourId}
       presentmentPrice={presentmentCasePrice}
+      presentmentPrices={liveProductPrices}
       onGroupChange={handleGroup}
       onProductChange={handleProduct}
       onCaseColourChange={setCaseColourId}

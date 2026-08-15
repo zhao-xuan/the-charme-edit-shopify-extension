@@ -144,6 +144,14 @@ export const fetchShopifyCollections = async (q) =>
 export const fetchCaseVariants = async (h) =>
   handle(await fetch(url(`/api/admin/case-variants${h ? `?handle=${encodeURIComponent(h)}` : ''}`), { headers: await authHeaders() }))
 
+/** Preview or apply automatic model-to-real-case-variant bindings for all phones. */
+export const bindPhoneProducts = async (apply = false) =>
+  handle(await fetch(url('/api/admin/bind-phone-products'), {
+    method: 'POST',
+    headers: await authHeaders(),
+    body: JSON.stringify({ apply }),
+  }))
+
 /** Update a real phone-case variant's price / availability on Shopify. */
 export const updateCaseVariant = async (patch) =>
   handle(await fetch(url('/api/admin/case-variants'), { method: 'PATCH', headers: await authHeaders(), body: JSON.stringify(patch) }))

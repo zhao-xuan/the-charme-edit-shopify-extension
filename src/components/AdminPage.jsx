@@ -79,7 +79,7 @@ import {
   fetchShopifyVariants,
   fetchShopifyCollections,
   fetchCaseVariants,
-  updateCaseVariant,
+  bindPhoneProducts,
   caseVariantAction,
 } from '../lib/adminApi'
 
@@ -170,6 +170,11 @@ function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear =
       </span>
     </span>
   )
+  const selectedLabel = selected
+    ? label(selected, true)
+    : selectedValue
+      ? `Linked Shopify variant #${selectedValue}`
+      : 'Link Shopify variant'
   return (
     <Select
       size="small"
@@ -182,7 +187,7 @@ function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear =
       style={{ width: 250 }}
       onClick={(event) => event.stopPropagation()}
       onChange={(shopifyVariantId) => onChange(shopifyVariantId || null)}
-      labelRender={() => selected ? label(selected) : 'Link Shopify variant'}
+      labelRender={() => selectedLabel}
       options={variants.map((variant) => ({
         value: variant.id,
         label: label(variant, true),
@@ -1647,10 +1652,17 @@ function VariantSelectorCard({ models }) {
   )
 }
 
-function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
+function ProductStudioTab({
+  product,
+  cloud,
+  variants = [],
+  shopifyVariants = [],
+  variantsLoading = false,
+  caseProductTitle,
+  onVariantImage,
+}) {
   const { message } = App.useApp()
   const [name, setName] = useState('')
-  const [basePrice, setBasePrice] = useState(0)
   const [widthMm, setWidthMm] = useState(0)
   const [heightMm, setHeightMm] = useState(0)
   const [image, setImage] = useState(null)
@@ -1658,17 +1670,16 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
   const [vImg, setVImg] = useState(null)
   useEffect(() => {
     setName(product?.name || '')
-    setBasePrice(product?.basePrice ?? 0)
     setWidthMm(product?.widthMm ?? 0)
     setHeightMm(product?.heightMm ?? 0)
     setImage(null)
   }, [product?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const src = image?.src || (product ? resolveAsset(product.src) : null)
+  const livePhonePrices = [...new Set(variants.map((variant) => Number(variant.price)).filter(Number.isFinite))]
   const dirty =
     !!product &&
     (name.trim() !== (product.name || '') ||
-      Number(basePrice) !== product.basePrice ||
       Number(widthMm) !== product.widthMm ||
       Number(heightMm) !== product.heightMm ||
       !!image)
@@ -1677,7 +1688,6 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
     if (!product) return
     const patch = {}
     if (name.trim() && name.trim() !== product.name) patch.name = name.trim()
-    if (Number(basePrice) !== product.basePrice) patch.basePrice = Number(basePrice)
     if (Number(widthMm) !== product.widthMm) patch.widthMm = Number(widthMm)
     if (Number(heightMm) !== product.heightMm) patch.heightMm = Number(heightMm)
     if (image?.src) patch.src = image.src
@@ -1728,10 +1738,17 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
             <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Name</span>
             <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Product name" />
           </label>
-          <label style={{ display: 'block', marginBottom: 10 }}>
-            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Base price (£)</span>
-            <InputNumber min={0} value={basePrice} onChange={setBasePrice} style={{ width: '100%' }} />
-          </label>
+          {product.kind === 'phone' ? (
+            <Alert
+              style={{ marginBottom: 10 }}
+              type="info"
+              showIcon
+              message={`Real Shopify product: ${caseProductTitle || 'custom-charm-phone-case'}`}
+              description={livePhonePrices.length
+                ? `Live Shopify price: ${livePhonePrices.map((price) => `£${price.toFixed(2)}`).join(' / ')}. Each model × colour variant below is billed at its own Shopify price.`
+                : 'Phone cases are billed by the live model × colour variants below.'}
+            />
+          ) : null}
           <div style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
             <label style={{ flex: 1 }}>
               <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Width (mm)</span>
@@ -1749,7 +1766,7 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
           {variants.length ? (
             <div style={{ marginBottom: 12 }}>
               <span style={{ display: 'block', marginBottom: 6, color: 'var(--ink-soft)' }}>
-                Variant images ({variants.length}) — one per colour, saved straight to Shopify
+                Variant settings ({variants.length}) — each row is bound to one live Shopify variant
               </span>
               <Space direction="vertical" size={10} style={{ width: '100%' }}>
                 {variants.map((v) => (
@@ -1760,8 +1777,11 @@ function ProductStudioTab({ product, cloud, variants = [], onVariantImage }) {
                       style={{ width: 46, height: 46, objectFit: 'contain', background: '#faf7f2', borderRadius: 8, flex: 'none' }}
                     />
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 13, marginBottom: 4 }}>
-                        {v.colour} {vImg === v.id && <Spin size="small" style={{ marginLeft: 6 }} />}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                        <span style={{ fontSize: 13 }}>
+                          {v.colour} {vImg === v.id && <Spin size="small" style={{ marginLeft: 6 }} />}
+                        </span>
+                        <Tag>£{Number(v.price).toFixed(2)}</Tag>
                       </div>
                       <ImageDrop value={null} onChange={(img) => uploadVariantImage(v.id, img)} hint="Drop this colour’s photo" />
                     </div>
@@ -1799,6 +1819,7 @@ function ProductsTab({ draft, set, cloud }) {
     name: '',
     kind: 'phone',
     basePrice: 26,
+    shopifyVariantId: '',
     widthMm: 75,
     image: null,
   })
@@ -1816,8 +1837,18 @@ function ProductsTab({ draft, set, cloud }) {
   const [caseLoading, setCaseLoading] = useState(true)
   const [busy, setBusy] = useState(false)
   const [newColour, setNewColour] = useState('')
-  const [selectedRowKeys, setSelectedRowKeys] = useState([])
-  const [bulkPrice, setBulkPrice] = useState(null)
+  const [shopifyVariants, setShopifyVariants] = useState([])
+  const [variantsLoading, setVariantsLoading] = useState(true)
+  const autoBindAttempted = useRef(false)
+
+  useEffect(() => {
+    let alive = true
+    fetchShopifyVariants()
+      .then((data) => alive && setShopifyVariants(data.variants || []))
+      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
+      .finally(() => alive && setVariantsLoading(false))
+    return () => { alive = false }
+  }, [message])
 
   const loadCase = () => {
     setCaseLoading(true)
@@ -1829,6 +1860,25 @@ function ProductsTab({ draft, set, cloud }) {
   // Reload the live variants whenever the metaobject product list changes
   // (add / delete cascades server-side, then cloud.refresh updates products).
   useEffect(() => { loadCase() }, [cloud?.data.products]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const products = cloud?.data.products || []
+    if (
+      autoBindAttempted.current ||
+      caseLoading ||
+      !caseData.productId ||
+      !products.some((product) => product.kind === 'phone' && !product.shopifyVariantId)
+    ) return
+    autoBindAttempted.current = true
+    setBusy(true)
+    bindPhoneProducts(true)
+      .then(async (result) => {
+        if (result.updated) message.success(`Linked ${result.updated} phone product(s) to their real Shopify variants.`)
+        await cloud?.refresh()
+      })
+      .catch((error) => message.error(error.message || 'Could not link phone variants.'))
+      .finally(() => setBusy(false))
+  }, [caseData.productId, caseLoading, cloud, message])
 
   const colours = caseData.colours || []
   const variantAt = useMemo(() => {
@@ -1846,19 +1896,6 @@ function ProductsTab({ draft, set, cloud }) {
       .map((mm) => ({ id: `variant:${mm.name}`, name: mm.name, kind: 'phone', variantOnly: true }))
     return [...products, ...extras]
   }, [cloud?.data.products, caseData])
-
-  const saveVariantPrice = async (model, colour, value) => {
-    const v = variantAt[model]?.[colour]
-    if (!v) return
-    const price = Number(value)
-    if (value == null || value === '' || Number.isNaN(price) || price === v.price) return
-    try {
-      await updateCaseVariant({ productId: caseData.productId, variantId: v.id, price })
-      setCaseData((d) => ({ ...d, variants: d.variants.map((x) => (x.id === v.id ? { ...x, price } : x)) }))
-    } catch (e) {
-      message.error(e.message || 'Could not update the variant price.')
-    }
-  }
 
   const createVariantsFor = async (product) => {
     if (product.kind !== 'phone') return
@@ -1911,22 +1948,37 @@ function ProductsTab({ draft, set, cloud }) {
     finally { setBusy(false) }
   }
 
-  // Batch-set the price on every variant of the selected models (all colours).
-  const applyBulkPrice = async () => {
-    const price = Number(bulkPrice)
-    if (bulkPrice == null || bulkPrice === '' || Number.isNaN(price)) return message.warning('Enter a price first.')
-    const names = new Set(rows.filter((r) => selectedRowKeys.includes(r.id) && r.kind === 'phone').map((r) => r.name))
-    if (!names.size) return message.warning('Select one or more phone models to update their variants.')
-    const ids = (caseData.variants || []).filter((v) => names.has(v.model)).map((v) => v.id)
-    if (!ids.length) return message.warning('The selected models have no live variants yet.')
+  const bindAllPhoneProducts = async () => {
     setBusy(true)
     try {
-      const r = await caseVariantAction({ action: 'setPrices', variantIds: ids, price })
-      message.success(`Set ${r.updated || 0} variant(s) to £${price}.`)
-      setSelectedRowKeys([])
-      loadCase()
-    } catch (e) { message.error(e.message || 'Could not set the prices.') }
-    finally { setBusy(false) }
+      const preview = await bindPhoneProducts(false)
+      const matchText = `${preview.updated || 0} need binding, ${preview.unchanged || 0} already linked`
+      const missingText = preview.unmatched?.length
+        ? ` Unmatched: ${preview.unmatched.join(', ')}.`
+        : ''
+      modal.confirm({
+        title: `Bind ${preview.phoneProducts || 0} phone products?`,
+        content: `${matchText}.${missingText} This uses the preferred real Shopify case variant for each exact model name and updates its fallback price.`,
+        okText: 'Bind products',
+        onOk: async () => {
+          setBusy(true)
+          try {
+            const result = await bindPhoneProducts(true)
+            message.success(`Bound ${result.updated || 0} phone product(s); ${result.unchanged || 0} were already linked.`)
+            await cloud?.refresh()
+            loadCase()
+          } catch (error) {
+            message.error(error.message || 'Could not bind phone products.')
+          } finally {
+            setBusy(false)
+          }
+        },
+      })
+    } catch (error) {
+      message.error(error.message || 'Could not preview phone bindings.')
+    } finally {
+      setBusy(false)
+    }
   }
 
   // Upload an image for ONE colour variant (sets its Shopify variant image).
@@ -1934,6 +1986,22 @@ function ProductsTab({ draft, set, cloud }) {
     const r = await caseVariantAction({ action: 'setVariantImage', variantId, imageSrc })
     loadCase()
     return r
+  }
+
+  const bindProductVariant = async (product, shopifyVariantId) => {
+    if (!product || !shopifyVariantId) return
+    const nextVariantId = String(shopifyVariantId)
+    const currentVariantId = product.shopifyVariantId ? String(product.shopifyVariantId) : ''
+    if (nextVariantId === currentVariantId) return
+    const selected = shopifyVariants.find((variant) => String(variant.id) === nextVariantId)
+    const patch = { shopifyVariantId: nextVariantId }
+    if (selected && Number.isFinite(selected.price)) patch.basePrice = selected.price
+    try {
+      await cloud.updateProduct(product, patch)
+      message.success('Product variant binding saved.')
+    } catch (error) {
+      message.error(error.message || 'Could not save product variant binding.')
+    }
   }
 
   const deleteRow = (r) => {
@@ -1965,13 +2033,14 @@ function ProductsTab({ draft, set, cloud }) {
       name: form.name.trim(),
       kind: form.kind,
       basePrice: Number(form.basePrice) || 0,
+      shopifyVariantId: form.shopifyVariantId || undefined,
       widthMm: Number(form.widthMm) || 75,
       heightMm,
       src: form.image.src,
       colourLabel: 'Default',
     }
     set((d) => ({ ...d, customProducts: [product, ...(d.customProducts || [])] }))
-    setForm({ name: '', kind: 'phone', basePrice: 26, widthMm: 75, image: null })
+    setForm({ name: '', kind: 'phone', basePrice: 26, shopifyVariantId: '', widthMm: 75, image: null })
     message.success('Product added — Publish to save to Shopify.')
   }
 
@@ -2023,6 +2092,9 @@ function ProductsTab({ draft, set, cloud }) {
           title={`Products & variants (${rows.length})`}
           extra={
             <Space>
+              <Button size="small" icon={<LinkOutlined />} loading={busy} onClick={bindAllPhoneProducts}>
+                Bind phone variants
+              </Button>
               <Button size="small" icon={<ThunderboltOutlined />} loading={busy} onClick={enableOversell}>
                 Sell sold-out models
               </Button>
@@ -2031,38 +2103,15 @@ function ProductsTab({ draft, set, cloud }) {
           }
         >
           <p className="hint" style={{ marginTop: 0 }}>
-            One list for the customizer models and their sellable Shopify variants. Editing a colour price
-            writes to the live variant. Deleting a product removes its metaobject, image and all its variants.
+            One list for the customizer models and their sellable Shopify variants. Prices are read from
+            Shopify and cannot be changed here. Deleting a product removes its metaobject, image and variants.
           </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-            <span className="hint" style={{ margin: 0 }}>
-              {selectedRowKeys.length ? `${selectedRowKeys.length} selected · set every variant to` : 'Select models, then batch-set every variant to'}
-            </span>
-            <InputNumber
-              size="small"
-              min={0}
-              step={0.5}
-              prefix="£"
-              value={bulkPrice}
-              onChange={setBulkPrice}
-              placeholder="26"
-              style={{ width: 96 }}
-            />
-            <Button size="small" type="primary" loading={busy} disabled={!selectedRowKeys.length} onClick={applyBulkPrice}>
-              Apply price
-            </Button>
-          </div>
           <Table
             size="small"
             rowKey="id"
             loading={cloud?.loading || caseLoading}
             onRow={pickRow}
             rowClassName={rowCls}
-            rowSelection={{
-              selectedRowKeys,
-              onChange: setSelectedRowKeys,
-              getCheckboxProps: (r) => ({ disabled: r.kind !== 'phone' }),
-            }}
             scroll={{ x: 'max-content' }}
             pagination={{ defaultPageSize: 20, size: 'small', showSizeChanger: true, pageSizeOptions: [20, 50, 100] }}
             dataSource={rows}
@@ -2071,20 +2120,29 @@ function ProductsTab({ draft, set, cloud }) {
               { title: 'Photo', dataIndex: 'src', width: 52, render: (s, r) => (r.variantOnly ? <Tag color="blue">live</Tag> : <Image src={resolveAsset(s)} width={36} height={36} style={{ objectFit: 'contain' }} />) },
               { title: 'Model', dataIndex: 'name', ellipsis: true, fixed: 'left', width: 150 },
               {
-                title: 'Base (£)',
+                title: 'Price (£)',
                 key: 'base-price',
                 width: 92,
-                render: (_, r) => r.kind !== 'phone' ? (
-                  <InputNumber
-                    key={`${r.id}:${r.basePrice}`}
-                    size="small"
-                    min={0}
-                    step={0.5}
-                    defaultValue={r.basePrice}
-                    onBlur={(e) => cloud.repriceProduct(r, e.target.value)}
-                    style={{ width: 74 }}
-                  />
-                ) : <span style={{ color: '#ccc' }}>—</span>,
+                render: (_, r) => Number.isFinite(Number(r.basePrice))
+                  ? <span>£{Number(r.basePrice).toFixed(2)}</span>
+                  : <span style={{ color: '#ccc' }}>—</span>,
+              },
+              {
+                title: 'Shopify variant',
+                key: 'product-variant',
+                width: 280,
+                render: (_, r) => {
+                  if (r.variantOnly) return <Tag color="blue">{caseData.title || 'custom phone case'}</Tag>
+                  return (
+                    <ShopifyVariantSelect
+                      value={r.shopifyVariantId}
+                      variants={shopifyVariants}
+                      loading={variantsLoading}
+                      allowClear={false}
+                      onChange={(shopifyVariantId) => bindProductVariant(r, shopifyVariantId)}
+                    />
+                  )
+                },
               },
               ...colours.map((c) => ({
                 title: `${c.name} (£)`,
@@ -2093,15 +2151,7 @@ function ProductsTab({ draft, set, cloud }) {
                 render: (_, r) => {
                   const v = variantAt[r.name]?.[c.name]
                   return v ? (
-                    <InputNumber
-                      key={`${v.id}:${v.price}`}
-                      size="small"
-                      min={0}
-                      step={0.5}
-                      defaultValue={v.price}
-                      onBlur={(e) => saveVariantPrice(r.name, c.name, e.target.value)}
-                      style={{ width: 74 }}
-                    />
+                    <span>£{Number(v.price).toFixed(2)}</span>
                   ) : (
                     <span style={{ color: '#ccc' }}>—</span>
                   )
@@ -2137,6 +2187,9 @@ function ProductsTab({ draft, set, cloud }) {
               product={selectedProduct}
               cloud={cloud}
               variants={selectedProduct ? (caseData.variants || []).filter((v) => v.model === selectedProduct.name) : []}
+              shopifyVariants={shopifyVariants}
+              variantsLoading={variantsLoading}
+              caseProductTitle={caseData.title}
               onVariantImage={saveVariantImage}
             />
           </RightPanel>
@@ -2170,6 +2223,22 @@ function ProductsTab({ draft, set, cloud }) {
                   value={form.basePrice}
                   onChange={(v) => setForm((f) => ({ ...f, basePrice: v }))}
                   style={{ width: '100%' }}
+                />
+              </label>
+              <label style={{ gridColumn: '1 / -1' }}>
+                <span>Shopify billing variant (for tote/frame/other non-phone)</span>
+                <ShopifyVariantSelect
+                  value={form.shopifyVariantId}
+                  variants={shopifyVariants}
+                  loading={variantsLoading}
+                  onChange={(shopifyVariantId) => {
+                    const linked = shopifyVariants.find((variant) => String(variant.id) === String(shopifyVariantId || ''))
+                    setForm((f) => ({
+                      ...f,
+                      shopifyVariantId: shopifyVariantId || '',
+                      basePrice: linked ? linked.price : f.basePrice,
+                    }))
+                  }}
                 />
               </label>
               <label>

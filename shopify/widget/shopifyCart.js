@@ -59,6 +59,7 @@ function resolveProductVariant(variantMap, payload) {
     p[`${model}:${gel}`] ||
     p[`${model}:${payload.product.colorId}`] ||
     p[model] ||
+    payload.product.shopifyVariantId ||
     p[`other:${gel}`] ||
     null
   )

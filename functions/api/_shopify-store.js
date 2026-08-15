@@ -88,6 +88,7 @@ const PRODUCT_FIELD_DEFS = [
   ['name', 'Name', 'single_line_text_field'],
   ['kind', 'Kind', 'single_line_text_field'],
   ['base_price', 'Base price', 'number_decimal'],
+  ['shopify_variant_id', 'Shopify variant id', 'single_line_text_field'],
   ['width_mm', 'Width mm', 'number_decimal'],
   ['height_mm', 'Height mm', 'number_decimal'],
   ['body_image_white', 'Body image (white)', 'file_reference'],
@@ -117,6 +118,13 @@ const M_DEF_CREATE = `
   mutation($definition: MetaobjectDefinitionCreateInput!){
     metaobjectDefinitionCreate(definition:$definition){
       metaobjectDefinition{ id type }
+      userErrors{ field message code }
+    }
+  }`
+const M_DEF_UPDATE = `
+  mutation($id: ID!, $definition: MetaobjectDefinitionUpdateInput!){
+    metaobjectDefinitionUpdate(id: $id, definition: $definition){
+      metaobjectDefinition{ id type fieldDefinitions{ key } }
       userErrors{ field message code }
     }
   }`
@@ -168,6 +176,21 @@ async function ensureDefinition(env, type) {
     // Re-read to learn the actual field keys (also covers the "taken" race).
     def = (await shopifyAdmin(env, Q_DEF, { type })).metaobjectDefinitionByType
   }
+  const existingKeys = new Set((def?.fieldDefinitions || []).map((field) => field.key))
+  const missingFields = meta.fields.filter(([key]) => !existingKeys.has(key))
+  if (def?.id && missingFields.length) {
+    const updated = await shopifyAdmin(env, M_DEF_UPDATE, {
+      id: def.id,
+      definition: {
+        fieldDefinitions: missingFields.map(([key, name, fieldType]) => ({
+          create: { key, name, type: fieldType },
+        })),
+      },
+    })
+    const errors = updated.metaobjectDefinitionUpdate?.userErrors || []
+    if (errors.length) throw new Error(`definition update ${type}: ${JSON.stringify(errors)}`)
+    def = updated.metaobjectDefinitionUpdate?.metaobjectDefinition || def
+  }
   const keys = new Set((def?.fieldDefinitions || []).map((f) => f.key))
   _defCache.set(type, keys)
   return keys
@@ -212,6 +235,7 @@ function toFields(type, record, imageGids = {}) {
       name: record.name,
       kind: record.kind,
       base_price: record.basePrice != null ? String(record.basePrice) : undefined,
+      shopify_variant_id: record.shopifyVariantId || undefined,
       width_mm: record.widthMm != null ? String(record.widthMm) : undefined,
       height_mm: record.heightMm != null ? String(record.heightMm) : undefined,
       legacy_id: record.id,
@@ -263,6 +287,7 @@ function toRecord(type, node) {
       name: f.name || '',
       kind: f.kind || 'phone',
       basePrice: numOrNull(f.base_price),
+      shopifyVariantId: f.shopify_variant_id || undefined,
       widthMm: numOrNull(f.width_mm),
       heightMm: numOrNull(f.height_mm),
       // Merchant-uploaded body renders, served from Shopify Files (cdn.shopify.com).
@@ -353,6 +378,14 @@ export async function saveRecord(env, type, id, record, imageGids = {}) {
 
   if (
     type === TYPES.charm &&
+    Object.prototype.hasOwnProperty.call(record, 'shopifyVariantId') &&
+    !record.shopifyVariantId &&
+    defKeys.has('shopify_variant_id')
+  ) {
+    fields.push({ key: 'shopify_variant_id', value: '' })
+  }
+  if (
+    type === TYPES.product &&
     Object.prototype.hasOwnProperty.call(record, 'shopifyVariantId') &&
     !record.shopifyVariantId &&
     defKeys.has('shopify_variant_id')

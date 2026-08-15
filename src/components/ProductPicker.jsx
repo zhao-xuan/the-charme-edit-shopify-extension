@@ -91,6 +91,7 @@ export default function ProductPicker({
   onCaseColourChange,
   onGelColourChange,
   presentmentPrice,
+  presentmentPrices = {},
 }) {
   const PRODUCT_GROUPS = productGroups()
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
@@ -100,10 +101,16 @@ export default function ProductPicker({
   const gelColours = product.gelColours
 
   const options = buildOptions(group)
-  const formatProductPrice = (candidate) =>
-    candidate.kind === 'phone' && Number(presentmentPrice) > 0
-      ? formatPresentmentMoney(presentmentPrice, { whole: true })
-      : formatMoney(candidate.price ?? candidate.basePrice, { whole: true })
+  const formatProductPrice = (candidate) => {
+    if (candidate.kind === 'phone') {
+      const candidateId = candidate.id || candidate.value
+      const amount = candidateId === productId && Number(presentmentPrice) > 0
+        ? Number(presentmentPrice)
+        : Number(presentmentPrices[candidateId])
+      return amount > 0 ? formatPresentmentMoney(amount) : '—'
+    }
+    return formatMoney(candidate.price ?? candidate.basePrice)
+  }
 
   return (
     <div>
