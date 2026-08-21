@@ -1136,6 +1136,24 @@ h4,
   grid-template-columns: 1fr 280px;
   gap: 18px;
 }
+.checkout-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 24px;
+  background: rgb(247 240 223 / 0.94);
+  color: var(--ink);
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+.checkout-loading > span:last-child {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
 .summary-layout .proof-img {
   max-height: 300px;
   max-width: 100%;

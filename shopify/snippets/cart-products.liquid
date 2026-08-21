@@ -427,17 +427,19 @@
         function relocateSecondProduct() {
           var summaryColumn = document.querySelector('main .cart-page__summary');
           var summaryContainer = summaryColumn ? summaryColumn.querySelector('.cart__summary-container') : null;
+          var summaryInner = summaryContainer ? summaryContainer.querySelector('.cart__summary-inner') : null;
+          var checkoutActions = summaryInner ? summaryInner.querySelector('.cart__ctas') : null;
           var desktop = window.matchMedia('(min-width: 990px)').matches;
 
-          if (desktop && summaryColumn) {
-            if (summaryContainer && summaryContainer.parentNode === summaryColumn) {
-              if (block.parentNode !== summaryColumn || block.nextElementSibling !== summaryContainer) {
-                summaryColumn.insertBefore(block, summaryContainer);
+          if (desktop && summaryInner) {
+            if (checkoutActions) {
+              if (block.parentNode !== summaryInner || block.nextElementSibling !== checkoutActions) {
+                summaryInner.insertBefore(block, checkoutActions);
               }
               return;
             }
-            if (block.parentNode !== summaryColumn) {
-              summaryColumn.insertBefore(block, summaryColumn.firstChild);
+            if (block.parentNode !== summaryInner) {
+              summaryInner.appendChild(block);
             }
             return;
           }
@@ -461,6 +463,15 @@
         document.addEventListener('DOMContentLoaded', function () { ensureRelocated(0); }, { once: true });
         window.addEventListener('load', function () { ensureRelocated(0); }, { once: true });
         window.addEventListener('resize', relocateSecondProduct, { passive: true });
+
+        document.addEventListener('click', function (event) {
+          var checkout = event.target.closest('.cart__checkout-button, [name="checkout"]');
+          if (!checkout || checkout.getAttribute('aria-busy') === 'true') return;
+          checkout.setAttribute('aria-busy', 'true');
+          checkout.disabled = true;
+          checkout.classList.add('charme-checkout-loading');
+          checkout.innerHTML = '<span class="charme-checkout-spinner" aria-hidden="true"></span><span>Loading secure checkout…</span>';
+        }, true);
       })();
     </script>
 
@@ -843,6 +854,28 @@
     padding-inline: var(--padding-4xl);
   }
 
+  .cart__ctas .cart__checkout-button.charme-checkout-loading {
+    align-items: center;
+    cursor: wait;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    opacity: 0.82;
+  }
+
+  .charme-checkout-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: charme-checkout-spin 0.7s linear infinite;
+  }
+
+  @keyframes charme-checkout-spin {
+    to { transform: rotate(360deg); }
+  }
+
   shopify-accelerated-checkout-cart {
     --shopify-accelerated-checkout-inline-alignment: center;
     --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-primary);
@@ -957,11 +990,18 @@
   }
 
   .cart-items__second-product {
+    /* Pin real theme colours: the summary sidebar it's relocated into can carry
+       a colour-scheme wrapper whose --color-foreground-rgb/--color-background-rgb
+       resolve to black (0 0 0), which otherwise renders this whole block as a
+       solid black box. */
+    --color-foreground-rgb: 61 53 48;
+    --color-background-rgb: 247 240 223;
     border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.12);
     border-radius: var(--style-border-radius-cards);
-    margin-top: var(--margin-xl);
+    margin: var(--margin-xl) 0;
     padding: var(--padding-lg);
     background: rgb(var(--color-background-rgb) / 1);
+    color: rgb(var(--color-foreground-rgb) / 1);
   }
 
   .cart-items__second-product-title {

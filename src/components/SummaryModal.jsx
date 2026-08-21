@@ -189,7 +189,10 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   return (
     <Modal
       open={open}
-      onCancel={onClose}
+      onCancel={submitting ? undefined : onClose}
+      closable={!submitting}
+      maskClosable={!submitting}
+      keyboard={!submitting}
       width={isMobile ? '100%' : 720}
       centered={!isMobile}
       zIndex={2147483600}
@@ -198,6 +201,13 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       footer={null}
       title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
     >
+      {submitting && (
+        <div className="checkout-loading" role="status" aria-live="assertive" aria-label="Preparing checkout">
+          <Spin size="large" />
+          <strong>Preparing your checkout…</strong>
+          <span>Please keep this page open.</span>
+        </div>
+      )}
       {loading || !previewUrl ? (
         <div style={{ height: 360, display: 'grid', placeItems: 'center', gap: 14 }}>
           <Spin size="large" />

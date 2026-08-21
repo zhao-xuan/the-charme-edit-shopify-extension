@@ -158,7 +158,8 @@
         <span data-cc-subtotal></span>
       </div>
       <button type="button" class="cc-checkout" data-cc-checkout>
-        Checkout · <span data-cc-checkout-total></span>
+        <span class="cc-checkout__spinner" aria-hidden="true"></span>
+        <span class="cc-checkout__label">Checkout · <span data-cc-checkout-total></span></span>
       </button>
       <a href="{{ routes.cart_url }}" class="cc-gotocart">Go to cart</a>
       <div class="cc-secure">
@@ -285,8 +286,12 @@
   .cc-saved{margin-bottom:12px;padding:8px;border-radius:0;background:#e7f3ea;color:#2f7d43;font-size:13px;font-weight:700;text-align:center}
   .cc-taxes{display:flex;justify-content:space-between;font-size:12px;color:var(--cc-muted);padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid var(--cc-line)}
   .cc-subtotal{display:flex;justify-content:space-between;margin-bottom:12px;padding:5px 0;font-size:14px;font-weight:700}
-  .cc-checkout{width:100%;height:50px;padding:0;border:0;border-radius:0;background:var(--cc-accent);color:var(--cc-bg);font:700 15px/50px Helvetica,Arial,sans-serif;cursor:pointer}
+  .cc-checkout{width:100%;height:50px;padding:0;border:0;border-radius:0;background:var(--cc-accent);color:var(--cc-bg);font:700 15px/50px Helvetica,Arial,sans-serif;cursor:pointer;position:relative}
   .cc-checkout:hover{opacity:.94}
+  .cc-checkout[aria-busy="true"]{cursor:wait;opacity:.82}
+  .cc-checkout__spinner{display:none;width:18px;height:18px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cc-spin .7s linear infinite}
+  .cc-checkout[aria-busy="true"] .cc-checkout__spinner{display:inline-block;vertical-align:middle;margin-right:9px}
+  @keyframes cc-spin{to{transform:rotate(360deg)}}
   .cc-gotocart{display:block;margin-top:13px;color:var(--cc-fg);font-size:14px;font-weight:700;text-align:center;text-decoration:underline}
   .cc-secure{margin-top:20px;text-align:center}
   .cc-secure__label{margin:0 0 10px;font-size:12px;font-weight:700;line-height:17px}
@@ -575,7 +580,15 @@
 
     if (t.closest('[data-cc-open]')) { e.preventDefault(); return open(); }
     if (t.closest('[data-cc-close]')) { e.preventDefault(); return close(); }
-    if (t.closest('[data-cc-checkout]')) { window.location.href = '/checkout'; return; }
+    if (t.closest('[data-cc-checkout]')) {
+      var checkout = t.closest('[data-cc-checkout]');
+      if (checkout.getAttribute('aria-busy') === 'true') return;
+      checkout.setAttribute('aria-busy', 'true');
+      checkout.disabled = true;
+      checkout.querySelector('.cc-checkout__label').textContent = 'Loading secure checkout…';
+      window.location.href = '/checkout';
+      return;
+    }
 
     // qty +/- and remove (single line)
     var line = t.closest('[data-key]');
