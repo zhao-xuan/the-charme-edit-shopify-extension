@@ -7,7 +7,7 @@
  * OBB also serves as the broad-phase reject before the finer shape test. The
  * same maths drives the on-screen warnings and the exported artwork.
  */
-import { getCharmMask } from './charmMask'
+import { getCharmMask } from './charmMask.js'
 
 const toRad = (deg) => (deg * Math.PI) / 180
 
@@ -426,6 +426,88 @@ function findFrameSpot(product, placedCharms, charm, opts = {}) {
     if (!clash) return { cxMm: +cx.toFixed(2), cyMm: +cy.toFixed(2), rot: +rot.toFixed(1) }
   }
   return null
+}
+
+/**
+ * First letter/number of a typed sequence: placement stays random (so repeat
+ * adds don't all land identically) but is biased toward the LEFT side of the
+ * printable area, leaving room for further letters to continue rightward.
+ * Falls back to the plain scatter packer for frames / when no clear spot is
+ * found in the left band.
+ */
+export function findFirstTextSpot(product, placedCharms, charm, opts = {}) {
+  if (product.printable.kind === 'frame') return findScatterSpot(product, placedCharms, charm, opts)
+  const gapMm = opts.gapMm ?? 1.2
+  const tries = opts.tries ?? 300
+  const { outer } = product.printable
+  const placedBoxes = placedCharms.map(charmFootprint)
+  const w = charm.widthMm
+  const h = charm.heightMm
+  // Sample x from the left ~45% of the printable width so the word has room to
+  // grow rightward; y anywhere in the middle band.
+  for (let t = 0; t < tries; t++) {
+    const cx = outer.xMm + Math.random() * outer.wMm * 0.45
+    const cy = outer.yMm + outer.hMm * 0.25 + Math.random() * outer.hMm * 0.5
+    const box = { cx, cy, w, h, rot: 0 }
+    if (!boxFullyInside(box, product.printable)) continue
+    if (placedBoxes.some((pb) => obbOverlap(box, pb, gapMm))) continue
+    return { cxMm: +cx.toFixed(2), cyMm: +cy.toFixed(2), rot: 0 }
+  }
+  // Left band is full — fall back to the normal upright scatter packer.
+  return findScatterSpot(product, placedCharms, charm, { ...opts, rotMaxDeg: 0 })
+}
+
+/**
+ * Next letter/number in a typed sequence: sits beside the previous one, offset
+ * along the previous letter's OWN rotation axis (so a tilted word keeps a
+ * straight baseline) with a small gap, and copies its rotation.
+ */
+export function nextTextCharmSpot(prevCharm, charm, opts = {}) {
+  const gapMm = opts.gapMm ?? 1.4
+  const rot = prevCharm.rot || 0
+  const a = toRad(rot)
+  const prevHalfW = (prevCharm.baseWmm * (prevCharm.scale || 1)) / 2
+  const halfW = charm.widthMm / 2
+  const dist = prevHalfW + gapMm + halfW
+  return {
+    cxMm: +(prevCharm.cxMm + Math.cos(a) * dist).toFixed(2),
+    cyMm: +(prevCharm.cyMm + Math.sin(a) * dist).toFixed(2),
+    rot,
+  }
+}
+
+/**
+ * While dragging a letter/number, snap it onto the baseline of its nearest
+ * still-placed sibling — i.e. align its centre to the line running through the
+ * neighbour at the neighbour's rotation, the way a design tool's smart guides
+ * would. Free movement along that baseline is preserved; only the perpendicular
+ * (off-baseline) offset snaps to 0 once it's within `snapMm`.
+ */
+export function alignToNearestTextCharm(box, siblings, snapMm = 2.5) {
+  if (!siblings || !siblings.length) return box
+  let nearest = null
+  let nearestDist = Infinity
+  for (const s of siblings) {
+    const d = Math.hypot(s.cxMm - box.cx, s.cyMm - box.cy)
+    if (d < nearestDist) {
+      nearestDist = d
+      nearest = s
+    }
+  }
+  if (!nearest) return box
+  const a = toRad(nearest.rot || 0)
+  const dir = { x: Math.cos(a), y: Math.sin(a) }
+  const perp = { x: -Math.sin(a), y: Math.cos(a) }
+  const relX = box.cx - nearest.cxMm
+  const relY = box.cy - nearest.cyMm
+  const along = relX * dir.x + relY * dir.y
+  const perpD = relX * perp.x + relY * perp.y
+  if (Math.abs(perpD) > snapMm) return box
+  return {
+    ...box,
+    cx: nearest.cxMm + along * dir.x,
+    cy: nearest.cyMm + along * dir.y,
+  }
 }
 
 /** Clamp a charm centre so its footprint stays inside the printable outer rect. */

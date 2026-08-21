@@ -52,7 +52,8 @@ const GEL_REP = {
   'iphone-7': '8', 'iphone-8': '8',
   'iphone-7-plus': '8plus', 'iphone-8-plus': '8plus',
   'iphone-x': 'xs', 'iphone-xs': 'xs', 'iphone-xs-max': 'xs',
-  'iphone-17-pro': '17pro', 'iphone-17-pro-max': '17promax', 'iphone-air': 'air',
+  'iphone-17-pro': '17pro', 'iphone-18-pro': '17pro',
+  'iphone-17-pro-max': '17promax', 'iphone-18-pro-max': '17promax', 'iphone-air': 'air',
 }
 function gelOverlaySrc(id) {
   const rep = GEL_REP[id] || '17'
@@ -69,7 +70,8 @@ const PLAIN_IPHONE_MODELS = new Set([
   'iphone-14', 'iphone-14-plus', 'iphone-14-pro', 'iphone-14-pro-max',
   'iphone-15', 'iphone-15-plus', 'iphone-15-pro', 'iphone-15-pro-max',
   'iphone-16', 'iphone-16-plus', 'iphone-16-pro', 'iphone-16-pro-max',
-  'iphone-17', 'iphone-17-pro', 'iphone-17-pro-max', 'iphone-air',
+  'iphone-17', 'iphone-17-pro', 'iphone-17-pro-max',
+  'iphone-18-pro', 'iphone-18-pro-max', 'iphone-air',
 ])
 function applyPlainIphoneCase(product) {
   if (!PLAIN_IPHONE_MODELS.has(product.id)) return product
@@ -372,6 +374,8 @@ const IPHONES = [
   ['iphone-17', 'iPhone 17', 74.5, 152.6, 'bar', 46],
   ['iphone-17-pro', 'iPhone 17 Pro', 76, 153, 'bar', 48],
   ['iphone-17-pro-max', 'iPhone 17 Pro Max', 80.6, 166, 'bar', 50],
+  ['iphone-18-pro', 'iPhone 18 Pro', 73.1, 151.4, 'bar', 48],
+  ['iphone-18-pro-max', 'iPhone 18 Pro Max', 79.1, 164.4, 'bar', 50],
   ['iphone-17e', 'iPhone 17e', 71.5, 146.7, 'single', 46],
   // Case-outer footprint (bare 74.7×156.2 + ~3mm silicone wall) to match the
   // case-outer basis used by the rest of the line, so charms stay the same real

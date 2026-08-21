@@ -1,5 +1,5 @@
 // Admin override endpoint — re-price / resize / hide a BUNDLED base-catalogue item.
-//   POST /api/admin/override  { scope:'product'|'charm', refId, price?, hidden?, sizeScale? }
+//   POST /api/admin/override  { scope:'product'|'charm', refId, price?, hidden?, sizeScale?, patchCategory?, patchCollection? }
 //
 // Storage: Shopify `charme_override` METAOBJECT when configured; else D1.
 import { json, bad, requireAdmin } from '../_lib.js'
@@ -21,7 +21,7 @@ export const onRequestOptions = () => new Response(null, { headers: cors })
 export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = (await request.json().catch(() => ({}))) || {}
-  const { scope, refId, price, hidden, sizeScale, shopifyVariantId } = body
+  const { scope, refId, price, hidden, sizeScale, shopifyVariantId, patchCategory, patchCollection } = body
   if (!scope || !refId) return bad('scope and refId required')
   if (
     Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId') &&
@@ -39,6 +39,8 @@ export async function onRequestPost({ request, env }) {
     if (price != null) rec.price = price
     if (hidden != null) rec.hidden = !!hidden
     if (sizeScale != null) rec.sizeScale = sizeScale
+    if (patchCategory != null) rec.patchCategory = patchCategory
+    if (patchCollection != null) rec.patchCollection = patchCollection
     if (Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')) {
       rec.shopifyVariantId = shopifyVariantId == null ? null : String(shopifyVariantId)
     }
@@ -47,11 +49,13 @@ export async function onRequestPost({ request, env }) {
   }
 
   await env.DB.prepare(
-    `INSERT INTO overrides (scope, ref_id, price, hidden, size_scale) VALUES (?,?,?,?,?)
+    `INSERT INTO overrides (scope, ref_id, price, hidden, size_scale, patch_category, patch_collection) VALUES (?,?,?,?,?,?,?)
      ON CONFLICT(scope, ref_id) DO UPDATE SET
        price = COALESCE(excluded.price, overrides.price),
        hidden = COALESCE(excluded.hidden, overrides.hidden),
-       size_scale = COALESCE(excluded.size_scale, overrides.size_scale)`,
-  ).bind(scope, refId, price ?? null, hidden == null ? null : hidden ? 1 : 0, sizeScale ?? null).run()
+       size_scale = COALESCE(excluded.size_scale, overrides.size_scale),
+       patch_category = COALESCE(excluded.patch_category, overrides.patch_category),
+       patch_collection = COALESCE(excluded.patch_collection, overrides.patch_collection)`,
+  ).bind(scope, refId, price ?? null, hidden == null ? null : hidden ? 1 : 0, sizeScale ?? null, patchCategory ?? null, patchCollection ?? null).run()
   return json({ ok: true }, { headers: cors })
 }

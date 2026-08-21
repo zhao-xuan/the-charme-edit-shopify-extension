@@ -160,6 +160,27 @@ function enlargeTotePatch(patch) {
 // build code-splits, so it never hit this, which is why pages.dev looked fine
 // while the embedded storefront widget showed stale data.)
 let _catalog = null
+function orderByTaxonomy(items, taxonomy) {
+  const categoryOrder = taxonomy?.categoryOrder || []
+  const subOrder = taxonomy?.subOrder || {}
+  const itemOrder = taxonomy?.patchOrder || {}
+  const categoryIndex = new Map(categoryOrder.map((value, index) => [value, index]))
+  return [...items].sort((left, right) => {
+    const leftCategory = left.category || 'unique'
+    const rightCategory = right.category || 'unique'
+    const categoryDelta = (categoryIndex.get(leftCategory) ?? Infinity) - (categoryIndex.get(rightCategory) ?? Infinity)
+    if (categoryDelta) return categoryDelta
+    if (leftCategory !== rightCategory) return leftCategory.localeCompare(rightCategory)
+    const subIndex = new Map((subOrder[leftCategory] || []).map((value, index) => [value, index]))
+    const leftSub = left.collection || 'Custom patches'
+    const rightSub = right.collection || 'Custom patches'
+    const subDelta = (subIndex.get(leftSub) ?? Infinity) - (subIndex.get(rightSub) ?? Infinity)
+    if (subDelta) return subDelta
+    if (leftSub !== rightSub) return leftSub.localeCompare(rightSub)
+    const patchIndex = new Map((itemOrder[`${leftCategory}::${leftSub}`] || []).map((value, index) => [value, index]))
+    return (patchIndex.get(left.id) ?? Infinity) - (patchIndex.get(right.id) ?? Infinity)
+  })
+}
 function buildCatalog() {
   const ADMIN = loadAdmin()
   const REMOTE = remoteCatalog() || {}
@@ -168,6 +189,8 @@ function buildCatalog() {
   const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
   const charmSizes = { ...(REMOTE_OV.charmSizes || {}), ...ADMIN.charmSizes }
   const charmVariantIds = REMOTE_OV.charmVariantIds || {}
+  const patchCategories = REMOTE_OV.patchCategories || {}
+  const patchCollections = REMOTE_OV.patchCollections || {}
 
   const BASE_CHARMS = charmData.charms
     .filter((c) => !charmHidden[c.id] && !c.hidden)
@@ -202,7 +225,7 @@ function buildCatalog() {
   // those charms: every image then comes from Shopify Files (cdn.shopify.com) and
   // merchant edits — price / size / hide — reflect immediately. The bundled
   // catalogue is only a fallback for local dev / when the API is unavailable.
-  const hasRemoteCharms = Array.isArray(REMOTE.charms) && REMOTE.charms.length > 0
+  const hasRemoteCharms = Array.isArray(REMOTE.charms)
   const MERGED_CHARMS = hasRemoteCharms
     ? CUSTOM_CHARMS
     : [...CUSTOM_CHARMS, ...BASE_CHARMS.filter((c) => !seenCharm.has(c.id))]
@@ -234,15 +257,17 @@ function buildCatalog() {
   })
   const remotePatches = REMOTE.patches || []
   const patchIds = new Set(remotePatches.map((patch) => patch.id))
-  const PATCHES = [...remotePatches, ...patchData.patches.filter((patch) => !patchIds.has(patch.id))]
+  const PATCHES = orderByTaxonomy([...remotePatches, ...patchData.patches.filter((patch) => !patchIds.has(patch.id))]
     .filter((patch) => !patch.hidden && !charmHidden[patch.id])
     .map((patch) => applySizeOverride(enlargeTotePatch({
       ...patch,
       kind: 'tote',
       src: resolveAsset(patch.src),
       price: charmPrices[patch.id] ?? patch.price,
+      category: patch.category || patchCategories[patch.id] || 'unique',
+      collection: patch.collection || patchCollections[patch.id] || 'Custom patches',
       shopifyVariantId: patch.shopifyVariantId || charmVariantIds[patch.id],
-    }), charmSizes))
+    }), charmSizes)), settings().patchTaxonomy)
   return { CHARMS, PATCHES, ITEMS_BY_KIND: { phone: CHARMS, tote: PATCHES } }
 }
 

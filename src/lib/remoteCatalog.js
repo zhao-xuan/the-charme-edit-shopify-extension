@@ -9,6 +9,12 @@
  * bundled data, so the storefront always renders.
  */
 let cache = null
+const EMPTY_REMOTE = {
+  products: [],
+  charms: [],
+  patches: [],
+  overrides: {},
+}
 
 // When embedded in a Shopify theme the widget runs on the storefront origin,
 // which has no `/api/catalog`. We fetch the live catalogue from the Cloudflare
@@ -26,18 +32,39 @@ function catalogUrls() {
     : [primary]
 }
 
+function authoritativeRuntime() {
+  if (API_BASE) return true
+  if (typeof location === 'undefined') return false
+  const host = String(location.hostname || '').toLowerCase()
+  return host === 'charme-customizer.pages.dev' || host.endsWith('.charme-customizer.pages.dev')
+}
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export async function loadRemoteCatalog() {
   if (typeof fetch === 'undefined') return null
-  for (const url of catalogUrls()) {
-    try {
-      const res = await fetch(url, { headers: { accept: 'application/json' } })
-      if (!res.ok) continue
-      cache = await res.json()
-      if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
-      return cache
-    } catch {
-      /* Try the production catalogue after a missing local Functions route. */
+  const retryDelays = [0, 150, 500]
+  for (const delay of retryDelays) {
+    if (delay) await wait(delay)
+    for (const url of catalogUrls()) {
+      try {
+        const res = await fetch(url, {
+          headers: { accept: 'application/json' },
+          cache: 'no-store',
+        })
+        if (!res.ok) continue
+        cache = await res.json()
+        if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
+        return cache
+      } catch {
+        /* Retry the authoritative catalogue before considering local fallback. */
+      }
     }
+  }
+  if (authoritativeRuntime()) {
+    cache = EMPTY_REMOTE
+    if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
+    return cache
   }
   return null
 }

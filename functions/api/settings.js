@@ -76,7 +76,7 @@ export async function onRequestPost({ request, env }) {
   // Merge only the known top-level keys that were actually provided onto the
   // existing settings, so a partial save (e.g. the Discount tab) never wipes
   // another tab's data (e.g. the taxonomy order).
-  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy', 'charmPricingGroups', 'variantSelector']
+  const KNOWN = ['crossSellHint', 'crossSell', 'discounts', 'taxonomy', 'patchTaxonomy', 'charmPricingGroups', 'variantSelector']
   const patch = {}
   for (const k of KNOWN) if (k in body) patch[k] = body[k]
   if ('crossSell' in patch) {
@@ -95,6 +95,7 @@ export async function onRequestPost({ request, env }) {
     crossSell: {},
     discounts: { rules: [], codes: [], bundles: [] },
     taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+    patchTaxonomy: { categoryOrder: [], subOrder: {}, patchOrder: {} },
     charmPricingGroups: DEFAULT_CHARM_PRICING_GROUPS,
     variantSelector: { enabled: true, style: {}, tree: [] },
   }

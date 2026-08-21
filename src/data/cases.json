@@ -100,6 +100,20 @@
         "white": "/assets/cases/iphone-17-pro-max-white.png"
       }
     },
+    "iphone-18-pro": {
+      "aspect": 0.5003,
+      "images": {
+        "black": "/assets/cases/iphone-18-pro-black.png",
+        "white": "/assets/cases/iphone-18-pro-white.png"
+      }
+    },
+    "iphone-18-pro-max": {
+      "aspect": 0.4964,
+      "images": {
+        "black": "/assets/cases/iphone-18-pro-max-black.png",
+        "white": "/assets/cases/iphone-18-pro-max-white.png"
+      }
+    },
     "iphone-air": {
       "aspect": 0.4892,
       "images": {

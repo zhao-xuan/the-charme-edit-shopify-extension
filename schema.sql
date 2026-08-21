@@ -46,6 +46,8 @@ CREATE TABLE IF NOT EXISTS charms (
 --   ALTER TABLE charms ADD COLUMN bundle INTEGER NOT NULL DEFAULT 0;
 --   ALTER TABLE charms ADD COLUMN bundle_max INTEGER;
 --   ALTER TABLE overrides ADD COLUMN size_scale REAL;
+--   ALTER TABLE overrides ADD COLUMN patch_category TEXT;
+--   ALTER TABLE overrides ADD COLUMN patch_collection TEXT;
 
 -- Price / hide / resize overrides for the BUNDLED base catalogue (keyed by its built-in id).
 CREATE TABLE IF NOT EXISTS overrides (
@@ -54,6 +56,8 @@ CREATE TABLE IF NOT EXISTS overrides (
   price      REAL,
   hidden     INTEGER,
   size_scale REAL,            -- charm size multiplier (1 = catalogue default)
+  patch_category TEXT,        -- bundled tote patch category override
+  patch_collection TEXT,      -- bundled tote patch sub-category override
   PRIMARY KEY (scope, ref_id)
 );
 

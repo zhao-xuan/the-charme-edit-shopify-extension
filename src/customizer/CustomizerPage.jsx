@@ -21,8 +21,17 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, itemById } from '../lib/catalog'
-import { validateLayout, findScatterSpot, charmFootprint, clampCenter, adaptLayoutToProduct } from '../lib/geometry'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, itemById, isTextCollection } from '../lib/catalog'
+import {
+  validateLayout,
+  findScatterSpot,
+  findFirstTextSpot,
+  nextTextCharmSpot,
+  alignToNearestTextCharm,
+  charmFootprint,
+  clampCenter,
+  adaptLayoutToProduct,
+} from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
@@ -836,6 +845,17 @@ export default function CustomizerPage({
     (charm) => {
       if (!canAddMore(charm)) return
       const prev = placedRef.current
+      // Letters & numbers chain off the previous one instead of scattering: the
+      // first lands random-but-left-biased (free to move/rotate afterwards);
+      // each next one sits beside the last-placed letter/number, same rotation.
+      if (isTextCollection(charm.collection)) {
+        const lastText = [...prev].reverse().find((c) => isTextCollection(c.collection))
+        const spot = lastText
+          ? nextTextCharmSpot(lastText, charm)
+          : findFirstTextSpot(geometryProduct, prev, charm)
+        commitPlaced(clampToPrintable(makePlaced(charm, spot)))
+        return
+      }
       // Prefer a clear, non-overlapping spot — fillers tumble, everything else
       // lands upright. If the case is busy and nothing is clear we still add the
       // charm (lightly staggered, overlap allowed) rather than refusing, so the
@@ -853,9 +873,19 @@ export default function CustomizerPage({
 
   const moveCharm = useCallback(
     (id, patch) => {
-      setPlaced((p) =>
-        p.map((c) => (c.uid === id ? clampToPrintable({ ...c, ...patch }) : c)),
-      )
+      setPlaced((p) => {
+        const moving = p.find((c) => c.uid === id)
+        // Letters & numbers: while dragging, snap onto the nearest other letter's
+        // baseline (its rotated centre-line) once close enough — keeps a typed
+        // word visually aligned without locking the letters into one rigid group.
+        if (moving && isTextCollection(moving.collection) && (patch.cxMm != null || patch.cyMm != null)) {
+          const box = { cx: patch.cxMm ?? moving.cxMm, cy: patch.cyMm ?? moving.cyMm }
+          const siblings = p.filter((c) => c.uid !== id && isTextCollection(c.collection))
+          const aligned = alignToNearestTextCharm(box, siblings)
+          patch = { ...patch, cxMm: aligned.cx, cyMm: aligned.cy }
+        }
+        return p.map((c) => (c.uid === id ? clampToPrintable({ ...c, ...patch }) : c))
+      })
     },
     [clampToPrintable],
   )

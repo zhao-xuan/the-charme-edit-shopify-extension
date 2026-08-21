@@ -13,7 +13,7 @@ import {
   cleanProduct,
 } from './_shopify-store.js'
 
-const EMPTY_OV = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {} }
+const EMPTY_OV = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {}, patchCategories: {}, patchCollections: {} }
 
 export async function onRequestGet({ env }) {
   // ---- Shopify-native store (metaobjects) ----
@@ -25,13 +25,15 @@ export async function onRequestGet({ env }) {
         listRecords(env, TYPES.override),
         listRecords(env, TYPES.patch),
       ])
-      const ov = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {} }
+      const ov = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {}, patchCategories: {}, patchCollections: {} }
       for (const o of overrides) {
         if (o.scope === 'product' && o.price != null) ov.productPrices[o.refId] = o.price
         if (o.scope === 'charm' && o.price != null) ov.charmPrices[o.refId] = o.price
         if (o.scope === 'charm' && o.hidden) ov.charmHidden[o.refId] = true
         if (o.scope === 'charm' && o.sizeScale != null) ov.charmSizes[o.refId] = o.sizeScale
         if (o.scope === 'charm' && o.shopifyVariantId) ov.charmVariantIds[o.refId] = o.shopifyVariantId
+        if (o.scope === 'charm' && o.patchCategory) ov.patchCategories[o.refId] = o.patchCategory
+        if (o.scope === 'charm' && o.patchCollection) ov.patchCollections[o.refId] = o.patchCollection
       }
       return json({
         products: products.filter((p) => p.active !== false).map(cleanProduct),
@@ -54,7 +56,7 @@ export async function onRequestGet({ env }) {
     env.DB.prepare('SELECT * FROM patches ORDER BY created_at DESC').all(),
     env.DB.prepare('SELECT * FROM overrides').all(),
   ])
-  const ov = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {} }
+  const ov = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {}, patchCategories: {}, patchCollections: {} }
   for (const o of overrides.results || []) {
     if (o.scope === 'product' && o.price != null) ov.productPrices[o.ref_id] = o.price
     if (o.scope === 'charm' && o.price != null) ov.charmPrices[o.ref_id] = o.price

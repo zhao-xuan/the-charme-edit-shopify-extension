@@ -14,6 +14,7 @@ const patchRecord = (patch, id, src) => ({
   id,
   name: patch.name || 'Patch',
   collection: patch.collection || 'Custom patches',
+  category: patch.category || 'unique',
   tier: patch.tier || 'midi',
   type: patch.type || 2,
   price: Number(patch.price) || 0,
@@ -59,7 +60,7 @@ export async function onRequestPost({ request, env }) {
 export async function onRequestPatch({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = (await request.json().catch(() => ({}))) || {}
-  const { id, price, hidden, widthMm, heightMm, name, collection, src, shopifyVariantId } = body
+  const { id, price, hidden, widthMm, heightMm, name, category, collection, src, shopifyVariantId } = body
   if (!id) return bad('id required')
   if (
     Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId') &&
@@ -74,6 +75,7 @@ export async function onRequestPatch({ request, env }) {
     if (widthMm != null) record.widthMm = widthMm
     if (heightMm != null) record.heightMm = heightMm
     if (name != null) record.name = name
+    if (category != null) record.category = category
     if (collection != null) record.collection = collection
     if (Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')) {
       record.shopifyVariantId = shopifyVariantId == null ? null : String(shopifyVariantId)
@@ -90,6 +92,7 @@ export async function onRequestPatch({ request, env }) {
   if (widthMm != null) await env.DB.prepare('UPDATE patches SET width_mm = ? WHERE id = ?').bind(widthMm, id).run()
   if (heightMm != null) await env.DB.prepare('UPDATE patches SET height_mm = ? WHERE id = ?').bind(heightMm, id).run()
   if (name != null) await env.DB.prepare('UPDATE patches SET name = ? WHERE id = ?').bind(name, id).run()
+  if (category != null) await env.DB.prepare('UPDATE patches SET category = ? WHERE id = ?').bind(category, id).run()
   if (collection != null) await env.DB.prepare('UPDATE patches SET collection = ? WHERE id = ?').bind(collection, id).run()
   if (src && /^data:/.test(src)) {
     const imageKey = await storeImage(env, id, src)

@@ -424,6 +424,22 @@ h4,
   margin: 0 0 14px;
 }
 
+/* Step 1 is a utilitarian configuration surface, independent of the storefront
+   editorial type used elsewhere in the customizer. */
+.product-picker-step-one,
+.product-picker-step-one *,
+.product-picker-step-one .ant-select-selector,
+.product-picker-step-one .ant-select-selection-item {
+  font-family: system-ui, sans-serif !important;
+}
+
+.mobile-head,
+.mobile-head *,
+.mobile-head .ant-select-selector,
+.mobile-head .ant-select-selection-item {
+  font-family: system-ui, sans-serif !important;
+}
+
 /* ---------- Base selector cards (Step 1) ---------- */
 .base-grid {
   display: grid;

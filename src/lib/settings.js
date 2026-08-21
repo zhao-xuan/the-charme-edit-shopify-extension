@@ -33,6 +33,9 @@ export const DEFAULT_SETTINGS = {
   //   charmOrder["<cat>::<collection>"] — order of the charms within a section (by id)
   // Anything not listed keeps its natural (first-seen) order after the listed ones.
   taxonomy: { categoryOrder: [], subOrder: {}, charmOrder: {} },
+  // Tote patch taxonomy and display order. Kept separate from phone charm
+  // taxonomy because patches have their own catalogue and product surface.
+  patchTaxonomy: { categoryOrder: [], subOrder: {}, patchOrder: {} },
   // Quantity-tier pricing shared across different charm styles in a category.
   // Each started quantity block is billed once (for example, 7 filling stones
   // at 6 per block are billed as two £1.50 blocks).
@@ -99,6 +102,7 @@ function mergeDefaults(data) {
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
+    patchTaxonomy: { ...DEFAULT_SETTINGS.patchTaxonomy, ...(d.patchTaxonomy || {}) },
     charmPricingGroups: storedPricingGroups,
     variantSelector: {
       ...DEFAULT_SETTINGS.variantSelector,

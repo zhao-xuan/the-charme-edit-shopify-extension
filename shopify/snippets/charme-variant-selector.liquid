@@ -11,6 +11,29 @@
 {%- assign cvs_api = api_base | default: 'https://charme-customizer.pages.dev' -%}
 {%- assign uid = 'cvs-' | append: section.id | append: '-' | append: block.id -%}
 
+{%- comment -%}
+  Find the native option indices for colour/gel + phone model so we can hide
+  those two native controls with plain CSS from FIRST PAINT — before this
+  snippet's script even runs. Without this, the native swatches/select are
+  visible for one frame (or longer, while /api/settings loads) and then get
+  swapped for the custom picker, which reads as a flash/flicker.
+{%- endcomment -%}
+{%- assign cvs_colour_index = 0 -%}
+{%- assign cvs_model_index = 0 -%}
+{%- for opt in cvs_product.options -%}
+  {%- assign opt_down = opt | downcase -%}
+  {%- if cvs_colour_index == 0 -%}
+    {%- if opt_down contains 'colour' or opt_down contains 'color' or opt_down contains 'gel' -%}
+      {%- assign cvs_colour_index = forloop.index -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if cvs_model_index == 0 -%}
+    {%- if opt_down contains 'model' -%}
+      {%- assign cvs_model_index = forloop.index -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
 <div id="{{ uid }}" class="cvs product-options-step-one" data-charme-variant-selector hidden>
   <div class="cvs__heading" data-cvs-heading>Step 1: Select your phone model and gel</div>
 
@@ -77,6 +100,10 @@
   .charme-native-option--hidden{display:none!important}
   [data-phone-family-buttons].charme-legacy-family-bridge{display:none!important}
   @media(max-width:749px){#{{ uid }}{max-width:none}}
+  {%- if cvs_colour_index > 0 and cvs_model_index > 0 -%}
+  #{{ uid }}:not(.cvs--disabled) ~ variant-picker[data-product-id="{{ cvs_product.id }}"] .variant-option:nth-of-type({{ cvs_colour_index }}),
+  #{{ uid }}:not(.cvs--disabled) ~ variant-picker[data-product-id="{{ cvs_product.id }}"] .variant-option:nth-of-type({{ cvs_model_index }}){display:none!important}
+  {%- endif -%}
 </style>
 
 <script>
@@ -96,6 +123,7 @@
     var baseTree = [];
     var MODELS = [];
     var COLOURS = [];
+    var lastRenderKey = null;
     var state = { style: {}, tree: [], path: [], colour: null, model: null };
     var $ = function (selector) { return root.querySelector(selector); };
 
@@ -446,6 +474,13 @@
     }
 
     function render() {
+      // Cheap-compare against the last render: a resync that produced the exact
+      // same state (e.g. an unrelated DOM mutation elsewhere retriggering the
+      // observer) must NOT rebuild the buttons/selects — that's what caused the
+      // visible flicker (buttons blink out and back, hover/focus resets).
+      var renderKey = JSON.stringify([state.style, state.tree, state.path, state.colour, state.model, MODELS, COLOURS]);
+      if (renderKey === lastRenderKey) return;
+      lastRenderKey = renderKey;
       var style = state.style || {};
       var dropdowns = style.layout === 'dropdown';
       root.classList.toggle('cvs--dropdowns', dropdowns);
@@ -549,6 +584,7 @@
       var selector = config || {};
       if (selector.enabled === false) {
         root.hidden = true;
+        root.classList.add('cvs--disabled');
         showNative();
         return;
       }
@@ -559,10 +595,11 @@
         if (syncFromNative()) {
           var host = root.parentElement || document.body;
           observer = new MutationObserver(function (mutations) {
+            var picker = nativePicker();
             var needsSync = mutations.some(function (mutation) {
               var target = mutation.target;
               if (root.contains(target)) return false;
-              if (mutation.type === 'childList') return true;
+              if (mutation.type === 'childList') return !!picker && picker.contains(target);
               if (target.matches && target.matches('.variant-option')) {
                 return !target.classList.contains('charme-native-option--hidden');
               }
