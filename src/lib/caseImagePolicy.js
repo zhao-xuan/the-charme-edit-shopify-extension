@@ -1,12 +1,16 @@
+export const DELISTED_PHONE_MODEL_IDS = Object.freeze([
+  'pixel-10-pro-xl',
+  'pixel-9-pro-xl',
+  'galaxy-z-fold-6',
+])
+
 export const ANDROID_LAUNCH_MODEL_IDS = Object.freeze([
   'pixel-10-pro',
   'pixel-9-pro',
   'pixel-8-pro',
   'pixel-7-pro',
   'pixel-6-pro',
-  'pixel-10-pro-xl',
   'pixel-10',
-  'pixel-9-pro-xl',
   'pixel-9a',
   'pixel-9',
   'pixel-8a',
@@ -21,7 +25,6 @@ export const ANDROID_LAUNCH_MODEL_IDS = Object.freeze([
   'galaxy-z-flip-4',
   'galaxy-z-flip-3',
   'galaxy-z-fold-7',
-  'galaxy-z-fold-6',
   'galaxy-z-fold-5',
   'galaxy-z-fold-4',
   'galaxy-z-fold-3',

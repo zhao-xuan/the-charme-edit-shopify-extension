@@ -1,7 +1,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { ANDROID_LAUNCH_MODEL_IDS, trustedCaseImages } from './caseImagePolicy.js'
+import {
+  ANDROID_LAUNCH_MODEL_IDS,
+  DELISTED_PHONE_MODEL_IDS,
+  trustedCaseImages,
+} from './caseImagePolicy.js'
 
 const officialImages = JSON.parse(
   readFileSync(new URL('../data/official-phone-case-images.json', import.meta.url), 'utf8'),
@@ -17,6 +21,17 @@ const unreviewedInputs = {
   remoteProduct: { src: 'remote-white.png', srcBlack: 'remote-black.png' },
   generatedImages: { white: 'generated-white.png', black: 'generated-black.png' },
 }
+
+test('delisted phone models are excluded from the Android launch catalogue', () => {
+  assert.deepEqual(DELISTED_PHONE_MODEL_IDS, [
+    'pixel-10-pro-xl',
+    'pixel-9-pro-xl',
+    'galaxy-z-fold-6',
+  ])
+  for (const modelId of DELISTED_PHONE_MODEL_IDS) {
+    assert.equal(ANDROID_LAUNCH_MODEL_IDS.includes(modelId), false)
+  }
+})
 
 test('Pixel models cannot inherit unreviewed local, remote, or generated images', () => {
   const images = trustedCaseImages(

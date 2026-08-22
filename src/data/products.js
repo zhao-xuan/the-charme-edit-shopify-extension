@@ -19,7 +19,11 @@ import OFFICIAL_PHONE_CASE_IMAGE_BOUNDS from './official-phone-case-image-bounds
 import OFFICIAL_PHONE_CASE_IMAGES from './official-phone-case-images.json'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import { loadAdmin } from '../lib/adminStore'
-import { ANDROID_LAUNCH_MODEL_IDS, trustedCaseImages } from '../lib/caseImagePolicy'
+import {
+  ANDROID_LAUNCH_MODEL_IDS,
+  DELISTED_PHONE_MODEL_IDS,
+  trustedCaseImages,
+} from '../lib/caseImagePolicy'
 import { measuredCameraKeepout } from '../lib/appleCameraKeepouts.js'
 import { remoteCatalog } from '../lib/remoteCatalog'
 import {
@@ -500,10 +504,11 @@ const LIVE_ANDROIDS = LIVE_MODEL_IDS
   })
 
 const liveAndroidIds = new Set(LIVE_ANDROIDS.map((product) => product.id))
+const delistedPhoneModelIds = new Set(DELISTED_PHONE_MODEL_IDS)
 const ANDROIDS = [
   ...LIVE_ANDROIDS,
   ...LEGACY_ANDROIDS.filter((product) => !liveAndroidIds.has(product.id)),
-]
+].filter((product) => !delistedPhoneModelIds.has(product.id))
 
 const BUILT_IN_PRODUCT_IDS = new Set([
   ...IPHONES.map((product) => product.id),
