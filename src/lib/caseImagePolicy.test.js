@@ -55,8 +55,7 @@ test('Samsung S24-S26 official finishes replace every unreviewed source', () => 
 
 test('other Android models remain unavailable even when old official overrides exist', () => {
   for (const product of [
-    { id: 'pixel-10', brand: 'google' },
-    { id: 'pixel-10-pro-xl', brand: 'google' },
+    { id: 'pixel-10-pro-xl-unapproved', brand: 'google' },
     { id: 'galaxy-s24-fe', brand: 'samsung' },
     { id: 'galaxy-s25-edge', brand: 'samsung' },
     { id: 'galaxy-s26-edge', brand: 'samsung' },
@@ -69,6 +68,12 @@ test('other Android models remain unavailable even when old official overrides e
       ...unreviewedInputs,
       officialImages: { black: 'old-official-black.png' },
     }), {})
+  }
+})
+
+test('all shipped Google Pixel models have approved case artwork', () => {
+  for (const modelId of ANDROID_LAUNCH_MODEL_IDS.filter((id) => id.startsWith('pixel-'))) {
+    assert.ok(officialImages[modelId], `${modelId} needs approved artwork`)
   }
 })
 
