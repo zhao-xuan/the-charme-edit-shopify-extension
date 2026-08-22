@@ -1,4 +1,19 @@
 const SAMSUNG_CAMERA_KEEPOUTS = {
+  'galaxy-z-fold-3': [
+    { type: 'roundedRect', x: 0.05, y: 0.04, w: 0.23, h: 0.31, r: 0.08 },
+  ],
+  'galaxy-z-fold-4': [
+    { type: 'roundedRect', x: 0.05, y: 0.04, w: 0.16, h: 0.31, r: 0.08 },
+    { type: 'circle', cx: 0.235, cy: 0.13, r: 0.04 },
+  ],
+  'galaxy-z-fold-5': [
+    { type: 'roundedRect', x: 0.055, y: 0.035, w: 0.16, h: 0.31, r: 0.08 },
+    { type: 'circle', cx: 0.235, cy: 0.125, r: 0.04 },
+  ],
+  'galaxy-z-fold-7': [
+    { type: 'roundedRect', x: 0.54, y: 0.03, w: 0.16, h: 0.35, r: 0.08 },
+    { type: 'circle', cx: 0.72, cy: 0.14, r: 0.035 },
+  ],
   'galaxy-s24': [
     { type: 'roundedRect', x: 0.095, y: 0.04, w: 0.21, h: 0.325, r: 0.105 },
     { type: 'circle', cx: 0.38, cy: 0.145, r: 0.05 },

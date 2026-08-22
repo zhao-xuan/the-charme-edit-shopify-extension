@@ -4,6 +4,7 @@ import {
   samsungCameraObstacles,
   samsungCameraObstaclesByCaseColour,
 } from './samsungCameraKeepouts.js'
+import { samsungFoldObstacles } from './samsungFoldKeepouts.js'
 
 const MEASURED_LENSES = [
   ['galaxy-s24', 71, 148, [0.118, 0.056, 0.278, 0.349]],
@@ -34,8 +35,30 @@ test('S24-S26 camera keep-outs cover the lens edges measured from the case photo
   }
 })
 
-test('camera calibration remains scoped to the launched S24-S26 models', () => {
+test('uncalibrated Samsung models retain the default camera geometry', () => {
   assert.equal(samsungCameraObstacles('galaxy-s23', 71, 148), null)
+})
+
+test('Fold cameras stay on the back panel opposite the detected screen', () => {
+  const folds = [
+    ['galaxy-z-fold-3', 128.1, 158.2, 'left'],
+    ['galaxy-z-fold-4', 130.1, 155.1, 'left'],
+    ['galaxy-z-fold-5', 129.9, 154.9, 'left'],
+    ['galaxy-z-fold-7', 143.2, 158.4, 'right'],
+  ]
+
+  for (const [modelId, widthMm, heightMm, cameraSide] of folds) {
+    const cameras = samsungCameraObstacles(modelId, widthMm, heightMm)
+    const screen = samsungFoldObstacles(modelId, widthMm, heightMm)[0]
+    assert.ok(cameras.length >= 1, modelId)
+
+    for (const camera of cameras) {
+      const centreX = camera.type === 'circle' ? camera.cxMm : camera.xMm + camera.wMm / 2
+      assert.equal(centreX < widthMm / 2 ? 'left' : 'right', cameraSide, modelId)
+      if (cameraSide === 'left') assert.ok(centreX < screen.xMm, modelId)
+      else assert.ok(centreX > screen.xMm + screen.wMm, modelId)
+    }
+  }
 })
 
 test('S26 Ultra Black covers its fourth main lens without enlarging the White keep-out', () => {

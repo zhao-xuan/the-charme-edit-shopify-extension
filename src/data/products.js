@@ -30,6 +30,7 @@ import {
   samsungCameraObstacles,
   samsungCameraObstaclesByCaseColour,
 } from '../lib/samsungCameraKeepouts'
+import { samsungFoldObstacles } from '../lib/samsungFoldKeepouts'
 
 // A phone case is described by two finish axes:
 //   • Case colour — the silicone shell: White or Black. This drives the rendered
@@ -229,6 +230,8 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
   const camera = buildCamera(cameraKind, widthMm)
   const calibratedCameraObstacles = samsungCameraObstacles(id, widthMm, heightMm)
   const cameraObstaclesByCaseColour = samsungCameraObstaclesByCaseColour(id, widthMm, heightMm)
+  const foldObstacles = samsungFoldObstacles(id, widthMm, heightMm, inset)
+  const cameraObstacles = calibratedCameraObstacles || [cameraObstacle(camera)]
 
   return {
     id,
@@ -247,7 +250,7 @@ function makePhone(id, name, widthMm, heightMm, cameraKind, basePrice, brand = '
     gelImages: brand === 'apple' ? gelOverlaySrc(id) : null,
     printable: {
       outer,
-      obstacles: calibratedCameraObstacles || [cameraObstacle(camera)],
+      obstacles: [...cameraObstacles, ...foldObstacles],
       ...(cameraObstaclesByCaseColour ? { obstaclesByCaseColour: cameraObstaclesByCaseColour } : {}),
     },
     camera,
