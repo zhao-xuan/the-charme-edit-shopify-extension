@@ -56,6 +56,7 @@ test('Samsung S24-S26 official finishes replace every unreviewed source', () => 
 test('other Android models remain unavailable even when old official overrides exist', () => {
   for (const product of [
     { id: 'pixel-10-pro-xl-unapproved', brand: 'google' },
+    { id: 'pixel-6', brand: 'google' },
     { id: 'galaxy-s26-edge', brand: 'samsung' },
     { id: 'galaxy-s20-ultra-4g-5g', brand: 'samsung' },
     { id: 'galaxy-s20-fe-4g-5g', brand: 'samsung' },
