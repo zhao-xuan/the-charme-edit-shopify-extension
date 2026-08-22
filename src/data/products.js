@@ -462,8 +462,16 @@ const PIXEL_SPECS = {
 }
 
 const SAMSUNG_SPECS = {
+  'galaxy-z-flip-3': [72.2, 166, 'squareDual'],
+  'galaxy-z-flip-4': [71.9, 165.2, 'squareDual'],
+  'galaxy-z-flip-5': [71.9, 165.1, 'squareDual'],
+  'galaxy-z-flip-6': [71.9, 165.1, 'squareDual'],
+  'galaxy-z-flip-7': [75.2, 166.7, 'squareDual'],
+  'galaxy-z-fold-3': [128.1, 158.2, 'samsungV3'],
+  'galaxy-z-fold-4': [130.1, 155.1, 'samsungV3'],
+  'galaxy-z-fold-5': [129.9, 154.9, 'samsungV3'],
   'galaxy-z-fold-6': [68.1, 155.5, 'samsungV3'],
-  'galaxy-z-fold-7': [72.8, 158.4, 'samsungV3'],
+  'galaxy-z-fold-7': [143.2, 158.4, 'samsungV3'],
   'galaxy-a72-4g': [77.4, 165, 'samsungV3'],
   'galaxy-s9': [68.7, 147.7, 'samsungV3'],
   'galaxy-s9-plus': [73.8, 158.1, 'samsungV3'],

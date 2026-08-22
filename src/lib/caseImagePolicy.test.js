@@ -56,11 +56,10 @@ test('Samsung S24-S26 official finishes replace every unreviewed source', () => 
 test('other Android models remain unavailable even when old official overrides exist', () => {
   for (const product of [
     { id: 'pixel-10-pro-xl-unapproved', brand: 'google' },
-    { id: 'galaxy-s24-fe', brand: 'samsung' },
-    { id: 'galaxy-s25-edge', brand: 'samsung' },
     { id: 'galaxy-s26-edge', brand: 'samsung' },
-    { id: 'galaxy-s23', brand: 'samsung' },
-    { id: 'galaxy-z-fold-5', brand: 'samsung' },
+    { id: 'galaxy-s20-ultra-4g-5g', brand: 'samsung' },
+    { id: 'galaxy-s20-fe-4g-5g', brand: 'samsung' },
+    { id: 'galaxy-z-fold-2', brand: 'samsung' },
     { id: 'xiaomi-14', brand: 'xiaomi' },
     { id: 'huawei-p60-pro', brand: 'huawei' },
   ]) {
@@ -77,23 +76,10 @@ test('all shipped Google Pixel models have approved case artwork', () => {
   }
 })
 
-test('Samsung availability is limited to the S24, S25 and S26 families', () => {
-  assert.deepEqual(
-    ANDROID_LAUNCH_MODEL_IDS.filter((modelId) => modelId.startsWith('galaxy-')),
-    [
-      'galaxy-z-fold-7',
-      'galaxy-z-fold-6',
-      'galaxy-s26-ultra',
-      'galaxy-s26-plus',
-      'galaxy-s26',
-      'galaxy-s25-ultra',
-      'galaxy-s25-plus',
-      'galaxy-s25',
-      'galaxy-s24-ultra',
-      'galaxy-s24-plus',
-      'galaxy-s24',
-    ],
-  )
+test('all enabled Samsung models have approved case artwork', () => {
+  for (const modelId of ANDROID_LAUNCH_MODEL_IDS.filter((id) => id.startsWith('galaxy-'))) {
+    assert.ok(officialImages[modelId], `${modelId} needs approved artwork`)
+  }
 })
 
 test('Samsung S24 White, S24+ White and S26 Ultra Black retain their assets and display crops', () => {
