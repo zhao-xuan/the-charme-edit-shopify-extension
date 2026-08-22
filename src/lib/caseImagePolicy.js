@@ -4,6 +4,8 @@ export const ANDROID_LAUNCH_MODEL_IDS = Object.freeze([
   'pixel-8-pro',
   'pixel-7-pro',
   'pixel-6-pro',
+  'galaxy-z-fold-7',
+  'galaxy-z-fold-6',
   'galaxy-s26-ultra',
   'galaxy-s26-plus',
   'galaxy-s26',

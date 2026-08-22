@@ -462,6 +462,8 @@ const PIXEL_SPECS = {
 }
 
 const SAMSUNG_SPECS = {
+  'galaxy-z-fold-6': [68.1, 155.5, 'samsungV3'],
+  'galaxy-z-fold-7': [72.8, 158.4, 'samsungV3'],
   'galaxy-a72-4g': [77.4, 165, 'samsungV3'],
   'galaxy-s9': [68.7, 147.7, 'samsungV3'],
   'galaxy-s9-plus': [73.8, 158.1, 'samsungV3'],

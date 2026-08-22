@@ -61,6 +61,7 @@ test('other Android models remain unavailable even when old official overrides e
     { id: 'galaxy-s25-edge', brand: 'samsung' },
     { id: 'galaxy-s26-edge', brand: 'samsung' },
     { id: 'galaxy-s23', brand: 'samsung' },
+    { id: 'galaxy-z-fold-5', brand: 'samsung' },
     { id: 'xiaomi-14', brand: 'xiaomi' },
     { id: 'huawei-p60-pro', brand: 'huawei' },
   ]) {
@@ -75,6 +76,8 @@ test('Samsung availability is limited to the S24, S25 and S26 families', () => {
   assert.deepEqual(
     ANDROID_LAUNCH_MODEL_IDS.filter((modelId) => modelId.startsWith('galaxy-')),
     [
+      'galaxy-z-fold-7',
+      'galaxy-z-fold-6',
       'galaxy-s26-ultra',
       'galaxy-s26-plus',
       'galaxy-s26',

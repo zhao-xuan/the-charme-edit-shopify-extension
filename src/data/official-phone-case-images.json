@@ -125,6 +125,12 @@
     "black": "/assets/cases/case-without-gel/galaxy-s26-ultra-black.png",
     "white": "/assets/cases/official-phone-case-images/galaxy-s26-ultra-white-2c57e230a615.png"
   },
+  "galaxy-z-fold-6": {
+    "white": "/assets/cases/case-without-gel/galaxy-z-fold-6-white.png"
+  },
+  "galaxy-z-fold-7": {
+    "black": "/assets/cases/case-without-gel/galaxy-z-fold-7-black.png"
+  },
   "pixel-10-pro": {
     "black": "/assets/cases/case-without-gel/pixel-10-pro-black.png",
     "white": "/assets/cases/case-without-gel/pixel-10-pro-white.png"
