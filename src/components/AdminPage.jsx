@@ -2158,12 +2158,31 @@ function ProductsTab({ draft, set, cloud }) {
     message.success('Product added — Publish to save to Shopify.')
   }
 
+  // Filter products by kind for tote/frame tabs
+  const toteProducts = useMemo(() => (cloud?.data.products || []).filter((p) => p.kind === 'tote'), [cloud?.data.products])
+  const frameProducts = useMemo(() => (cloud?.data.products || []).filter((p) => p.kind === 'frame'), [cloud?.data.products])
+  const [productTab, setProductTab] = useState('phone')
+
   return (
     <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
       <style>{`.admin-pick-row{cursor:pointer}.admin-pick-row.is-selected>td{background:rgba(179,91,91,.10)!important}`}</style>
 
-      {/* Left column — the single product list, wired to the real variants. */}
+      {/* Left column — tabbed by product category */}
       <Space direction="vertical" size={18} style={{ flex: '1 1 560px', minWidth: 0 }}>
+        <Tabs
+          activeKey={productTab}
+          onChange={setProductTab}
+          size="small"
+          items={[
+            { key: 'phone', label: `📱 Phone Cases (${rows.filter(r => r.kind === 'phone' || r.variantOnly).length})` },
+            { key: 'tote', label: `🛍 Tote Bags (${toteProducts.length})` },
+            { key: 'frame', label: `🖼 Frames (${frameProducts.length})` },
+          ]}
+        />
+
+        {/* ---- PHONE CASES TAB ---- */}
+        {productTab === 'phone' && (
+          <>
         <Card
           size="small"
           title={`Case colours (variant types) · ${colours.length}`}
@@ -2287,13 +2306,102 @@ function ProductsTab({ draft, set, cloud }) {
             ]}
           />
         </Card>
+          </>
+        )}
+
+        {/* ---- TOTE BAGS TAB ---- */}
+        {productTab === 'tote' && (
+          <>
+            <p className="hint" style={{ marginTop: 0 }}>
+              Tote bag products — each product is a separate style or variant available in the customizer.
+              Add images and Shopify billing variants for each.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+              {toteProducts.length === 0 && (
+                <Empty description="No tote products yet — add one below." image={Empty.PRESENTED_IMAGE_SIMPLE} />
+              )}
+              {toteProducts.map((p) => (
+                <Card
+                  key={p.id}
+                  size="small"
+                  style={{ width: 220, cursor: 'pointer', outline: p.id === selectedProductId ? '2px solid var(--rouge)' : 'none' }}
+                  onClick={() => setSelectedProductId(p.id)}
+                  cover={
+                    p.src
+                      ? <img src={resolveAsset(p.src)} alt={p.name} style={{ height: 140, objectFit: 'contain', background: '#f5f0e8', padding: 8 }} />
+                      : <div style={{ height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f5f0e8', color: '#bbb', fontSize: 36 }}>🛍</div>
+                  }
+                  actions={[
+                    <Button key="del" type="text" danger size="small" icon={<DeleteOutlined />} onClick={(e) => { e.stopPropagation(); cloud.removeProduct(p) }}>Delete</Button>,
+                  ]}
+                >
+                  <Card.Meta
+                    title={<span style={{ fontSize: 13 }}>{p.name}</span>}
+                    description={
+                      <Space direction="vertical" size={2} style={{ width: '100%' }}>
+                        <span>£{Number(p.basePrice || 0).toFixed(2)}</span>
+                        <span style={{ color: '#aaa', fontSize: 11 }}>{p.widthMm && p.heightMm ? `${p.widthMm}×${p.heightMm}mm` : 'No dimensions'}</span>
+                        {p.shopifyVariantId && <Tag color="green" style={{ fontSize: 10 }}>Shopify linked</Tag>}
+                      </Space>
+                    }
+                  />
+                </Card>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* ---- FRAMES TAB ---- */}
+        {productTab === 'frame' && (
+          <>
+            <p className="hint" style={{ marginTop: 0 }}>
+              Photo frame products — parametric frames rendered in the customizer. Add custom frame
+              products with specific dimensions and photos.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+              {frameProducts.length === 0 && (
+                <Empty description="No custom frame products yet." image={Empty.PRESENTED_IMAGE_SIMPLE} />
+              )}
+              {frameProducts.map((p) => (
+                <Card
+                  key={p.id}
+                  size="small"
+                  style={{ width: 220, cursor: 'pointer', outline: p.id === selectedProductId ? '2px solid var(--rouge)' : 'none' }}
+                  onClick={() => setSelectedProductId(p.id)}
+                  cover={
+                    p.src
+                      ? <img src={resolveAsset(p.src)} alt={p.name} style={{ height: 140, objectFit: 'contain', background: '#f5f0e8', padding: 8 }} />
+                      : <div style={{ height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f5f0e8', color: '#bbb', fontSize: 36 }}>🖼</div>
+                  }
+                  actions={[
+                    <Button key="del" type="text" danger size="small" icon={<DeleteOutlined />} onClick={(e) => { e.stopPropagation(); cloud.removeProduct(p) }}>Delete</Button>,
+                  ]}
+                >
+                  <Card.Meta
+                    title={<span style={{ fontSize: 13 }}>{p.name}</span>}
+                    description={
+                      <Space direction="vertical" size={2} style={{ width: '100%' }}>
+                        <span>£{Number(p.basePrice || 0).toFixed(2)}</span>
+                        <span style={{ color: '#aaa', fontSize: 11 }}>{p.widthMm && p.heightMm ? `${p.widthMm}×${p.heightMm}mm` : 'Parametric'}</span>
+                        {p.shopifyVariantId && <Tag color="green" style={{ fontSize: 10 }}>Shopify linked</Tag>}
+                      </Space>
+                    }
+                  />
+                </Card>
+              ))}
+            </div>
+          </>
+        )}
       </Space>
 
       {/* Right column — variant selector + edit the selected product + add one.
           Sticky so it floats while the left list scrolls; each card collapsible. */}
       <div style={{ flex: '1 1 380px', minWidth: 300, maxWidth: 460, position: 'sticky', top: 8, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 24px)', overflowY: 'auto' }}>
         <Space direction="vertical" size={18} style={{ width: '100%' }}>
-          <VariantSelectorCard models={(caseData.models || []).map((m) => m.name)} />
+          {/* Variant selector config only applies to phone cases */}
+          {productTab === 'phone' && (
+            <VariantSelectorCard models={(caseData.models || []).map((m) => m.name)} />
+          )}
 
           <RightPanel title="Product studio">
             <ProductStudioTab
@@ -2307,14 +2415,17 @@ function ProductsTab({ draft, set, cloud }) {
             />
           </RightPanel>
 
-          <RightPanel title="Add a custom product" defaultOpen={false}>
+          <RightPanel
+            title={productTab === 'tote' ? 'Add a tote bag' : productTab === 'frame' ? 'Add a frame' : 'Add a custom product'}
+            defaultOpen={productTab !== 'phone'}
+          >
             <div className="admin-grid">
               <label>
                 <span>Name</span>
                 <Input
                   value={form.name}
                   onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                  placeholder="e.g. MagSafe Wallet"
+                  placeholder={productTab === 'tote' ? 'e.g. Canvas Tote — Natural' : productTab === 'frame' ? 'e.g. Black Frame 5×7' : 'e.g. MagSafe Wallet'}
                 />
               </label>
               <label>
@@ -2325,6 +2436,7 @@ function ProductsTab({ draft, set, cloud }) {
                   options={[
                     { value: 'phone', label: 'Charms' },
                     { value: 'tote', label: 'Patches' },
+                    { value: 'frame', label: 'Frame charms' },
                   ]}
                   style={{ width: '100%' }}
                 />
@@ -2339,7 +2451,7 @@ function ProductsTab({ draft, set, cloud }) {
                 />
               </label>
               <label style={{ gridColumn: '1 / -1' }}>
-                <span>Shopify billing variant (for tote/frame/other non-phone)</span>
+                <span>Shopify billing variant</span>
                 <ShopifyVariantSelect
                   value={form.shopifyVariantId}
                   variants={shopifyVariants}

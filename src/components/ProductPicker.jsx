@@ -116,7 +116,7 @@ export default function ProductPicker({
     <div className="product-picker-step-one">
       <p className="eyebrow">{t('picker.step1')}</p>
       <div className="base-grid">
-        {PRODUCT_GROUPS.filter((g) => g.key !== 'tote').map((g) => (
+        {PRODUCT_GROUPS.map((g) => (
           <button
             key={g.key}
             type="button"

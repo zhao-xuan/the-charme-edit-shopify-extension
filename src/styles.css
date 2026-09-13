@@ -1777,6 +1777,66 @@ h4,
   }
 }
 
+/* ---- Tote front/back side toggle ---------------------------------------- */
+.tote-side-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 8px 0 4px;
+  background: transparent;
+  pointer-events: auto;
+}
+.tote-side-btn {
+  padding: 5px 20px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.tote-side-btn:first-child {
+  border-radius: 0;
+  border-right: none;
+}
+.tote-side-btn:last-child {
+  border-radius: 0;
+}
+.tote-side-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+/* Mobile: float the toggle over the stage image, top-centre */
+@media (max-width: 760px) {
+  .tote-side-toggle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .tote-side-btn {
+    padding: 4px 16px;
+    font-size: 12px;
+    border: none;
+  }
+  .tote-side-btn:first-child {
+    border-right: 1px solid var(--line);
+  }
+  .tote-side-btn.is-active {
+    background: var(--ink);
+    color: #fff;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 .zoom-dock {
   position: absolute;
   right: 14px;

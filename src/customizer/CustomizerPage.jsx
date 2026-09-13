@@ -238,6 +238,11 @@ export default function CustomizerPage({
   // Desktop: enlarge the charm selector (wider tray + bigger cards) and back.
   const [trayExpanded, setTrayExpanded] = useState(false)
 
+  // Tote two-sided design: 'front' | 'back'. The stash holds the other side's
+  // placed charms so switching is lossless (refs, not state, to avoid extra renders).
+  const [toteSide, setToteSide] = useState('front')
+  const toteSideStash = useRef({ front: [], back: [] })
+
   const [summaryOpen, setSummaryOpen] = useState(false)
   // Cross-sell popup shown after a product is added to the cart.
   const [crossSellOpen, setCrossSellOpen] = useState(false)
@@ -712,6 +717,19 @@ export default function CustomizerPage({
   }, [])
   const canUndo = histLen > 0
 
+  // Switch between front and back of the tote — losslessly stashes the other side.
+  const switchToteSide = useCallback((side) => {
+    if (side === toteSide || product.kind !== 'tote') return
+    toteSideStash.current[toteSide] = placedRef.current
+    setPlaced(toteSideStash.current[side] || [])
+    setToteSide(side)
+    setSelectedUid(null)
+    setSelectedGroupId(null)
+    setConfirmGroupId(null)
+    historyRef.current = []
+    setHistLen(0)
+  }, [toteSide, product.kind])
+
   const handleGroup = (g) => {
     const from = product
     setGroupKey(g)
@@ -732,6 +750,9 @@ export default function CustomizerPage({
     setSelectedUid(null)
     setSelectedGroupId(null)
     setConfirmGroupId(null)
+    // Reset tote side state when switching product categories.
+    setToteSide('front')
+    toteSideStash.current = { front: [], back: [] }
     resetHistory()
   }
   const handleProduct = (id) => {
@@ -745,6 +766,11 @@ export default function CustomizerPage({
     setSelectedUid(null)
     setSelectedGroupId(null)
     setConfirmGroupId(null)
+    // Reset tote side when switching to a different product.
+    if (to?.kind !== from?.kind) {
+      setToteSide('front')
+      toteSideStash.current = { front: [], back: [] }
+    }
     resetHistory()
   }
 
@@ -1288,7 +1314,17 @@ export default function CustomizerPage({
 
   // Order CTA total + noun (case / tote / frame) for the Step 3 bar.
   const orderNoun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
-  const charmTotal = placedCharmsTotal(placed)
+  // For totes: combine front + back charms so the full two-sided design is submitted.
+  const summaryPlaced = product.kind === 'tote'
+    ? [
+        ...placed.map((c) => ({ ...c, toteSide })),
+        ...(toteSideStash.current[toteSide === 'front' ? 'back' : 'front'] || []).map((c) => ({
+          ...c,
+          toteSide: toteSide === 'front' ? 'back' : 'front',
+        })),
+      ]
+    : placed
+  const charmTotal = placedCharmsTotal(summaryPlaced)
   const orderTotal = product.presentmentPrice
     ? formatPresentmentMoney(product.presentmentPrice + convert(charmTotal), { whole: true })
     : formatMoney(product.basePrice + charmTotal, { whole: true })
@@ -1335,6 +1371,26 @@ export default function CustomizerPage({
       )}
     </button>
   )
+
+  // Front/Back toggle — shown only when the active product is a tote.
+  const toteSideToggle = product.kind === 'tote' ? (
+    <div className="tote-side-toggle" role="group" aria-label="Tote side">
+      <button
+        type="button"
+        className={`tote-side-btn${toteSide === 'front' ? ' is-active' : ''}`}
+        onClick={() => switchToteSide('front')}
+      >
+        {t('tote.front')}
+      </button>
+      <button
+        type="button"
+        className={`tote-side-btn${toteSide === 'back' ? ' is-active' : ''}`}
+        onClick={() => switchToteSide('back')}
+      >
+        {t('tote.back')}
+      </button>
+    </div>
+  ) : null
 
   const stageNode = (
     <ProductStage
@@ -1383,7 +1439,7 @@ export default function CustomizerPage({
                 size="small"
                 value={groupKey}
                 onChange={handleGroup}
-                options={PRODUCT_GROUPS.filter((g) => g.key !== 'tote').map((g) => ({ label: g.label, value: g.key }))}
+                options={PRODUCT_GROUPS.map((g) => ({ label: g.label, value: g.key }))}
               />
             </div>
             <div className="mobile-head__selects">
@@ -1444,6 +1500,7 @@ export default function CustomizerPage({
             )}
               {!showDesignDrafts && recoverySaveIndicator}
             {zoomDock}
+            {toteSideToggle}
             <div
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
             >
@@ -1546,6 +1603,7 @@ export default function CustomizerPage({
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
             {mockupNotice}
+            {toteSideToggle}
             {stageNode}
             {zoomDock}
             {overlapAlert}
@@ -1631,7 +1689,7 @@ export default function CustomizerPage({
         open={summaryOpen}
         product={product}
         color={color}
-        placed={placed}
+        placed={summaryPlaced}
         onClose={() => setSummaryOpen(false)}
         onPlaceOrder={handlePlaceOrder}
       />

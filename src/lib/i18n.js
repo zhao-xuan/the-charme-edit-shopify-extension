@@ -72,6 +72,10 @@ const DICT = {
     'noun.tote': 'tote',
     'noun.frame': 'frame',
 
+    // Tote two-sided toggle
+    'tote.front': 'Front',
+    'tote.back': 'Back',
+
     // Price bar / order
     'price.ready': 'Ready to order',
     'price.addAtLeast': 'Add at least {n} charms',
@@ -185,6 +189,9 @@ const DICT = {
     'noun.case': '手机壳',
     'noun.tote': '帆布袋',
     'noun.frame': '相框',
+
+    'tote.front': '正面',
+    'tote.back': '反面',
 
     'price.ready': '可以下单',
     'price.addAtLeast': '至少添加 {n} 个挂饰',
