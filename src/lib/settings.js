@@ -25,6 +25,8 @@ export const DEFAULT_SETTINGS = {
       { label: 'Photo frame', buttonLabel: 'Customise photo frame', group: 'frame', productId: '' },
     ],
   },
+  // Canary's native sidebar cart banner.
+  cartBanner: { enabled: true, text: '10% off ending soon: Summer10' },
   // Discount rules + issued codes (enforced Shopify-side; see functions/api).
   discounts: { rules: [], codes: [], bundles: [] },
   // Customizer taxonomy display order (managed in Admin → Categories & order).
@@ -36,6 +38,8 @@ export const DEFAULT_SETTINGS = {
   // Tote patch taxonomy and display order. Kept separate from phone charm
   // taxonomy because patches have their own catalogue and product surface.
   patchTaxonomy: { categoryOrder: [], subOrder: {}, patchOrder: {} },
+  // Named design drafts are hidden unless the merchant explicitly enables them.
+  designDrafts: { enabled: false },
   // Quantity-tier pricing shared across different charm styles in a category.
   // Each started quantity block is billed once (for example, 7 filling stones
   // at 6 per block are billed as two £1.50 blocks).
@@ -100,9 +104,11 @@ function mergeDefaults(data) {
     ...DEFAULT_SETTINGS,
     ...d,
     crossSell: { ...DEFAULT_SETTINGS.crossSell, ...(d.crossSell || {}) },
+    cartBanner: { ...DEFAULT_SETTINGS.cartBanner, ...(d.cartBanner || {}) },
     discounts: { ...DEFAULT_SETTINGS.discounts, ...(d.discounts || {}) },
     taxonomy: { ...DEFAULT_SETTINGS.taxonomy, ...(d.taxonomy || {}) },
     patchTaxonomy: { ...DEFAULT_SETTINGS.patchTaxonomy, ...(d.patchTaxonomy || {}) },
+    designDrafts: { ...DEFAULT_SETTINGS.designDrafts, ...(d.designDrafts || {}) },
     charmPricingGroups: storedPricingGroups,
     variantSelector: {
       ...DEFAULT_SETTINGS.variantSelector,

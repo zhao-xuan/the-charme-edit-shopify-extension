@@ -4,7 +4,7 @@ import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 
-export default function PriceBar({ product, placed, validation, onSubmit, crossSellHint, compact, isSecondProduct }) {
+export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct }) {
   const charmTotal = placedCharmsTotal(placed)
   const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
   const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
@@ -69,7 +69,6 @@ export default function PriceBar({ product, placed, validation, onSubmit, crossS
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
           : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
       </Button>
-      {crossSellHint && !compact && <p className="cross-sell-hint">{crossSellHint}</p>}
     </div>
   )
 }

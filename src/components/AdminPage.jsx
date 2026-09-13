@@ -1238,15 +1238,14 @@ function PatchesTab({ cloud }) {
     }
   }
   const removePatch = (patch) => modal.confirm({
-    title: remotePatchIds.has(patch.id) ? `Delete "${patch.name}"?` : `Hide "${patch.name}" from the Tote catalogue?`,
-    okText: remotePatchIds.has(patch.id) ? 'Delete' : 'Hide',
+    title: `Delete "${patch.name}"?`,
+    okText: 'Delete',
     okButtonProps: { danger: true },
     onOk: async () => {
       try {
-        if (remotePatchIds.has(patch.id)) await deletePatch(patch.id)
-        else await setOverride('charm', patch.id, { hidden: true })
+        await deletePatch(patch.id)
         await cloud.refresh()
-        message.success(remotePatchIds.has(patch.id) ? 'Deleted.' : 'Hidden.')
+        message.success('Deleted.')
       } catch (error) {
         message.error(error.message || 'Could not remove the patch.')
       }
@@ -1346,7 +1345,7 @@ function PatchesTab({ cloud }) {
               { title: 'Price (£)', width: 96, render: (_, patch) => <InputNumber size="small" min={0} defaultValue={patch.price} onBlur={(event) => updatePatch(patch, { price: Number(event.target.value) })} style={{ width: 76 }} /> },
               { title: 'Shown', width: 70, render: (_, patch) => <Switch size="small" checked={!patch.hidden} onChange={() => updatePatch(patch, { hidden: !patch.hidden })} /> },
               { title: 'Scale', width: 80, render: (_, patch) => `${Math.round(scaleFor(patch) * 100)}%` },
-              { title: '', width: 40, render: (_, patch) => <Button type="text" danger icon={<DeleteOutlined />} onClick={(event) => { event.stopPropagation(); removePatch(patch) }} /> },
+              { title: '', width: 40, render: (_, patch) => remotePatchIds.has(patch.id) && <Button type="text" danger icon={<DeleteOutlined />} onClick={(event) => { event.stopPropagation(); removePatch(patch) }} /> },
             ]}
           />
         </Card>
@@ -1421,6 +1420,7 @@ function PatchesTab({ cloud }) {
               </span>
               <Slider min={0.5} max={2} step={0.05} value={scale} onChange={setScale} />
               <Button type="primary" icon={<SaveOutlined />} onClick={saveSize}>Save patch size</Button>
+              {remotePatchIds.has(selectedPatch.id) && <Button danger icon={<DeleteOutlined />} onClick={() => removePatch(selectedPatch)}>Delete patch</Button>}
             </Space>
           ) : <Empty description="No patch selected" image={Empty.PRESENTED_IMAGE_SIMPLE} />}
         </RightPanel>
@@ -2744,8 +2744,10 @@ function DiscountTab({ cloud }) {
   // automatic rules) via the Admin API, and fold the returned GIDs back in.
   const saveAndSync = async () => {
     setSyncing(true)
+    let settingsSaved = false
     try {
       await saveSettings(s)
+      settingsSaved = true
       const res = await syncDiscounts()
       if (res && res.settings) {
         setS((prev) => ({
@@ -2762,7 +2764,11 @@ function DiscountTab({ cloud }) {
         message.success('Discounts synced to Shopify.')
       }
     } catch (e) {
-      message.error(`Sync failed: ${e.message}`)
+      if (settingsSaved) {
+        message.warning(`Settings saved, but Shopify discount sync failed: ${e.message}`)
+      } else {
+        message.error(`Could not save settings: ${e.message}`)
+      }
     } finally {
       setSyncing(false)
     }
@@ -2782,8 +2788,27 @@ function DiscountTab({ cloud }) {
         />
       </label>
       <label style={discFieldStyle}>
+        <span style={{ color: 'var(--ink-soft)' }}>Canary sidebar cart banner</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 8, maxWidth: 460, width: '100%' }}>
+          <Switch
+            checked={s.cartBanner?.enabled !== false}
+            onChange={(enabled) => setS((v) => ({ ...v, cartBanner: { ...v.cartBanner, enabled } }))}
+          />
+          <Input
+            value={s.cartBanner?.text || ''}
+            disabled={s.cartBanner?.enabled === false}
+            onChange={(e) => setS((v) => ({ ...v, cartBanner: { ...v.cartBanner, text: e.target.value } }))}
+            placeholder="10% off ending soon: Summer10"
+          />
+        </span>
+      </label>
+      <label style={discFieldStyle}>
         <span style={{ color: 'var(--ink-soft)' }}>Show cart popup after add-to-cart</span>
         <Switch checked={!!s.crossSell.enabled} onChange={(v) => setCross({ enabled: v })} />
+      </label>
+      <label style={discFieldStyle}>
+        <span style={{ color: 'var(--ink-soft)' }}>Show “My design drafts” in the customizer</span>
+        <Switch checked={!!s.designDrafts?.enabled} onChange={(enabled) => setS((v) => ({ ...v, designDrafts: { ...v.designDrafts, enabled } }))} />
       </label>
       <label style={discFieldStyle}>
         <span style={{ color: 'var(--ink-soft)' }}>Auto-apply code for the 2nd product</span>

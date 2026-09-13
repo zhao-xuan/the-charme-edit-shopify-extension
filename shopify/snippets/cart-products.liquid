@@ -408,9 +408,6 @@
         </article>
       </div>
 
-      <p class="cart-items__second-product-skip">
-        <a href="#checkout">No thanks - go to my cart -></a>
-      </p>
     </section>
 
     <script>
@@ -996,10 +993,9 @@
        solid black box. */
     --color-foreground-rgb: 61 53 48;
     --color-background-rgb: 247 240 223;
-    border: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.12);
-    border-radius: var(--style-border-radius-cards);
-    margin: var(--margin-xl) 0;
-    padding: var(--padding-lg);
+    border-top: var(--style-border-width) solid rgb(var(--color-foreground-rgb) / 0.28);
+    margin: calc(var(--margin-xl) + var(--margin-sm)) 0 var(--margin-xl);
+    padding: calc(var(--padding-lg) + var(--padding-sm)) 0 var(--padding-lg);
     background: rgb(var(--color-background-rgb) / 1);
     color: rgb(var(--color-foreground-rgb) / 1);
   }
@@ -1168,7 +1164,7 @@
     }
 
     .cart-items__second-product {
-      padding: var(--padding-md);
+      padding: calc(var(--padding-md) + var(--padding-sm)) 0 var(--padding-md);
     }
 
     .cart-items__second-product-grid {

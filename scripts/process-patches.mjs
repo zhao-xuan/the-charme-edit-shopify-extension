@@ -36,27 +36,8 @@ const TIERS = {
   mini: { longMm: 58, type: 3, price: 6, minScale: 0.85, maxScale: 1.2 },
 }
 
-/** Real Oxford Pennant embroidered patches (public product CDN). */
-const SOURCES = [
-  // ---- Statement patches (type 1) -------------------------------------
-  { id: 'patch-raise-hell', name: 'Raise Hell', collection: 'Statements', tier: 'grande', file: '0006_raisehell.png' },
-  { id: 'patch-do-right', name: 'Do Right', collection: 'Statements', tier: 'grande', file: '0023_doright.png' },
-  { id: 'patch-give-a-damn', name: 'Give A Damn', collection: 'Statements', tier: 'grande', file: '0018_give-a-damn-patch-1.png' },
-
-  // ---- Feature patches (type 2) ---------------------------------------
-  { id: 'patch-pinky-swear', name: 'Pinky Swear', collection: 'Sayings', tier: 'midi', file: 'pinkypromise-patch-full.png' },
-  { id: 'patch-gratitude', name: 'Gratitude Sun', collection: 'Sayings', tier: 'midi', file: '0024_Gratitude_Patch_1.png' },
-  { id: 'patch-new-york', name: 'New York', collection: 'Sayings', tier: 'midi', file: '23-50states-patch-newyork.png' },
-  { id: 'patch-trust-youth', name: 'Trust The Youth', collection: 'Sayings', tier: 'midi', file: '24-Back_to_School-Trust_Your_Youth-Patch-Full.png' },
-
-  // ---- Filler state patches (type 3) ----------------------------------
-  { id: 'patch-texas', name: 'Texas', collection: 'State Patches', tier: 'mini', file: '23-50states-patch-texas.png' },
-  { id: 'patch-ohio', name: 'Ohio', collection: 'State Patches', tier: 'mini', file: '23-50states-patch-ohio.png' },
-  { id: 'patch-florida', name: 'Florida', collection: 'State Patches', tier: 'mini', file: '23-50states-patch-florida.png' },
-  { id: 'patch-arizona', name: 'Arizona', collection: 'State Patches', tier: 'mini', file: '23-50states-patch-arizona.png' },
-  { id: 'patch-new-jersey', name: 'New Jersey', collection: 'State Patches', tier: 'mini', file: '23-50states-patch-newjersey.png' },
-  { id: 'patch-wisconsin', name: 'Wisconsin', collection: 'State Patches', tier: 'mini', file: '50StatesPatches_0002_23-50states-patch-wisconsin-Blue.png' },
-]
+/** Built-in patches were removed; add new merchant-owned sources here only when needed. */
+const SOURCES = []
 
 const TOL = 30
 const FEATHER = 36

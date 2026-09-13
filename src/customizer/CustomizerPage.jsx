@@ -182,6 +182,7 @@ export default function CustomizerPage({
   const PRODUCT_GROUPS = productGroups()
   // Merchant settings (cross-sell prompt + discounts), loaded at startup.
   const appSettings = settings()
+  const showDesignDrafts = appSettings.designDrafts?.enabled === true
 
   // Optional starting model/category (set per placement by the Shopify section,
   // so the same widget can open on a different product on each product page). A
@@ -509,6 +510,9 @@ export default function CustomizerPage({
     wordGroups,
   }), [productId, caseColourId, gelColourId, placed, wordGroups])
   const [draftsReady, setDraftsReady] = useState(false)
+  const [recoverySaveState, setRecoverySaveState] = useState(null)
+  const recoverySaveStarted = useRef(false)
+  const recoverySaveStatusTimer = useRef(null)
 
   const hasExplicitStartSelection = Boolean(initialProductId || initialCaseColourId || initialGelColourId)
 
@@ -527,8 +531,22 @@ export default function CustomizerPage({
 
   useEffect(() => {
     if (!draftsReady) return
-    saveRecoveryDraft(snapshot())
-  }, [draftsReady, snapshot])
+    const saved = saveRecoveryDraft(snapshot())
+    if (!recoverySaveStarted.current) {
+      recoverySaveStarted.current = true
+      return
+    }
+    if (showDesignDrafts) return
+
+    if (recoverySaveStatusTimer.current) clearTimeout(recoverySaveStatusTimer.current)
+    setRecoverySaveState('saving')
+    recoverySaveStatusTimer.current = setTimeout(() => {
+      setRecoverySaveState(saved ? 'saved' : 'error')
+    }, 180)
+    return () => {
+      if (recoverySaveStatusTimer.current) clearTimeout(recoverySaveStatusTimer.current)
+    }
+  }, [draftsReady, showDesignDrafts, snapshot])
 
   const refreshNamedDrafts = useCallback(() => setNamedDrafts(listDesignDrafts()), [])
   const saveNamedDraft = useCallback(() => {
@@ -1031,6 +1049,19 @@ export default function CustomizerPage({
     [activateCharm],
   )
 
+  const recoverySaveIndicator = !showDesignDrafts && recoverySaveState && (
+    <div
+      className={`design-save-status design-save-status--${recoverySaveState}`}
+      role="status"
+      aria-live="polite"
+    >
+      <SaveOutlined />
+      <span>
+        {recoverySaveState === 'saving' ? 'Saving' : recoverySaveState === 'saved' ? 'Saved' : 'Could not save'}
+      </span>
+    </div>
+  )
+
   const zoomDock = (
     <div className="zoom-dock">
       <Button
@@ -1401,14 +1432,17 @@ export default function CustomizerPage({
           </header>
           <div className="mobile-stage">
             {stageNode}
-            <Button
-              className="mobile-drafts-button"
-              size="small"
-              icon={<FolderOpenOutlined />}
-              onClick={() => setDraftsOpen(true)}
-            >
-              Design history
-            </Button>
+            {showDesignDrafts && (
+              <Button
+                className="mobile-drafts-button"
+                size="small"
+                icon={<FolderOpenOutlined />}
+                onClick={() => setDraftsOpen(true)}
+              >
+                Design history
+              </Button>
+            )}
+              {!showDesignDrafts && recoverySaveIndicator}
             {zoomDock}
             <div
               className={'mobile-step-overlay' + (step2Expanded ? ' is-open' : '')}
@@ -1502,9 +1536,12 @@ export default function CustomizerPage({
           )}
           <div className="panel panel--left">
             <Tips />
-            <Button block icon={<FolderOpenOutlined />} style={{ marginTop: 12 }} onClick={() => setDraftsOpen(true)}>
-              My design drafts
-            </Button>
+            {showDesignDrafts && (
+              <Button block icon={<FolderOpenOutlined />} style={{ marginTop: 12 }} onClick={() => setDraftsOpen(true)}>
+                My design drafts
+              </Button>
+            )}
+            {!showDesignDrafts && recoverySaveIndicator}
             <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
@@ -1599,26 +1636,28 @@ export default function CustomizerPage({
         onPlaceOrder={handlePlaceOrder}
       />
 
-      <Modal open={draftsOpen} title="My design drafts" onCancel={() => setDraftsOpen(false)} footer={null}>
-        <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-          <Input value={draftName} maxLength={40} placeholder="Name this design" onChange={(event) => setDraftName(event.target.value)} onPressEnter={saveNamedDraft} />
-          <Button type="primary" icon={<SaveOutlined />} onClick={saveNamedDraft}>Save</Button>
-        </div>
-        {namedDrafts.length ? namedDrafts.map((draft) => (
-          <div key={draft.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 0', borderTop: '1px solid var(--line)' }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <strong>{draft.name}</strong>
-              <div className="hint">{new Date(draft.updatedAt).toLocaleString()}</div>
-            </div>
-            <Button size="small" onClick={() => loadNamedDraft(draft)}>Load</Button>
-            <Button size="small" danger icon={<DeleteOutlined />} title="Delete draft" onClick={() => {
-              deleteDesignDraft(draft.id)
-              refreshNamedDrafts()
-            }} />
+      {showDesignDrafts && (
+        <Modal open={draftsOpen} title="My design drafts" onCancel={() => setDraftsOpen(false)} footer={null}>
+          <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+            <Input value={draftName} maxLength={40} placeholder="Name this design" onChange={(event) => setDraftName(event.target.value)} onPressEnter={saveNamedDraft} />
+            <Button type="primary" icon={<SaveOutlined />} onClick={saveNamedDraft}>Save</Button>
           </div>
-        )) : <p className="hint">Save a named copy of your current design here.</p>}
-        <Button block style={{ marginTop: 16 }} onClick={newDesign}>Start a new blank design</Button>
-      </Modal>
+          {namedDrafts.length ? namedDrafts.map((draft) => (
+            <div key={draft.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 0', borderTop: '1px solid var(--line)' }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <strong>{draft.name}</strong>
+                <div className="hint">{new Date(draft.updatedAt).toLocaleString()}</div>
+              </div>
+              <Button size="small" onClick={() => loadNamedDraft(draft)}>Load</Button>
+              <Button size="small" danger icon={<DeleteOutlined />} title="Delete draft" onClick={() => {
+                deleteDesignDraft(draft.id)
+                refreshNamedDrafts()
+              }} />
+            </div>
+          )) : <p className="hint">Save a named copy of your current design here.</p>}
+          <Button block style={{ marginTop: 16 }} onClick={newDesign}>Start a new blank design</Button>
+        </Modal>
+      )}
 
       <Modal
         open={crossSellOpen}

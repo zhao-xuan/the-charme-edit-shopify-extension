@@ -1,6 +1,6 @@
 // Tote patch catalogue writes. Images are persisted to Shopify Files when
 // configured; the D1/KV path remains available for local and legacy installs.
-import { json, bad, requireAdmin, storeImage, makeId, rowToCharm } from '../_lib.js'
+import { json, bad, requireAdmin, storeImage, makeId, rowToCharm, fileDelete } from '../_lib.js'
 import { TYPES, shopifyConfigured, saveRecord, getRecord, deleteRecord, storeImageToFiles } from '../_shopify-store.js'
 
 const cors = {
@@ -10,7 +10,7 @@ const cors = {
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
-const patchRecord = (patch, id, src) => ({
+const patchRecord = (patch, id, src, imageFileId = null) => ({
   id,
   name: patch.name || 'Patch',
   collection: patch.collection || 'Custom patches',
@@ -27,6 +27,7 @@ const patchRecord = (patch, id, src) => ({
   source: 'extracted',
   minScale: 1,
   maxScale: 1,
+  ...(imageFileId ? { imageFileId } : {}),
   ...(patch.shopifyVariantId ? { shopifyVariantId: String(patch.shopifyVariantId) } : {}),
 })
 
@@ -40,8 +41,8 @@ export async function onRequestPost({ request, env }) {
     if (!patch.src) return bad(`patch "${patch.name}" has no image`)
     const id = patch.id || makeId('patch', patch.name || 'patch')
     if (shopifyConfigured(env)) {
-      const { url } = await storeImageToFiles(env, patch.src, { filename: `${id}.png`, alt: patch.name || 'Patch' })
-      const record = patchRecord(patch, id, url)
+      const { url, id: imageFileId } = await storeImageToFiles(env, patch.src, { filename: `${id}.png`, alt: patch.name || 'Patch' })
+      const record = patchRecord(patch, id, url, imageFileId)
       await saveRecord(env, TYPES.patch, id, record)
       created.push(record)
     } else {
@@ -83,6 +84,7 @@ export async function onRequestPatch({ request, env }) {
     if (src && /^data:/.test(src)) {
       const image = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || record.name })
       record.src = image.url
+      record.imageFileId = image.id
     }
     await saveRecord(env, TYPES.patch, id, record)
     return json({ ok: true }, { headers: cors })
@@ -106,11 +108,16 @@ export async function onRequestDelete({ request, env }) {
   const { id } = (await request.json().catch(() => ({}))) || {}
   if (!id) return bad('id required')
   if (shopifyConfigured(env)) {
-    await deleteRecord(env, TYPES.patch, id)
+    const record = await getRecord(env, TYPES.patch, id)
+    if (!record) return bad('not found', 404)
+    const deleted = await deleteRecord(env, TYPES.patch, id)
+    if (!deleted) return bad('not found', 404)
+    if (record.imageFileId) await fileDelete(env, [record.imageFileId])
     return json({ ok: true }, { headers: cors })
   }
   const row = await env.DB.prepare('SELECT image_key FROM patches WHERE id = ?').bind(id).first()
   if (row?.image_key) await env.IMAGES.delete(`img:${row.image_key}`)
-  await env.DB.prepare('DELETE FROM patches WHERE id = ?').bind(id).run()
+  const result = await env.DB.prepare('DELETE FROM patches WHERE id = ?').bind(id).run()
+  if (!result.meta?.changes) return bad('not found', 404)
   return json({ ok: true }, { headers: cors })
 }

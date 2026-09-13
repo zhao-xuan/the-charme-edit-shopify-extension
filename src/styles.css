@@ -349,6 +349,29 @@ h4,
   border-right: 1px solid var(--line);
   background: var(--panel);
 }
+.design-save-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  margin-top: 12px;
+  padding: 5px 8px;
+  border: 1px solid rgba(125, 105, 84, 0.32);
+  background: rgba(255, 253, 249, 0.88);
+  color: var(--ink-soft);
+  font-family: var(--charme-font-accent);
+  font-size: 11px;
+  line-height: 16px;
+}
+.design-save-status--saving {
+  color: var(--ink);
+}
+.design-save-status--saved {
+  color: #31734a;
+}
+.design-save-status--error {
+  color: var(--rouge);
+}
 .panel--right {
   border-left: 1px solid var(--line);
   background: var(--panel);
@@ -1316,6 +1339,13 @@ h4,
     box-shadow: 0 2px 8px rgba(46, 42, 38, 0.13);
     font-family: var(--charme-font-accent);
     font-size: 10px;
+  }
+  .mobile-stage > .design-save-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 77;
+    margin-top: 0;
   }
   .stage-attention {
     display: flex;

@@ -57,6 +57,8 @@
             </button>
           </div>
 
+          <div class="charme-cart-banner" data-charme-cart-banner aria-live="polite">10% off ending soon: Summer10</div>
+
           <div
             class="cart-drawer__content motion-reduce"
             aria-label="{{ 'accessibility.cart' | t }}"
@@ -97,6 +99,8 @@
             </button>
           </div>
 
+          <div class="charme-cart-banner" data-charme-cart-banner aria-live="polite">10% off ending soon: Summer10</div>
+
           <div
             class="cart-drawer__content motion-reduce"
             aria-label="{{ 'accessibility.cart' | t }}"
@@ -117,6 +121,29 @@
     </div>
   </dialog>
 </cart-drawer-component>
+
+<script>
+  (function () {
+    var banners = document.querySelectorAll('[data-charme-cart-banner]')
+    if (!banners.length) return
+
+    fetch('https://charme-customizer.pages.dev/api/settings', { headers: { Accept: 'application/json' } })
+      .then(function (response) { return response.ok ? response.json() : null })
+      .then(function (settings) {
+        var banner = settings && settings.cartBanner
+        var text = banner && typeof banner.text === 'string' ? banner.text.trim() : '10% off ending soon: Summer10'
+        banners.forEach(function (element) {
+          if (!text || (banner && banner.enabled === false)) {
+            element.hidden = true
+            return
+          }
+          if (element.textContent !== text) element.textContent = text
+          element.hidden = false
+        })
+      })
+      .catch(function () {})
+  })()
+</script>
 
 {% stylesheet %}
   .cart-items-component {
@@ -152,6 +179,27 @@
 
     @media screen and (min-width: 750px) {
       padding: var(--cart-drawer-padding-desktop);
+    }
+  }
+
+  .charme-cart-banner {
+    position: sticky;
+    top: 61px;
+    z-index: 2;
+    width: calc(100% - 32px);
+    min-height: 32px;
+    margin: 8px auto;
+    padding: 6px 12px;
+    background: #e89b4a;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(61, 53, 48, 0.12);
+
+    @media screen and (min-width: 750px) {
+      width: calc(100% - 40px);
     }
   }
 
