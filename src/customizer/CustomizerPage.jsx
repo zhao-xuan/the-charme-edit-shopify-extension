@@ -175,7 +175,7 @@ export default function CustomizerPage({
   initialGelColourId,
   initialCasePresentmentPrice: initialCasePrice,
 }) {
-  const { message } = App.useApp()
+  const { message, modal } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
   // Lazy catalogue accessor (built after the remote catalogue loads — see
   // products.js). Stable memoised array, safe to read every render.
@@ -1162,6 +1162,22 @@ export default function CustomizerPage({
   const attemptOrder = () => {
     if (validation.ok) {
       setShowOverlapWarning(false)
+      // Tote: if the customer has only customised one side, nudge them.
+      if (product.kind === 'tote') {
+        const otherSide = toteSide === 'front' ? 'back' : 'front'
+        const otherCharms = toteSideStash.current[otherSide] || []
+        if (placed.length > 0 && otherCharms.length === 0) {
+          modal.confirm({
+            title: 'Would you like to customise the back of the bag too?',
+            content: 'You\'ve only added charms to the ' + toteSide + ' so far. You can design both sides before checking out.',
+            okText: 'Yes, I\'d like to',
+            cancelText: 'No, go to checkout',
+            onOk: () => switchToteSide(otherSide),
+            onCancel: () => setSummaryOpen(true),
+          })
+          return
+        }
+      }
       setSummaryOpen(true)
       return
     }
