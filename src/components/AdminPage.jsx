@@ -151,50 +151,97 @@ const TIER_OPTS = [
   { value: 'mini', label: 'Filler · Mini (scatter)', type: 3, price: 2 },
 ]
 
+function shopifyAdminVariantUrl(variant) {
+  // Build a jump link to the variant in the merchant's Shopify admin.
+  if (!variant?.handle) return null
+  // When embedded in Shopify Admin, ?shop=xxx.myshopify.com is in the URL.
+  const shopParam =
+    (typeof window !== 'undefined' &&
+      new URLSearchParams(window.location.search).get('shop')) ||
+    (typeof window !== 'undefined' && window.Shopify?.shop) ||
+    null
+  const base = shopParam ? `https://${shopParam}` : ''
+  return `${base}/admin/products/${variant.handle}/variants/${variant.id}`
+}
+
 function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true }) {
   const selectedValue = value == null ? '' : String(value)
   const selected = variants.find((variant) => String(variant.id) === selectedValue)
-  const label = (variant, includePrice = false) => (
+
+  // Trigger label stays compact; dropdown options show the full name.
+  const triggerLabel = (variant) => (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, minWidth: 0, maxWidth: '100%' }}>
       {variant.imageUrl ? (
-        <img
-          src={variant.imageUrl}
-          alt=""
-          style={{ width: 24, height: 24, flex: '0 0 24px', objectFit: 'contain', borderRadius: 2 }}
-        />
+        <img src={variant.imageUrl} alt="" style={{ width: 24, height: 24, flex: '0 0 24px', objectFit: 'contain', borderRadius: 2 }} />
       ) : (
         <span style={{ width: 24, height: 24, flex: '0 0 24px', background: 'var(--paper-dark)', borderRadius: 2 }} />
       )}
       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-        {variant.productTitle} · {variant.title}{includePrice ? ` · £${Number(variant.price).toFixed(2)}${variant.available ? '' : ' · Sold out'}` : ''}
+        {variant.productTitle} · {variant.title} · £{Number(variant.price).toFixed(2)}{variant.available ? '' : ' · Sold out'}
       </span>
     </span>
   )
+
+  // Dropdown option: full text, no truncation.
+  const optionLabel = (variant) => (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7 }}>
+      {variant.imageUrl ? (
+        <img src={variant.imageUrl} alt="" style={{ width: 24, height: 24, flex: '0 0 24px', objectFit: 'contain', borderRadius: 2 }} />
+      ) : (
+        <span style={{ width: 24, height: 24, flex: '0 0 24px', background: 'var(--paper-dark)', borderRadius: 2 }} />
+      )}
+      <span style={{ whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.3 }}>
+        {variant.productTitle} · {variant.title}
+        <span style={{ color: 'var(--muted)', marginLeft: 6 }}>
+          £{Number(variant.price).toFixed(2)}{variant.available ? '' : ' · Sold out'}
+        </span>
+      </span>
+    </span>
+  )
+
   const selectedLabel = selected
-    ? label(selected, true)
+    ? triggerLabel(selected)
     : selectedValue
-      ? `Linked Shopify variant #${selectedValue}`
+      ? `Linked variant #${selectedValue}`
       : 'Link Shopify variant'
+
+  const jumpUrl = selected ? shopifyAdminVariantUrl(selected) : null
+
   return (
-    <Select
-      size="small"
-      value={selectedValue || undefined}
-      loading={loading}
-      showSearch
-      allowClear={allowClear}
-      optionFilterProp="searchText"
-      placeholder="Link Shopify variant"
-      style={{ width: 250 }}
-      onClick={(event) => event.stopPropagation()}
-      onChange={(shopifyVariantId) => onChange(shopifyVariantId || null)}
-      labelRender={() => selectedLabel}
-      options={variants.map((variant) => ({
-        value: variant.id,
-        label: label(variant, true),
-        searchText: `${variant.productTitle} ${variant.title} ${variant.handle}`,
-        disabled: !variant.available,
-      }))}
-    />
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+      <Select
+        size="small"
+        value={selectedValue || undefined}
+        loading={loading}
+        showSearch
+        allowClear={allowClear}
+        optionFilterProp="searchText"
+        placeholder="Link Shopify variant"
+        popupMatchSelectWidth={false}
+        style={{ width: 250 }}
+        onClick={(event) => event.stopPropagation()}
+        onChange={(shopifyVariantId) => onChange(shopifyVariantId || null)}
+        labelRender={() => selectedLabel}
+        options={variants.map((variant) => ({
+          value: variant.id,
+          label: optionLabel(variant),
+          searchText: `${variant.productTitle} ${variant.title} ${variant.handle}`,
+          disabled: !variant.available,
+        }))}
+      />
+      {jumpUrl && (
+        <a
+          href={jumpUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Open in Shopify Admin"
+          onClick={(e) => e.stopPropagation()}
+          style={{ lineHeight: 1, flexShrink: 0 }}
+        >
+          <Button size="small" icon={<LinkOutlined />} />
+        </a>
+      )}
+    </span>
   )
 }
 
