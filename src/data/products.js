@@ -422,6 +422,15 @@ const LEGACY_ANDROIDS = [
   ['huawei-mate-60-pro', 'Huawei Mate 60 Pro', 75.9, 163.7, 'circle', 26, 'huawei'],
   ['huawei-mate-50-pro', 'Huawei Mate 50 Pro', 75.5, 162.1, 'circle', 26, 'huawei'],
   ['huawei-p60-pro', 'Huawei P60 Pro', 74.5, 161.0, 'circle', 26, 'huawei'],
+  // — Google Pixel (no live Shopify variant yet; official Google renders) —
+  ['pixel-9-pro-xl', 'Pixel 9 Pro XL', 76.6, 162.8, 'pixelPill', 26, 'google'],
+  ['pixel-9-pro-fold', 'Pixel 9 Pro Fold', 77.1, 155.2, 'pixelPill', 26, 'google'],
+  ['pixel-10-pro-xl', 'Pixel 10 Pro XL', 76.6, 162.8, 'pixelPill', 26, 'google'],
+  ['pixel-10-pro-fold', 'Pixel 10 Pro Fold', 77.1, 155.2, 'pixelPill', 26, 'google'],
+  ['pixel-11', 'Pixel 11', 72.3, 152.1, 'pixelPill', 26, 'google'],
+  ['pixel-11-pro', 'Pixel 11 Pro', 71.9, 152.7, 'pixelPill', 26, 'google'],
+  ['pixel-11-pro-xl', 'Pixel 11 Pro XL', 76.5, 162.7, 'pixelPill', 26, 'google'],
+  ['pixel-11-pro-fold', 'Pixel 11 Pro Fold', 77.1, 155.2, 'pixelPill', 26, 'google'],
 ]
   .map((a) => makePhone(...a))
   // Every Android model is surfaced. Models with a generated integrated-gel
@@ -462,10 +471,16 @@ const PIXEL_SPECS = {
   'pixel-9': [72, 152.8, 'pixelPill'],
   'pixel-9-pro': [72, 152.8, 'pixelPill'],
   'pixel-9-pro-xl': [76.6, 162.8, 'pixelPill'],
+  'pixel-9-pro-fold': [77.1, 155.2, 'pixelPill'],
   'pixel-9a': [73.3, 154.7, 'pixelOval'],
   'pixel-10': [72, 152.8, 'pixelPill'],
   'pixel-10-pro': [72, 152.8, 'pixelPill'],
   'pixel-10-pro-xl': [76.6, 162.8, 'pixelPill'],
+  'pixel-10-pro-fold': [77.1, 155.2, 'pixelPill'],
+  'pixel-11': [72.3, 152.1, 'pixelPill'],
+  'pixel-11-pro': [71.9, 152.7, 'pixelPill'],
+  'pixel-11-pro-xl': [76.5, 162.7, 'pixelPill'],
+  'pixel-11-pro-fold': [77.1, 155.2, 'pixelPill'],
 }
 
 const SAMSUNG_SPECS = {

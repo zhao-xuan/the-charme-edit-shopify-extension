@@ -93,7 +93,8 @@ export default function ProductPicker({
   presentmentPrice,
   presentmentPrices = {},
 }) {
-  const PRODUCT_GROUPS = productGroups()
+  // Tote is temporarily hidden from customers (merchant not selling it yet).
+  const PRODUCT_GROUPS = productGroups().filter((g) => g.key !== 'tote')
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
   const product = group.products.find((p) => p.id === productId) || group.products[0]
 

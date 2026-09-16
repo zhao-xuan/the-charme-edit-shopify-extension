@@ -179,7 +179,8 @@ export default function CustomizerPage({
   const isMobile = useMedia('(max-width: 760px)')
   // Lazy catalogue accessor (built after the remote catalogue loads — see
   // products.js). Stable memoised array, safe to read every render.
-  const PRODUCT_GROUPS = productGroups()
+  // Tote is temporarily hidden from customers (merchant not selling it yet).
+  const PRODUCT_GROUPS = productGroups().filter((g) => g.key !== 'tote')
   // Merchant settings (cross-sell prompt + discounts), loaded at startup.
   const appSettings = settings()
   const showDesignDrafts = appSettings.designDrafts?.enabled === true
