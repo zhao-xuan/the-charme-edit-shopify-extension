@@ -630,21 +630,28 @@ const BASE_PRODUCT_GROUPS = [
         basePrice: 16,
         // The canvas includes the handles. The bag body itself is 420 x 360mm;
         // its photo is normalized to this shared physical coordinate space.
-        widthMm: 420,
+        widthMm: 460,
         heightMm: 630.7,
         radiusMm: 8,
         blankImage: {
           natural: '/assets/totes/charme-natural.png',
+          front: '/assets/totes/charme-natural.png',
+          back: '/assets/totes/charme-natural.png',
+        },
+        toteImageBounds: {
+          front: { x: 241, y: 286, w: 1317, h: 1821, sourceW: 1800, sourceH: 2390 },
+          back: { x: 242, y: 279, w: 1317, h: 1831, sourceW: 1800, sourceH: 2390 },
         },
         colors: [
           { id: 'natural', label: "Natural canvas", shell: '#e9dec6', edge: '#1c2740', glitter: false },
         ],
         printable: {
-          outer: { xMm: 21, yMm: 270.7, wMm: 378, hMm: 304, rMm: 8 },
+          outer: { xMm: 0, yMm: 270.7, wMm: 460, hMm: 310, rMm: 8 },
           obstacles: [
-            { type: 'rect', xMm: 114, yMm: 270.7, wMm: 32.3, hMm: 304, label: 'left strap' },
-            { type: 'rect', xMm: 275, yMm: 270.7, wMm: 32.3, hMm: 304, label: 'right strap' },
-            { type: 'rect', xMm: 157, yMm: 501.8, wMm: 114, hMm: 46.2, label: 'logo' },
+            { type: 'rect', xMm: 113, yMm: 270.7, wMm: 39, hMm: 310, label: 'left strap' },
+            { type: 'rect', xMm: 309, yMm: 270.7, wMm: 39, hMm: 310, label: 'right strap' },
+            { type: 'rect', xMm: 165, yMm: 506, wMm: 139, hMm: 47, label: 'logo' },
+            { type: 'rect', xMm: 0, yMm: 563, wMm: 460, hMm: 17, label: 'bottom hem' },
           ],
         },
       },
@@ -659,14 +666,38 @@ const BASE_PRODUCT_GROUPS = [
   },
 ]
 
+const TOTE_IMAGE_BOUNDS = {
+  front: { x: 241, y: 286, w: 1317, h: 1821, sourceW: 1800, sourceH: 2390 },
+  back: { x: 242, y: 279, w: 1317, h: 1831, sourceW: 1800, sourceH: 2390 },
+}
+
+const TOTE_BODY_BOUNDS = {
+  'tote-cream-white': {
+    front: { x: 241, y: 1145, w: 1317, h: 962, sourceW: 1800, sourceH: 2390 },
+    back: { x: 242, y: 1143, w: 1317, h: 967, sourceW: 1800, sourceH: 2390 },
+  },
+  'tote-deep-navy': {
+    front: { x: 253, y: 1110, w: 1294, h: 966, sourceW: 1800, sourceH: 2390 },
+    back: { x: 151, y: 1110, w: 1498, h: 1121, sourceW: 1800, sourceH: 2390 },
+  },
+  'tote-olive-green': {
+    front: { x: 184, y: 1131, w: 1432, h: 1065, sourceW: 1800, sourceH: 2390 },
+    back: { x: 184, y: 1111, w: 1432, h: 1063, sourceW: 1800, sourceH: 2390 },
+  },
+}
+
 /**
  * Turn a merchant's raw custom-product entry (name + uploaded body photo + real
  * width/height in mm + price) into a render-ready product. The whole panel minus
  * a small inset is craftable; charms place straight onto the uploaded artwork.
  */
 function buildCustomProduct(raw) {
-  const widthMm = Number(raw.widthMm) || 75
-  const heightMm = Number(raw.heightMm) || 150
+  const kind = raw.kind === 'tote' ? 'tote' : raw.kind === 'frame' ? 'frame' : 'phone'
+  const displayName = kind === 'tote'
+    ? (String(raw.name || '').replace(/^The Charmé Edit Tote\s*[-–—]\s*/i, '').trim() || raw.name || 'Custom product')
+    : (raw.name || 'Custom product')
+  const widthMm = kind === 'tote' ? 460 : (Number(raw.widthMm) || 75)
+  const heightMm = kind === 'tote' ? 630.7 : (Number(raw.heightMm) || 150)
   const radiusMm = Math.max(2, Math.round(widthMm * 0.12))
   const inset = Math.max(4, Math.round(widthMm * 0.06))
   const colour = {
@@ -676,11 +707,19 @@ function buildCustomProduct(raw) {
     edge: '#d9cfbe',
     glitter: false,
   }
+  const toteObstacles = kind === 'tote'
+    ? [
+        { type: 'rect', xMm: 113, yMm: 270.7, wMm: 39, hMm: 310, label: 'left strap' },
+        { type: 'rect', xMm: 309, yMm: 270.7, wMm: 39, hMm: 310, label: 'right strap' },
+        { type: 'rect', xMm: 165, yMm: 506, wMm: 139, hMm: 47, label: 'logo' },
+        { type: 'rect', xMm: 0, yMm: 563, wMm: 460, hMm: 17, label: 'bottom hem' },
+      ]
+    : []
   return {
     id: raw.id,
-    group: 'custom',
-    name: raw.name || 'Custom product',
-    kind: raw.kind === 'tote' ? 'tote' : 'phone',
+    group: kind === 'tote' ? 'tote' : kind === 'frame' ? 'frame' : 'custom',
+    name: displayName,
+    kind,
     shopifyVariantId: raw.shopifyVariantId || undefined,
     custom: true,
     basePrice: Number(raw.basePrice) || 0,
@@ -689,16 +728,21 @@ function buildCustomProduct(raw) {
     radiusMm,
     colors: [colour],
     caseColours: [colour],
-    blankImage: { default: raw.src },
+    blankImage: {
+      default: raw.src,
+      front: raw.src,
+      ...(raw.srcBack || raw.srcBlack ? { back: raw.srcBack || raw.srcBlack } : {}),
+    },
+    ...(kind === 'tote' ? { toteImageBounds: TOTE_IMAGE_BOUNDS, toteBodyBounds: TOTE_BODY_BOUNDS[raw.id] || TOTE_BODY_BOUNDS['tote-cream-white'] } : {}),
     printable: {
       outer: {
-        xMm: inset,
-        yMm: inset,
-        wMm: +(widthMm - inset * 2).toFixed(1),
-        hMm: +(heightMm - inset * 2).toFixed(1),
+        xMm: 0,
+        yMm: 270.7,
+        wMm: 460,
+        hMm: 310,
         rMm: Math.max(2, radiusMm - inset),
       },
-      obstacles: [],
+      obstacles: toteObstacles,
     },
   }
 }
@@ -757,13 +801,18 @@ function applyAdminOverrides(groups) {
         Number(remoteProduct.heightMm) === 607 &&
         /\/tote-tj-white\.png(?:\?|$)/.test(remoteProduct.src || '')
       if (isLegacyToteReference) return product
-      const widthMm = Number(remoteProduct.widthMm) || product.widthMm
-      const heightMm = Number(remoteProduct.heightMm) || product.heightMm
+      const widthMm = product.kind === 'tote' ? 460 : (Number(remoteProduct.widthMm) || product.widthMm)
+      const heightMm = product.kind === 'tote' ? 630.7 : (Number(remoteProduct.heightMm) || product.heightMm)
       const scaleX = widthMm / product.widthMm
       const scaleY = heightMm / product.heightMm
       const remoteImage = remoteProduct.src
+      const remoteBackImage = remoteProduct.srcBack || remoteProduct.srcBlack
       const blankImage = remoteImage
-        ? Object.fromEntries(['default', ...(product.colors || []).map((color) => color.id)].map((key) => [key, remoteImage]))
+        ? {
+            ...Object.fromEntries(['default', ...(product.colors || []).map((color) => color.id)].map((key) => [key, remoteImage])),
+            front: remoteImage,
+            ...(remoteBackImage ? { back: remoteBackImage } : {}),
+          }
         : product.blankImage
       return {
         ...product,
@@ -834,16 +883,24 @@ function applyAdminOverrides(groups) {
     }
   }
   const custom = customRaw.filter((product) => product.src).map(buildCustomProduct)
-  if (custom.length) {
-    priced.push({
+  const customTotes = custom.filter((product) => product.kind === 'tote')
+  const customFrames = custom.filter((product) => product.kind === 'frame')
+  const groupedCustom = priced.map((group) => {
+    if (group.key === 'tote') return { ...group, products: [...(customTotes.length ? [] : group.products), ...customTotes] }
+    if (group.key === 'frame') return { ...group, products: [...group.products, ...customFrames] }
+    return group
+  })
+  const hiddenCustom = custom.filter((product) => product.kind !== 'tote' && product.kind !== 'frame')
+  if (hiddenCustom.length) {
+    groupedCustom.push({
       key: 'custom',
       label: 'Custom',
       platform: 'custom',
       blurb: 'Your own uploaded products.',
-      products: custom,
+      products: hiddenCustom,
     })
   }
-  return priced
+  return groupedCustom
 }
 
 let productCatalogCache = null

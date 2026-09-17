@@ -263,6 +263,7 @@ function charmFrameInside(charm, printable) {
 export function charmShapeInside(charm, printable) {
   if (printable.kind === 'frame') return charmFrameInside(charm, printable)
   const box = charmFootprint(charm)
+  if (printable.kind === 'tote') return boxFullyInside(box, printable)
   const mask = getCharmMask(charm.src)
   if (!mask) return boxFullyInside(box, printable)
   const { outer, obstacles = [] } = printable

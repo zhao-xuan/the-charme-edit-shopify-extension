@@ -64,7 +64,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
         </>
       )}
 
-      <Button block type="primary" size="large" disabled={n === 0} onClick={onSubmit}>
+      <Button block type="primary" size="large" disabled={product.kind !== 'tote' && n === 0} onClick={onSubmit}>
         {isSecondProduct
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
           : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}

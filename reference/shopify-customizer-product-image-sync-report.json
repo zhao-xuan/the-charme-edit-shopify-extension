@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-09-16T19:51:13.082Z",
+  "policy": "Shopify Files + charme_product body image fields only; no Product Media or variant media updates.",
+  "counts": {
+    "targets": 16,
+    "updated": 4,
+    "missingMetaobject": 12
+  },
+  "results": [
+    {
+      "status": "updated",
+      "id": "pixel-9-pro-xl",
+      "name": "Pixel 9 Pro XL",
+      "kind": "phone",
+      "finish": "white",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471705321850",
+      "fileId": "gid://shopify/MediaImage/71755081941370",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-xl-white-customizer-e89a64cd697e.png?v=1789588258",
+      "sourceSha256": "e89a64cd697e954bbcded301678b05396a7010430f30d5faa1dcd5d2492e3d8b",
+      "width": 404,
+      "height": 765
+    },
+    {
+      "status": "updated",
+      "id": "pixel-9-pro-xl",
+      "name": "Pixel 9 Pro XL",
+      "kind": "phone",
+      "finish": "black",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471705321850",
+      "fileId": "gid://shopify/MediaImage/71755082072442",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-xl-black-customizer-8239efdae957.png?v=1789588263",
+      "sourceSha256": "8239efdae957d2b5333e8059bddc9927da6ffda544dd17c6b724ce174d8035bb",
+      "width": 394,
+      "height": 766
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-9-pro-fold",
+      "finish": "white",
+      "sourceSha256": "927408220333dc552b1752d64d608b04afb52479759609b8e33a7276f280d13c"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-9-pro-fold",
+      "finish": "black",
+      "sourceSha256": "d0d3969eeac9560f5294aeb5321ed73027f98468ebecec7e3571ae9ae835f726"
+    },
+    {
+      "status": "updated",
+      "id": "pixel-10-pro-xl",
+      "name": "Pixel 10 Pro XL",
+      "kind": "phone",
+      "finish": "white",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fileId": "gid://shopify/MediaImage/71755082334586",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-white-customizer-fd81814a6b80.png?v=1789588268",
+      "sourceSha256": "fd81814a6b80f96bb9e4456978f8785e83b57288e8f0b435002a71ab2c3c145a",
+      "width": 401,
+      "height": 759
+    },
+    {
+      "status": "updated",
+      "id": "pixel-10-pro-xl",
+      "name": "Pixel 10 Pro XL",
+      "kind": "phone",
+      "finish": "black",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/471783145850",
+      "fileId": "gid://shopify/MediaImage/71755082465658",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-black-customizer-b557455c3d09.png?v=1789588271",
+      "sourceSha256": "b557455c3d09a25a69c1a52de37e66284b4a3d5de8fd1609eb2d0b0e3d493924",
+      "width": 397,
+      "height": 763
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-10-pro-fold",
+      "finish": "white",
+      "sourceSha256": "6a0e461c70b1f5bcab76e1fa17b1481f631bb9fc336aca86f10b8ec51e87c981"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-10-pro-fold",
+      "finish": "black",
+      "sourceSha256": "2ba3e41a35fcd13e497b8cd2a4aa0ad14c50af893d7a0c4c956d041720992342"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11",
+      "finish": "white",
+      "sourceSha256": "a98ae15dc95c4a83ce0eb29513a8d9319aeef4b8b06ec3639765806220d5ccbe"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11",
+      "finish": "black",
+      "sourceSha256": "126f85bd6f0087b741af32f63c5c8964033547a9c4617bbf4f2c2b0ec1e3a145"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro",
+      "finish": "white",
+      "sourceSha256": "6eb900d8ccbb3a5968791749ea10e2bf9b6a1c65c267c9751d6eb02307e9213e"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro",
+      "finish": "black",
+      "sourceSha256": "57792c2241f9d8cc655290c343934458ac2eeac710fa78f996a6d58750ada2eb"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro-xl",
+      "finish": "white",
+      "sourceSha256": "6453757396d5a2efe78645f872e120fe7cc0ce2b645438d16612655e08f44859"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro-xl",
+      "finish": "black",
+      "sourceSha256": "281af4c2794b3052adbc6ca2290bf10707a0e073031a9014bb7f121dc1925c42"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro-fold",
+      "finish": "white",
+      "sourceSha256": "7a2477da1943c626228f938a5dc40bc8d15e299727cfa97dccf9740a782623ed"
+    },
+    {
+      "status": "missing-metaobject",
+      "id": "pixel-11-pro-fold",
+      "finish": "black",
+      "sourceSha256": "9a14428a01d93bcc5d2f413c1a574f9d9a7bf1c74642fe8cb54cc3c6864c589b"
+    }
+  ]
+}

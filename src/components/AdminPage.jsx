@@ -1780,6 +1780,7 @@ function ProductStudioTab({
   const [widthMm, setWidthMm] = useState(0)
   const [heightMm, setHeightMm] = useState(0)
   const [image, setImage] = useState(null)
+  const [imageBack, setImageBack] = useState(null)
   const [saving, setSaving] = useState(false)
   const [vImg, setVImg] = useState(null)
   useEffect(() => {
@@ -1787,16 +1788,19 @@ function ProductStudioTab({
     setWidthMm(product?.widthMm ?? 0)
     setHeightMm(product?.heightMm ?? 0)
     setImage(null)
+    setImageBack(null)
   }, [product?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const src = image?.src || (product ? resolveAsset(product.src) : null)
+  const backSrc = imageBack?.src || (product?.srcBack ? resolveAsset(product.srcBack) : null)
   const livePhonePrices = [...new Set(variants.map((variant) => Number(variant.price)).filter(Number.isFinite))]
   const dirty =
     !!product &&
     (name.trim() !== (product.name || '') ||
       Number(widthMm) !== product.widthMm ||
       Number(heightMm) !== product.heightMm ||
-      !!image)
+      !!image ||
+      !!imageBack)
 
   const save = async () => {
     if (!product) return
@@ -1805,11 +1809,13 @@ function ProductStudioTab({
     if (Number(widthMm) !== product.widthMm) patch.widthMm = Number(widthMm)
     if (Number(heightMm) !== product.heightMm) patch.heightMm = Number(heightMm)
     if (image?.src) patch.src = image.src
+    if (imageBack?.src) patch.srcBack = imageBack.src
     if (!Object.keys(patch).length) return
     setSaving(true)
     try {
       await cloud.updateProduct(product, patch)
       setImage(null)
+      setImageBack(null)
       message.success(`Saved “${patch.name || product.name}” to Shopify.`)
     } catch (e) {
       message.error(`Could not save: ${e.message}`)
@@ -1841,12 +1847,19 @@ function ProductStudioTab({
         />
       ) : (
         <>
-          <div style={{ textAlign: 'center', marginBottom: 10 }}>
+          <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 10 }}>
             <img
               src={src}
               alt={product.name}
-              style={{ maxWidth: '75%', maxHeight: 220, objectFit: 'contain', background: '#faf7f2', borderRadius: 12, padding: 8 }}
+              style={{ maxWidth: product.kind === 'tote' ? '48%' : '75%', maxHeight: 220, objectFit: 'contain', background: '#faf7f2', borderRadius: 12, padding: 8 }}
             />
+            {product.kind === 'tote' && backSrc ? (
+              <img
+                src={backSrc}
+                alt={`${product.name} back`}
+                style={{ maxWidth: '48%', maxHeight: 220, objectFit: 'contain', background: '#faf7f2', borderRadius: 12, padding: 8 }}
+              />
+            ) : null}
           </div>
           <label style={{ display: 'block', marginBottom: 10 }}>
             <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Name</span>
@@ -1873,10 +1886,23 @@ function ProductStudioTab({
               <InputNumber min={1} value={heightMm} onChange={setHeightMm} style={{ width: '100%' }} />
             </label>
           </div>
-          <label style={{ display: 'block', marginBottom: 10 }}>
-            <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Customizer render (optional)</span>
-            <ImageDrop value={image} onChange={setImage} hint="Drop a new product photo to replace it" />
-          </label>
+          {product.kind === 'tote' ? (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10, marginBottom: 10 }}>
+              <label>
+                <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Front render</span>
+                <ImageDrop value={image} onChange={setImage} hint="Drop the tote front photo" />
+              </label>
+              <label>
+                <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Back render</span>
+                <ImageDrop value={imageBack} onChange={setImageBack} hint="Drop the tote back photo" />
+              </label>
+            </div>
+          ) : (
+            <label style={{ display: 'block', marginBottom: 10 }}>
+              <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Customizer render (optional)</span>
+              <ImageDrop value={image} onChange={setImage} hint="Drop a new product photo to replace it" />
+            </label>
+          )}
           {variants.length ? (
             <div style={{ marginBottom: 12 }}>
               <span style={{ display: 'block', marginBottom: 6, color: 'var(--ink-soft)' }}>
@@ -1911,10 +1937,10 @@ function ProductStudioTab({
             <Button
               onClick={() => {
                 setName(product.name || '')
-                setBasePrice(product.basePrice ?? 0)
                 setWidthMm(product.widthMm ?? 0)
                 setHeightMm(product.heightMm ?? 0)
                 setImage(null)
+                setImageBack(null)
               }}
               disabled={!dirty}
             >
@@ -1936,6 +1962,7 @@ function ProductsTab({ draft, set, cloud }) {
     shopifyVariantId: '',
     widthMm: 75,
     image: null,
+    imageBack: null,
   })
   const [selectedProductId, setSelectedProductId] = useState(null)
   const selectedProduct =
@@ -2142,6 +2169,7 @@ function ProductsTab({ draft, set, cloud }) {
   const addProduct = () => {
     if (!form.name.trim()) return message.warning('Give the product a name.')
     if (!form.image?.src) return message.warning('Upload the product body photo.')
+    if (form.kind === 'tote' && !form.imageBack?.src) return message.warning('Upload the tote back photo too.')
     const product = {
       id: `custom-prod-${slug(form.name)}-${rid()}`,
       name: form.name.trim(),
@@ -2151,10 +2179,11 @@ function ProductsTab({ draft, set, cloud }) {
       widthMm: Number(form.widthMm) || 75,
       heightMm,
       src: form.image.src,
+      srcBack: form.kind === 'tote' ? form.imageBack.src : undefined,
       colourLabel: 'Default',
     }
     set((d) => ({ ...d, customProducts: [product, ...(d.customProducts || [])] }))
-    setForm({ name: '', kind: 'phone', basePrice: 26, shopifyVariantId: '', widthMm: 75, image: null })
+    setForm({ name: '', kind: 'phone', basePrice: 26, shopifyVariantId: '', widthMm: 75, image: null, imageBack: null })
     message.success('Product added — Publish to save to Shopify.')
   }
 
@@ -2480,13 +2509,23 @@ function ProductsTab({ draft, set, cloud }) {
                 <Input value={heightMm ? `${heightMm} mm` : '—'} disabled />
               </label>
               <label style={{ gridColumn: '1 / -1' }}>
-                <span>Product body photo</span>
+                <span>{form.kind === 'tote' ? 'Tote front photo' : 'Product body photo'}</span>
                 <ImageDrop
                   value={form.image}
                   onChange={(image) => setForm((f) => ({ ...f, image }))}
                   hint="Click or drop the product photo on a clean background"
                 />
               </label>
+              {form.kind === 'tote' && (
+                <label style={{ gridColumn: '1 / -1' }}>
+                  <span>Tote back photo</span>
+                  <ImageDrop
+                    value={form.imageBack}
+                    onChange={(imageBack) => setForm((f) => ({ ...f, imageBack }))}
+                    hint="Click or drop the tote back photo"
+                  />
+                </label>
+              )}
             </div>
             <Button
               type="primary"

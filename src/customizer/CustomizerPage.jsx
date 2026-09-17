@@ -179,8 +179,9 @@ export default function CustomizerPage({
   const isMobile = useMedia('(max-width: 760px)')
   // Lazy catalogue accessor (built after the remote catalogue loads — see
   // products.js). Stable memoised array, safe to read every render.
-  // Tote is temporarily hidden from customers (merchant not selling it yet).
-  const PRODUCT_GROUPS = productGroups().filter((g) => g.key !== 'tote')
+  // Tote products stay available in Admin/storage, but are hidden from the
+  // customer picker until the merchant is ready to sell them.
+  const PRODUCT_GROUPS = productGroups()
   // Merchant settings (cross-sell prompt + discounts), loaded at startup.
   const appSettings = settings()
   const showDesignDrafts = appSettings.designDrafts?.enabled === true
@@ -653,9 +654,12 @@ export default function CustomizerPage({
   const [maskVersion, setMaskVersion] = useState(0)
   useEffect(() => onMaskReady(() => setMaskVersion((v) => v + 1)), [])
   const validation = useMemo(
-    () => validateLayout(placed, geometryProduct, { minCharms: MIN_CHARMS, maxCharms: MAX_CHARMS }),
+    () => validateLayout(placed, geometryProduct, {
+      minCharms: product.kind === 'tote' ? 0 : MIN_CHARMS,
+      maxCharms: MAX_CHARMS,
+    }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [placed, geometryProduct, maskVersion],
+    [placed, geometryProduct, maskVersion, product.kind],
   )
 
   // Tray groups for the active product kind (4 categories for phones, 3 types
@@ -808,6 +812,10 @@ export default function CustomizerPage({
     },
     [geometryProduct],
   )
+  const constrainPosition = useCallback(
+    (placedCharm) => product.kind === 'tote' ? placedCharm : clampToPrintable(placedCharm),
+    [product.kind, clampToPrintable],
+  )
 
   // Gate every add path on the overall cap and a legacy bundle charm's
   // per-piece limit. Shared pricing groups may exceed one block: the next
@@ -859,12 +867,12 @@ export default function CustomizerPage({
   const addAt = useCallback(
     (charm, mm) => {
       if (!canAddMore(charm)) return
-      const pc = clampToPrintable(
+      const pc = constrainPosition(
         makePlaced(charm, { cxMm: mm.xMm, cyMm: mm.yMm, rot: 0 }),
       )
       commitPlaced(pc)
     },
-    [canAddMore, clampToPrintable, makePlaced, commitPlaced],
+    [canAddMore, constrainPosition, makePlaced, commitPlaced],
   )
 
   // A relaxed "drop it anywhere" position for when the case is already busy:
@@ -898,7 +906,7 @@ export default function CustomizerPage({
         const spot = lastText
           ? nextTextCharmSpot(lastText, charm)
           : findFirstTextSpot(geometryProduct, prev, charm)
-        commitPlaced(clampToPrintable(makePlaced(charm, spot)))
+        commitPlaced(constrainPosition(makePlaced(charm, spot)))
         return
       }
       // Prefer a clear, non-overlapping spot — fillers tumble, everything else
@@ -909,9 +917,9 @@ export default function CustomizerPage({
       const spot =
         findScatterSpot(geometryProduct, prev, charm, charm.type === 3 ? {} : { rotMaxDeg: 0 }) ||
         fallbackSpot(prev, charm)
-      commitPlaced(clampToPrintable(makePlaced(charm, spot)))
+      commitPlaced(constrainPosition(makePlaced(charm, spot)))
     },
-    [canAddMore, geometryProduct, makePlaced, commitPlaced, clampToPrintable, fallbackSpot],
+    [canAddMore, geometryProduct, makePlaced, commitPlaced, constrainPosition, fallbackSpot],
   )
 
   const activateCharm = useCallback((charm) => addAuto(charm), [addAuto])
@@ -929,10 +937,10 @@ export default function CustomizerPage({
           const aligned = alignToNearestTextCharm(box, siblings)
           patch = { ...patch, cxMm: aligned.cx, cyMm: aligned.cy }
         }
-        return p.map((c) => (c.uid === id ? clampToPrintable({ ...c, ...patch }) : c))
+        return p.map((c) => (c.uid === id ? constrainPosition({ ...c, ...patch }) : c))
       })
     },
-    [clampToPrintable],
+    [constrainPosition],
   )
   const transformCharm = moveCharm
   const removeCharm = useCallback(
@@ -985,10 +993,12 @@ export default function CustomizerPage({
         }
         let ddx = dxMm
         let ddy = dyMm
-        if (minX + ddx < outer.xMm) ddx = outer.xMm - minX
-        if (maxX + ddx > outer.xMm + outer.wMm) ddx = outer.xMm + outer.wMm - maxX
-        if (minY + ddy < outer.yMm) ddy = outer.yMm - minY
-        if (maxY + ddy > outer.yMm + outer.hMm) ddy = outer.yMm + outer.hMm - maxY
+        if (product.kind !== 'tote') {
+          if (minX + ddx < outer.xMm) ddx = outer.xMm - minX
+          if (maxX + ddx > outer.xMm + outer.wMm) ddx = outer.xMm + outer.wMm - maxX
+          if (minY + ddy < outer.yMm) ddy = outer.yMm - minY
+          if (maxY + ddy > outer.yMm + outer.hMm) ddy = outer.yMm + outer.hMm - maxY
+        }
         return p.map((c) => {
           if (c.groupId !== groupId) return c
           const s = starts.get(c.uid)
@@ -1409,11 +1419,23 @@ export default function CustomizerPage({
     </div>
   ) : null
 
+  const stageColor = product.kind === 'tote'
+    ? {
+        ...color,
+        toteSide,
+        imageSrc:
+          product.blankImage?.[toteSide] ||
+          product.blankImage?.[color.id] ||
+          product.blankImage?.default ||
+          color.imageSrc,
+      }
+    : color
+
   const stageNode = (
     <ProductStage
       ref={stageApi}
       product={geometryProduct}
-      color={color}
+      color={stageColor}
       placed={placed}
       flags={validation.flags}
       selectedUid={selectedUid}
@@ -1591,7 +1613,7 @@ export default function CustomizerPage({
           <button
             type="button"
             className="mobile-order-bar"
-            disabled={placed.length === 0}
+            disabled={product.kind !== 'tote' && placed.length === 0}
             onClick={attemptOrder}
           >
             {isSecondProduct
@@ -1609,7 +1631,7 @@ export default function CustomizerPage({
             </div>
           )}
           <div className="panel panel--left">
-            <Tips />
+            <Tips product={product} />
             {showDesignDrafts && (
               <Button block icon={<FolderOpenOutlined />} style={{ marginTop: 12 }} onClick={() => setDraftsOpen(true)}>
                 My design drafts
@@ -1647,10 +1669,10 @@ export default function CustomizerPage({
                 <>
                   <p className="eyebrow" style={{ margin: 0 }}>{t('step2.desktopTitle')}</p>
                   <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
-                    {t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
+                    {product.kind === 'tote' ? t('step2.toteHint') : t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
                   </p>
                   <div className="charms-bar">
-                    <span className="charms-bar__title">{t('charms.label')}</span>
+                    <span className="charms-bar__title">{t(product.kind === 'tote' ? 'patches.label' : 'charms.label')}</span>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                       <span className="charms-bar__count">{t('charms.selected', { n: placed.length })}</span>
                       <Button
@@ -1766,17 +1788,22 @@ export default function CustomizerPage({
   )
 }
 
-function Tips() {
+function Tips({ product }) {
+  const tips = product?.kind === 'tote'
+    ? [
+        'Choose your base tote bag colour',
+        'Browse patches by different categories',
+        'Drag or tap a patch to add it to your tote.',
+        'Tap a patch on the tote to rotate or remove it.',
+        'If a patch is highlighted, it’s overlapping or outside the bag - simply adjust it before ordering.',
+        'Order your bespoke tote bag, we will customise it for you.',
+      ]
+    : [t('tips.1'), t('tips.2'), t('tips.3'), t('tips.4'), t('tips.5'), t('tips.6')]
   return (
     <div>
       <p className="eyebrow">{t('tips.title')}</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
-        <li>{t('tips.1')}</li>
-        <li>{t('tips.2')}</li>
-        <li>{t('tips.3')}</li>
-        <li>{t('tips.4')}</li>
-        <li>{t('tips.5')}</li>
-        <li>{t('tips.6')}</li>
+        {tips.map((tip) => <li key={tip}>{tip}</li>)}
       </ol>
     </div>
   )

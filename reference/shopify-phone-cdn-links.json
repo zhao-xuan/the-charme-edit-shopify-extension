@@ -1,0 +1,714 @@
+{
+  "generatedAt": "2026-09-16T19:52:36.747Z",
+  "source": "https://charme-customizer.pages.dev/api/catalog",
+  "phones": [
+    {
+      "id": "iphone-7",
+      "name": "iPhone 7",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-white-customizer-32b55fc77060.png?v=1789579463",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-black-customizer-6f4b210956d9.png?v=1789579469"
+    },
+    {
+      "id": "iphone-8",
+      "name": "iPhone 8",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-white-customizer-c0a76b5cae46.png?v=1789579473",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-black-customizer-6f4b210956d9.png?v=1789579479"
+    },
+    {
+      "id": "iphone-7-plus",
+      "name": "iPhone 7 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-white-customizer-5f7fd3c2db3d.png?v=1789579484",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-7-plus-black-customizer-bdba8821175b.png?v=1789579488"
+    },
+    {
+      "id": "iphone-8-plus",
+      "name": "iPhone 8 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-white-customizer-ce71ba73d2d4.png?v=1789579493",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-8-plus-black-customizer-bdba8821175b.png?v=1789579498"
+    },
+    {
+      "id": "iphone-x",
+      "name": "iPhone X",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-white-customizer-07b342063df0.png?v=1789579502",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-x-black-customizer-e6fe4e0a7915.png?v=1789579507"
+    },
+    {
+      "id": "iphone-xs",
+      "name": "iPhone XS",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-white-customizer-adf9cd163120.png?v=1789579512",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-black-customizer-da46516c7a4b.png?v=1789579517"
+    },
+    {
+      "id": "iphone-xs-max",
+      "name": "iPhone XS Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-white-customizer-7154e317ca83.png?v=1789579522",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xs-max-black-customizer-9f5fb40658fb.png?v=1789579527"
+    },
+    {
+      "id": "iphone-11",
+      "name": "iPhone 11",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-white-customizer-9a4296577655.png?v=1789579574",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-black-customizer-6cb98d321d30.png?v=1789579578"
+    },
+    {
+      "id": "iphone-11-pro",
+      "name": "iPhone 11 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-white-customizer-310dcbebb26b.png?v=1789579583",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-black-customizer-4bc9c2d1ad57.png?v=1789579588"
+    },
+    {
+      "id": "iphone-11-pro-max",
+      "name": "iPhone 11 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-white-customizer-de888d0805f2_9612f7dc-7e5b-44c0-9788-b6b321824eeb.png?v=1789579677",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-11-pro-max-black-customizer-afb60c11c389_5f960d3f-16c7-4c4b-9a38-8384ec76e799.png?v=1789579682"
+    },
+    {
+      "id": "iphone-12-mini",
+      "name": "iPhone 12 mini",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-white-customizer-cbfe8ead236a_e058f358-378e-4d15-a2a8-f74063f6abc1.png?v=1789579705",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-mini-black-customizer-48b88b689234.png?v=1789579709"
+    },
+    {
+      "id": "iphone-12",
+      "name": "iPhone 12",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-white-customizer-3f756ccbc64a.png?v=1789579714",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-black-customizer-7912e84ffbb4.png?v=1789579719"
+    },
+    {
+      "id": "iphone-12-pro",
+      "name": "iPhone 12 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-white-customizer-083458533244.png?v=1789579724",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-black-customizer-65651d14dd6a.png?v=1789579728"
+    },
+    {
+      "id": "iphone-12-pro-max",
+      "name": "iPhone 12 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-white-customizer-cb766c4a498a.png?v=1789579733",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-12-pro-max-black-customizer-35fc450bd9ef.png?v=1789579737"
+    },
+    {
+      "id": "iphone-13-mini",
+      "name": "iPhone 13 mini",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-white-customizer-f362f34a453f.png?v=1789579743",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-mini-black-customizer-7554f4aa0f34.png?v=1789579748"
+    },
+    {
+      "id": "iphone-13",
+      "name": "iPhone 13",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-white-customizer-bad8442364ae.png?v=1789579752",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-black-customizer-d6024251af4b.png?v=1789579757"
+    },
+    {
+      "id": "iphone-13-pro",
+      "name": "iPhone 13 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-white-customizer-5256def44f1a.png?v=1789579762",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-black-customizer-58afb5e95bd4.png?v=1789579767"
+    },
+    {
+      "id": "iphone-13-pro-max",
+      "name": "iPhone 13 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-white-customizer-b42cd54cb5d7.png?v=1789579772",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-13-pro-max-black-customizer-8f81a53d33fa.png?v=1789579777"
+    },
+    {
+      "id": "iphone-14",
+      "name": "iPhone 14",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-white-customizer-8f2a59d67fd0.png?v=1789579782",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-black-customizer-6d4b9bd56d9e.png?v=1789579786"
+    },
+    {
+      "id": "iphone-14-plus",
+      "name": "iPhone 14 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-white-customizer-ff018410b095.png?v=1789579791",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-plus-black-customizer-dcc21ee5ef08.png?v=1789579797"
+    },
+    {
+      "id": "iphone-14-pro",
+      "name": "iPhone 14 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-white-customizer-f73ab206fd22_a279370f-c6b1-4979-b07f-b3fe97b6a43a.png?v=1789587560",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-black-customizer-79a66845faa5_b29cb6bb-9c1a-4f18-bd7f-61bf375900b7.png?v=1789587565"
+    },
+    {
+      "id": "iphone-14-pro-max",
+      "name": "iPhone 14 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-white-customizer-acc084ebd7e2_cfaedd05-8ded-466d-ac0a-bdd54f1e2427.png?v=1789587570",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-14-pro-max-black-customizer-fa230f4c6d97_1eebe786-2d23-444b-86e7-939477d1d6b0.png?v=1789587575"
+    },
+    {
+      "id": "iphone-15",
+      "name": "iPhone 15",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-white-customizer-f94cd6756a3f_dcf7e7bd-fd8d-4df1-a426-ae316a3a18bb.png?v=1789587580",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-black-customizer-ad278b4065e6_c6604239-be4f-4835-a034-22ec9e557456.png?v=1789587585"
+    },
+    {
+      "id": "iphone-15-plus",
+      "name": "iPhone 15 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-white-customizer-20ff56bbe523_7ece4e09-dcc8-4c59-9039-2272afbe5044.png?v=1789587590",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-plus-black-customizer-2832766374ec.png?v=1789587595"
+    },
+    {
+      "id": "iphone-15-pro",
+      "name": "iPhone 15 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-white-customizer-492029e10dc4.png?v=1789587602",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-black-customizer-a0c74f1a9424.png?v=1789587607"
+    },
+    {
+      "id": "iphone-15-pro-max",
+      "name": "iPhone 15 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-white-customizer-2a039ddc6419.png?v=1789587612",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-15-pro-max-black-customizer-4fc60e4e5f34.png?v=1789587623"
+    },
+    {
+      "id": "iphone-16",
+      "name": "iPhone 16",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-white-customizer-127c3a10fbf7.png?v=1789587634",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-black-customizer-bfcd81339165.png?v=1789587639"
+    },
+    {
+      "id": "iphone-16-plus",
+      "name": "iPhone 16 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-white-customizer-d6b69e9e3805.png?v=1789587644",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-plus-black-customizer-59066138864c.png?v=1789587650"
+    },
+    {
+      "id": "iphone-16-pro",
+      "name": "iPhone 16 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-white-customizer-afc323e5c7fb.png?v=1789587655",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-black-customizer-0116979b862e.png?v=1789587660"
+    },
+    {
+      "id": "iphone-16-pro-max",
+      "name": "iPhone 16 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-white-customizer-cd9976d4b6b6.png?v=1789587665",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16-pro-max-black-customizer-579948f79cc9.png?v=1789587669"
+    },
+    {
+      "id": "iphone-17",
+      "name": "iPhone 17",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-white-customizer-f786597aab02.png?v=1789587688",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-black-customizer-2a1fa16074ab.png?v=1789587692"
+    },
+    {
+      "id": "iphone-17-pro",
+      "name": "iPhone 17 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-white-customizer-c193767e03a7.png?v=1789587698",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-black-customizer-4c10370fd450.png?v=1789587703"
+    },
+    {
+      "id": "iphone-17-pro-max",
+      "name": "iPhone 17 Pro Max",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-white-customizer-08245d0f6cbc.png?v=1789587708",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17-pro-max-black-customizer-9631ae2b89a4.png?v=1789587714"
+    },
+    {
+      "id": "iphone-air",
+      "name": "iPhone Air",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-white-customizer-913fa41e4c42.png?v=1789587729",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-air-black-customizer-4d04c9059108.png?v=1789587737"
+    },
+    {
+      "id": "galaxy-s24-ultra",
+      "name": "Galaxy S24 Ultra",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-white-customizer-6825655ed211.png?v=1789587752",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-ultra-black-customizer-25dfa7708561.png?v=1789587757"
+    },
+    {
+      "id": "galaxy-s24-plus",
+      "name": "Galaxy S24 +",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-plus-white-customizer-ff56ecf4502f.png?v=1789587762",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-plus-black-customizer-661322f91d88.png?v=1789587768"
+    },
+    {
+      "id": "galaxy-s24",
+      "name": "Galaxy S24",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-white-customizer-4b964a652cb9.png?v=1789587772",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-black-customizer-112facc67f69.png?v=1789587777"
+    },
+    {
+      "id": "galaxy-s23-ultra",
+      "name": "Galaxy S23 Ultra",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-white-customizer-cf9d22f59bf6.png?v=1789587783",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-ultra-black-customizer-fb684b23d173.png?v=1789587788"
+    },
+    {
+      "id": "galaxy-s23-plus",
+      "name": "Galaxy S23 +",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-white-customizer-2ded39acdd67.png?v=1789587793",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-plus-black-customizer-e2810f10bab5.png?v=1789587799"
+    },
+    {
+      "id": "galaxy-s23",
+      "name": "Galaxy S23",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-white-customizer-7327bb74c1b2.png?v=1789587804",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-black-customizer-dfb299e2f8a9.png?v=1789587820"
+    },
+    {
+      "id": "galaxy-s22-ultra",
+      "name": "Galaxy S22 Ultra",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-white-customizer-997e871d219a_5204f384-c0ff-40d1-847c-b20b508819d8.png?v=1789587908",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-ultra-black-customizer-1421997cef15.png?v=1789587914"
+    },
+    {
+      "id": "galaxy-s22-plus",
+      "name": "Galaxy S22 +",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-plus-white-customizer-ba9fa85566b1.png?v=1789587919",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-plus-black-customizer-535179f1f7d5.png?v=1789587924"
+    },
+    {
+      "id": "galaxy-s22",
+      "name": "Galaxy S22",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-white-customizer-98563433fd48.png?v=1789587929",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s22-black-customizer-b18677f9f112.png?v=1789587934"
+    },
+    {
+      "id": "xiaomi-14-pro",
+      "name": "Xiaomi 14 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/xiaomi-14-pro-white-case-review.png?v=1784413486",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/xiaomi-14-pro-black-case-review.png?v=1784413484"
+    },
+    {
+      "id": "iphone-16e",
+      "name": "iPhone 16e",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-white-customizer-089cf9ddff77.png?v=1789587674",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-16e-black-customizer-c91b07dd91dc.png?v=1789587682"
+    },
+    {
+      "id": "iphone-17e",
+      "name": "iPhone 17e",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-white-customizer-b22be11ff5c6.png?v=1789587719",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-17e-black-customizer-f07660874550.png?v=1789587724"
+    },
+    {
+      "id": "iphone-se-2020",
+      "name": "iPhone SE (2020)",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2020-white-customizer-c0a76b5cae46.png?v=1789579541",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2020-black-customizer-6f4b210956d9.png?v=1789579546"
+    },
+    {
+      "id": "iphone-se-2022",
+      "name": "iPhone SE (2022)",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2022-white-customizer-c0a76b5cae46.png?v=1789579552",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-se-2022-black-customizer-6f4b210956d9.png?v=1789579557"
+    },
+    {
+      "id": "iphone-6-6s",
+      "name": "iPhone 6 / 6s",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-white-customizer-6b434c0e495a.png?v=1789579562",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-6-6s-black-customizer-fe97f92a15fa.png?v=1789579568"
+    },
+    {
+      "id": "iphone-xr",
+      "name": "iPhone XR",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-white-customizer-0eaefdb154ab.png?v=1789579532",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-xr-black-customizer-90d1ae4ba716.png?v=1789579536"
+    },
+    {
+      "id": "galaxy-a55",
+      "name": "Galaxy A55 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a55-white-without-gel-derived-official-source-7f83269b6a4e.png?v=1785574504",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a55-black-without-gel-official-source-1b8f5a1c9b72.png?v=1785574428"
+    },
+    {
+      "id": "galaxy-s23-fe",
+      "name": "Galaxy S23 FE",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-fe-white-customizer-6716b7f2ab54_706b3e44-98bc-43e2-8bc3-f8d7d03aa5df.png?v=1789587897",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s23-fe-black-customizer-9596ad03632f_7afc043a-ad97-46b6-b593-1b124a407e21.png?v=1789587903"
+    },
+    {
+      "id": "galaxy-s24-fe",
+      "name": "Galaxy S24 FE",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-fe-white-customizer-99575114c79a.png?v=1789587857",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s24-fe-black-customizer-a041c77aea06.png?v=1789587862"
+    },
+    {
+      "id": "galaxy-s25",
+      "name": "Galaxy S25",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-white-customizer-5696355f1ecf.png?v=1789587847",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-black-customizer-bd071b3ab183.png?v=1789587852"
+    },
+    {
+      "id": "galaxy-s25-plus",
+      "name": "Galaxy S25 +",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-plus-white-customizer-3b13e7428e60.png?v=1789587837",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-plus-black-customizer-19ad69df14cb.png?v=1789587841"
+    },
+    {
+      "id": "galaxy-s25-ultra",
+      "name": "Galaxy S25 Ultra",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-ultra-white-customizer-9acb64251169.png?v=1789587826",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s25-ultra-black-customizer-cc0aa6fcb07a.png?v=1789587831"
+    },
+    {
+      "id": "pixel-8-pro",
+      "name": "Pixel 8 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-pro-white-customizer-d3e495f8bce1.png?v=1789588149",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-pro-black-customizer-1b1eb0efb864.png?v=1789588155"
+    },
+    {
+      "id": "pixel-8a",
+      "name": "Pixel 8a",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8a-white-customizer-f841382c1e52.png?v=1789588138",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8a-black-customizer-fdf833106f94.png?v=1789588145"
+    },
+    {
+      "id": "pixel-9",
+      "name": "Pixel 9",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-white-customizer-4103a5e1a7d6.png?v=1789588129",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-black-customizer-6e50e96b2ba6.png?v=1789588133"
+    },
+    {
+      "id": "pixel-9-pro",
+      "name": "Pixel 9 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-white-customizer-38768e3319d5.png?v=1789588119",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-black-customizer-6a72fcc9cdef.png?v=1789588124"
+    },
+    {
+      "id": "pixel-9-pro-xl",
+      "name": "Pixel 9 Pro XL",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-xl-white-customizer-e89a64cd697e.png?v=1789588258",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9-pro-xl-black-customizer-8239efdae957.png?v=1789588263"
+    },
+    {
+      "id": "galaxy-a14-5g",
+      "name": "Galaxy A14 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a14-5g-white-without-gel-derived-official-source-b80e2bf1fd1a.png?v=1785576515",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a14-5g-black-without-gel-official-source-6aa9fcf2346c.png?v=1785576431"
+    },
+    {
+      "id": "galaxy-a54",
+      "name": "Galaxy A54 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a54-white-without-gel-derived-official-source-07572f19631c.png?v=1785576522",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a54-black-without-gel-official-source-bff2ad5544e9.png?v=1785576438"
+    },
+    {
+      "id": "galaxy-a73",
+      "name": "Galaxy A73 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a73-white-without-gel-derived-official-source-8c47d4589aec.png?v=1785576528",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a73-black-without-gel-official-source-cd1c400c8789.png?v=1785576445"
+    },
+    {
+      "id": "galaxy-s21-fe",
+      "name": "Galaxy S21 FE",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-fe-white-customizer-8a19190c20d2.png?v=1789588061",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-fe-black-customizer-0d827e7c26c3.png?v=1789588066"
+    },
+    {
+      "id": "galaxy-s21-plus",
+      "name": "Galaxy S21 +",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-plus-white-customizer-5e406710de15.png?v=1789588042",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-plus-black-customizer-cd35d6fcf087.png?v=1789588046"
+    },
+    {
+      "id": "galaxy-s21-ultra",
+      "name": "Galaxy S21 Ultra",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-ultra-white-customizer-a0c8992cdf29.png?v=1789588032",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-ultra-black-customizer-7848949609c5.png?v=1789588037"
+    },
+    {
+      "id": "pixel-6",
+      "name": "Pixel 6",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-white-without-gel-derived-official-source-f412fca36ead.png?v=1785576555",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-black-without-gel-official-source-6a172dc3e358.png?v=1785576472"
+    },
+    {
+      "id": "pixel-6-pro",
+      "name": "Pixel 6 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-pro-white-customizer-18bcd6b92ac5.png?v=1789588208",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6-pro-black-customizer-2db6d096d1d5.png?v=1789588212"
+    },
+    {
+      "id": "pixel-7",
+      "name": "Pixel 7",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-white-customizer-f841382c1e52.png?v=1789588188",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-black-customizer-805ca2140a8c.png?v=1789588193"
+    },
+    {
+      "id": "pixel-7-pro",
+      "name": "Pixel 7 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-pro-white-customizer-bc6db35c4cb0.png?v=1789588179",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7-pro-black-customizer-9dc38aeb907b.png?v=1789588184"
+    },
+    {
+      "id": "pixel-7a",
+      "name": "Pixel 7a",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7a-white-customizer-bcf196407459.png?v=1789588170",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-7a-black-customizer-6e973b8a73e3.png?v=1789588175"
+    },
+    {
+      "id": "pixel-8",
+      "name": "Pixel 8",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-white-customizer-ac844767da6b.png?v=1789588160",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-8-black-customizer-081f2fb537ac.png?v=1789588165"
+    },
+    {
+      "id": "galaxy-a53",
+      "name": "Galaxy A53",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a53-white-without-gel-derived-official-source-6a8ca4808bf9.png?v=1785579326",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a53-black-without-gel-derived-official-source-21b1de25c8f7.png?v=1785579321"
+    },
+    {
+      "id": "galaxy-s21",
+      "name": "Galaxy S21",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-white-customizer-b3291ed289c0.png?v=1789588051",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s21-black-customizer-4b7415247332.png?v=1789588056"
+    },
+    {
+      "id": "pixel-6a",
+      "name": "Pixel 6a",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6a-white-customizer-85bbb5047a2b.png?v=1789588198",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-6a-black-customizer-3e6107d00255.png?v=1789588203"
+    },
+    {
+      "id": "galaxy-a13-4g",
+      "name": "Galaxy A13 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a13-4g-white-without-gel-derived-official-source-77e3165ad080.png?v=1785580837",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a13-4g-black-without-gel-official-source-c060176075b2.png?v=1785580796"
+    },
+    {
+      "id": "galaxy-a56-5g",
+      "name": "Galaxy A56 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a56-5g-white-without-gel-derived-official-source-575e9e200dee.png?v=1785580844",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a56-5g-black-without-gel-official-source-baad420fcfef.png?v=1785580802"
+    },
+    {
+      "id": "galaxy-s10-4g",
+      "name": "Galaxy S10 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-4g-white-without-gel-derived-official-source-368dbd31f818.png?v=1785580859",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-4g-black-without-gel-official-source-b0c8922498b2.png?v=1785580809"
+    },
+    {
+      "id": "galaxy-s20-4g-5g",
+      "name": "Galaxy S20 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-4g-5g-white-without-gel-derived-official-source-2257d285ead7.png?v=1785580866",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-4g-5g-black-without-gel-official-source-46ba55fed047.png?v=1785580816"
+    },
+    {
+      "id": "galaxy-s20-ultra-4g-5g",
+      "name": "Galaxy S20 Ultra 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-ultra-4g-5g-white-without-gel-official-source-62d28ff15103.png?v=1785580830",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-ultra-4g-5g-black-without-gel-official-source-231525c9e3cb.png?v=1785580823"
+    },
+    {
+      "id": "galaxy-a71-4g",
+      "name": "Galaxy A71 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a71-4g-white-without-gel-derived-official-source-b7c29ed829a0.png?v=1785580853",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a71-4g-black-without-gel-derived-official-source-32452860c81d.png?v=1785580848"
+    },
+    {
+      "id": "galaxy-s20-fe-4g-5g",
+      "name": "Galaxy S20 FE 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-fe-4g-5g-white-without-gel-derived-official-source-1af27aa4024b.png?v=1785580876",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-fe-4g-5g-black-without-gel-derived-official-source-a6156001be6a.png?v=1785580872"
+    },
+    {
+      "id": "galaxy-s20-plus-4g-5g",
+      "name": "Galaxy S20 + 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-plus-4g-5g-white-customizer-7ed129112a1e.png?v=1789588070",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s20-plus-4g-5g-black-customizer-a3c50028354f.png?v=1789588076"
+    },
+    {
+      "id": "galaxy-s10-lite",
+      "name": "Galaxy S10 Lite",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-lite-white-without-gel-derived-official-source-3b09dfcf2cc8.png?v=1785613761",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-lite-black-without-gel-derived-official-source-2082da1b5d1d.png?v=1785613756"
+    },
+    {
+      "id": "galaxy-a12-4g",
+      "name": "Galaxy A12 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a12-4g-white-without-gel-derived-official-source-fc417ed1c847.png?v=1785616656",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a12-4g-black-without-gel-derived-official-source-d9f3521b145d.png?v=1785616652"
+    },
+    {
+      "id": "galaxy-a21s-4g",
+      "name": "Galaxy A21s 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a21s-4g-white-without-gel-derived-official-source-0a12bd89d38d.png?v=1785616664",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a21s-4g-black-without-gel-derived-official-source-b0f0cb241b7b.png?v=1785616660"
+    },
+    {
+      "id": "galaxy-a25",
+      "name": "Galaxy A25",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a25-white-without-gel-derived-official-source-d967224ef08f.png?v=1785616672",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a25-black-without-gel-derived-official-source-942812132440.png?v=1785616668"
+    },
+    {
+      "id": "galaxy-a26-5g",
+      "name": "Galaxy A26 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a26-5g-white-without-gel-derived-official-source-0e29aa21e5ea.png?v=1785616681",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a26-5g-black-without-gel-derived-official-source-142531c1cff3.png?v=1785616677"
+    },
+    {
+      "id": "galaxy-a32-5g",
+      "name": "Galaxy A32 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a32-5g-white-without-gel-derived-official-source-11390cca72bb.png?v=1785616689",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a32-5g-black-without-gel-derived-official-source-ce09c327d933.png?v=1785616685"
+    },
+    {
+      "id": "galaxy-a33",
+      "name": "Galaxy A33",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a33-white-without-gel-derived-official-source-8ce22b836934.png?v=1785616697",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a33-black-without-gel-derived-official-source-21086f19391b.png?v=1785616693"
+    },
+    {
+      "id": "galaxy-a34",
+      "name": "Galaxy A34",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a34-white-without-gel-derived-official-source-4026eaf06657.png?v=1785616704",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a34-black-without-gel-derived-official-source-efcd40bf98b2.png?v=1785616700"
+    },
+    {
+      "id": "galaxy-a35",
+      "name": "Galaxy A35",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a35-white-without-gel-derived-official-source-d467a3fed803.png?v=1785616712",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a35-black-without-gel-derived-official-source-434bc2b783d0.png?v=1785616708"
+    },
+    {
+      "id": "galaxy-a36-5g",
+      "name": "Galaxy A36 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a36-5g-white-without-gel-derived-official-source-a3a7e10ffa0c.png?v=1785616720",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a36-5g-black-without-gel-derived-official-source-0357cf30f47c.png?v=1785616715"
+    },
+    {
+      "id": "galaxy-a50",
+      "name": "Galaxy A50",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a50-white-without-gel-derived-official-source-9b1bd0f593c3.png?v=1785616729",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a50-black-without-gel-derived-official-source-928882487119.png?v=1785616724"
+    },
+    {
+      "id": "galaxy-a51-4g",
+      "name": "Galaxy A51 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a51-4g-white-without-gel-derived-official-source-184d1e899082.png?v=1785616737",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a51-4g-black-without-gel-derived-official-source-20f7ebc39a65.png?v=1785616733"
+    },
+    {
+      "id": "galaxy-a72-4g",
+      "name": "Galaxy A72 4G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a72-4g-white-without-gel-derived-official-source-3b3a1c056e1b.png?v=1785617110",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a72-4g-black-without-gel-derived-official-source-7c27f3579172.png?v=1785617104"
+    },
+    {
+      "id": "galaxy-note-20-4g-5g",
+      "name": "Galaxy Note 20 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-4g-5g-white-without-gel-derived-official-source-e2e3a305d076.png?v=1785618793",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-4g-5g-black-without-gel-derived-official-source-9f1b900a7e8e.png?v=1785618790"
+    },
+    {
+      "id": "galaxy-note-20-ultra-4g-5g",
+      "name": "Galaxy Note 20 Ultra 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-ultra-4g-5g-white-without-gel-derived-official-source-7253943d807e.png?v=1785618802",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-20-ultra-4g-5g-black-without-gel-derived-official-source-3bce157677ed.png?v=1785618798"
+    },
+    {
+      "id": "galaxy-s10-plus",
+      "name": "Galaxy S10+",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-plus-white-without-gel-derived-official-source-6e239e03976a.png?v=1785619625",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10-plus-black-without-gel-derived-official-source-e22046f92baa.png?v=1785619620"
+    },
+    {
+      "id": "galaxy-s9",
+      "name": "Galaxy S9",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-white-without-gel-derived-official-source-b04a100d7016.png?v=1785620506",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-black-without-gel-derived-official-source-819f961a4acd.png?v=1785620501"
+    },
+    {
+      "id": "galaxy-s9-plus",
+      "name": "Galaxy S9+",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-plus-white-without-gel-derived-official-source-e19cdbd01369.png?v=1785620517",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s9-plus-black-without-gel-derived-official-source-f42dabc57ab6.png?v=1785620510"
+    },
+    {
+      "id": "pixel-10",
+      "name": "Pixel 10",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-white-customizer-cbcca544abf1.png?v=1789588101",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-black-customizer-47add9050252.png?v=1789588106"
+    },
+    {
+      "id": "pixel-10-pro",
+      "name": "Pixel 10 Pro",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-white-customizer-bf73f84ed09b.png?v=1789588091",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-black-customizer-af0c5f174c14.png?v=1789588095"
+    },
+    {
+      "id": "pixel-10-pro-xl",
+      "name": "Pixel 10 Pro XL",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-white-customizer-fd81814a6b80.png?v=1789588268",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-10-pro-xl-black-customizer-b557455c3d09.png?v=1789588271"
+    },
+    {
+      "id": "pixel-9a",
+      "name": "Pixel 9a",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9a-white-customizer-4930092d9661.png?v=1789588110",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-9a-black-customizer-38552c72fd78.png?v=1789588114"
+    },
+    {
+      "id": "pixel-5",
+      "name": "Pixel 5",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-5-white-customizer-1359f10c9d8c_17c74c74-b1f2-4184-883e-612ee9c639c8.png?v=1789588231",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/pixel-5-black-customizer-eab07f8675a4_5ddfb842-e016-4550-9055-ed4a14353b8b.png?v=1789588237"
+    },
+    {
+      "id": "galaxy-a40",
+      "name": "Galaxy A40",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a40-white-without-gel-derived-verified-retail-source-ebb9d12e3635.png?v=1785661593",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a40-black-without-gel-derived-verified-retail-source-bcae81b6fbc3.png?v=1785661586"
+    },
+    {
+      "id": "galaxy-a70",
+      "name": "Galaxy A70",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a70-white-without-gel-derived-verified-retail-source-e601f0a72d15.png?v=1785661601",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a70-black-without-gel-derived-verified-retail-source-9d789679899d.png?v=1785661596"
+    },
+    {
+      "id": "galaxy-note-10",
+      "name": "Galaxy Note 10",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-white-without-gel-derived-verified-retail-source-c3c601301e98.png?v=1785662862",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-black-without-gel-derived-verified-retail-source-accbc4541d41.png?v=1785662858"
+    },
+    {
+      "id": "galaxy-note-10-plus",
+      "name": "Galaxy Note 10 Plus",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-plus-white-without-gel-derived-verified-retail-source-f15c24849df0.png?v=1785666173",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-10-plus-black-without-gel-derived-verified-retail-source-e0332e634005.png?v=1785666169"
+    },
+    {
+      "id": "galaxy-s10e",
+      "name": "Galaxy S10e",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10e-white-without-gel-derived-verified-retail-source-5999622df251.png?v=1785666535",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-s10e-black-without-gel-derived-verified-retail-source-95857fd23ce6.png?v=1785666531"
+    },
+    {
+      "id": "galaxy-note-9",
+      "name": "Galaxy Note 9",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-9-white-without-gel-derived-verified-retail-source-b86a5a1f3069.png?v=1785677370",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-note-9-black-without-gel-derived-verified-retail-source-b5d112733360.png?v=1785677356"
+    },
+    {
+      "id": "galaxy-a15-4g-5g",
+      "name": "Galaxy A15 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a15-4g-5g-white-without-gel-derived-verified-retail-source-6c17777bdd34.png?v=1785682691",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a15-4g-5g-black-without-gel-derived-verified-retail-source-aebb357585dd.png?v=1785682687"
+    },
+    {
+      "id": "galaxy-a22-5g",
+      "name": "Galaxy A22 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a22-5g-white-without-gel-derived-verified-retail-source-2bb9a44bba07.png?v=1785686485",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a22-5g-black-without-gel-derived-verified-retail-source-46c82bc68f61.png?v=1785686481"
+    },
+    {
+      "id": "galaxy-a16",
+      "name": "Galaxy A16 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a16-white-without-gel-derived-official-source-0aa9fac9647d.png?v=1785687557",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a16-black-without-gel-derived-official-source-4a9fa21decab.png?v=1785687552"
+    },
+    {
+      "id": "galaxy-a17",
+      "name": "Galaxy A17",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a17-white-without-gel-derived-official-source-b32e88d5b66b.png?v=1785688037",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a17-black-without-gel-derived-official-source-c5902bb47c15.png?v=1785688032"
+    },
+    {
+      "id": "galaxy-a23-4g-5g",
+      "name": "Galaxy A23 4G / 5G",
+      "white": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a23-4g-5g-white-without-gel-derived-verified-retail-source-41bb72677d83.png?v=1785696384",
+      "black": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/galaxy-a23-4g-5g-black-without-gel-derived-verified-retail-source-fa6142a22cb9.png?v=1785696380"
+    }
+  ]
+}

@@ -89,10 +89,13 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
   const designToken = token()
   const proofUrl = await uploadProof(
     cfg.uploadEndpoint,
-    payload.proofs?.sampleUrl,
+    payload.proofs?.frontUrl || payload.proofs?.sampleUrl,
     designToken,
     payload.proofUploadMode,
   )
+  const backProofUrl = payload.proofs?.backUrl
+    ? await uploadProof(cfg.uploadEndpoint, payload.proofs.backUrl, designToken, payload.proofUploadMode)
+    : null
 
   const charmVariant = (charm) =>
     resolveVariant(
@@ -144,8 +147,10 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
       properties: {
         _design_token: designToken,
         Design: `${payload.charms.length} charms`,
+        Type: payload.product.kind || 'phone',
         Finish: payload.product.color,
         ...(proofUrl ? { Proof: proofUrl } : {}),
+        ...(backProofUrl ? { 'Proof back': backProofUrl } : {}),
         _layout: JSON.stringify({
           product: payload.product,
           charms: payload.charms,
@@ -202,6 +207,7 @@ function createDraftOrderHandler(cfg) {
         product: payload.product,
         charms: payload.charms,
         preview: payload.preview || payload.proofs?.sampleUrl || null,
+        proofs: payload.proofs || null,
       }),
     })
     const data = await res.json().catch(() => ({}))

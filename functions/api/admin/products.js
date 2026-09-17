@@ -27,6 +27,7 @@ export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const p = (await request.json().catch(() => null)) || {}
   if (!p.src) return bad('product needs a body image')
+  if (p.kind === 'tote' && !p.srcBack) return bad('tote product needs front and back body images')
   if (
     Object.prototype.hasOwnProperty.call(p, 'shopifyVariantId') &&
     p.shopifyVariantId != null &&
@@ -42,6 +43,9 @@ export async function onRequestPost({ request, env }) {
       filename: `${id}.png`,
       alt: p.name || 'Product',
     })
+    const backUpload = p.srcBack
+      ? await storeImageToFiles(env, p.srcBack, { filename: `${id}-back.png`, alt: `${p.name || 'Product'} back` })
+      : { url: null, id: null }
     const rec = {
       id,
       name: p.name || 'Custom product',
@@ -51,11 +55,12 @@ export async function onRequestPost({ request, env }) {
       widthMm: p.widthMm || 75,
       heightMm: p.heightMm || 150,
       src: url,
+      srcBack: backUpload.url || undefined,
       imageId: imageId || null,
       colourLabel: p.colourLabel || 'Default',
       active: true,
     }
-    await saveRecord(env, TYPES.product, id, rec, { image: imageId })
+    await saveRecord(env, TYPES.product, id, rec, { image: imageId, imageBack: backUpload.id })
     // Cascade: a phone model must have its real sellable variants (one per
     // colour) on the single custom-charm-phone-case product. Best-effort — a
     // missing write_products scope must not block creating the metaobject.
@@ -118,6 +123,11 @@ export async function onRequestPatch({ request, env }) {
       const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
       rec.src = url
       imageGids.image = imageId
+    }
+    if (body.srcBack && /^data:/.test(body.srcBack)) {
+      const { url, id: imageId } = await storeImageToFiles(env, body.srcBack, { filename: `${id}-back.png`, alt: `${name || rec.name} back` })
+      rec.srcBack = url
+      imageGids.imageBack = imageId
     }
     await saveRecord(env, TYPES.product, id, rec, imageGids)
     return json({ ok: true }, { headers: cors })

@@ -46,6 +46,14 @@ function buildOptions(group) {
   return group.products.map(toOption)
 }
 
+function toteColour(candidate) {
+  const text = `${candidate.id || ''} ${candidate.name || ''}`.toLowerCase()
+  if (text.includes('navy')) return '#1f2d38'
+  if (text.includes('olive') || text.includes('green')) return '#68734a'
+  if (text.includes('cream') || text.includes('white')) return '#f2ece1'
+  return candidate.colors?.[0]?.shell || candidate.caseColours?.[0]?.shell || '#e9dec6'
+}
+
 function ColourGroup({ title, colours, value, onChange }) {
   return (
     <div style={{ marginBottom: 14 }}>
@@ -93,8 +101,7 @@ export default function ProductPicker({
   presentmentPrice,
   presentmentPrices = {},
 }) {
-  // Tote is temporarily hidden from customers (merchant not selling it yet).
-  const PRODUCT_GROUPS = productGroups().filter((g) => g.key !== 'tote')
+  const PRODUCT_GROUPS = productGroups()
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
   const product = group.products.find((p) => p.id === productId) || group.products[0]
 
@@ -102,6 +109,7 @@ export default function ProductPicker({
   const gelColours = product.gelColours
 
   const options = buildOptions(group)
+  const isTote = group.key === 'tote'
   const formatProductPrice = (candidate) => {
     if (candidate.kind === 'phone') {
       const candidateId = candidate.id || candidate.value
@@ -130,6 +138,7 @@ export default function ProductPicker({
         ))}
       </div>
 
+      {!isTote && (
       <Select
         value={productId}
         onChange={onProductChange}
@@ -168,8 +177,21 @@ export default function ProductPicker({
           </div>
         )}
       />
+      )}
 
-      {gelColours ? (
+      {isTote ? (
+        <ColourGroup
+          title={t('picker.colour')}
+          colours={group.products.map((candidate) => ({
+            id: candidate.id,
+            label: candidate.name.replace(/^The Charmé Edit Tote\s*-\s*/i, ''),
+            shell: toteColour(candidate),
+            price: formatProductPrice(candidate),
+          }))}
+          value={productId}
+          onChange={onProductChange}
+        />
+      ) : gelColours ? (
         <ColourGroup
           title={t('picker.gelColour')}
           colours={gelColours}

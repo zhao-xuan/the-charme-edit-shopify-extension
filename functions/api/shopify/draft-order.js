@@ -182,7 +182,7 @@ export async function onRequestPost({ request, env }) {
   }
   const product = payload.product || {}
   const charms = Array.isArray(payload.charms) ? payload.charms : []
-  if (!product.id || !charms.length) return json({ error: 'design has no product or charms' }, 400)
+  if (!product.id || (product.kind !== 'tote' && !charms.length)) return json({ error: 'design has no product or charms' }, 400)
 
   const token = payload.designToken || `cd_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`
   const origin = new URL(request.url).origin
@@ -253,7 +253,14 @@ export async function onRequestPost({ request, env }) {
     entriesByKey.set(key, current)
   }
 
-  const proofUrl = await storeProof(env, origin, token, payload.preview)
+  const proofInputs = product.kind === 'tote'
+    ? { front: payload.proofs?.frontUrl, back: payload.proofs?.backUrl }
+    : { front: payload.preview }
+  const proofUrls = {}
+  for (const [side, dataUrl] of Object.entries(proofInputs)) {
+    if (dataUrl) proofUrls[side] = await storeProof(env, origin, `${token}-${side}`, dataUrl)
+  }
+  const proofUrl = proofUrls.front || null
 
   const finish = product.color || product.colorId || ''
   const kind = BASE_PRICE[product.kind] != null ? product.kind : 'phone'
@@ -285,12 +292,14 @@ export async function onRequestPost({ request, env }) {
     })
   })
   baseAttributes.push({ key: 'Charms subtotal', value: `£${money(charmsTotal)}` })
-  if (proofUrl) baseAttributes.push({ key: 'Proof', value: proofUrl })
+  if (proofUrls.front) baseAttributes.push({ key: product.kind === 'tote' ? 'Proof front' : 'Proof', value: proofUrls.front })
+  if (proofUrls.back) baseAttributes.push({ key: 'Proof back', value: proofUrls.back })
+  baseAttributes.push({ key: 'Type', value: kind })
   // Internal props (underscore = hidden from storefront/checkout, kept on order).
   baseAttributes.push({ key: '_design_token', value: token })
   baseAttributes.push({
     key: '_layout',
-    value: JSON.stringify({ product, charms, proof: proofUrl }).slice(0, 4000),
+    value: JSON.stringify({ product, charms, proofs: proofUrls }).slice(0, 4000),
   })
 
   const lineItems = [

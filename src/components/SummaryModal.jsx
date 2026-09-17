@@ -10,7 +10,7 @@ import { t } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { downloadPng } from '../lib/downloadImage'
 
-const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
+const TOTE_TYPE_LABEL = { 1: 'Patches', 2: 'Patches', 3: 'Patches' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
 
 /**
@@ -63,13 +63,14 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   const isMobile = useMedia('(max-width: 760px)')
   const [loading, setLoading] = useState(false)
   const [previewUrl, setPreviewUrl] = useState(null)
+  const [totePreviews, setTotePreviews] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
   // Charms whose final look is only indicative → red dashed outline + disclaimer.
   // Fillers (type 3) are arranged by hand; unique charms vary by nature.
   const variableUids = useMemo(
-    () => placed.filter((c) => c.type === 3 || c.category === 'unique').map((c) => c.uid),
-    [placed],
+    () => product.kind === 'tote' ? [] : placed.filter((c) => c.type === 3 || c.category === 'unique').map((c) => c.uid),
+    [placed, product.kind],
   )
   const hasUnique = useMemo(() => placed.some((c) => c.category === 'unique'), [placed])
   const hasFiller = useMemo(() => placed.some((c) => c.type === 3), [placed])
@@ -79,10 +80,21 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     if (open) {
       setLoading(true)
       setPreviewUrl(null)
+      setTotePreviews(null)
       // Keep mobile long-press exports crisp: render at high DPI on all devices
       // so the saved image remains sharp (phone case + charms).
-      renderPreview(product, color, placed, variableUids, isMobile ? 8 : 6)
-        .then((url) => alive && (setPreviewUrl(url), setLoading(false)))
+      const render = async () => {
+        const dpi = isMobile ? 8 : 6
+        if (product.kind !== 'tote') return { single: await renderPreview(product, color, placed, variableUids, dpi) }
+        const result = {}
+        for (const side of ['front', 'back']) {
+          const sidePlaced = placed.filter((item) => (item.toteSide || 'front') === side)
+          result[side] = await renderPreview(product, { ...color, toteSide: side, imageSrc: product.blankImage?.[side] || color.imageSrc }, sidePlaced, variableUids, dpi)
+        }
+        return { tote: result }
+      }
+      render()
+        .then((result) => alive && (result.tote ? setTotePreviews(result.tote) : setPreviewUrl(result.single), setLoading(false)))
         .catch(() => alive && setLoading(false))
     }
     return () => {
@@ -160,10 +172,15 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         rotDeg: c.rot || 0,
       })),
       total,
-      preview: previewUrl,
+      preview: totePreviews?.front || previewUrl,
       proofUploadMode: 'standard',
       // Legacy proof shape kept so the Shopify cart handler keeps working.
-      proofs: { placeholderUrl: previewUrl, sampleUrl: previewUrl },
+      proofs: {
+        placeholderUrl: totePreviews?.front || previewUrl,
+        sampleUrl: totePreviews?.front || previewUrl,
+        frontUrl: totePreviews?.front || previewUrl,
+        backUrl: totePreviews?.back || null,
+      },
     }
 
     // The host app decides what to do with the finished design. The Shopify
@@ -208,7 +225,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
           <span>Please keep this page open.</span>
         </div>
       )}
-      {loading || !previewUrl ? (
+      {loading || (!previewUrl && !totePreviews) ? (
         <div style={{ height: 360, display: 'grid', placeItems: 'center', gap: 14 }}>
           <Spin size="large" />
           <span className="hint">Rendering your design…</span>
@@ -227,19 +244,11 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 placeItems: 'center',
               }}
             >
-              <img
-                src={previewUrl}
-                alt={t('summary.previewAlt')}
-                className="proof-img"
-                style={{
-                  width: 'auto',
-                  height: 'auto',
-                  maxHeight: 300,
-                  maxWidth: '100%',
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))',
-                }}
-              />
+              {(totePreviews ? ['front', 'back'] : ['single']).map((side) => {
+                const src = totePreviews ? totePreviews[side] : previewUrl
+                if (!src) return null
+                return <img key={side} src={src} alt={totePreviews ? `${side} tote design` : t('summary.previewAlt')} className="proof-img" style={{ width: 'auto', height: 'auto', maxHeight: 300, maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))' }} />
+              })}
             </div>
             {(hasFiller || hasUnique) && (
               <p className="hint preview-note" style={{ marginTop: 8 }}>

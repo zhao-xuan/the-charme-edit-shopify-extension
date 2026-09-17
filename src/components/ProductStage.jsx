@@ -352,6 +352,20 @@ const ProductStage = forwardRef(function ProductStage(
     right: 'auto',
     bottom: 'auto',
   } : null
+  const totePhotoBounds = product.kind === 'tote' ? product.toteBodyBounds?.[color.toteSide || 'front'] : null
+  const totePhotoStyle = totePhotoBounds ? (() => {
+    const body = product.printable.outer
+    const sx = body.wMm / totePhotoBounds.w
+    const sy = body.hMm / totePhotoBounds.h
+    return {
+      width: totePhotoBounds.sourceW * sx * scale,
+      height: totePhotoBounds.sourceH * sy * scale,
+      left: body.xMm * scale - totePhotoBounds.x * sx * scale,
+      top: body.yMm * scale - totePhotoBounds.y * sy * scale,
+      right: 'auto',
+      bottom: 'auto',
+    }
+  })() : null
 
   return (
     <div
@@ -382,13 +396,13 @@ const ProductStage = forwardRef(function ProductStage(
                 style={blankPhotoCropStyle}
               />
             </div>
-          ) : blankPhoto ? (
+          ) : blankPhoto && product.kind !== 'tote' ? (
             <img
               className="stage-blank"
               src={blankPhoto}
               alt={`${product.name} ${color.label}`}
               draggable={false}
-              style={{ width: wPx, height: hPx }}
+              style={totePhotoStyle || { width: wPx, height: hPx }}
             />
           ) : (
             <ProductCanvas product={product} color={color} scale={scale} />
@@ -404,60 +418,6 @@ const ProductStage = forwardRef(function ProductStage(
               draggable={false}
               style={{ width: wPx, height: hPx }}
             />
-          )}
-
-          {/* faint safe-area guide — only for the tote (its logo keep-out).
-              Phone cases use real Apple photos where the camera is already
-              visible, and the photo frame draws its own moulding, so neither
-              needs a dashed overlay. */}
-          {product.kind === 'tote' && (
-          <svg
-            width={wPx}
-            height={hPx}
-            viewBox={`0 0 ${wPx} ${hPx}`}
-            style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
-          >
-            <rect
-              x={product.printable.outer.xMm * scale}
-              y={product.printable.outer.yMm * scale}
-              width={product.printable.outer.wMm * scale}
-              height={product.printable.outer.hMm * scale}
-              rx={product.printable.outer.rMm * scale}
-              ry={product.printable.outer.rMm * scale}
-              fill="none"
-              stroke="rgba(168,82,76,0.28)"
-              strokeWidth={1}
-              strokeDasharray="5 5"
-            />
-            {(product.printable.obstacles || []).map((ob, i) =>
-              ob.type === 'circle' ? (
-                <circle
-                  key={i}
-                  cx={ob.cxMm * scale}
-                  cy={ob.cyMm * scale}
-                  r={ob.rMm * scale}
-                  fill="rgba(168,82,76,0.06)"
-                  stroke="rgba(168,82,76,0.4)"
-                  strokeWidth={1}
-                  strokeDasharray="4 4"
-                />
-              ) : (
-                <rect
-                  key={i}
-                  x={ob.xMm * scale}
-                  y={ob.yMm * scale}
-                  width={ob.wMm * scale}
-                  height={ob.hMm * scale}
-                  rx={(ob.rMm || 0) * scale}
-                  ry={(ob.rMm || 0) * scale}
-                  fill="rgba(168,82,76,0.06)"
-                  stroke="rgba(168,82,76,0.4)"
-                  strokeWidth={1}
-                  strokeDasharray="4 4"
-                />
-              ),
-            )}
-          </svg>
           )}
 
           {placed.map((charm) => {

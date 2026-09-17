@@ -70,6 +70,8 @@ const DICT = {
     // Nouns (product kind)
     'noun.case': 'case',
     'noun.tote': 'tote',
+    'patches.label': 'Patches',
+    'step2.toteHint': 'You can customise both the front and the back of the tote bag with any patches you like.',
     'noun.frame': 'frame',
 
     // Tote two-sided toggle
@@ -138,7 +140,7 @@ const DICT = {
     'step2.recommend': 'We recommend {min}–{max} charms for a balanced look.',
     'step2.added': ' {n} added.',
     'step2.desktopHint': 'We recommend {min}–{max} charms for a balanced look. Minimum {min2} charms required.',
-    'notice.mockup': 'This tool is for charms mock-up only, gel will be added during production.',
+    'notice.mockup': 'This tool is for mock-up purposes only. We’ll iron your selected patches onto your chosen Everyday Tote based on your design. Please do not peel off the patches once received.',
     'notice.mockupShort': 'Mock-up only',
     'pricing.groupNotice': 'Price is for {n} items — select {n} items.',
     'charms.label': 'Charms',

@@ -69,7 +69,23 @@ async function drawProduct(ctx, product, color, S) {
   if (photoSrc) {
     const img = await loadImage(photoSrc).catch(() => null)
     if (img) {
-      drawProductPhoto(ctx, img, product.caseImageBounds?.[color.id], W, H)
+      const toteBounds = product.kind === 'tote'
+        ? product.toteBodyBounds?.[color.toteSide || 'front']
+        : null
+      if (toteBounds) {
+        const body = product.printable.outer
+        const sx = body.wMm / toteBounds.w
+        const sy = body.hMm / toteBounds.h
+        ctx.drawImage(
+          img,
+          (body.xMm - toteBounds.x * sx) * S,
+          (body.yMm - toteBounds.y * sy) * S,
+          toteBounds.sourceW * sx * S,
+          toteBounds.sourceH * sy * S,
+        )
+      } else {
+        drawProductPhoto(ctx, img, product.caseImageBounds?.[color.id], W, H)
+      }
       return
     }
   }

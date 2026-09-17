@@ -241,6 +241,7 @@ function toFields(type, record, imageGids = {}) {
       legacy_id: record.id,
     }
     if (imageGids.image) f.body_image_white = imageGids.image
+    if (imageGids.imageBack) f.body_image_black = imageGids.imageBack
     return f
   }
   // override / preset — everything in a single JSON blob.
@@ -296,6 +297,7 @@ function toRecord(type, node) {
       // render so the picture always comes from the merchant's Shopify store.
       src: ref.body_image_white || ref.body_image_black || null,
       srcBlack: ref.body_image_black || null,
+      srcBack: ref.body_image_black || null,
       colourLabel: 'Default',
       _gid: node.id,
       _handle: node.handle,

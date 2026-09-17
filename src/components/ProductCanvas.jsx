@@ -34,7 +34,7 @@ export default function ProductCanvas({ product, color, scale }) {
 
   // Optional real photo for the chosen colour (or a default blank image).
   const photo =
-    (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)) || null
+    color.imageSrc || (product.blankImage && (product.blankImage[color.id] || product.blankImage.default)) || null
 
   return (
     <svg
@@ -122,7 +122,14 @@ export default function ProductCanvas({ product, color, scale }) {
       </defs>
 
       {photo ? (
-        <image href={photo} x="0" y="0" width={wPx} height={hPx} preserveAspectRatio="xMidYMid meet" />
+        <TotePhoto
+          href={photo}
+          product={product}
+          color={color}
+          width={wPx}
+          height={hPx}
+          scale={scale}
+        />
       ) : product.kind === 'phone' ? (
         <PhoneShell product={product} color={color} scale={scale} uid={uid} isDark={isDark} />
       ) : product.kind === 'frame' ? (
@@ -133,6 +140,19 @@ export default function ProductCanvas({ product, color, scale }) {
 
     </svg>
   )
+}
+
+function TotePhoto({ href, product, color, width, height, scale }) {
+  if (product.kind !== 'tote' || !product.toteBodyBounds) {
+    return <image href={href} x="0" y="0" width={width} height={height} preserveAspectRatio="xMidYMid meet" />
+  }
+  const source = product.toteBodyBounds[color.toteSide || 'front'] || product.toteBodyBounds.front
+  const body = product.printable.outer
+  const sx = body.wMm / source.w
+  const sy = body.hMm / source.h
+  const x = body.xMm * scale - source.x * sx * scale
+  const y = body.yMm * scale - source.y * sy * scale
+  return <image href={href} x={x} y={y} width={source.sourceW * sx * scale} height={source.sourceH * sy * scale} preserveAspectRatio="none" />
 }
 
 /**

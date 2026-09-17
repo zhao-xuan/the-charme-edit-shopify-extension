@@ -285,9 +285,9 @@ export const TYPE_META_BY_KIND = {
     3: { key: 3, tier: 'mini', label: 'Filler', sub: 'Mini · scatter', help: 'Tap to scatter these into the gaps automatically.' },
   },
   tote: {
-    1: { key: 1, tier: 'grande', label: 'Statement', sub: 'Large · fixed size', help: 'Tap to add a big embroidered statement patch, then drag to place it.' },
-    2: { key: 2, tier: 'midi', label: 'Feature', sub: 'Medium · size', help: 'Tap to add, then drag to place it.' },
-    3: { key: 3, tier: 'mini', label: 'Filler', sub: 'State patch · scatter', help: 'Tap to scatter little state patches into the gaps.' },
+    1: { key: 1, tier: 'grande', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
+    2: { key: 2, tier: 'midi', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
+    3: { key: 3, tier: 'mini', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
   },
 }
 
@@ -350,13 +350,13 @@ export function trayGroups(kind) {
   if (kind === 'tote') {
     const meta = TYPE_META_BY_KIND.tote
     const items = itemsByType('tote')
-    return [1, 2, 3].map((t) => ({
-      key: `type-${t}`,
-      label: meta[t].label,
-      sub: meta[t].sub,
-      help: meta[t].help,
-      items: items[t],
-    }))
+    return [{
+      key: 'patches',
+      label: 'Patches',
+      sub: 'All patches',
+      help: meta[1].help,
+      items: items[1].concat(items[2], items[3]),
+    }]
   }
   const { CHARMS } = catalog()
   const groups = []
