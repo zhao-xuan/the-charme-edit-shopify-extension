@@ -21,7 +21,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, itemById, isTextCollection } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection } from '../lib/catalog'
 import {
   validateLayout,
   findScatterSpot,
@@ -41,6 +41,7 @@ import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchVariantDetails } from '../lib/shopifyVariant'
+import { showToteInPicker } from '../lib/previewFlags'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import {
   clearRecoveryDraft,
@@ -48,8 +49,11 @@ import {
   designSnapshot,
   listDesignDrafts,
   loadRecoveryDraft,
+  loadToteDesign,
   saveDraft,
   saveRecoveryDraft,
+  saveToteDesign,
+  serializeCharms,
 } from '../lib/designDrafts'
 
 function useMedia(query) {
@@ -69,6 +73,38 @@ function useMedia(query) {
 const uid = () =>
   (typeof globalThis.crypto?.randomUUID === 'function' && globalThis.crypto.randomUUID()) ||
   `c${Date.now()}${Math.random().toString(16).slice(2)}`
+
+// Rebuild placed-charm instances from a serialized snapshot (designSnapshot's
+// `charms`), re-resolving each against the live catalogue. Shared by full
+// layout restores and the tote front/back autosave restore.
+function reviveCharms(charms) {
+  return (charms || []).map((it) => {
+    const catalogCharm = itemById(it.charmId)
+    return {
+      uid: uid(),
+      charmId: it.charmId || 'demo',
+      shopifyVariantId: catalogCharm?.shopifyVariantId || it.shopifyVariantId,
+      type: catalogCharm?.type || it.type || 2,
+      category: catalogCharm?.category || it.category || 'gold',
+      collection: catalogCharm?.collection || it.collection || '',
+      name: catalogCharm?.name || it.name || 'demo',
+      src: resolveAsset(catalogCharm?.src || it.src),
+      price: catalogCharm?.price ?? it.price ?? 0,
+      bundle: !!catalogCharm?.bundle,
+      bundleMax: catalogCharm?.bundleMax,
+      baseWmm: it.wMm || catalogCharm?.widthMm,
+      baseHmm: it.hMm || catalogCharm?.heightMm,
+      minScale: catalogCharm?.minScale ?? 0.05,
+      maxScale: catalogCharm?.maxScale ?? 20,
+      scale: it.scale || 1,
+      rot: it.rot || 0,
+      cxMm: it.cxMm,
+      cyMm: it.cyMm,
+      groupId: it.groupId,
+      groupLabel: it.groupLabel,
+    }
+  })
+}
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
@@ -181,7 +217,7 @@ export default function CustomizerPage({
   // products.js). Stable memoised array, safe to read every render.
   // Tote products stay available in Admin/storage, but are hidden from the
   // customer picker until the merchant is ready to sell them.
-  const PRODUCT_GROUPS = productGroups()
+  const PRODUCT_GROUPS = productGroups().filter((group) => group.key !== 'tote' || showToteInPicker())
   // Merchant settings (cross-sell prompt + discounts), loaded at startup.
   const appSettings = settings()
   const showDesignDrafts = appSettings.designDrafts?.enabled === true
@@ -195,7 +231,7 @@ export default function CustomizerPage({
   const startGroup =
     (startProduct &&
       PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === startProduct))?.key) ||
-    initialGroupKey ||
+    (initialGroupKey && PRODUCT_GROUPS.some((group) => group.key === initialGroupKey) ? initialGroupKey : null) ||
     'apple'
   const resolvedProduct =
     startProduct ||
@@ -473,32 +509,7 @@ export default function CustomizerPage({
     const gelId = opts.gelColourId || layout.gelColourId
     if (caseId) setCaseColourId(caseId)
     if (gelId) setGelColourId(gelId)
-    let placed = (layout.charms || []).map((it) => {
-      const catalogCharm = itemById(it.charmId)
-      return {
-        uid: uid(),
-        charmId: it.charmId || 'demo',
-        shopifyVariantId: catalogCharm?.shopifyVariantId || it.shopifyVariantId,
-        type: catalogCharm?.type || it.type || 2,
-        category: catalogCharm?.category || it.category || 'gold',
-        collection: catalogCharm?.collection || it.collection || '',
-        name: catalogCharm?.name || it.name || 'demo',
-        src: resolveAsset(catalogCharm?.src || it.src),
-        price: catalogCharm?.price ?? it.price ?? 0,
-        bundle: !!catalogCharm?.bundle,
-        bundleMax: catalogCharm?.bundleMax,
-        baseWmm: it.wMm || catalogCharm?.widthMm,
-        baseHmm: it.hMm || catalogCharm?.heightMm,
-        minScale: catalogCharm?.minScale ?? 0.05,
-        maxScale: catalogCharm?.maxScale ?? 20,
-        scale: it.scale || 1,
-        rot: it.rot || 0,
-        cxMm: it.cxMm,
-        cyMm: it.cyMm,
-        groupId: it.groupId,
-        groupLabel: it.groupLabel,
-      }
-    })
+    let placed = reviveCharms(layout.charms)
     const fromP = findProduct(layout.productId)
     const toP = findProduct(wantPid)
     if (fromP && toP && fromP !== toP && fromP.kind === 'phone' && toP.kind === 'phone') {
@@ -532,8 +543,11 @@ export default function CustomizerPage({
       !hasExplicitStartSelection
     ) {
       applyLayout(recovery.snapshot)
+    } else if (product.kind === 'tote' && !initialLayout?.charms?.length) {
+      restoreToteDesign()
     }
     setDraftsReady(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [applyLayout, hasExplicitStartSelection, initialLayout])
 
   useEffect(() => {
@@ -653,14 +667,21 @@ export default function CustomizerPage({
   // the layout re-validates against the real cut-out shape (not just the OBB).
   const [maskVersion, setMaskVersion] = useState(0)
   useEffect(() => onMaskReady(() => setMaskVersion((v) => v + 1)), [])
-  const validation = useMemo(
-    () => validateLayout(placed, geometryProduct, {
+  const validation = useMemo(() => {
+    const base = validateLayout(placed, geometryProduct, {
+      // Totes are checked against the COMBINED front+back count below — the
+      // active side alone (e.g. 1 patch on front, 1 on back) must still count
+      // as meeting the minimum.
       minCharms: product.kind === 'tote' ? 0 : MIN_CHARMS,
       maxCharms: MAX_CHARMS,
-    }),
+    })
+    if (product.kind !== 'tote') return base
+    const otherSide = toteSideStash.current[toteSide === 'front' ? 'back' : 'front'] || []
+    const combinedCount = placed.length + otherSide.length
+    const tooFew = combinedCount < TOTE_MIN_PATCHES
+    return { ...base, count: combinedCount, tooFew, ok: base.geometryOk && !tooFew && !base.tooMany }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [placed, geometryProduct, maskVersion, product.kind],
-  )
+  }, [placed, geometryProduct, maskVersion, product.kind, toteSide])
 
   // Tray groups for the active product kind (4 categories for phones, 3 types
   // for totes) + the mobile category dropdown selection.
@@ -735,6 +756,29 @@ export default function CustomizerPage({
     setHistLen(0)
   }, [toteSide, product.kind])
 
+  // The tote design (front + back) is autosaved to its own localStorage slot on
+  // every change, independent of the single-product recovery draft, so it
+  // survives switching to a phone/frame and back (or a page reload).
+  useEffect(() => {
+    if (product.kind !== 'tote') return
+    const front = toteSide === 'front' ? placed : (toteSideStash.current.front || [])
+    const back = toteSide === 'back' ? placed : (toteSideStash.current.back || [])
+    saveToteDesign({ front: serializeCharms(front), back: serializeCharms(back) })
+  }, [product.kind, placed, toteSide])
+
+  // Restore a previously autosaved tote design (front + back) when the customer
+  // (re)opens the tote after having designed one, instead of starting blank.
+  const restoreToteDesign = useCallback(() => {
+    const saved = loadToteDesign()
+    const front = reviveCharms(saved?.front)
+    const back = reviveCharms(saved?.back)
+    if (!front.length && !back.length) return false
+    toteSideStash.current = { front, back }
+    setPlaced(front)
+    setToteSide('front')
+    return true
+  }, [])
+
   const handleGroup = (g) => {
     const from = product
     setGroupKey(g)
@@ -759,6 +803,7 @@ export default function CustomizerPage({
     setToteSide('front')
     toteSideStash.current = { front: [], back: [] }
     resetHistory()
+    if (to?.kind === 'tote' && from?.kind !== 'tote') restoreToteDesign()
   }
   const handleProduct = (id) => {
     const from = product
@@ -777,6 +822,7 @@ export default function CustomizerPage({
       toteSideStash.current = { front: [], back: [] }
     }
     resetHistory()
+    if (to?.kind === 'tote' && from?.kind !== 'tote') restoreToteDesign()
   }
 
   const makePlaced = useCallback((charm, pos) => ({
@@ -1051,6 +1097,7 @@ export default function CustomizerPage({
       window.removeEventListener('pointerup', onWinUp)
       pending.current = null
       setGhost(null)
+      document.body.classList.remove('charme-no-select')
       if (pn && pn.dragging) {
         pn.suppressClick = true
         const api = stageApi.current
@@ -1072,6 +1119,9 @@ export default function CustomizerPage({
     (charm, e) => {
       if (e.button != null && e.button !== 0) return
       pending.current = { charm, x0: e.clientX, y0: e.clientY, dragging: false }
+      // Dragging a patch/charm from the tray must never trigger a native
+      // page text selection while the pointer moves over surrounding text.
+      document.body.classList.add('charme-no-select')
       window.addEventListener('pointermove', onWinMove)
       window.addEventListener('pointerup', onWinUp)
     },
@@ -1194,7 +1244,11 @@ export default function CustomizerPage({
     }
     if (validation.tooFew) {
       message.warning(
-        t('msg.addAtLeastHave', { min: MIN_CHARMS, have: placed.length }),
+        t('msg.addAtLeastHave', {
+          min: product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS,
+          have: product.kind === 'tote' ? validation.count : placed.length,
+          noun: t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase(),
+        }),
       )
       return
     }
@@ -1319,18 +1373,6 @@ export default function CustomizerPage({
       onGelColourChange={setGelColourId}
     />
   )
-  const priceBar = (
-    <PriceBar
-      product={product}
-      placed={placed}
-      validation={validation}
-      onSubmit={attemptOrder}
-      crossSellHint={appSettings.crossSellHint}
-      compact={trayExpanded}
-      isSecondProduct={isSecondProduct}
-    />
-  )
-
   const charmCount = placed.length
   const stepTwoHint = (
     <>
@@ -1341,7 +1383,8 @@ export default function CustomizerPage({
 
   // Order CTA total + noun (case / tote / frame) for the Step 3 bar.
   const orderNoun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
-  // For totes: combine front + back charms so the full two-sided design is submitted.
+  // For totes: combine front + back charms so both the price shown and the
+  // submitted design reflect the full two-sided total, not just the active side.
   const summaryPlaced = product.kind === 'tote'
     ? [
         ...placed.map((c) => ({ ...c, toteSide })),
@@ -1352,6 +1395,17 @@ export default function CustomizerPage({
       ]
     : placed
   const charmTotal = placedCharmsTotal(summaryPlaced)
+  const priceBar = (
+    <PriceBar
+      product={product}
+      placed={summaryPlaced}
+      validation={validation}
+      onSubmit={attemptOrder}
+      crossSellHint={appSettings.crossSellHint}
+      compact={trayExpanded}
+      isSecondProduct={isSecondProduct}
+    />
+  )
   const orderTotal = product.presentmentPrice
     ? formatPresentmentMoney(product.presentmentPrice + convert(charmTotal), { whole: true })
     : formatMoney(product.basePrice + charmTotal, { whole: true })
@@ -1397,6 +1451,29 @@ export default function CustomizerPage({
         </span>
       )}
     </button>
+  )
+
+  // Tote-only: replaces the generic "mock-up only" notice with the patch
+  // bundle discount tiers, shown above the patch selector (desktop) / in the
+  // stage overlay slot the mock-up notice used to occupy (mobile).
+  const patchDiscountList = (
+    <ul className="patch-discount-notice__list">
+      <li>{t('discount.tier5')}</li>
+      <li>{t('discount.tier8')}</li>
+      <li>{t('discount.tier10')}</li>
+    </ul>
+  )
+  const patchDiscountNotice = (
+    <div className="patch-discount-notice" role="note">
+      <InfoCircleOutlined className="patch-discount-notice__icon" />
+      {patchDiscountList}
+    </div>
+  )
+  const patchDiscountNoticeOverlay = (
+    <div className="patch-discount-notice patch-discount-notice--overlay" role="note">
+      <InfoCircleOutlined className="patch-discount-notice__icon" />
+      {patchDiscountList}
+    </div>
   )
 
   // Front/Back toggle — shown only when the active product is a tote.
@@ -1455,7 +1532,7 @@ export default function CustomizerPage({
       zoom={zoom}
       onZoomChange={setZoom}
       fitPadding={isMobile ? 34 : undefined}
-      stageOverlay={isMobile ? mockupNotice : null}
+      stageOverlay={isMobile ? (product.kind === 'tote' ? patchDiscountNoticeOverlay : mockupNotice) : null}
     />
   )
 
@@ -1550,7 +1627,7 @@ export default function CustomizerPage({
                   aria-expanded={step2Expanded}
                   onClick={() => setStep2Open((o) => !o)}
                 >
-                  <span>{t('step2.mobileTitle')}</span>
+                  <span>{t(product.kind === 'tote' ? 'step2.mobileTitleTote' : 'step2.mobileTitle')}</span>
                   <InfoCircleOutlined className="mobile-step-overlay__chevron" />
                 </button>
                 <div className="mobile-cat-bar">
@@ -1641,7 +1718,7 @@ export default function CustomizerPage({
             <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
-            {mockupNotice}
+            {product.kind !== 'tote' && mockupNotice}
             {toteSideToggle}
             {stageNode}
             {zoomDock}
@@ -1667,9 +1744,10 @@ export default function CustomizerPage({
                   grid and the add-to-cart button. */}
               {!trayExpanded && (
                 <>
-                  <p className="eyebrow" style={{ margin: 0 }}>{t('step2.desktopTitle')}</p>
+                  {product.kind === 'tote' && patchDiscountNotice}
+                  <p className="eyebrow" style={{ margin: 0 }}>{t(product.kind === 'tote' ? 'step2.desktopTitleTote' : 'step2.desktopTitle')}</p>
                   <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
-                    {product.kind === 'tote' ? t('step2.toteHint') : t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
+                    {product.kind === 'tote' ? t('step2.toteHint', { min: TOTE_MIN_PATCHES }) : t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
                   </p>
                   <div className="charms-bar">
                     <span className="charms-bar__title">{t(product.kind === 'tote' ? 'patches.label' : 'charms.label')}</span>
@@ -1704,7 +1782,9 @@ export default function CustomizerPage({
                     className={`cat-swatch${g.key === catKey ? ' is-active' : ''}`}
                     onClick={() => setCatKey(g.key)}
                   >
-                    <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} style={catDotStyle(g.key)} />
+                    {product.kind !== 'tote' && (
+                      <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} style={catDotStyle(g.key)} />
+                    )}
                     <span className="cat-swatch__label">
                       {product.kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label}
                     </span>
@@ -1794,9 +1874,9 @@ function Tips({ product }) {
         'Choose your base tote bag colour',
         'Browse patches by different categories',
         'Drag or tap a patch to add it to your tote.',
-        'Tap a patch on the tote to rotate or remove it.',
+        'Tap a patch on the case to rotate or remove it.',
         'If a patch is highlighted, it’s overlapping or outside the bag - simply adjust it before ordering.',
-        'Order your bespoke tote bag, we will customise it for you.',
+        'Order your bespoke tote bag, we will customise for you.',
       ]
     : [t('tips.1'), t('tips.2'), t('tips.3'), t('tips.4'), t('tips.5'), t('tips.6')]
   return (

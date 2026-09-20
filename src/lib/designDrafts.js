@@ -1,6 +1,7 @@
 const KEY = 'charme.designDrafts.v1'
 const RECOVERY_ID = '__recovery__'
 const MAX_NAMED_DRAFTS = 12
+const TOTE_KEY = 'charme.toteDesign.v1'
 
 const storageFor = (storage) => storage || (typeof window !== 'undefined' ? window.localStorage : null)
 
@@ -28,26 +29,62 @@ export function designSnapshot({ productId, caseColourId, gelColourId, placed, w
     productId,
     caseColourId,
     gelColourId,
-    charms: (placed || []).map((charm) => ({
-      charmId: charm.charmId,
-      shopifyVariantId: charm.shopifyVariantId,
-      type: charm.type,
-      category: charm.category,
-      collection: charm.collection,
-      name: charm.name,
-      src: charm.src,
-      price: charm.price,
-      bundle: !!charm.bundle,
-      wMm: charm.baseWmm,
-      hMm: charm.baseHmm,
-      scale: charm.scale || 1,
-      rot: charm.rot || 0,
-      cxMm: charm.cxMm,
-      cyMm: charm.cyMm,
-      groupId: charm.groupId,
-      groupLabel: charm.groupLabel,
-    })),
+    charms: serializeCharms(placed),
     wordGroups: (wordGroups || []).map((group) => ({ ...group })),
+  }
+}
+
+export function serializeCharms(placed) {
+  return (placed || []).map((charm) => ({
+    charmId: charm.charmId,
+    shopifyVariantId: charm.shopifyVariantId,
+    type: charm.type,
+    category: charm.category,
+    collection: charm.collection,
+    name: charm.name,
+    src: charm.src,
+    price: charm.price,
+    bundle: !!charm.bundle,
+    wMm: charm.baseWmm,
+    hMm: charm.baseHmm,
+    scale: charm.scale || 1,
+    rot: charm.rot || 0,
+    cxMm: charm.cxMm,
+    cyMm: charm.cyMm,
+    groupId: charm.groupId,
+    groupLabel: charm.groupLabel,
+  }))
+}
+
+// The tote is decorated on two independent sides (front/back); losing either
+// one when the customer switches to a different product (e.g. to check out a
+// phone case) would silently discard work, so it is kept in its own
+// always-on-save slot rather than the single-product recovery draft above.
+export function saveToteDesign(design, storage) {
+  const target = storageFor(storage)
+  try {
+    target?.setItem(TOTE_KEY, JSON.stringify({ ...design, updatedAt: Date.now() }))
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function loadToteDesign(storage) {
+  try {
+    const raw = storageFor(storage)?.getItem(TOTE_KEY)
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
+
+export function clearToteDesign(storage) {
+  try {
+    storageFor(storage)?.removeItem(TOTE_KEY)
+    return true
+  } catch {
+    return false
   }
 }
 

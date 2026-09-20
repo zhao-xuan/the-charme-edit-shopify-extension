@@ -786,6 +786,47 @@ h4,
   font-size: 14px;
 }
 
+/* Tote patch bundle discount tiers — replaces the mock-up notice for totes. */
+.patch-discount-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(125, 105, 84, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 253, 249, 0.7);
+  color: #2e2a26;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.patch-discount-notice__icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--rouge);
+  font-size: 14px;
+}
+.patch-discount-notice__list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+}
+.patch-discount-notice--overlay {
+  position: absolute;
+  z-index: 75;
+  left: 14px;
+  bottom: 14px;
+  max-width: calc(100% - 20px);
+  width: max-content;
+  margin: 0;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 3px 12px rgba(46, 42, 38, 0.1);
+}
+
 /* selection toolbar floating above a selected charm */
 .charm-tools {
   position: absolute;
@@ -858,6 +899,13 @@ h4,
 }
 
 /* ---------- Tray ---------- */
+/* Applied to <body> while a charm/patch is being dragged from the tray so the
+   pointer can pass over surrounding text without starting a native selection. */
+body.charme-no-select,
+body.charme-no-select * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
 .tray-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
@@ -874,6 +922,9 @@ h4,
   cursor: grab;
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s;
   touch-action: none;
+  /* Dragging a card to the case must never trigger a native text selection. */
+  user-select: none;
+  -webkit-user-select: none;
 }
 .charm-card:hover {
   transform: translateY(-2px);
@@ -1718,6 +1769,14 @@ h4,
   }
   .mobile-stage .stage-wrap > .mockup-notice.is-open {
     width: min(300px, calc(100vw - 12px));
+  }
+  .mobile-stage .stage-wrap > .patch-discount-notice--overlay {
+    left: 2px;
+    bottom: 46px;
+    z-index: 76;
+    max-width: calc(100% - 4px);
+    padding: 6px 8px;
+    font-size: 9.5px;
   }
   .mobile-step-overlay--warn .mobile-step-overlay__body {
     background-color: rgba(255, 244, 242, 0.7);

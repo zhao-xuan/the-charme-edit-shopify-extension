@@ -223,12 +223,12 @@ function readImageFile(file, maxDim = 900) {
 }
 
 /** Drop zone that yields a downscaled PNG data URL + natural dimensions. */
-function ImageDrop({ value, onChange, hint, maxDim = 900 }) {
+function ImageDrop({ value, onChange, hint, maxDim = 900, multiple = false }) {
   const { message } = App.useApp()
   return (
     <Upload.Dragger
       accept="image/*"
-      multiple={false}
+      multiple={multiple}
       showUploadList={false}
       beforeUpload={async (file) => {
         try {
@@ -1138,7 +1138,52 @@ function CharmsTab({ draft, set, cloud }) {
   )
 }
 
-function PatchesTab({ cloud }) {
+function PatchSizeInputs({ patch, widthMm, heightMm, onSave }) {
+  const [width, setWidth] = useState(widthMm)
+  const [height, setHeight] = useState(heightMm)
+
+  useEffect(() => {
+    setWidth(widthMm)
+    setHeight(heightMm)
+  }, [patch.id, widthMm, heightMm])
+
+  const save = () => {
+    const nextWidth = Math.max(0.1, Number(width) || widthMm || 16)
+    const nextHeight = Math.max(0.1, Number(height) || heightMm || 16)
+    setWidth(nextWidth)
+    setHeight(nextHeight)
+    if (nextWidth !== widthMm || nextHeight !== heightMm) onSave(nextWidth, nextHeight)
+  }
+
+  return (
+    <Space size={3} onClick={(event) => event.stopPropagation()}>
+      <InputNumber
+        size="small"
+        min={0.1}
+        step={0.1}
+        value={width}
+        onChange={setWidth}
+        onBlur={save}
+        aria-label={`${patch.name} width in millimetres`}
+        style={{ width: 58 }}
+      />
+      <span>×</span>
+      <InputNumber
+        size="small"
+        min={0.1}
+        step={0.1}
+        value={height}
+        onChange={setHeight}
+        onBlur={save}
+        aria-label={`${patch.name} height in millimetres`}
+        style={{ width: 58 }}
+      />
+      <span>mm</span>
+    </Space>
+  )
+}
+
+function PatchesTab({ cloud, onOpenUploader }) {
   const { message, modal } = App.useApp()
   const [query, setQuery] = useState('')
   const [shopifyVariants, setShopifyVariants] = useState([])
@@ -1172,12 +1217,20 @@ function PatchesTab({ cloud }) {
     return patches.filter((patch) => !normalized || `${patch.name} ${patch.collection}`.toLowerCase().includes(normalized))
   }, [patches, query])
   const remotePatchIds = useMemo(() => new Set((cloud?.data?.patches || []).map((patch) => patch.id)), [cloud?.data?.patches])
-  const tote = useMemo(() => allProducts().find((product) => product.id === 'tote-tj'), [])
-  const toteColor = tote?.colors?.[0]
+  const tote = useMemo(() => allProducts().find((product) => product.kind === 'tote') || null, [])
+  const totePreviewImage = tote ? (
+    tote.blankImage?.natural ||
+    tote.blankImage?.front ||
+    tote.blankImage?.default ||
+    Object.values(tote.blankImage || {})[0] ||
+    ''
+  ) : ''
+  const toteColor = tote?.colors?.[0] || { id: 'natural', label: 'Natural canvas' }
   const [selectedPatchId, setSelectedPatchId] = useState(() => patches[0]?.id || null)
   const selectedPatch = patches.find((patch) => patch.id === selectedPatchId) || patches[0] || null
   const savedScale = Number(cloud?.data?.overrides?.charmSizes?.[selectedPatch?.id]) || 1
   const [scale, setScale] = useState(savedScale)
+  const [patchName, setPatchName] = useState('')
 
   const patchCategories = useMemo(() => {
     const values = new Set([...localCategories, ...patches.map((patch) => patch.category || 'unique')])
@@ -1197,6 +1250,7 @@ function PatchesTab({ cloud }) {
   useEffect(() => {
     setScale(savedScale)
     setPreviewOffset({ x: 0, y: 0 })
+    setPatchName(selectedPatch?.name || '')
   }, [selectedPatch?.id, savedScale])
 
   useEffect(() => {
@@ -1220,6 +1274,22 @@ function PatchesTab({ cloud }) {
   }
 
   const scaleFor = (patch) => Number(cloud?.data?.overrides?.charmSizes?.[patch.id]) || 1
+  const effectiveWidth = (patch) => Number(patch.widthMm) * scaleFor(patch)
+  const effectiveHeight = (patch) => Number(patch.heightMm) * scaleFor(patch)
+  const savePatchSize = async (patch, widthMm, heightMm) => {
+    try {
+      if (remotePatchIds.has(patch.id)) {
+        await patchPatch(patch.id, { widthMm, heightMm })
+      } else {
+        const baseWidth = Number(patch.widthMm) || widthMm
+        await setOverride('charm', patch.id, { sizeScale: widthMm / baseWidth })
+      }
+      await cloud.refresh()
+      message.success(`Saved ${patch.name} at ${widthMm.toFixed(1)}×${heightMm.toFixed(1)} mm.`)
+    } catch (error) {
+      message.error(error.message || 'Could not save the patch size.')
+    }
+  }
   const updatePatch = async (patch, changes) => {
     try {
       if (remotePatchIds.has(patch.id)) await patchPatch(patch.id, changes)
@@ -1251,12 +1321,46 @@ function PatchesTab({ cloud }) {
       }
     },
   })
-  const totePreviewScale = tote ? Math.min(400 / tote.widthMm, 440 / tote.heightMm) : 0
+  // Linking a patch to a Shopify variant defaults the patch name to that
+  // variant's name (customers still see a clear, catalogue-matching label);
+  // the merchant can freely rename afterwards without it being overwritten.
+  const linkPatchVariant = (patch, shopifyVariantId) => {
+    const variant = shopifyVariantId ? shopifyVariants.find((v) => String(v.id) === String(shopifyVariantId)) : null
+    updatePatch(patch, { shopifyVariantId, ...(variant ? { name: variant.title || variant.productTitle } : {}) })
+  }
+  // One-off bulk sync: renames every already-linked patch to match its
+  // current Shopify variant name (for patches linked before this feature).
+  const syncAllPatchNamesWithVariants = async () => {
+    const targets = patches.filter((patch) => patch.shopifyVariantId)
+    const updates = targets
+      .map((patch) => ({ patch, variant: shopifyVariants.find((v) => String(v.id) === String(patch.shopifyVariantId)) }))
+      .filter(({ variant }) => variant)
+    if (!updates.length) {
+      message.info('No linked patches to sync.')
+      return
+    }
+    for (const { patch, variant } of updates) {
+      const name = variant.title || variant.productTitle
+      if (name && name !== patch.name) await updatePatch(patch, { name })
+    }
+    await cloud.refresh()
+    message.success(`Synced ${updates.length} patch name(s) with their Shopify variant.`)
+  }
+  const toteBody = tote?.printable?.outer || {
+    xMm: 0,
+    yMm: 270.7,
+    wMm: Number(tote?.widthMm) || 460,
+    hMm: Number(tote?.heightMm) || 310,
+  }
+  const toteCanvas = {
+    wMm: Number(tote?.widthMm) || 460,
+    hMm: Number(tote?.heightMm) || 630.7,
+  }
+  const totePreviewScale = toteCanvas ? Math.min(400 / toteCanvas.wMm, 440 / toteCanvas.hMm) : 0
   const patchWidth = selectedPatch ? selectedPatch.widthMm * scale * totePreviewScale : 0
   const patchHeight = selectedPatch ? selectedPatch.heightMm * scale * totePreviewScale : 0
-  const patchCenterX = tote ? (tote.printable.outer.xMm + tote.printable.outer.wMm / 2) * totePreviewScale : 0
-  // Keep the preview patch above the printed logo while showing its real scale.
-  const patchCenterY = tote ? 410 * totePreviewScale : 0
+  const patchCenterX = toteBody ? (toteBody.xMm + toteBody.wMm / 2) * totePreviewScale : 0
+  const patchCenterY = toteBody ? (toteBody.yMm + toteBody.hMm / 2) * totePreviewScale : 0
   const addCategory = () => {
     const value = categoryAdd.trim()
     if (!value) return
@@ -1287,9 +1391,9 @@ function PatchesTab({ cloud }) {
   }
   const onPreviewPointerMove = (event) => {
     const drag = previewDragRef.current
-    if (!drag || drag.pointerId !== event.pointerId || !tote) return
-    const maxX = Math.max(0, tote.widthMm * totePreviewScale - patchWidth)
-    const maxY = Math.max(0, tote.heightMm * totePreviewScale - patchHeight)
+    if (!drag || drag.pointerId !== event.pointerId || !toteBody) return
+    const maxX = Math.max(0, toteBody.wMm * totePreviewScale - patchWidth)
+    const maxY = Math.max(0, toteBody.hMm * totePreviewScale - patchHeight)
     const baseLeft = patchCenterX - patchWidth / 2
     const baseTop = patchCenterY - patchHeight / 2
     setPreviewOffset({
@@ -1303,10 +1407,27 @@ function PatchesTab({ cloud }) {
 
   return (
     <div style={{ display: 'flex', gap: 18, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <Alert
+        type="info"
+        showIcon
+        message="Add a new patch"
+        description="Upload a ready-made transparent PNG directly, or use auto-extract as an optional background-removal tool."
+        action={onOpenUploader ? (
+          <Button size="small" icon={<CloudUploadOutlined />} onClick={onOpenUploader}>
+            Open patch uploader
+          </Button>
+        ) : null}
+        style={{ width: '100%' }}
+      />
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
-        <Card size="small" title={`Patches — re-price, hide or size (${visiblePatches.length})`}>
+        <Card
+          size="small"
+          title={`Patches — re-price, hide or size (${visiblePatches.length})`}
+          extra={<Button size="small" onClick={syncAllPatchNamesWithVariants} disabled={variantsLoading}>Sync names with Shopify variant</Button>}
+        >
           <p className="hint" style={{ marginTop: 0 }}>
-            Manage the Tote patch catalogue. Select a patch to preview and set its on-Tote size.
+            Manage the Tote patch catalogue. Select a patch to preview and set its on-Tote size. Linking a Shopify
+            variant defaults the patch name to the variant's name; you can still rename it afterwards.
           </p>
           <Input.Search
             allowClear
@@ -1329,7 +1450,18 @@ function PatchesTab({ cloud }) {
               { title: 'Patch', dataIndex: 'name', width: 140, ellipsis: true },
               { title: 'Category', dataIndex: 'category', width: 104, ellipsis: true },
               { title: 'Sub-category', dataIndex: 'collection', width: 128, ellipsis: true },
-              { title: 'Size', width: 104, render: (_, patch) => `${patch.widthMm}×${patch.heightMm} mm` },
+              {
+                title: 'Size (mm)',
+                width: 170,
+                render: (_, patch) => (
+                  <PatchSizeInputs
+                    patch={patch}
+                    widthMm={effectiveWidth(patch)}
+                    heightMm={effectiveHeight(patch)}
+                    onSave={(widthMm, heightMm) => savePatchSize(patch, widthMm, heightMm)}
+                  />
+                ),
+              },
               {
                 title: 'Shopify variant',
                 width: 270,
@@ -1338,7 +1470,7 @@ function PatchesTab({ cloud }) {
                     value={patch.shopifyVariantId}
                     variants={shopifyVariants}
                     loading={variantsLoading}
-                    onChange={(shopifyVariantId) => updatePatch(patch, { shopifyVariantId })}
+                    onChange={(shopifyVariantId) => linkPatchVariant(patch, shopifyVariantId)}
                   />
                 ),
               },
@@ -1358,13 +1490,13 @@ function PatchesTab({ cloud }) {
         <RightPanel title="Tote decoration studio">
           {selectedPatch ? (
             <Space direction="vertical" size={12} style={{ width: '100%' }}>
-              {tote && toteColor && (
+              {tote && toteColor && toteBody && (
                 <div
                   aria-label={`${selectedPatch.name} on The Charmé Edit Tote`}
                   style={{
                     position: 'relative',
-                    width: tote.widthMm * totePreviewScale,
-                    height: tote.heightMm * totePreviewScale,
+                    width: toteCanvas.wMm * totePreviewScale,
+                    height: toteCanvas.hMm * totePreviewScale,
                     maxWidth: '100%',
                     margin: '0 auto',
                     overflow: 'hidden',
@@ -1376,7 +1508,19 @@ function PatchesTab({ cloud }) {
                   onPointerUp={onPreviewPointerUp}
                   onPointerCancel={onPreviewPointerUp}
                 >
-                  <ProductCanvas product={tote} color={toteColor} scale={totePreviewScale} />
+                  <img
+                    src={resolveAsset(totePreviewImage)}
+                    alt={tote.name}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      objectPosition: 'center',
+                      display: 'block',
+                    }}
+                  />
                   <img
                     src={resolveAsset(selectedPatch.src)}
                     alt=""
@@ -1394,7 +1538,20 @@ function PatchesTab({ cloud }) {
                   />
                 </div>
               )}
-              <strong>{selectedPatch.name}</strong>
+              <label>
+                <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Name</span>
+                <Input
+                  value={patchName}
+                  onChange={(event) => setPatchName(event.target.value)}
+                  onBlur={() => {
+                    const name = patchName.trim()
+                    if (name && name !== selectedPatch.name) updatePatch(selectedPatch, { name })
+                    else if (!name) setPatchName(selectedPatch.name || '')
+                  }}
+                  onPressEnter={(event) => event.currentTarget.blur()}
+                  placeholder="Patch name"
+                />
+              </label>
               <div style={{ display: 'flex', gap: 10 }}>
                 <label style={{ flex: 1, minWidth: 0 }}>
                   <span style={{ display: 'block', marginBottom: 4, color: 'var(--ink-soft)' }}>Category</span>
@@ -1429,7 +1586,7 @@ function PatchesTab({ cloud }) {
   )
 }
 
-function DecorationsTab({ draft, set, cloud }) {
+function DecorationsTab({ draft, set, cloud, onOpenUploader }) {
   const [section, setSection] = useState('charms')
   return (
     <Space direction="vertical" size={16} style={{ width: '100%' }}>
@@ -1438,7 +1595,7 @@ function DecorationsTab({ draft, set, cloud }) {
         onChange={setSection}
         options={[{ value: 'charms', label: 'Charms' }, { value: 'patches', label: 'Patches' }]}
       />
-      {section === 'charms' ? <CharmsTab draft={draft} set={set} cloud={cloud} /> : <PatchesTab cloud={cloud} />}
+      {section === 'charms' ? <CharmsTab draft={draft} set={set} cloud={cloud} /> : <PatchesTab cloud={cloud} onOpenUploader={onOpenUploader} />}
     </Space>
   )
 }
@@ -2369,7 +2526,7 @@ function ProductsTab({ draft, set, cloud }) {
                     description={
                       <Space direction="vertical" size={2} style={{ width: '100%' }}>
                         <span>£{Number(p.basePrice || 0).toFixed(2)}</span>
-                        <span style={{ color: '#aaa', fontSize: 11 }}>{p.widthMm && p.heightMm ? `${p.widthMm}×${p.heightMm}mm` : 'No dimensions'}</span>
+                        <span style={{ color: '#aaa', fontSize: 11 }}>46×31mm</span>
                         {p.shopifyVariantId && <Tag color="green" style={{ fontSize: 10 }}>Shopify linked</Tag>}
                       </Space>
                     }
@@ -3272,14 +3429,18 @@ function BatchExtractTab({ draft, set, cloud }) {
     standaloneLongMm: 15,
     category: 'gold',
     makeProduct: true,
+    uploadMode: 'extract', // 'extract' | 'direct' (direct upload mode for patches)
   })
   const [tune, setTune] = useState({ pieceTol: 58, minPieceMm: 3, warmOnly: false })
   const [busy, setBusy] = useState(false)
   const [result, setResult] = useState(null) // { overlay, mmPerPx, product }
   const [pieces, setPieces] = useState([]) // editable extracted pieces
+  const [directPatch, setDirectPatch] = useState(null) // direct upload patch
+  const [directPatches, setDirectPatches] = useState([]) // list of patches to be saved
   const runSeq = useRef(0)
   const standalone = form.photoMode === 'standalone'
   const isPatch = form.kind === 'tote'
+  const uploadMode = form.uploadMode
   const gptPrompt = useMemo(() => gptCutoutPrompt(form), [form])
 
   const onPhoto = (img) => {
@@ -3427,6 +3588,221 @@ function BatchExtractTab({ draft, set, cloud }) {
     }))
   }
 
+  // Direct upload patch flow (alternative to auto-extract)
+  const onDirectPatchImage = (img) => {
+    if (!img) {
+      setDirectPatch(null)
+      return
+    }
+    const longMm = Math.max(img.w / (img.h || 1), 1) * 16 // estimate from aspect
+    const classified = tierFromMm(longMm)
+    setDirectPatch({
+      src: img.src,
+      originalSrc: img.src, // preserved so user can re-extract at any time
+      dataUrl: img.src,
+      pxW: img.w,
+      pxH: img.h,
+      widthMm: 16,
+      heightMm: Math.max(0.1, +(16 * (img.h / img.w)).toFixed(1)),
+      name: form.productName.trim() || 'Patch',
+      price: 0,
+      tier: classified.tier,
+      type: classified.type,
+      extracted: false,
+    })
+  }
+
+  const onDirectPatchBatchImage = (img) => {
+    if (!img) return
+    setDirectPatches((current) => {
+      const index = current.length + 1
+      const longMm = Math.max(img.w / (img.h || 1), 1) * 16
+      const classified = tierFromMm(longMm)
+      return [...current, {
+        id: `patch-${rid()}`,
+        name: `${form.productName.trim() || 'Patch'} ${index}`,
+        collection: form.productName.trim() || 'Custom patches',
+        category: 'unique',
+        tier: classified.tier,
+        type: classified.type,
+        price: 0,
+        src: img.src,
+        originalSrc: img.src,
+        pxW: img.w,
+        pxH: img.h,
+        widthMm: 16,
+        heightMm: Math.max(0.1, +(16 * (img.h / img.w)).toFixed(1)),
+        minScale: 1,
+        maxScale: 1,
+        extracted: false,
+      }]
+    })
+  }
+
+  // Auto-extract tool for direct upload mode (optional background removal)
+  const autoExtractDirectPatch = async () => {
+    const srcToExtract = directPatch?.originalSrc || directPatch?.src
+    if (!srcToExtract) return message.warning('Upload a patch image first.')
+    setBusy(true)
+    try {
+      const imageData = await loadImageData(srcToExtract, 800)
+      const out = extractPieces(imageData, {
+        mode: 'standalone',
+        standaloneLongMm: Math.max(directPatch.widthMm, directPatch.heightMm),
+        pieceTol: 58,
+        minPieceMm: 2,
+        warmOnly: false,
+      })
+      const piece = out.pieces[0]
+      if (!piece?.dataUrl) {
+        message.info('No isolated patch detected. Use a clean, plain background with the whole patch visible.')
+        return
+      }
+      setDirectPatch((p) => ({
+        ...p,
+        src: piece.dataUrl,
+        dataUrl: piece.dataUrl,
+        pxW: piece.pxW,
+        pxH: piece.pxH,
+        widthMm: p.widthMm,
+        heightMm: Math.max(0.1, +(p.widthMm * (piece.pxH / piece.pxW)).toFixed(1)),
+        extracted: true,
+      }))
+      message.success('Background removed. The transparent cut-out is ready.')
+    } catch {
+      message.error('Could not auto-extract this patch.')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  // Auto-extract for patches in the batch review list
+  const autoExtractBatchPatch = async (patchIndex) => {
+    const patch = directPatches[patchIndex]
+    if (!patch) return
+    const srcToExtract = patch.originalSrc || patch.src
+    if (!srcToExtract) return message.warning('No image to extract.')
+    setBusy(true)
+    try {
+      const imageData = await loadImageData(srcToExtract, 800)
+      const out = extractPieces(imageData, {
+        mode: 'standalone',
+        standaloneLongMm: Math.max(patch.widthMm, patch.heightMm),
+        pieceTol: 58,
+        minPieceMm: 2,
+        warmOnly: false,
+      })
+      const piece = out.pieces[0]
+      if (!piece?.dataUrl) {
+        message.info('No isolated patch detected. Use a clean, plain background with the whole patch visible.')
+        return
+      }
+      setDirectPatches((ps) => {
+        const updated = [...ps]
+        updated[patchIndex] = {
+          ...updated[patchIndex],
+          src: piece.dataUrl,
+          pxW: piece.pxW,
+          pxH: piece.pxH,
+          heightMm: Math.max(0.1, +(patch.widthMm * (piece.pxH / piece.pxW)).toFixed(1)),
+          extracted: true,
+        }
+        return updated
+      })
+      message.success('Background removed.')
+    } catch {
+      message.error('Could not auto-extract this patch.')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  // Auto-extract all patches in batch list
+  const autoExtractAllBatchPatches = async () => {
+    const patchesToExtract = directPatches
+      .map((p, idx) => [idx, p])
+      .filter(([_, p]) => p.originalSrc && !p.extracted)
+    if (patchesToExtract.length === 0) {
+      message.info('All patches are already extracted.')
+      return
+    }
+    setBusy(true)
+    try {
+      for (const [idx, patch] of patchesToExtract) {
+        const srcToExtract = patch.originalSrc || patch.src
+        const imageData = await loadImageData(srcToExtract, 800)
+        const out = extractPieces(imageData, {
+          mode: 'standalone',
+          standaloneLongMm: Math.max(patch.widthMm, patch.heightMm),
+          pieceTol: 58,
+          minPieceMm: 2,
+          warmOnly: false,
+        })
+        const piece = out.pieces[0]
+        if (piece?.dataUrl) {
+          setDirectPatches((ps) => {
+            const updated = [...ps]
+            updated[idx] = {
+              ...updated[idx],
+              src: piece.dataUrl,
+              pxW: piece.pxW,
+              pxH: piece.pxH,
+              heightMm: Math.max(0.1, +(patch.widthMm * (piece.pxH / piece.pxW)).toFixed(1)),
+              extracted: true,
+            }
+            return updated
+          })
+        }
+      }
+      message.success(`Extracted ${patchesToExtract.length} patch(es).`)
+    } catch {
+      message.error('Could not auto-extract some patches.')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  // Add direct patch to the list for batch saving
+  const addDirectPatch = () => {
+    if (!directPatch?.src) return message.warning('Upload or extract a patch image.')
+    if (!directPatch.name.trim()) return message.warning('Give the patch a name.')
+    const widthMm = Number(directPatch.widthMm) || 16
+    const heightMm = Number(directPatch.heightMm) || 16
+    const newPatch = {
+      id: `patch-${slug(directPatch.name)}-${rid()}`,
+      name: directPatch.name.trim(),
+      collection: form.productName.trim() || 'Custom patches',
+      category: 'unique',
+      tier: directPatch.tier,
+      type: directPatch.type,
+      price: Number(directPatch.price) || 0,
+      src: directPatch.dataUrl,
+      pxW: directPatch.pxW,
+      pxH: directPatch.pxH,
+      widthMm,
+      heightMm,
+      minScale: 1,
+      maxScale: 1,
+    }
+    setDirectPatches((ps) => [newPatch, ...ps])
+    setDirectPatch(null)
+    message.success('Patch added to the list.')
+  }
+
+  // Commit direct patches to database
+  const commitDirectPatches = async () => {
+    if (!directPatches.length) return message.warning('Add at least one patch.')
+    try {
+      await addPatches(directPatches)
+      await cloud.refresh()
+      message.success(`Saved ${directPatches.length} patch${directPatches.length > 1 ? 'es' : ''} to the catalogue.`)
+      setDirectPatches([])
+      setDirectPatch(null)
+    } catch (error) {
+      message.error(error.message || 'Could not save the patches.')
+    }
+  }
+
   const selected = pieces.filter((p) => p.include)
 
   const commit = async () => {
@@ -3501,190 +3877,405 @@ function BatchExtractTab({ draft, set, cloud }) {
       <Alert
         type="info"
         showIcon
-        message="Auto-extract decorations from a photo"
-        description="Choose decorations on a known-size product, or one or more separated decorations on a clean plain background. The studio removes the background and prepares transparent catalogue artwork."
+        message={uploadMode === 'direct' ? 'Direct patch upload (transparent PNG)' : 'Auto-extract decorations from a photo'}
+        description={uploadMode === 'direct'
+          ? 'Upload ready-made transparent PNG patches. Use the optional auto-extract tool to remove backgrounds from photos first.'
+          : 'Choose decorations on a known-size product, or one or more separated decorations on a clean plain background. The studio removes the background and prepares transparent catalogue artwork.'}
       />
 
-      <Card size="small" title="1 · Photo & size">
-        <label>
-          <span>Photo type</span>
-          <Segmented
-            block
-            value={form.photoMode}
-            onChange={onPhotoMode}
-            options={[
-              { value: 'product', label: 'Multiple charms on a product' },
-              { value: 'standalone', label: 'Plain background (one or more)' },
-            ]}
-            style={{ marginTop: 6, marginBottom: 14 }}
-          />
-        </label>
-        <div className="admin-grid">
-          <label>
-            <span>{standalone ? 'Decoration photo on a plain background' : 'Decorations-on-product photo'}</span>
-            <ImageDrop
-              value={photo}
-              onChange={onPhoto}
-              maxDim={1600}
-              hint={standalone
-                ? 'Click or drop separated decorations on a clean plain background'
-                : 'Click or drop the photo of decorations laid on the product'}
-            />
-          </label>
-          {!standalone && (
-            <label>
-              <span>Product body photo (blank)</span>
-              <ImageDrop
-                value={body}
-                onChange={onBody}
-                maxDim={1200}
-                hint="Click or drop the bare product photo"
-              />
-            </label>
-          )}
-          <label>
-            <span>{standalone ? (isPatch ? 'Patch name' : 'Charm name') : 'Product name'}</span>
-            <Input
-              value={form.productName}
-              onChange={(e) => setForm((f) => ({ ...f, productName: e.target.value }))}
-              placeholder={standalone ? (isPatch ? 'e.g. Embroidered patch' : 'e.g. Gold star') : 'e.g. Cottagecore set'}
-            />
-          </label>
-          <label>
-            <span>Decoration set</span>
-            <Select
-              value={form.kind}
-              onChange={(v) => setForm((f) => v === 'tote'
-                ? { ...f, kind: v, productName: standalone ? f.productName : 'The Charmé Edit Tote', widthMm: 420, heightMm: 360, makeProduct: false }
-                : { ...f, kind: v })}
-              options={[
-                { value: 'phone', label: 'Charms' },
-                { value: 'tote', label: 'Patches' },
-              ]}
-              style={{ width: '100%' }}
-            />
-          </label>
-          <label>
-            <span>{standalone ? 'Largest/reference decoration real long side (mm)' : 'Product real width (mm)'}</span>
-            <InputNumber
-              min={standalone ? 0.1 : 10}
-              step={standalone ? 0.1 : 1}
-              value={standalone ? form.standaloneLongMm : form.widthMm}
-              onChange={(v) => setForm((f) => ({ ...f, [standalone ? 'standaloneLongMm' : 'widthMm']: v }))}
-              style={{ width: '100%' }}
-            />
-          </label>
-          {!standalone && (
-            <label>
-              <span>Product real height (mm)</span>
-              <InputNumber
-                min={10}
-                value={form.heightMm}
-                onChange={(v) => setForm((f) => ({ ...f, heightMm: v }))}
-                style={{ width: '100%' }}
-              />
-            </label>
-          )}
-          {!isPatch && <label>
-            <span>Default {isPatch ? 'patch' : 'charm'} category</span>
-            <Select
-              value={form.category}
-              onChange={(v) => setForm((f) => ({ ...f, category: v }))}
-              options={CAT_OPTS}
-              style={{ width: '100%' }}
-            />
-          </label>}
-          {!standalone && (
-            <label className="admin-check">
-              <Checkbox
-                checked={form.makeProduct}
-                onChange={(e) => setForm((f) => ({ ...f, makeProduct: e.target.checked }))}
-              >
-                Also add the product (from the body photo)
-              </Checkbox>
-            </label>
-          )}
-        </div>
-
-        <Divider style={{ margin: '14px 0' }} />
-        <p className="eyebrow" style={{ marginBottom: 10 }}>Detection tuning</p>
-        <div className="admin-tune">
-          <label>
-            <span>{standalone ? 'Background' : 'Product'} colour difference ({tune.pieceTol} · lower catches subtler edges)</span>
-            <Slider min={25} max={110} value={tune.pieceTol} onChange={(v) => setTune((t) => ({ ...t, pieceTol: v }))} />
-          </label>
-          {!standalone && (
-            <label>
-              <span>Min piece size ({tune.minPieceMm} mm)</span>
-              <Slider min={2} max={20} value={tune.minPieceMm} onChange={(v) => setTune((t) => ({ ...t, minPieceMm: v }))} />
-            </label>
-          )}
-          {!standalone && (
-            <label className="admin-check">
-              <Checkbox checked={tune.warmOnly} onChange={(e) => setTune((t) => ({ ...t, warmOnly: e.target.checked }))}>
-                Metallic only (reject non-gold/silver specks)
-              </Checkbox>
-            </label>
-          )}
-        </div>
-        <Button
-          type="primary"
-          icon={<ScissorOutlined />}
-          loading={busy}
-          onClick={detect}
-          style={{ marginTop: 14 }}
-        >
-          Detect & cut pieces
-        </Button>
-
-        <Divider style={{ margin: '18px 0 14px' }} />
-        <div className="gpt-extract__toggle">
-          <Switch size="small" checked={gptOpen} onChange={setGptOpen} aria-label="Use GPT-assisted cut-outs" />
-          <div>
-            <strong>Optional · GPT-assisted cut-outs</strong>
-            <p className="hint">Use this when subtle, transparent or crowded pieces need a cleaner background removal.</p>
-          </div>
-        </div>
-        {gptOpen && (
-          <div className="gpt-extract">
-            <Alert
-              type="warning"
-              showIcon
-              message="GPT is a fallback, not a measurement authority"
-              description={standalone
-                ? 'Upload the same plain-background photo to GPT. The returned PNG must preserve its canvas, positions and scale; the largest/reference decoration sets the shared millimetre scale.'
-                : 'Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding.'}
-            />
-            <label>
-              <span>1 · Copy this prompt and send it with the original photo</span>
-              <Input.TextArea aria-label="GPT cut-out prompt" value={gptPrompt} readOnly autoSize={{ minRows: 8, maxRows: 12 }} />
-            </label>
-            <Space wrap>
-              <Button icon={<CopyOutlined />} onClick={copyGptPrompt}>Copy prompt</Button>
-              <Button icon={<LinkOutlined />} href="https://chatgpt.com/" target="_blank">Open ChatGPT</Button>
-            </Space>
-            <label>
-              <span>2 · Upload GPT’s transparent PNG result</span>
-              <ImageDrop
-                value={gptPhoto}
-                onChange={setGptPhoto}
-                maxDim={1600}
-                hint="Click or drop the transparent PNG returned by GPT"
-              />
-            </label>
-            <Button
-              icon={<ScissorOutlined />}
-              loading={busy}
-              disabled={!photo?.src || !gptPhoto?.src}
-              onClick={importGpt}
-            >
-              Import GPT cut-outs
-            </Button>
-          </div>
-        )}
+      <Card size="small" title="Upload mode">
+        <Segmented
+          block
+          value={uploadMode}
+          onChange={(v) => {
+            setForm((f) => ({ ...f, uploadMode: v }))
+            setPieces([])
+            setResult(null)
+            setDirectPatch(null)
+            setDirectPatches([])
+            setPhoto(null)
+          }}
+          options={[
+            { value: 'extract', label: 'Auto-extract from photo' },
+            { value: 'direct', label: 'Direct PNG upload', disabled: !isPatch },
+          ]}
+          style={{ marginTop: 6 }}
+        />
+        {!isPatch && <p className="hint" style={{ margin: '8px 0 0' }}>Direct PNG upload is available for patches. Choose Patches below to enable it.</p>}
       </Card>
 
-      {result && (
+      {uploadMode === 'direct' ? (
+        <>
+          <Card size="small" title="1 · Upload patch">
+            {/* — image drop — */}
+            <Space direction="vertical" size={12} style={{ width: '100%' }}>
+              <div>
+                <p className="eyebrow" style={{ marginBottom: 6 }}>Single patch</p>
+                <ImageDrop
+                  value={directPatch?.originalSrc
+                    ? { src: directPatch.originalSrc, w: directPatch.pxW, h: directPatch.pxH }
+                    : directPatch?.src ? { src: directPatch.src, w: directPatch.pxW, h: directPatch.pxH } : null}
+                  onChange={onDirectPatchImage}
+                  maxDim={1200}
+                  hint="Click or drop a transparent PNG patch, or a photo to remove background from"
+                />
+                {directPatch?.src && (
+                  <Space style={{ marginTop: 8 }} wrap>
+                    <Button
+                      icon={<ScissorOutlined />}
+                      loading={busy}
+                      onClick={autoExtractDirectPatch}
+                    >
+                      {directPatch.extracted ? 'Re-extract background' : 'Auto-extract background (optional)'}
+                    </Button>
+                    {directPatch.extracted && (
+                      <Tag color="green" style={{ lineHeight: '30px' }}>Background removed</Tag>
+                    )}
+                  </Space>
+                )}
+              </div>
+
+              <Divider style={{ margin: '4px 0' }}>
+                <span className="hint">or batch upload</span>
+              </Divider>
+
+              <div>
+                <p className="eyebrow" style={{ marginBottom: 6 }}>Multiple patches at once</p>
+                <ImageDrop
+                  multiple
+                  onChange={onDirectPatchBatchImage}
+                  maxDim={1200}
+                  hint="Drop several transparent PNG files — each becomes a separate patch"
+                />
+              </div>
+            </Space>
+          </Card>
+
+          {directPatch?.src && (
+            <Card size="small" title="2 · Name &amp; size">
+              <div className="admin-grid">
+                <label style={{ gridColumn: '1 / -1' }}>
+                  <span>Patch name</span>
+                  <Input
+                    value={directPatch.name || ''}
+                    onChange={(e) => setDirectPatch((p) => p ? { ...p, name: e.target.value } : null)}
+                    placeholder="e.g. Embroidered logo patch"
+                  />
+                </label>
+                <label>
+                  <span>Real width (mm)</span>
+                  <InputNumber
+                    min={0.1}
+                    step={0.1}
+                    value={directPatch.widthMm || 16}
+                    onChange={(v) => setDirectPatch((p) => p ? { ...p, widthMm: v } : null)}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+                <label>
+                  <span>Real height (mm)</span>
+                  <InputNumber
+                    min={0.1}
+                    step={0.1}
+                    value={directPatch.heightMm || 16}
+                    onChange={(v) => setDirectPatch((p) => p ? { ...p, heightMm: v } : null)}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+                <label>
+                  <span>Price (£)</span>
+                  <InputNumber
+                    min={0}
+                    step={0.1}
+                    value={directPatch.price || 0}
+                    onChange={(v) => setDirectPatch((p) => p ? { ...p, price: v } : null)}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+                <label>
+                  <span>Collection / set name (optional)</span>
+                  <Input
+                    value={form.productName}
+                    onChange={(e) => setForm((f) => ({ ...f, productName: e.target.value }))}
+                    placeholder="e.g. Summer patches"
+                  />
+                </label>
+                <Button
+                  type="primary"
+                  icon={<PlusOutlined />}
+                  onClick={addDirectPatch}
+                  style={{ gridColumn: '1 / -1' }}
+                >
+                  Add patch to list
+                </Button>
+              </div>
+            </Card>
+          )}
+
+          {directPatches.length > 0 && (
+            <Card
+              size="small"
+              title={`3 · Review (${directPatches.length} patch${directPatches.length === 1 ? '' : 'es'})`}
+              extra={
+                <Button
+                  type="primary"
+                  size="small"
+                  icon={<ThunderboltOutlined />}
+                  loading={busy}
+                  onClick={autoExtractAllBatchPatches}
+                >
+                  Extract All
+                </Button>
+              }
+            >
+              <div className="admin-extract__pieces">
+                {directPatches.map((p, i) => (
+                  <div key={i} className="extract-piece">
+                    <div className="extract-piece__thumb">
+                      <img src={p.src} alt="" />
+                    </div>
+                    <div className="extract-piece__fields">
+                      <div>
+                        <strong>{p.name}</strong>
+                      </div>
+                      <Space size={6} wrap>
+                        <span className="extract-piece__size">
+                          {p.widthMm}×{p.heightMm} mm
+                        </span>
+                        <Tag color="gold">{p.tier}</Tag>
+                        <span>£{Number(p.price).toFixed(2)}</span>
+                        {p.extracted && (
+                          <Tag color="green" style={{ lineHeight: '22px' }}>Extracted</Tag>
+                        )}
+                      </Space>
+                      {p.originalSrc && (
+                        <Button
+                          type="text"
+                          size="small"
+                          icon={<ScissorOutlined />}
+                          loading={busy}
+                          onClick={() => autoExtractBatchPatch(i)}
+                          style={{ marginTop: 4, padding: '0 0' }}
+                        >
+                          {p.extracted ? 'Re-extract' : 'Extract'}
+                        </Button>
+                      )}
+                    </div>
+                    <Button
+                      type="text"
+                      danger
+                      icon={<DeleteOutlined />}
+                      onClick={() => setDirectPatches((ps) => ps.filter((_, idx) => idx !== i))}
+                      size="small"
+                    />
+                  </div>
+                ))}
+              </div>
+              <Button
+                type="primary"
+                icon={<ThunderboltOutlined />}
+                onClick={commitDirectPatches}
+                style={{ marginTop: 14, width: '100%' }}
+              >
+                Save {directPatches.length} patch{directPatches.length === 1 ? '' : 'es'} to catalogue
+              </Button>
+            </Card>
+          )}
+        </>
+      ) : (
+        <>
+          {/* —— step 1: photos —— */}
+          <Card size="small" title="1 · Photo">
+            <Segmented
+              block
+              value={form.photoMode}
+              onChange={onPhotoMode}
+              options={[
+                { value: 'product', label: 'Multiple charms on a product' },
+                { value: 'standalone', label: 'Plain background (one or more)' },
+              ]}
+              style={{ marginBottom: 14 }}
+            />
+            <div className="admin-grid">
+              <label>
+                <span>{standalone ? 'Decoration photo on a plain background' : 'Decorations-on-product photo'}</span>
+                <ImageDrop
+                  value={photo}
+                  onChange={onPhoto}
+                  maxDim={1600}
+                  hint={standalone
+                    ? 'Click or drop separated decorations on a clean plain background'
+                    : 'Click or drop the photo of decorations laid on the product'}
+                />
+              </label>
+              {!standalone && (
+                <label>
+                  <span>Product body photo (blank)</span>
+                  <ImageDrop
+                    value={body}
+                    onChange={onBody}
+                    maxDim={1200}
+                    hint="Click or drop the bare product photo"
+                  />
+                </label>
+              )}
+            </div>
+          </Card>
+
+          {/* —— step 2: details + extract —— */}
+          <Card size="small" title="2 · Details & extract">
+            <div className="admin-grid">
+              <label>
+                <span>{standalone ? (isPatch ? 'Patch name' : 'Charm name') : 'Product name'}</span>
+                <Input
+                  value={form.productName}
+                  onChange={(e) => setForm((f) => ({ ...f, productName: e.target.value }))}
+                  placeholder={standalone ? (isPatch ? 'e.g. Embroidered patch' : 'e.g. Gold star') : 'e.g. Cottagecore set'}
+                />
+              </label>
+              <label>
+                <span>Decoration set</span>
+                <Select
+                  value={form.kind}
+                  onChange={(v) => setForm((f) => v === 'tote'
+                    ? { ...f, kind: v, productName: standalone ? f.productName : 'The Charmé Edit Tote', widthMm: 420, heightMm: 360, makeProduct: false }
+                    : { ...f, kind: v })}
+                  options={[
+                    { value: 'phone', label: 'Charms' },
+                    { value: 'tote', label: 'Patches' },
+                  ]}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              <label>
+                <span>{standalone ? 'Largest decoration long side (mm)' : 'Product real width (mm)'}</span>
+                <InputNumber
+                  min={standalone ? 0.1 : 10}
+                  step={standalone ? 0.1 : 1}
+                  value={standalone ? form.standaloneLongMm : form.widthMm}
+                  onChange={(v) => setForm((f) => ({ ...f, [standalone ? 'standaloneLongMm' : 'widthMm']: v }))}
+                  style={{ width: '100%' }}
+                />
+              </label>
+              {!standalone && (
+                <label>
+                  <span>Product real height (mm)</span>
+                  <InputNumber
+                    min={10}
+                    value={form.heightMm}
+                    onChange={(v) => setForm((f) => ({ ...f, heightMm: v }))}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+              )}
+              {!isPatch && (
+                <label>
+                  <span>Default charm category</span>
+                  <Select
+                    value={form.category}
+                    onChange={(v) => setForm((f) => ({ ...f, category: v }))}
+                    options={CAT_OPTS}
+                    style={{ width: '100%' }}
+                  />
+                </label>
+              )}
+              {!standalone && (
+                <label className="admin-check">
+                  <Checkbox
+                    checked={form.makeProduct}
+                    onChange={(e) => setForm((f) => ({ ...f, makeProduct: e.target.checked }))}
+                  >
+                    Also add the product (from the body photo)
+                  </Checkbox>
+                </label>
+              )}
+            </div>
+
+            <Divider style={{ margin: '14px 0 10px' }} />
+            <p className="eyebrow" style={{ marginBottom: 10 }}>Detection tuning</p>
+            <div className="admin-tune">
+              <label>
+                <span>{standalone ? 'Background' : 'Product'} colour difference ({tune.pieceTol} · lower catches subtler edges)</span>
+                <Slider min={25} max={110} value={tune.pieceTol} onChange={(v) => setTune((t) => ({ ...t, pieceTol: v }))} />
+              </label>
+              {!standalone && (
+                <label>
+                  <span>Min piece size ({tune.minPieceMm} mm)</span>
+                  <Slider min={2} max={20} value={tune.minPieceMm} onChange={(v) => setTune((t) => ({ ...t, minPieceMm: v }))} />
+                </label>
+              )}
+              {!standalone && (
+                <label className="admin-check">
+                  <Checkbox checked={tune.warmOnly} onChange={(e) => setTune((t) => ({ ...t, warmOnly: e.target.checked }))}>
+                    Metallic only (reject non-gold/silver specks)
+                  </Checkbox>
+                </label>
+              )}
+            </div>
+            <Button
+              type="primary"
+              icon={<ScissorOutlined />}
+              loading={busy}
+              onClick={detect}
+              style={{ marginTop: 16 }}
+            >
+              Detect &amp; cut pieces
+            </Button>
+          </Card>
+
+          {/* —— optional: GPT fallback —— */}
+          <Card
+            size="small"
+            title={
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Switch size="small" checked={gptOpen} onChange={setGptOpen} aria-label="Use GPT-assisted cut-outs" />
+                <span>Optional · GPT-assisted cut-outs</span>
+              </div>
+            }
+          >
+            <p className="hint" style={{ marginTop: 0 }}>Use this when subtle, transparent or crowded pieces need a cleaner background removal.</p>
+            {gptOpen && (
+              <div className="gpt-extract">
+                <Alert
+                  type="warning"
+                  showIcon
+                  message="GPT is a fallback, not a measurement authority"
+                  description={standalone
+                    ? 'Upload the same plain-background photo to GPT. The returned PNG must preserve its canvas, positions and scale; the largest/reference decoration sets the shared millimetre scale.'
+                    : 'Upload the same original photo to GPT. The returned PNG must keep the original canvas, positions and scale. Review every cut-out and its millimetre size here before adding.'}
+                />
+                <label>
+                  <span>1 · Copy this prompt and send it with the original photo</span>
+                  <Input.TextArea aria-label="GPT cut-out prompt" value={gptPrompt} readOnly autoSize={{ minRows: 8, maxRows: 12 }} />
+                </label>
+                <Space wrap>
+                  <Button icon={<CopyOutlined />} onClick={copyGptPrompt}>Copy prompt</Button>
+                  <Button icon={<LinkOutlined />} href="https://chatgpt.com/" target="_blank">Open ChatGPT</Button>
+                </Space>
+                <label>
+                  <span>2 · Upload GPT's transparent PNG result</span>
+                  <ImageDrop
+                    value={gptPhoto}
+                    onChange={setGptPhoto}
+                    maxDim={1600}
+                    hint="Click or drop the transparent PNG returned by GPT"
+                  />
+                </label>
+                <Button
+                  icon={<ScissorOutlined />}
+                  loading={busy}
+                  disabled={!photo?.src || !gptPhoto?.src}
+                  onClick={importGpt}
+                >
+                  Import GPT cut-outs
+                </Button>
+              </div>
+            )}
+          </Card>
+        </>
+      )}
+
+      {uploadMode !== 'direct' && result && (
         <Card
           size="small"
           title={result.product.detected
@@ -4296,7 +4887,7 @@ export default function AdminPage() {
                 <TagsOutlined /> Decorations
               </span>
             ),
-            children: <DecorationsTab draft={draft} set={set} cloud={cloud} />,
+            children: <DecorationsTab draft={draft} set={set} cloud={cloud} onOpenUploader={() => setTab('extract')} />,
           },
           {
             key: 'taxonomy',

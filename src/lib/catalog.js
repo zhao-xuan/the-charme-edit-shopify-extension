@@ -15,6 +15,8 @@ export const MIN_CHARMS = 10
 export const MAX_CHARMS = 30
 export const REC_MIN = 12
 export const REC_MAX = 15
+// Totes are decorated with patches, not charms — a much lower minimum applies.
+export const TOTE_MIN_PATCHES = 2
 
 /**
  * Total chargeable charm price for a placed layout. Merchant pricing groups

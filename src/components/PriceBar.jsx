@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
-import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../lib/catalog'
+import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, placedCharmsTotal } from '../lib/catalog'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 
@@ -15,11 +15,13 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
   const ok = validation.ok
   const problems = validation.problems
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
+  const minRequired = product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS
+  const pieceNoun = t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase()
 
   // Keep count and placement problems visible together: a layout can be both
   // short of charms and have overlapping charms that still need fixing.
   const warnings = []
-  if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: MIN_CHARMS }))
+  if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: minRequired, noun: pieceNoun }))
   if (validation.tooMany) warnings.push(t('price.useAtMost', { n: MAX_CHARMS }))
   if (problems > 0) warnings.push(tn('price.needAttention', problems))
 

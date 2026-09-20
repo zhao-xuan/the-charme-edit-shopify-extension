@@ -35,7 +35,7 @@ const SETTINGS_KV_KEY = 'settings:app'
 
 
 // Server-authoritative base price per product kind (mirrors src/data/products.js).
-const BASE_PRICE = { phone: 26, tote: 16, frame: 24 }
+const BASE_PRICE = { phone: 26, tote: 32, frame: 24 }
 
 const cors = {
   'access-control-allow-origin': '*',

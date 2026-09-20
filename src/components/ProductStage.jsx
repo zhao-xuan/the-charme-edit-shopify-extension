@@ -150,6 +150,7 @@ const ProductStage = forwardRef(function ProductStage(
       } catch {
         // pointer may already be gone
       }
+      document.body.classList.add('charme-no-select')
       const starts = new Map()
       for (const c of placed) if (c.groupId === groupId) starts.set(c.uid, { cx: c.cxMm, cy: c.cyMm })
       drag.current = {
@@ -176,6 +177,7 @@ const ProductStage = forwardRef(function ProductStage(
       }
       onSelect(charm.uid)
       e.currentTarget.setPointerCapture(e.pointerId)
+      document.body.classList.add('charme-no-select')
       drag.current = {
         mode: 'single',
         uid: charm.uid,
@@ -224,6 +226,7 @@ const ProductStage = forwardRef(function ProductStage(
       const d = drag.current
       if (!d || d.pointerId !== e.pointerId) return
       drag.current = null
+      document.body.classList.remove('charme-no-select')
       // Once a single charm has actually been moved, dismiss its rotate/remove
       // toolbar. Group drags keep the group selected so the box + Confirm button
       // stay put. A plain tap (no real drag) leaves the selection alone.
@@ -560,6 +563,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
     }
     onCheckpoint?.()
     dragging.current = true
+    document.body.classList.add('charme-no-select')
     onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
   }
   const move = (e) => {
@@ -567,6 +571,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   }
   const end = () => {
     dragging.current = false
+    document.body.classList.remove('charme-no-select')
   }
 
   const ta = ((rot - 90) * Math.PI) / 180

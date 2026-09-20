@@ -3,6 +3,7 @@ import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@
 import { productGroups, hasCaseImage, productsByAvailability } from '../data/products'
 import { formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
+import { showToteInPicker } from '../lib/previewFlags'
 
 // Representative icon per base platform, shown on the Step 1 selector cards.
 const BASE_ICONS = {
@@ -101,7 +102,7 @@ export default function ProductPicker({
   presentmentPrice,
   presentmentPrices = {},
 }) {
-  const PRODUCT_GROUPS = productGroups()
+  const PRODUCT_GROUPS = productGroups().filter((group) => group.key !== 'tote' || showToteInPicker())
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
   const product = group.products.find((p) => p.id === productId) || group.products[0]
 
