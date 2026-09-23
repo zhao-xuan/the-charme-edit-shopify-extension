@@ -89,6 +89,7 @@ const DICT = {
     'price.aimFor': ' · aim for {min}–{max}',
     'price.base': '{name} base · {price}',
     'price.plusCharms': '+ charms {price}',
+    'price.patchDiscount': 'Patch discount ({pct}% off)',
     'price.estimatedTotal': 'Estimated total',
     'price.total': 'Total',
     'price.orderSummary': 'Order summary',
@@ -132,6 +133,7 @@ const DICT = {
     'action.rotate': 'Drag to rotate in either direction',
 
     'step1.mobile': 'Step 1: Select Model',
+    'step1.mobileTote': 'Step 1: Select colour',
     'label.case': 'Case',
     'label.gel': 'Gel',
     'step2.mobileTitle': 'Step 2: Add charms',
@@ -248,6 +250,7 @@ const DICT = {
     'action.dismiss': '关闭',
 
     'step1.mobile': '第 1 步：选择型号',
+    'step1.mobileTote': '第 1 步：选择颜色',
     'label.case': '壳子',
     'label.gel': '凝胶',
     'step2.mobileTitle': '第 2 步：添加挂饰',
@@ -355,6 +358,7 @@ const DICT = {
     'action.dismiss': 'Fermer',
 
     'step1.mobile': 'Étape 1 : Choisir le modèle',
+    'step1.mobileTote': 'Étape 1 : Choisir la couleur',
     'label.case': 'Coque',
     'label.gel': 'Gel',
     'step2.mobileTitle': 'Étape 2 : Ajouter des breloques',
@@ -462,6 +466,7 @@ const DICT = {
     'action.dismiss': 'Schließen',
 
     'step1.mobile': 'Schritt 1: Modell wählen',
+    'step1.mobileTote': 'Schritt 1: Farbe wählen',
     'label.case': 'Hülle',
     'label.gel': 'Gel',
     'step2.mobileTitle': 'Schritt 2: Anhänger hinzufügen',
@@ -569,6 +574,7 @@ const DICT = {
     'action.dismiss': 'Cerrar',
 
     'step1.mobile': 'Paso 1: Elegir modelo',
+    'step1.mobileTote': 'Paso 1: Elegir color',
     'label.case': 'Funda',
     'label.gel': 'Gel',
     'step2.mobileTitle': 'Paso 2: Añadir dijes',
@@ -676,6 +682,7 @@ const DICT = {
     'action.dismiss': '閉じる',
 
     'step1.mobile': 'ステップ1：モデルを選択',
+    'step1.mobileTote': 'ステップ1：色を選択',
     'label.case': 'ケース',
     'label.gel': 'ジェル',
     'step2.mobileTitle': 'ステップ2：チャームを追加',

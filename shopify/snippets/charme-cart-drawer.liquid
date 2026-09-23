@@ -410,13 +410,16 @@
     var total = group.reduce(function (s, it) { return s + it.final_line_price; }, 0);
     var proof = base.properties && (base.properties.Proof || base.properties._proof);
     var keys = group.map(function (it) { return it.key; });
+    var kind = (base.properties && base.properties.Type) || 'phone';
+    var baseNoun = kind === 'tote' ? 'Tote' : kind === 'frame' ? 'Frame' : 'Case';
+    var title = base.product_title || base.title || 'Custom Charm Case';
 
-    var rows = '<li><span>Case</span><span>' + money(base.final_line_price) + '</span></li>';
+    var rows = '<li><span>' + esc(baseNoun) + '</span><span>' + money(base.final_line_price) + '</span></li>';
     charms.forEach(function (it) {
       rows += '<li><span>' + esc(it.product_title || it.title) + (it.quantity > 1 ? ' &times;' + it.quantity : '') +
         '</span><span>' + money(it.final_line_price) + '</span></li>';
     });
-    rows += '<li class="cc-detail__total"><span>Custom case total</span><span>' + money(total) + '</span></li>';
+    rows += '<li class="cc-detail__total"><span>Custom ' + esc(baseNoun.toLowerCase()) + ' total</span><span>' + money(total) + '</span></li>';
 
     var media = proof
       ? '<img src="' + esc(proof) + '" alt="Design preview">'
@@ -431,7 +434,7 @@
       '<div class="cc-item__top">' +
         '<div class="cc-item__media">' + media + '</div>' +
         '<div class="cc-item__main">' +
-          '<p class="cc-item__title">Custom Charm Case</p>' +
+          '<p class="cc-item__title">' + esc(title) + '</p>' +
           (variant ? '<p class="cc-item__variant">' + esc(variant) + '</p>' : '') +
           lineTags(base) +
         '</div>' +

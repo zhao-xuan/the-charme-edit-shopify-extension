@@ -1,11 +1,15 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
-import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, placedCharmsTotal } from '../lib/catalog'
+import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, placedCharmsTotal, toteDiscountRate } from '../lib/catalog'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 
 export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct }) {
-  const charmTotal = placedCharmsTotal(placed)
+  const rawCharmTotal = placedCharmsTotal(placed)
+  const isTote = product.kind === 'tote'
+  const discountRate = isTote ? toteDiscountRate(placed.length) : 0
+  const discountAmount = discountRate ? +(rawCharmTotal * discountRate).toFixed(2) : 0
+  const charmTotal = +(rawCharmTotal - discountAmount).toFixed(2)
   const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
   const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
   const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
@@ -56,9 +60,23 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
           <div className="price-row" style={{ marginBottom: 4 }}>
             <span className="hint">
               {t('price.base', { name: product.name, price: formatCasePrice(casePrice) })}
-              {charmTotal > 0 && <> &nbsp;+&nbsp; {t('price.plusCharms', { price: formatMoney(charmTotal) })}</>}
+              {rawCharmTotal > 0 && (
+                <>
+                  &nbsp; {t('price.plusCharms', { price: formatMoney(rawCharmTotal) })}
+                </>
+              )}
             </span>
           </div>
+          {discountRate > 0 && (
+            <div className="price-row" style={{ marginBottom: 4 }}>
+              <span className="hint" style={{ color: 'var(--accent, #b35b5b)' }}>
+                {t('price.patchDiscount', { pct: Math.round(discountRate * 100) })}
+              </span>
+              <span style={{ color: 'var(--accent, #b35b5b)' }}>
+                −{formatMoney(discountAmount)}
+              </span>
+            </div>
+          )}
           <div className="price-row" style={{ marginBottom: 8 }}>
             <span style={{ fontSize: 13, color: 'var(--ink-soft)' }}>{t('price.estimatedTotal')}</span>
             <span className="total">{formatTotal(total)}</span>

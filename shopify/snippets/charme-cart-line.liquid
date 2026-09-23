@@ -27,6 +27,17 @@
 {%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
 {%- assign charme_layout = item.properties['_layout'] -%}
 {%- assign charme_cart_url = routes.cart_url | prepend: shop.url -%}
+{%- assign charme_kind = item.properties['Type'] | default: 'phone' -%}
+{%- assign charme_item_noun = 'charm' -%}
+{%- assign charme_item_noun_plural = 'charms' -%}
+{%- assign charme_base_noun = 'Case' -%}
+{%- if charme_kind == 'tote' -%}
+  {%- assign charme_item_noun = 'patch' -%}
+  {%- assign charme_item_noun_plural = 'patches' -%}
+  {%- assign charme_base_noun = 'Tote' -%}
+{%- elsif charme_kind == 'frame' -%}
+  {%- assign charme_base_noun = 'Frame' -%}
+{%- endif -%}
 
 <tr
   role="row"
@@ -48,7 +59,7 @@
       {%- if charme_proof != blank -%}
         <img
           src="{{ charme_proof }}"
-          alt="Custom charm case design preview"
+          alt="{{ item.product.title }} design preview"
           width="250"
           height="500"
           class="cart-items__media-image charme-proof-img"
@@ -66,7 +77,7 @@
     headers="productInformation"
   >
     <p>
-      <span class="cart-items__title">Custom Charm Case</span>
+      <span class="cart-items__title">{{ item.product.title }}</span>
     </p>
 
     {%- if item.variant.title != blank and item.product.has_only_default_variant == false -%}
@@ -77,11 +88,11 @@
       </dl>
     {%- endif -%}
 
-    <p>Design: {{ charme_count }} charm{% unless charme_count == 1 %}s{% endunless %}</p>
+    <p>Design: {{ charme_count }} {% if charme_count == 1 %}{{ charme_item_noun }}{% else %}{{ charme_item_noun_plural }}{% endif %}</p>
 
     <ul class="charme-bundle-detail">
       <li>
-        <span>Case</span>
+        <span>{{ charme_base_noun }}</span>
         <span>{{ item.final_line_price | money }}</span>
       </li>
       {%- for charme_it in cart.items -%}
@@ -96,7 +107,7 @@
         {%- endif -%}
       {%- endfor -%}
       <li class="charme-bundle-total">
-        <span>Custom case total</span>
+        <span>Custom {{ charme_base_noun | downcase }} total</span>
         <span>{{ charme_total | money }}</span>
       </li>
     </ul>

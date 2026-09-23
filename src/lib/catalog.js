@@ -5,7 +5,9 @@ import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
-import { charmPricingTotal } from './charmPricing'
+import { charmPricingTotal, toteDiscountRate } from './charmPricing'
+
+export { toteDiscountRate }
 
 // ---- Order limits & pricing ------------------------------------------------
 // A craftable order needs at least MIN_CHARMS pieces and no more than
@@ -324,7 +326,10 @@ export function groupByCollection(items) {
 }
 
 export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
-const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
+// Tote patches on Shopify use their own punctuation for the same idea (e.g.
+// "Letters / Initials") — ignore punctuation/spacing so both phone charms and
+// tote patches are recognised as chainable text pieces.
+const normalizedCollection = (name) => String(name || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
 export function isTextCollection(name) {
   return TEXT_COLLECTIONS.some((collection) => normalizedCollection(collection) === normalizedCollection(name))
 }

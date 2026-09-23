@@ -87,15 +87,18 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
   }
 
   const designToken = token()
-  const proofUrl = await uploadProof(
+  // Kick off both proof uploads (and the charm variant lookups below) in
+  // parallel rather than sequentially — awaiting each one in turn was adding
+  // several redundant round-trips to "Preparing your checkout…".
+  const proofPromise = uploadProof(
     cfg.uploadEndpoint,
     payload.proofs?.frontUrl || payload.proofs?.sampleUrl,
     designToken,
     payload.proofUploadMode,
   )
-  const backProofUrl = payload.proofs?.backUrl
-    ? await uploadProof(cfg.uploadEndpoint, payload.proofs.backUrl, designToken, payload.proofUploadMode)
-    : null
+  const backProofPromise = payload.proofs?.backUrl
+    ? uploadProof(cfg.uploadEndpoint, payload.proofs.backUrl, designToken, payload.proofUploadMode)
+    : Promise.resolve(null)
 
   const charmVariant = (charm) =>
     resolveVariant(
@@ -119,14 +122,18 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
 
   const unmapped = []
   const chargeLines = charmChargeLines(payload.charms, settings().charmPricingGroups)
-  const resolvedLines = await Promise.all(
-    chargeLines.map(async (line) => {
-      const first = line.items[0]
-      const variantId =
-        line.kind === 'group' ? await groupVariant(line) : await charmVariant(first)
-      return { line, variantId }
-    }),
-  )
+  const [proofUrl, backProofUrl, resolvedLines] = await Promise.all([
+    proofPromise,
+    backProofPromise,
+    Promise.all(
+      chargeLines.map(async (line) => {
+        const first = line.items[0]
+        const variantId =
+          line.kind === 'group' ? await groupVariant(line) : await charmVariant(first)
+        return { line, variantId }
+      }),
+    ),
+  ])
   for (const { line, variantId } of resolvedLines) {
     const first = line.items[0]
     if (!variantId) {

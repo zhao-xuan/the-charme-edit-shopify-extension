@@ -27,7 +27,7 @@
 
 import { uploadImageToShopifyFiles } from '../_lib.js'
 import { TYPES, shopifyConfigured, getRecord } from '../_shopify-store.js'
-import { charmChargeLines, normalizeCharmPricingGroups } from '../../../src/lib/charmPricing.js'
+import { charmChargeLines, normalizeCharmPricingGroups, toteDiscountRate } from '../../../src/lib/charmPricing.js'
 
 const API_VERSION = '2024-10'
 const SETTINGS_HANDLE = 'app-settings'
@@ -130,11 +130,13 @@ async function loadCharmPricingGroups(env) {
 }
 
 /**
- * Store the proof PNG. Preferred: the merchant's Shopify Files (durable,
- * store-owned CDN). Fallback: Cloudflare KV under img:proof-<token> served from
- * /api/image. Returns the best available absolute URL.
+ * Store the proof PNG. Returns the instant Cloudflare KV url (served from
+ * /api/image) without waiting — Shopify Files' staged-upload + processing
+ * poll can take several seconds per image and was blocking checkout.
+ * The durable, merchant-visible Shopify Files copy is still uploaded, but in
+ * the background via `waitUntil` (caller passes it through), not awaited.
  */
-async function storeProof(env, origin, token, dataUrl) {
+async function storeProof(env, origin, token, dataUrl, waitUntil) {
   if (!dataUrl) return null
   const m = /^data:(image\/[a-z+]+);base64,(.*)$/s.exec(dataUrl)
   if (!m) return null
@@ -148,20 +150,17 @@ async function storeProof(env, origin, token, dataUrl) {
     await env.IMAGES.put(`img:${key}`, bytes, { metadata: { contentType: m[1] } })
     kvUrl = `${origin}/api/image/${key}`
   }
-  try {
-    const shopifyUrl = await uploadImageToShopifyFiles(env, bytes, {
-      contentType: m[1],
-      filename: `charme-proof-${token}.png`,
-      alt: `Charmé design proof ${token}`,
-    })
-    if (shopifyUrl) return shopifyUrl
-  } catch (e) {
-    console.warn('[Charmé] Shopify Files upload failed, using KV URL', e && e.message)
-  }
+  const ext = m[1] === 'image/jpeg' ? 'jpg' : m[1].split('/')[1] || 'png'
+  const uploadDurableCopy = uploadImageToShopifyFiles(env, bytes, {
+    contentType: m[1],
+    filename: `charme-proof-${token}.${ext}`,
+    alt: `Charmé design proof ${token}`,
+  }).catch((e) => console.warn('[Charmé] Shopify Files upload failed, kept KV copy only', e && e.message))
+  if (waitUntil) waitUntil(uploadDurableCopy)
   return kvUrl
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   const hasAuth =
     (env.SHOPIFY_CLIENT_ID && env.SHOPIFY_CLIENT_SECRET) || env.SHOPIFY_ADMIN_TOKEN
   if (!env.SHOPIFY_STORE || !hasAuth) {
@@ -257,9 +256,12 @@ export async function onRequestPost({ request, env }) {
     ? { front: payload.proofs?.frontUrl, back: payload.proofs?.backUrl }
     : { front: payload.preview }
   const proofUrls = {}
-  for (const [side, dataUrl] of Object.entries(proofInputs)) {
-    if (dataUrl) proofUrls[side] = await storeProof(env, origin, `${token}-${side}`, dataUrl)
-  }
+  await Promise.all(
+    Object.entries(proofInputs).map(async ([side, dataUrl]) => {
+      if (!dataUrl) return
+      proofUrls[side] = await storeProof(env, origin, `${token}-${side}`, dataUrl, waitUntil)
+    }),
+  )
   const proofUrl = proofUrls.front || null
 
   const finish = product.color || product.colorId || ''
@@ -268,7 +270,12 @@ export async function onRequestPost({ request, env }) {
 
   // Merged, priced charm list (billed quantities) to itemise BENEATH the case.
   const charmEntries = [...entriesByKey.values()]
-  const charmsTotal = charmEntries.reduce((n, c) => n + c.price * c.qty, 0)
+  const rawCharmsTotal = charmEntries.reduce((n, c) => n + c.price * c.qty, 0)
+  // Tote patch bundle discount (5+/8+/10+ patches → 10/15/20% off), applied to
+  // the patch subtotal by total physical patch count (front+back combined).
+  const discountRate = kind === 'tote' ? toteDiscountRate(authoritativeCharms.length) : 0
+  const discountAmount = discountRate ? Math.round(rawCharmsTotal * discountRate * 100) / 100 : 0
+  const charmsTotal = Math.round((rawCharmsTotal - discountAmount) * 100) / 100
   const casePrice = basePrice + charmsTotal
 
   // ONE line item = the finished custom case, priced base + charms. The chosen
@@ -291,7 +298,13 @@ export async function onRequestPost({ request, env }) {
       value: `${c.name}${qtyPart} · £${money(c.price * c.qty)}`,
     })
   })
-  baseAttributes.push({ key: 'Charms subtotal', value: `£${money(charmsTotal)}` })
+  baseAttributes.push({ key: 'Charms subtotal', value: `£${money(rawCharmsTotal)}` })
+  if (discountRate > 0) {
+    baseAttributes.push({
+      key: 'Patch discount',
+      value: `-${Math.round(discountRate * 100)}% (−£${money(discountAmount)})`,
+    })
+  }
   if (proofUrls.front) baseAttributes.push({ key: product.kind === 'tote' ? 'Proof front' : 'Proof', value: proofUrls.front })
   if (proofUrls.back) baseAttributes.push({ key: 'Proof back', value: proofUrls.back })
   baseAttributes.push({ key: 'Type', value: kind })

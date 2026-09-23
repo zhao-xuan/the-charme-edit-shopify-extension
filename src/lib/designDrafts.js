@@ -88,6 +88,41 @@ export function clearToteDesign(storage) {
   }
 }
 
+// Phone and frame designs are lost when the customer switches to a different
+// product KIND (e.g. to check out a tote) and back, because only the tote has
+// its own always-on-save slot above. Give every non-tote kind the same
+// treatment, keyed by kind so a phone design and a frame design don't clobber
+// each other.
+const KIND_KEY_PREFIX = 'charme.kindDesign.'
+
+export function saveKindDesign(kind, design, storage) {
+  const target = storageFor(storage)
+  try {
+    target?.setItem(`${KIND_KEY_PREFIX}${kind}.v1`, JSON.stringify({ ...design, updatedAt: Date.now() }))
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function loadKindDesign(kind, storage) {
+  try {
+    const raw = storageFor(storage)?.getItem(`${KIND_KEY_PREFIX}${kind}.v1`)
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
+
+export function clearKindDesign(kind, storage) {
+  try {
+    storageFor(storage)?.removeItem(`${KIND_KEY_PREFIX}${kind}.v1`)
+    return true
+  } catch {
+    return false
+  }
+}
+
 export function listDesignDrafts(storage) {
   return readAll(storageFor(storage))
     .filter((draft) => draft.id !== RECOVERY_ID)

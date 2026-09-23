@@ -342,6 +342,11 @@ export async function renderPreview(product, color, placed, variableUids = [], d
   canvas.height = Math.round(product.heightMm * dpi)
   const ctx = canvas.getContext('2d')
 
+  // Opaque backdrop first: the product shape can leave transparent rounded
+  // corners (case/frame), which a lossy JPEG export would otherwise turn black.
+  ctx.fillStyle = '#fdfaf3'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+
   await Promise.all(placed.map((c) => loadImage(c.src).catch(() => null)))
   await drawProduct(ctx, product, color, dpi)
 
@@ -353,5 +358,8 @@ export async function renderPreview(product, color, placed, variableUids = [], d
     if (variable.has(charm.uid)) drawVariableOutline(ctx, charm, dpi)
   }
 
-  return canvas.toDataURL('image/png')
+  // JPEG keeps this "your design" preview/proof file small (this is a fully
+  // opaque flattened raster, so no transparency is lost) — a PNG at these
+  // pixel dimensions can run into double-digit megabytes for a tote canvas.
+  return canvas.toDataURL('image/jpeg', 0.85)
 }

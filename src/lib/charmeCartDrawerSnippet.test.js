@@ -42,7 +42,7 @@ const base = {
   image: '/case.png',
   key: 'base:1',
   original_line_price: 4899,
-  product_title: 'Custom case',
+  product_title: 'Custom Charm Case',
   properties: { Proof: '/proof.png', _design_token: 'design-1' },
   quantity: 1,
   variant_title: 'White (Glitter Gel) / iPhone 17 Pro',

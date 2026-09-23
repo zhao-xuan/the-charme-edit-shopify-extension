@@ -21,7 +21,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection } from '../lib/catalog'
+import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection, toteDiscountRate } from '../lib/catalog'
 import {
   validateLayout,
   findScatterSpot,
@@ -48,9 +48,11 @@ import {
   deleteDesignDraft,
   designSnapshot,
   listDesignDrafts,
+  loadKindDesign,
   loadRecoveryDraft,
   loadToteDesign,
   saveDraft,
+  saveKindDesign,
   saveRecoveryDraft,
   saveToteDesign,
   serializeCharms,
@@ -779,7 +781,40 @@ export default function CustomizerPage({
     return true
   }, [])
 
+  // Same idea for phone/frame: autosave the in-progress design per KIND so
+  // switching away (to a tote, or between phone<->frame) and back doesn't
+  // silently discard it — mirrors the tote's own always-on-save slot above.
+  useEffect(() => {
+    if (product.kind === 'tote') return
+    saveKindDesign(product.kind, {
+      productId,
+      caseColourId,
+      gelColourId,
+      charms: serializeCharms(placed),
+    })
+  }, [product.kind, productId, caseColourId, gelColourId, placed])
+
+  const restoreKindDesign = (kind) => {
+    const saved = loadKindDesign(kind)
+    const charms = reviveCharms(saved?.charms)
+    if (!charms.length) return false
+    if (saved.productId && findProduct(saved.productId)) {
+      setProductId(saved.productId)
+      const savedGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === saved.productId))
+      if (savedGroup) setGroupKey(savedGroup.key)
+    }
+    if (saved.caseColourId) setCaseColourId(saved.caseColourId)
+    if (saved.gelColourId) setGelColourId(saved.gelColourId)
+    setPlaced(charms)
+    return true
+  }
+
   const handleGroup = (g) => {
+    // Re-clicking the group you're already on (e.g. tapping "Totes" again
+    // while already designing a tote) must be a no-op — it was previously
+    // re-selecting the group's default product and wiping the in-progress
+    // design every time.
+    if (g === groupKey) return
     const from = product
     setGroupKey(g)
     const group = PRODUCT_GROUPS.find((x) => x.key === g)
@@ -803,26 +838,37 @@ export default function CustomizerPage({
     setToteSide('front')
     toteSideStash.current = { front: [], back: [] }
     resetHistory()
-    if (to?.kind === 'tote' && from?.kind !== 'tote') restoreToteDesign()
+    if (to?.kind !== from?.kind) {
+      if (to?.kind === 'tote') restoreToteDesign()
+      else restoreKindDesign(to.kind)
+    }
   }
   const handleProduct = (id) => {
     const from = product
     const to = findProduct(id)
     if (!hasCaseImage(to)) return
     setProductId(id)
-    setPlaced((prev) =>
-      from?.kind === 'phone' && to?.kind === 'phone' ? adaptLayoutToProduct(prev, from, to) : [],
-    )
+    setPlaced((prev) => {
+      if (from?.kind === 'phone' && to?.kind === 'phone') return adaptLayoutToProduct(prev, from, to)
+      // Switching colour within the tote group (e.g. natural → navy) is a
+      // different product id but the SAME kind — keep the in-progress patches
+      // instead of wiping them like a genuine cross-kind switch.
+      if (from?.kind === 'tote' && to?.kind === 'tote') return prev
+      return []
+    })
     setSelectedUid(null)
     setSelectedGroupId(null)
     setConfirmGroupId(null)
-    // Reset tote side when switching to a different product.
+    // Reset tote side when switching to a different product kind.
     if (to?.kind !== from?.kind) {
       setToteSide('front')
       toteSideStash.current = { front: [], back: [] }
     }
     resetHistory()
-    if (to?.kind === 'tote' && from?.kind !== 'tote') restoreToteDesign()
+    if (to?.kind !== from?.kind) {
+      if (to?.kind === 'tote') restoreToteDesign()
+      else restoreKindDesign(to.kind)
+    }
   }
 
   const makePlaced = useCallback((charm, pos) => ({
@@ -1395,6 +1441,8 @@ export default function CustomizerPage({
       ]
     : placed
   const charmTotal = placedCharmsTotal(summaryPlaced)
+  const toteDiscount = product.kind === 'tote' ? toteDiscountRate(summaryPlaced.length) : 0
+  const chargeableCharmTotal = toteDiscount ? +(charmTotal * (1 - toteDiscount)).toFixed(2) : charmTotal
   const priceBar = (
     <PriceBar
       product={product}
@@ -1407,8 +1455,8 @@ export default function CustomizerPage({
     />
   )
   const orderTotal = product.presentmentPrice
-    ? formatPresentmentMoney(product.presentmentPrice + convert(charmTotal), { whole: true })
-    : formatMoney(product.basePrice + charmTotal, { whole: true })
+    ? formatPresentmentMoney(product.presentmentPrice + convert(chargeableCharmTotal), { whole: true })
+    : formatMoney(product.basePrice + chargeableCharmTotal, { whole: true })
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).
@@ -1549,7 +1597,9 @@ export default function CustomizerPage({
         >
           <header className="mobile-head">
             <div className="mobile-head__top">
-              <span className="mobile-head__step">{t('step1.mobile')}</span>
+              <span className="mobile-head__step">
+                {product.kind === 'tote' ? t('step1.mobileTote') : t('step1.mobile')}
+              </span>
               <Segmented
                 className="mobile-head__platform"
                 size="small"
@@ -1560,7 +1610,9 @@ export default function CustomizerPage({
             </div>
             <div className="mobile-head__selects">
               <label className="mobile-head__field mobile-head__field--model">
-                <span className="mobile-head__label">{t('picker.model')}</span>
+                <span className="mobile-head__label">
+                  {product.kind === 'tote' ? t('picker.colour') : t('picker.model')}
+                </span>
                 <Select
                   className="mobile-head__sel"
                   size="small"
@@ -1574,7 +1626,7 @@ export default function CustomizerPage({
                   popupMatchSelectWidth={false}
                 />
               </label>
-              {!product.gelRender && !product.linkedFinish && (
+              {product.kind !== 'tote' && !product.gelRender && !product.linkedFinish && (
                 <label className="mobile-head__field">
                   <span className="mobile-head__label">{t('label.case')}</span>
                   <Select

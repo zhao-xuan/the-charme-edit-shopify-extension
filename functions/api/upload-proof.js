@@ -28,7 +28,7 @@ const json = (data, status = 200) =>
 
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   let body
   try {
     body = await request.json()
@@ -47,7 +47,6 @@ export async function onRequestPost({ request, env }) {
     '',
   )
   const key = `proof-${token}`
-  const fast = new URL(request.url).searchParams.get('fast') === '1'
 
   // 1) Keep an instant KV copy (fallback + backwards-compatible /api/image URL).
   let kvUrl = null
@@ -55,25 +54,22 @@ export async function onRequestPost({ request, env }) {
     await env.IMAGES.put(`img:${key}`, bytes, { metadata: { contentType: m[1] } })
     kvUrl = `${new URL(request.url).origin}/api/image/${key}`
   }
+  if (!kvUrl) return json({ error: 'no proof storage configured' }, 503)
 
-  // 2) Mobile checkout uses the KV proof immediately. Shopify Files can spend
-  // several seconds processing an upload, which blocks the cart hand-off.
-  if (fast && kvUrl) return json({ url: kvUrl, shopifyUrl: null, kvUrl, source: 'kv' })
+  // 2) Respond immediately with the KV url — Shopify Files' staged-upload +
+  // processing poll can take several seconds and was blocking checkout for
+  // every customer, not just mobile. Upload to Shopify Files in the
+  // background (best-effort, durable merchant-visible copy) without making
+  // the customer wait for it.
+  const ext = m[1] === 'image/jpeg' ? 'jpg' : m[1].split('/')[1] || 'png'
+  const uploadDurableCopy = uploadImageToShopifyFiles(env, bytes, {
+    contentType: m[1],
+    filename: `charme-proof-${token}.${ext}`,
+    alt: `Charmé design proof ${token}`,
+  }).catch((e) => console.warn('[Charmé] Shopify Files upload failed, kept KV copy only', e && e.message))
+  if (waitUntil) waitUntil(uploadDurableCopy)
 
-  // Upload to the merchant's Shopify Files so the desktop proof lives in their store.
-  let shopifyUrl = null
-  try {
-    shopifyUrl = await uploadImageToShopifyFiles(env, bytes, {
-      contentType: m[1],
-      filename: `charme-proof-${token}.png`,
-      alt: `Charmé design proof ${token}`,
-    })
-  } catch (e) {
-    console.warn('[Charmé] Shopify Files upload failed, using KV URL', e && e.message)
-  }
-
-  const url = shopifyUrl || kvUrl
-  if (!url) return json({ error: 'no proof storage configured' }, 503)
-  return json({ url, shopifyUrl, kvUrl, source: shopifyUrl ? 'shopify' : 'kv' })
+  return json({ url: kvUrl, shopifyUrl: null, kvUrl, source: 'kv' })
 }
+
 

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Modal, Button, Spin, Divider, App } from 'antd'
 import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
-import { categoryLabel, placedCharmsTotal } from '../lib/catalog'
+import { categoryLabel, placedCharmsTotal, toteDiscountRate } from '../lib/catalog'
 import { charmChargeLines } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
@@ -102,7 +102,10 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     }
   }, [open, product, color, placed, variableUids])
 
-  const charmTotal = placedCharmsTotal(placed)
+  const rawCharmTotal = placedCharmsTotal(placed)
+  const discountRate = product.kind === 'tote' ? toteDiscountRate(placed.length) : 0
+  const discountAmount = discountRate ? +(rawCharmTotal * discountRate).toFixed(2) : 0
+  const charmTotal = +(rawCharmTotal - discountAmount).toFixed(2)
   const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
   const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
   const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
@@ -266,7 +269,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 size="small"
                 icon={<DownloadOutlined />}
                 style={{ marginTop: 8 }}
-                onClick={() => downloadPng(previewUrl, `${product.id}-design.png`).catch(() => message.error('Could not download your design.'))}
+                onClick={() => downloadPng(previewUrl, `${product.id}-design.jpg`).catch(() => message.error('Could not download your design.'))}
               >
                 {t('summary.download')}
               </Button>
@@ -298,6 +301,12 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 ))}
               </div>
             ))}
+            {discountRate > 0 && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, color: 'var(--accent, #b35b5b)' }}>
+                <span>{t('price.patchDiscount', { pct: Math.round(discountRate * 100) })}</span>
+                <span>−{formatMoney(discountAmount)}</span>
+              </div>
+            )}
             <Divider style={{ margin: '10px 0' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span>{t('price.total')}</span>
