@@ -68,6 +68,7 @@ function decodeEditorLayout(encoded) {
         hMm: charm.hMm,
         rot: charm.rotDeg,
         scale: charm.scale,
+        toteSide: charm.toteSide,
       })),
     }
   } catch {

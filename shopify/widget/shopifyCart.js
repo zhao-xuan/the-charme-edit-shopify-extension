@@ -184,6 +184,7 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
           _design_token: designToken,
           _role: 'charm',
           'Charm selection': selection,
+          'Decoration name': selection,
           '_Customizer charm IDs': line.items
             .map((charm) => charm.charmId || charm.id)
             .filter(Boolean)

@@ -1326,7 +1326,10 @@ function PatchesTab({ cloud, onOpenUploader }) {
   // the merchant can freely rename afterwards without it being overwritten.
   const linkPatchVariant = (patch, shopifyVariantId) => {
     const variant = shopifyVariantId ? shopifyVariants.find((v) => String(v.id) === String(shopifyVariantId)) : null
-    updatePatch(patch, { shopifyVariantId, ...(variant ? { name: variant.title || variant.productTitle } : {}) })
+    const variantName = variant && !/^default title$/i.test(variant.title || '')
+      ? variant.title
+      : variant?.productTitle
+    updatePatch(patch, { shopifyVariantId, ...(variantName ? { name: variantName } : {}) })
   }
   // One-off bulk sync: renames every already-linked patch to match its
   // current Shopify variant name (for patches linked before this feature).
@@ -1340,7 +1343,7 @@ function PatchesTab({ cloud, onOpenUploader }) {
       return
     }
     for (const { patch, variant } of updates) {
-      const name = variant.title || variant.productTitle
+      const name = !/^default title$/i.test(variant.title || '') ? variant.title : variant.productTitle
       if (name && name !== patch.name) await updatePatch(patch, { name })
     }
     await cloud.refresh()

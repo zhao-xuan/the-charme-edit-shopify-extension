@@ -51,6 +51,7 @@ export function serializeCharms(placed) {
     rot: charm.rot || 0,
     cxMm: charm.cxMm,
     cyMm: charm.cyMm,
+    toteSide: charm.toteSide,
     groupId: charm.groupId,
     groupLabel: charm.groupLabel,
   }))

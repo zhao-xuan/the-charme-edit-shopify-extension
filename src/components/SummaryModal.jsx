@@ -173,6 +173,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         yMm: +c.cyMm.toFixed(1),
         scale: +(c.scale || 1).toFixed(2),
         rotDeg: c.rot || 0,
+        toteSide: c.toteSide || (product.kind === 'tote' ? 'front' : undefined),
       })),
       total,
       preview: totePreviews?.front || previewUrl,

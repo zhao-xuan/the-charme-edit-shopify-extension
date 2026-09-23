@@ -99,7 +99,7 @@
         {%- if charme_it.properties['_design_token'] == charme_token and charme_it.properties['_role'] == 'charm' -%}
           <li>
             <span>
-              {{- charme_it.product.title -}}
+              {{- charme_it.properties['Decoration name'] | default: charme_it.product.title -}}
               {%- if charme_it.quantity > 1 %} &times;{{ charme_it.quantity }}{% endif -%}
             </span>
             <span>{{ charme_it.final_line_price | money }}</span>

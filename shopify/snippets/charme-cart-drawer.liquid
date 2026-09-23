@@ -416,7 +416,8 @@
 
     var rows = '<li><span>' + esc(baseNoun) + '</span><span>' + money(base.final_line_price) + '</span></li>';
     charms.forEach(function (it) {
-      rows += '<li><span>' + esc(it.product_title || it.title) + (it.quantity > 1 ? ' &times;' + it.quantity : '') +
+      var decorationName = it.properties && it.properties['Decoration name'];
+      rows += '<li><span>' + esc(decorationName || it.product_title || it.title) + (it.quantity > 1 ? ' &times;' + it.quantity : '') +
         '</span><span>' + money(it.final_line_price) + '</span></li>';
     });
     rows += '<li class="cc-detail__total"><span>Custom ' + esc(baseNoun.toLowerCase()) + ' total</span><span>' + money(total) + '</span></li>';

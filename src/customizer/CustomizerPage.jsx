@@ -102,6 +102,7 @@ function reviveCharms(charms) {
       rot: it.rot || 0,
       cxMm: it.cxMm,
       cyMm: it.cyMm,
+      toteSide: it.toteSide,
       groupId: it.groupId,
       groupLabel: it.groupLabel,
     }
@@ -511,11 +512,19 @@ export default function CustomizerPage({
     const gelId = opts.gelColourId || layout.gelColourId
     if (caseId) setCaseColourId(caseId)
     if (gelId) setGelColourId(gelId)
-    let placed = reviveCharms(layout.charms)
     const fromP = findProduct(layout.productId)
     const toP = findProduct(wantPid)
+    const isToteLayout = toP?.kind === 'tote'
+    const serializedCharms = layout.charms || []
+    const frontSerialized = layout.front || (isToteLayout ? serializedCharms.filter((charm) => charm.toteSide !== 'back') : null)
+    const backSerialized = layout.back || (isToteLayout ? serializedCharms.filter((charm) => charm.toteSide === 'back') : null)
+    let placed = reviveCharms(isToteLayout ? frontSerialized : serializedCharms)
     if (fromP && toP && fromP !== toP && fromP.kind === 'phone' && toP.kind === 'phone') {
       placed = adaptLayoutToProduct(placed, fromP, toP)
+    }
+    if (isToteLayout) {
+      toteSideStash.current = { front: placed, back: reviveCharms(backSerialized) }
+      setToteSide('front')
     }
     setPlaced(placed)
     setWordGroups(layout.wordGroups || [])
