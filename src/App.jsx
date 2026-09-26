@@ -92,21 +92,12 @@ const editorEdit = editorEditState()
 function configureEditorCurrency() {
   if (typeof window === 'undefined') return
   const params = new URLSearchParams(window.location.search)
-  const active = String(params.get('currency') || '').trim().toUpperCase()
-  const rate = Number(params.get('currency_rate'))
-  if (!/^[A-Z]{3}$/.test(active) || !(rate > 0)) return
-
   const config = window.CharmeConfig || {}
   window.CharmeConfig = {
     ...config,
     ...(params.get('locale') ? { locale: params.get('locale') } : {}),
-    ...(params.get('variant') ? { variantId: params.get('variant') } : {}),
-    ...(params.get('country') ? { country: params.get('country') } : {}),
-    currency: {
-      base: config.currency?.base || 'GBP',
-      active,
-      rate,
-    },
+    country: /^[A-Z]{2}$/.test(params.get('country') || '') ? params.get('country') : 'GB',
+    currency: { base: 'GBP', active: 'GBP', rate: 1 },
   }
 }
 
@@ -135,7 +126,6 @@ function editorInitialState() {
     initialProductId: params.get('product') || undefined,
     initialCaseColourId: params.get('case') || undefined,
     initialGelColourId: params.get('gel') || undefined,
-    initialCasePresentmentPrice: Number(params.get('case_price')) || undefined,
   }
   if (!editorEdit.layout) return requested
   return {

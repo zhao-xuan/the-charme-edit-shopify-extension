@@ -4,7 +4,7 @@ import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, placedCharm
 import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 
-export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct }) {
+export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct, priceNotice }) {
   const rawCharmTotal = placedCharmsTotal(placed)
   const isTote = product.kind === 'tote'
   const discountRate = isTote ? toteDiscountRate(placed.length) : 0
@@ -84,7 +84,9 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
         </>
       )}
 
-      <Button block type="primary" size="large" disabled={product.kind !== 'tote' && n === 0} onClick={onSubmit}>
+      {compact && !ok && <div className="pricebar__warnings" role="status">{warnings.join(' · ')}</div>}
+      {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
+      <Button block type="primary" size="large" disabled={!ok} onClick={onSubmit}>
         {isSecondProduct
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
           : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}

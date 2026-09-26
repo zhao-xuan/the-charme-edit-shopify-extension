@@ -161,7 +161,8 @@
     var rootSelector = '#CharmeProductOrdering-{{ section.id }}';
     var bindingKey = {{ section.id | json }};
     var bindings = window.__charmeOrderingBindings = window.__charmeOrderingBindings || {};
-    var priceRequestId = 0;
+    var priceCache = new Map();
+    var activePriceRequest;
 
     function selectedVariantId(root) {
       var input = document.querySelector('form[action*="/cart/add"] [name="id"], [name="id"]');
@@ -172,36 +173,78 @@
       var variantId = selectedVariantId(root);
       var country = root.dataset.charmeMarketCountry;
       if (!variantId || !country) return Promise.resolve();
-
-      var requestId = ++priceRequestId;
-      return fetch(
-        'https://charme-customizer.pages.dev/api/shopify/contextual-price?variant=' +
-          encodeURIComponent(variantId) + '&country=' + encodeURIComponent(country),
-        { headers: { Accept: 'application/json' } }
-      )
-        .then(function (response) {
-          if (!response.ok) throw new Error('Could not load contextual case price');
-          return response.json();
-        })
-        .then(function (price) {
-          if (requestId !== priceRequestId || !price || !(Number(price.amount) > 0)) return;
+      var key = variantId + ':' + country;
+      if (activePriceRequest && activePriceRequest.key !== key) activePriceRequest.controller.abort();
+      function applyPrice(price) {
+          if (selectedVariantId(root) !== variantId || root.dataset.charmeMarketCountry !== country) return;
           var url = new URL(target.href, window.location.href);
-          var currency = url.searchParams.get('currency');
-          if (currency && price.currency && currency !== price.currency) return;
-          url.searchParams.set('case_price', String(price.amount));
-          target.href = url.toString();
-        })
-        .catch(function () {
-          // The existing link remains available if contextual pricing cannot load.
+          if (price) {
+            url.searchParams.set('case_price', String(price.amount));
+            url.searchParams.set('currency', price.currency);
+          } else {
+            url.searchParams.delete('case_price');
+          }
+          if (target.href !== url.toString()) target.href = url.toString();
+      }
+      var cached = priceCache.get(key);
+      if (cached && cached.expires > Date.now()) {
+        applyPrice(cached.price);
+        return Promise.resolve();
+      }
+      if (activePriceRequest && activePriceRequest.key === key && !activePriceRequest.controller.signal.aborted) {
+        var pending = activePriceRequest;
+        return pending.promise.then(function (price) { if (!pending.controller.signal.aborted) applyPrice(price); });
+      }
+      var controller = new AbortController();
+      function attempt(retry) {
+        if (controller.signal.aborted) return Promise.resolve(null);
+        var requestController = new AbortController();
+        var abort = function () { requestController.abort(); };
+        controller.signal.addEventListener('abort', abort);
+        var timer;
+        return Promise.race([
+          fetch('https://charme-customizer.pages.dev/api/shopify/contextual-price?variant=' +
+            encodeURIComponent(variantId) + '&country=' + encodeURIComponent(country),
+            { headers: { Accept: 'application/json' }, signal: requestController.signal })
+            .then(function (response) {
+              if (!response.ok) throw new Error('contextual_price_http_' + response.status);
+              return response.json();
+            }).then(function (price) {
+              if (!price || !Number.isFinite(Number(price.amount)) || !(Number(price.amount) > 0) || !/^[A-Z]{3}$/.test(price.currency)) {
+                throw new Error('contextual_price_invalid');
+              }
+              return price;
+            }),
+          new Promise(function (_, reject) {
+            timer = setTimeout(function () { requestController.abort(); reject(new Error('contextual_price_timeout')); }, 2500);
+          })
+        ]).finally(function () {
+          clearTimeout(timer);
+          controller.signal.removeEventListener('abort', abort);
+        }).catch(function (error) {
+          if (controller.signal.aborted) return null;
+          if (retry) return attempt(false);
+          console.warn('charme_contextual_price_failed', { variant: variantId, country: country, attempts: 2, reason: error.message });
+          return null;
         });
+      }
+      var request = { key: key, controller: controller };
+      request.promise = attempt(true).then(function (price) {
+        if (!controller.signal.aborted) priceCache.set(key, { price: price, expires: Date.now() + (price ? 300000 : 30000) });
+        return price;
+      }).finally(function () {
+        if (activePriceRequest === request) activePriceRequest = null;
+      });
+      activePriceRequest = request;
+      return request.promise.then(function (price) { if (!controller.signal.aborted) applyPrice(price); });
     }
 
     function syncDesignLink() {
       var root = document.querySelector(rootSelector);
-      if (!root) return;
+      if (!root) return Promise.resolve();
       var target = root.querySelector('[data-charme-own-design]');
       var source = root.querySelector('.add-charms-here-button');
-      if (!target || !source || !source.href) return;
+      if (!target || !source || !source.href) return Promise.resolve();
       try {
         var current = new URL(target.href, window.location.href);
         var next = new URL(source.href, window.location.href);
@@ -210,10 +253,12 @@
         var rate = market.rate || root.dataset.charmeMarketRate || current.searchParams.get('currency_rate');
         var locale = window.Shopify && window.Shopify.locale || root.dataset.charmeMarketLocale || current.searchParams.get('locale');
         var country = root.dataset.charmeMarketCountry || current.searchParams.get('country');
-        var casePrice = current.searchParams.get('case_price');
+        var casePrice = current.searchParams.get('variant') === selectedVariantId(root) && current.searchParams.get('country') === country
+          ? current.searchParams.get('case_price') : null;
         if (currency) next.searchParams.set('currency', currency);
         if (rate) next.searchParams.set('currency_rate', rate);
         if (casePrice) next.searchParams.set('case_price', casePrice);
+        else next.searchParams.delete('case_price');
         if (locale) next.searchParams.set('locale', locale);
         if (country) next.searchParams.set('country', country);
         var variantId = selectedVariantId(root);
@@ -223,7 +268,7 @@
         returnUrl.searchParams.delete('preview_theme_id');
         next.searchParams.set('cart_url', cartUrl.toString());
         next.searchParams.set('return_to', returnUrl.toString());
-        target.href = next.toString();
+        if (target.href !== next.toString()) target.href = next.toString();
         return setPresentmentCasePrice(root, target);
       } catch (error) {
         target.href = source.href;
@@ -291,7 +336,11 @@
         window.location.assign(target.href);
       });
     }, true);
-    new MutationObserver(scheduleSync).observe(document.documentElement, {
+    new MutationObserver(function (records) {
+      if (records.some(function (record) {
+        return record.type !== 'attributes' || !record.target.matches('[data-charme-own-design]');
+      })) scheduleSync();
+    }).observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['href'],
       childList: true,

@@ -37,10 +37,10 @@ import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
 import { charmPricingGroupFor } from '../lib/charmPricing'
-import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
+import { activeCurrency, convert, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
-import { fetchVariantDetails } from '../lib/shopifyVariant'
+import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
 import { showToteInPicker } from '../lib/previewFlags'
 import { createCustomizerAnalytics } from '../lib/customizerAnalytics'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
@@ -121,14 +121,6 @@ function crossSellImage(option, groups) {
 }
 
 const MOBILE_SPLITTER_GUIDE_KEY = 'charme.mobileSplitterGuide.v1'
-
-function initialCasePresentmentPrice(initialCasePresentmentPrice) {
-  if (typeof window === 'undefined') return null
-  if (Number.isFinite(initialCasePresentmentPrice) && initialCasePresentmentPrice > 0) return initialCasePresentmentPrice
-  const params = new URLSearchParams(window.location.search)
-  const amount = Number(params.get('case_price'))
-  return amount > 0 ? amount : null
-}
 
 function asVariantId(value) {
   if (value == null) return null
@@ -251,9 +243,9 @@ export default function CustomizerPage({
 
   const [groupKey, setGroupKey] = useState(startGroup)
   const [productId, setProductId] = useState(resolvedProduct)
-  const [livePresentmentCasePrice, setLivePresentmentCasePrice] = useState(
-    () => initialCasePresentmentPrice(initialCasePrice),
-  )
+  const [caseQuote, setCaseQuote] = useState(null)
+  const [draftsReady, setDraftsReady] = useState(false)
+  const [priceLookupFailed, setPriceLookupFailed] = useState(false)
   const [liveProductPrices, setLiveProductPrices] = useState({})
   const priceCacheRef = useRef(new Map())
   const productPricesCacheRef = useRef(new Map())
@@ -317,9 +309,7 @@ export default function CustomizerPage({
   const [trayPct, setTrayPct] = useState(14)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
-  const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(
-    () => !hasSeenMobileSplitterGuide(),
-  )
+  const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(false)
   const dismissMobileSplitterGuide = useCallback(() => {
     setMobileSplitterGuideOpen(false)
     try {
@@ -366,8 +356,9 @@ export default function CustomizerPage({
   const stageApi = useRef(null)
 
   const catalogProduct = findProduct(productId)
+  const livePresentmentCasePrice = caseQuote?.productId === productId && caseQuote?.caseId === caseColourId && caseQuote?.gelId === gelColourId ? caseQuote.amount : null
   const presentmentCasePrice = livePresentmentCasePrice
-  const product = presentmentCasePrice && catalogProduct?.kind === 'phone'
+  const product = presentmentCasePrice
     ? { ...catalogProduct, presentmentPrice: presentmentCasePrice }
     : catalogProduct
   const color = useMemo(
@@ -403,13 +394,11 @@ export default function CustomizerPage({
     })
   }, [analytics, product.id, product.name, product.kind, caseColourId, gelColourId, placed.length])
 
-  // Keep the case base price aligned with the ACTIVE Shopify variant. This runs
-  // only for the storefront phone customizer (when variantMap exists), and
-  // updates whenever model/finish changes.
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    if (!catalogProduct || catalogProduct.kind !== 'phone') {
-      setLivePresentmentCasePrice(null)
+    if (typeof window === 'undefined' || !draftsReady) return
+    if (!catalogProduct) {
+      setCaseQuote(null)
+      setPriceLookupFailed(false)
       return
     }
     const cfg = window.CharmeConfig || {}
@@ -419,63 +408,53 @@ export default function CustomizerPage({
       color.caseId || color.id,
       color.gelId || color.caseId || color.id,
     ) || BASE_PRODUCT_VARIANTS[`${catalogProduct.id}:${color.gelId || color.caseId || color.id}`]
-    const variantId = asVariantId(mapped || cfg.variantId)
+      || BASE_PRODUCT_VARIANTS[catalogProduct.id]
+    const variantId = asVariantId(mapped || catalogProduct.shopifyVariantId)
     if (!variantId) {
-      // A product-page launch already supplies the selected Shopify price in
-      // case_price. Do not erase it simply because an optional variant map is
-      // not configured for this merchant yet.
+      setCaseQuote(null)
+      setPriceLookupFailed(true)
       return
     }
-
-    const currency = String(cfg.currency?.active || '').toUpperCase()
-    // Links created before the country parameter existed still carry GBP.
-    // Those represent the UK storefront, so resolve their real UK price rather
-    // than retaining the legacy `case_price` query value.
-    const country = String(cfg.country || (currency === 'GBP' ? 'GB' : '')).toUpperCase()
+    const country = String(cfg.country || window.Shopify?.country || 'GB').toUpperCase()
     const apiBase = cfg.apiBase || window.location.origin
-    const cacheKey = `${variantId}:${country}:${currency}`
+    const cacheKey = `${variantId}:${country}`
+    const applyPrice = (price) => {
+      const storefrontCurrency = window.Shopify?.currency
+      const storefrontRate = Number(storefrontCurrency?.rate)
+      const currency = storefrontCurrency?.active === price.currency && Number.isFinite(storefrontRate) && storefrontRate > 0
+        ? { base: 'GBP', active: price.currency, rate: storefrontRate }
+        : marketEstimateContext(price)
+      window.CharmeConfig = { ...cfg, currency }
+      setCaseQuote({ productId, caseId: caseColourId, gelId: gelColourId, amount: Number(price.amount) })
+      setPriceLookupFailed(false)
+    }
     const cached = priceCacheRef.current.get(cacheKey)
-    if (Number.isFinite(cached) && cached > 0) {
-      setLivePresentmentCasePrice(cached)
+    if (cached && cached.expires > Date.now()) {
+      applyPrice(cached.price)
       return
     }
-
-    let cancelled = false
+    setPriceLookupFailed(false)
+    const controller = new AbortController()
     ;(async () => {
-      let amount = null
-      if (/^[A-Z]{2}$/.test(country)) {
-        try {
-          const endpoint = new URL('/api/shopify/contextual-price', apiBase)
-          endpoint.searchParams.set('variant', variantId)
-          endpoint.searchParams.set('country', country)
-          const res = await fetch(endpoint, { headers: { accept: 'application/json' } })
-          const data = await res.json().catch(() => ({}))
-          const maybe = Number(data.amount)
-          if (res.ok && maybe > 0 && (!currency || data.currency === currency)) amount = maybe
-        } catch {
-          // Fallback below.
+      try {
+        const endpoint = new URL('/api/shopify/contextual-price', apiBase)
+        endpoint.searchParams.set('variant', variantId)
+        endpoint.searchParams.set('country', country)
+        const price = await fetchContextualPrice(endpoint, { signal: controller.signal })
+        if (!controller.signal.aborted) {
+          priceCacheRef.current.set(cacheKey, { price, expires: Date.now() + 300000 })
+          applyPrice(price)
         }
-      }
-      if (!(amount > 0)) {
-        const shopifyRoot = window.Shopify?.routes?.root || '/'
-        const local = await fetchVariantDetails(`${shopifyRoot}variants/${variantId}.js`)
-        const maybeCents = Number(local?.price)
-        if (maybeCents > 0) amount = maybeCents / 100
-      }
-      if (!cancelled) {
-        if (amount > 0) {
-          priceCacheRef.current.set(cacheKey, amount)
-          setLivePresentmentCasePrice(amount)
-        } else {
-          setLivePresentmentCasePrice(null)
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.warn('charme_contextual_price_failed', { variant: variantId, country, attempts: 2, reason: error.message })
+          setCaseQuote(null)
+          setPriceLookupFailed(true)
         }
       }
     })()
-
-    return () => {
-      cancelled = true
-    }
-  }, [catalogProduct, color.caseId, color.id, color.gelId])
+    return () => controller.abort()
+  }, [draftsReady, catalogProduct, productId, caseColourId, gelColourId, color.caseId, color.id, color.gelId])
 
   // Load every visible model's real Shopify price in one request so the desktop
   // dropdown never falls back to stale metaobject base prices.
@@ -483,7 +462,7 @@ export default function CustomizerPage({
     if (typeof window === 'undefined') return
     const cfg = window.CharmeConfig || {}
     const currency = String(cfg.currency?.active || '').toUpperCase()
-    const country = String(cfg.country || (currency === 'GBP' ? 'GB' : '')).toUpperCase()
+    const country = String(cfg.country || window.Shopify?.country || 'GB').toUpperCase()
     if (!/^[A-Z]{2}$/.test(country)) return
 
     const entries = Object.entries(BASE_PRODUCT_VARIANTS)
@@ -522,7 +501,7 @@ export default function CustomizerPage({
       }
     })()
     return () => { cancelled = true }
-  }, [gelColourId])
+  }, [gelColourId, caseQuote])
 
   // Apply a full saved arrangement (product + case/gel finish + placed charms).
   // Shared by the dev/QA seed hook and the production preset auto-loader. `opts`
@@ -562,7 +541,6 @@ export default function CustomizerPage({
     placed,
     wordGroups,
   }), [productId, caseColourId, gelColourId, placed, wordGroups])
-  const [draftsReady, setDraftsReady] = useState(false)
   const [recoverySaveState, setRecoverySaveState] = useState(null)
   const recoverySaveStarted = useRef(false)
   const recoverySaveStatusTimer = useRef(null)
@@ -1515,6 +1493,11 @@ export default function CustomizerPage({
   const charmTotal = placedCharmsTotal(summaryPlaced)
   const toteDiscount = product.kind === 'tote' ? toteDiscountRate(summaryPlaced.length) : 0
   const chargeableCharmTotal = toteDiscount ? +(charmTotal * (1 - toteDiscount)).toFixed(2) : charmTotal
+  const priceNotice = priceLookupFailed
+    ? t('price.marketUnavailable', { currency: activeCurrency() })
+    : !livePresentmentCasePrice
+      ? t('price.marketLoading', { currency: activeCurrency() })
+      : activeCurrency() !== 'GBP' ? t('price.marketEstimate') : ''
   const priceBar = (
     <PriceBar
       product={product}
@@ -1524,6 +1507,7 @@ export default function CustomizerPage({
       crossSellHint={appSettings.crossSellHint}
       compact={trayExpanded}
       isSecondProduct={isSecondProduct}
+      priceNotice={priceNotice}
     />
   )
   const orderTotal = product.presentmentPrice
@@ -1754,15 +1738,14 @@ export default function CustomizerPage({
                 <button
                   type="button"
                   className="mobile-step-overlay__title"
-                  aria-expanded={step2Expanded}
-                  onClick={() => setStep2Open((o) => !o)}
+                  aria-expanded={mobileSplitterGuideOpen}
+                  onClick={() => setMobileSplitterGuideOpen((open) => !open)}
                 >
                   <span>{t(product.kind === 'tote' ? 'step2.mobileTitleTote' : 'step2.mobileTitle')}</span>
                   <InfoCircleOutlined className="mobile-step-overlay__chevron" />
                 </button>
                 <div className="mobile-cat-bar">
                   <Segmented
-                    block
                     size="small"
                     className="mobile-cat-seg"
                     value={catKey}
@@ -1820,16 +1803,29 @@ export default function CustomizerPage({
             </div>
           </div>
 
+          <div className="mobile-order-footer">
+          {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
+          {!validation.ok && (
+            <div className="mobile-order-requirements" id="mobile-order-requirements" role="status">
+              {[
+                validation.tooFew && t('price.addAtLeast', { n: product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS, noun: t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase() }),
+                validation.tooMany && t('price.useAtMost', { n: MAX_CHARMS }),
+                validation.problems > 0 && tn('price.needAttention', validation.problems),
+              ].filter(Boolean).join(' · ')}
+            </div>
+          )}
           <button
             type="button"
             className="mobile-order-bar"
-            disabled={product.kind !== 'tote' && placed.length === 0}
+            disabled={!validation.ok}
+            aria-describedby={!validation.ok ? 'mobile-order-requirements' : undefined}
             onClick={attemptOrder}
           >
             {isSecondProduct
               ? t('cta.addSecondProduct', { price: orderTotal })
               : t('cta.addToCart', { noun: orderNoun, price: orderTotal })}
           </button>
+          </div>
         </div>
         </>
       ) : (

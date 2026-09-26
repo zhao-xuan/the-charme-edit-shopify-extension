@@ -2,7 +2,9 @@ import { bad, json, shopifyAdmin } from '../_lib.js'
 
 const QUERY = `
   query ContextualVariantPrice($id: ID!, $country: CountryCode!) {
+    shop { currencyCode }
     productVariant(id: $id) {
+      price
       contextualPricing(context: { country: $country }) {
         price { amount currencyCode }
       }
@@ -26,7 +28,7 @@ export async function onRequestGet({ request, env }) {
     const price = data.productVariant?.contextualPricing?.price
     const amount = Number(price?.amount)
     if (!(amount > 0) || !price?.currencyCode) return bad('No contextual price found', 404)
-    return json({ amount, currency: price.currencyCode })
+    return json({ amount, currency: price.currencyCode, baseAmount: Number(data.productVariant.price), baseCurrency: data.shop.currencyCode })
   } catch (error) {
     console.error('[Charmé] contextual price lookup failed', error)
     return bad('Could not load contextual price', 502)
