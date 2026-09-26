@@ -42,6 +42,7 @@ import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchVariantDetails } from '../lib/shopifyVariant'
 import { showToteInPicker } from '../lib/previewFlags'
+import { createCustomizerAnalytics } from '../lib/customizerAnalytics'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import {
   clearRecoveryDraft,
@@ -216,6 +217,9 @@ export default function CustomizerPage({
 }) {
   const { message, modal } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
+  const analyticsRef = useRef(null)
+  if (!analyticsRef.current) analyticsRef.current = createCustomizerAnalytics()
+  const analytics = analyticsRef.current
   // Lazy catalogue accessor (built after the remote catalogue loads — see
   // products.js). Stable memoised array, safe to read every render.
   // Tote products stay available in Admin/storage, but are hidden from the
@@ -378,6 +382,26 @@ export default function CustomizerPage({
       printable: { ...product.printable, obstacles },
     }
   }, [product, caseColourId])
+
+  useEffect(() => {
+    analytics.start({
+      productId: product.id,
+      productName: product.name,
+      productKind: product.kind,
+      finish: [caseColourId, gelColourId].filter(Boolean).join(' / '),
+    })
+    return () => analytics.stop()
+  }, [analytics]) // The tracker owns one session for this mounted customizer.
+
+  useEffect(() => {
+    analytics.updateContext({
+      productId: product.id,
+      productName: product.name,
+      productKind: product.kind,
+      finish: [caseColourId, gelColourId].filter(Boolean).join(' / '),
+      finalDecorationCount: placed.length,
+    })
+  }, [analytics, product.id, product.name, product.kind, caseColourId, gelColourId, placed.length])
 
   // Keep the case base price aligned with the ACTIVE Shopify variant. This runs
   // only for the storefront phone customizer (when variantMap exists), and
@@ -751,7 +775,8 @@ export default function CustomizerPage({
     setSelectedUid(null)
     setSelectedGroupId(null)
     setConfirmGroupId(null)
-  }, [])
+    analytics.track('undo')
+  }, [analytics])
   const canUndo = histLen > 0
 
   // Switch between front and back of the tote — losslessly stashes the other side.
@@ -765,7 +790,8 @@ export default function CustomizerPage({
     setConfirmGroupId(null)
     historyRef.current = []
     setHistLen(0)
-  }, [toteSide, product.kind])
+    analytics.track('tote_side_changed')
+  }, [analytics, toteSide, product.kind])
 
   // The tote design (front + back) is autosaved to its own localStorage slot on
   // every change, independent of the single-product recovery draft, so it
@@ -834,6 +860,7 @@ export default function CustomizerPage({
         ? 'iphone-16-pro-max'
         : firstAvailable.id
     const to = findProduct(firstId)
+    analytics.track('product_selected')
     setProductId(firstId)
     // Carry a design across to the new phone (re-fitted to its footprint + camera)
     // when both sides are phones; otherwise start the new product type fresh.
@@ -856,6 +883,7 @@ export default function CustomizerPage({
     const from = product
     const to = findProduct(id)
     if (!hasCaseImage(to)) return
+    analytics.track('product_selected')
     setProductId(id)
     setPlaced((prev) => {
       if (from?.kind === 'phone' && to?.kind === 'phone') return adaptLayoutToProduct(prev, from, to)
@@ -961,8 +989,9 @@ export default function CustomizerPage({
         return [...p, pc]
       })
       setSelectedUid(pc.uid)
+      analytics.track('decoration_add', { id: pc.charmId, name: pc.name })
     },
-    [pushHistory, appSettings.charmPricingGroups],
+    [analytics, pushHistory, appSettings.charmPricingGroups],
   )
 
   const addAt = useCallback(
@@ -1027,6 +1056,7 @@ export default function CustomizerPage({
 
   const moveCharm = useCallback(
     (id, patch) => {
+      analytics.track('decoration_move')
       setPlaced((p) => {
         const moving = p.find((c) => c.uid === id)
         // Letters & numbers: while dragging, snap onto the nearest other letter's
@@ -1041,7 +1071,7 @@ export default function CustomizerPage({
         return p.map((c) => (c.uid === id ? constrainPosition({ ...c, ...patch }) : c))
       })
     },
-    [constrainPosition],
+    [analytics, constrainPosition],
   )
   const transformCharm = moveCharm
   const removeCharm = useCallback(
@@ -1049,8 +1079,9 @@ export default function CustomizerPage({
       pushHistory()
       setPlaced((p) => p.filter((c) => c.uid !== id))
       setSelectedUid((s) => (s === id ? null : s))
+      analytics.track('decoration_remove')
     },
-    [pushHistory],
+    [analytics, pushHistory],
   )
   const clearAll = () => {
     if (placedRef.current.length === 0) return
@@ -1060,6 +1091,7 @@ export default function CustomizerPage({
     setWordGroups([])
     setSelectedGroupId(null)
     setConfirmGroupId(null)
+    analytics.track('clear')
   }
 
   // ---- word-group helpers -------------------------------------------------
@@ -1077,6 +1109,7 @@ export default function CustomizerPage({
   // `starts` is a Map<uid, {cx,cy}> captured at drag start.
   const moveGroup = useCallback(
     (groupId, dxMm, dyMm, starts) => {
+      analytics.track('decoration_move')
       const outer = product.printable.outer
       setPlaced((p) => {
         const members = p.filter((c) => c.groupId === groupId)
@@ -1107,7 +1140,7 @@ export default function CustomizerPage({
         })
       })
     },
-    [product],
+    [analytics, product],
   )
 
   // Break a group apart: its letters become individually draggable and its tag
@@ -1227,13 +1260,19 @@ export default function CustomizerPage({
         size="small"
         shape="circle"
         icon={<ZoomInOutlined />}
-        onClick={() => setZoom((z) => clamp(+(z + 0.15).toFixed(2), 0.6, 2))}
+        onClick={() => {
+          analytics.track('zoom')
+          setZoom((z) => clamp(+(z + 0.15).toFixed(2), 0.6, 2))
+        }}
       />
       <Button
         size="small"
         shape="circle"
         icon={<ZoomOutOutlined />}
-        onClick={() => setZoom((z) => clamp(+(z - 0.15).toFixed(2), 0.6, 2))}
+        onClick={() => {
+          analytics.track('zoom')
+          setZoom((z) => clamp(+(z - 0.15).toFixed(2), 0.6, 2))
+        }}
       />
     </div>
   )
@@ -1289,14 +1328,19 @@ export default function CustomizerPage({
             okText: 'Yes, I\'d like to',
             cancelText: 'No, go to checkout',
             onOk: () => switchToteSide(otherSide),
-            onCancel: () => setSummaryOpen(true),
+            onCancel: () => {
+              analytics.track('summary_viewed')
+              setSummaryOpen(true)
+            },
           })
           return
         }
       }
+      analytics.track('summary_viewed')
       setSummaryOpen(true)
       return
     }
+    analytics.track('order_blocked')
     if (validation.tooFew) {
       message.warning(
         t('msg.addAtLeastHave', {
@@ -1328,7 +1372,17 @@ export default function CustomizerPage({
     // should see the popup first and only go to the cart if they decline it
     // ("No thanks" → goToCart). Otherwise add-to-cart behaves as before.
     const willCrossSell = crossSell.enabled && crossSellOptions.length > 0
-    if (onPlaceOrder) await onPlaceOrder(willCrossSell ? { ...payload, deferSurface: true } : payload)
+    analytics.track('purchase_clicked')
+    analytics.flush()
+    try {
+      if (onPlaceOrder) await onPlaceOrder(willCrossSell ? { ...payload, deferSurface: true } : payload)
+      analytics.track('checkout_succeeded')
+      analytics.flush(true)
+    } catch (error) {
+      analytics.track('checkout_failed')
+      analytics.flush(true)
+      throw error
+    }
     if (willCrossSell) setCrossSellOpen(true)
   }
   // Pick a cross-sell product: apply the promo code (best-effort) and reopen the
@@ -1424,8 +1478,14 @@ export default function CustomizerPage({
       presentmentPrices={liveProductPrices}
       onGroupChange={handleGroup}
       onProductChange={handleProduct}
-      onCaseColourChange={setCaseColourId}
-      onGelColourChange={setGelColourId}
+      onCaseColourChange={(value) => {
+        analytics.track('finish_changed')
+        setCaseColourId(value)
+      }}
+      onGelColourChange={(value) => {
+        analytics.track('finish_changed')
+        setGelColourId(value)
+      }}
     />
   )
   const charmCount = placed.length
@@ -1449,6 +1509,9 @@ export default function CustomizerPage({
         })),
       ]
     : placed
+  useEffect(() => {
+    analytics.updateContext({ finalDecorationCount: summaryPlaced.length })
+  }, [analytics, summaryPlaced.length])
   const charmTotal = placedCharmsTotal(summaryPlaced)
   const toteDiscount = product.kind === 'tote' ? toteDiscountRate(summaryPlaced.length) : 0
   const chargeableCharmTotal = toteDiscount ? +(charmTotal * (1 - toteDiscount)).toFixed(2) : charmTotal
@@ -1642,7 +1705,10 @@ export default function CustomizerPage({
                     className="mobile-head__sel"
                     size="small"
                     value={caseColourId}
-                    onChange={setCaseColourId}
+                      onChange={(value) => {
+                        analytics.track('finish_changed')
+                        setCaseColourId(value)
+                      }}
                     options={caseOptions}
                     popupMatchSelectWidth={false}
                   />
@@ -1655,7 +1721,10 @@ export default function CustomizerPage({
                     className="mobile-head__sel"
                     size="small"
                     value={gelColourId}
-                    onChange={setGelColourId}
+                    onChange={(value) => {
+                      analytics.track('finish_changed')
+                      setGelColourId(value)
+                    }}
                     options={gelOptions}
                     popupMatchSelectWidth={false}
                   />
@@ -1697,7 +1766,10 @@ export default function CustomizerPage({
                     size="small"
                     className="mobile-cat-seg"
                     value={catKey}
-                    onChange={setCatKey}
+                    onChange={(value) => {
+                      analytics.track('category_changed')
+                      setCatKey(value)
+                    }}
                     options={categoryOptions}
                   />
                 </div>
@@ -1818,7 +1890,10 @@ export default function CustomizerPage({
                         size="small"
                         shape="circle"
                         icon={<ExpandOutlined />}
-                        onClick={() => setTrayExpanded(true)}
+                        onClick={() => {
+                          analytics.track('tray_expanded')
+                          setTrayExpanded(true)
+                        }}
                         title={t('charms.enlarge')}
                       />
                     </span>
@@ -1841,7 +1916,10 @@ export default function CustomizerPage({
                     key={g.key}
                     type="button"
                     className={`cat-swatch${g.key === catKey ? ' is-active' : ''}`}
-                    onClick={() => setCatKey(g.key)}
+                    onClick={() => {
+                      analytics.track('category_changed')
+                      setCatKey(g.key)
+                    }}
                   >
                     {product.kind !== 'tote' && (
                       <span className={`cat-swatch__dot cat-swatch__dot--${g.key}`} style={catDotStyle(g.key)} />

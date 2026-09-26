@@ -29,6 +29,7 @@ import {
   AppstoreOutlined,
   CloudUploadOutlined,
   CopyOutlined,
+  DashboardOutlined,
   DeleteOutlined,
   DownOutlined,
   EditOutlined,
@@ -49,6 +50,7 @@ import {
 import { allProducts, productGroups } from '../data/products'
 import patchData from '../data/patches.json'
 import ProductCanvas from './ProductCanvas'
+import AnalyticsTab from './AnalyticsTab'
 import { charmCategory, MAX_CHARMS } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
@@ -4909,6 +4911,15 @@ export default function AdminPage() {
               </span>
             ),
             children: <DiscountTab cloud={cloud} />,
+          },
+          {
+            key: 'analytics',
+            label: (
+              <span>
+                <DashboardOutlined /> Analytics
+              </span>
+            ),
+            children: <AnalyticsTab />,
           },
           {
             key: 'extract',

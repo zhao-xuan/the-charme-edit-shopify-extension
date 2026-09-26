@@ -6,6 +6,7 @@ import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
 import { charmPricingTotal, toteDiscountRate } from './charmPricing'
+import { orderByTaxonomy } from './catalogOrder'
 
 export { toteDiscountRate }
 
@@ -164,27 +165,6 @@ function enlargeTotePatch(patch) {
 // build code-splits, so it never hit this, which is why pages.dev looked fine
 // while the embedded storefront widget showed stale data.)
 let _catalog = null
-function orderByTaxonomy(items, taxonomy) {
-  const categoryOrder = taxonomy?.categoryOrder || []
-  const subOrder = taxonomy?.subOrder || {}
-  const itemOrder = taxonomy?.patchOrder || {}
-  const categoryIndex = new Map(categoryOrder.map((value, index) => [value, index]))
-  return [...items].sort((left, right) => {
-    const leftCategory = left.category || 'unique'
-    const rightCategory = right.category || 'unique'
-    const categoryDelta = (categoryIndex.get(leftCategory) ?? Infinity) - (categoryIndex.get(rightCategory) ?? Infinity)
-    if (categoryDelta) return categoryDelta
-    if (leftCategory !== rightCategory) return leftCategory.localeCompare(rightCategory)
-    const subIndex = new Map((subOrder[leftCategory] || []).map((value, index) => [value, index]))
-    const leftSub = left.collection || 'Custom patches'
-    const rightSub = right.collection || 'Custom patches'
-    const subDelta = (subIndex.get(leftSub) ?? Infinity) - (subIndex.get(rightSub) ?? Infinity)
-    if (subDelta) return subDelta
-    if (leftSub !== rightSub) return leftSub.localeCompare(rightSub)
-    const patchIndex = new Map((itemOrder[`${leftCategory}::${leftSub}`] || []).map((value, index) => [value, index]))
-    return (patchIndex.get(left.id) ?? Infinity) - (patchIndex.get(right.id) ?? Infinity)
-  })
-}
 function buildCatalog() {
   const ADMIN = loadAdmin()
   const REMOTE = remoteCatalog() || {}
@@ -356,13 +336,13 @@ export function charmByLabel(collection, label, preferCategory) {
 export function trayGroups(kind) {
   if (kind === 'tote') {
     const meta = TYPE_META_BY_KIND.tote
-    const items = itemsByType('tote')
+    const { PATCHES } = catalog()
     return [{
       key: 'patches',
       label: 'Patches',
       sub: 'All patches',
       help: meta[1].help,
-      items: items[1].concat(items[2], items[3]),
+      items: PATCHES,
     }]
   }
   const { CHARMS } = catalog()

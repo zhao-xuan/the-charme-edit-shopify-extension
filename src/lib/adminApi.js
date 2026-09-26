@@ -112,6 +112,13 @@ export const fetchSettings = async () =>
 export const saveSettings = async (settings) =>
   handle(await fetch(url('/api/settings'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(settings) }))
 
+/** Aggregated customizer usage stored in private Shopify metaobjects. */
+export const fetchAnalytics = async (days = 30) =>
+  handle(await fetch(url(`/api/admin/analytics?days=${encodeURIComponent(days)}`), {
+    headers: await authHeaders(),
+    cache: 'no-store',
+  }))
+
 /**
  * Bulk-rename a charm category or sub-category so the change cascades to every
  * charm that used the old name. `scope` = 'category' | 'subcategory'; `within`

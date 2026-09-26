@@ -52,7 +52,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
               </div>
             )}
             <span className="hint">
-              {tn('price.charmCount', n)}
+              {tn(isTote ? 'price.patchCount' : 'price.charmCount', n)}
               {n > 0 && n < REC_MIN ? t('price.aimFor', { min: REC_MIN, max: REC_MAX }) : ''}
             </span>
           </div>
@@ -62,7 +62,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
               {t('price.base', { name: product.name, price: formatCasePrice(casePrice) })}
               {rawCharmTotal > 0 && (
                 <>
-                  &nbsp; {t('price.plusCharms', { price: formatMoney(rawCharmTotal) })}
+                  &nbsp; {t(isTote ? 'price.plusPatches' : 'price.plusCharms', { price: formatMoney(rawCharmTotal) })}
                 </>
               )}
             </span>

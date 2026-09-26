@@ -2629,6 +2629,136 @@ body.charme-no-select * {
 .admin-tools-tabs > .ant-tabs-nav {
   margin-bottom: 18px;
 }
+.analytics-page {
+  display: grid;
+  gap: 16px;
+}
+.analytics-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.analytics-toolbar h2,
+.analytics-toolbar p {
+  margin: 0;
+}
+.analytics-toolbar p {
+  margin-top: 3px;
+  color: var(--ink-soft);
+}
+.analytics-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.analytics-metric {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+.analytics-metric > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.analytics-funnel {
+  display: grid;
+  gap: 12px;
+}
+.analytics-funnel__row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(100px, 2fr) 42px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.analytics-funnel__row > div {
+  height: 8px;
+  overflow: hidden;
+  background: #eee8de;
+}
+.analytics-funnel__row i {
+  display: block;
+  height: 100%;
+  background: #b35b5b;
+}
+.analytics-funnel__row strong {
+  text-align: right;
+}
+.analytics-trend {
+  display: flex;
+  align-items: flex-end;
+  min-height: 190px;
+  gap: 5px;
+  overflow-x: auto;
+  padding-top: 24px;
+}
+.analytics-trend__day {
+  display: grid;
+  grid-template-rows: 20px 140px 18px;
+  align-items: end;
+  min-width: 32px;
+  flex: 1 0 32px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+.analytics-trend__day strong {
+  font-size: 11px;
+}
+.analytics-trend__day i {
+  display: block;
+  width: 70%;
+  min-height: 4px;
+  margin: 0 auto;
+  background: #315f58;
+}
+.analytics-activity {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.analytics-activity > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.analytics-activity span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .analytics-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .analytics-toolbar .ant-space {
+    justify-content: space-between;
+  }
+  .analytics-kpis,
+  .analytics-grid,
+  .analytics-activity {
+    grid-template-columns: 1fr;
+  }
+  .analytics-funnel__row {
+    grid-template-columns: minmax(120px, 1fr) minmax(70px, 1fr) 34px;
+  }
+}
 /* batch-extract: a checkbox that spans the grid, tuning sliders, review pane */
 .admin-grid label.admin-check,
 .admin-tune label.admin-check {

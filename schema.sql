@@ -108,6 +108,17 @@ CREATE TABLE IF NOT EXISTS presets (
 );
 CREATE INDEX IF NOT EXISTS idx_presets_active ON presets (active);
 
+-- Privacy-safe customizer session summaries. Production stores the same JSON
+-- in private Shopify `charme_analytics_session` metaobjects; this table is the
+-- local/unconfigured fallback only.
+CREATE TABLE IF NOT EXISTS analytics_sessions (
+  session_id   TEXT PRIMARY KEY,
+  started_at   TEXT NOT NULL,
+  last_seen_at TEXT NOT NULL,
+  data         TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_analytics_sessions_started ON analytics_sessions (started_at);
+
 -- Review state for the internal case-image QA dashboard. One row represents
 -- one model/finish image and stores the reviewer-selected issue tags as JSON.
 CREATE TABLE IF NOT EXISTS case_asset_reviews (
