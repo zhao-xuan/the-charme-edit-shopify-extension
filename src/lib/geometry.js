@@ -470,11 +470,28 @@ export function nextTextCharmSpot(prevCharm, charm, opts = {}) {
   const prevHalfW = (prevCharm.baseWmm * (prevCharm.scale || 1)) / 2
   const halfW = charm.widthMm / 2
   const dist = prevHalfW + gapMm + halfW
-  return {
+  const next = {
     cxMm: +(prevCharm.cxMm + Math.cos(a) * dist).toFixed(2),
     cyMm: +(prevCharm.cyMm + Math.sin(a) * dist).toFixed(2),
     rot,
   }
+  const { product, placedCharms = [] } = opts
+  if (!product) return next
+  const placedBoxes = placedCharms.map(charmFootprint)
+  const isClear = (spot) => {
+    const box = { cx: spot.cxMm, cy: spot.cyMm, w: charm.widthMm, h: charm.heightMm, rot: spot.rot }
+    return boxFullyInside(box, product.printable) && !placedBoxes.some((other) => obbOverlap(box, other, gapMm))
+  }
+  if (isClear(next)) return next
+  const { outer } = product.printable
+  const rowStep = Math.max(prevCharm.baseHmm * (prevCharm.scale || 1), charm.heightMm) + gapMm
+  for (let rowY = prevCharm.cyMm + rowStep; rowY < outer.yMm + outer.hMm; rowY += rowStep) {
+    for (let columnX = outer.xMm + charm.widthMm / 2 + gapMm; columnX < outer.xMm + outer.wMm; columnX += charm.widthMm + gapMm) {
+      const spot = { cxMm: columnX, cyMm: rowY, rot: 0 }
+      if (isClear(spot)) return spot
+    }
+  }
+  return findFirstTextSpot(product, placedCharms, charm, opts)
 }
 
 /**

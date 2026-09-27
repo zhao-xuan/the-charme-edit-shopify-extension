@@ -1,6 +1,24 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { convert, formatMoney } from './money.js'
+import { convert, designPriceEstimate, formatMoney } from './money.js'
+
+test('design totals round each charged unit before summing and discounting', () => {
+  const previousWindow = globalThis.window
+  globalThis.window = { CharmeConfig: { currency: { base: 'GBP', active: 'USD', rate: 37 / 26.99 } } }
+  try {
+    const charms = Array.from({ length: 10 }, () => ({ charmId: 'letter-a', price: 1 }))
+    assert.equal(designPriceEstimate({ kind: 'phone', presentmentPrice: 37 }, charms, []).total, 57)
+    const tote = designPriceEstimate({ kind: 'tote', presentmentPrice: 44 }, charms, [])
+    assert.equal(tote.discountAmount, 4)
+    assert.equal(tote.total, 60)
+    const stones = Array.from({ length: 7 }, () => ({ collection: 'Filling Stones', price: 99 }))
+    assert.equal(designPriceEstimate({ kind: 'phone', presentmentPrice: 37 }, stones).rawCharmTotal, 6)
+    const bundles = charms.map((charm) => ({ ...charm, bundle: true }))
+    assert.equal(designPriceEstimate({ kind: 'phone', presentmentPrice: 37 }, bundles, []).total, 39)
+  } finally {
+    globalThis.window = previousWindow
+  }
+})
 
 test('formats catalogue GBP prices in the Shopify Markets presentment currency', () => {
   const previousWindow = globalThis.window

@@ -1,6 +1,27 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { findFirstTextSpot, nextTextCharmSpot, alignToNearestTextCharm } from './geometry.js'
+import { findFirstTextSpot, nextTextCharmSpot, alignToNearestTextCharm, validateLayout } from './geometry.js'
+
+test('successive letters wrap without stacking at the right edge', () => {
+  const charm = { widthMm: 8, heightMm: 8 }
+  const placed = [{ uid: 'first', cxMm: 54, cyMm: 60, rot: 0, baseWmm: 8, baseHmm: 8, scale: 1 }]
+  for (let index = 1; index < 10; index += 1) {
+    const spot = nextTextCharmSpot(placed.at(-1), charm, { product: phoneProduct, placedCharms: placed })
+    assert.ok(spot)
+    placed.push({ ...spot, uid: `letter-${index}`, baseWmm: 8, baseHmm: 8, scale: 1 })
+  }
+  assert.ok(placed[1].cxMm < placed[0].cxMm)
+  assert.ok(placed[1].cyMm > placed[0].cyMm)
+  assert.equal(validateLayout(placed, phoneProduct, { minCharms: 10 }).ok, true)
+})
+
+test('successive letters avoid blocked continuation positions', () => {
+  const charm = { widthMm: 8, heightMm: 8 }
+  const previous = { cxMm: 20, cyMm: 60, rot: 0, baseWmm: 8, baseHmm: 8, scale: 1 }
+  const blocker = { ...previous, cxMm: 29.4 }
+  const spot = nextTextCharmSpot(previous, charm, { product: phoneProduct, placedCharms: [previous, blocker] })
+  assert.ok(spot.cyMm > previous.cyMm)
+})
 
 const phoneProduct = {
   printable: {

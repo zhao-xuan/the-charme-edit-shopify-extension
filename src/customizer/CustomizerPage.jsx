@@ -21,7 +21,7 @@ import CharmTray from '../components/CharmTray'
 import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
-import { trayGroups, placedCharmsTotal, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection, toteDiscountRate } from '../lib/catalog'
+import { trayGroups, MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection } from '../lib/catalog'
 import {
   validateLayout,
   findScatterSpot,
@@ -37,7 +37,7 @@ import { resolveAsset } from '../lib/assets'
 import { settings } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
 import { charmPricingGroupFor } from '../lib/charmPricing'
-import { activeCurrency, convert, formatMoney, formatPresentmentMoney } from '../lib/money'
+import { activeCurrency, designPriceEstimate, formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
@@ -1012,9 +1012,9 @@ export default function CustomizerPage({
       if (isTextCollection(charm.collection)) {
         const lastText = [...prev].reverse().find((c) => isTextCollection(c.collection))
         const spot = lastText
-          ? nextTextCharmSpot(lastText, charm)
+          ? nextTextCharmSpot(lastText, charm, { product: geometryProduct, placedCharms: prev })
           : findFirstTextSpot(geometryProduct, prev, charm)
-        commitPlaced(constrainPosition(makePlaced(charm, spot)))
+        commitPlaced(constrainPosition(makePlaced(charm, spot || fallbackSpot(prev, charm))))
         return
       }
       // Prefer a clear, non-overlapping spot — fillers tumble, everything else
@@ -1490,9 +1490,7 @@ export default function CustomizerPage({
   useEffect(() => {
     analytics.updateContext({ finalDecorationCount: summaryPlaced.length })
   }, [analytics, summaryPlaced.length])
-  const charmTotal = placedCharmsTotal(summaryPlaced)
-  const toteDiscount = product.kind === 'tote' ? toteDiscountRate(summaryPlaced.length) : 0
-  const chargeableCharmTotal = toteDiscount ? +(charmTotal * (1 - toteDiscount)).toFixed(2) : charmTotal
+  const priceEstimate = designPriceEstimate(product, summaryPlaced, appSettings.charmPricingGroups)
   const priceNotice = priceLookupFailed
     ? t('price.marketUnavailable', { currency: activeCurrency() })
     : !livePresentmentCasePrice
@@ -1510,9 +1508,7 @@ export default function CustomizerPage({
       priceNotice={priceNotice}
     />
   )
-  const orderTotal = product.presentmentPrice
-    ? formatPresentmentMoney(product.presentmentPrice + convert(chargeableCharmTotal), { whole: true })
-    : formatMoney(product.basePrice + chargeableCharmTotal, { whole: true })
+  const orderTotal = formatPresentmentMoney(priceEstimate.total)
 
   // The Step 2 overlay is expanded when the user opened it, or forced open while
   // any charm needs attention (so the warning is never hidden).

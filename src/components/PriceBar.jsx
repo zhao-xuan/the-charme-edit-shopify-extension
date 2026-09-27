@@ -1,20 +1,15 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
-import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, placedCharmsTotal, toteDiscountRate } from '../lib/catalog'
-import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
+import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES } from '../lib/catalog'
+import { designPriceEstimate, formatPresentmentMoney } from '../lib/money'
+import { settings } from '../lib/settings'
 import { t, tn } from '../lib/i18n'
 
 export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct, priceNotice }) {
-  const rawCharmTotal = placedCharmsTotal(placed)
   const isTote = product.kind === 'tote'
-  const discountRate = isTote ? toteDiscountRate(placed.length) : 0
-  const discountAmount = discountRate ? +(rawCharmTotal * discountRate).toFixed(2) : 0
-  const charmTotal = +(rawCharmTotal - discountAmount).toFixed(2)
-  const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
-  const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
-  const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
-  const formatCasePrice = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
-  const formatTotal = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
+  const { rawCharmTotal, discountRate, discountAmount, casePrice, total } = designPriceEstimate(product, placed, settings().charmPricingGroups)
+  const formatCasePrice = formatPresentmentMoney
+  const formatTotal = formatPresentmentMoney
   const n = placed.length
   const ok = validation.ok
   const problems = validation.problems
@@ -62,7 +57,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
               {t('price.base', { name: product.name, price: formatCasePrice(casePrice) })}
               {rawCharmTotal > 0 && (
                 <>
-                  &nbsp; {t(isTote ? 'price.plusPatches' : 'price.plusCharms', { price: formatMoney(rawCharmTotal) })}
+                  &nbsp; {t(isTote ? 'price.plusPatches' : 'price.plusCharms', { price: formatPresentmentMoney(rawCharmTotal) })}
                 </>
               )}
             </span>
@@ -73,7 +68,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
                 {t('price.patchDiscount', { pct: Math.round(discountRate * 100) })}
               </span>
               <span style={{ color: 'var(--accent, #b35b5b)' }}>
-                −{formatMoney(discountAmount)}
+                −{formatPresentmentMoney(discountAmount)}
               </span>
             </div>
           )}
