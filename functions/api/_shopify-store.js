@@ -26,6 +26,7 @@ export const TYPES = {
   product: 'charme_product',
   override: 'charme_override',
   preset: 'charme_preset',
+  analytics: 'charme_analytics_session',
 }
 
 /** True when the Shopify Admin backend is configured for this environment. */
@@ -101,6 +102,7 @@ const PRESET_FIELD_DEFS = [
   ['title', 'Title', 'single_line_text_field'],
   ['data', 'Data', 'json'],
 ]
+const ANALYTICS_FIELD_DEFS = [['data', 'Data', 'json']]
 
 const DEF_META = {
   [TYPES.charm]: { name: 'Charmé charm', fields: CHARM_FIELD_DEFS, keyBy: 'legacy_id' },
@@ -108,6 +110,7 @@ const DEF_META = {
   [TYPES.product]: { name: 'Charmé product', fields: PRODUCT_FIELD_DEFS, keyBy: 'legacy_id' },
   [TYPES.override]: { name: 'Charmé override', fields: OVERRIDE_FIELD_DEFS, keyBy: 'handle' },
   [TYPES.preset]: { name: 'Charmé preset', fields: PRESET_FIELD_DEFS, keyBy: 'handle' },
+  [TYPES.analytics]: { name: 'Charmé analytics session', fields: ANALYTICS_FIELD_DEFS, keyBy: 'handle', private: true },
 }
 
 // ---------------------------------------------------------------------------
@@ -164,7 +167,7 @@ async function ensureDefinition(env, type) {
       definition: {
         name: meta.name,
         type,
-        access: { storefront: 'PUBLIC_READ' },
+        access: { storefront: meta.private ? 'NONE' : 'PUBLIC_READ' },
         ...(meta.fields.some(([k]) => k === 'name') ? { displayNameKey: 'name' } : {}),
         fieldDefinitions: meta.fields.map(([key, name, ftype]) => ({ key, name, type: ftype })),
       },
@@ -241,9 +244,10 @@ function toFields(type, record, imageGids = {}) {
       legacy_id: record.id,
     }
     if (imageGids.image) f.body_image_white = imageGids.image
+    if (imageGids.imageBack) f.body_image_black = imageGids.imageBack
     return f
   }
-  // override / preset — everything in a single JSON blob.
+  // override / preset / analytics — everything in a single JSON blob.
   const f = { data: JSON.stringify(stripMeta(record)) }
   if (type === TYPES.preset) f.title = record.title || record.handle || ''
   return f
@@ -296,12 +300,13 @@ function toRecord(type, node) {
       // render so the picture always comes from the merchant's Shopify store.
       src: ref.body_image_white || ref.body_image_black || null,
       srcBlack: ref.body_image_black || null,
+      srcBack: ref.body_image_black || null,
       colourLabel: 'Default',
       _gid: node.id,
       _handle: node.handle,
     }
   }
-  // override / preset
+  // override / preset / analytics
   let data = {}
   try {
     data = JSON.parse(f.data || '{}')

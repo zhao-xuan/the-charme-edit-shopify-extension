@@ -1,3 +1,16 @@
+// Tote patch bundle discount — applied to the patch subtotal by total patch
+// count (front + back combined). Highest matching tier wins.
+export const TOTE_PATCH_DISCOUNT_TIERS = [
+  { min: 10, rate: 0.20 },
+  { min: 8, rate: 0.15 },
+  { min: 5, rate: 0.10 },
+]
+
+export function toteDiscountRate(patchCount) {
+  const tier = TOTE_PATCH_DISCOUNT_TIERS.find((t) => patchCount >= t.min)
+  return tier ? tier.rate : 0
+}
+
 export const DEFAULT_CHARM_PRICING_GROUPS = [
   {
     id: 'filling-stones',

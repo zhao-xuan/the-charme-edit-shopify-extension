@@ -5,7 +5,10 @@ import { resolveAsset } from './assets'
 import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
-import { charmPricingTotal } from './charmPricing'
+import { charmPricingTotal, toteDiscountRate } from './charmPricing'
+import { orderByTaxonomy } from './catalogOrder'
+
+export { toteDiscountRate }
 
 // ---- Order limits & pricing ------------------------------------------------
 // A craftable order needs at least MIN_CHARMS pieces and no more than
@@ -15,6 +18,8 @@ export const MIN_CHARMS = 10
 export const MAX_CHARMS = 30
 export const REC_MIN = 12
 export const REC_MAX = 15
+// Totes are decorated with patches, not charms — a much lower minimum applies.
+export const TOTE_MIN_PATCHES = 2
 
 /**
  * Total chargeable charm price for a placed layout. Merchant pricing groups
@@ -160,27 +165,6 @@ function enlargeTotePatch(patch) {
 // build code-splits, so it never hit this, which is why pages.dev looked fine
 // while the embedded storefront widget showed stale data.)
 let _catalog = null
-function orderByTaxonomy(items, taxonomy) {
-  const categoryOrder = taxonomy?.categoryOrder || []
-  const subOrder = taxonomy?.subOrder || {}
-  const itemOrder = taxonomy?.patchOrder || {}
-  const categoryIndex = new Map(categoryOrder.map((value, index) => [value, index]))
-  return [...items].sort((left, right) => {
-    const leftCategory = left.category || 'unique'
-    const rightCategory = right.category || 'unique'
-    const categoryDelta = (categoryIndex.get(leftCategory) ?? Infinity) - (categoryIndex.get(rightCategory) ?? Infinity)
-    if (categoryDelta) return categoryDelta
-    if (leftCategory !== rightCategory) return leftCategory.localeCompare(rightCategory)
-    const subIndex = new Map((subOrder[leftCategory] || []).map((value, index) => [value, index]))
-    const leftSub = left.collection || 'Custom patches'
-    const rightSub = right.collection || 'Custom patches'
-    const subDelta = (subIndex.get(leftSub) ?? Infinity) - (subIndex.get(rightSub) ?? Infinity)
-    if (subDelta) return subDelta
-    if (leftSub !== rightSub) return leftSub.localeCompare(rightSub)
-    const patchIndex = new Map((itemOrder[`${leftCategory}::${leftSub}`] || []).map((value, index) => [value, index]))
-    return (patchIndex.get(left.id) ?? Infinity) - (patchIndex.get(right.id) ?? Infinity)
-  })
-}
 function buildCatalog() {
   const ADMIN = loadAdmin()
   const REMOTE = remoteCatalog() || {}
@@ -285,9 +269,9 @@ export const TYPE_META_BY_KIND = {
     3: { key: 3, tier: 'mini', label: 'Filler', sub: 'Mini · scatter', help: 'Tap to scatter these into the gaps automatically.' },
   },
   tote: {
-    1: { key: 1, tier: 'grande', label: 'Statement', sub: 'Large · fixed size', help: 'Tap to add a big embroidered statement patch, then drag to place it.' },
-    2: { key: 2, tier: 'midi', label: 'Feature', sub: 'Medium · size', help: 'Tap to add, then drag to place it.' },
-    3: { key: 3, tier: 'mini', label: 'Filler', sub: 'State patch · scatter', help: 'Tap to scatter little state patches into the gaps.' },
+    1: { key: 1, tier: 'grande', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
+    2: { key: 2, tier: 'midi', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
+    3: { key: 3, tier: 'mini', label: 'Patches', sub: 'All patches', help: 'Drag or tap a patch to add it to your tote.' },
   },
 }
 
@@ -321,8 +305,11 @@ export function groupByCollection(items) {
   return Array.from(map, ([collection, list]) => ({ collection, items: list }))
 }
 
-export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
-const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
+export const TEXT_COLLECTIONS = ['Letters & initials', 'Letters', 'Numbers']
+// Tote patches on Shopify use their own punctuation for the same idea (e.g.
+// "Letters / Initials") — ignore punctuation/spacing so both phone charms and
+// tote patches are recognised as chainable text pieces.
+const normalizedCollection = (name) => String(name || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
 export function isTextCollection(name) {
   return TEXT_COLLECTIONS.some((collection) => normalizedCollection(collection) === normalizedCollection(name))
 }
@@ -349,14 +336,14 @@ export function charmByLabel(collection, label, preferCategory) {
 export function trayGroups(kind) {
   if (kind === 'tote') {
     const meta = TYPE_META_BY_KIND.tote
-    const items = itemsByType('tote')
-    return [1, 2, 3].map((t) => ({
-      key: `type-${t}`,
-      label: meta[t].label,
-      sub: meta[t].sub,
-      help: meta[t].help,
-      items: items[t],
-    }))
+    const { PATCHES } = catalog()
+    return [{
+      key: 'patches',
+      label: 'Patches',
+      sub: 'All patches',
+      help: meta[1].help,
+      items: PATCHES,
+    }]
   }
   const { CHARMS } = catalog()
   const groups = []

@@ -3,6 +3,7 @@ import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@
 import { productGroups, hasCaseImage, productsByAvailability } from '../data/products'
 import { formatMoney, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
+import { showToteInPicker } from '../lib/previewFlags'
 
 // Representative icon per base platform, shown on the Step 1 selector cards.
 const BASE_ICONS = {
@@ -44,6 +45,14 @@ function buildOptions(group) {
     ].filter((section) => section.options.length)
   }
   return group.products.map(toOption)
+}
+
+function toteColour(candidate) {
+  const text = `${candidate.id || ''} ${candidate.name || ''}`.toLowerCase()
+  if (text.includes('navy')) return '#1f2d38'
+  if (text.includes('olive') || text.includes('green')) return '#68734a'
+  if (text.includes('cream') || text.includes('white')) return '#f2ece1'
+  return candidate.colors?.[0]?.shell || candidate.caseColours?.[0]?.shell || '#e9dec6'
 }
 
 function ColourGroup({ title, colours, value, onChange }) {
@@ -93,7 +102,7 @@ export default function ProductPicker({
   presentmentPrice,
   presentmentPrices = {},
 }) {
-  const PRODUCT_GROUPS = productGroups()
+  const PRODUCT_GROUPS = productGroups().filter((group) => group.key !== 'tote' || showToteInPicker())
   const group = PRODUCT_GROUPS.find((g) => g.key === groupKey) || PRODUCT_GROUPS[0]
   const product = group.products.find((p) => p.id === productId) || group.products[0]
 
@@ -101,6 +110,7 @@ export default function ProductPicker({
   const gelColours = product.gelColours
 
   const options = buildOptions(group)
+  const isTote = group.key === 'tote'
   const formatProductPrice = (candidate) => {
     if (candidate.kind === 'phone') {
       const candidateId = candidate.id || candidate.value
@@ -116,7 +126,7 @@ export default function ProductPicker({
     <div className="product-picker-step-one">
       <p className="eyebrow">{t('picker.step1')}</p>
       <div className="base-grid">
-        {PRODUCT_GROUPS.filter((g) => g.key !== 'tote').map((g) => (
+        {PRODUCT_GROUPS.map((g) => (
           <button
             key={g.key}
             type="button"
@@ -129,6 +139,7 @@ export default function ProductPicker({
         ))}
       </div>
 
+      {!isTote && (
       <Select
         value={productId}
         onChange={onProductChange}
@@ -167,8 +178,21 @@ export default function ProductPicker({
           </div>
         )}
       />
+      )}
 
-      {gelColours ? (
+      {isTote ? (
+        <ColourGroup
+          title={t('picker.colour')}
+          colours={group.products.map((candidate) => ({
+            id: candidate.id,
+            label: candidate.name.replace(/^The Charmé Edit Tote\s*-\s*/i, ''),
+            shell: toteColour(candidate),
+            price: formatProductPrice(candidate),
+          }))}
+          value={productId}
+          onChange={onProductChange}
+        />
+      ) : gelColours ? (
         <ColourGroup
           title={t('picker.gelColour')}
           colours={gelColours}

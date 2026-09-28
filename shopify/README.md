@@ -163,6 +163,18 @@ Other section settings: **After add to bag** (drawer / cart / stay), **Widget
 height**, and **Advanced → Widget CDN / API base**
 (defaults to `https://charme-customizer.pages.dev`, no trailing slash).
 
+## 4c. Customizer analytics
+
+The widget automatically uploads privacy-safe session summaries to the private
+Shopify metaobject type `charme_analytics_session`. The Admin **Analytics** tab
+reports the customizer funnel, active decoration time, product/device splits,
+popular decorations, and aggregate interaction counts. No customer identity,
+pointer coordinates, design previews, IP addresses, or full page URLs are stored.
+
+“Shopify handoff” means that the cart or draft-order handler accepted the design;
+it does not mean the order was paid. Paid-order attribution requires an order
+webhook joined to the customizer session.
+
 ## 5. (Optional) Proof image on cart-mode orders
 
 In **Draft order** mode the proof PNG is stored automatically (on your Pages KV,

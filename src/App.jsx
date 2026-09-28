@@ -68,6 +68,7 @@ function decodeEditorLayout(encoded) {
         hMm: charm.hMm,
         rot: charm.rotDeg,
         scale: charm.scale,
+        toteSide: charm.toteSide,
       })),
     }
   } catch {
@@ -91,20 +92,22 @@ const editorEdit = editorEditState()
 function configureEditorCurrency() {
   if (typeof window === 'undefined') return
   const params = new URLSearchParams(window.location.search)
-  const active = String(params.get('currency') || '').trim().toUpperCase()
-  const rate = Number(params.get('currency_rate'))
-  if (!/^[A-Z]{3}$/.test(active) || !(rate > 0)) return
-
   const config = window.CharmeConfig || {}
+  const market = window.Shopify?.currency || config.currency || {}
+  const active = String(params.get('currency') || market.active || 'GBP').toUpperCase()
+  const rate = Number(params.get('currency_rate') || market.rate)
+  const country = String(params.get('country') || config.country || window.Shopify?.country || 'GB').toUpperCase()
   window.CharmeConfig = {
     ...config,
     ...(params.get('locale') ? { locale: params.get('locale') } : {}),
-    ...(params.get('variant') ? { variantId: params.get('variant') } : {}),
-    ...(params.get('country') ? { country: params.get('country') } : {}),
+    country: /^[A-Z]{2}$/.test(country) ? country : 'GB',
+    shopifyCurrency: /^[A-Z]{3}$/.test(active) && Number.isFinite(rate) && rate > 0
+      ? { active, rate: active === 'GBP' ? 1 : rate }
+      : undefined,
     currency: {
-      base: config.currency?.base || 'GBP',
-      active,
-      rate,
+      base: 'GBP',
+      active: /^[A-Z]{3}$/.test(active) ? active : 'GBP',
+      rate: active !== 'GBP' && Number.isFinite(rate) && rate > 0 ? rate : 1,
     },
   }
 }
@@ -134,7 +137,6 @@ function editorInitialState() {
     initialProductId: params.get('product') || undefined,
     initialCaseColourId: params.get('case') || undefined,
     initialGelColourId: params.get('gel') || undefined,
-    initialCasePresentmentPrice: Number(params.get('case_price')) || undefined,
   }
   if (!editorEdit.layout) return requested
   return {

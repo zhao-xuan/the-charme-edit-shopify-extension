@@ -42,7 +42,7 @@ const base = {
   image: '/case.png',
   key: 'base:1',
   original_line_price: 4899,
-  product_title: 'Custom case',
+  product_title: 'Custom Charm Case',
   properties: { Proof: '/proof.png', _design_token: 'design-1' },
   quantity: 1,
   variant_title: 'White (Glitter Gel) / iPhone 17 Pro',
@@ -89,6 +89,17 @@ test('drawer folds every design token into one removable item', () => {
 
 test('drawer keeps a base-only custom design folded', () => {
   assert.match(drawerApi().renderItems({ items: [base] }), /Custom Charm Case/)
+})
+
+test('cart previews prefer the explicit tote front even when the legacy proof is the back', () => {
+  const html = drawerApi().renderItems({ items: [{ ...base, properties: {
+    ...base.properties, Type: 'tote', Proof: '/back.png', 'Proof back': '/back.png', _proof_front: '/front.png',
+  } }] })
+  assert.match(html, /src="\/front\.png"/)
+  assert.doesNotMatch(html, /src="\/back\.png"/)
+  const cartLine = readFileSync(new URL('../../shopify/snippets/charme-cart-line.liquid', import.meta.url), 'utf8')
+  assert.match(cartLine, /assign charme_proof = item\.properties\['_proof_front'\] \| default: item\.properties\['Proof'\] \| default: item\.properties\['_proof'\]/)
+  assert.match(drawerApi().renderItems({ items: [base] }), /src="\/proof\.png"/)
 })
 
 test('drawer formats cart prices in the active market currency', () => {

@@ -22,11 +22,15 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
       role="button"
       tabIndex={unavailable ? -1 : 0}
       aria-disabled={unavailable || undefined}
+      aria-label={[charm.name, charm.collection, `${charm.widthMm} × ${charm.heightMm} mm`, charm.id, unavailable ? t('charm.unavailable') : formatMoney(charm.price)].filter(Boolean).join(', ')}
       onPointerDown={unavailable ? undefined : (e) => onPointerDown?.(charm, e)}
       onClick={unavailable ? undefined : () => onActivate?.(charm)}
-      onKeyDown={(e) =>
-        !unavailable && (e.key === 'Enter' || e.key === ' ') && onActivate?.(charm)
-      }
+      onKeyDown={(e) => {
+        if (!unavailable && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault()
+          onActivate?.(charm)
+        }
+      }}
       title={
         unavailable
           ? t('charm.tip.unavailable')

@@ -508,6 +508,57 @@ h4,
 .base-card.is-active .base-card__icon {
   color: var(--paper);
 }
+.tote-product-options {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.tote-product-options--mobile {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: 0;
+}
+.tote-product-options--mobile .tote-product-option {
+  grid-template-columns: 20px minmax(0, 1fr);
+  min-height: 40px;
+  padding: 5px;
+}
+.tote-product-options--mobile .tote-product-option__colour { display: none; }
+.tote-product-options--mobile .tote-product-option__price { grid-column: 2; }
+.tote-product-option {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+.tote-product-option.is-active {
+  border-color: var(--rouge);
+  box-shadow: inset 3px 0 0 var(--rouge);
+}
+.tote-product-option__swatch {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 50%;
+}
+.tote-product-option__name,
+.tote-product-option__colour,
+.tote-product-option__price {
+  min-width: 0;
+  font-size: 12px;
+}
+.tote-product-option__name { font-weight: 700; }
+.tote-product-option__colour { color: var(--ink-soft); }
+.tote-product-option__price { font-family: var(--charme-font-accent); white-space: nowrap; }
 
 /* ---------- Stage / charms ---------- */
 .stage {
@@ -735,6 +786,39 @@ h4,
   font-size: 14px;
 }
 
+/* Tote patch bundle discount tiers — replaces the mock-up notice for totes. */
+.patch-discount-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(125, 105, 84, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 253, 249, 0.7);
+  color: #2e2a26;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.patch-discount-notice__icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--rouge);
+  font-size: 14px;
+}
+.patch-discount-notice__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+}
+.patch-discount-notice__list li {
+  white-space: nowrap;
+}
+
 /* selection toolbar floating above a selected charm */
 .charm-tools {
   position: absolute;
@@ -807,6 +891,13 @@ h4,
 }
 
 /* ---------- Tray ---------- */
+/* Applied to <body> while a charm/patch is being dragged from the tray so the
+   pointer can pass over surrounding text without starting a native selection. */
+body.charme-no-select,
+body.charme-no-select * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
 .tray-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
@@ -823,6 +914,9 @@ h4,
   cursor: grab;
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s;
   touch-action: none;
+  /* Dragging a card to the case must never trigger a native text selection. */
+  user-select: none;
+  -webkit-user-select: none;
 }
 .charm-card:hover {
   transform: translateY(-2px);
@@ -1160,8 +1254,8 @@ h4,
   gap: 18px;
 }
 .checkout-loading {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  min-height: 280px;
   z-index: 5;
   display: grid;
   place-content: center;
@@ -1373,7 +1467,7 @@ h4,
      the (collapsed) Step 2 / category bar. */
   .mobile-stage .stage-wrap {
     padding-top: 6px;
-    padding-bottom: 34px;
+    padding-bottom: 72px;
     touch-action: none;
     overscroll-behavior: none;
     /* Keep the mobile preview on the original warm cream (the desktop stage uses
@@ -1542,7 +1636,7 @@ h4,
     50% { transform: translate(-50%, 17px); }
   }
   .mobile-tray {
-    flex: 0 0 28%;
+    flex: 0 1 28%;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -1552,12 +1646,18 @@ h4,
      own slim bar BELOW the Step 2 text overlay (kept out of the overlay so it
      stays short). */
   .mobile-cat-seg {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     pointer-events: auto;
   }
+  .mobile-cat-seg .ant-segmented-item {
+    flex: none;
+  }
   .mobile-cat-seg .ant-segmented-item-label {
-    font-size: 11px;
-    padding: 0 6px;
+    font-size: 12px;
+    padding: 0 10px;
+    overflow: visible;
+    text-overflow: clip;
     min-height: 26px;
     line-height: 26px;
   }
@@ -1581,7 +1681,8 @@ h4,
   .mobile-step2-bar {
     align-self: stretch;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     gap: 8px;
     padding: 6px 12px;
     border-radius: 0;
@@ -1597,7 +1698,9 @@ h4,
   .mobile-cat-bar {
     flex: 1 1 auto;
     min-width: 0;
-    pointer-events: none;
+    overflow-x: auto;
+    pointer-events: auto;
+    touch-action: pan-x;
   }
   .mobile-cat-seg {
     background: transparent;
@@ -1657,7 +1760,7 @@ h4,
   }
   .mobile-stage .stage-wrap > .mockup-notice {
     left: 2px;
-    bottom: 46px;
+    bottom: 80px;
     z-index: 76;
     width: max-content;
     max-width: calc(100% - 4px);
@@ -1667,6 +1770,13 @@ h4,
   }
   .mobile-stage .stage-wrap > .mockup-notice.is-open {
     width: min(300px, calc(100vw - 12px));
+  }
+  .mobile-tray-body > .patch-discount-notice {
+    margin: 0 -12px 10px;
+    padding: 6px 12px;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    font-size: 9.5px;
   }
   .mobile-step-overlay--warn .mobile-step-overlay__body {
     background-color: rgba(255, 244, 242, 0.7);
@@ -1721,12 +1831,35 @@ h4,
     font-weight: 600;
     letter-spacing: 0.3px;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     cursor: pointer;
   }
   .mobile-order-bar:disabled {
     background: #a9a39d;
     cursor: not-allowed;
+  }
+  .mobile-order-footer {
+    position: relative;
+    flex: 0 0 auto;
+    background: #fffdf9;
+  }
+  .mobile-order-requirements {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    max-height: calc(2.8em + 10px);
+    overflow-y: auto;
+    padding: 5px 12px;
+    color: #9f2f12;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .mobile-order-price-note {
+    padding: 4px 12px;
+    color: var(--ink-soft);
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: center;
   }
   .mobile-tray-body {
     flex: 1;
@@ -1777,6 +1910,66 @@ h4,
   }
 }
 
+/* ---- Tote front/back side toggle ---------------------------------------- */
+.tote-side-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 8px 0 4px;
+  background: transparent;
+  pointer-events: auto;
+}
+.tote-side-btn {
+  padding: 5px 20px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.tote-side-btn:first-child {
+  border-radius: 0;
+  border-right: none;
+}
+.tote-side-btn:last-child {
+  border-radius: 0;
+}
+.tote-side-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+/* Mobile: float the toggle over the stage image, top-centre */
+@media (max-width: 760px) {
+  .tote-side-toggle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .tote-side-btn {
+    padding: 4px 16px;
+    font-size: 12px;
+    border: none;
+  }
+  .tote-side-btn:first-child {
+    border-right: 1px solid var(--line);
+  }
+  .tote-side-btn.is-active {
+    background: var(--ink);
+    color: #fff;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 .zoom-dock {
   position: absolute;
   right: 14px;
@@ -2454,6 +2647,136 @@ h4,
 }
 .admin-tools-tabs > .ant-tabs-nav {
   margin-bottom: 18px;
+}
+.analytics-page {
+  display: grid;
+  gap: 16px;
+}
+.analytics-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.analytics-toolbar h2,
+.analytics-toolbar p {
+  margin: 0;
+}
+.analytics-toolbar p {
+  margin-top: 3px;
+  color: var(--ink-soft);
+}
+.analytics-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.analytics-metric {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+.analytics-metric > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.analytics-funnel {
+  display: grid;
+  gap: 12px;
+}
+.analytics-funnel__row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(100px, 2fr) 42px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.analytics-funnel__row > div {
+  height: 8px;
+  overflow: hidden;
+  background: #eee8de;
+}
+.analytics-funnel__row i {
+  display: block;
+  height: 100%;
+  background: #b35b5b;
+}
+.analytics-funnel__row strong {
+  text-align: right;
+}
+.analytics-trend {
+  display: flex;
+  align-items: flex-end;
+  min-height: 190px;
+  gap: 5px;
+  overflow-x: auto;
+  padding-top: 24px;
+}
+.analytics-trend__day {
+  display: grid;
+  grid-template-rows: 20px 140px 18px;
+  align-items: end;
+  min-width: 32px;
+  flex: 1 0 32px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+.analytics-trend__day strong {
+  font-size: 11px;
+}
+.analytics-trend__day i {
+  display: block;
+  width: 70%;
+  min-height: 4px;
+  margin: 0 auto;
+  background: #315f58;
+}
+.analytics-activity {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.analytics-activity > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.analytics-activity span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .analytics-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .analytics-toolbar .ant-space {
+    justify-content: space-between;
+  }
+  .analytics-kpis,
+  .analytics-grid,
+  .analytics-activity {
+    grid-template-columns: 1fr;
+  }
+  .analytics-funnel__row {
+    grid-template-columns: minmax(120px, 1fr) minmax(70px, 1fr) 34px;
+  }
 }
 /* batch-extract: a checkbox that spans the grid, tuning sliders, review pane */
 .admin-grid label.admin-check,

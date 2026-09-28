@@ -1,25 +1,26 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
-import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, placedCharmsTotal } from '../lib/catalog'
-import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
+import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES } from '../lib/catalog'
+import { designPriceEstimate, formatPresentmentMoney } from '../lib/money'
+import { settings } from '../lib/settings'
 import { t, tn } from '../lib/i18n'
 
-export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct }) {
-  const charmTotal = placedCharmsTotal(placed)
-  const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
-  const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
-  const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
-  const formatCasePrice = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
-  const formatTotal = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
+export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct, priceNotice }) {
+  const isTote = product.kind === 'tote'
+  const { rawCharmTotal, discountRate, discountAmount, casePrice, total } = designPriceEstimate(product, placed, settings().charmPricingGroups)
+  const formatCasePrice = formatPresentmentMoney
+  const formatTotal = formatPresentmentMoney
   const n = placed.length
   const ok = validation.ok
   const problems = validation.problems
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
+  const minRequired = product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS
+  const pieceNoun = t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase()
 
   // Keep count and placement problems visible together: a layout can be both
   // short of charms and have overlapping charms that still need fixing.
   const warnings = []
-  if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: MIN_CHARMS }))
+  if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: minRequired, noun: pieceNoun }))
   if (validation.tooMany) warnings.push(t('price.useAtMost', { n: MAX_CHARMS }))
   if (problems > 0) warnings.push(tn('price.needAttention', problems))
 
@@ -46,7 +47,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
               </div>
             )}
             <span className="hint">
-              {tn('price.charmCount', n)}
+              {tn(isTote ? 'price.patchCount' : 'price.charmCount', n)}
               {n > 0 && n < REC_MIN ? t('price.aimFor', { min: REC_MIN, max: REC_MAX }) : ''}
             </span>
           </div>
@@ -54,9 +55,23 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
           <div className="price-row" style={{ marginBottom: 4 }}>
             <span className="hint">
               {t('price.base', { name: product.name, price: formatCasePrice(casePrice) })}
-              {charmTotal > 0 && <> &nbsp;+&nbsp; {t('price.plusCharms', { price: formatMoney(charmTotal) })}</>}
+              {rawCharmTotal > 0 && (
+                <>
+                  &nbsp; {t(isTote ? 'price.plusPatches' : 'price.plusCharms', { price: formatPresentmentMoney(rawCharmTotal) })}
+                </>
+              )}
             </span>
           </div>
+          {discountRate > 0 && (
+            <div className="price-row" style={{ marginBottom: 4 }}>
+              <span className="hint" style={{ color: 'var(--accent, #b35b5b)' }}>
+                {t('price.patchDiscount', { pct: Math.round(discountRate * 100) })}
+              </span>
+              <span style={{ color: 'var(--accent, #b35b5b)' }}>
+                −{formatPresentmentMoney(discountAmount)}
+              </span>
+            </div>
+          )}
           <div className="price-row" style={{ marginBottom: 8 }}>
             <span style={{ fontSize: 13, color: 'var(--ink-soft)' }}>{t('price.estimatedTotal')}</span>
             <span className="total">{formatTotal(total)}</span>
@@ -64,7 +79,9 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
         </>
       )}
 
-      <Button block type="primary" size="large" disabled={n === 0} onClick={onSubmit}>
+      {compact && !ok && <div className="pricebar__warnings" role="status">{warnings.join(' · ')}</div>}
+      {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
+      <Button block type="primary" size="large" disabled={!ok} onClick={onSubmit}>
         {isSecondProduct
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
           : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}

@@ -16,6 +16,16 @@
  * currency.
  */
 import { currentLocale } from './i18n.js'
+import { charmChargeLines, toteDiscountRate } from './charmPricing.js'
+
+export function designPriceEstimate(product, placed, groups) {
+  const lines = charmChargeLines(placed, groups)
+  const rawCharmTotal = lines.reduce((sum, line) => sum + convert(line.unitPrice) * line.quantity, 0)
+  const discountRate = product.kind === 'tote' ? toteDiscountRate(placed.length) : 0
+  const discountAmount = +(rawCharmTotal * discountRate).toFixed(2)
+  const casePrice = Number(product.presentmentPrice) > 0 ? Number(product.presentmentPrice) : convert(product.basePrice)
+  return { rawCharmTotal, discountRate, discountAmount, casePrice, total: +(casePrice + rawCharmTotal - discountAmount).toFixed(2) }
+}
 
 /** Resolve the live currency context (base + active + rate + locale). */
 function currencyContext() {
