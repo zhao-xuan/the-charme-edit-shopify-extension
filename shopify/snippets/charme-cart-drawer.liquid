@@ -408,7 +408,7 @@
     var base = group.filter(function (it) { return !(it.properties && it.properties._role === 'charm'); })[0] || group[0];
     var charms = group.filter(function (it) { return it !== base; });
     var total = group.reduce(function (s, it) { return s + it.final_line_price; }, 0);
-    var proof = base.properties && (base.properties.Proof || base.properties._proof);
+    var proof = base.properties && (base.properties._proof_front || base.properties.Proof || base.properties._proof);
     var keys = group.map(function (it) { return it.key; });
     var kind = (base.properties && base.properties.Type) || 'phone';
     var baseNoun = kind === 'tote' ? 'Tote' : kind === 'frame' ? 'Frame' : 'Case';

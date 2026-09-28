@@ -93,11 +93,22 @@ function configureEditorCurrency() {
   if (typeof window === 'undefined') return
   const params = new URLSearchParams(window.location.search)
   const config = window.CharmeConfig || {}
+  const market = window.Shopify?.currency || config.currency || {}
+  const active = String(params.get('currency') || market.active || 'GBP').toUpperCase()
+  const rate = Number(params.get('currency_rate') || market.rate)
+  const country = String(params.get('country') || config.country || window.Shopify?.country || 'GB').toUpperCase()
   window.CharmeConfig = {
     ...config,
     ...(params.get('locale') ? { locale: params.get('locale') } : {}),
-    country: /^[A-Z]{2}$/.test(params.get('country') || '') ? params.get('country') : 'GB',
-    currency: { base: 'GBP', active: 'GBP', rate: 1 },
+    country: /^[A-Z]{2}$/.test(country) ? country : 'GB',
+    shopifyCurrency: /^[A-Z]{3}$/.test(active) && Number.isFinite(rate) && rate > 0
+      ? { active, rate: active === 'GBP' ? 1 : rate }
+      : undefined,
+    currency: {
+      base: 'GBP',
+      active: /^[A-Z]{3}$/.test(active) ? active : 'GBP',
+      rate: active !== 'GBP' && Number.isFinite(rate) && rate > 0 ? rate : 1,
+    },
   }
 }
 

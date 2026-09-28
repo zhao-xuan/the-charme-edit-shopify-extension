@@ -305,7 +305,7 @@ export function groupByCollection(items) {
   return Array.from(map, ([collection, list]) => ({ collection, items: list }))
 }
 
-export const TEXT_COLLECTIONS = ['Letters & initials', 'Numbers']
+export const TEXT_COLLECTIONS = ['Letters & initials', 'Letters', 'Numbers']
 // Tote patches on Shopify use their own punctuation for the same idea (e.g.
 // "Letters / Initials") — ignore punctuation/spacing so both phone charms and
 // tote patches are recognised as chainable text pieces.

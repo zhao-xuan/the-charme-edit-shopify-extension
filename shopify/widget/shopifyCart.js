@@ -28,23 +28,45 @@ function token() {
   return 'cd_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
 }
 
-async function uploadProof(uploadEndpoint, dataUrl, designToken, mode = 'standard') {
+async function uploadProof(uploadEndpoint, dataUrl, designToken, mode = 'standard', onProgress) {
   if (!uploadEndpoint || !dataUrl) return null
-  try {
-    const endpoint = new URL(uploadEndpoint, window.location.origin)
-    if (mode === 'fast') endpoint.searchParams.set('fast', '1')
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ designToken, image: dataUrl }),
-    })
-    if (!res.ok) throw new Error('upload failed')
-    const json = await res.json()
-    return json.url || null
-  } catch (e) {
-    console.warn('[Charmé] proof upload failed, continuing without hosted image', e)
-    return null
-  }
+  const endpoint = new URL(uploadEndpoint, window.location.origin)
+  if (mode === 'fast') endpoint.searchParams.set('fast', '1')
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest()
+    let settled = false
+    const finish = (error, url) => {
+      if (settled) return
+      settled = true
+      clearTimeout(timer)
+      if (error) reject(error)
+      else resolve(url)
+    }
+    const timer = setTimeout(() => {
+      finish(new Error('Design upload took longer than 5 seconds. Please retry.'))
+      request.abort()
+    }, 5000)
+    request.open('POST', endpoint.href)
+    request.timeout = 5000
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.upload.onprogress = (event) => {
+      if (!settled && event.lengthComputable) onProgress?.(Math.min(99, Math.round(event.loaded / event.total * 100)))
+    }
+    request.onerror = () => finish(new Error('Design upload failed. Your design is still here. Please retry.'))
+    request.ontimeout = () => finish(new Error('Design upload took longer than 5 seconds. Please retry.'))
+    request.onabort = () => finish(new Error('Design upload was interrupted. Please retry.'))
+    request.onload = () => {
+      if (settled) return
+      try {
+        if (request.status < 200 || request.status >= 300) throw new Error('Design upload failed. Please retry.')
+        const result = JSON.parse(request.responseText)
+        if (!result.url || !/^https?:\/\//.test(result.url)) throw new Error('Design upload was not confirmed. Please retry.')
+        onProgress?.(100)
+        finish(null, result.url)
+      } catch (error) { finish(error) }
+    }
+    request.send(JSON.stringify({ designToken, image: dataUrl }))
+  })
 }
 
 /** Resolve the Shopify variant id for the chosen base case (model × gel/colour). */
@@ -86,18 +108,24 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
     )
   }
 
-  const designToken = token()
+  const designToken = payload.designToken || token()
+  const progress = { front: 0, back: 0 }
+  const reportProgress = (side) => (percent) => {
+    progress[side] = percent
+    payload.onUploadProgress?.(Math.floor(payload.proofs?.backUrl ? (progress.front + progress.back) / 2 : progress.front))
+  }
   // Kick off both proof uploads (and the charm variant lookups below) in
   // parallel rather than sequentially — awaiting each one in turn was adding
   // several redundant round-trips to "Preparing your checkout…".
   const proofPromise = uploadProof(
     cfg.uploadEndpoint,
     payload.proofs?.frontUrl || payload.proofs?.sampleUrl,
-    designToken,
+    payload.product.kind === 'tote' ? designToken + '_front' : designToken,
     payload.proofUploadMode,
+    reportProgress('front'),
   )
   const backProofPromise = payload.proofs?.backUrl
-    ? uploadProof(cfg.uploadEndpoint, payload.proofs.backUrl, designToken, payload.proofUploadMode)
+    ? uploadProof(cfg.uploadEndpoint, payload.proofs.backUrl, designToken + '_back', payload.proofUploadMode, reportProgress('back'))
     : Promise.resolve(null)
 
   const charmVariant = (charm) =>
@@ -157,6 +185,7 @@ async function buildCartItems(cfg, variantMap, payload, resolveVariant) {
         Type: payload.product.kind || 'phone',
         Finish: payload.product.color,
         ...(proofUrl ? { Proof: proofUrl } : {}),
+        ...(proofUrl && payload.product.kind === 'tote' ? { _proof_front: proofUrl } : {}),
         ...(backProofUrl ? { 'Proof back': backProofUrl } : {}),
         _layout: JSON.stringify({
           product: payload.product,
@@ -347,7 +376,7 @@ export function createStorefrontCartHandler(cfg = {}) {
       payload,
       resolveVariant,
     )
-    pendingItems.push(...items)
+    if (!pendingItems.some((item) => item.properties?._design_token === designToken)) pendingItems.push(...items)
     if (!payload.deferSurface) goToCart()
     return { designToken }
   }

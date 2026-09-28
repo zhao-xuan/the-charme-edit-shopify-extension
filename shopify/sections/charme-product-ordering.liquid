@@ -165,18 +165,20 @@
     var activePriceRequest;
 
     function selectedVariantId(root) {
-      var input = document.querySelector('form[action*="/cart/add"] [name="id"], [name="id"]');
+      var input = root.querySelector('.charme-order-path--standard form[action*="/cart/add"] [name="id"]');
       return input && /^\d+$/.test(input.value) ? input.value : root.dataset.charmeVariantId;
     }
 
     function setPresentmentCasePrice(root, target) {
       var variantId = selectedVariantId(root);
       var country = root.dataset.charmeMarketCountry;
+      var currency = root.dataset.charmeMarketCurrency || (window.Shopify && window.Shopify.currency && window.Shopify.currency.active);
       if (!variantId || !country) return Promise.resolve();
-      var key = variantId + ':' + country;
+      var key = variantId + ':' + country + ':' + currency;
       if (activePriceRequest && activePriceRequest.key !== key) activePriceRequest.controller.abort();
       function applyPrice(price) {
-          if (selectedVariantId(root) !== variantId || root.dataset.charmeMarketCountry !== country) return;
+            if (selectedVariantId(root) !== variantId || root.dataset.charmeMarketCountry !== country ||
+              (root.dataset.charmeMarketCurrency || (window.Shopify && window.Shopify.currency && window.Shopify.currency.active)) !== currency) return;
           var url = new URL(target.href, window.location.href);
           if (price) {
             url.searchParams.set('case_price', String(price.amount));
@@ -185,6 +187,8 @@
             url.searchParams.delete('case_price');
           }
           if (target.href !== url.toString()) target.href = url.toString();
+          var source = root.querySelector('.add-charms-here-button');
+          if (source && source.href !== target.href) source.href = target.href;
       }
       var cached = priceCache.get(key);
       if (cached && cached.expires > Date.now()) {
@@ -196,6 +200,8 @@
         return pending.promise.then(function (price) { if (!pending.controller.signal.aborted) applyPrice(price); });
       }
       var controller = new AbortController();
+      var routeRoot = window.Shopify && window.Shopify.routes && window.Shopify.routes.root || '/';
+      var endpoint = new URL(routeRoot + 'variants/' + encodeURIComponent(variantId) + '.js', window.location.href);
       function attempt(retry) {
         if (controller.signal.aborted) return Promise.resolve(null);
         var requestController = new AbortController();
@@ -203,17 +209,16 @@
         controller.signal.addEventListener('abort', abort);
         var timer;
         return Promise.race([
-          fetch('https://charme-customizer.pages.dev/api/shopify/contextual-price?variant=' +
-            encodeURIComponent(variantId) + '&country=' + encodeURIComponent(country),
-            { headers: { Accept: 'application/json' }, signal: requestController.signal })
+          fetch(endpoint.toString(),
+            { headers: { Accept: 'application/json' }, credentials: 'same-origin', signal: requestController.signal })
             .then(function (response) {
               if (!response.ok) throw new Error('contextual_price_http_' + response.status);
               return response.json();
-            }).then(function (price) {
-              if (!price || !Number.isFinite(Number(price.amount)) || !(Number(price.amount) > 0) || !/^[A-Z]{3}$/.test(price.currency)) {
+            }).then(function (variant) {
+              if (!variant || String(variant.id) !== variantId || !Number.isFinite(Number(variant.price)) || !(Number(variant.price) > 0) || !/^[A-Z]{3}$/.test(currency)) {
                 throw new Error('contextual_price_invalid');
               }
-              return price;
+              return { amount: Number(variant.price) / 100, currency: currency };
             }),
           new Promise(function (_, reject) {
             timer = setTimeout(function () { requestController.abort(); reject(new Error('contextual_price_timeout')); }, 2500);
@@ -239,7 +244,7 @@
       return request.promise.then(function (price) { if (!controller.signal.aborted) applyPrice(price); });
     }
 
-    function syncDesignLink() {
+    function syncDesignLink(loadPrice) {
       var root = document.querySelector(rootSelector);
       if (!root) return Promise.resolve();
       var target = root.querySelector('[data-charme-own-design]');
@@ -269,7 +274,8 @@
         next.searchParams.set('cart_url', cartUrl.toString());
         next.searchParams.set('return_to', returnUrl.toString());
         if (target.href !== next.toString()) target.href = next.toString();
-        return setPresentmentCasePrice(root, target);
+        if (source.href !== next.toString()) source.href = next.toString();
+        return loadPrice === false ? Promise.resolve() : setPresentmentCasePrice(root, target);
       } catch (error) {
         target.href = source.href;
         return Promise.resolve();
@@ -326,19 +332,40 @@
     document.addEventListener('input', scheduleSync);
     window.addEventListener('popstate', scheduleSync);
     window.addEventListener('resize', scheduleSync);
+    var navigatingTarget;
+    var navigationLabel;
+    function resetDesignNavigation() {
+      if (!navigatingTarget) return;
+      navigatingTarget.removeAttribute('aria-busy');
+      var label = navigatingTarget.querySelector('span');
+      if (label && navigationLabel != null) label.textContent = navigationLabel;
+      navigatingTarget = null;
+      navigationLabel = null;
+    }
+    window.addEventListener('pageshow', resetDesignNavigation);
     document.addEventListener('click', function (event) {
-      var target = event.target && event.target.closest('[data-charme-own-design]');
+      var target = event.target && event.target.closest('[data-charme-own-design], .add-charms-here-button');
       if (!target || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
       var root = document.querySelector(rootSelector);
-      if (!root) return;
-      syncDesignLink().then(function () {
+      if (!root || !root.contains(target)) return;
+      event.preventDefault();
+      if (navigatingTarget === target) return;
+      syncDesignLink(false);
+      navigatingTarget = target;
+      var label = target.querySelector('span');
+      navigationLabel = label ? label.textContent : null;
+      target.setAttribute('aria-busy', 'true');
+      if (label) label.textContent = 'Opening designer...';
+      try {
         window.location.assign(target.href);
-      });
+      } catch (error) {
+        resetDesignNavigation();
+        throw error;
+      }
     }, true);
     new MutationObserver(function (records) {
       if (records.some(function (record) {
-        return record.type !== 'attributes' || !record.target.matches('[data-charme-own-design]');
+        return record.type !== 'attributes' || !record.target.matches('[data-charme-own-design], .add-charms-here-button');
       })) scheduleSync();
     }).observe(document.documentElement, {
       attributes: true,

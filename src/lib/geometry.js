@@ -478,9 +478,10 @@ export function nextTextCharmSpot(prevCharm, charm, opts = {}) {
   const { product, placedCharms = [] } = opts
   if (!product) return next
   const placedBoxes = placedCharms.map(charmFootprint)
+  const collisionPaddingMm = Math.max(0, gapMm - 0.01) / 2
   const isClear = (spot) => {
     const box = { cx: spot.cxMm, cy: spot.cyMm, w: charm.widthMm, h: charm.heightMm, rot: spot.rot }
-    return boxFullyInside(box, product.printable) && !placedBoxes.some((other) => obbOverlap(box, other, gapMm))
+    return boxFullyInside(box, product.printable) && !placedBoxes.some((other) => obbOverlap(box, other, collisionPaddingMm))
   }
   if (isClear(next)) return next
   const { outer } = product.printable

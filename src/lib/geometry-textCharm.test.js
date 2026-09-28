@@ -31,6 +31,19 @@ const phoneProduct = {
   },
 }
 
+test('phone and tote letters stay on the same baseline when continuation is clear', () => {
+  for (const size of [8, 42]) {
+    const product = { printable: { kind: size === 8 ? 'phone' : 'tote', outer: { xMm: 0, yMm: 0, wMm: 300, hMm: 300, rMm: 0 }, obstacles: [] } }
+    for (const rotation of [0, 15, -20]) {
+      const previous = { cxMm: 60.123, cyMm: 100.456, rot: rotation, baseWmm: size, baseHmm: size, scale: 1 }
+      const charm = { widthMm: size, heightMm: size }
+      const expected = nextTextCharmSpot(previous, charm)
+      const actual = nextTextCharmSpot(previous, charm, { product, placedCharms: [previous] })
+      assert.deepEqual(actual, expected, `size ${size}, rotation ${rotation} should continue the aligned row`)
+    }
+  }
+})
+
 test('findFirstTextSpot lands upright and biased toward the left half', () => {
   const charm = { widthMm: 8, heightMm: 8 }
   for (let i = 0; i < 20; i++) {

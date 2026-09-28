@@ -202,7 +202,8 @@ const ProductStage = forwardRef(function ProductStage(
       if (!d || d.pointerId !== e.pointerId) return
       // Checkpoint history once, on the first real movement of the gesture, so a
       // drag can be undone without flooding the stack on a plain select-click.
-      if (!d.checkpointed && Math.hypot(e.clientX - d.startX, e.clientY - d.startY) >= 2) {
+      if (!d.checkpointed) {
+        if (Math.hypot(e.clientX - d.startX, e.clientY - d.startY) < 2) return
         onCheckpoint?.()
         d.checkpointed = true
       }

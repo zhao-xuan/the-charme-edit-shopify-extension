@@ -419,11 +419,7 @@ export default function CustomizerPage({
     const apiBase = cfg.apiBase || window.location.origin
     const cacheKey = `${variantId}:${country}`
     const applyPrice = (price) => {
-      const storefrontCurrency = window.Shopify?.currency
-      const storefrontRate = Number(storefrontCurrency?.rate)
-      const currency = storefrontCurrency?.active === price.currency && Number.isFinite(storefrontRate) && storefrontRate > 0
-        ? { base: 'GBP', active: price.currency, rate: storefrontRate }
-        : marketEstimateContext(price)
+      const currency = marketEstimateContext(price, window.Shopify?.currency || cfg.shopifyCurrency)
       window.CharmeConfig = { ...cfg, currency }
       setCaseQuote({ productId, caseId: caseColourId, gelId: gelColourId, amount: Number(price.amount) })
       setPriceLookupFailed(false)
@@ -1349,7 +1345,7 @@ export default function CustomizerPage({
     // surface the cart yet (no drawer / no redirect to /cart) — the customer
     // should see the popup first and only go to the cart if they decline it
     // ("No thanks" → goToCart). Otherwise add-to-cart behaves as before.
-    const willCrossSell = crossSell.enabled && crossSellOptions.length > 0
+    const willCrossSell = !onGoToCart && crossSell.enabled && crossSellOptions.length > 0
     analytics.track('purchase_clicked')
     analytics.flush()
     try {
@@ -1495,7 +1491,7 @@ export default function CustomizerPage({
     ? t('price.marketUnavailable', { currency: activeCurrency() })
     : !livePresentmentCasePrice
       ? t('price.marketLoading', { currency: activeCurrency() })
-      : activeCurrency() !== 'GBP' ? t('price.marketEstimate') : ''
+      : ''
   const priceBar = (
     <PriceBar
       product={product}
@@ -1553,9 +1549,6 @@ export default function CustomizerPage({
     </button>
   )
 
-  // Tote-only: replaces the generic "mock-up only" notice with the patch
-  // bundle discount tiers, shown above the patch selector (desktop) / in the
-  // stage overlay slot the mock-up notice used to occupy (mobile).
   const patchDiscountList = (
     <ul className="patch-discount-notice__list">
       <li>{t('discount.tier5')}</li>
@@ -1569,13 +1562,6 @@ export default function CustomizerPage({
       {patchDiscountList}
     </div>
   )
-  const patchDiscountNoticeOverlay = (
-    <div className="patch-discount-notice patch-discount-notice--overlay" role="note">
-      <InfoCircleOutlined className="patch-discount-notice__icon" />
-      {patchDiscountList}
-    </div>
-  )
-
   // Front/Back toggle — shown only when the active product is a tote.
   const toteSideToggle = product.kind === 'tote' ? (
     <div className="tote-side-toggle" role="group" aria-label="Tote side">
@@ -1632,7 +1618,7 @@ export default function CustomizerPage({
       zoom={zoom}
       onZoomChange={setZoom}
       fitPadding={isMobile ? 34 : undefined}
-      stageOverlay={isMobile ? (product.kind === 'tote' ? patchDiscountNoticeOverlay : mockupNotice) : null}
+      stageOverlay={isMobile && product.kind !== 'tote' ? mockupNotice : null}
     />
   )
 
@@ -1795,21 +1781,20 @@ export default function CustomizerPage({
           </div>
           <div className="mobile-tray" style={{ flexBasis: `${trayPct}%` }}>
             <div className="mobile-tray-body">
+              {product.kind === 'tote' && patchDiscountNotice}
               {mobileTray}
             </div>
-          </div>
-
-          <div className="mobile-order-footer">
-          {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
-          {!validation.ok && (
-            <div className="mobile-order-requirements" id="mobile-order-requirements" role="status">
-              {[
+            <div className="mobile-order-requirements" id="mobile-order-requirements" role="status" hidden={validation.ok}>
+              {!validation.ok && [
                 validation.tooFew && t('price.addAtLeast', { n: product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS, noun: t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase() }),
                 validation.tooMany && t('price.useAtMost', { n: MAX_CHARMS }),
                 validation.problems > 0 && tn('price.needAttention', validation.problems),
               ].filter(Boolean).join(' · ')}
             </div>
-          )}
+          </div>
+
+          <div className="mobile-order-footer">
+          {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
           <button
             type="button"
             className="mobile-order-bar"

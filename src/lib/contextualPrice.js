@@ -1,8 +1,12 @@
-export function marketEstimateContext(price) {
+export function marketEstimateContext(price, storefrontCurrency) {
   const amount = Number(price?.amount)
   const baseAmount = Number(price?.baseAmount)
   if (!Number.isFinite(amount) || amount <= 0 || !/^[A-Z]{3}$/.test(price?.currency)) return null
   if (price.currency === 'GBP') return { base: 'GBP', active: 'GBP', rate: 1 }
+  const storefrontRate = Number(storefrontCurrency?.rate)
+  if (storefrontCurrency?.active === price.currency && Number.isFinite(storefrontRate) && storefrontRate > 0) {
+    return { base: 'GBP', active: price.currency, rate: storefrontRate }
+  }
   if (price.baseCurrency !== 'GBP' || !Number.isFinite(baseAmount) || baseAmount <= 0) return null
   return { base: 'GBP', active: price.currency, rate: amount / baseAmount }
 }

@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Modal, Button, Spin, Divider, App } from 'antd'
-import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Modal, Button, Spin, Progress, Divider, App } from 'antd'
+import { DownloadOutlined, ShoppingOutlined, ReloadOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
 import { categoryLabel } from '../lib/catalog'
 import { charmChargeLines } from '../lib/charmPricing'
@@ -65,6 +65,17 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   const [previewUrl, setPreviewUrl] = useState(null)
   const [totePreviews, setTotePreviews] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [submitError, setSubmitError] = useState('')
+  const submitLock = useRef(false)
+  const retryPayload = useRef(null)
+
+  useEffect(() => {
+    if (open) {
+      retryPayload.current = null
+      setSubmitError('')
+    }
+  }, [open])
 
   // Charms whose final look is only indicative → red dashed outline + disclaimer.
   // Fillers (type 3) are arranged by hand; unique charms vary by nature.
@@ -137,6 +148,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   }, [product.kind, pricedRows])
 
   const placeOrder = async () => {
+    if (submitLock.current) return
     const payload = {
       product: {
         id: product.id,
@@ -185,12 +197,21 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     // build wires this into a cart line-item; the standalone build just logs it.
     if (onPlaceOrder) {
       try {
+        submitLock.current = true
         setSubmitting(true)
-        await onPlaceOrder(payload)
+        setSubmitError('')
+        setUploadProgress(0)
+        if (!retryPayload.current) {
+          const identifier = window.crypto?.randomUUID?.().replace(/-/g, '') || Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
+          retryPayload.current = { ...payload, designToken: 'cd_' + identifier }
+        }
+        await onPlaceOrder({ ...retryPayload.current, onUploadProgress: setUploadProgress })
+        retryPayload.current = null
         onClose()
       } catch (err) {
-        message.error(err?.message || 'Could not add to bag, please try again.')
+        setSubmitError(err?.message || 'Could not add to bag. Your design is still here. Please retry.')
       } finally {
+        submitLock.current = false
         setSubmitting(false)
       }
       return
@@ -216,14 +237,17 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       footer={null}
       title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
     >
-      {submitting && (
+      {(submitting || submitError) && (
         <div className="checkout-loading" role="status" aria-live="assertive" aria-label="Preparing checkout">
-          <Spin size="large" />
-          <strong>Preparing your checkout…</strong>
-          <span>Please keep this page open.</span>
+          {submitting && <Spin size="large" />}
+          <strong>{submitError ? 'Your design has not been added yet' : uploadProgress === 100 ? 'Opening your cart...' : 'Uploading your design...'}</strong>
+          <Progress percent={uploadProgress} status={submitError ? 'exception' : 'active'} style={{ width: 'min(280px, 80%)' }} />
+          <span style={{ maxWidth: 320, textAlign: 'center' }}>{submitError || 'Please keep this page open.'}</span>
+          {submitError && <Button type="primary" aria-label="Retry" icon={<ReloadOutlined />} onClick={placeOrder}>Retry</Button>}
+          {submitError && <Button onClick={() => { retryPayload.current = null; setSubmitError('') }}>Back to design</Button>}
         </div>
       )}
-      {loading || (!previewUrl && !totePreviews) ? (
+      {submitting || submitError ? null : loading || (!previewUrl && !totePreviews) ? (
         <div style={{ height: 360, display: 'grid', placeItems: 'center', gap: 14 }}>
           <Spin size="large" />
           <span className="hint">Rendering your design…</span>

@@ -24,7 +24,7 @@
     {%- endif -%}
   {%- endif -%}
 {%- endfor -%}
-{%- assign charme_proof = item.properties['Proof'] | default: item.properties['_proof'] -%}
+{%- assign charme_proof = item.properties['_proof_front'] | default: item.properties['Proof'] | default: item.properties['_proof'] -%}
 {%- assign charme_layout = item.properties['_layout'] -%}
 {%- assign charme_cart_url = routes.cart_url | prepend: shop.url -%}
 {%- assign charme_kind = item.properties['Type'] | default: 'phone' -%}

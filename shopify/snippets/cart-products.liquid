@@ -422,6 +422,7 @@
         if (!anchor.classList.contains('cart-items__second-product-anchor')) return;
 
         function relocateSecondProduct() {
+          if (!block.isConnected) return true;
           var summaryColumn = document.querySelector('main .cart-page__summary');
           var summaryContainer = summaryColumn ? summaryColumn.querySelector('.cart__summary-container') : null;
           var summaryInner = summaryContainer ? summaryContainer.querySelector('.cart__summary-inner') : null;
@@ -441,6 +442,7 @@
             return;
           }
 
+          if (!anchor.isConnected || !anchor.parentNode) return true;
           if (block.parentNode !== anchor.parentNode || block.previousElementSibling !== anchor) {
             anchor.parentNode.insertBefore(block, anchor.nextSibling);
           }
