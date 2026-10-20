@@ -38,10 +38,23 @@ catalogue items, with search and independent checkboxes. Hidden catalogue items
 still count as linked. Nothing is selected automatically. Confirm saves only the
 checked items directly to Shopify catalogue metaobjects; no second Publish click
 is needed. Unchecked existing items are neither changed nor deleted. Checked
-existing items refresh their linked Shopify price only, preserving edited names,
-images, dimensions and visibility.
+existing items refresh their linked Shopify price only by default, preserving
+edited names, images, dimensions and visibility. Enable **Also remove backgrounds
+from selected existing catalogue images** to repair previously imported photos;
+this replaces the current catalogue artwork with its transparent cut-out, rather
+than fetching a replacement product photo. Names, dimensions and visibility
+remain unchanged.
 
-New items use Shopify names, images and store-currency prices; they start at
+After confirmation, the modal shows **Auto-remove backgrounds** and **Save to
+Shopify** progress. New images are automatically processed locally in the browser
+using the existing standalone extractor, then uploaded to Shopify Files as
+transparent PNGs. Already-transparent images are preserved. Keep the window open
+until syncing finishes. Use a single decoration on a clean, plain background;
+ambiguous/multiple subjects and unreadable images fail explicitly without saving
+the original background. Fix failed artwork using a transparent PNG or the manual
+auto-extract tool, then retry; successful items are kept.
+
+New items use Shopify names and store-currency prices; they start at
 Midi / 16 × 16 mm and must have their physical size, category and artwork checked
 after import. Variants without images cannot be imported; sold-out variants can.
 Items with missing/deleted variant associations remain visible but cannot be
@@ -49,6 +62,28 @@ price-synced. Confirmation rechecks current links, uses stable import IDs and
 reports per-item failures so retrying does not duplicate successful imports.
 Shopify credentials must be configured; this workflow does not write to the
 legacy D1 backend.
+
+### Charm size studio
+Selecting a charm prepares a tightly cropped transparent cut-out for the live
+size preview, removing plain backgrounds and transparent padding. The size slider
+is enabled after preparation; it scales the visible artwork rather than the
+original photo's blank canvas. Size edits automatically save the same prepared
+PNG and absolute millimetre dimensions to Shopify. Preparation failures are shown
+in the studio and block size saves until the artwork is replaced. Edits made
+while an earlier save is in flight are saved after that request completes.
+Save failures stay visible with a **Retry save** action; artwork still being
+processed by Shopify is not persisted as an empty image reference.
+
+### Linking Shopify billing variants
+The variant picker searches Shopify directly by product name, product handle or
+numeric variant ID, rather than relying only on the initial catalogue download.
+Search is debounced and paginated; spelling separators such as spaces and hyphens
+are ignored in local matches. Search errors appear inside the dropdown with a
+retry action instead of being shown as an empty catalogue. Sold-out variants can
+still be linked (their availability is shown in the option); this does not change
+Shopify inventory or make them purchasable. A selection retains its current
+Shopify price when adding a charm or product, including results absent from the
+initial download.
 
 ## How it works
 

@@ -40,7 +40,7 @@ export function importedDecoration(kind, variant) {
   }
 }
 
-export async function applyDecorationSync({ kind, variants, records, variantIds, existingIds, save, storeImage }) {
+export async function applyDecorationSync({ kind, variants, records, variantIds, existingIds, reprocessExisting = false, save, storeImage }) {
   const byVariant = new Map(variants.map((variant) => [String(variant.id), variant]))
   const byRecord = new Map(records.map((record) => [record.id, record]))
   const linked = new Set(records.map((record) => String(record.shopifyVariantId || '')))
@@ -56,7 +56,7 @@ export async function applyDecorationSync({ kind, variants, records, variantIds,
       if (!variant) throw new Error('Shopify variant no longer exists; scan again')
       const record = importedDecoration(kind, variant)
       if (byRecord.has(record.id)) throw new Error('Import ID already belongs to another record; review its variant link')
-      const image = await storeImage(record)
+      const image = await storeImage(record, key)
       const saved = { ...record, src: image.url, ...(kind === 'patch' ? { imageFileId: image.id } : {}) }
       await save(saved, kind === 'charm' ? { image: image.id } : {})
       linked.add(variantId)
@@ -73,7 +73,15 @@ export async function applyDecorationSync({ kind, variants, records, variantIds,
       const variant = byVariant.get(String(record.shopifyVariantId || ''))
       if (!variant) throw new Error('The linked Shopify variant is missing')
       if (!Number.isFinite(variant.price) || variant.price < 0) throw new Error('Invalid Shopify price')
-      await save({ ...record, price: variant.price }, {})
+      const updated = { ...record, price: variant.price }
+      let images = {}
+      if (reprocessExisting) {
+        const image = await storeImage(record, key)
+        updated.src = image.url
+        if (kind === 'patch') updated.imageFileId = image.id
+        else images = { image: image.id }
+      }
+      await save(updated, images)
       result.updated.push(key)
     } catch (error) {
       result.failed.push({ key, error: error.message })

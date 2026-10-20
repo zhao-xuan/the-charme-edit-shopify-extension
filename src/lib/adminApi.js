@@ -154,6 +154,20 @@ export async function fetchShopifyVariants() {
   return { variants }
 }
 
+export async function searchShopifyVariants(query) {
+  const variants = []
+  let after = null
+  do {
+    const params = new URLSearchParams({ q: query, ...(after ? { after } : {}) })
+    const page = await handle(await fetch(url(`/api/admin/shopify-variants?${params}`), {
+      headers: await authHeaders(), cache: 'no-store',
+    }))
+    variants.push(...page.variants)
+    after = page.after
+  } while (after)
+  return { variants }
+}
+
 export const syncDecorations = async (body) =>
   handle(await fetch(url('/api/admin/sync-decorations'), {
     method: 'POST',

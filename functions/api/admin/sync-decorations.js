@@ -1,5 +1,5 @@
-import { bad, json, requireAdmin, shopifyAdmin } from '../_lib.js'
-import { TYPES, shopifyConfigured, listRecords, saveRecord } from '../_shopify-store.js'
+import { bad, json, requireAdmin } from '../_lib.js'
+import { TYPES, shopifyConfigured, listRecords, saveRecord, storeImageToFiles } from '../_shopify-store.js'
 import { shopifyVariantBatch, shopifyVariantsByIds } from './shopify-variants.js'
 import { applyDecorationSync } from '../../../src/lib/decorationSync.js'
 
@@ -11,29 +11,13 @@ const cors = {
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
-async function importImage(env, record) {
-  // Typed charm metaobjects require a MediaImage file reference, not just a URL.
-  const data = await shopifyAdmin(env, `
-    mutation($files: [FileCreateInput!]!) {
-      fileCreate(files: $files) {
-        files { id ... on MediaImage { image { url } } }
-        userErrors { message }
-      }
-    }`, { files: [{ contentType: 'IMAGE', originalSource: record.src, alt: record.name }] })
-  const errors = data.fileCreate.userErrors
-  if (errors.length) throw new Error(errors.map((error) => error.message).join('; '))
-  const file = data.fileCreate.files[0]
-  if (!file?.id) throw new Error('Shopify did not create the image file')
-  if (file.image?.url) return { id: file.id, url: file.image.url }
-  for (let attempt = 0; attempt < 6; attempt++) {
-    await new Promise((resolve) => setTimeout(resolve, 700))
-    const result = await shopifyAdmin(env, `
-      query($id: ID!) { node(id: $id) { ... on MediaImage { fileStatus image { url } } } }
-    `, { id: file.id })
-    if (result.node?.fileStatus === 'FAILED') throw new Error('Shopify image processing failed')
-    if (result.node?.image?.url) return { id: file.id, url: result.node.image.url }
+async function importImage(env, record, src) {
+  if (typeof src !== 'string' || src.length > 12 * 1024 * 1024 || !/^data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/]*={0,2}$/.test(src)) {
+    throw new Error('A background-removed PNG is required; run background removal and retry')
   }
-  throw new Error('Shopify image is still processing; retry this item shortly')
+  const image = await storeImageToFiles(env, src, { filename: `${record.id}.png`, alt: record.name })
+  if (!image.id || !image.url) throw new Error('Shopify image is still processing; retry this item shortly')
+  return image
 }
 
 export async function onRequestPost({ request, env }) {
@@ -44,6 +28,8 @@ export async function onRequestPost({ request, env }) {
   if (!['preview', 'apply'].includes(body.action)) return bad('action must be preview or apply')
   if (body.keyword != null && typeof body.keyword !== 'string') return bad('keyword must be text')
   if (body.after != null && (typeof body.after !== 'string' || !body.after || body.after.length > 4096)) return bad('Invalid scan cursor')
+  if (body.reprocessExisting != null && typeof body.reprocessExisting !== 'boolean') return bad('reprocessExisting must be boolean')
+  if (body.images != null && (typeof body.images !== 'object' || Array.isArray(body.images))) return bad('images must be an object')
   if (body.action === 'apply' && (
     !Array.isArray(body.variantIds) || !Array.isArray(body.existingIds) ||
     body.variantIds.some((id) => typeof id !== 'string' || !/^\d+$/.test(id)) ||
@@ -77,8 +63,9 @@ export async function onRequestPost({ request, env }) {
       records,
       variantIds: body.variantIds,
       existingIds: body.existingIds,
+      reprocessExisting: body.reprocessExisting === true,
       save: (record, images) => saveRecord(env, type, record.id, record, images),
-      storeImage: (record) => importImage(env, record),
+      storeImage: (record, key) => importImage(env, record, body.images?.[key]),
     })
     if (result.failed.length) console.warn('decoration_sync_partial_failure', body.kind, result.failed)
     return json({ ok: !result.failed.length, ...result }, { headers: cors })

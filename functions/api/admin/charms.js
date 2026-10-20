@@ -90,6 +90,7 @@ export async function onRequestPost({ request, env }) {
         filename: `${id}.png`,
         alt: c.name || 'Charm',
       })
+      if (!url || !imageId) return bad(`charm "${c.name}" image is still processing; retry shortly`, 502)
       const rec = charmRecord({ ...c, price }, id, url, imageId)
       await saveRecord(env, TYPES.charm, id, rec, { image: imageId })
       created.push(rec)
@@ -157,6 +158,7 @@ export async function onRequestPatch({ request, env }) {
     const imageGids = {}
     if (src && /^data:/.test(src)) {
       const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
+      if (!url || !imageId) return bad('Charm image is still processing; retry shortly', 502)
       rec.src = url
       imageGids.image = imageId
     }

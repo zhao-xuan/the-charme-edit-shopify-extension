@@ -10,8 +10,8 @@ const cors = {
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
 const Q = `
-  query($after: String) {
-    productVariants(first: 100, after: $after) {
+  query($after: String, $query: String) {
+    productVariants(first: 100, after: $after, query: $query) {
       edges { node {
         id title price availableForSale image { url }
         product {
@@ -69,8 +69,8 @@ export async function shopifyVariantsByIds(env, variantIds) {
   return variants
 }
 
-export async function shopifyVariantPage(env, after = null) {
-  const data = await queryVariants(env, Q, { after })
+export async function shopifyVariantPage(env, after = null, query = null) {
+  const data = await queryVariants(env, Q, { after, query })
   const connection = data.productVariants
   if (!connection) throw new Error('Shopify did not return the variant catalogue')
   return {
@@ -103,10 +103,30 @@ export async function listShopifyVariants(env) {
 
 export async function onRequestGet({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
-  if (!shopifyConfigured(env)) return json({ variants: [] }, { headers: cors })
+  if (!shopifyConfigured(env)) return bad('Configure Shopify before linking billing variants', 409)
 
   try {
     const params = new URL(request.url).searchParams
+    if (params.has('q')) {
+      const search = params.get('q').trim()
+      if (!search || search.length > 200) return bad('Search must contain 1–200 characters')
+      if (/^\d+$/.test(search)) {
+        return json({ variants: await shopifyVariantsByIds(env, [search]), after: null }, { headers: cors })
+      }
+      const terms = search.match(/[\p{L}\p{N}]+/gu) || []
+      if (!terms.length) return bad('Enter a product name or variant ID')
+      const productQuery = `(${terms.map((term) => `title:${term}*`).join(' AND ')}) OR handle:${terms.join('-')}*`
+      const products = await queryVariants(env, `
+        query($query: String!) {
+          products(first: 50, query: $query) { nodes { id } pageInfo { hasNextPage } }
+        }`, { query: productQuery })
+      if (!products.products?.nodes) throw new Error('Shopify did not return matching products')
+      if (products.products.pageInfo.hasNextPage) return bad('Too many matching products; enter a more specific name')
+      const ids = products.products.nodes.map((product) => product.id.split('/').pop())
+      if (!ids.length) return json({ variants: [], after: null }, { headers: cors })
+      const query = ids.map((id) => `product_id:${id}`).join(' OR ')
+      return json(await shopifyVariantPage(env, params.get('after') || null, query), { headers: cors })
+    }
     if (params.get('paged') === '1') {
       return json(await shopifyVariantBatch(env, params.get('after') || null), { headers: cors })
     }

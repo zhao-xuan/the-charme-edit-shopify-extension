@@ -91,6 +91,34 @@ test('unchecked existing records stay untouched and patches store their hosted i
   assert.deepEqual(options.saved[0].images, {})
 })
 
+for (const kind of ['charm', 'patch']) {
+  test(`${kind}: optional existing-image reprocessing replaces artwork but preserves merchant metadata`, async () => {
+    const options = syncOptions({ kind, existingIds: ['custom-heart'], reprocessExisting: true })
+    const result = await applyDecorationSync(options)
+    assert.deepEqual(result.updated, ['existing:custom-heart'])
+    assert.equal(options.uploads, 1)
+    const saved = options.saved[0]
+    assert.equal(saved.record.src, 'https://cdn.shopify.com/imported.png')
+    for (const key of ['name', 'widthMm', 'hidden', 'shopifyVariantId']) {
+      assert.equal(saved.record[key], records[0][key])
+    }
+    if (kind === 'charm') assert.equal(saved.images.image, 'gid://shopify/MediaImage/55')
+    else assert.equal(saved.record.imageFileId, 'gid://shopify/MediaImage/55')
+  })
+}
+
+test('failed background-removed image uploads never save original artwork or partial price updates', async () => {
+  const options = syncOptions({
+    variantIds: ['2'], existingIds: ['custom-heart'], reprocessExisting: true,
+    storeImage: async (_record, key) => { throw new Error(`Image processing failed for ${key}`) },
+  })
+  const result = await applyDecorationSync(options)
+  assert.deepEqual(result.created, [])
+  assert.deepEqual(result.updated, [])
+  assert.deepEqual(result.failed.map((item) => item.key), ['variant:2', 'existing:custom-heart'])
+  assert.equal(options.saved.length, 0)
+})
+
 test('missing image, deleted variant, failed writes and missing existing record surface item failures', async () => {
   const options = syncOptions({
     variants: [...variants, variant('4', { imageUrl: '' })],
@@ -146,6 +174,8 @@ test('sync API rejects unauthenticated, unconfigured and invalid requests before
     { kind: 'charm', action: 'invalid' },
     { kind: 'charm', action: 'preview', keyword: [] },
     { kind: 'charm', action: 'preview', after: {} },
+    { kind: 'charm', action: 'apply', reprocessExisting: 'yes', variantIds: [], existingIds: [] },
+    { kind: 'charm', action: 'apply', images: [], variantIds: [], existingIds: [] },
     { kind: 'patch', action: 'apply', variantIds: ['bad'], existingIds: [] },
     { kind: 'patch', action: 'apply', variantIds: Array(51).fill('1'), existingIds: [] },
   ]) assert.equal((await onRequestPost({ request: request(body), env })).status, 400)
@@ -200,8 +230,15 @@ test('Shopify scan retries throttling with bounded backoff but does not hide oth
 
 test('API preview is read-only; confirmation persists a typed charm image and retry sees the saved link', async (t) => {
   const nodes = []
+  const png = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg=='
   let writes = 0
-  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    if (url === 'https://upload.example.test') {
+      const file = options.body.get('file')
+      assert.equal(file.type, 'image/png')
+      assert.equal(Buffer.from(await file.arrayBuffer()).toString('base64'), png.split(',')[1])
+      return new Response(null, { status: 200 })
+    }
     const { query, variables } = JSON.parse(options.body)
     let data
     if (query.includes('metaobjectDefinitionByType')) {
@@ -220,9 +257,13 @@ test('API preview is read-only; confirmation persists a typed charm image and re
       data = { metaobjectByHandle: nodes.find((node) => node.handle === variables.handle.handle) || null }
     } else if (query.includes('metaobjects(type:')) {
       data = { metaobjects: { edges: nodes.map((node) => ({ node })), pageInfo: { hasNextPage: false } } }
+    } else if (query.includes('stagedUploadsCreate(')) {
+      data = { stagedUploadsCreate: { stagedTargets: [{
+        url: 'https://upload.example.test', resourceUrl: 'https://staged.example.test/cutout.png', parameters: [],
+      }], userErrors: [] } }
     } else if (query.includes('fileCreate(')) {
       writes++
-      assert.equal(variables.files[0].originalSource, variants[1].imageUrl)
+      assert.equal(variables.files[0].originalSource, 'https://staged.example.test/cutout.png')
       data = { fileCreate: { files: [{ id: 'gid://shopify/MediaImage/55', image: { url: 'https://cdn.shopify.com/imported.png' } }], userErrors: [] } }
     } else if (query.includes('metaobjectCreate(')) {
       writes++
@@ -250,7 +291,13 @@ test('API preview is read-only; confirmation persists a typed charm image and re
   const before = decorationSyncPreview(beforePage.variants, beforePage.records)
   assert.equal(before.missing.length, 1)
   assert.equal(writes, 0)
-  const saved = await call({ action: 'apply', variantIds: ['2'], existingIds: [] })
+  for (const images of [undefined, { 'variant:2': variants[1].imageUrl }, { 'variant:2': 'data:image/jpeg;base64,abcd' }]) {
+    const failed = await call({ action: 'apply', variantIds: ['2'], existingIds: [], images })
+    assert.deepEqual(failed.created, [])
+    assert.match(failed.failed[0].error, /background-removed PNG is required/)
+    assert.equal(writes, 0)
+  }
+  const saved = await call({ action: 'apply', variantIds: ['2'], existingIds: [], images: { 'variant:2': png } })
   assert.deepEqual(saved.created, ['variant:2'])
   assert.equal(writes, 2)
   const retry = await call({ action: 'apply', variantIds: ['2'], existingIds: [] })

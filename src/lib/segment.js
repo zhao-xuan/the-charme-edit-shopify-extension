@@ -37,17 +37,21 @@ export function loadImageData(src, maxDim = 1100) {
     const img = new window.Image()
     img.crossOrigin = 'anonymous'
     img.onload = () => {
-      const ratio = Math.min(1, maxDim / Math.max(img.width, img.height))
-      const w = Math.max(1, Math.round(img.width * ratio))
-      const h = Math.max(1, Math.round(img.height * ratio))
-      const canvas = document.createElement('canvas')
-      canvas.width = w
-      canvas.height = h
-      const ctx = canvas.getContext('2d', { willReadFrequently: true })
-      ctx.drawImage(img, 0, 0, w, h)
-      resolve(ctx.getImageData(0, 0, w, h))
+      try {
+        const ratio = Math.min(1, maxDim / Math.max(img.width, img.height))
+        const w = Math.max(1, Math.round(img.width * ratio))
+        const h = Math.max(1, Math.round(img.height * ratio))
+        const canvas = document.createElement('canvas')
+        canvas.width = w
+        canvas.height = h
+        const ctx = canvas.getContext('2d', { willReadFrequently: true })
+        ctx.drawImage(img, 0, 0, w, h)
+        resolve(ctx.getImageData(0, 0, w, h))
+      } catch (error) {
+        reject(new Error(`Could not read image pixels: ${error.message}`))
+      }
     }
-    img.onerror = reject
+    img.onerror = () => reject(new Error('Could not load image; check the image URL and cross-origin access'))
     img.src = src
   })
 }
