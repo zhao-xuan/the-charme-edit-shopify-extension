@@ -10,12 +10,10 @@ import { orderByTaxonomy } from './catalogOrder'
 
 export { toteDiscountRate }
 
-// ---- Order limits & pricing ------------------------------------------------
-// A craftable order needs at least MIN_CHARMS pieces and no more than
-// MAX_CHARMS (beyond that, charms overcrowd the case and the layout maths gets
-// unreliable). REC_MIN..REC_MAX is the softer "looks balanced" guidance.
+// ---- Order minimums & pricing ----------------------------------------------
+// There is no maximum decoration count. REC_MIN..REC_MAX is only the softer
+// "looks balanced" guidance.
 export const MIN_CHARMS = 10
-export const MAX_CHARMS = 30
 export const REC_MIN = 12
 export const REC_MAX = 15
 // Totes are decorated with patches, not charms — a much lower minimum applies.

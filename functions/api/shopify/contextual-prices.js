@@ -23,7 +23,7 @@ const QUERY = `
 export async function onRequestPost({ request, env }) {
   const body = (await request.json().catch(() => ({}))) || {}
   const country = String(body.country || '').toUpperCase()
-  const variantIds = [...new Set((body.variantIds || []).map(String))]
+  const variantIds = Array.isArray(body.variantIds) ? [...new Set(body.variantIds.map(String))] : []
   if (!/^[A-Z]{2}$/.test(country)) return bad('country is required')
   if (!variantIds.length || variantIds.length > 250 || variantIds.some((id) => !/^\d{8,20}$/.test(id))) {
     return bad('variantIds must contain 1-250 Shopify variant IDs')
@@ -38,7 +38,7 @@ export async function onRequestPost({ request, env }) {
     for (const node of data.nodes || []) {
       const price = node?.contextualPricing?.price
       const amount = Number(price?.amount)
-      if (!node?.id || !(amount > 0) || !price?.currencyCode) continue
+      if (!node?.id || price?.amount == null || !Number.isFinite(amount) || amount < 0 || !price?.currencyCode) continue
       prices[node.id.split('/').pop()] = { amount, currency: price.currencyCode }
     }
     return json({ prices }, { headers: cors })

@@ -50,22 +50,23 @@ test('cart relocation safely skips removed blocks and missing anchor parents', (
   assert.equal(inserts, 1)
 })
 
-test('proof upload reports progress and rejects timeout, network errors and unconfirmed uploads', async () => {
+test('proof upload has no deadline, reports progress and rejects actual failures', async () => {
   const source = readFileSync(new URL('../../shopify/widget/shopifyCart.js', import.meta.url), 'utf8')
   const code = source.slice(source.indexOf('async function uploadProof('), source.indexOf('/** Resolve the Shopify variant'))
-  for (const outcome of ['success', 'timeout', 'network', 'invalid', 'http']) {
+  for (const outcome of ['success', 'network', 'abort', 'invalid', 'http']) {
     const progress = []
     const upload = vm.runInNewContext(`${code}\nuploadProof`, {
-      URL, setTimeout, clearTimeout, window: { location: { origin: 'https://charme-customizer.pages.dev' } },
+      URL, window: { location: { origin: 'https://charme-customizer.pages.dev' } },
+      setTimeout: () => assert.fail('Proof uploads must not schedule a deadline'),
       XMLHttpRequest: class {
         upload = {}
         open() {}
         setRequestHeader() {}
         send(body) {
-          assert.equal(this.timeout, 5000)
+          assert.equal(this.timeout, 0)
           assert.equal(JSON.parse(body).designToken, 'stable-token')
           this.upload.onprogress({ lengthComputable: true, loaded: 1, total: 2 })
-          if (outcome === 'timeout') return this.ontimeout()
+          if (outcome === 'abort') return this.onabort()
           if (outcome === 'network') return this.onerror()
           this.status = outcome === 'http' ? 503 : 200
           this.responseText = JSON.stringify(outcome === 'invalid' ? {} : { url: 'https://example.com/proof.jpg' })
@@ -82,6 +83,49 @@ test('proof upload reports progress and rejects timeout, network errors and unco
       assert.deepEqual(progress, [50])
     }
   }
+})
+
+test('all product kinds wait for proof uploads longer than five seconds before preparing cart items', async () => {
+  const source = readFileSync(new URL('../../shopify/widget/shopifyCart.js', import.meta.url), 'utf8')
+  const code = source.slice(source.indexOf('async function uploadProof('), source.indexOf('/**\n * Draft-order flow'))
+  await Promise.all(['phone', 'tote', 'frame'].map(async (kind) => {
+    const requests = []
+    let completed = false
+    const progress = []
+    const build = vm.runInNewContext(`${code}\nbuildCartItems`, {
+      URL, window: { location: { origin: 'https://charme-customizer.pages.dev' } },
+      setTimeout: () => assert.fail('Proof uploads must not schedule a deadline'),
+      charmChargeLines: () => [], settings: () => ({}),
+      XMLHttpRequest: class {
+        upload = {}
+        open() {}
+        setRequestHeader() {}
+        abort() { assert.fail('Slow uploads must not be aborted') }
+        send() {
+          assert.equal(this.timeout, 0)
+          requests.push(this)
+          this.upload.onprogress({ lengthComputable: true, loaded: 1, total: 2 })
+        }
+      },
+    })
+    const result = build({ uploadEndpoint: '/api/upload-proof' }, { products: { [kind]: '123' } }, {
+      designToken: 'slow-upload', product: { id: kind, kind }, charms: [],
+      proofs: { frontUrl: 'front', backUrl: kind === 'tote' ? 'back' : null },
+      onUploadProgress: (percent) => progress.push(percent),
+    }).then((cart) => { completed = true; return cart })
+    await new Promise((resolve) => setTimeout(resolve, 5100))
+    assert.equal(completed, false, 'Cart must wait for confirmed uploads')
+    assert.equal(requests.length, kind === 'tote' ? 2 : 1)
+    for (const [index, request] of requests.entries()) {
+      request.status = 200
+      request.responseText = JSON.stringify({ url: `https://example.com/proof-${index}.jpg` })
+      request.onload()
+    }
+    const { items } = await result
+    assert.equal(items[0].properties.Proof, 'https://example.com/proof-0.jpg')
+    if (kind === 'tote') assert.equal(items[0].properties['Proof back'], 'https://example.com/proof-1.jpg')
+    assert.equal(progress.at(-1), 100)
+  }))
 })
 
 test('bridge payload validation rejects malformed designs before cart requests', () => {

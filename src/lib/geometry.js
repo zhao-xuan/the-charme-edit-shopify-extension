@@ -316,11 +316,10 @@ export function charmShapeOverlap(a, b) {
 /**
  * Validate a whole layout.
  * Returns per-charm flags { inside, overlap }, geometry/count breakdown and an
- * overall `ok`. `opts.minCharms` / `opts.maxCharms` gate the order on the piece
- * count (too few to craft, or so many the layout overcrowds).
+ * overall `ok`. `opts.minCharms` gates the order on the minimum piece count.
  */
 export function validateLayout(charms, product, opts = {}) {
-  const { minCharms = 1, maxCharms = Infinity } = opts
+  const { minCharms = 1 } = opts
   const flags = {}
   for (const c of charms) flags[c.uid] = { inside: true, overlap: false }
 
@@ -339,14 +338,13 @@ export function validateLayout(charms, product, opts = {}) {
   const geometryOk = charms.every((c) => flags[c.uid].inside && !flags[c.uid].overlap)
   const count = charms.length
   const tooFew = count < minCharms
-  const tooMany = count > maxCharms
-  const ok = geometryOk && !tooFew && !tooMany
+  const ok = geometryOk && !tooFew
 
   const problems = charms.filter(
     (c) => !flags[c.uid].inside || flags[c.uid].overlap,
   ).length
 
-  return { flags, ok, problems, count, tooFew, tooMany, geometryOk }
+  return { flags, ok, problems, count, tooFew, geometryOk }
 }
 
 /**
@@ -529,17 +527,71 @@ export function alignToNearestTextCharm(box, siblings, snapMm = 2.5) {
   }
 }
 
+/**
+ * Clamp a charm centre along the path from a known-safe anchor, testing the
+ * charm's actual sampled shape instead of its transparent bounding-box corners.
+ */
+export function clampCenterByShape(box, printable, shapePoints, anchor) {
+  if (!shapePoints?.length) return clampCenterToBox(box, printable)
+  const { outer } = printable
+  const insideAt = (cx, cy) => {
+    const candidate = { ...box, cx, cy }
+    for (let i = 0; i < shapePoints.length; i += 2) {
+      const point = localToWorld(shapePoints[i], shapePoints[i + 1], candidate)
+      if (!roundedRectContains(
+        outer.xMm,
+        outer.yMm,
+        outer.wMm,
+        outer.hMm,
+        outer.rMm || 0,
+        point.x,
+        point.y,
+      )) return false
+    }
+    return true
+  }
+  if (insideAt(box.cx, box.cy)) return { cx: box.cx, cy: box.cy }
+
+  const start = anchor || {
+    cx: outer.xMm + outer.wMm / 2,
+    cy: outer.yMm + outer.hMm / 2,
+  }
+  if (!insideAt(start.cx, start.cy)) return clampCenterToBox(box, printable)
+
+  let low = 0
+  let high = 1
+  for (let i = 0; i < 24; i++) {
+    const mid = (low + high) / 2
+    const cx = start.cx + (box.cx - start.cx) * mid
+    const cy = start.cy + (box.cy - start.cy) * mid
+    if (insideAt(cx, cy)) low = mid
+    else high = mid
+  }
+  return {
+    cx: start.cx + (box.cx - start.cx) * low,
+    cy: start.cy + (box.cy - start.cy) * low,
+  }
+}
+
 /** Clamp a charm centre so its footprint stays inside the printable outer rect. */
-export function clampCenter(box, printable) {
+export function clampCenter(box, printable, charm, anchor) {
   // Frames let charms overhang the moulding, so we only keep the CENTRE inside
   // the outer rect (the ≥60% coverage rule, enforced in validation, governs how
-  // far they may hang off). Phones / totes keep the whole footprint inside.
+  // far they may hang off). Totes and phones without a ready mask use the box.
   if (printable.kind === 'frame') {
     const { outer } = printable
     const cx = Math.max(outer.xMm, Math.min(outer.xMm + outer.wMm, box.cx))
     const cy = Math.max(outer.yMm, Math.min(outer.yMm + outer.hMm, box.cy))
     return { cx, cy }
   }
+  if (printable.kind === 'phone' && charm?.src) {
+    const mask = getCharmMask(charm.src)
+    if (mask?.pts?.length) return clampCenterByShape(box, printable, mask.pts, anchor)
+  }
+  return clampCenterToBox(box, printable)
+}
+
+function clampCenterToBox(box, printable) {
   const { outer } = printable
   // half-extent of the rotated box on each axis
   const corners = obbCorners(box)

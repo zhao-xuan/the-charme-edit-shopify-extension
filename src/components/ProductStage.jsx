@@ -186,10 +186,11 @@ const ProductStage = forwardRef(function ProductStage(
         startY: e.clientY,
         startCx: charm.cxMm,
         startCy: charm.cyMm,
-        // footprint (mm) used to keep the whole charm inside the printable area
+        // Bounding footprint (mm) used until the charm's alpha mask is available.
         w: charm.baseWmm * (charm.scale || 1),
         h: charm.baseHmm * (charm.scale || 1),
         rot: charm.rot || 0,
+        charm,
         checkpointed: false,
       }
     },
@@ -213,10 +214,12 @@ const ProductStage = forwardRef(function ProductStage(
         onMoveGroup?.(d.groupId, dxMm, dyMm, d.starts)
         return
       }
-      // Hard-clamp the charm so its full footprint stays inside the printable
-      // outer region — patterns can never be dragged off the product edge.
+      // Clamp against the visible charm shape; use the box while its mask loads.
       const box = { cx: d.startCx + dxMm, cy: d.startCy + dyMm, w: d.w, h: d.h, rot: d.rot }
-      const { cx, cy } = clampCenter(box, product.printable)
+      const { cx, cy } = clampCenter(box, product.printable, d.charm, {
+        cx: d.startCx,
+        cy: d.startCy,
+      })
       onMove(d.uid, { cxMm: cx, cyMm: cy })
     },
     [scale, product, onMove, onMoveGroup, onCheckpoint],
@@ -597,9 +600,9 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         <circle className="charm-dial__track" cx={c} cy={c} r={R} />
         <circle
           className="charm-dial__hit"
-          cx={c}
-          cy={c}
-          r={R}
+          cx={tx}
+          cy={ty}
+          r={18}
           onPointerDown={start}
           onPointerMove={move}
           onPointerUp={end}
@@ -607,6 +610,11 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         />
         <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
         <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
+        <path
+          className="charm-dial__icon"
+          d="M-4 -3 A5 5 0 1 1 -3 4 M-4 -3 L-1 -3 M-4 -3 L-4 0"
+          transform={`translate(${tx} ${ty})`}
+        />
       </svg>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>
       <button

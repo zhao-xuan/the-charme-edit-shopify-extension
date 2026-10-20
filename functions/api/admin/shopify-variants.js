@@ -1,4 +1,4 @@
-// List Shopify charm variants for Admin decoration associations.
+// List Shopify variants for Admin decoration associations and imports.
 import { json, bad, requireAdmin, shopifyAdmin } from '../_lib.js'
 import { TYPES, listRecords, shopifyConfigured } from '../_shopify-store.js'
 
@@ -11,11 +11,13 @@ export const onRequestOptions = () => new Response(null, { headers: cors })
 
 const Q = `
   query($after: String) {
-    products(first: 250, after: $after) {
+    productVariants(first: 100, after: $after) {
       edges { node {
-        title handle
-        featuredMedia { preview { image { url } } }
-        variants(first: 250) { edges { node { id title price availableForSale image { url } } } }
+        id title price availableForSale image { url }
+        product {
+          title handle
+          featuredMedia { preview { image { url } } }
+        }
       } }
       pageInfo { hasNextPage endCursor }
     }
@@ -41,28 +43,78 @@ const asVariant = (variant, product) => ({
   available: !!variant.availableForSale,
 })
 
+async function queryVariants(env, query, variables) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await shopifyAdmin(env, query, variables)
+    } catch (error) {
+      if (attempt >= 4 || !/"code"\s*:\s*"THROTTLED"/.test(error.message)) throw error
+      await new Promise((resolve) => setTimeout(resolve, 1000 * 2 ** attempt))
+    }
+  }
+}
+
+export async function shopifyVariantsByIds(env, variantIds) {
+  const ids = [...new Set(variantIds)]
+  const variants = []
+  for (let index = 0; index < ids.length; index += 100) {
+    const data = await queryVariants(env, Q_LINKED, {
+      ids: ids.slice(index, index + 100).map((id) => `gid://shopify/ProductVariant/${id}`),
+    })
+    if (!Array.isArray(data.nodes)) throw new Error('Shopify did not return the requested variants')
+    for (const variant of data.nodes) {
+      if (variant?.id) variants.push(asVariant(variant, variant.product))
+    }
+  }
+  return variants
+}
+
+export async function shopifyVariantPage(env, after = null) {
+  const data = await queryVariants(env, Q, { after })
+  const connection = data.productVariants
+  if (!connection) throw new Error('Shopify did not return the variant catalogue')
+  return {
+    variants: connection.edges.map(({ node }) => asVariant(node, node.product)),
+    after: connection.pageInfo.hasNextPage ? connection.pageInfo.endCursor : null,
+  }
+}
+
+export async function shopifyVariantBatch(env, after = null) {
+  const variants = []
+  for (let page = 0; page < 5; page++) {
+    const result = await shopifyVariantPage(env, after)
+    variants.push(...result.variants)
+    after = result.after
+    if (!after) break
+  }
+  return { variants, after }
+}
+
+export async function listShopifyVariants(env) {
+  const variants = []
+  let after = null
+  do {
+    const page = await shopifyVariantPage(env, after)
+    variants.push(...page.variants)
+    after = page.after
+  } while (after)
+  return variants
+}
+
 export async function onRequestGet({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   if (!shopifyConfigured(env)) return json({ variants: [] }, { headers: cors })
 
   try {
-    const variants = []
-    let after = null
-    do {
-      const data = await shopifyAdmin(env, Q, { after })
-      const connection = data.products
-      for (const { node: product } of connection?.edges || []) {
-        for (const { node: variant } of product.variants?.edges || []) {
-          variants.push(asVariant(variant, product))
-        }
-      }
-      after = connection?.pageInfo?.hasNextPage ? connection.pageInfo.endCursor : null
-    } while (after)
+    const params = new URL(request.url).searchParams
+    if (params.get('paged') === '1') {
+      return json(await shopifyVariantBatch(env, params.get('after') || null), { headers: cors })
+    }
+    const variants = await listShopifyVariants(env)
 
     // Some valid charm products, such as "Letters / Initials", do not include
     // "Charm" in their title. Resolve every existing decoration association by
-    // ID so saved selections always retain their visual label without loading
-    // the store's entire variant catalogue.
+    // ID so saved selections retain their visual label even for unlisted products.
     const records = await Promise.all([
       listRecords(env, TYPES.charm),
       listRecords(env, TYPES.patch),

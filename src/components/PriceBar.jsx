@@ -1,13 +1,29 @@
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
-import { MIN_CHARMS, MAX_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES } from '../lib/catalog'
+import { MIN_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES } from '../lib/catalog'
 import { designPriceEstimate, formatPresentmentMoney } from '../lib/money'
 import { settings } from '../lib/settings'
 import { t, tn } from '../lib/i18n'
 
-export default function PriceBar({ product, placed, validation, onSubmit, compact, isSecondProduct, priceNotice }) {
+export default function PriceBar({
+  product,
+  placed,
+  validation,
+  onSubmit,
+  compact,
+  isSecondProduct,
+  priceNotice,
+  pricingGroups = settings().charmPricingGroups,
+  applyToteDiscount = true,
+  canSubmit = true,
+}) {
   const isTote = product.kind === 'tote'
-  const { rawCharmTotal, discountRate, discountAmount, casePrice, total } = designPriceEstimate(product, placed, settings().charmPricingGroups)
+  const { rawCharmTotal, discountRate, discountAmount, casePrice, total } = designPriceEstimate(
+    product,
+    placed,
+    pricingGroups,
+    { applyToteDiscount },
+  )
   const formatCasePrice = formatPresentmentMoney
   const formatTotal = formatPresentmentMoney
   const n = placed.length
@@ -21,7 +37,6 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
   // short of charms and have overlapping charms that still need fixing.
   const warnings = []
   if (validation.tooFew) warnings.push(t('price.addAtLeast', { n: minRequired, noun: pieceNoun }))
-  if (validation.tooMany) warnings.push(t('price.useAtMost', { n: MAX_CHARMS }))
   if (problems > 0) warnings.push(tn('price.needAttention', problems))
 
   return (
@@ -81,7 +96,7 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
 
       {compact && !ok && <div className="pricebar__warnings" role="status">{warnings.join(' · ')}</div>}
       {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
-      <Button block type="primary" size="large" disabled={!ok} onClick={onSubmit}>
+      <Button block type="primary" size="large" disabled={!ok || !canSubmit} onClick={onSubmit}>
         {isSecondProduct
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
           : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
@@ -89,4 +104,3 @@ export default function PriceBar({ product, placed, validation, onSubmit, compac
     </div>
   )
 }
-

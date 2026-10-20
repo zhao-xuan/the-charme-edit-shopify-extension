@@ -71,7 +71,7 @@ async function handle(res) {
 
 /** Fresh catalog snapshot from D1 (products, charms, overrides). */
 export async function fetchCatalog() {
-  const res = await fetch(url('/api/catalog'), { headers: { accept: 'application/json' }, cache: 'no-store' })
+  const res = await fetch(url('/api/catalog?fresh=1'), { headers: { accept: 'application/json' }, cache: 'no-store' })
   return handle(res)
 }
 
@@ -140,8 +140,26 @@ export const fetchShopifyProducts = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
 
 /** List Shopify variants that can be used as native-cart billing lines. */
-export const fetchShopifyVariants = async () =>
-  handle(await fetch(url('/api/admin/shopify-variants'), { headers: await authHeaders() }))
+export async function fetchShopifyVariants() {
+  const variants = []
+  let after = null
+  do {
+    const page = await handle(await fetch(url(`/api/admin/shopify-variants?paged=1${after ? `&after=${encodeURIComponent(after)}` : ''}`), {
+      headers: await authHeaders(),
+      cache: 'no-store',
+    }))
+    variants.push(...page.variants)
+    after = page.after
+  } while (after)
+  return { variants }
+}
+
+export const syncDecorations = async (body) =>
+  handle(await fetch(url('/api/admin/sync-decorations'), {
+    method: 'POST',
+    headers: await authHeaders(),
+    body: JSON.stringify(body),
+  }))
 
 /** List the store's Shopify collections (for the bundle "whole collection" picker). */
 export const fetchShopifyCollections = async (q) =>

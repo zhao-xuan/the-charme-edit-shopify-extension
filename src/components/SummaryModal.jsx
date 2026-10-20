@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Modal, Button, Spin, Progress, Divider, App } from 'antd'
-import { DownloadOutlined, ShoppingOutlined, ReloadOutlined } from '@ant-design/icons'
+import { Modal, Button, Input, Spin, Progress, Divider, App } from 'antd'
+import { CopyOutlined, DownloadOutlined, ShoppingOutlined, ReloadOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
 import { categoryLabel } from '../lib/catalog'
 import { charmChargeLines } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
-import { convert, designPriceEstimate, formatPresentmentMoney } from '../lib/money'
+import { chargeLinePresentmentTotal, designPriceEstimate, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { downloadPng } from '../lib/downloadImage'
+import { createDesignLink } from '../lib/designLink'
 
 const TOTE_TYPE_LABEL = { 1: 'Patches', 2: 'Patches', 3: 'Patches' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
@@ -18,14 +19,14 @@ const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and
  * the selected piece count and number of charged blocks; legacy bundles still
  * fold into one row charged once.
  */
-function summaryRows(items) {
-  return charmChargeLines(items, settings().charmPricingGroups).map((line, index) => {
+function summaryRows(items, pricingGroups) {
+  return charmChargeLines(items, pricingGroups).map((line, index) => {
     const first = line.items[0]
     if (line.kind === 'group') {
       return {
         key: `group-${line.rule.id}`,
         name: line.rule.label,
-        price: convert(line.unitPrice) * line.quantity,
+        price: chargeLinePresentmentTotal(line),
         count: line.items.length,
         blocks: line.quantity,
         category: first.category || 'gold',
@@ -35,7 +36,7 @@ function summaryRows(items) {
     return {
       key: first.uid || `${line.key}-${index}`,
       name: first.name,
-      price: convert(line.unitPrice) * line.quantity,
+      price: chargeLinePresentmentTotal(line),
       count: line.kind === 'legacy-bundle' ? line.items.length : 1,
       blocks: null,
       category: first.category || 'gold',
@@ -58,7 +59,19 @@ function useMedia(query) {
   return match
 }
 
-export default function SummaryModal({ open, product, color, placed, onClose, onPlaceOrder }) {
+export default function SummaryModal({
+  open,
+  product,
+  color,
+  placed,
+  onClose,
+  onPlaceOrder,
+  pricingGroups = settings().charmPricingGroups,
+  applyToteDiscount = true,
+  canSubmit = true,
+  priceNotice = '',
+  wordGroups = [],
+}) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
   const [loading, setLoading] = useState(false)
@@ -69,6 +82,37 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   const [submitError, setSubmitError] = useState('')
   const submitLock = useRef(false)
   const retryPayload = useRef(null)
+  const designLinkInput = useRef(null)
+  const designLink = useMemo(() => {
+    if (!open) return { url: '', error: '' }
+    try {
+      return {
+        url: createDesignLink({
+          product,
+          color,
+          placed,
+          wordGroups,
+          sourceUrl: window.location.href,
+          config: window.CharmeConfig,
+        }),
+        error: '',
+      }
+    } catch (error) {
+      console.error('charme_design_link_failed', error)
+      return { url: '', error: t('summary.linkError') }
+    }
+  }, [open, product, color, placed, wordGroups])
+
+  const copyDesignLink = async () => {
+    try {
+      await navigator.clipboard.writeText(designLink.url)
+      message.success(t('summary.linkCopied'))
+    } catch {
+      designLinkInput.current?.focus()
+      designLinkInput.current?.select()
+      message.warning(t('summary.linkCopyError'))
+    }
+  }
 
   useEffect(() => {
     if (open) {
@@ -113,14 +157,19 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     }
   }, [open, product, color, placed, variableUids])
 
-  const { discountRate, discountAmount, casePrice, total } = designPriceEstimate(product, placed, settings().charmPricingGroups)
+  const { discountRate, discountAmount, casePrice, total } = designPriceEstimate(
+    product,
+    placed,
+    pricingGroups,
+    { applyToteDiscount },
+  )
   const formatCasePrice = formatPresentmentMoney
   const formatTotal = formatPresentmentMoney
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
   // Price globally before arranging rows into visual sections. This preserves
   // one shared allowance even if matching styles have different browse labels.
-  const pricedRows = summaryRows(placed)
+  const pricedRows = summaryRows(placed, pricingGroups)
 
   // Group priced rows by browsing category (phone) or interaction type (tote).
   const grouped = useMemo(() => {
@@ -293,6 +342,26 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 {t('summary.download')}
               </Button>
             )}
+            <div className="summary-design-link">
+              <label htmlFor="summary-design-link" className="eyebrow">{t('summary.designLink')}</label>
+              <p className="summary-design-link__notice">{t('summary.saveLink')}</p>
+              {designLink.error ? (
+                <p role="alert">{designLink.error}</p>
+              ) : (
+                <>
+                  <Input
+                    id="summary-design-link"
+                    ref={designLinkInput}
+                    readOnly
+                    value={designLink.url}
+                    onFocus={(event) => event.target.select()}
+                  />
+                  <Button icon={<CopyOutlined />} onClick={copyDesignLink} block>
+                    {t('summary.copyLink')}
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
           <div className="summary-order">
             <p className="eyebrow" style={{ marginTop: 4 }}>{t('price.orderSummary')}</p>
@@ -331,11 +400,13 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
               <span>{t('price.total')}</span>
               <span style={{ fontSize: 26, fontWeight: 600 }}>{formatTotal(total)}</span>
             </div>
+            {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
             <Button
               type="primary"
               size="large"
               block
               loading={submitting}
+              disabled={!canSubmit}
               icon={<ShoppingOutlined />}
               style={{ marginTop: 12 }}
               onClick={placeOrder}

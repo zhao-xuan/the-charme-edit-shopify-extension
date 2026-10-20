@@ -69,7 +69,10 @@ function decodeEditorLayout(encoded) {
         rot: charm.rotDeg,
         scale: charm.scale,
         toteSide: charm.toteSide,
+        groupId: charm.groupId,
+        groupLabel: charm.groupLabel,
       })),
+      wordGroups: Array.isArray(saved.wordGroups) ? saved.wordGroups : [],
     }
   } catch {
     return null

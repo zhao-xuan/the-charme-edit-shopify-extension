@@ -9,6 +9,7 @@
  * bundled data, so the storefront always renders.
  */
 let cache = null
+let failed = false
 const EMPTY_REMOTE = {
   products: [],
   charms: [],
@@ -22,6 +23,7 @@ const EMPTY_REMOTE = {
 // as a fallback; empty when the widget is already served from Pages). The API
 // replies with `access-control-allow-origin: *` so the cross-origin fetch works.
 import { API_BASE, PROD_API_BASE } from './apiBase'
+import { fetchPriceJson } from './contextualPrice.js'
 
 function catalogUrls() {
   const primary = `${API_BASE}/api/catalog`
@@ -48,25 +50,31 @@ export async function loadRemoteCatalog() {
     if (delay) await wait(delay)
     for (const url of catalogUrls()) {
       try {
-        const res = await fetch(url, {
-          headers: { accept: 'application/json' },
-          cache: 'no-store',
-        })
-        if (!res.ok) continue
-        cache = await res.json()
+        const data = await fetchPriceJson(url, { attempts: 1 })
+        if (!Array.isArray(data?.products) || !Array.isArray(data?.charms) || !Array.isArray(data?.patches)) {
+          throw new Error('catalog_invalid')
+        }
+        cache = data
+        failed = false
         if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
         return cache
-      } catch {
-        /* Retry the authoritative catalogue before considering local fallback. */
+      } catch (error) {
+        console.warn('charme_catalog_load_failed', { url, reason: error.message })
       }
     }
   }
   if (authoritativeRuntime()) {
+    failed = true
     cache = EMPTY_REMOTE
     if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
     return cache
   }
+
   return null
+}
+
+export function remoteCatalogFailed() {
+  return failed
 }
 
 /** The remote catalogue snapshot, or null if not loaded. */

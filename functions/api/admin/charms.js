@@ -160,7 +160,11 @@ export async function onRequestPatch({ request, env }) {
       rec.src = url
       imageGids.image = imageId
     }
-    await saveRecord(env, TYPES.charm, id, rec, imageGids)
+    try {
+      await saveRecord(env, TYPES.charm, id, rec, imageGids, { gid: rec._gid })
+    } catch (error) {
+      return bad(`could not update charm (it may have been deleted): ${error.message}`, 409)
+    }
     return json({ ok: true }, { headers: cors })
   }
 
@@ -185,7 +189,7 @@ export async function onRequestDelete({ request, env }) {
   if (!id) return bad('id required')
 
   if (shopifyConfigured(env)) {
-    await deleteRecord(env, TYPES.charm, id)
+    if (!(await deleteRecord(env, TYPES.charm, id))) return bad('not found', 404)
     return json({ ok: true }, { headers: cors })
   }
 

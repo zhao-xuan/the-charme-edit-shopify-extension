@@ -4,13 +4,19 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
 import { charmPricingGroupFor } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
-import { formatMoney } from '../lib/money'
+import { formatMoney, formatPresentmentMoney } from '../lib/money'
+import { asShopifyVariantId, decorationVariantId } from '../lib/marketPrices'
 import { t } from '../lib/i18n'
 
 const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
 
-function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
-  const unavailable = !!charm.unavailable
+function CharmCard({ charm, compact, row, onActivate, onPointerDown, marketPrice, marketPricingEnabled, marketPriceLoading }) {
+  const unavailable = !!charm.unavailable || (marketPricingEnabled && marketPrice == null && !marketPriceLoading)
+  const priceLabel = unavailable
+    ? t('charm.unavailable')
+    : marketPricingEnabled
+      ? marketPrice == null ? '…' : formatPresentmentMoney(marketPrice)
+      : formatMoney(charm.price)
   const cls =
     'charm-card' +
     (compact ? ' charm-card--compact' : '') +
@@ -22,7 +28,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
       role="button"
       tabIndex={unavailable ? -1 : 0}
       aria-disabled={unavailable || undefined}
-      aria-label={[charm.name, charm.collection, `${charm.widthMm} × ${charm.heightMm} mm`, charm.id, unavailable ? t('charm.unavailable') : formatMoney(charm.price)].filter(Boolean).join(', ')}
+      aria-label={[charm.name, charm.collection, `${charm.widthMm} × ${charm.heightMm} mm`, charm.id, priceLabel].filter(Boolean).join(', ')}
       onPointerDown={unavailable ? undefined : (e) => onPointerDown?.(charm, e)}
       onClick={unavailable ? undefined : () => onActivate?.(charm)}
       onKeyDown={(e) => {
@@ -46,7 +52,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown }) {
       </div>
       {!compact && <div className="name">{charm.name}</div>}
       <div className="meta meta--price">
-        <span>{unavailable ? t('charm.unavailable') : formatMoney(charm.price)}</span>
+        <span>{priceLabel}</span>
       </div>
     </div>
   )
@@ -62,13 +68,38 @@ function NoteBox({ text }) {
   )
 }
 
-function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWord, wordGroups = [], selectedGroupId, onSelectGroup }) {
+function GroupPanel({
+  group,
+  compact,
+  rows,
+  onActivate,
+  onPointerDown,
+  onTypeWord,
+  wordGroups = [],
+  selectedGroupId,
+  onSelectGroup,
+  marketPrices = {},
+  marketPricingEnabled = false,
+  marketPriceLoading = false,
+  variantMap = {},
+}) {
   const charms = group.items || []
   const [wordFor, setWordFor] = useState(null)
   const [wordText, setWordText] = useState('')
   const [wordPlace, setWordPlace] = useState('middle')
   const [wordArc, setWordArc] = useState(false)
   const pricingGroups = settings().charmPricingGroups
+  const priceForCharm = (charm) => {
+    const pricingGroup = charmPricingGroupFor(charm, pricingGroups)
+    const variantId = pricingGroup
+      ? asShopifyVariantId(variantMap.charmPricingGroups?.[pricingGroup.id] || pricingGroup.shopifyVariantId)
+      : decorationVariantId(charm, variantMap)
+    const amount = variantId ? marketPrices[variantId] : undefined
+    return {
+      amount,
+      loading: marketPricingEnabled && marketPriceLoading && amount == null && !!variantId,
+    }
+  }
   if (!charms.length) return <Empty description={t('charm.empty')} />
   const collections = groupByCollection(charms)
   const submitWord = (collection) => {
@@ -198,16 +229,22 @@ function GroupPanel({ group, compact, rows, onActivate, onPointerDown, onTypeWor
             </div>
           )}
           <div className={rows ? 'charm-row' : `tray-grid${compact ? ' tray-grid--compact' : ''}`}>
-            {g.items.map((charm) => (
-              <CharmCard
-                key={charm.id}
-                charm={charm}
-                compact={compact}
-                row={rows}
-                onActivate={onActivate}
-                onPointerDown={onPointerDown}
-              />
-            ))}
+            {g.items.map((charm) => {
+              const marketPrice = priceForCharm(charm)
+              return (
+                <CharmCard
+                  key={charm.id}
+                  charm={charm}
+                  compact={compact}
+                  row={rows}
+                  onActivate={onActivate}
+                  onPointerDown={onPointerDown}
+                  marketPrice={marketPrice.amount}
+                  marketPricingEnabled={marketPricingEnabled}
+                  marketPriceLoading={marketPrice.loading}
+                />
+              )
+            })}
           </div>
         </div>
       ))}
@@ -226,6 +263,10 @@ export default function CharmTray({
   wordGroups = [],
   selectedGroupId,
   onSelectGroup,
+  marketPrices,
+  marketPricingEnabled,
+  marketPriceLoading,
+  variantMap,
 }) {
   const groups = trayGroups(kind)
 
@@ -244,6 +285,10 @@ export default function CharmTray({
         wordGroups={wordGroups}
         selectedGroupId={selectedGroupId}
         onSelectGroup={onSelectGroup}
+        marketPrices={marketPrices}
+        marketPricingEnabled={marketPricingEnabled}
+        marketPriceLoading={marketPriceLoading}
+        variantMap={variantMap}
       />
     )
   }
@@ -263,9 +308,12 @@ export default function CharmTray({
         wordGroups={wordGroups}
         selectedGroupId={selectedGroupId}
         onSelectGroup={onSelectGroup}
+        marketPrices={marketPrices}
+        marketPricingEnabled={marketPricingEnabled}
+        marketPriceLoading={marketPriceLoading}
+        variantMap={variantMap}
       />
     ),
   }))
   return <Tabs defaultActiveKey={groups[0]?.key} items={items} size="small" />
 }
-
