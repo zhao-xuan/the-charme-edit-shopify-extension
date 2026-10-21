@@ -103,7 +103,7 @@
 
       <a
         class="button charme-order-path__button"
-        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;variant={{ selected_variant.id | url_encode }}&amp;country={{ localization.country.iso_code | url_encode }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | url_encode }}&amp;cart_bridge=1"
+        href="https://design.thecharmeedit.com/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;variant={{ selected_variant.id | url_encode }}&amp;country={{ localization.country.iso_code | url_encode }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | url_encode }}&amp;cart_bridge=1"
         data-charme-own-design
       >
         <span>{{ section.settings.design_button_label }}</span>
@@ -254,8 +254,9 @@
         var current = new URL(target.href, window.location.href);
         var next = new URL(source.href, window.location.href);
         var market = window.Shopify && window.Shopify.currency || {};
-        var currency = market.active || root.dataset.charmeMarketCurrency || current.searchParams.get('currency');
-        var rate = market.rate || root.dataset.charmeMarketRate || current.searchParams.get('currency_rate');
+        // Pair the currency with the localization country; Shopify.currency can be a stale cart currency.
+        var currency = root.dataset.charmeMarketCurrency || market.active || current.searchParams.get('currency');
+        var rate = (market.active === currency && market.rate) || root.dataset.charmeMarketRate || current.searchParams.get('currency_rate');
         var locale = window.Shopify && window.Shopify.locale || root.dataset.charmeMarketLocale || current.searchParams.get('locale');
         var country = root.dataset.charmeMarketCountry || current.searchParams.get('country');
         var casePrice = current.searchParams.get('variant') === selectedVariantId(root) && current.searchParams.get('country') === country

@@ -51,7 +51,8 @@
       if (!value) return;
       try {
         var url = new URL(value, window.location.origin);
-        if (url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
+        if (url.origin !== 'https://design.thecharmeedit.com' && url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
+        url.hostname = 'design.thecharmeedit.com';
         url.searchParams.set('currency', currency);
         url.searchParams.set('country', country);
         if (currency === 'GBP') url.searchParams.set('currency_rate', '1');
@@ -252,7 +253,7 @@
       bridgeStatus.setAttribute('role', 'status');
       bridgeStatus.setAttribute('aria-live', 'polite');
       bridgeStatus.setAttribute('data-charme-cart-status', '');
-      bridgeStatus.style.cssText = 'position:fixed;inset:0;z-index:2147483640;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;overflow:auto;text-align:center;color:#222;font-family:inherit;font-size:18px;line-height:1.5;';
+      bridgeStatus.style.cssText = 'position:fixed;inset:0;z-index:2147483640;background:#f7f1e8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;overflow:auto;text-align:center;color:#2e2a26;font-family:inherit;font-size:18px;line-height:1.5;';
       document.body.appendChild(bridgeStatus);
     }
     bridgeStatus.replaceChildren();
@@ -270,7 +271,7 @@
     }
     if (recoveryItems) {
       var designer = document.createElement('a');
-      var destination = new URL('https://charme-customizer.pages.dev/editor');
+      var destination = new URL('https://design.thecharmeedit.com/editor');
       var base = recoveryItems.find(function (item) { return item.properties && item.properties._role !== 'charm'; });
       try {
         var layout = base && base.properties._layout;

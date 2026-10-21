@@ -72,3 +72,50 @@ test('rounds zero-decimal currencies up to the next whole unit', () => {
     globalThis.window = previousWindow
   }
 })
+
+test('uses Shopify contextual variant prices for the cart-matching presentment total', () => {
+  const previousWindow = globalThis.window
+  globalThis.window = {
+    CharmeConfig: {
+      locale: 'ja-JP',
+      currency: { base: 'GBP', active: 'JPY', rate: 190.1 },
+    },
+  }
+
+  try {
+    const letter = { charmId: 'letter-a', price: 1, presentmentPrice: 300 }
+    const product = { kind: 'phone', presentmentPrice: 5000 }
+    const estimate = designPriceEstimate(product, [letter], [])
+    assert.equal(estimate.rawCharmTotal, 300)
+    assert.equal(estimate.total, 5300)
+
+    const stones = Array.from({ length: 7 }, () => ({
+      collection: 'Filling Stones',
+      price: 99,
+    }))
+    const grouped = designPriceEstimate(
+      { kind: 'phone', presentmentPrice: 5000 },
+      stones,
+      [{
+        id: 'filling-stones',
+        collection: 'Filling Stones',
+        quantity: 6,
+        price: 1.5,
+        presentmentPrice: 1200,
+      }],
+    )
+    assert.equal(grouped.rawCharmTotal, 2400)
+    assert.equal(grouped.total, 7400)
+
+    const tote = designPriceEstimate(
+      { kind: 'tote', presentmentPrice: 5000 },
+      Array.from({ length: 10 }, () => ({ charmId: 'patch', price: 1, presentmentPrice: 300 })),
+      [],
+      { applyToteDiscount: false },
+    )
+    assert.equal(tote.discountAmount, 0)
+    assert.equal(tote.total, 8000)
+  } finally {
+    globalThis.window = previousWindow
+  }
+})

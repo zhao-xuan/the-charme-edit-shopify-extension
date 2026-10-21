@@ -10,12 +10,10 @@ import { orderByTaxonomy } from './catalogOrder'
 
 export { toteDiscountRate }
 
-// ---- Order limits & pricing ------------------------------------------------
-// A craftable order needs at least MIN_CHARMS pieces and no more than
-// MAX_CHARMS (beyond that, charms overcrowd the case and the layout maths gets
-// unreliable). REC_MIN..REC_MAX is the softer "looks balanced" guidance.
+// ---- Order minimums & pricing ----------------------------------------------
+// There is no maximum decoration count. REC_MIN..REC_MAX is only the softer
+// "looks balanced" guidance.
 export const MIN_CHARMS = 10
-export const MAX_CHARMS = 30
 export const REC_MIN = 12
 export const REC_MAX = 15
 // Totes are decorated with patches, not charms — a much lower minimum applies.
@@ -165,9 +163,14 @@ function enlargeTotePatch(patch) {
 // build code-splits, so it never hit this, which is why pages.dev looked fine
 // while the embedded storefront widget showed stale data.)
 let _catalog = null
+let _remote = null
 function buildCatalog() {
-  const ADMIN = loadAdmin()
   const REMOTE = remoteCatalog() || {}
+  // Published data is authoritative; browser-only drafts must not resurrect a
+  // deleted record or override another device's visibility/price changes.
+  const ADMIN = Array.isArray(REMOTE.charms)
+    ? { charmHidden: {}, charmPrices: {}, charmSizes: {}, customCharms: [] }
+    : loadAdmin()
   const REMOTE_OV = REMOTE.overrides || {}
   const charmHidden = { ...(REMOTE_OV.charmHidden || {}), ...ADMIN.charmHidden }
   const charmPrices = { ...(REMOTE_OV.charmPrices || {}), ...ADMIN.charmPrices }
@@ -193,7 +196,7 @@ function buildCatalog() {
   const seenCharm = new Set()
   const mergeCustom = (list) =>
     (list || [])
-      .filter((c) => !c.hidden && !seenCharm.has(c.id) && seenCharm.add(c.id))
+      .filter((c) => !c.hidden && !charmHidden[c.id] && !seenCharm.has(c.id) && seenCharm.add(c.id))
       .map((c) => ({
         minScale: 1,
         maxScale: 1,
@@ -240,8 +243,8 @@ function buildCatalog() {
     )
   })
   const remotePatches = REMOTE.patches || []
-  const patchIds = new Set(remotePatches.map((patch) => patch.id))
-  const PATCHES = orderByTaxonomy([...remotePatches, ...patchData.patches.filter((patch) => !patchIds.has(patch.id))]
+  const patches = Array.isArray(REMOTE.patches) ? remotePatches : patchData.patches
+  const PATCHES = orderByTaxonomy(patches
     .filter((patch) => !patch.hidden && !charmHidden[patch.id])
     .map((patch) => applySizeOverride(enlargeTotePatch({
       ...patch,
@@ -257,7 +260,11 @@ function buildCatalog() {
 
 /** Memoised merged catalogue. First call builds it (after the remote load). */
 function catalog() {
-  if (!_catalog) _catalog = buildCatalog()
+  const remote = remoteCatalog()
+  if (!_catalog || remote !== _remote) {
+    _remote = remote
+    _catalog = buildCatalog()
+  }
   return _catalog
 }
 

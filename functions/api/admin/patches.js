@@ -86,7 +86,11 @@ export async function onRequestPatch({ request, env }) {
       record.src = image.url
       record.imageFileId = image.id
     }
-    await saveRecord(env, TYPES.patch, id, record)
+    try {
+      await saveRecord(env, TYPES.patch, id, record, {}, { gid: record._gid })
+    } catch (error) {
+      return bad(`could not update patch (it may have been deleted): ${error.message}`, 409)
+    }
     return json({ ok: true }, { headers: cors })
   }
   if (price != null) await env.DB.prepare('UPDATE patches SET price = ? WHERE id = ?').bind(price, id).run()

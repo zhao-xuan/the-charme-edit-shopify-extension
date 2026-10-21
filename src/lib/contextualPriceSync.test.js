@@ -2,12 +2,21 @@ test('confirmed market prices do not show the recurring decoration estimate noti
   const source = readFileSync(new URL('../customizer/CustomizerPage.jsx', import.meta.url), 'utf8')
   const code = source.slice(source.indexOf('  const priceNotice ='), source.indexOf('  const priceBar ='))
   for (const currency of ['GBP', 'AUD', 'USD']) {
-    const notice = (failed, price) => vm.runInNewContext(`${code}\npriceNotice`, {
-      priceLookupFailed: failed, livePresentmentCasePrice: price, activeCurrency: () => currency, t: key => key,
+    const notice = ({ failed = false, price, marketMode = false, marketStatus = 'ready', decorationsReady = true } = {}) => vm.runInNewContext(`${code}\npriceNotice`, {
+      priceLookupFailed: failed,
+      pricingUnavailable: false,
+      livePresentmentCasePrice: price,
+      useMarketPrices: marketMode,
+      currentMarketPriceStatus: marketStatus,
+      marketDecorationsReady: decorationsReady,
+      activeCurrency: () => currency,
+      t: key => key,
     })
-    assert.equal(notice(false, { amount: 32 }), '')
-    assert.equal(notice(true, null), 'price.marketUnavailable')
-    assert.equal(notice(false, null), 'price.marketLoading')
+    assert.equal(notice({ price: { amount: 32 } }), '')
+    assert.equal(notice({ failed: true }), 'price.marketUnavailable')
+    assert.equal(notice(), 'price.marketLoading')
+    assert.equal(notice({ price: { amount: 32 }, marketMode: true, marketStatus: 'loading' }), 'price.marketLoading')
+    assert.equal(notice({ price: { amount: 32 }, marketMode: true, decorationsReady: false }), 'price.marketUnavailable')
   }
 })
 import assert from 'node:assert/strict'
@@ -47,6 +56,15 @@ function setupMarketLinks(currency = 'USD', country = 'US', rate = 1.35) {
   }
 }
 
+test('cart bridge status screen uses the Charmé theme palette instead of a white screen', () => {
+  const source = readFileSync(new URL('../../shopify/snippets/charme-cart-group.liquid', import.meta.url), 'utf8')
+  const statusStyle = source.match(/bridgeStatus\.style\.cssText = '([^']+)'/)
+  assert.ok(statusStyle)
+  assert.match(statusStyle[1], /background:#f7f1e8/)
+  assert.match(statusStyle[1], /color:#2e2a26/)
+  assert.doesNotMatch(statusStyle[1], /background:#fff(?:;|$)/)
+})
+
 test('global market handoff corrects stale links for every product kind and preserves design data', () => {
   for (const [currency, country, rate] of [['USD', 'US', 1.35], ['EUR', 'DE', 1.18], ['AWG', 'AW', 2.41], ['GBP', 'GB', 1]]) {
     const api = setupMarketLinks(currency, country, rate)
@@ -57,6 +75,7 @@ test('global market handoff corrects stale links for every product kind and pres
       api.mutate()
       for (const attribute of ['href', 'data-charme-edit-url']) {
         const result = new URL(attributes[attribute])
+        assert.equal(result.origin, 'https://design.thecharmeedit.com')
         assert.equal(result.searchParams.get('currency'), currency)
         assert.equal(result.searchParams.get('country'), country)
         assert.equal(Number(result.searchParams.get('currency_rate')), rate)
@@ -76,6 +95,25 @@ test('market handoff refreshes rewritten links on native and modified navigation
     api.events[event]({ target: { closest: () => link }, ctrlKey: true, preventDefault: () => assert.fail('Must preserve native navigation') })
     assert.equal(new URL(attributes.href).searchParams.get('currency'), 'USD')
   }
+})
+
+test('custom-domain designer links preserve design and cart context while syncing the market', () => {
+  const api = setupMarketLinks('EUR', 'DE', 1.18)
+  const attributes = {
+    href: 'https://design.thecharmeedit.com/editor/?product=tote-cream-white&variant=123&cart_bridge=1&cart_url=%2Fcart&return_to=%2Fproducts%2Ftote#charme_layout=abc',
+  }
+  api.add(attributes)
+  api.mutate()
+  const result = new URL(attributes.href)
+  assert.equal(result.origin, 'https://design.thecharmeedit.com')
+  assert.equal(result.searchParams.get('currency'), 'EUR')
+  assert.equal(result.searchParams.get('country'), 'DE')
+  assert.equal(result.searchParams.get('product'), 'tote-cream-white')
+  assert.equal(result.searchParams.get('variant'), '123')
+  assert.equal(result.searchParams.get('cart_bridge'), '1')
+  assert.equal(result.searchParams.get('cart_url'), '/cart')
+  assert.equal(result.searchParams.get('return_to'), '/products/tote')
+  assert.equal(result.hash, '#charme_layout=abc')
 })
 
 test('market handoff does not retain stale exchange rates or rewrite unrelated URLs', () => {

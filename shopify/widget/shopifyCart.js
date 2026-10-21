@@ -38,22 +38,16 @@ async function uploadProof(uploadEndpoint, dataUrl, designToken, mode = 'standar
     const finish = (error, url) => {
       if (settled) return
       settled = true
-      clearTimeout(timer)
       if (error) reject(error)
       else resolve(url)
     }
-    const timer = setTimeout(() => {
-      finish(new Error('Design upload took longer than 5 seconds. Please retry.'))
-      request.abort()
-    }, 5000)
     request.open('POST', endpoint.href)
-    request.timeout = 5000
+    request.timeout = 0
     request.setRequestHeader('Content-Type', 'application/json')
     request.upload.onprogress = (event) => {
       if (!settled && event.lengthComputable) onProgress?.(Math.min(99, Math.round(event.loaded / event.total * 100)))
     }
     request.onerror = () => finish(new Error('Design upload failed. Your design is still here. Please retry.'))
-    request.ontimeout = () => finish(new Error('Design upload took longer than 5 seconds. Please retry.'))
     request.onabort = () => finish(new Error('Design upload was interrupted. Please retry.'))
     request.onload = () => {
       if (settled) return

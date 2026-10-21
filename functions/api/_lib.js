@@ -161,19 +161,43 @@ export async function getShopifyToken(env) {
 }
 
 /** Run an Admin GraphQL query. Throws on GraphQL-level errors. */
+const isThrottled = (body) =>
+  Array.isArray(body?.errors) && body.errors.some((e) => e?.extensions?.code === 'THROTTLED')
+
+// Wait long enough for the cost bucket to refill (from throttleStatus when
+// Shopify reports it), with exponential backoff + jitter as the floor.
+function throttleDelay(body, attempt) {
+  const cost = body?.extensions?.cost
+  const status = cost?.throttleStatus
+  let ms = 500 * 2 ** attempt
+  if (status && status.restoreRate > 0) {
+    const need = Math.max(0, (cost.requestedQueryCost || 0) - (status.currentlyAvailable || 0))
+    ms = Math.max(ms, (need / status.restoreRate) * 1000)
+  }
+  return Math.min(ms, 8000) + Math.random() * 250
+}
+
 export async function shopifyAdmin(env, query, variables) {
   const token = await getShopifyToken(env)
-  const res = await fetch(
-    `https://${env.SHOPIFY_STORE}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-shopify-access-token': token },
-      body: JSON.stringify({ query, variables }),
-    },
-  )
-  const body = await res.json()
-  if (body.errors) throw new Error(JSON.stringify(body.errors))
-  return body.data
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(
+      `https://${env.SHOPIFY_STORE}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-shopify-access-token': token },
+        body: JSON.stringify({ query, variables }),
+      },
+    )
+    const retryable = res.status === 429 || res.status >= 500
+    const body = await res.json().catch(() => null)
+    if (attempt < 5 && (retryable || isThrottled(body))) {
+      await new Promise((r) => setTimeout(r, throttleDelay(body, attempt)))
+      continue
+    }
+    if (!body) throw new Error(`Shopify Admin API HTTP ${res.status}`)
+    if (body.errors) throw new Error(JSON.stringify(body.errors))
+    return body.data
+  }
 }
 
 const STAGED_UPLOADS_CREATE = `

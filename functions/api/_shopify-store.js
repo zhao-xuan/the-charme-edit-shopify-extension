@@ -373,7 +373,7 @@ export async function getRecord(env, type, id) {
  * File GID (e.g. { image: 'gid://shopify/MediaImage/…' }); omit it on updates
  * that don't change the image (the existing reference is preserved).
  */
-export async function saveRecord(env, type, id, record, imageGids = {}) {
+export async function saveRecord(env, type, id, record, imageGids = {}, opts = {}) {
   const defKeys = await ensureDefinition(env, type)
   const raw = toFields(type, { ...record, id }, imageGids)
   // Only write fields the definition actually has, and skip empties.
@@ -398,6 +398,9 @@ export async function saveRecord(env, type, id, record, imageGids = {}) {
     fields.push({ key: 'shopify_variant_id', value: '' })
   }
 
+  // `opts.gid` = update-only: write to that exact node and never fall back to a
+  // create, so an edit racing a delete cannot resurrect the deleted record.
+  if (opts.gid) return updateRecordFields(env, opts.gid, fields)
   const existing = await findNode(env, type, id)
   if (existing) {
     const res = await shopifyAdmin(env, M_UPDATE, { id: existing.id, metaobject: { fields } })
@@ -429,6 +432,9 @@ export async function deleteRecord(env, type, id, opts = {}) {
   const res = await shopifyAdmin(env, M_DELETE, { id: node.id })
   const errs = res.metaobjectDelete.userErrors || []
   if (errs.length) throw new Error(`delete ${type}: ${JSON.stringify(errs)}`)
+  if (res.metaobjectDelete.deletedId !== node.id) {
+    throw new Error(`delete ${type}: Shopify did not confirm deletion`)
+  }
   if (imageIds.length) await fileDelete(env, imageIds)
   return true
 }

@@ -11,8 +11,8 @@ export function marketEstimateContext(price, storefrontCurrency) {
   return { base: 'GBP', active: price.currency, rate: amount / baseAmount }
 }
 
-export async function fetchContextualPrice(endpoint, { signal, fetchImpl = fetch, timeoutMs = 2500 } = {}) {
-  for (let attempt = 0; attempt < 2; attempt += 1) {
+export async function fetchPriceJson(endpoint, { signal, fetchImpl = fetch, timeoutMs = 8000, attempts = 2, ...options } = {}) {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
     if (signal?.aborted) throw new Error('contextual_price_cancelled')
     const controller = new AbortController()
     const abort = () => controller.abort()
@@ -20,21 +20,31 @@ export async function fetchContextualPrice(endpoint, { signal, fetchImpl = fetch
     let timer
     try {
       return await Promise.race([
-        fetchImpl(endpoint, { headers: { accept: 'application/json' }, signal: controller.signal }).then(async (response) => {
+        fetchImpl(endpoint, {
+          ...options,
+          cache: 'no-store',
+          headers: { accept: 'application/json', ...options.headers },
+          signal: controller.signal,
+        }).then(async (response) => {
           if (!response.ok) throw new Error(`contextual_price_http_${response.status}`)
-          const price = await response.json()
-          if (!marketEstimateContext(price)) throw new Error('contextual_price_invalid')
-          return price
+          return response.json()
         }),
         new Promise((resolve, reject) => {
           timer = setTimeout(() => { controller.abort(); reject(new Error('contextual_price_timeout')) }, timeoutMs)
         }),
       ])
     } catch (error) {
-      if (signal?.aborted || attempt === 1) throw error
+      if (signal?.aborted || attempt === attempts - 1) throw error
     } finally {
       clearTimeout(timer)
       signal?.removeEventListener('abort', abort)
     }
   }
+
+}
+
+export async function fetchContextualPrice(endpoint, options) {
+  const price = await fetchPriceJson(endpoint, options)
+  if (!marketEstimateContext(price)) throw new Error('contextual_price_invalid')
+  return price
 }

@@ -1,7 +1,7 @@
 import { Select, Space } from 'antd'
 import { AppleFilled, AndroidFilled, ShoppingOutlined, PictureOutlined } from '@ant-design/icons'
 import { productGroups, hasCaseImage, productsByAvailability } from '../data/products'
-import { formatMoney, formatPresentmentMoney } from '../lib/money'
+import { formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 import { showToteInPicker } from '../lib/previewFlags'
 
@@ -112,14 +112,11 @@ export default function ProductPicker({
   const options = buildOptions(group)
   const isTote = group.key === 'tote'
   const formatProductPrice = (candidate) => {
-    if (candidate.kind === 'phone') {
-      const candidateId = candidate.id || candidate.value
-      const amount = candidateId === productId && Number(presentmentPrice) > 0
-        ? Number(presentmentPrice)
-        : Number(presentmentPrices[candidateId])
-      return amount > 0 ? formatPresentmentMoney(amount) : '—'
-    }
-    return formatMoney(candidate.price ?? candidate.basePrice)
+    const candidateId = candidate.id || candidate.value
+    const amount = candidateId === productId && Number(presentmentPrice) > 0
+      ? Number(presentmentPrice)
+      : Number(presentmentPrices[candidateId])
+    return amount > 0 ? formatPresentmentMoney(amount) : '—'
   }
 
   return (
@@ -210,4 +207,3 @@ export default function ProductPicker({
     </div>
   )
 }
-

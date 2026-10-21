@@ -1,15 +1,15 @@
 /**
  * Currency-aware money formatting for the customizer.
  *
- * Every price in the catalogue is stored in the shop's BASE currency (GBP). On a
- * Shopify storefront the buyer may be shopping in a different presentment
- * currency (driven by Shopify Markets / the store's currency selector). Shopify
- * injects the active currency + conversion rate client-side as
+ * Catalogue prices are stored in the shop's BASE currency (GBP). When no
+ * contextual variant price is available, Shopify injects the active currency +
+ * conversion rate client-side as
  * `window.Shopify.currency = { active, rate }` (rate = base → active), and the
  * drop-in Liquid snippet also forwards a `CharmeConfig.currency` context
  * ({ base, active, rate, locale }) so the widget can render buyer-local prices.
  *
- * `formatMoney(gbp)` therefore: (1) converts the GBP amount to the active
+ * Confirmed Shopify variant presentment prices take precedence over these
+ * estimates in cart mode. `formatMoney(gbp)` therefore: (1) converts the GBP amount to the active
  * currency using that rate, (2) rounds the converted price up to a whole
  * presentment-currency unit, matching the merchant's Shopify Markets round-up
  * policy, then (3) formats it with `Intl.NumberFormat` in the active locale +
@@ -18,10 +18,20 @@
 import { currentLocale } from './i18n.js'
 import { charmChargeLines, toteDiscountRate } from './charmPricing.js'
 
-export function designPriceEstimate(product, placed, groups) {
+export function chargeLinePresentmentTotal(line) {
+  const marketUnitPrice = line.kind === 'group'
+    ? line.rule.presentmentPrice
+    : line.items[0]?.presentmentPrice
+  if (marketUnitPrice != null && Number.isFinite(Number(marketUnitPrice))) {
+    return Number(marketUnitPrice) * line.quantity
+  }
+  return convert(line.unitPrice) * line.quantity
+}
+
+export function designPriceEstimate(product, placed, groups, { applyToteDiscount = true } = {}) {
   const lines = charmChargeLines(placed, groups)
-  const rawCharmTotal = lines.reduce((sum, line) => sum + convert(line.unitPrice) * line.quantity, 0)
-  const discountRate = product.kind === 'tote' ? toteDiscountRate(placed.length) : 0
+  const rawCharmTotal = lines.reduce((sum, line) => sum + chargeLinePresentmentTotal(line), 0)
+  const discountRate = applyToteDiscount && product.kind === 'tote' ? toteDiscountRate(placed.length) : 0
   const discountAmount = +(rawCharmTotal * discountRate).toFixed(2)
   const casePrice = Number(product.presentmentPrice) > 0 ? Number(product.presentmentPrice) : convert(product.basePrice)
   return { rawCharmTotal, discountRate, discountAmount, casePrice, total: +(casePrice + rawCharmTotal - discountAmount).toFixed(2) }

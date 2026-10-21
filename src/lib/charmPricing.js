@@ -76,6 +76,11 @@ export function normalizeCharmPricingGroups(groups) {
         quantity: Math.max(1, Math.round(Number(group.quantity) || 1)),
         price: Math.max(0, Number(group.price) || 0),
         shopifyVariantId: String(group.shopifyVariantId || '').trim(),
+        ...(Number.isFinite(Number(group.presentmentPrice)) &&
+          group.presentmentPrice != null &&
+          Number(group.presentmentPrice) >= 0
+          ? { presentmentPrice: Number(group.presentmentPrice) }
+          : {}),
       }
     })
     .filter((group) => group.collection)

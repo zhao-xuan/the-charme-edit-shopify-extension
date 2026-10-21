@@ -51,13 +51,15 @@ import { allProducts, productGroups } from '../data/products'
 import patchData from '../data/patches.json'
 import ProductCanvas from './ProductCanvas'
 import AnalyticsTab from './AnalyticsTab'
-import { charmCategory, MAX_CHARMS } from '../lib/catalog'
+import DecorationSyncModal from './DecorationSyncModal'
+import { charmCategory } from '../lib/catalog'
 import { DEFAULT_SETTINGS } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { extractPieces, extractTransparentPieces, loadImageData, tierFromMm } from '../lib/segment'
+import { prepareDecorationSyncImage } from '../lib/decorationSyncImage.js'
 import {
   addCharms,
   addPatches,
@@ -79,6 +81,7 @@ import {
   syncDiscounts,
   fetchShopifyProducts,
   fetchShopifyVariants,
+  searchShopifyVariants,
   fetchShopifyCollections,
   fetchCaseVariants,
   bindPhoneProducts,
@@ -154,8 +157,40 @@ const TIER_OPTS = [
 ]
 
 function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true }) {
+  const [search, setSearch] = useState('')
+  const [remoteVariants, setRemoteVariants] = useState([])
+  const [searching, setSearching] = useState(false)
+  const [searchError, setSearchError] = useState('')
+  const [retry, setRetry] = useState(0)
+  const [picked, setPicked] = useState(null)
+  useEffect(() => {
+    if (!search.trim()) {
+      setSearching(false)
+      setSearchError('')
+      setRemoteVariants([])
+      return
+    }
+    let active = true
+    setSearching(true)
+    setSearchError('')
+    setRemoteVariants([])
+    const timer = setTimeout(() => {
+      searchShopifyVariants(search.trim())
+        .then((data) => { if (active) setRemoteVariants(data.variants) })
+        .catch((error) => { if (active) setSearchError(error.message) })
+        .finally(() => { if (active) setSearching(false) })
+    }, 300)
+    return () => { active = false; clearTimeout(timer) }
+  }, [search, retry])
+  const allVariants = [...new Map([...variants, ...remoteVariants, ...(picked ? [picked] : [])]
+    .map((variant) => [String(variant.id), variant])).values()]
+  const words = search.toLowerCase().match(/[\p{L}\p{N}]+/gu) || []
+  const matchingVariants = allVariants.filter((variant) => {
+    const text = `${variant.productTitle} ${variant.title} ${variant.handle} ${variant.id}`.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ')
+    return words.every((word) => text.includes(word))
+  })
   const selectedValue = value == null ? '' : String(value)
-  const selected = variants.find((variant) => String(variant.id) === selectedValue)
+  const selected = allVariants.find((variant) => String(variant.id) === selectedValue)
   const label = (variant, includePrice = false) => (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, minWidth: 0, maxWidth: '100%' }}>
       {variant.imageUrl ? (
@@ -181,20 +216,36 @@ function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear =
     <Select
       size="small"
       value={selectedValue || undefined}
-      loading={loading}
+      loading={loading || searching}
       showSearch
       allowClear={allowClear}
-      optionFilterProp="searchText"
+      filterOption={false}
+      onSearch={setSearch}
+      onOpenChange={(open) => { if (!open) setSearch('') }}
       placeholder="Link Shopify variant"
       style={{ width: 250 }}
       onClick={(event) => event.stopPropagation()}
-      onChange={(shopifyVariantId) => onChange(shopifyVariantId || null)}
+      onChange={(shopifyVariantId) => {
+        const variant = allVariants.find((item) => String(item.id) === String(shopifyVariantId))
+        setPicked(variant || null)
+        setSearch('')
+        onChange(shopifyVariantId || null, variant)
+      }}
+      popupRender={(menu) => (
+        <>
+          {searchError && <div style={{ padding: 8 }}>
+            <Alert type="error" showIcon message="Could not search Shopify variants" description={searchError} />
+            <Button size="small" onClick={() => setRetry((value) => value + 1)}>Retry search</Button>
+          </div>}
+          {menu}
+        </>
+      )}
+      notFoundContent={searching || loading ? <Spin size="small" /> : searchError ? null : 'No matching variants. Search by product name, handle or numeric variant ID.'}
       labelRender={() => selectedLabel}
-      options={variants.map((variant) => ({
+      options={matchingVariants.map((variant) => ({
         value: variant.id,
         label: label(variant, true),
         searchText: `${variant.productTitle} ${variant.title} ${variant.handle}`,
-        disabled: !variant.available,
       }))}
     />
   )
@@ -292,8 +343,16 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   const [category, setCategory] = useState('')
   const [subCategory, setSubCategory] = useState('')
   const [image, setImage] = useState(null) // { src, w, h } when replacing artwork
+  const [preparedArtwork, setPreparedArtwork] = useState(null)
   const [scale, setScale] = useState(1)
+  // Size captured when this charm was loaded. The slider scales THIS fixed base,
+  // so the target size stays absolute and never compounds when a save/refresh
+  // updates the charm's stored dimensions.
+  const [sizeBase, setSizeBase] = useState(null)
   const [saving, setSaving] = useState(false)
+  const [saveVersion, setSaveVersion] = useState(0)
+  const [saveError, setSaveError] = useState('')
+  const savingRef = useRef(false)
   // Locally-created category / sub-category options (via the "+" popovers). They
   // persist to Shopify on Save and reappear from the server list after a refresh.
   const [localCats, setLocalCats] = useState([])
@@ -306,13 +365,13 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   // Keep the latest form values in a ref so pending edits can be flushed when the
   // user switches to a different charm (before this panel resets its state).
   const formRef = useRef({})
-  formRef.current = { name, category, subCategory, scale, image }
+  formRef.current = { name, category, subCategory, scale, image, sizeBase, preparedArtwork }
   // The charm currently loaded into the form (drives the flush-on-switch).
   const loadedRef = useRef(null)
 
   // Diff the form against a base charm → the minimal patch (or null if clean).
   const patchFor = (base, st) => {
-    if (!base) return null
+    if (!base || st.sizeBase?.id !== base.id) return null
     const bCat = base.category || charmCategory(base)
     const bSub = base.collection || ''
     const bw = Number(base.widthMm) || 10
@@ -321,11 +380,20 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
     if (st.name.trim() && st.name.trim() !== (base.name || '')) patch.name = st.name.trim()
     if (st.category.trim() && st.category.trim() !== bCat) patch.category = st.category.trim()
     if (st.subCategory.trim() !== bSub) patch.collection = st.subCategory.trim() || 'Custom'
-    if (st.scale !== 1) {
-      patch.widthMm = +(bw * st.scale).toFixed(1)
-      patch.heightMm = +(bh * st.scale).toFixed(1)
+    if (st.sizeBase && st.sizeBase.id === base.id) {
+      const tw = +(st.sizeBase.w * st.scale).toFixed(1)
+      const th = +(st.sizeBase.h * st.scale).toFixed(1)
+      if (tw !== bw || th !== bh) {
+        if (st.preparedArtwork?.source !== (st.image?.src || base.src) || !st.preparedArtwork?.src) return null
+        patch.widthMm = tw
+        patch.heightMm = th
+        patch.src = st.preparedArtwork.src
+      }
     }
-    if (st.image?.src) patch.src = st.image.src
+    if (st.image?.src) {
+      if (st.preparedArtwork?.source !== st.image.src || !st.preparedArtwork?.src) return null
+      patch.src = st.preparedArtwork.src
+    }
     return Object.keys(patch).length ? patch : null
   }
 
@@ -336,40 +404,62 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
     const prev = loadedRef.current
     if (prev && prev.id !== charm?.id) {
       const patch = patchFor(prev, formRef.current)
-      if (patch) cloud.updateCharm(prev, patch).catch(() => {})
+      if (patch) cloud.updateCharm(prev, patch).catch((error) => message.error(`Could not save ${prev.name}: ${error.message}`))
     }
     loadedRef.current = charm || null
     setName(charm?.name || '')
     setCategory(charm ? charm.category || charmCategory(charm) : '')
     setSubCategory(charm?.collection || '')
     setImage(null)
+    setSaveError('')
     setScale(1)
+    setSizeBase(charm ? { id: charm.id, w: Number(charm.widthMm) || 10, h: Number(charm.heightMm) || 10 } : null)
   }, [charm?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const artworkSource = image?.src || charm?.src
+  useEffect(() => {
+    if (!artworkSource) return
+    let active = true
+    setPreparedArtwork(null)
+    prepareDecorationSyncImage(resolveAsset(artworkSource), { trimTransparent: true })
+      .then((src) => {
+        if (active) setPreparedArtwork({ source: artworkSource, src })
+      })
+      .catch((error) => {
+        if (active) setPreparedArtwork({ source: artworkSource, error: error.message })
+      })
+    return () => { active = false }
+  }, [artworkSource])
 
   // Auto-save to Shopify: whenever the form is dirty, persist after a short idle
   // debounce so every change (name / category / sub-category / size / artwork) is
-  // saved without a manual button press.
+  // saved without a manual button press. Saves are serialised: while one is in
+  // flight, later edits wait — the post-save refresh hands this effect a new
+  // `charm` object, which re-runs it against the freshly stored values.
   useEffect(() => {
     if (!charm) return
-    const patch = patchFor(charm, { name, category, subCategory, scale, image })
+    const patch = patchFor(charm, { name, category, subCategory, scale, image, sizeBase, preparedArtwork })
     if (!patch) return
     const t = setTimeout(async () => {
+      if (savingRef.current) return
+      savingRef.current = true
       setSaving(true)
+      setSaveError('')
       try {
         await cloud.updateCharm(charm, patch)
-        // Size / artwork are expressed RELATIVE to the charm's stored values; once
-        // saved (and the catalogue refreshed) reset the relative controls so the
-        // next debounce doesn't re-apply them on top of the new base values.
-        if (scale !== 1) setScale(1)
-        if (image) setImage(null)
+        setSaveVersion((version) => version + 1)
+        // The catalogue has been reloaded with the new artwork by now.
+        if (image?.src && formRef.current.image?.src === image.src && formRef.current.sizeBase?.id === charm.id) setImage(null)
       } catch (e) {
+        setSaveError(e.message)
         message.error(`Could not save: ${e.message}`)
       } finally {
+        savingRef.current = false
         setSaving(false)
       }
     }, 700)
     return () => clearTimeout(t)
-  }, [charm, name, category, subCategory, scale, image]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [charm, name, category, subCategory, scale, image, sizeBase, preparedArtwork, saveVersion]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const fit = Math.min(
     (STAGE_MAX_W - STAGE_PAD * 2) / product.widthMm,
@@ -377,18 +467,26 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   )
   const wPx = product.widthMm * fit
   const hPx = product.heightMm * fit
-  const baseW = Number(charm?.widthMm) || 10
-  const baseH = Number(charm?.heightMm) || 10
-  const cw = baseW * fit * scale
-  const ch = baseH * fit * scale
+  const savedW = Number(charm?.widthMm) || 10
+  const savedH = Number(charm?.heightMm) || 10
+  const ownBase = sizeBase && sizeBase.id === charm?.id ? sizeBase : null
+  const baseW = ownBase ? ownBase.w : savedW
+  const baseH = ownBase ? ownBase.h : savedH
+  const targetW = +(baseW * scale).toFixed(1)
+  const targetH = +(baseH * scale).toFixed(1)
+  const cw = targetW * fit
+  const ch = targetH * fit
   const bg = resolveAsset(productImage(product))
   // Show the replacement artwork if one was dropped, else the charm's Shopify art.
-  const charmSrc = image?.src ? image.src : charm ? resolveAsset(charm.src) : null
+  const artworkReady = preparedArtwork?.source === artworkSource && !!preparedArtwork?.src
+  const artworkError = preparedArtwork?.source === artworkSource ? preparedArtwork?.error : null
+  const charmSrc = artworkReady ? preparedArtwork.src : null
   const curCat = charm ? charm.category || charmCategory(charm) : ''
   const curSub = charm?.collection || ''
   const dirty =
     !!charm &&
-    (scale !== 1 ||
+    (targetW !== savedW ||
+      targetH !== savedH ||
       name.trim() !== (charm.name || '') ||
       category.trim() !== curCat ||
       subCategory.trim() !== curSub ||
@@ -434,6 +532,12 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
         />
       ) : (
         <>
+          {artworkError ? (
+            <Alert type="error" showIcon message="Could not prepare artwork for sizing"
+              description={`${artworkError} Replace the artwork below with a tightly cropped transparent PNG. Size changes have not been saved.`} />
+          ) : !artworkReady ? (
+            <Space><Spin size="small" /> Removing background and trimming artwork for accurate sizing…</Space>
+          ) : null}
           {/* 1 — Size adjuster (top): live preview + slider */}
           <div
             style={{
@@ -478,7 +582,7 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 4 }}>
             <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--rouge)' }}>{Math.round(scale * 100)}%</span>
             <span style={{ fontVariantNumeric: 'tabular-nums', color: 'var(--ink-soft)' }}>
-              {(baseW * scale).toFixed(1)} × {(baseH * scale).toFixed(1)} mm
+              {targetW.toFixed(1)} × {targetH.toFixed(1)} mm
             </span>
           </div>
           <Slider
@@ -486,11 +590,13 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
             max={SIZE_MAX}
             step={0.05}
             value={scale}
+            disabled={!artworkReady}
+            ariaLabelForHandle="Charm size"
             onChange={setScale}
             tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
           />
           <div className="hint" style={{ marginBottom: 14 }}>
-            Current size: {baseW}×{baseH} mm (100%).
+            Saved size: {savedW}×{savedH} mm · 100% = {baseW}×{baseH} mm.
           </div>
 
           {/* 2 — Preview on | Name (two columns) */}
@@ -601,18 +707,22 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
                 <>
                   <Spin size="small" /> Saving to Shopify…
                 </>
+              ) : saveError ? (
+                `Not saved: ${saveError}`
               ) : dirty ? (
-                'Saving…'
+                artworkError ? 'Size not saved: artwork needs attention' : !artworkReady ? 'Preparing artwork…' : 'Saving…'
               ) : (
                 'All changes saved to Shopify'
               )}
             </span>
+            {saveError && <Button onClick={() => setSaveVersion((version) => version + 1)}>Retry save</Button>}
             <Button
               onClick={() => {
                 setName(charm.name || '')
                 setCategory(curCat)
                 setSubCategory(curSub)
                 setImage(null)
+                setSizeBase({ id: charm.id, w: savedW, h: savedH })
                 setScale(1)
               }}
               disabled={!dirty}
@@ -756,7 +866,6 @@ function CharmPricingGroupsPanel({ subcategories = [] }) {
               <span>Pieces per block</span>
               <InputNumber
                 min={1}
-                max={MAX_CHARMS}
                 precision={0}
                 value={group.quantity}
                 onChange={(quantity) => update(group.id, { quantity })}
@@ -829,7 +938,6 @@ function CharmsTab({ draft, set, cloud }) {
     widthMm: 16,
     image: null,
     bundle: false,
-    bundleMax: 8,
   })
   const [query, setQuery] = useState('')
   const [extracting, setExtracting] = useState(false)
@@ -899,13 +1007,10 @@ function CharmsTab({ draft, set, cloud }) {
       heightMm,
       minScale: 1,
       maxScale: 1,
-      // Flat-price bundle: customers may pick up to `bundleMax` of this charm for
-      // the single `price` above (e.g. little stones). Off → priced per piece.
       bundle,
-      bundleMax: bundle ? Math.max(1, Math.min(MAX_CHARMS, Number(form.bundleMax) || 1)) : null,
     }
     set((d) => ({ ...d, customCharms: [charm, ...(d.customCharms || [])] }))
-    setForm({ name: '', category: 'gold', tier: 'midi', shopifyVariantId: '', widthMm: 16, image: null, bundle: false, bundleMax: 8 })
+    setForm({ name: '', category: 'gold', tier: 'midi', shopifyVariantId: '', widthMm: 16, image: null, bundle: false })
     message.success('Charm added — Save changes to publish.')
   }
 
@@ -951,6 +1056,7 @@ function CharmsTab({ draft, set, cloud }) {
 
       {/* Left column — the catalogue list to pick a charm from. */}
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <DecorationSyncModal kind="charm" onSaved={() => cloud.refresh({ reportErrors: true })} />
         <Card size="small" title={`Charms — re-price, hide or size (${baseRows.length})`}>
           <Input.Search
             allowClear
@@ -981,7 +1087,10 @@ function CharmsTab({ draft, set, cloud }) {
                     value={r.shopifyVariantId}
                     variants={shopifyVariants}
                     loading={variantsLoading}
-                    onChange={(shopifyVariantId) => cloud.updateCharm(r, { shopifyVariantId })}
+                    onChange={(shopifyVariantId, variant) => {
+                      if (variant) setShopifyVariants((items) => [...items.filter((item) => String(item.id) !== String(variant.id)), variant])
+                      cloud.updateCharm(r, { shopifyVariantId }).catch((error) => message.error(`Could not link Shopify variant: ${error.message}`))
+                    }}
                   />
                 ),
               },
@@ -1004,7 +1113,7 @@ function CharmsTab({ draft, set, cloud }) {
                 title: '',
                 width: 40,
                 render: (_, r) => (
-                  <Button type="text" danger icon={<DeleteOutlined />} onClick={() => cloud.removeCharm(r)} />
+                  <Button type="text" danger icon={<DeleteOutlined />} onClick={(event) => { event.stopPropagation(); cloud.removeCharm(r) }} />
                 ),
               },
             ]}
@@ -1076,7 +1185,10 @@ function CharmsTab({ draft, set, cloud }) {
                   variants={shopifyVariants}
                   loading={variantsLoading}
                   allowClear={false}
-                  onChange={(shopifyVariantId) => setForm((f) => ({ ...f, shopifyVariantId }))}
+                  onChange={(shopifyVariantId, variant) => {
+                    if (variant) setShopifyVariants((items) => [...items.filter((item) => String(item.id) !== String(variant.id)), variant])
+                    setForm((f) => ({ ...f, shopifyVariantId }))
+                  }}
                 />
                 <span className="hint">{form.shopifyVariantId
                   ? `Price: £${Number(shopifyVariants.find((item) => String(item.id) === String(form.shopifyVariantId))?.price || 0).toFixed(2)}`
@@ -1112,22 +1224,10 @@ function CharmsTab({ draft, set, cloud }) {
                   Flat price — customers can pick several of this charm for the same price (e.g. little stones)
                 </Checkbox>
               </label>
-              {form.bundle && (
-                <label>
-                  <span>Max picks for the price</span>
-                  <InputNumber
-                    min={1}
-                    max={MAX_CHARMS}
-                    value={form.bundleMax}
-                    onChange={(v) => setForm((f) => ({ ...f, bundleMax: v }))}
-                    style={{ width: '100%' }}
-                  />
-                </label>
-              )}
             </div>
             <p className="hint" style={{ margin: '10px 0 0' }}>
               {form.bundle
-                ? `Customers pay the selected Shopify variant price once and may add up to ${form.bundleMax || 1} of this charm.`
+                ? 'Customers pay the selected Shopify variant price once, with no limit on picks of this charm.'
                 : 'Priced per piece — each one added is charged separately.'}
             </p>
             <Button type="primary" icon={<PlusOutlined />} onClick={addCharm} style={{ marginTop: 12 }}>
@@ -1280,11 +1380,18 @@ function PatchesTab({ cloud, onOpenUploader }) {
   const effectiveHeight = (patch) => Number(patch.heightMm) * scaleFor(patch)
   const savePatchSize = async (patch, widthMm, heightMm) => {
     try {
+      const scale = scaleFor(patch)
       if (remotePatchIds.has(patch.id)) {
-        await patchPatch(patch.id, { widthMm, heightMm })
+        // The table shows stored size × override scale, so store the base size
+        // that reproduces exactly what the merchant typed.
+        await patchPatch(patch.id, { widthMm: +(widthMm / scale).toFixed(2), heightMm: +(heightMm / scale).toFixed(2) })
       } else {
-        const baseWidth = Number(patch.widthMm) || widthMm
-        await setOverride('charm', patch.id, { sizeScale: widthMm / baseWidth })
+        // Bundled patches can only be scaled uniformly — follow whichever side changed.
+        const heightOnly = Math.abs(widthMm - effectiveWidth(patch)) < 0.05
+        const nextScale = heightOnly
+          ? heightMm / (Number(patch.heightMm) || heightMm)
+          : widthMm / (Number(patch.widthMm) || widthMm)
+        await setOverride('charm', patch.id, { sizeScale: nextScale })
       }
       await cloud.refresh()
       message.success(`Saved ${patch.name} at ${widthMm.toFixed(1)}×${heightMm.toFixed(1)} mm.`)
@@ -1326,8 +1433,8 @@ function PatchesTab({ cloud, onOpenUploader }) {
   // Linking a patch to a Shopify variant defaults the patch name to that
   // variant's name (customers still see a clear, catalogue-matching label);
   // the merchant can freely rename afterwards without it being overwritten.
-  const linkPatchVariant = (patch, shopifyVariantId) => {
-    const variant = shopifyVariantId ? shopifyVariants.find((v) => String(v.id) === String(shopifyVariantId)) : null
+  const linkPatchVariant = (patch, shopifyVariantId, selectedVariant) => {
+    const variant = selectedVariant || (shopifyVariantId ? shopifyVariants.find((v) => String(v.id) === String(shopifyVariantId)) : null)
     const variantName = variant && !/^default title$/i.test(variant.title || '')
       ? variant.title
       : variant?.productTitle
@@ -1425,6 +1532,7 @@ function PatchesTab({ cloud, onOpenUploader }) {
         style={{ width: '100%' }}
       />
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
+        <DecorationSyncModal kind="patch" onSaved={() => cloud.refresh({ reportErrors: true })} />
         <Card
           size="small"
           title={`Patches — re-price, hide or size (${visiblePatches.length})`}
@@ -1475,7 +1583,10 @@ function PatchesTab({ cloud, onOpenUploader }) {
                     value={patch.shopifyVariantId}
                     variants={shopifyVariants}
                     loading={variantsLoading}
-                    onChange={(shopifyVariantId) => linkPatchVariant(patch, shopifyVariantId)}
+                    onChange={(shopifyVariantId, variant) => {
+                      if (variant) setShopifyVariants((items) => [...items.filter((item) => String(item.id) !== String(variant.id)), variant])
+                      linkPatchVariant(patch, shopifyVariantId, variant)
+                    }}
                   />
                 ),
               },
@@ -2291,12 +2402,12 @@ function ProductsTab({ draft, set, cloud }) {
     return r
   }
 
-  const bindProductVariant = async (product, shopifyVariantId) => {
+  const bindProductVariant = async (product, shopifyVariantId, selectedVariant) => {
     if (!product || !shopifyVariantId) return
     const nextVariantId = String(shopifyVariantId)
     const currentVariantId = product.shopifyVariantId ? String(product.shopifyVariantId) : ''
     if (nextVariantId === currentVariantId) return
-    const selected = shopifyVariants.find((variant) => String(variant.id) === nextVariantId)
+    const selected = selectedVariant || shopifyVariants.find((variant) => String(variant.id) === nextVariantId)
     const patch = { shopifyVariantId: nextVariantId }
     if (selected && Number.isFinite(selected.price)) patch.basePrice = selected.price
     try {
@@ -2462,7 +2573,10 @@ function ProductsTab({ draft, set, cloud }) {
                       value={r.shopifyVariantId}
                       variants={shopifyVariants}
                       loading={variantsLoading}
-                      onChange={(shopifyVariantId) => bindProductVariant(r, shopifyVariantId)}
+                      onChange={(shopifyVariantId, variant) => {
+                        if (variant) setShopifyVariants((items) => [...items.filter((item) => String(item.id) !== String(variant.id)), variant])
+                        bindProductVariant(r, shopifyVariantId, variant)
+                      }}
                     />
                   )
                 },
@@ -2647,8 +2761,9 @@ function ProductsTab({ draft, set, cloud }) {
                   value={form.shopifyVariantId}
                   variants={shopifyVariants}
                   loading={variantsLoading}
-                  onChange={(shopifyVariantId) => {
-                    const linked = shopifyVariants.find((variant) => String(variant.id) === String(shopifyVariantId || ''))
+                  onChange={(shopifyVariantId, variant) => {
+                    if (variant) setShopifyVariants((items) => [...items.filter((item) => String(item.id) !== String(variant.id)), variant])
+                    const linked = variant || shopifyVariants.find((variant) => String(variant.id) === String(shopifyVariantId || ''))
                     setForm((f) => ({
                       ...f,
                       shopifyVariantId: shopifyVariantId || '',
@@ -4391,16 +4506,26 @@ function useCloud(draft, set) {
   const [loading, setLoading] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [data, setData] = useState({ products: [], charms: [] })
+  const refreshSequence = useRef(0)
 
-  const refresh = async () => {
+  const refresh = async (options = {}) => {
+    const sequence = ++refreshSequence.current
     setLoading(true)
     try {
       const cat = await fetchCatalog()
-      setData({ products: cat.products || [], charms: cat.charms || [], patches: cat.patches || [], overrides: cat.overrides || {} })
-    } catch {
+      if (!Array.isArray(cat.products) || !Array.isArray(cat.charms) || !Array.isArray(cat.patches)) {
+        throw new Error('Invalid catalogue response')
+      }
+      if (sequence === refreshSequence.current) {
+        setData({ products: cat.products, charms: cat.charms, patches: cat.patches, overrides: cat.overrides || {} })
+      }
+      return cat
+    } catch (error) {
+      if (options.reportErrors) message.error(`Saved items could not be reloaded: ${error.message}. Use Refresh to try again.`)
+      if (options.throwOnError) throw error
       /* offline / no backend in local dev — leave lists empty */
     } finally {
-      setLoading(false)
+      if (sequence === refreshSequence.current) setLoading(false)
     }
   }
   useEffect(() => { refresh() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -4439,7 +4564,22 @@ function useCloud(draft, set) {
   const removeCharm = (c) => modal.confirm({
     title: `Delete "${c.name}" from Shopify?`,
     okText: 'Delete', okButtonProps: { danger: true },
-    onOk: async () => { try { await deleteCharm(c.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
+    onOk: async () => {
+      try {
+        await deleteCharm(c.id)
+        const cat = await refresh({ throwOnError: true })
+        if (cat.charms.some((charm) => charm.id === c.id)) {
+          throw new Error('The charm is still in the live catalogue. Refresh and retry.')
+        }
+        set((d) => ({ ...d, customCharms: d.customCharms.filter((charm) => charm.id !== c.id) }))
+        const saved = loadAdmin()
+        saveAdmin({ ...saved, customCharms: saved.customCharms.filter((charm) => charm.id !== c.id) })
+        message.success('Deleted from the live catalogue. Open storefronts sync automatically within 60 seconds.')
+      } catch (e) {
+        message.error(`Could not confirm deletion: ${e.message}`)
+        throw e
+      }
+    },
   })
   const repriceCharm = async (c, price) => {
     try { await patchCharm(c.id, { price }); refresh() }
@@ -4447,11 +4587,11 @@ function useCloud(draft, set) {
   }
   const resizeCharm = async (c, widthMm, heightMm) => {
     await patchCharm(c.id, { widthMm, heightMm })
-    refresh()
+    await refresh()
   }
   const updateCharm = async (c, patch) => {
     await patchCharm(c.id, patch)
-    refresh()
+    await refresh({ throwOnError: true })
   }
   const repriceProduct = async (p, basePrice) => {
     try { await patchProduct(p.id, { basePrice }) }
