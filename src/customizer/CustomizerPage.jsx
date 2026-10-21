@@ -2014,13 +2014,13 @@ export default function CustomizerPage({
               {product.kind === 'tote' && patchDiscountNotice}
               {mobileTray}
             </div>
-            <div className="mobile-order-requirements" id="mobile-order-requirements" role="status" hidden={validation.ok}>
+            <div className="mobile-order-requirements" id="mobile-order-requirements" role="status">
               {!validation.ok && [
                 validation.tooFew && t('price.addAtLeast', { n: product.kind === 'tote' ? TOTE_MIN_PATCHES : MIN_CHARMS, noun: t(product.kind === 'tote' ? 'patches.label' : 'charms.label').toLowerCase() }),
                 validation.problems > 0 && tn('price.needAttention', validation.problems),
               ].filter(Boolean).join(' · ')}
+              {priceNotice && <div className="mobile-order-price-note">{priceNotice}</div>}
             </div>
-            {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
           </div>
 
           <div className="mobile-order-footer">

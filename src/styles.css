@@ -1670,12 +1670,10 @@ body.charme-no-select * {
     flex-direction: column;
     background: #fffdf9;
   }
-  /* category switcher (Step 2 control) — a horizontal full-width tab row in its
-     own slim bar BELOW the Step 2 text overlay (kept out of the overlay so it
-     stays short). */
+  /* Fit the category tabs to their labels; the wrapper scrolls on narrow screens. */
   .mobile-cat-seg {
     width: max-content;
-    min-width: 100%;
+    min-width: 0;
     pointer-events: auto;
   }
   .mobile-cat-seg .ant-segmented-item {
@@ -1722,9 +1720,10 @@ body.charme-no-select * {
        flicker while the tray below scrolls. */
     transform: translateZ(0);
   }
-  /* horizontal category tab bar — flex-fills the row beside the title. */
   .mobile-cat-bar {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    max-width: 100%;
     min-width: 0;
     overflow-x: auto;
     pointer-events: auto;
