@@ -4,18 +4,11 @@
  * once in the Admin header). Reads (catalog) are public.
  */
 const TOKEN_KEY = 'charme.admin.token'
+import { API_BASE } from './apiBase.js'
 
-// Writes need the ADMIN_TOKEN secret, which lives in the PRODUCTION Pages
-// environment. The dedicated admin subdomain is a preview deployment without it,
-// so when we're on `admin.<host>` we send API calls to the bare production
-// origin (CORS is enabled on the Functions). Elsewhere we use the same origin.
-function apiBase() {
-  if (typeof window === 'undefined') return ''
-  const h = window.location.hostname
-  if (/^admin\./i.test(h)) return `${window.location.protocol}//${h.replace(/^admin\./i, '')}`
-  return ''
-}
-const url = (path) => `${apiBase()}${path}`
+// Admin writes and storefront reads must target the same catalogue, including
+// branch previews and an explicit CharmeConfig.apiBase.
+const url = (path) => `${API_BASE}${path}`
 
 export const getToken = () =>
   (typeof localStorage !== 'undefined' && localStorage.getItem(TOKEN_KEY)) || ''

@@ -103,7 +103,7 @@
 
       <a
         class="button charme-order-path__button"
-        href="https://charme-customizer.pages.dev/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;variant={{ selected_variant.id | url_encode }}&amp;country={{ localization.country.iso_code | url_encode }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | url_encode }}&amp;cart_bridge=1"
+        href="https://design.thecharmeedit.com/editor?product={{ editor_product | url_encode }}&amp;case={{ editor_case }}&amp;gel={{ editor_gel }}&amp;variant={{ selected_variant.id | url_encode }}&amp;country={{ localization.country.iso_code | url_encode }}&amp;currency={{ localization.country.currency.iso_code | default: cart.currency.iso_code | default: shop.currency | url_encode }}&amp;currency_rate={{ cart.currency.rate | default: 1 | url_encode }}&amp;case_price={{ selected_variant.price | divided_by: 100.0 | url_encode }}&amp;locale={{ request.locale.iso_code | url_encode }}&amp;cart_url={{ routes.cart_url | url_encode }}&amp;cart_bridge=1"
         data-charme-own-design
       >
         <span>{{ section.settings.design_button_label }}</span>

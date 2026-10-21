@@ -4,6 +4,7 @@ import {
   asShopifyVariantId,
   chargeLineVariantId,
   decorationVariantId,
+  decorationPriceRequestKey,
   fetchContextualVariantPrices,
   hasUnavailablePrices,
   productVariantId,
@@ -12,6 +13,25 @@ import { onRequestPost } from '../../functions/api/shopify/contextual-prices.js'
 import { onRequestGet as catalogResponse } from '../../functions/api/catalog.js'
 import { readFileSync } from 'node:fs'
 import vm from 'node:vm'
+
+test('decoration quote identity depends on billing variants, not charm quantity or order', () => {
+  const a = { id: 'a', shopifyVariantId: '12345678901234' }
+  const b = { id: 'b', shopifyVariantId: '23456789012345' }
+  const groups = [{ id: 'stones', shopifyVariantId: '34567890123456' }]
+  const key = decorationPriceRequestKey([a, b], groups)
+  for (const items of [[a, b, a], [b, a], [a, b, { ...a, charmId: 'a', uid: 'placed' }]]) {
+    assert.equal(decorationPriceRequestKey(items, groups), key)
+  }
+  assert.notEqual(decorationPriceRequestKey([a], groups), key)
+  assert.notEqual(decorationPriceRequestKey([a, b], []), key)
+  assert.notEqual(decorationPriceRequestKey([a, b], groups, {
+    charms: { a: '45678901234567' },
+  }), key)
+  assert.notEqual(decorationPriceRequestKey([a, b], groups, {
+    charmPricingGroups: { stones: '45678901234567' },
+  }), key)
+  assert.equal(decorationPriceRequestKey([{ id: 'unmapped' }], []), '')
+})
 
 test('product quotes resolve exactly the cart variant for each product kind and finish', () => {
   const source = readFileSync(new URL('../../shopify/widget/shopifyCart.js', import.meta.url), 'utf8')

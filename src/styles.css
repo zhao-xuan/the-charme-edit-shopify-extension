@@ -1874,7 +1874,8 @@ body.charme-no-select * {
   .mobile-order-requirements {
     box-sizing: border-box;
     flex: 0 0 auto;
-    max-height: calc(2.8em + 10px);
+    /* Price refreshes and validation changes must not resize the preview. */
+    height: calc(2.8em + 10px);
     overflow-y: auto;
     padding: 5px 12px;
     color: #9f2f12;
@@ -1883,7 +1884,6 @@ body.charme-no-select * {
     text-align: center;
   }
   .mobile-order-price-note {
-    padding: 4px 12px;
     color: var(--ink-soft);
     font-size: 11px;
     line-height: 1.3;

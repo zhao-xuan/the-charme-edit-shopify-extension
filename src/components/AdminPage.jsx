@@ -4506,18 +4506,26 @@ function useCloud(draft, set) {
   const [loading, setLoading] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [data, setData] = useState({ products: [], charms: [] })
+  const refreshSequence = useRef(0)
 
   const refresh = async (options = {}) => {
+    const sequence = ++refreshSequence.current
     setLoading(true)
     try {
       const cat = await fetchCatalog()
-      setData({ products: cat.products || [], charms: cat.charms || [], patches: cat.patches || [], overrides: cat.overrides || {} })
+      if (!Array.isArray(cat.products) || !Array.isArray(cat.charms) || !Array.isArray(cat.patches)) {
+        throw new Error('Invalid catalogue response')
+      }
+      if (sequence === refreshSequence.current) {
+        setData({ products: cat.products, charms: cat.charms, patches: cat.patches, overrides: cat.overrides || {} })
+      }
+      return cat
     } catch (error) {
       if (options.reportErrors) message.error(`Saved items could not be reloaded: ${error.message}. Use Refresh to try again.`)
       if (options.throwOnError) throw error
       /* offline / no backend in local dev — leave lists empty */
     } finally {
-      setLoading(false)
+      if (sequence === refreshSequence.current) setLoading(false)
     }
   }
   useEffect(() => { refresh() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -4556,7 +4564,22 @@ function useCloud(draft, set) {
   const removeCharm = (c) => modal.confirm({
     title: `Delete "${c.name}" from Shopify?`,
     okText: 'Delete', okButtonProps: { danger: true },
-    onOk: async () => { try { await deleteCharm(c.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
+    onOk: async () => {
+      try {
+        await deleteCharm(c.id)
+        const cat = await refresh({ throwOnError: true })
+        if (cat.charms.some((charm) => charm.id === c.id)) {
+          throw new Error('The charm is still in the live catalogue. Refresh and retry.')
+        }
+        set((d) => ({ ...d, customCharms: d.customCharms.filter((charm) => charm.id !== c.id) }))
+        const saved = loadAdmin()
+        saveAdmin({ ...saved, customCharms: saved.customCharms.filter((charm) => charm.id !== c.id) })
+        message.success('Deleted from the live catalogue. Open storefronts sync automatically within 60 seconds.')
+      } catch (e) {
+        message.error(`Could not confirm deletion: ${e.message}`)
+        throw e
+      }
+    },
   })
   const repriceCharm = async (c, price) => {
     try { await patchCharm(c.id, { price }); refresh() }

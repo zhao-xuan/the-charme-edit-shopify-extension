@@ -4,9 +4,9 @@
  * At startup main.jsx awaits loadRemoteCatalog(), which fetches /api/catalog
  * (served by the Pages Function from D1 + KV) and stashes it globally. The
  * bundled catalogue merge (data/products.js + lib/catalog.js) then folds in the
- * remote merchant products / charms / price overrides. If the API is missing or
- * fails (e.g. local `vite` dev with no Functions), we silently fall back to the
- * bundled data, so the storefront always renders.
+ * remote merchant products / charms / price overrides. Only local development
+ * falls back to bundled data; production failures expose an unavailable state.
+ * Open customizers subscribe to successful snapshots and recovery-state changes.
  */
 let cache = null
 let failed = false
@@ -22,7 +22,7 @@ const EMPTY_REMOTE = {
 // Pages base URL (explicit `CharmeConfig.apiBase`, else the production Pages URL
 // as a fallback; empty when the widget is already served from Pages). The API
 // replies with `access-control-allow-origin: *` so the cross-origin fetch works.
-import { API_BASE, PROD_API_BASE } from './apiBase'
+import { API_BASE, PROD_API_BASE } from './apiBase.js'
 import { fetchPriceJson } from './contextualPrice.js'
 
 function catalogUrls() {
@@ -43,20 +43,31 @@ function authoritativeRuntime() {
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-export async function loadRemoteCatalog() {
+const listeners = new Set()
+export function onRemoteCatalogChange(listener) {
+  listeners.add(listener)
+  return () => listeners.delete(listener)
+}
+
+function notify() {
+  for (const listener of listeners) listener()
+}
+
+export async function loadRemoteCatalog({ fresh = true, preserveOnFailure = false } = {}) {
   if (typeof fetch === 'undefined') return null
   const retryDelays = [0, 150, 500]
   for (const delay of retryDelays) {
     if (delay) await wait(delay)
     for (const url of catalogUrls()) {
       try {
-        const data = await fetchPriceJson(url, { attempts: 1 })
+        const data = await fetchPriceJson(`${url}${fresh ? '?fresh=1' : ''}`, { attempts: 1 })
         if (!Array.isArray(data?.products) || !Array.isArray(data?.charms) || !Array.isArray(data?.patches)) {
           throw new Error('catalog_invalid')
         }
         cache = data
         failed = false
         if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
+        notify()
         return cache
       } catch (error) {
         console.warn('charme_catalog_load_failed', { url, reason: error.message })
@@ -65,8 +76,9 @@ export async function loadRemoteCatalog() {
   }
   if (authoritativeRuntime()) {
     failed = true
-    cache = EMPTY_REMOTE
+    if (!preserveOnFailure || !cache) cache = EMPTY_REMOTE
     if (typeof globalThis !== 'undefined') globalThis.__CHARME_REMOTE__ = cache
+    notify()
     return cache
   }
 

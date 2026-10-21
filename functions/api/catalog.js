@@ -79,10 +79,10 @@ async function buildShopifyCatalog(env) {
 // under concurrent traffic (THROTTLED → "prices could not be loaded"). So:
 //  - serve a shared edge-cached copy for FRESH_MS (per colo, Cache API),
 //  - coalesce concurrent rebuilds within an isolate,
-//  - and fall back to the last good copy (up to STALE_MS) if Shopify fails.
+//  - fail explicitly if Shopify cannot refresh an expired copy. Serving stale
+//    success responses here can bring deleted decorations back.
 // `?fresh=1` (used by the admin after edits) bypasses the read but refreshes the cache.
 const FRESH_MS = 30_000
-const STALE_MS = 24 * 60 * 60_000
 const CACHE_KEY = 'https://charme-cache.internal/api/catalog/v1'
 let memo = null // { at, data }
 let inflight = null
@@ -104,7 +104,7 @@ async function writeEdge(entry) {
     await edgeCache()?.put(CACHE_KEY, new Response(JSON.stringify(entry.data), {
       headers: {
         'content-type': 'application/json',
-        'cache-control': `public, max-age=${STALE_MS / 1000}`,
+        'cache-control': `public, max-age=${FRESH_MS / 1000}`,
         'x-built-at': String(entry.at),
       },
     }))
@@ -113,7 +113,13 @@ async function writeEdge(entry) {
   }
 }
 
-function rebuild(env, waitUntil) {
+async function rebuild(env, waitUntil, fresh = false) {
+  // An admin read after a mutation must not join a snapshot started before it.
+  if (fresh && inflight) {
+    try { await inflight } catch (error) {
+      console.warn('[Charmé] previous catalog rebuild failed', error.message)
+    }
+  }
   if (!inflight) {
     inflight = buildShopifyCatalog(env)
       .then((data) => {
@@ -143,11 +149,9 @@ export async function onRequestGet({ request, env, waitUntil }) {
       if (cached && now - cached.at <= FRESH_MS) return respond(cached, 'hit')
     }
     try {
-      return respond(await rebuild(env, waitUntil), fresh ? 'bypass' : 'miss')
+      return respond(await rebuild(env, waitUntil, fresh), fresh ? 'bypass' : 'miss')
     } catch (e) {
       console.warn('[Charmé] catalog metaobject read failed', e && e.message)
-      const stale = cached || memo || (await readEdge())
-      if (stale && now - stale.at <= STALE_MS) return respond(stale, 'stale')
       return bad('Could not load the Shopify catalogue', 502)
     }
   }

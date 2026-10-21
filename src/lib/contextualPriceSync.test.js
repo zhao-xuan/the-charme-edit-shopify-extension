@@ -75,6 +75,7 @@ test('global market handoff corrects stale links for every product kind and pres
       api.mutate()
       for (const attribute of ['href', 'data-charme-edit-url']) {
         const result = new URL(attributes[attribute])
+        assert.equal(result.origin, 'https://design.thecharmeedit.com')
         assert.equal(result.searchParams.get('currency'), currency)
         assert.equal(result.searchParams.get('country'), country)
         assert.equal(Number(result.searchParams.get('currency_rate')), rate)
@@ -94,6 +95,25 @@ test('market handoff refreshes rewritten links on native and modified navigation
     api.events[event]({ target: { closest: () => link }, ctrlKey: true, preventDefault: () => assert.fail('Must preserve native navigation') })
     assert.equal(new URL(attributes.href).searchParams.get('currency'), 'USD')
   }
+})
+
+test('custom-domain designer links preserve design and cart context while syncing the market', () => {
+  const api = setupMarketLinks('EUR', 'DE', 1.18)
+  const attributes = {
+    href: 'https://design.thecharmeedit.com/editor/?product=tote-cream-white&variant=123&cart_bridge=1&cart_url=%2Fcart&return_to=%2Fproducts%2Ftote#charme_layout=abc',
+  }
+  api.add(attributes)
+  api.mutate()
+  const result = new URL(attributes.href)
+  assert.equal(result.origin, 'https://design.thecharmeedit.com')
+  assert.equal(result.searchParams.get('currency'), 'EUR')
+  assert.equal(result.searchParams.get('country'), 'DE')
+  assert.equal(result.searchParams.get('product'), 'tote-cream-white')
+  assert.equal(result.searchParams.get('variant'), '123')
+  assert.equal(result.searchParams.get('cart_bridge'), '1')
+  assert.equal(result.searchParams.get('cart_url'), '/cart')
+  assert.equal(result.searchParams.get('return_to'), '/products/tote')
+  assert.equal(result.hash, '#charme_layout=abc')
 })
 
 test('market handoff does not retain stale exchange rates or rewrite unrelated URLs', () => {

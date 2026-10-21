@@ -42,12 +42,13 @@ import {
   asShopifyVariantId,
   chargeLineVariantId,
   decorationVariantId,
+  decorationPriceRequestKey,
   fetchContextualVariantPrices,
   productVariantId,
   hasUnavailablePrices,
 } from '../lib/marketPrices'
 import { API_BASE } from '../lib/apiBase'
-import { remoteCatalogFailed } from '../lib/remoteCatalog'
+import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalog, remoteCatalogFailed } from '../lib/remoteCatalog'
 import { t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
@@ -296,6 +297,33 @@ export default function CustomizerPage({
     () => (['glitter', 'white', 'black'].includes(initialGelColourId) ? initialGelColourId : 'glitter'),
   )
   const [placed, setPlaced] = useState([])
+  const [catalogVersion, setCatalogVersion] = useState(0)
+  useEffect(() => {
+    const unsubscribe = onRemoteCatalogChange(() => setCatalogVersion((version) => version + 1))
+    let refreshing = false
+    let stopped = false
+    const refresh = async () => {
+      if (stopped || refreshing || document.visibilityState === 'hidden') return
+      refreshing = true
+      try {
+        await loadRemoteCatalog({ fresh: false, preserveOnFailure: true })
+      } finally {
+        refreshing = false
+      }
+    }
+    const timer = setInterval(refresh, 30_000)
+    window.addEventListener('focus', refresh)
+    window.addEventListener('pageshow', refresh)
+    document.addEventListener('visibilitychange', refresh)
+    return () => {
+      stopped = true
+      unsubscribe()
+      clearInterval(timer)
+      window.removeEventListener('focus', refresh)
+      window.removeEventListener('pageshow', refresh)
+      document.removeEventListener('visibilitychange', refresh)
+    }
+  }, [])
   const [draftsOpen, setDraftsOpen] = useState(false)
   const [draftName, setDraftName] = useState('')
   const [namedDrafts, setNamedDrafts] = useState([])
@@ -742,11 +770,28 @@ export default function CustomizerPage({
 
   // Tray groups for the active product kind (4 categories for phones, 3 types
   // for totes) + the mobile category dropdown selection.
-  const groups = useMemo(() => trayGroups(product.kind), [product.kind])
+  const groups = useMemo(() => trayGroups(product.kind), [product.kind, catalogVersion])
   const [catKey, setCatKey] = useState(() => trayGroups('phone')[0].key)
   useEffect(() => {
-    if (!groups.some((g) => g.key === catKey)) setCatKey(groups[0].key)
+    if (!groups.some((g) => g.key === catKey)) setCatKey(groups[0]?.key || 'gold')
   }, [groups, catKey])
+
+  useEffect(() => {
+    if (remoteCatalogFailed() || !remoteCatalog()) return
+    const available = (item) => !!itemById(item.charmId)
+    const next = placed.filter(available)
+    let removed = placed.length - next.length
+    for (const side of ['front', 'back']) {
+      const previous = toteSideStash.current[side] || []
+      const kept = previous.filter(available)
+      removed += previous.length - kept.length
+      toteSideStash.current[side] = kept
+    }
+    if (removed) {
+      setPlaced(next)
+      message.warning('Some decorations were removed or hidden by the shop and have been removed from your design.')
+    }
+  }, [catalogVersion, placed, message])
 
   const activePricingItems = useMemo(
     () => groups.find((group) => group.key === catKey)?.items || [],
@@ -755,25 +800,15 @@ export default function CustomizerPage({
   const otherSidePricingItems = product.kind === 'tote'
     ? toteSideStash.current[toteSide === 'front' ? 'back' : 'front'] || []
     : []
-  const selectedPricingKey = [...placed, ...otherSidePricingItems]
-    .map((item) => `${item.charmId || item.id}:${item.shopifyVariantId || ''}`)
-    .sort()
-    .join('|')
-  const decorationRequestKey = `${product.kind}:${catKey}:${selectedPricingKey}`
+  const decorationRequestKey = decorationPriceRequestKey(
+    [...activePricingItems, ...placed, ...otherSidePricingItems],
+    appSettings.charmPricingGroups,
+    marketVariantMap,
+  )
 
   useEffect(() => {
     if (!useMarketPrices) return
-    const selectedItems = product.kind === 'tote'
-      ? toteSideStash.current[toteSide === 'front' ? 'back' : 'front'] || []
-      : []
-    const allItems = [...activePricingItems, ...placed, ...selectedItems]
-    const variantIds = allItems
-      .map((item) => decorationVariantId(item, marketVariantMap))
-      .filter(Boolean)
-    const groupVariantIds = appSettings.charmPricingGroups
-      .map((group) => asShopifyVariantId(marketVariantMap.charmPricingGroups?.[group.id] || group.shopifyVariantId))
-      .filter(Boolean)
-    const requestedIds = [...new Set([...variantIds, ...groupVariantIds])]
+    const requestedIds = decorationRequestKey ? decorationRequestKey.split('|') : []
     const cachedPrices = {}
     const missingIds = []
     for (const id of requestedIds) {
@@ -831,14 +866,7 @@ export default function CustomizerPage({
     marketContextKey,
     marketContext.country,
     marketContext.currency,
-    marketVariantMap,
-    product.kind,
-    toteSide,
-    catKey,
-    activePricingItems,
-    selectedPricingKey,
     decorationRequestKey,
-    appSettings.charmPricingGroups,
     priceRefresh,
   ])
 
@@ -1992,10 +2020,10 @@ export default function CustomizerPage({
                 validation.problems > 0 && tn('price.needAttention', validation.problems),
               ].filter(Boolean).join(' · ')}
             </div>
+            {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
           </div>
 
           <div className="mobile-order-footer">
-          {priceNotice && <div className="mobile-order-price-note" role="status">{priceNotice}</div>}
           <button
             type="button"
             className="mobile-order-bar"

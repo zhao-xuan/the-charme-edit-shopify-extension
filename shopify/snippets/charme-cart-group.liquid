@@ -51,7 +51,8 @@
       if (!value) return;
       try {
         var url = new URL(value, window.location.origin);
-        if (url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
+        if (url.origin !== 'https://design.thecharmeedit.com' && url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
+        url.hostname = 'design.thecharmeedit.com';
         url.searchParams.set('currency', currency);
         url.searchParams.set('country', country);
         if (currency === 'GBP') url.searchParams.set('currency_rate', '1');
@@ -270,7 +271,7 @@
     }
     if (recoveryItems) {
       var designer = document.createElement('a');
-      var destination = new URL('https://charme-customizer.pages.dev/editor');
+      var destination = new URL('https://design.thecharmeedit.com/editor');
       var base = recoveryItems.find(function (item) { return item.properties && item.properties._role !== 'charm'; });
       try {
         var layout = base && base.properties._layout;

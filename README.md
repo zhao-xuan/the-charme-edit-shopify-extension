@@ -63,6 +63,32 @@ reports per-item failures so retrying does not duplicate successful imports.
 Shopify credentials must be configured; this workflow does not write to the
 legacy D1 backend.
 
+### Catalogue deletion and storefront sync
+The live theme opens the designer at `https://design.thecharmeedit.com/editor/`,
+a custom domain bound to the existing Cloudflare Pages project. Phone, tote,
+mobile purchase and cart-edit links must use this host rather than navigating
+to `pages.dev`, which triggers Shopify's external-site confirmation. API calls
+may still use the production Pages origin. The cart market handoff also upgrades
+legacy designer links without changing their query parameters or design hash.
+
+Admin and customer builds use the same API origin (including on Pages previews,
+unless `CharmeConfig.apiBase` explicitly selects another backend). Deleting a
+charm is immediate: no Publish step is required. The admin reports success only
+after Shopify confirms deletion and a fresh catalogue read no longer contains
+the item. This removes the catalogue entry, not the linked Shopify product or
+variant.
+
+Newly opened customizers bypass the catalogue cache. Already-open, visible
+customizers refresh every 30 seconds and on focus/return; with the server's
+30-second cache, changes normally appear within 60 seconds after a successful
+save. Deleted/hidden decorations disappear from the tray and from restored or
+open designs, with a warning when a design changes. Published phone charms are
+authoritative: local admin drafts cannot restore deleted items. If Shopify
+cannot refresh an expired catalogue, the API fails explicitly instead of
+returning an old successful snapshot; checkout remains blocked until recovery.
+Deploy both the standalone and Shopify widget builds for these client-side
+refresh changes to take effect.
+
 ### Charm size studio
 Selecting a charm prepares a tightly cropped transparent cut-out for the live
 size preview, removing plain backgrounds and transparent padding. The size slider
@@ -137,6 +163,14 @@ desktop and mobile. The link restores the selected product, finishes, charm
 positions and typed words, including both tote sides, without relying on local
 browser storage. Opening a backup link does not replace an existing cart design;
 prices are reloaded for the market carried by the link.
+
+### Stable mobile workspace
+Adding or removing a decoration already covered by the current price quote does
+not restart price loading. Quote requests track the distinct Shopify billing
+variants, including both tote sides and pricing groups; market changes and quote
+expiry still trigger fresh confirmation. Mobile validation and price notices
+share a fixed two-line, scrollable status area so updates do not resize the
+preview or move the charm tray.
 
 ## Asset pipeline (`npm run assets`)
 `scripts/process-assets.mjs` downloads real product photography, knocks out the

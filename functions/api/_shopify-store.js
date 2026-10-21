@@ -432,6 +432,9 @@ export async function deleteRecord(env, type, id, opts = {}) {
   const res = await shopifyAdmin(env, M_DELETE, { id: node.id })
   const errs = res.metaobjectDelete.userErrors || []
   if (errs.length) throw new Error(`delete ${type}: ${JSON.stringify(errs)}`)
+  if (res.metaobjectDelete.deletedId !== node.id) {
+    throw new Error(`delete ${type}: Shopify did not confirm deletion`)
+  }
   if (imageIds.length) await fileDelete(env, imageIds)
   return true
 }

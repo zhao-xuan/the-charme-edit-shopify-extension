@@ -16,6 +16,16 @@ export function decorationVariantId(item, variantMap = {}) {
   )
 }
 
+export function decorationPriceRequestKey(items, pricingGroups, variantMap = {}) {
+  const ids = [
+    ...items.map((item) => decorationVariantId(item, variantMap)),
+    ...pricingGroups.map((group) =>
+      asShopifyVariantId(variantMap.charmPricingGroups?.[group.id] || group.shopifyVariantId),
+    ),
+  ]
+  return [...new Set(ids.filter(Boolean))].sort().join('|')
+}
+
 export function chargeLineVariantId(line, variantMap = {}) {
   if (line?.kind === 'group') {
     return asShopifyVariantId(
