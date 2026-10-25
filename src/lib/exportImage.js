@@ -11,6 +11,7 @@
  * on-screen coordinate space so the proof matches the live preview exactly.
  */
 import { resolveAsset } from './assets.js'
+import { productPhotoCrop } from './productPhoto.js'
 
 const DPI = 6 // px per mm
 function roundRect(ctx, x, y, w, h, r) {
@@ -40,12 +41,17 @@ function loadImage(src) {
 
 export function drawProductPhoto(ctx, img, bounds, width, height) {
   if (bounds) {
+    const crop = productPhotoCrop(
+      bounds,
+      img.naturalWidth || img.width || bounds.sourceWidth,
+      img.naturalHeight || img.height || bounds.sourceHeight,
+    )
     ctx.drawImage(
       img,
-      bounds.left,
-      bounds.top,
-      bounds.width,
-      bounds.height,
+      crop.left,
+      crop.top,
+      crop.width,
+      crop.height,
       0,
       0,
       width,
