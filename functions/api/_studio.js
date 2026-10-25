@@ -87,7 +87,10 @@ export async function limitWrites(db,request,shop) {
 export async function getTemplates(db,shop) {
   const {results}=await db.prepare('SELECT id,revision,body FROM studio_templates WHERE shop_id=?').bind(shop).all()
   const saved=new Map(results.map((r) => [r.id,{...JSON.parse(r.body),version:r.revision}]))
-  return PRODUCT_TEMPLATES.map((t) => saved.get(t.id) || structuredClone(t))
+  return PRODUCT_TEMPLATES.map((t) => {
+    const configured=saved.get(t.id)
+    return configured ? {...structuredClone(t),...configured,interaction:t.interaction,slots:structuredClone(t.slots || [])} : structuredClone(t)
+  })
 }
 export async function getTemplate(db,shop,id) { return (await getTemplates(db,shop)).find((t) => t.id===id) }
 export const designId = (id) => {

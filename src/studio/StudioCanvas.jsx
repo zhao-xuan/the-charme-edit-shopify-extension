@@ -18,8 +18,19 @@ export function ProductOutline({surface,fill='#f4eadd'}) {
 
 export function ElementArtwork({element}) {
   const e=element
-  if (e.type==='text') return <text textAnchor="middle" dominantBaseline="central" fontFamily={e.font} fontSize={e.heightMm*.8} textLength={e.widthMm} lengthAdjust="spacingAndGlyphs" fill={e.color}>{e.text}</text>
-  if (e.type==='image') return <image href={e.src} x={-e.widthMm/2} y={-e.heightMm/2} width={e.widthMm} height={e.heightMm}/>
+  if (e.type==='text') {
+    const lines=String(e.text).split('\n')
+    const fontSize=Math.min(e.heightMm/Math.max(1,lines.length)*.8,e.widthMm/Math.max(5,...lines.map((line) => line.length)) * 1.6)
+    return <text textAnchor="middle" fontFamily={e.font} fontSize={fontSize} fill={e.color}>{lines.map((line,i) => <tspan key={i} x="0" y={(i-(lines.length-1)/2)*fontSize*1.2+fontSize*.35}>{line}</tspan>)}</text>
+  }
+  if (e.type==='image') return <image href={e.src} x={-e.widthMm/2} y={-e.heightMm/2} width={e.widthMm} height={e.heightMm} preserveAspectRatio="xMidYMid slice"/>
+  if (e.type==='component') {
+    const w=e.widthMm,h=e.heightMm
+    if (e.slotId==='handle') return <g fill="none" stroke={e.color} strokeWidth={Math.max(4,h*.38)} strokeLinecap="round"><path d={`M${-w*.43} ${h*.28} Q0 ${-h*.85} ${w*.43} ${h*.28}`}/></g>
+    if (e.slotId==='pocket') return <g><rect x={-w/2} y={-h/2} width={w} height={h} rx={Math.min(w,h)*.1} fill={e.color}/>{e.materialId==='quilted-pocket'&&<path d={`M${-w/2} 0L0 ${-h/2}L${w/2} 0L0 ${h/2}Z`} fill="none" stroke="#eee6d9" strokeWidth="2"/>}</g>
+    if (e.slotId==='shell') return <rect x={-w/2} y={-h/2} width={w} height={h} rx="8" fill={e.color}/>
+    return <g><circle r={Math.min(w,h)*.44} fill={e.color}/><circle r={Math.min(w,h)*.27} fill="none" stroke="#fff8eb" strokeWidth="1.5"/></g>
+  }
   const shape=MATERIALS.find((m) => m.id===e.materialId)?.shape
   return <g transform={`scale(${e.widthMm/24} ${e.heightMm/24})`} fill={e.color} dangerouslySetInnerHTML={{__html:motifMarkup(shape)}}/>
 }
