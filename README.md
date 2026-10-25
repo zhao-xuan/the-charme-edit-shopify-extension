@@ -127,6 +127,14 @@ so a 3.2 cm shell looks correctly large on a 7.8 cm phone and correctly small on
 38 cm tote. Collision and boundary maths run in mm (`src/lib/geometry.js`,
 oriented-bounding-box SAT + rounded-rect containment), independent of zoom.
 
+Phone photo crop coordinates are calibrated to the source canvas in
+`src/data/official-phone-case-image-bounds.json`. The stage and order proofs use
+the same normalized crop, including when a CDN serves resized artwork. When
+replacing artwork, update its crop and camera keep-out together. iPhone XR's
+current black/white 1024 × 1536 images share the shell crop
+`left=104, top=210, width=816, height=1131`; the old 823-pixel-wide calibration
+must not be reused. Existing flattened order proofs do not update automatically.
+
 ### Validation
 All products have no upper limit on charm or patch quantity, including repeated
 picks of legacy flat-price bundle charms. Minimum order quantities still apply;

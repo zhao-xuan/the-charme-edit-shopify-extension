@@ -7,7 +7,7 @@ test('drawProductPhoto crops reviewed transparent canvases before scaling', () =
   const calls = []
   const ctx = { drawImage: (...args) => calls.push(args) }
   const image = { id: 'samsung-case' }
-  const bounds = { left: 535, top: 35, width: 464, height: 954 }
+  const bounds = { sourceWidth: 1536, sourceHeight: 1024, left: 535, top: 35, width: 464, height: 954 }
 
   drawProductPhoto(ctx, image, bounds, 466, 980)
 
@@ -22,4 +22,14 @@ test('drawProductPhoto preserves the existing full-image path without bounds', (
   drawProductPhoto(ctx, image, undefined, 466, 980)
 
   assert.deepEqual(calls, [[image, 0, 0, 466, 980]])
+})
+
+test('drawProductPhoto uses the same normalized crop as the stage when CDN dimensions change', () => {
+  const calls = []
+  const image = { naturalWidth: 1024, naturalHeight: 1536 }
+  const bounds = { sourceWidth: 512, sourceHeight: 768, left: 52, top: 105, width: 408, height: 565.5 }
+
+  drawProductPhoto({ drawImage: (...args) => calls.push(args) }, image, bounds, 454, 905)
+
+  assert.deepEqual(calls, [[image, 104, 210, 816, 1131, 0, 0, 454, 905]])
 })

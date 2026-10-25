@@ -12,6 +12,7 @@ import { DeleteOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
+import { productPhotoStyle } from '../lib/productPhoto'
 import { t } from '../lib/i18n'
 
 const PAD = 18
@@ -351,14 +352,7 @@ const ProductStage = forwardRef(function ProductStage(
       null,
   )
   const blankPhotoBounds = product.caseImageBounds?.[color.id]
-  const blankPhotoCropStyle = blankPhotoBounds ? {
-    width: wPx * blankPhotoBounds.sourceWidth / blankPhotoBounds.width,
-    height: hPx * blankPhotoBounds.sourceHeight / blankPhotoBounds.height,
-    left: -wPx * blankPhotoBounds.left / blankPhotoBounds.width,
-    top: -hPx * blankPhotoBounds.top / blankPhotoBounds.height,
-    right: 'auto',
-    bottom: 'auto',
-  } : null
+  const blankPhotoCropStyle = blankPhotoBounds ? productPhotoStyle(blankPhotoBounds) : null
   const totePhotoBounds = product.kind === 'tote' ? product.toteBodyBounds?.[color.toteSide || 'front'] : null
   const totePhotoStyle = totePhotoBounds ? (() => {
     const body = product.printable.outer

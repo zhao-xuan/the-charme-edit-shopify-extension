@@ -1,10 +1,13 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { measuredCameraKeepout } from './appleCameraKeepouts.js'
 
 const IPHONE_7_FRACTIONS = { x: 0.074, y: 0.032, w: 0.201, h: 0.102 }
 const IPHONE_7_PLUS_FRACTIONS = { x: 0.063, y: 0.028, w: 0.45, h: 0.093 }
-const IPHONE_XR_FRACTIONS = { x: 0.054, y: 0.035, w: 0.252, h: 0.208 }
+const IPHONE_XR_FRACTIONS = JSON.parse(
+  readFileSync(new URL('../data/camera-keepouts.json', import.meta.url), 'utf8'),
+)['iphone-xr']
 
 test('iPhone 7 uses its measured single-camera keep-out', () => {
   const camera = measuredCameraKeepout(
@@ -49,6 +52,6 @@ test('iPhone XR uses its cropped-source camera keep-out', () => {
 
   assert.deepEqual(
     { xMm: camera.xMm, yMm: camera.yMm, wMm: camera.wMm, hMm: camera.hMm },
-    { xMm: 4.1, yMm: 5.3, wMm: 19.1, hMm: 31.4 },
+    { xMm: 5.3, yMm: 4.5, wMm: 15.5, hMm: 30.2 },
   )
 })
