@@ -214,7 +214,9 @@ test('a stale link or cart currency is replaced by the currency Shopify returns 
   assert.match(source, /adoptMarketCurrency\(country, currency, error\.actualCurrency\)/)
   assert.match(source, /adoptMarketCurrency\(marketContext\.country, marketContext\.currency, error\.actualCurrency\)/)
   const cartLinks = readFileSync(new URL('../../shopify/snippets/cart-products.liquid', import.meta.url), 'utf8')
-  for (const link of cartLinks.match(/https:\/\/charme-customizer\.pages\.dev\/editor\?[^\n]+/g)) {
+  const editorLinks = cartLinks.match(/https:\/\/design\.thecharmeedit\.com\/editor\/?\?[^\n]+/g) || []
+  assert.ok(editorLinks.length > 0, 'Expected designer links on the current storefront design domain')
+  for (const link of editorLinks) {
     assert.match(link, /&country=\{\{ charme_country/)
   }
 })
