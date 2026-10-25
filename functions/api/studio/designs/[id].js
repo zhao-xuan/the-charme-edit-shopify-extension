@@ -2,11 +2,11 @@ import { normalizeDesign,validateDesign } from '../../../../src/studio/model.js'
 import { route,onStudioOptions,studioShop,studioDb,readBody,getTemplate,getDesign,designAccess,publicDesign,validated,StudioError,limitWrites } from '../../_studio.js'
 export const onRequestOptions=onStudioOptions
 export const onRequestGet=route(async ({request,env,params}) => {
-  const row=await getDesign(await studioDb(env),studioShop(env,request),params.id)
+  const db=await studioDb(env),shop=await studioShop(env,request,db),row=await getDesign(db,shop,params.id)
   await designAccess(request,env,row);return publicDesign(row)
 })
 export const onRequestPatch=route(async ({request,env,params}) => {
-  const db=await studioDb(env),shop=studioShop(env,request),row=await getDesign(db,shop,params.id)
+  const db=await studioDb(env),shop=await studioShop(env,request,db),row=await getDesign(db,shop,params.id)
   await designAccess(request,env,row)
   const body=await readBody(request)
   if (row.state==='submitted' && body.action==='submit' && body.revision===row.revision-1) return publicDesign(row)

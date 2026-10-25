@@ -12,6 +12,9 @@ const editorRoute = {
     const studioDir = resolve(process.cwd(), 'dist/studio')
     await mkdir(studioDir, { recursive: true })
     await copyFile(resolve(process.cwd(), 'dist/index.html'), resolve(studioDir, 'index.html'))
+    const shopifyDir = resolve(process.cwd(), 'dist/shopify')
+    await mkdir(shopifyDir, { recursive: true })
+    await copyFile(resolve(process.cwd(), 'dist/index.html'), resolve(shopifyDir, 'index.html'))
   },
 }
 

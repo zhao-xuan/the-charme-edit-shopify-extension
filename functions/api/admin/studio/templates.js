@@ -2,15 +2,15 @@ import { normalizeTemplate } from '../../../../src/studio/model.js'
 import { route,onStudioOptions,studioShop,studioDb,studioAdmin,readBody,getTemplates,validated,StudioError } from '../../_studio.js'
 export const onRequestOptions=onStudioOptions
 export const onRequestGet=route(async ({request,env}) => {
-  await studioAdmin(request,env)
-  return {templates:await getTemplates(await studioDb(env),studioShop(env,request))}
+  const db=await studioDb(env),shop=await studioAdmin(request,env,db)
+  return {templates:await getTemplates(db,shop)}
 })
 export const onRequestPost=route(async ({request,env}) => {
-  await studioAdmin(request,env)
+  const db=await studioDb(env),shop=await studioAdmin(request,env,db)
   const body=await readBody(request,50000), template=validated(() => normalizeTemplate(body.template))
   const expected=Number(body.revision)
   if (!Number.isInteger(expected) || expected<1) throw new StudioError('模板版本无效。')
-  const db=await studioDb(env),shop=studioShop(env,request),now=new Date().toISOString()
+  const now=new Date().toISOString()
   // First persisted seed is revision 2. Concurrent edits use compare-and-swap.
   const existing=await db.prepare('SELECT revision FROM studio_templates WHERE shop_id=? AND id=?').bind(shop,template.id).first()
   if ((existing?.revision || 1)!==expected) throw new StudioError('模板已被更新，请刷新后重试。',409)

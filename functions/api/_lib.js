@@ -37,6 +37,8 @@ export async function verifyShopifySessionToken(token, env) {
   const [h, p, sig] = parts
   let payload
   try {
+    const header = JSON.parse(new TextDecoder().decode(b64urlToBytes(h)))
+    if (header.alg !== 'HS256' || (header.typ && header.typ !== 'JWT')) return null
     const key = await crypto.subtle.importKey(
       'raw', new TextEncoder().encode(secret),
       { name: 'HMAC', hash: 'SHA-256' }, false, ['verify'],
@@ -50,10 +52,9 @@ export async function verifyShopifySessionToken(token, env) {
     return null
   }
   const now = Math.floor(Date.now() / 1000)
-  if (payload.exp && now >= Number(payload.exp)) return null
-  if (payload.nbf && now < Number(payload.nbf) - 5) return null
-  // aud must be this app's API key (client id) when we know it.
-  if (env.SHOPIFY_CLIENT_ID && payload.aud && payload.aud !== env.SHOPIFY_CLIENT_ID) return null
+  if (!Number.isFinite(Number(payload.exp)) || now >= Number(payload.exp)) return null
+  if (!Number.isFinite(Number(payload.nbf)) || now < Number(payload.nbf) - 5) return null
+  if (!env.SHOPIFY_CLIENT_ID || payload.aud !== env.SHOPIFY_CLIENT_ID) return null
   return payload
 }
 
@@ -67,7 +68,10 @@ export async function requireAdmin(request, env) {
   const token = auth.replace(/^Bearer\s+/i, '')
   if (!token) return false
   if (env.ADMIN_TOKEN && token === env.ADMIN_TOKEN) return true
-  if (await verifyShopifySessionToken(token, env)) return true
+  const claims = await verifyShopifySessionToken(token, env)
+  // The legacy catalogue is a single-store tool. Other installed merchants
+  // must only use the tenant-scoped Studio endpoints.
+  if (claims && env.SHOPIFY_STORE && claims.dest === `https://${env.SHOPIFY_STORE}` && claims.iss === `https://${env.SHOPIFY_STORE}/admin`) return true
   return false
 }
 
@@ -298,4 +302,3 @@ export async function fileDelete(env, ids) {
     console.warn('[Charmé] fileDelete failed', e && e.message)
   }
 }
-

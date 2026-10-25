@@ -1,6 +1,6 @@
 # Multi-category product studio
 
-`/studio/` starts with five shared editing workflows, then lets the customer choose a product within that workflow. There are 25 product templates across eight production processes. The existing case/tote/frame editor remains at `/editor/`, and merchant configuration and review are under `/admin?tab=studio`.
+`/studio/` starts with five shared editing workflows, then lets the customer choose a product within that workflow. There are 25 product templates across eight production processes. The existing case/tote/frame editor remains at `/editor/`. Public Shopify merchants configure and review Studio designs at `/shopify/`; the old single-store backend remains at `/admin?tab=studio`.
 
 | Workflow | Editing model | Example products |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ The editor supports multiple surfaces, undo/redo, local recovery, a downloadable
 
 ## Deployment and configuration
 
-The Cloudflare Pages project is `charme-customizer` and uses the existing `DB` D1 binding. Studio tables are created on first request by Pages Functions. Production requires `SHOPIFY_STORE` (a single `*.myshopify.com` shop), the existing Shopify Admin token mechanism, and either the existing `ADMIN_TOKEN` or Shopify App Bridge session credentials. For cross-origin embedding, set `STUDIO_ALLOWED_ORIGINS` to an explicit comma-separated allowlist. The studio is same-origin by default. Do not enable a template before production measurements and fulfillment are ready.
+The Cloudflare Pages project is `charme-customizer` and uses the existing `DB` D1 binding. Studio and installation tables are created on first request by Pages Functions. Public merchants enter through the embedded `/shopify/` route: Shopify App Bridge session tokens are exchanged for encrypted, expiring offline tokens, and every Studio request is scoped to its installed `*.myshopify.com` store. Production also requires `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`, and a 32-byte base64 `SHOPIFY_TOKEN_KEY` secret. The existing `SHOPIFY_STORE` and `ADMIN_TOKEN` continue to serve the single-store legacy editor. For cross-origin embedding, set `STUDIO_ALLOWED_ORIGINS` to an explicit comma-separated allowlist. The studio is same-origin by default. Do not enable a template before production measurements and fulfillment are ready.
 
 Run `npm test`, `npm run build`, and `npm run build:shopify` before release. `npm run deploy` publishes the Pages build. Confirm `/studio/` and `/api/studio/templates` on the production domain after deployment. The studio does not change Shopify app extensions or automatically publish Shopify app configuration.
 
@@ -28,6 +28,6 @@ Run `npm test`, `npm run build`, and `npm run build:shopify` before release. `np
 - Embroidery stitch digitization (DST/PES), engraving machine paths, outlined fonts, and supplier-certified print files. Downloaded SVG is for **review only**.
 - Merchant-certified sizes, print color profiles, material SKUs, stock, component compatibility, labor pricing, and final Shopify variants for each of the 25 templates.
 - Automated order-paid webhooks, material reservation, fulfillment, and refunds. The design ID in the Shopify cart lets staff retrieve the approved design manually.
-- Multi-store isolation and OAuth installation. This backend is scoped to one configured shop; it is not yet a public App Store application.
+- Shopify Partner listing, legal/support pages, two-store install/uninstall/webhook testing and reviewer-ready demonstrations. The multi-store installation code is present, but still needs live verification before App Store submission.
 
 Production readiness for a category requires merchant calibration, supplier file validation, complete variant pricing, and an end-to-end checkout and fulfillment rehearsal. Enabling the generic template alone does not satisfy these checks.

@@ -2,10 +2,16 @@ import { adminAuthHeaders } from '../lib/adminApi.js'
 
 // Studio lives alongside its own Pages Functions; never silently write a preview to production.
 const base = () => typeof window !== 'undefined' ? String(window.CharmeConfig?.studioApiBase || '').replace(/\/$/,'') : ''
+export function studioPath(path, search = typeof window !== 'undefined' ? window.location.search : '') {
+  const url = new URL(path, 'https://studio.invalid')
+  const shop = new URLSearchParams(search).get('shop')
+  if (shop) url.searchParams.set('shop', shop)
+  return `${url.pathname}${url.search}`
+}
 async function request(path, {method='GET',body,secret,admin=false}={}) {
   const headers=admin ? await adminAuthHeaders() : {'content-type':'application/json'}
   if (secret) headers.authorization=`Design ${secret}`
-  const response=await fetch(`${base()}${path}`,{method,headers,cache:'no-store',...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)})
+  const response=await fetch(`${base()}${studioPath(path)}`,{method,headers,cache:'no-store',...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)})
   const result=await response.json().catch(() => ({error:'后端尚未启动或返回格式不正确。'}))
   if (!response.ok || result.error) throw new Error(result.error || '请求失败。')
   return result
@@ -18,6 +24,7 @@ export const studioApi = {
   save:(record,secret,document,action='save') => request(`/api/studio/designs/${record.id}`,{method:'PATCH',secret,body:{revision:record.revision,document,action}}),
   requests:(before) => request(`/api/admin/studio/requests${before?`?before=${encodeURIComponent(before)}`:''}`,{admin:true}),
   review:(body) => request('/api/admin/studio/requests',{method:'POST',body,admin:true}),
+  variants:(q) => request(`/api/admin/studio/variants?q=${encodeURIComponent(q)}`,{admin:true}),
   quote:(record,secret,country) => request('/api/studio/checkout',{method:'POST',secret,body:{id:record.id,revision:record.revision,country}}),
 }
 export function designCredentials() {

@@ -1,4 +1,5 @@
 import { getShopifyToken } from '../_lib.js'
+import { installedShopToken } from '../_shopify_install.js'
 import { route,onStudioOptions,studioShop,studioDb,readBody,getDesign,designAccess,StudioError } from '../_studio.js'
 
 export const STUDIO_QUOTE_QUERY = `query StudioQuote($id: ID!, $country: CountryCode!) {
@@ -10,7 +11,7 @@ export const STUDIO_QUOTE_QUERY = `query StudioQuote($id: ID!, $country: Country
 }`
 export const onRequestOptions=onStudioOptions
 export const onRequestPost=route(async ({request,env}) => {
-  const body=await readBody(request,5000),shop=studioShop(env,request),row=await getDesign(await studioDb(env),shop,body.id)
+  const body=await readBody(request,5000),db=await studioDb(env),shop=await studioShop(env,request,db),row=await getDesign(db,shop,body.id)
   await designAccess(request,env,row)
   const review=JSON.parse(row.review)
   if (row.state!=='reviewed' || !review.productionConfirmed || !/^\d{8,20}$/.test(review.variantId || '')) throw new StudioError('商家尚未确认制作或绑定最终整件商品。',409)
@@ -19,7 +20,7 @@ export const onRequestPost=route(async ({request,env}) => {
   const country=String(body.country || '').toUpperCase()
   if (!/^[A-Z]{2}$/.test(country)) throw new StudioError('请选择收货国家 / 市场。')
   const response=await fetch(`https://${shop}/admin/api/2026-07/graphql.json`,{
-    method:'POST',headers:{'content-type':'application/json','x-shopify-access-token':await getShopifyToken(env)},
+    method:'POST',headers:{'content-type':'application/json','x-shopify-access-token':shop===env.SHOPIFY_STORE ? await getShopifyToken(env) : await installedShopToken(db,shop,env)},
     body:JSON.stringify({query:STUDIO_QUOTE_QUERY,variables:{id:`gid://shopify/ProductVariant/${review.variantId}`,country}}),
     signal:AbortSignal.timeout(10000),
   })

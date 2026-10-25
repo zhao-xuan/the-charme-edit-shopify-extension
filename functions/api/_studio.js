@@ -1,5 +1,6 @@
 import { PRODUCT_TEMPLATES } from '../../src/studio/templates.js'
 import { verifyShopifySessionToken } from './_lib.js'
+import { SHOP_DOMAIN, installedShop, installationsDb, shopFromClaims } from './_shopify_install.js'
 
 export class StudioError extends Error { constructor(message, status=400) { super(message); this.status=status } }
 export const corsHeaders = (request, env) => {
@@ -29,20 +30,32 @@ export function route(fn) {
 }
 export const onStudioOptions = route(() => ({}))
 
-export function studioShop(env, request) {
-  if (/^[a-z0-9][a-z0-9-]*\.myshopify\.com$/.test(env.SHOPIFY_STORE || '')) return env.SHOPIFY_STORE
+export async function studioShop(env, request, db) {
+  const requested = new URL(request.url).searchParams.get('shop')
+  if (requested) {
+    if (!SHOP_DOMAIN.test(requested)) throw new StudioError('商店域名无效。',400)
+    if (requested === env.SHOPIFY_STORE || await installedShop(db, requested)) return requested
+    throw new StudioError('该商店尚未安装应用。',403)
+  }
+  if (SHOP_DOMAIN.test(env.SHOPIFY_STORE || '')) return env.SHOPIFY_STORE
   if (['localhost','127.0.0.1','[::1]'].includes(new URL(request.url).hostname)) return 'local-development'
-  throw new StudioError('尚未配置此商店的工作室后端。',503)
+  throw new StudioError('请从已安装的 Shopify 商店打开工作室。',400)
 }
-export async function studioAdmin(request,env) {
+export async function studioAdmin(request,env,db) {
   const auth=request.headers.get('authorization') || ''
   if (!auth.startsWith('Bearer ')) throw new StudioError('请通过商家后台登录。',401)
   const token=auth.slice(7)
-  if (env.ADMIN_TOKEN && token===env.ADMIN_TOKEN) return true
+  if (env.ADMIN_TOKEN && token===env.ADMIN_TOKEN && SHOP_DOMAIN.test(env.SHOPIFY_STORE || '')) {
+    const requested=new URL(request.url).searchParams.get('shop')
+    if (requested && requested!==env.SHOPIFY_STORE) throw new StudioError('商家身份或商店不匹配。',403)
+    return env.SHOPIFY_STORE
+  }
   const claims=await verifyShopifySessionToken(token,env)
-  const shop=studioShop(env,request)
-  if (!claims || !claims.exp || !claims.nbf || claims.aud!==env.SHOPIFY_CLIENT_ID || claims.dest!==`https://${shop}` || claims.iss!==`https://${shop}/admin`) throw new StudioError('商家身份或商店不匹配。',401)
-  return true
+  const shop=shopFromClaims(claims,env)
+  if (!shop || (shop!==env.SHOPIFY_STORE && !await installedShop(db,shop))) throw new StudioError('商家身份或商店不匹配。',401)
+  const requested=new URL(request.url).searchParams.get('shop')
+  if (requested && requested!==shop) throw new StudioError('商家身份或商店不匹配。',403)
+  return shop
 }
 export async function readBody(request,limit=1_000_000) {
   if (!request.headers.get('content-type')?.includes('application/json')) throw new StudioError('请求需要 JSON。',415)
@@ -72,6 +85,7 @@ export const STUDIO_SCHEMA = [
 export async function studioDb(env) {
   if (!env.DB) throw new StudioError('设计存储尚未配置（需要 D1 DB）。',503)
   await env.DB.batch(STUDIO_SCHEMA.map((sql) => env.DB.prepare(sql)))
+  await installationsDb(env)
   return env.DB
 }
 export async function digest(value) {
@@ -104,7 +118,11 @@ export async function getDesign(db,shop,id) {
 }
 export async function designAccess(request,env,row) {
   const auth=request.headers.get('authorization') || ''
-  if (auth.startsWith('Bearer ')) return studioAdmin(request,env)
+  if (auth.startsWith('Bearer ')) {
+    const shop=await studioAdmin(request,env,await studioDb(env))
+    if (shop!==row.shop_id) throw new StudioError('未找到设计或没有访问权限。',404)
+    return
+  }
   const secret=auth.startsWith('Design ') ? auth.slice(7) : ''
   if (!/^[0-9a-f]{64}$/.test(secret) || await digest(secret)!==row.secret_hash) throw new StudioError('未找到设计或没有访问权限。',404)
 }

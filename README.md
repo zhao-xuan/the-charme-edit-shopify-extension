@@ -1,5 +1,13 @@
 # The Charmé Edit — Charm Customizer
 
+> **Public Shopify app track (2026-10-25):** The new [Product Studio](doc/product-studio.md)
+> uses five shared editing workflows across 25 product templates. The Shopify
+> app configuration at the repository root publishes the Product Studio theme
+> block and embedded merchant home. The original charm editor and Shopify
+> widget below remain as single-store legacy code. See the
+> [release readiness checklist](shopify/APP_STORE_READINESS.zh-CN.md) before
+> configuring or submitting the public app.
+
 An interactive customizer for **charm phone cases & canvas totes**, inspired by
 [thecharmeedit.com](https://thecharmeedit.com). Customers drag real charms onto a
 true-to-scale product, the app checks for overlaps and off-product placement in
@@ -12,7 +20,8 @@ Two builds live in this repo:
 | Build | Folder | What it is |
 |------|--------|-----------|
 | **Standalone app** | `src/` | React + Vite + Ant Design app you iterate on with `npm run dev`. |
-| **Shopify embed** | `shopify/` | The same customizer bundled as a Shopify **theme app extension** that adds finished designs to the cart. |
+| **Legacy Shopify widget** | `shopify/` and `public/widget/` | Single-store charm customizer retained for the existing shop. |
+| **Public Shopify Studio** | `src/studio/`, `functions/api/studio/`, `extensions/charme-customizer-theme/` | Five editing workflows, merchant review and a theme app block. |
 
 ---
 

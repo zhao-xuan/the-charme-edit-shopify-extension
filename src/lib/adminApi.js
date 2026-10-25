@@ -43,7 +43,8 @@ async function bearer() {
     await waitForAppBridge()
     try {
       if (window.shopify?.idToken) return await window.shopify.idToken()
-    } catch { /* fall through to manual token */ }
+    } catch { /* fail closed below */ }
+    throw new Error('Shopify 身份验证不可用，请从商家后台重新打开应用。')
   }
   return getToken()
 }
