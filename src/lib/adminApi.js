@@ -11,9 +11,9 @@ import { API_BASE } from './apiBase.js'
 const url = (path) => `${API_BASE}${path}`
 
 export const getToken = () =>
-  (typeof localStorage !== 'undefined' && localStorage.getItem(TOKEN_KEY)) || ''
+  (typeof localStorage !== 'undefined' && typeof localStorage.getItem === 'function' && localStorage.getItem(TOKEN_KEY)) || ''
 export const setToken = (t) => {
-  if (typeof localStorage !== 'undefined') {
+  if (typeof localStorage !== 'undefined' && typeof localStorage.setItem === 'function' && typeof localStorage.removeItem === 'function') {
     if (t) localStorage.setItem(TOKEN_KEY, t)
     else localStorage.removeItem(TOKEN_KEY)
   }
@@ -52,6 +52,9 @@ const authHeaders = async () => ({
   'content-type': 'application/json',
   authorization: `Bearer ${await bearer()}`,
 })
+
+// Reuse the established App Bridge / internal admin authentication for new tools.
+export const adminAuthHeaders = authHeaders
 
 async function handle(res) {
   if (!res.ok) {

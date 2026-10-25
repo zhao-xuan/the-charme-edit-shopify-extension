@@ -16,8 +16,11 @@ async function boot() {
   const root = document.getElementById('root')
   if (!root) return
   try {
-    await Promise.all([loadRemoteCatalog(), loadSettings()])
-    const { default: App } = await import('./App.jsx')
+    const studioRoute = location.pathname.startsWith('/studio')
+    if (!studioRoute) await Promise.all([loadRemoteCatalog(), loadSettings()])
+    const { default: App } = studioRoute
+      ? await import('./studio/StudioPage.jsx')
+      : await import('./App.jsx')
     ReactDOM.createRoot(root).render(
       <React.StrictMode>
         <ConfigProvider theme={theme}>

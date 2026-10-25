@@ -9,6 +9,9 @@ const editorRoute = {
     const editorDir = resolve(process.cwd(), 'dist/editor')
     await mkdir(editorDir, { recursive: true })
     await copyFile(resolve(process.cwd(), 'dist/index.html'), resolve(editorDir, 'index.html'))
+    const studioDir = resolve(process.cwd(), 'dist/studio')
+    await mkdir(studioDir, { recursive: true })
+    await copyFile(resolve(process.cwd(), 'dist/index.html'), resolve(studioDir, 'index.html'))
   },
 }
 
