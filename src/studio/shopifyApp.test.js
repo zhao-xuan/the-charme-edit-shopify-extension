@@ -3,10 +3,13 @@ import assert from 'node:assert/strict'
 import { createHmac } from 'node:crypto'
 import { verifyShopifySessionToken, requireAdmin } from '../../functions/api/_lib.js'
 import { shopFromClaims, installShop, installedShopToken } from '../../functions/api/_shopify_install.js'
-import { studioShop, studioAdmin, StudioError } from '../../functions/api/_studio.js'
+import { studioShop, studioAdmin, StudioError, publishedCustomizer, digest } from '../../functions/api/_studio.js'
 import { verifyWebhook } from '../../functions/webhooks/shopify.js'
 import { studioPath } from './api.js'
 import { studioCartPermalink } from '../lib/storefrontCart.js'
+import { onRequestPost as createCustomizer, onRequestPatch as updateCustomizer, onRequestDelete as deleteCustomizer } from '../../functions/api/admin/studio/customizers.js'
+import { PRODUCT_TEMPLATES } from './templates.js'
+import { onRequestDelete as deleteDesign } from '../../functions/api/studio/designs/[id].js'
 
 const env = { SHOPIFY_CLIENT_ID: 'public-app', SHOPIFY_CLIENT_SECRET: 'secret', SHOPIFY_STORE: 'owner.myshopify.com' }
 const now = () => Math.floor(Date.now() / 1000)
@@ -38,6 +41,68 @@ test('Studio resolves installed tenants and rejects cross-shop admin access', as
   await assert.rejects(studioShop(env, request('missing.myshopify.com', jwt()), db), (error) => error instanceof StudioError && error.status === 403)
   assert.equal(await studioAdmin(request('other.myshopify.com', jwt()), env, db), 'other.myshopify.com')
   await assert.rejects(studioAdmin(request('owner.myshopify.com', jwt()), env, db), (error) => error instanceof StudioError && error.status === 403)
+})
+
+test('a public customizer link only resolves a published row from its own shop', async () => {
+  const id = 'bd246d8a-efb0-4cd8-84bb-39e244a74326'
+  const rows = new Map([
+    [`owner.myshopify.com:${id}`, { id, template_id: 'phone-case-print', name: 'Owner design', status: 'published' }],
+  ])
+  const customizersDb = { prepare: () => ({ bind: (shop, key) => ({ first: async () => rows.get(`${shop}:${key}`) || null }) }) }
+  assert.deepEqual(await publishedCustomizer(customizersDb,'owner.myshopify.com',id), { id, templateId: 'phone-case-print', name: 'Owner design', status: 'published' })
+  await assert.rejects(publishedCustomizer(customizersDb,'other.myshopify.com',id), (error) => error instanceof StudioError && error.status === 404)
+  rows.get(`owner.myshopify.com:${id}`).status = 'draft'
+  // D1's status predicate prevents a draft from being served.
+  const publishedOnlyDb = { prepare: () => ({ bind: (shop,key) => ({ first: async () => rows.get(`${shop}:${key}`)?.status === 'published' ? rows.get(`${shop}:${key}`) : null }) }) }
+  await assert.rejects(publishedCustomizer(publishedOnlyDb,'owner.myshopify.com',id), (error) => error instanceof StudioError && error.status === 404)
+})
+
+test('merchant cannot publish a customizer until its template is calibrated and enabled', async () => {
+  const id = 'f8acc976-f048-4db3-a1b6-157772534960'
+  let template = null, customizer = null
+  const store = { batch: async () => [], prepare(sql) { return {
+    bind(...args) { return {
+      async all() { return { results: template ? [{ id: template.id, revision: 2, body: JSON.stringify(template) }] : [] } },
+      async first() { return sql.includes('FROM studio_customizers') ? customizer : null },
+      async run() {
+        if (sql.includes('INSERT OR IGNORE INTO studio_customizers')) customizer = { shop_id: args[0], id: args[1], template_id: args[2], name: args[3], status: 'draft', created_at: args[4], updated_at: args[5] }
+        if (sql.includes('UPDATE studio_customizers')) customizer = { ...customizer, name: args[0], status: args[1], updated_at: args[2] }
+        if (sql.includes('DELETE FROM studio_customizers')) customizer = null
+        return { meta: { changes: 1 } }
+      },
+    } },
+    async run() { return { meta: { changes: 1 } } },
+  } } }
+  const merchantEnv = { ...env, ADMIN_TOKEN: 'legacy-admin', DB: store }
+  const call = (fn, method, body) => fn({ env: merchantEnv, request: new Request('https://studio.example/api/admin/studio/customizers', { method, headers: { authorization: 'Bearer legacy-admin', 'content-type': 'application/json' }, body: JSON.stringify(body) }) })
+  const created = await call(createCustomizer,'POST',{ id, templateId: PRODUCT_TEMPLATES[0].id, name: 'Demo' })
+  assert.equal(created.status,200)
+  const blocked = await call(updateCustomizer,'PATCH',{ id, status: 'published' })
+  assert.equal(blocked.status,409)
+  template = { ...PRODUCT_TEMPLATES[0], calibrated: true, enabled: true }
+  const published = await call(updateCustomizer,'PATCH',{ id, status: 'published' })
+  assert.equal(published.status,200)
+  assert.equal((await published.json()).customizer.status,'published')
+  const deletedWhileLive = await deleteCustomizer({ env: merchantEnv, request: new Request(`https://studio.example/api/admin/studio/customizers?id=${id}`, { method:'DELETE', headers:{ authorization:'Bearer legacy-admin' } }) })
+  assert.equal(deletedWhileLive.status,409)
+  assert.equal((await call(updateCustomizer,'PATCH',{ id, status:'draft' })).status,200)
+  const deleted = await deleteCustomizer({ env: merchantEnv, request: new Request(`https://studio.example/api/admin/studio/customizers?id=${id}`, { method:'DELETE', headers:{ authorization:'Bearer legacy-admin' } }) })
+  assert.equal(deleted.status,200)
+  assert.equal(customizer,null)
+})
+
+test('submitted designs need merchant authority for deletion', async () => {
+  const id='ee8a562c-93f6-4ae7-a493-bb2d523b7089', secret='a'.repeat(64)
+  let row={shop_id:'owner.myshopify.com',id,secret_hash:await digest(secret),state:'submitted'}
+  const store={batch:async () => [],prepare(sql){return {
+    bind(){return {first:async () => sql.includes('SELECT * FROM studio_designs') ? row : null,run:async () => {if(sql.includes('DELETE FROM studio_designs'))row=null;return {meta:{changes:1}}}}},
+    run:async () => ({meta:{changes:1}}),
+  }}}
+  const merchantEnv={...env,ADMIN_TOKEN:'legacy-admin',DB:store}
+  const call=(authorization) => deleteDesign({env:merchantEnv,params:{id},request:new Request(`https://studio.example/api/studio/designs/${id}?shop=owner.myshopify.com`,{method:'DELETE',headers:{authorization}})})
+  assert.equal((await call(`Design ${secret}`)).status,409)
+  assert.equal((await call('Bearer legacy-admin')).status,200)
+  assert.equal(row,null)
 })
 
 test('webhook HMAC authenticates the raw body', async () => {

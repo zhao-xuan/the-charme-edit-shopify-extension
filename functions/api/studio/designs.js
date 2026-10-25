@@ -1,5 +1,5 @@
 import { normalizeDesign } from '../../../src/studio/model.js'
-import { route,onStudioOptions,studioShop,studioDb,readBody,getTemplate,designId,digest,limitWrites,designAccess,publicDesign,validated,StudioError } from '../_studio.js'
+import { route,onStudioOptions,studioShop,studioDb,readBody,getTemplate,publishedCustomizer,designId,digest,limitWrites,designAccess,publicDesign,validated,StudioError } from '../_studio.js'
 export const onRequestOptions=onStudioOptions
 export const onRequestPost=route(async ({request,env}) => {
   const body=await readBody(request), id=designId(body.id),db=await studioDb(env),shop=await studioShop(env,request,db)
@@ -10,8 +10,10 @@ export const onRequestPost=route(async ({request,env}) => {
   await limitWrites(db,request,shop)
   const template=await getTemplate(db,shop,body.document?.templateId)
   if (!template) throw new StudioError('品类不存在。',404)
+  const customizer=body.customizerId ? await publishedCustomizer(db,shop,body.customizerId) : null
+  if (customizer && customizer.templateId!==template.id) throw new StudioError('定制器与商品模板不匹配。',400)
   const document=validated(() => normalizeDesign(body.document,template)),now=new Date().toISOString()
-  const row={shop_id:shop,id,secret_hash:await digest(secret),revision:1,state:'draft',body:JSON.stringify({document,template}),review:'{}',created_at:now,updated_at:now}
+  const row={shop_id:shop,id,secret_hash:await digest(secret),revision:1,state:'draft',body:JSON.stringify({document,template,customizerId:customizer?.id || null}),review:'{}',created_at:now,updated_at:now}
   const inserted=await db.prepare('INSERT OR IGNORE INTO studio_designs(shop_id,id,secret_hash,revision,state,body,review,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)').bind(...[row.shop_id,row.id,row.secret_hash,1,'draft',row.body,'{}',now,now]).run()
   if (!inserted.meta?.changes) {
     const concurrent=await db.prepare('SELECT * FROM studio_designs WHERE shop_id=? AND id=?').bind(shop,id).first()

@@ -5,18 +5,20 @@
 ## 本次代码已经覆盖
 
 - Shopify-managed installation：嵌入式 App Bridge session token 经签名、aud、有效期和商店域名校验后，交换**可刷新的 expiring offline token**；令牌用 AES-GCM 加密存入 D1，按商店隔离。
-- `/shopify/` 商家入口：安装验证后标定 25 个商品模板；五套交互逻辑复用；审核设计并搜索/绑定本店 Shopify 变体。模板默认禁用，未经实物标定不会接收制作申请。
-- Theme App Extension：商家在主题编辑器加 Product Studio App Block；按钮打开对应商店的 `/studio/?shop=...`，可指定模板 ID。公开扩展只包括 Studio，不把旧单店手机壳/包包 widget 和 cart transform 带给新商家。
+- `/shopify/` 商家入口：New Customizer、My Customizer、Setting、Subscription、Analytics 五个 tab；按店创建、发布/下架定制器；标定 25 个商品模板、审核设计并绑定本店 Shopify 变体。模板默认禁用，未经实物标定不会发布。
+- Theme App Extension：商家在主题编辑器加 Product Studio App Block，填入已发布 Customizer ID；未填 ID 时不会在店面展示空入口。公开扩展只包括 Studio，不把旧单店手机壳/包包 widget 和 cart transform 带给新商家。
 - Studio 的公开设计、审核队列、模板和报价按 `shop_id` 隔离。旧目录后台的 App Bridge 身份只接受旧店，避免新商家访问旧店商品资料。
 - 卸载及 Shopify 必需隐私 webhook：原始请求体 HMAC 校验、卸载时撤销本地令牌、`shop/redact` 删除该店 Studio 数据。匿名设计不记录 Shopify customer ID/email，因此 customer data request/redact 没有可按客户 ID 定位的记录；如用户在自由文本/图片中写入个人资料，仍需通过设计链接或客服流程处理。
 - Shopify Admin GraphQL 使用 `read_products` 读取商家选定变体及当前市场报价；付款仍经商家原生 Shopify 购物车。
+- 新 Analytics 沿用旧报表布局，但按店记录 Studio 匿名事件于 D1；“handoff”不代表已支付订单。Subscription 使用 Shopify 托管计划页与可选 Partner API `activeSubscription`，不在应用中创建收费。
+- 已提供 `/privacy/` 和 `/terms/` 静态页面，需补真实法律主体与正式法务审阅；详细发布/演示/迁移步骤见 [LAUNCH_PLAN.zh-CN.md](./LAUNCH_PLAN.zh-CN.md)。
 
 ## 尚未完成，不能宣称“已可提审”
 
 1. **运行环境**：在 Cloudflare Pages 生产环境设置 `SHOPIFY_CLIENT_ID`（须等于根目录配置的 client_id）、`SHOPIFY_CLIENT_SECRET`、`SHOPIFY_TOKEN_KEY`（32 个随机字节的 base64，例：`openssl rand -base64 32`）、D1 `DB`。保留 `SHOPIFY_STORE`、`ADMIN_TOKEN` 只用于旧店后台。部署本次 Pages 代码；再单独发布 Shopify app version（配置与 Theme App Extension）。这些操作尚未执行。
 2. **真实安装与端到端**：在两家 Shopify development stores 安装，验证授权/刷新、跨店隔离、主题 App Block、五套交互、模板标定、制作申请、变体报价、加入购物车、下单、卸载、隐私 webhook。当前只有本地自动化测试与前端构建，不能代替商店联调。
 3. **商业与履约范围**：此版为“商家人工确认制作能力再报价”的工作流。3D 是参数化预览；机器刀路、刺绣针法、量产 3D 模型、供应商物料库存与订单履约自动化尚未实现。商品模板和材料必须由商家标定，审核者也需要有可体验的已标定演示商品。若 listing 承诺自动生产或自动履约，会与产品实际能力不符。
-4. **隐私与客服**：提供真实主体的隐私政策、服务条款、客服邮箱、数据保留/删除流程，并在 Partner Dashboard 填写；应给匿名设计提供客服协助删除流程。当前代码只完成按店删除，未提供自助设计删除或按 Shopify customer ID 导出/删除自由文本和图片。
+4. **隐私与客服**：静态政策与条款已写，但真实经营主体、地址、法域未确认；需要法务审阅并在 Partner Dashboard 填写。草稿可由持有私密链接者删除，商家可删除制作申请；但匿名设计尚不能按 Shopify customer ID 自动导出/删除自由文本和图片，客服需凭设计 ID 处理。
 5. **上架资料与审核**：完成 App Store listing、截图/视频、演示商店及登录资料、定价方案、审核说明，按 Shopify 最新要求检查。正式提审由 Partner Dashboard 完成，审核通过时间由 Shopify 决定。
 6. **旧店迁移风险**：根配置复用现有 client ID，但公开版只请求 `read_products` 且不发布旧 cart transform/widget。直接发布这个 Shopify app version 可能改变旧店授权和已添加的主题块。必须先在开发店验证，并决定旧店迁移或为公开版创建独立 Shopify app/client ID；若采用新 ID，还需同步更新根配置、App Bridge meta key 和 Pages secrets。
 

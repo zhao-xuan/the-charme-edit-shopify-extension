@@ -1,13 +1,19 @@
 {%- assign studio_url = 'https://charme-customizer.pages.dev/studio/?shop=' | append: shop.permanent_domain -%}
-{%- if block.settings.template_id != blank -%}
+{%- if block.settings.customizer_id != blank -%}
+  {%- assign customizer_id = block.settings.customizer_id | strip | url_encode -%}
+  {%- assign studio_url = studio_url | append: '&customizer=' | append: customizer_id -%}
+{%- elsif block.settings.template_id != blank -%}
   {%- assign template_id = block.settings.template_id | strip | url_encode -%}
   {%- assign studio_url = studio_url | append: '&template=' | append: template_id -%}
 {%- endif -%}
 <div class="charme-studio-block" {{ block.shopify_attributes }}>
+  {%- if block.settings.customizer_id != blank or block.settings.template_id != blank -%}
   <a class="charme-studio-button" href="{{ studio_url | escape }}" target="_blank" rel="noopener noreferrer">
     {{ block.settings.button_label | escape }} <span aria-hidden="true">↗</span>
   </a>
   {%- if block.settings.description != blank -%}<p>{{ block.settings.description | escape }}</p>{%- endif -%}
+  {%- elsif request.design_mode -%}<p>Add a published Customizer ID in this block's settings.</p>
+  {%- endif -%}
 </div>
 <style>
   .charme-studio-block{text-align:{{ block.settings.button_align }};margin:1rem 0}
@@ -18,11 +24,12 @@
 {% schema %}
 {
   "name": "Product Studio",
-  "target": "section",
+  "target": "content",
   "settings": [
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Customize this product" },
     { "type": "text", "id": "description", "label": "Short description", "default": "Design your product in the studio. A maker will review your request before checkout." },
-    { "type": "text", "id": "template_id", "label": "Studio template ID (optional)", "info": "Leave blank to show the five customization workflows." },
+    { "type": "text", "id": "customizer_id", "label": "Published Customizer ID", "info": "Copy from My Customizer. Only a published customizer can accept production requests." },
+    { "type": "text", "id": "template_id", "label": "Legacy template ID (optional)", "info": "For existing blocks only. New setups should use a Published Customizer ID." },
     { "type": "select", "id": "button_align", "label": "Button alignment", "default": "center", "options": [
       { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }
     ] }

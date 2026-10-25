@@ -18,13 +18,26 @@ async function request(path, {method='GET',body,secret,admin=false}={}) {
 }
 export const studioApi = {
   templates:() => request('/api/studio/templates'),
+  adminTemplates:() => request('/api/admin/studio/templates',{admin:true}),
+  publishedCustomizer:(id) => request(`/api/studio/customizers/${encodeURIComponent(id)}`),
+  customizers:() => request('/api/admin/studio/customizers',{admin:true}),
+  createCustomizer:(body) => request('/api/admin/studio/customizers',{method:'POST',body,admin:true}),
+  updateCustomizer:(body) => request('/api/admin/studio/customizers',{method:'PATCH',body,admin:true}),
+  deleteCustomizer:(id) => request(`/api/admin/studio/customizers?id=${encodeURIComponent(id)}`,{method:'DELETE',admin:true}),
   saveTemplate:(template) => request('/api/admin/studio/templates',{method:'POST',body:{template,revision:template.version},admin:true}),
-  create:(id,secret,document) => request('/api/studio/designs',{method:'POST',secret,body:{id,document}}),
+  create:(id,secret,document,customizerId) => request('/api/studio/designs',{method:'POST',secret,body:{id,document,customizerId}}),
   load:(id,secret,admin=false) => request(`/api/studio/designs/${encodeURIComponent(id)}`,{secret,admin}),
   save:(record,secret,document,action='save') => request(`/api/studio/designs/${record.id}`,{method:'PATCH',secret,body:{revision:record.revision,document,action}}),
+  deleteDesign:(id,secret,admin=false) => request(`/api/studio/designs/${encodeURIComponent(id)}`,{method:'DELETE',secret,admin}),
   requests:(before) => request(`/api/admin/studio/requests${before?`?before=${encodeURIComponent(before)}`:''}`,{admin:true}),
   review:(body) => request('/api/admin/studio/requests',{method:'POST',body,admin:true}),
   variants:(q) => request(`/api/admin/studio/variants?q=${encodeURIComponent(q)}`,{admin:true}),
+  analytics:(days) => request(`/api/admin/studio/analytics?days=${days}`,{admin:true}),
+  subscription:() => request('/api/admin/studio/subscription',{admin:true}),
+  track:(event,sessionId,templateId,device,materialIds=[]) => request('/api/studio/analytics',{method:'POST',body:{event,sessionId,templateId,device,materialIds}}),
+  trackBeacon:(event,sessionId,templateId,device) => {
+    try {navigator.sendBeacon(`${base()}${studioPath('/api/studio/analytics')}`,new Blob([JSON.stringify({event,sessionId,templateId,device})],{type:'application/json'}))} catch { /* analytics must never block cart navigation */ }
+  },
   quote:(record,secret,country) => request('/api/studio/checkout',{method:'POST',secret,body:{id:record.id,revision:record.revision,country}}),
 }
 export function designCredentials() {

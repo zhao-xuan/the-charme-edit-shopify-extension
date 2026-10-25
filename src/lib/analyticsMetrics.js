@@ -30,6 +30,10 @@ export function aggregateAnalytics(records) {
     trayExpansions: 0,
     sideSwitches: 0,
     blockedOrderAttempts: 0,
+    designSaves: 0,
+    productionRequests: 0,
+    quoteRequests: 0,
+    cartHandoffs: 0,
   }
 
   for (const record of sessions) {

@@ -10,7 +10,7 @@ export const corsHeaders = (request, env) => {
   if (env.SHOPIFY_STORE) allowed.add(`https://${env.SHOPIFY_STORE}`)
   if (origin && !allowed.has(origin)) throw new StudioError('此来源尚未启用产品工作室。',403)
   return { ...(origin ? {'access-control-allow-origin':origin} : {}), vary:'Origin',
-    'access-control-allow-methods':'GET,POST,PATCH,OPTIONS', 'access-control-allow-headers':'authorization,content-type',
+    'access-control-allow-methods':'GET,POST,PATCH,DELETE,OPTIONS', 'access-control-allow-headers':'authorization,content-type',
     'cache-control':'no-store', 'x-content-type-options':'nosniff' }
 }
 export const studioJson = (data, status=200, headers={}) => new Response(JSON.stringify(data), {status,headers:{'content-type':'application/json; charset=utf-8',...headers}})
@@ -81,6 +81,10 @@ export const STUDIO_SCHEMA = [
   'CREATE TABLE IF NOT EXISTS studio_designs (shop_id TEXT NOT NULL,id TEXT NOT NULL,secret_hash TEXT NOT NULL,revision INTEGER NOT NULL,state TEXT NOT NULL,body TEXT NOT NULL,review TEXT NOT NULL DEFAULT \'{}\',created_at TEXT NOT NULL,updated_at TEXT NOT NULL,PRIMARY KEY(shop_id,id))',
   'CREATE INDEX IF NOT EXISTS studio_design_queue ON studio_designs(shop_id,state,updated_at)',
   'CREATE TABLE IF NOT EXISTS studio_limits (bucket TEXT PRIMARY KEY,count INTEGER NOT NULL,expires INTEGER NOT NULL)',
+  'CREATE TABLE IF NOT EXISTS studio_customizers (shop_id TEXT NOT NULL,id TEXT NOT NULL,template_id TEXT NOT NULL,name TEXT NOT NULL,status TEXT NOT NULL,created_at TEXT NOT NULL,updated_at TEXT NOT NULL,PRIMARY KEY(shop_id,id))',
+  'CREATE INDEX IF NOT EXISTS studio_customizers_shop ON studio_customizers(shop_id,status,updated_at)',
+  'CREATE TABLE IF NOT EXISTS studio_analytics (shop_id TEXT NOT NULL,session_id TEXT NOT NULL,started_at TEXT NOT NULL,last_seen_at TEXT NOT NULL,data TEXT NOT NULL,PRIMARY KEY(shop_id,session_id))',
+  'CREATE INDEX IF NOT EXISTS studio_analytics_shop_date ON studio_analytics(shop_id,started_at)',
 ]
 export async function studioDb(env) {
   if (!env.DB) throw new StudioError('设计存储尚未配置（需要 D1 DB）。',503)
@@ -92,9 +96,10 @@ export async function digest(value) {
   const hash=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value))
   return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2,'0')).join('')
 }
-export async function limitWrites(db,request,shop) {
-  const now=Date.now(), bucket=await digest(`${shop}:${request.headers.get('CF-Connecting-IP') || 'local'}:${Math.floor(now/60000)}`)
-  const result=await db.prepare('INSERT INTO studio_limits(bucket,count,expires) VALUES (?,1,?) ON CONFLICT(bucket) DO UPDATE SET count=count+1 WHERE count<30').bind(bucket,now+120000).run()
+export async function limitWrites(db,request,shop,kind='design') {
+  const now=Date.now(), bucket=await digest(`${kind}:${shop}:${request.headers.get('CF-Connecting-IP') || 'local'}:${Math.floor(now/60000)}`)
+  const ceiling=kind==='analytics'?120:30
+  const result=await db.prepare('INSERT INTO studio_limits(bucket,count,expires) VALUES (?,1,?) ON CONFLICT(bucket) DO UPDATE SET count=count+1 WHERE count<?').bind(bucket,now+120000,ceiling).run()
   if (!result.meta?.changes) throw new StudioError('保存过于频繁，请一分钟后重试。',429)
   await db.prepare('DELETE FROM studio_limits WHERE bucket IN (SELECT bucket FROM studio_limits WHERE expires<? LIMIT 100)').bind(now).run()
 }
@@ -110,6 +115,12 @@ export async function getTemplate(db,shop,id) { return (await getTemplates(db,sh
 export const designId = (id) => {
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id || '')) throw new StudioError('设计编号无效。')
   return id
+}
+export const customizerId = designId
+export async function publishedCustomizer(db,shop,id) {
+  const row=await db.prepare("SELECT id,template_id,name,status FROM studio_customizers WHERE shop_id=? AND id=? AND status='published'").bind(shop,customizerId(id)).first()
+  if (!row) throw new StudioError('这个定制器尚未发布或不存在。',404)
+  return {id:row.id,templateId:row.template_id,name:row.name,status:row.status}
 }
 export async function getDesign(db,shop,id) {
   const row=await db.prepare('SELECT * FROM studio_designs WHERE shop_id=? AND id=?').bind(shop,designId(id)).first()

@@ -34,6 +34,8 @@ export async function onRequestPost({ request, env }) {
       await db.batch([
         db.prepare('DELETE FROM studio_designs WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM studio_templates WHERE shop_id=?').bind(shop),
+        db.prepare('DELETE FROM studio_customizers WHERE shop_id=?').bind(shop),
+        db.prepare('DELETE FROM studio_analytics WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM shopify_installations WHERE shop_id=?').bind(shop),
       ])
     }

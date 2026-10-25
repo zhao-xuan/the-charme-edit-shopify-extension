@@ -16,6 +16,7 @@ const interactionLabels = {
   undoCount: 'Undo actions', clearCount: 'Clear all actions', zoomActions: 'Zoom actions',
   trayExpansions: 'Tray expansions', sideSwitches: 'Tote side switches', blockedOrderAttempts: 'Blocked purchase attempts',
 }
+const studioInteractionLabels = { productSelections:'Product selections', designSaves:'Design saves', productionRequests:'Production requests', quoteRequests:'Shopify quotes', cartHandoffs:'Cart handoffs' }
 
 function Metric({ title, value, suffix, note }) {
   return (
@@ -26,7 +27,7 @@ function Metric({ title, value, suffix, note }) {
   )
 }
 
-export default function AnalyticsTab() {
+export default function AnalyticsTab({ fetchReport = fetchAnalytics, studio = false }) {
   const [days, setDays] = useState(30)
   const [report, setReport] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -37,7 +38,7 @@ export default function AnalyticsTab() {
     let alive = true
     setLoading(true)
     setError('')
-    fetchAnalytics(days)
+    fetchReport(days)
       .then((data) => alive && setReport(data))
       .catch((err) => alive && setError(err?.message || 'Could not load analytics'))
       .finally(() => alive && setLoading(false))
@@ -48,8 +49,8 @@ export default function AnalyticsTab() {
   const funnel = totals ? [
     { label: 'Customizer sessions', value: totals.sessions },
     { label: 'Started decorating', value: totals.decoratedSessions },
-    { label: 'Viewed order summary', value: totals.summaryViews },
-    { label: 'Clicked purchase', value: totals.purchaseClicks },
+    { label: studio ? 'Submitted for review' : 'Viewed order summary', value: totals.summaryViews },
+    { label: studio ? 'Requested Shopify quote' : 'Clicked purchase', value: totals.purchaseClicks },
     { label: 'Sent to Shopify', value: totals.checkoutSuccesses },
   ] : []
   const funnelMax = Math.max(1, totals?.sessions || 0)
@@ -60,7 +61,7 @@ export default function AnalyticsTab() {
       <div className="analytics-toolbar">
         <div>
           <h2>Customizer analytics</h2>
-          <p>Privacy-safe session summaries stored in your Shopify metaobjects.</p>
+          <p>{studio ? '匿名工作室会话摘要，按商店隔离并存储在应用数据库。' : 'Privacy-safe session summaries stored in your Shopify metaobjects.'}</p>
         </div>
         <Space>
           <Segmented value={days} onChange={setDays} options={[{ label: '7 days', value: 7 }, { label: '30 days', value: 30 }, { label: '90 days', value: 90 }]} />
@@ -73,7 +74,7 @@ export default function AnalyticsTab() {
       <Alert
         type="info"
         showIcon
-        message="Conversion means a successful handoff to Shopify cart or checkout. Paid-order conversion requires Shopify order webhooks."
+        message={studio ? '“Shopify handoff”只表示顾客点击进入购物车；实际支付订单需要订单 Webhook 才能确认。' : 'Conversion means a successful handoff to Shopify cart or checkout. Paid-order conversion requires Shopify order webhooks.'}
       />
       {error && <Alert type="error" showIcon message="Analytics unavailable" description={error} />}
 
@@ -82,10 +83,10 @@ export default function AnalyticsTab() {
           <>
             <div className="analytics-kpis">
               <Metric title="Customizer sessions" value={totals.sessions} note={`${totals.decoratedSessions} started decorating`} />
-              <Metric title="Purchase click rate" value={totals.purchaseClickRate} suffix="%" note={`${totals.purchaseClicks} clicks`} />
+              <Metric title={studio ? 'Shopify quote rate' : 'Purchase click rate'} value={totals.purchaseClickRate} suffix="%" note={`${totals.purchaseClicks} ${studio ? 'quotes' : 'clicks'}`} />
               <Metric title="Shopify handoff rate" value={totals.conversionRate} suffix="%" note={`${totals.checkoutSuccesses} successful handoffs`} />
-              <Metric title="Average decoration time" value={duration(totals.averageDecorationSeconds)} note="Active, visible time after first decoration" />
-              <Metric title="Click completion" value={totals.checkoutCompletionRate} suffix="%" note="Successful handoffs after purchase click" />
+              <Metric title={studio ? 'Time after first save' : 'Average decoration time'} value={duration(totals.averageDecorationSeconds)} note={studio ? 'Approximate elapsed time; not active editing time' : 'Active, visible time after first decoration'} />
+              <Metric title={studio ? 'Quote to cart' : 'Click completion'} value={totals.checkoutCompletionRate} suffix="%" note={studio ? 'Cart handoffs after a quote' : 'Successful handoffs after purchase click'} />
               <Metric title="Average final decorations" value={totals.averageFinalDecorations} note={`Average session time ${duration(totals.averageSessionSeconds)}`} />
             </div>
 
@@ -156,7 +157,7 @@ export default function AnalyticsTab() {
 
             <Card title="Customizer activity" size="small">
               <div className="analytics-activity">
-                {Object.entries(interactionLabels).map(([key, label]) => (
+                {Object.entries(studio ? studioInteractionLabels : interactionLabels).map(([key, label]) => (
                   <div key={key}><span>{label}</span><strong>{report.interactions?.[key] || 0}</strong></div>
                 ))}
               </div>

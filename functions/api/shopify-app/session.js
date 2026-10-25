@@ -3,7 +3,7 @@ import { installShop } from '../../_shopify_install.js'
 export async function onRequestPost({ request, env }) {
   try {
     const shop = await installShop(request, env)
-    return Response.json({ shop, installed: true }, { headers: { 'cache-control': 'no-store' } })
+    return Response.json({ shop, installed: true, clientId: env.SHOPIFY_CLIENT_ID }, { headers: { 'cache-control': 'no-store' } })
   } catch (error) {
     console.error('[shopify-install]', error.message)
     const unauthorized = error.message === 'Invalid Shopify session token'
