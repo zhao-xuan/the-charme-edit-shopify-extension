@@ -30,7 +30,7 @@ test('mobile totes omit the redundant Patches category switch without hiding the
   assert.match(source, /<div className="mobile-tray-body">\s*\{product\.kind === 'tote' && patchDiscountNotice\}\s*\{mobileTray\}/)
 })
 
-test('mobile price and validation notices share a permanently reserved status area', () => {
+test('mobile status area collapses when empty and only reserves space for actual notices on all products', () => {
   const source = readFileSync(new URL('../customizer/CustomizerPage.jsx', import.meta.url), 'utf8')
   const status = source.slice(
     source.indexOf('            <div className="mobile-order-requirements"'),
@@ -38,11 +38,15 @@ test('mobile price and validation notices share a permanently reserved status ar
   )
   assert.match(status, /role="status"/)
   assert.doesNotMatch(status, /\bhidden=/)
+  assert.match(status, /!validation\.ok &&/)
+  assert.doesNotMatch(status, /product\.kind === 'tote' &&/)
   assert.match(status, /className="mobile-order-price-note"[^]*<\/div>}\s*<\/div>\s*<\/div>/)
 
   const css = readFileSync(new URL('../styles.css', import.meta.url), 'utf8')
   const rule = css.match(/\.mobile-order-requirements\s*\{([^}]+)\}/)[1]
-  assert.match(rule, /(?:^|\n)\s*height: calc\(2\.8em \+ 10px\)/)
+  assert.doesNotMatch(rule, /(?:^|\n)\s*(?:min-)?height:/)
+  assert.match(rule, /max-height: calc\(2\.8em \+ 10px\)/)
   assert.match(rule, /flex: 0 0 auto/)
   assert.match(rule, /overflow-y: auto/)
+  assert.match(css.match(/\.mobile-order-requirements:empty\s*\{([^}]+)\}/)[1], /display: none/)
 })

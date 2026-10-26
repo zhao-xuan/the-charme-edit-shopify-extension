@@ -195,8 +195,9 @@ Adding or removing a decoration already covered by the current price quote does
 not restart price loading. Quote requests track the distinct Shopify billing
 variants, including both tote sides and pricing groups; market changes and quote
 expiry still trigger fresh confirmation. Mobile validation and price notices
-share a fixed two-line, scrollable status area so updates do not resize the
-preview or move the charm tray.
+share a content-sized status area, capped at two scrollable lines. On all product
+pages, the area collapses completely when empty, leaving more room for browsing
+decorations above the cart button without resizing the preview.
 
 ## Asset pipeline (`npm run assets`)
 `scripts/process-assets.mjs` downloads real product photography, knocks out the

@@ -1870,14 +1870,16 @@ body.charme-no-select * {
   .mobile-order-requirements {
     box-sizing: border-box;
     flex: 0 0 auto;
-    /* Price refreshes and validation changes must not resize the preview. */
-    height: calc(2.8em + 10px);
+    max-height: calc(2.8em + 10px);
     overflow-y: auto;
     padding: 5px 12px;
     color: #9f2f12;
     font-size: 12px;
     line-height: 1.4;
     text-align: center;
+  }
+  .mobile-order-requirements:empty {
+    display: none;
   }
   .mobile-order-price-note {
     color: var(--ink-soft);
