@@ -39,6 +39,8 @@ npm run dev         # http://localhost:5173
 On mobile, the charm selector starts at 42% of the workspace so customers can
 browse complete charm rows immediately. Drag the divider to adjust the preview
 and selector balance.
+Mobile totes show the patch collections directly without a redundant
+single-option "Patches" category switch.
 
 ### Import / sync Shopify decorations
 In Merchant Admin → Decorations → Charms or Patches, use **Import / sync Shopify

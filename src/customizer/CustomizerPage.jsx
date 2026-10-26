@@ -1956,18 +1956,20 @@ export default function CustomizerPage({
                   <span>{t(product.kind === 'tote' ? 'step2.mobileTitleTote' : 'step2.mobileTitle')}</span>
                   <InfoCircleOutlined className="mobile-step-overlay__chevron" />
                 </button>
-                <div className="mobile-cat-bar">
-                  <Segmented
-                    size="small"
-                    className="mobile-cat-seg"
-                    value={catKey}
-                    onChange={(value) => {
-                      analytics.track('category_changed')
-                      setCatKey(value)
-                    }}
-                    options={categoryOptions}
-                  />
-                </div>
+                {product.kind !== 'tote' && (
+                  <div className="mobile-cat-bar">
+                    <Segmented
+                      size="small"
+                      className="mobile-cat-seg"
+                      value={catKey}
+                      onChange={(value) => {
+                        analytics.track('category_changed')
+                        setCatKey(value)
+                      }}
+                      options={categoryOptions}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

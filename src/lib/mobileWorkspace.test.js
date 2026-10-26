@@ -23,6 +23,13 @@ test('mobile category tabs fit their labels and retain a constrained scroll wrap
   assert.match(wrapper, /overflow-x: auto/)
 })
 
+test('mobile totes omit the redundant Patches category switch without hiding the patch tray', () => {
+  const source = readFileSync(new URL('../customizer/CustomizerPage.jsx', import.meta.url), 'utf8')
+  assert.match(source, /product\.kind !== 'tote' && \(\s*<div className="mobile-cat-bar">/)
+  assert.match(source, /t\(product\.kind === 'tote' \? 'step2\.mobileTitleTote' : 'step2\.mobileTitle'\)/)
+  assert.match(source, /<div className="mobile-tray-body">\s*\{product\.kind === 'tote' && patchDiscountNotice\}\s*\{mobileTray\}/)
+})
+
 test('mobile price and validation notices share a permanently reserved status area', () => {
   const source = readFileSync(new URL('../customizer/CustomizerPage.jsx', import.meta.url), 'utf8')
   const status = source.slice(
