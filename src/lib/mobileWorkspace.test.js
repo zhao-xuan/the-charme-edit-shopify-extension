@@ -2,6 +2,15 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
 
+test('mobile charm selector reserves a visible browsing area on first load and remains resizable', () => {
+  const source = readFileSync(new URL('../customizer/CustomizerPage.jsx', import.meta.url), 'utf8')
+  const css = readFileSync(new URL('../styles.css', import.meta.url), 'utf8')
+  assert.match(source, /\[trayPct, setTrayPct\] = useState\(42\)/)
+  assert.match(source, /className="mobile-tray" style=\{\{ flexBasis: `\$\{trayPct\}%` \}\}/)
+  assert.match(css.match(/\.mobile-tray\s*\{([^}]+)\}/)[1], /flex: 0 1 42%/)
+  assert.match(source, /setTrayPct\(clamp\(\+pct\.toFixed\(1\), 12, 78\)\)/)
+})
+
 test('mobile category tabs fit their labels and retain a constrained scroll wrapper', () => {
   const css = readFileSync(new URL('../styles.css', import.meta.url), 'utf8')
   const tabs = css.match(/\.mobile-cat-seg\s*\{([^}]+)\}/)[1]

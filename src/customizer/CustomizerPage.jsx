@@ -370,9 +370,9 @@ export default function CustomizerPage({
 
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
-  // trade preview space for browsing space and back. Defaults small so the case
-  // preview fills ~60% of the screen; drag the splitter up for more browsing.
-  const [trayPct, setTrayPct] = useState(14)
+  // trade preview space for browsing space and back. Show complete charm rows
+  // by default rather than requiring customers to discover the splitter first.
+  const [trayPct, setTrayPct] = useState(42)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
   const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(false)

@@ -1664,7 +1664,7 @@ body.charme-no-select * {
     50% { transform: translate(-50%, 17px); }
   }
   .mobile-tray {
-    flex: 0 1 28%;
+    flex: 0 1 42%;
     min-height: 0;
     display: flex;
     flex-direction: column;

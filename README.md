@@ -36,6 +36,10 @@ npm run dev         # http://localhost:5173
 - **Customise** tab — the customer experience.
 - **Merchant studio** tab — charm intake (upload → background removal → measure → export).
 
+On mobile, the charm selector starts at 42% of the workspace so customers can
+browse complete charm rows immediately. Drag the divider to adjust the preview
+and selector balance.
+
 ### Import / sync Shopify decorations
 In Merchant Admin → Decorations → Charms or Patches, use **Import / sync Shopify
 variants**. First enter an optional naming-rule keyword (case-insensitive,
