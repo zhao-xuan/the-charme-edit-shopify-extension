@@ -531,7 +531,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   const cy = charm.cyMm * scale
   const rot = charm.rot || 0
   const charmRadius = Math.hypot(w, h) / 2
-  const R = Math.max(44, charmRadius + 26)
+  const R = Math.max(36, charmRadius + 16)
   const size = R * 2 + 48
   const c = size / 2
   const svgRef = useRef(null)

@@ -9,7 +9,7 @@ test('rotation drag target follows the enlarged arrow arc, not the full ring or 
   const hit = component.match(/<path\s+className="charm-dial__hit"([\s\S]*?)\/>/)
   assert.ok(hit)
   assert.match(hit[1], /d=\{arc\}/)
-  assert.match(component, /Math\.max\(44, charmRadius \+ 26\)/)
+  assert.match(component, /Math\.max\(36, charmRadius \+ 16\)/)
   assert.match(component, /const halfArc = 50 \* Math\.PI \/ 180/)
   assert.doesNotMatch(component, /<circle[^]*?className="charm-dial__thumb"/)
   assert.match(styles, /\.charm-dial__hit\s*\{[^}]*stroke-width:\s*44[^}]*pointer-events:\s*stroke/s)
