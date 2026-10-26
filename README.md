@@ -222,6 +222,16 @@ npm run build:shopify   # Shopify widget bundle into the extension
 ```
 
 ## Shopify
+The iPhone Duo black/white cutouts can be reproduced with
+`node scripts/import-iphone-duo.mjs [source-directory]`. The catalog uses Apple's
+[folded dimensions](https://www.apple.com/iphone-duo/specs/) (84.1 × 117.8 mm),
+with a measured horizontal camera keep-out; the images retain their original
+phone colours and remove only the border-connected background.
+With the existing Shopify environment configured, run
+`node --env-file=.env scripts/publish-iphone-duo.mjs --apply` to upload both
+finishes and bind only Duo to its existing sellable base variant and live price.
+Use `--verify` instead to check the publication without changing the store.
+
 Merchant Admin's **Import / sync Shopify variants** requires either a fresh
 Shopify embedded session or the existing standalone admin token. Outside Shopify,
 enter that token in the sync dialog (or Admin header); Shopify login is not

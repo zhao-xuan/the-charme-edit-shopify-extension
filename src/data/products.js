@@ -61,6 +61,7 @@ const GEL_REP = {
   'iphone-17-pro-max': '17promax', 'iphone-18-pro-max': '17promax', 'iphone-air': 'air',
 }
 function gelOverlaySrc(id) {
+  if (id === 'iphone-duo') return null
   const rep = GEL_REP[id] || '17'
   return { white: `/assets/cases/gel-alone/gel-${rep}-white.png`, black: `/assets/cases/gel-alone/gel-${rep}-black.png` }
 }
@@ -76,7 +77,7 @@ const PLAIN_IPHONE_MODELS = new Set([
   'iphone-15', 'iphone-15-plus', 'iphone-15-pro', 'iphone-15-pro-max',
   'iphone-16', 'iphone-16-plus', 'iphone-16-pro', 'iphone-16-pro-max',
   'iphone-17', 'iphone-17-pro', 'iphone-17-pro-max',
-  'iphone-18-pro', 'iphone-18-pro-max', 'iphone-air',
+  'iphone-18-pro', 'iphone-18-pro-max', 'iphone-air', 'iphone-duo',
 ])
 function applyPlainIphoneCase(product) {
   if (!PLAIN_IPHONE_MODELS.has(product.id)) return product
@@ -383,6 +384,7 @@ const IPHONES = [
   ['iphone-17-pro-max', 'iPhone 17 Pro Max', 80.6, 166, 'bar', 50],
   ['iphone-18-pro', 'iPhone 18 Pro', 73.1, 151.4, 'bar', 48],
   ['iphone-18-pro-max', 'iPhone 18 Pro Max', 79.1, 164.4, 'bar', 50],
+  ['iphone-duo', 'iPhone Duo', 84.1, 117.8, 'bar', 26],
   ['iphone-17e', 'iPhone 17e', 71.5, 146.7, 'single', 46],
   // Case-outer footprint (bare 74.7×156.2 + ~3mm silicone wall) to match the
   // case-outer basis used by the rest of the line, so charms stay the same real

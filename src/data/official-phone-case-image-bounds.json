@@ -1,4 +1,22 @@
 {
+  "iphone-duo": {
+    "black": {
+      "sourceWidth": 392,
+      "sourceHeight": 544,
+      "left": 4,
+      "top": 4,
+      "width": 384,
+      "height": 536
+    },
+    "white": {
+      "sourceWidth": 392,
+      "sourceHeight": 544,
+      "left": 4,
+      "top": 4,
+      "width": 384,
+      "height": 536
+    }
+  },
   "iphone-xr": {
     "black": {
       "sourceWidth": 1024,

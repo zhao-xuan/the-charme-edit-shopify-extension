@@ -55,3 +55,12 @@ test('iPhone XR uses its cropped-source camera keep-out', () => {
     { xMm: 5.3, yMm: 4.5, wMm: 15.5, hMm: 30.2 },
   )
 })
+
+test('iPhone Duo protects its horizontal dual-camera island at the official folded size', () => {
+  const fractions = JSON.parse(readFileSync(new URL('../data/camera-keepouts.json', import.meta.url), 'utf8'))['iphone-duo']
+  const camera = measuredCameraKeepout({ widthMm: 84.1, heightMm: 117.8, camera: { kind: 'bar' } }, fractions)
+  assert.deepEqual(
+    { x: camera.xMm, y: camera.yMm, width: camera.wMm, height: camera.hMm },
+    { x: 3.8, y: 2.9, width: 58.9, height: 28.3 },
+  )
+})

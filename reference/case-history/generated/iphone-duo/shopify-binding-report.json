@@ -1,0 +1,65 @@
+{
+  "mode": "apply",
+  "modelId": "iphone-duo",
+  "variantId": "57460571996538",
+  "price": "29.99",
+  "baseVariants": [
+    {
+      "id": "gid://shopify/ProductVariant/57460571996538",
+      "price": "29.99",
+      "availableForSale": true,
+      "selectedOptions": [
+        {
+          "name": "Case & Gel Colour",
+          "value": "White (Glitter Gel)"
+        },
+        {
+          "name": "Phone Model",
+          "value": "iPhone Duo"
+        },
+        {
+          "name": "Would you like a pop socket?",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/ProductVariant/57460572062074",
+      "price": "29.99",
+      "availableForSale": true,
+      "selectedOptions": [
+        {
+          "name": "Case & Gel Colour",
+          "value": "White (White Gel)"
+        },
+        {
+          "name": "Phone Model",
+          "value": "iPhone Duo"
+        },
+        {
+          "name": "Would you like a pop socket?",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/ProductVariant/57460572029306",
+      "price": "29.99",
+      "availableForSale": true,
+      "selectedOptions": [
+        {
+          "name": "Case & Gel Colour",
+          "value": "Black (Black Gel)"
+        },
+        {
+          "name": "Phone Model",
+          "value": "iPhone Duo"
+        },
+        {
+          "name": "Would you like a pop socket?",
+          "value": "No"
+        }
+      ]
+    }
+  ]
+}

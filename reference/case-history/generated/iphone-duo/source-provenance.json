@@ -1,0 +1,34 @@
+{
+  "modelId": "iphone-duo",
+  "modelName": "iPhone Duo",
+  "dimensionsSource": "https://www.apple.com/iphone-duo/specs/",
+  "configuration": "folded",
+  "widthMm": 84.1,
+  "heightMm": 117.8,
+  "depthMm": 11.3,
+  "method": "Border-connected background removal; enclosed phone pixels preserved without recolouring.",
+  "results": [
+    {
+      "finish": "white",
+      "source": "iphone-duo-witb-star-white-202609.jpg",
+      "output": "public/assets/cases/case-without-gel/iphone-duo-white.png",
+      "sourceSha256": "1d38a106ba718bab2584e4d7597388b80a2606ff7d5a89a8afbdd026e1dbd228",
+      "sha256": "bc1f0d29c1a6b361f46c849b317cfb09045851ac460578744db2cc43b034e18b",
+      "width": 392,
+      "height": 544,
+      "hasAlpha": true,
+      "exteriorFraction": 0.22462439054213093
+    },
+    {
+      "finish": "black",
+      "source": "iphone-duo-witb-night-sky-202609.jpg",
+      "output": "public/assets/cases/case-without-gel/iphone-duo-black.png",
+      "sourceSha256": "0ed032177af8f29f610edb59e3bdc7779e4956eaf2147b551a03c72bf6690a40",
+      "sha256": "5a6808427dade07679f7f1cdf96709f363e9ea3463f15295e8ffc6d936b3cfd3",
+      "width": 392,
+      "height": 544,
+      "hasAlpha": true,
+      "exteriorFraction": 0.2238678221529338
+    }
+  ]
+}

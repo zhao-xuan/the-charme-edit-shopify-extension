@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "campaign": "reviewed-without-gel-source-publication",
+  "appliedAt": "2026-10-26T23:21:48.463Z",
+  "provenancePath": null,
+  "sourceMode": "reviewed-official-and-derived-sources",
+  "sourceBaseUrl": null,
+  "scope": "Explicit reviewed real sources; Shopify Files plus charme_product body image fields; no variant media updates.",
+  "summary": {
+    "selected": 2,
+    "updated": 0,
+    "alreadyCurrent": 2,
+    "exactByteMatches": 0,
+    "exactPixelMatches": 2,
+    "boundedShopifyRoundingMatches": 0,
+    "productMediaCreated": 0,
+    "productMediaReused": 0,
+    "productVariantsUpdated": 0,
+    "productTargetsCreated": 0
+  },
+  "requestedTargets": [
+    {
+      "modelId": "iphone-duo",
+      "name": "iPhone Duo",
+      "widthMm": 84.1,
+      "heightMm": 117.8,
+      "kind": "phone",
+      "basePrice": 26
+    }
+  ],
+  "createdTargets": [],
+  "results": [
+    {
+      "status": "already-current",
+      "modelId": "iphone-duo",
+      "finish": "white",
+      "candidateVersion": "derived-official-source",
+      "sha256": "bc1f0d29c1a6b361f46c849b317cfb09045851ac460578744db2cc43b034e18b",
+      "pixelSha256": "0cc98a5240e2e4dd1893e05091ae456bbf812b8891fec16959865a2d6b243614",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/550631211386",
+      "fileId": "gid://shopify/MediaImage/72151590961530",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-duo-white-without-gel-derived-official-source-bc1f0d29c1a6.png?v=1793056855",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "iphone-duo",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-duo-white.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 65861,
+        "sha256": "1ad1b5bc1b275d941b9f8a7f36af5ca44848cc2f64dc4d868f7c42b59d812a24",
+        "pixelSha256": "0cc98a5240e2e4dd1893e05091ae456bbf812b8891fec16959865a2d6b243614",
+        "pixelWidth": 392,
+        "pixelHeight": 544,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 213248,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    },
+    {
+      "status": "already-current",
+      "modelId": "iphone-duo",
+      "finish": "black",
+      "candidateVersion": "derived-official-source",
+      "sha256": "5a6808427dade07679f7f1cdf96709f363e9ea3463f15295e8ffc6d936b3cfd3",
+      "pixelSha256": "8fce19e64a873a1d1721802f517b33d2b0a48f07570a45565d46ea1ecf033051",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/550631211386",
+      "fileId": "gid://shopify/MediaImage/72151590994298",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/iphone-duo-black-without-gel-derived-official-source-5a6808427dad.png?v=1793056860",
+      "sourceKind": "derived-official-source",
+      "sourceModelId": "iphone-duo",
+      "sourcePath": "public/assets/cases/case-without-gel/iphone-duo-black.png",
+      "sourceUrl": null,
+      "cdn": {
+        "status": 200,
+        "contentType": "image/png",
+        "size": 88438,
+        "sha256": "614f289ba118950d2a0068ece32c3efd528e4fd161463ccaaf0d12f88dd1fbc3",
+        "pixelSha256": "8fce19e64a873a1d1721802f517b33d2b0a48f07570a45565d46ea1ecf033051",
+        "pixelWidth": 392,
+        "pixelHeight": 544,
+        "pixelChannels": 4,
+        "pixelDifference": {
+          "totalPixels": 213248,
+          "changedPixels": 0,
+          "changedPixelFraction": 0,
+          "changedChannels": 0,
+          "alphaChanges": 0,
+          "maximumChannelDelta": 0,
+          "meanChangedChannelDelta": 0
+        }
+      }
+    }
+  ],
+  "productMedia": []
+}
