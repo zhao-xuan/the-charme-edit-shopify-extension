@@ -16,8 +16,14 @@ async function boot() {
   const root = document.getElementById('root')
   if (!root) return
   try {
-    await Promise.all([loadRemoteCatalog(), loadSettings()])
-    const { default: App } = await import('./App.jsx')
+    const studioRoute = location.pathname.startsWith('/studio')
+    const shopifyRoute = location.pathname.startsWith('/shopify')
+    if (!studioRoute && !shopifyRoute) await Promise.all([loadRemoteCatalog(), loadSettings()])
+    const merchantStudio = studioRoute && new URLSearchParams(location.search).get('manage') === '1'
+    const { default: App } = merchantStudio
+      ? await import('./studio/StudioMerchantPage.jsx')
+      : studioRoute ? await import('./studio/StudioPage.jsx')
+      : shopifyRoute ? await import('./studio/ShopifyHome.jsx') : await import('./App.jsx')
     ReactDOM.createRoot(root).render(
       <React.StrictMode>
         <ConfigProvider theme={theme}>

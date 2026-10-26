@@ -20,6 +20,7 @@ shopify/extensions/charme-customizer/assets/charm-catalog.json
 .vscode/
 .env
 .env.*
+.dev.vars*
 
 # scratch / dev-only artifacts (regenerable; not shipped)
 /public/_demo/

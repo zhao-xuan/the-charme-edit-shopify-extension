@@ -29,6 +29,26 @@ function base64UrlEncode(value) {
   return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
 }
 
+/** Shopify's cart permalink supports line-item properties for its first item. */
+export function studioCartPermalink(storeUrl, item) {
+  const url = new URL(storeUrl)
+  if (url.protocol !== 'https:' || !/^[a-z0-9][a-z0-9-]*\.myshopify\.com$/.test(url.hostname)) throw new Error('Invalid Shopify store URL')
+  if (!/^\d{8,20}$/.test(String(item?.id || ''))) throw new Error('Invalid Shopify variant ID')
+  const quantity = Number(item.quantity || 1)
+  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) throw new Error('Invalid quantity')
+  const properties = item.properties || {}
+  if (Object.keys(properties).length > 25) throw new Error('Too many design properties')
+  const cart = new URL(`/cart/${item.id}:${quantity}`, url.origin)
+  cart.searchParams.set('properties', base64UrlEncode(JSON.stringify(properties)))
+  cart.searchParams.set('storefront', 'true')
+  return cart.href
+}
+
+export function openStudioCart(storeUrl, item) {
+  if (typeof window === 'undefined') throw new Error('Cart navigation requires a browser.')
+  window.location.assign(studioCartPermalink(storeUrl, item))
+}
+
 export function storefrontCartBridgeUrl(
   storeUrl,
   items,

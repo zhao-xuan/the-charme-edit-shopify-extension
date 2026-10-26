@@ -11,6 +11,7 @@
  * on-screen coordinate space so the proof matches the live preview exactly.
  */
 import { resolveAsset } from './assets.js'
+import { productPhotoCrop } from './productPhoto.js'
 
 const DPI = 6 // px per mm
 function roundRect(ctx, x, y, w, h, r) {
@@ -40,12 +41,17 @@ function loadImage(src) {
 
 export function drawProductPhoto(ctx, img, bounds, width, height) {
   if (bounds) {
+    const crop = productPhotoCrop(
+      bounds,
+      img.naturalWidth || img.width || bounds.sourceWidth,
+      img.naturalHeight || img.height || bounds.sourceHeight,
+    )
     ctx.drawImage(
       img,
-      bounds.left,
-      bounds.top,
-      bounds.width,
-      bounds.height,
+      crop.left,
+      crop.top,
+      crop.width,
+      crop.height,
       0,
       0,
       width,
@@ -69,7 +75,23 @@ async function drawProduct(ctx, product, color, S) {
   if (photoSrc) {
     const img = await loadImage(photoSrc).catch(() => null)
     if (img) {
-      drawProductPhoto(ctx, img, product.caseImageBounds?.[color.id], W, H)
+      const toteBounds = product.kind === 'tote'
+        ? product.toteBodyBounds?.[color.toteSide || 'front']
+        : null
+      if (toteBounds) {
+        const body = product.printable.outer
+        const sx = body.wMm / toteBounds.w
+        const sy = body.hMm / toteBounds.h
+        ctx.drawImage(
+          img,
+          (body.xMm - toteBounds.x * sx) * S,
+          (body.yMm - toteBounds.y * sy) * S,
+          toteBounds.sourceW * sx * S,
+          toteBounds.sourceH * sy * S,
+        )
+      } else {
+        drawProductPhoto(ctx, img, product.caseImageBounds?.[color.id], W, H)
+      }
       return
     }
   }
@@ -326,6 +348,11 @@ export async function renderPreview(product, color, placed, variableUids = [], d
   canvas.height = Math.round(product.heightMm * dpi)
   const ctx = canvas.getContext('2d')
 
+  // Opaque backdrop first: the product shape can leave transparent rounded
+  // corners (case/frame), which a lossy JPEG export would otherwise turn black.
+  ctx.fillStyle = '#fdfaf3'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+
   await Promise.all(placed.map((c) => loadImage(c.src).catch(() => null)))
   await drawProduct(ctx, product, color, dpi)
 
@@ -337,5 +364,8 @@ export async function renderPreview(product, color, placed, variableUids = [], d
     if (variable.has(charm.uid)) drawVariableOutline(ctx, charm, dpi)
   }
 
-  return canvas.toDataURL('image/png')
+  // JPEG keeps this "your design" preview/proof file small (this is a fully
+  // opaque flattened raster, so no transparency is lost) — a PNG at these
+  // pixel dimensions can run into double-digit megabytes for a tote canvas.
+  return canvas.toDataURL('image/jpeg', 0.85)
 }

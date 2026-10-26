@@ -4,23 +4,16 @@
  * once in the Admin header). Reads (catalog) are public.
  */
 const TOKEN_KEY = 'charme.admin.token'
+import { API_BASE } from './apiBase.js'
 
-// Writes need the ADMIN_TOKEN secret, which lives in the PRODUCTION Pages
-// environment. The dedicated admin subdomain is a preview deployment without it,
-// so when we're on `admin.<host>` we send API calls to the bare production
-// origin (CORS is enabled on the Functions). Elsewhere we use the same origin.
-function apiBase() {
-  if (typeof window === 'undefined') return ''
-  const h = window.location.hostname
-  if (/^admin\./i.test(h)) return `${window.location.protocol}//${h.replace(/^admin\./i, '')}`
-  return ''
-}
-const url = (path) => `${apiBase()}${path}`
+// Admin writes and storefront reads must target the same catalogue, including
+// branch previews and an explicit CharmeConfig.apiBase.
+const url = (path) => `${API_BASE}${path}`
 
 export const getToken = () =>
-  (typeof localStorage !== 'undefined' && localStorage.getItem(TOKEN_KEY)) || ''
+  (typeof localStorage !== 'undefined' && typeof localStorage.getItem === 'function' && localStorage.getItem(TOKEN_KEY)) || ''
 export const setToken = (t) => {
-  if (typeof localStorage !== 'undefined') {
+  if (typeof localStorage !== 'undefined' && typeof localStorage.setItem === 'function' && typeof localStorage.removeItem === 'function') {
     if (t) localStorage.setItem(TOKEN_KEY, t)
     else localStorage.removeItem(TOKEN_KEY)
   }
@@ -50,7 +43,8 @@ async function bearer() {
     await waitForAppBridge()
     try {
       if (window.shopify?.idToken) return await window.shopify.idToken()
-    } catch { /* fall through to manual token */ }
+    } catch { /* fail closed below */ }
+    throw new Error('Shopify 身份验证不可用，请从商家后台重新打开应用。')
   }
   return getToken()
 }
@@ -59,6 +53,9 @@ const authHeaders = async () => ({
   'content-type': 'application/json',
   authorization: `Bearer ${await bearer()}`,
 })
+
+// Reuse the established App Bridge / internal admin authentication for new tools.
+export const adminAuthHeaders = authHeaders
 
 async function handle(res) {
   if (!res.ok) {
@@ -71,7 +68,7 @@ async function handle(res) {
 
 /** Fresh catalog snapshot from D1 (products, charms, overrides). */
 export async function fetchCatalog() {
-  const res = await fetch(url('/api/catalog'), { headers: { accept: 'application/json' }, cache: 'no-store' })
+  const res = await fetch(url('/api/catalog?fresh=1'), { headers: { accept: 'application/json' }, cache: 'no-store' })
   return handle(res)
 }
 
@@ -112,6 +109,13 @@ export const fetchSettings = async () =>
 export const saveSettings = async (settings) =>
   handle(await fetch(url('/api/settings'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(settings) }))
 
+/** Aggregated customizer usage stored in private Shopify metaobjects. */
+export const fetchAnalytics = async (days = 30) =>
+  handle(await fetch(url(`/api/admin/analytics?days=${encodeURIComponent(days)}`), {
+    headers: await authHeaders(),
+    cache: 'no-store',
+  }))
+
 /**
  * Bulk-rename a charm category or sub-category so the change cascades to every
  * charm that used the old name. `scope` = 'category' | 'subcategory'; `within`
@@ -133,8 +137,40 @@ export const fetchShopifyProducts = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
 
 /** List Shopify variants that can be used as native-cart billing lines. */
-export const fetchShopifyVariants = async () =>
-  handle(await fetch(url('/api/admin/shopify-variants'), { headers: await authHeaders() }))
+export async function fetchShopifyVariants() {
+  const variants = []
+  let after = null
+  do {
+    const page = await handle(await fetch(url(`/api/admin/shopify-variants?paged=1${after ? `&after=${encodeURIComponent(after)}` : ''}`), {
+      headers: await authHeaders(),
+      cache: 'no-store',
+    }))
+    variants.push(...page.variants)
+    after = page.after
+  } while (after)
+  return { variants }
+}
+
+export async function searchShopifyVariants(query) {
+  const variants = []
+  let after = null
+  do {
+    const params = new URLSearchParams({ q: query, ...(after ? { after } : {}) })
+    const page = await handle(await fetch(url(`/api/admin/shopify-variants?${params}`), {
+      headers: await authHeaders(), cache: 'no-store',
+    }))
+    variants.push(...page.variants)
+    after = page.after
+  } while (after)
+  return { variants }
+}
+
+export const syncDecorations = async (body) =>
+  handle(await fetch(url('/api/admin/sync-decorations'), {
+    method: 'POST',
+    headers: await authHeaders(),
+    body: JSON.stringify(body),
+  }))
 
 /** List the store's Shopify collections (for the bundle "whole collection" picker). */
 export const fetchShopifyCollections = async (q) =>

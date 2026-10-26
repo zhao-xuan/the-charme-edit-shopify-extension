@@ -1,16 +1,17 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Modal, Button, Spin, Divider, App } from 'antd'
-import { DownloadOutlined, ShoppingOutlined } from '@ant-design/icons'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Modal, Button, Input, Spin, Progress, Divider, App } from 'antd'
+import { CopyOutlined, DownloadOutlined, ShoppingOutlined, ReloadOutlined } from '@ant-design/icons'
 import { renderPreview } from '../lib/exportImage'
-import { categoryLabel, placedCharmsTotal } from '../lib/catalog'
+import { categoryLabel } from '../lib/catalog'
 import { charmChargeLines } from '../lib/charmPricing'
 import { settings } from '../lib/settings'
-import { convert, formatMoney, formatPresentmentMoney } from '../lib/money'
+import { chargeLinePresentmentTotal, designPriceEstimate, formatPresentmentMoney } from '../lib/money'
 import { t } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { downloadPng } from '../lib/downloadImage'
+import { createDesignLink } from '../lib/designLink'
 
-const TOTE_TYPE_LABEL = { 1: 'Statement', 2: 'Feature', 3: 'Filler' }
+const TOTE_TYPE_LABEL = { 1: 'Patches', 2: 'Patches', 3: 'Patches' }
 const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and pattern.'
 
 /**
@@ -18,14 +19,14 @@ const UNIQUE_NOTE = 'Natural charms may vary slightly in size, shape, colour and
  * the selected piece count and number of charged blocks; legacy bundles still
  * fold into one row charged once.
  */
-function summaryRows(items) {
-  return charmChargeLines(items, settings().charmPricingGroups).map((line, index) => {
+function summaryRows(items, pricingGroups) {
+  return charmChargeLines(items, pricingGroups).map((line, index) => {
     const first = line.items[0]
     if (line.kind === 'group') {
       return {
         key: `group-${line.rule.id}`,
         name: line.rule.label,
-        price: line.total,
+        price: chargeLinePresentmentTotal(line),
         count: line.items.length,
         blocks: line.quantity,
         category: first.category || 'gold',
@@ -35,7 +36,7 @@ function summaryRows(items) {
     return {
       key: first.uid || `${line.key}-${index}`,
       name: first.name,
-      price: line.total,
+      price: chargeLinePresentmentTotal(line),
       count: line.kind === 'legacy-bundle' ? line.items.length : 1,
       blocks: null,
       category: first.category || 'gold',
@@ -58,18 +59,73 @@ function useMedia(query) {
   return match
 }
 
-export default function SummaryModal({ open, product, color, placed, onClose, onPlaceOrder }) {
+export default function SummaryModal({
+  open,
+  product,
+  color,
+  placed,
+  onClose,
+  onPlaceOrder,
+  pricingGroups = settings().charmPricingGroups,
+  applyToteDiscount = true,
+  canSubmit = true,
+  priceNotice = '',
+  wordGroups = [],
+}) {
   const { message } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
   const [loading, setLoading] = useState(false)
   const [previewUrl, setPreviewUrl] = useState(null)
+  const [totePreviews, setTotePreviews] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [submitError, setSubmitError] = useState('')
+  const submitLock = useRef(false)
+  const retryPayload = useRef(null)
+  const designLinkInput = useRef(null)
+  const designLink = useMemo(() => {
+    if (!open) return { url: '', error: '' }
+    try {
+      return {
+        url: createDesignLink({
+          product,
+          color,
+          placed,
+          wordGroups,
+          sourceUrl: window.location.href,
+          config: window.CharmeConfig,
+        }),
+        error: '',
+      }
+    } catch (error) {
+      console.error('charme_design_link_failed', error)
+      return { url: '', error: t('summary.linkError') }
+    }
+  }, [open, product, color, placed, wordGroups])
+
+  const copyDesignLink = async () => {
+    try {
+      await navigator.clipboard.writeText(designLink.url)
+      message.success(t('summary.linkCopied'))
+    } catch {
+      designLinkInput.current?.focus()
+      designLinkInput.current?.select()
+      message.warning(t('summary.linkCopyError'))
+    }
+  }
+
+  useEffect(() => {
+    if (open) {
+      retryPayload.current = null
+      setSubmitError('')
+    }
+  }, [open])
 
   // Charms whose final look is only indicative → red dashed outline + disclaimer.
   // Fillers (type 3) are arranged by hand; unique charms vary by nature.
   const variableUids = useMemo(
-    () => placed.filter((c) => c.type === 3 || c.category === 'unique').map((c) => c.uid),
-    [placed],
+    () => product.kind === 'tote' ? [] : placed.filter((c) => c.type === 3 || c.category === 'unique').map((c) => c.uid),
+    [placed, product.kind],
   )
   const hasUnique = useMemo(() => placed.some((c) => c.category === 'unique'), [placed])
   const hasFiller = useMemo(() => placed.some((c) => c.type === 3), [placed])
@@ -79,10 +135,21 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     if (open) {
       setLoading(true)
       setPreviewUrl(null)
+      setTotePreviews(null)
       // Keep mobile long-press exports crisp: render at high DPI on all devices
       // so the saved image remains sharp (phone case + charms).
-      renderPreview(product, color, placed, variableUids, isMobile ? 8 : 6)
-        .then((url) => alive && (setPreviewUrl(url), setLoading(false)))
+      const render = async () => {
+        const dpi = isMobile ? 8 : 6
+        if (product.kind !== 'tote') return { single: await renderPreview(product, color, placed, variableUids, dpi) }
+        const result = {}
+        for (const side of ['front', 'back']) {
+          const sidePlaced = placed.filter((item) => (item.toteSide || 'front') === side)
+          result[side] = await renderPreview(product, { ...color, toteSide: side, imageSrc: product.blankImage?.[side] || color.imageSrc }, sidePlaced, variableUids, dpi)
+        }
+        return { tote: result }
+      }
+      render()
+        .then((result) => alive && (result.tote ? setTotePreviews(result.tote) : setPreviewUrl(result.single), setLoading(false)))
         .catch(() => alive && setLoading(false))
     }
     return () => {
@@ -90,17 +157,19 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
     }
   }, [open, product, color, placed, variableUids])
 
-  const charmTotal = placedCharmsTotal(placed)
-  const hasPresentmentCasePrice = Number(product.presentmentPrice) > 0
-  const casePrice = hasPresentmentCasePrice ? Number(product.presentmentPrice) : product.basePrice
-  const total = hasPresentmentCasePrice ? casePrice + convert(charmTotal) : casePrice + charmTotal
-  const formatCasePrice = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
-  const formatTotal = hasPresentmentCasePrice ? formatPresentmentMoney : formatMoney
+  const { discountRate, discountAmount, casePrice, total } = designPriceEstimate(
+    product,
+    placed,
+    pricingGroups,
+    { applyToteDiscount },
+  )
+  const formatCasePrice = formatPresentmentMoney
+  const formatTotal = formatPresentmentMoney
   const noun = t(product.kind === 'tote' ? 'noun.tote' : product.kind === 'frame' ? 'noun.frame' : 'noun.case')
 
   // Price globally before arranging rows into visual sections. This preserves
   // one shared allowance even if matching styles have different browse labels.
-  const pricedRows = useMemo(() => summaryRows(placed), [placed])
+  const pricedRows = summaryRows(placed, pricingGroups)
 
   // Group priced rows by browsing category (phone) or interaction type (tote).
   const grouped = useMemo(() => {
@@ -128,6 +197,7 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
   }, [product.kind, pricedRows])
 
   const placeOrder = async () => {
+    if (submitLock.current) return
     const payload = {
       product: {
         id: product.id,
@@ -158,24 +228,39 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
         yMm: +c.cyMm.toFixed(1),
         scale: +(c.scale || 1).toFixed(2),
         rotDeg: c.rot || 0,
+        toteSide: c.toteSide || (product.kind === 'tote' ? 'front' : undefined),
       })),
       total,
-      preview: previewUrl,
+      preview: totePreviews?.front || previewUrl,
       proofUploadMode: 'standard',
       // Legacy proof shape kept so the Shopify cart handler keeps working.
-      proofs: { placeholderUrl: previewUrl, sampleUrl: previewUrl },
+      proofs: {
+        placeholderUrl: totePreviews?.front || previewUrl,
+        sampleUrl: totePreviews?.front || previewUrl,
+        frontUrl: totePreviews?.front || previewUrl,
+        backUrl: totePreviews?.back || null,
+      },
     }
 
     // The host app decides what to do with the finished design. The Shopify
     // build wires this into a cart line-item; the standalone build just logs it.
     if (onPlaceOrder) {
       try {
+        submitLock.current = true
         setSubmitting(true)
-        await onPlaceOrder(payload)
+        setSubmitError('')
+        setUploadProgress(0)
+        if (!retryPayload.current) {
+          const identifier = window.crypto?.randomUUID?.().replace(/-/g, '') || Math.random().toString(36).slice(2, 10) + Date.now().toString(36)
+          retryPayload.current = { ...payload, designToken: 'cd_' + identifier }
+        }
+        await onPlaceOrder({ ...retryPayload.current, onUploadProgress: setUploadProgress })
+        retryPayload.current = null
         onClose()
       } catch (err) {
-        message.error(err?.message || 'Could not add to bag, please try again.')
+        setSubmitError(err?.message || 'Could not add to bag. Your design is still here. Please retry.')
       } finally {
+        submitLock.current = false
         setSubmitting(false)
       }
       return
@@ -201,14 +286,17 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
       footer={null}
       title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
     >
-      {submitting && (
+      {(submitting || submitError) && (
         <div className="checkout-loading" role="status" aria-live="assertive" aria-label="Preparing checkout">
-          <Spin size="large" />
-          <strong>Preparing your checkout…</strong>
-          <span>Please keep this page open.</span>
+          {submitting && <Spin size="large" />}
+          <strong>{submitError ? 'Your design has not been added yet' : uploadProgress === 100 ? 'Opening your cart...' : 'Uploading your design...'}</strong>
+          <Progress percent={uploadProgress} status={submitError ? 'exception' : 'active'} style={{ width: 'min(280px, 80%)' }} />
+          <span style={{ maxWidth: 320, textAlign: 'center' }}>{submitError || 'Please keep this page open.'}</span>
+          {submitError && <Button type="primary" aria-label="Retry" icon={<ReloadOutlined />} onClick={placeOrder}>Retry</Button>}
+          {submitError && <Button onClick={() => { retryPayload.current = null; setSubmitError('') }}>Back to design</Button>}
         </div>
       )}
-      {loading || !previewUrl ? (
+      {submitting || submitError ? null : loading || (!previewUrl && !totePreviews) ? (
         <div style={{ height: 360, display: 'grid', placeItems: 'center', gap: 14 }}>
           <Spin size="large" />
           <span className="hint">Rendering your design…</span>
@@ -227,19 +315,11 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 placeItems: 'center',
               }}
             >
-              <img
-                src={previewUrl}
-                alt={t('summary.previewAlt')}
-                className="proof-img"
-                style={{
-                  width: 'auto',
-                  height: 'auto',
-                  maxHeight: 300,
-                  maxWidth: '100%',
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))',
-                }}
-              />
+              {(totePreviews ? ['front', 'back'] : ['single']).map((side) => {
+                const src = totePreviews ? totePreviews[side] : previewUrl
+                if (!src) return null
+                return <img key={side} src={src} alt={totePreviews ? `${side} tote design` : t('summary.previewAlt')} className="proof-img" style={{ width: 'auto', height: 'auto', maxHeight: 300, maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 16px 24px rgba(46,42,38,0.22))' }} />
+              })}
             </div>
             {(hasFiller || hasUnique) && (
               <p className="hint preview-note" style={{ marginTop: 8 }}>
@@ -257,11 +337,31 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                 size="small"
                 icon={<DownloadOutlined />}
                 style={{ marginTop: 8 }}
-                onClick={() => downloadPng(previewUrl, `${product.id}-design.png`).catch(() => message.error('Could not download your design.'))}
+                onClick={() => downloadPng(previewUrl, `${product.id}-design.jpg`).catch(() => message.error('Could not download your design.'))}
               >
                 {t('summary.download')}
               </Button>
             )}
+            <div className="summary-design-link">
+              <label htmlFor="summary-design-link" className="eyebrow">{t('summary.designLink')}</label>
+              <p className="summary-design-link__notice">{t('summary.saveLink')}</p>
+              {designLink.error ? (
+                <p role="alert">{designLink.error}</p>
+              ) : (
+                <>
+                  <Input
+                    id="summary-design-link"
+                    ref={designLinkInput}
+                    readOnly
+                    value={designLink.url}
+                    onFocus={(event) => event.target.select()}
+                  />
+                  <Button icon={<CopyOutlined />} onClick={copyDesignLink} block>
+                    {t('summary.copyLink')}
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
           <div className="summary-order">
             <p className="eyebrow" style={{ marginTop: 4 }}>{t('price.orderSummary')}</p>
@@ -284,21 +384,29 @@ export default function SummaryModal({ open, product, color, placed, onClose, on
                       {r.name}{r.count > 1 || r.blocks ? ` × ${r.count}` : ''}
                       {r.blocks ? ` (${r.blocks} ${r.blocks === 1 ? 'block' : 'blocks'})` : ''}
                     </span>
-                    <span style={{ whiteSpace: 'nowrap' }}>{formatMoney(r.price)}</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>{formatPresentmentMoney(r.price)}</span>
                   </div>
                 ))}
               </div>
             ))}
+            {discountRate > 0 && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, color: 'var(--accent, #b35b5b)' }}>
+                <span>{t('price.patchDiscount', { pct: Math.round(discountRate * 100) })}</span>
+                <span>−{formatPresentmentMoney(discountAmount)}</span>
+              </div>
+            )}
             <Divider style={{ margin: '10px 0' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span>{t('price.total')}</span>
               <span style={{ fontSize: 26, fontWeight: 600 }}>{formatTotal(total)}</span>
             </div>
+            {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
             <Button
               type="primary"
               size="large"
               block
               loading={submitting}
+              disabled={!canSubmit}
               icon={<ShoppingOutlined />}
               style={{ marginTop: 12 }}
               onClick={placeOrder}

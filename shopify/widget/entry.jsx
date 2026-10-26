@@ -185,6 +185,7 @@ async function loadEditLayout(key) {
         bundle: c.bundle,
         cxMm: c.xMm,
         cyMm: c.yMm,
+        toteSide: c.toteSide,
         wMm: c.wMm,
         hMm: c.hMm,
         rot: c.rotDeg,

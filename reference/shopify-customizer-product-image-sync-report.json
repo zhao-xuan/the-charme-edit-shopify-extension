@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-09-23T08:45:40.865Z",
+  "policy": "Shopify Files + charme_product body image fields only; no Product Media or variant media updates.",
+  "counts": {
+    "targets": 6,
+    "updated": 6,
+    "missingMetaobject": 0
+  },
+  "results": [
+    {
+      "status": "updated",
+      "id": "tote-cream-white",
+      "name": "The Charmé Edit Tote - Cream White",
+      "kind": "tote",
+      "finish": "front",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/499351126394",
+      "fileId": "gid://shopify/MediaImage/71797017248122",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-cream-white-front-customizer-47991b46728f.png?v=1790153117",
+      "sourceSha256": "47991b46728fb82a8488132cf9a7e1ebe8df5ee849952bf410b839f835ded195",
+      "width": 1200,
+      "height": 1593
+    },
+    {
+      "status": "updated",
+      "id": "tote-cream-white",
+      "name": "The Charmé Edit Tote - Cream White",
+      "kind": "tote",
+      "finish": "back",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/499351126394",
+      "fileId": "gid://shopify/MediaImage/71797021770106",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-cream-white-back-customizer-a36ed11c1c32.png?v=1790153121",
+      "sourceSha256": "a36ed11c1c32b1f74046e0e6eaad3c7a0f3bd516b0df7210d40e9635833af3a1",
+      "width": 1200,
+      "height": 1593
+    },
+    {
+      "status": "updated",
+      "id": "tote-deep-navy",
+      "name": "The Charmé Edit Tote - Deep Navy",
+      "kind": "tote",
+      "finish": "front",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/499351224698",
+      "fileId": "gid://shopify/MediaImage/71797026029946",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-deep-navy-front-customizer-da99d7588ef0.png?v=1790153125",
+      "sourceSha256": "da99d7588ef0a88ac8afa62c6b619c55876fd8e382dbb2c0cacfd38c657efd51",
+      "width": 1200,
+      "height": 1593
+    },
+    {
+      "status": "updated",
+      "id": "tote-deep-navy",
+      "name": "The Charmé Edit Tote - Deep Navy",
+      "kind": "tote",
+      "finish": "back",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/499351224698",
+      "fileId": "gid://shopify/MediaImage/71797029798266",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-deep-navy-back-customizer-11184b5567e0.png?v=1790153130",
+      "sourceSha256": "11184b5567e0aa18d3136963b8ce5cfbbd60873532908a5b53e6b4d54d841935",
+      "width": 1200,
+      "height": 1593
+    },
+    {
+      "status": "updated",
+      "id": "tote-olive-green",
+      "name": "The Charmé Edit Tote - Olive Green",
+      "kind": "tote",
+      "finish": "front",
+      "fieldKey": "body_image_white",
+      "metaobjectId": "gid://shopify/Metaobject/499352961402",
+      "fileId": "gid://shopify/MediaImage/71797030355322",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-olive-green-front-customizer-7ab0e34b7b09.png?v=1790153134",
+      "sourceSha256": "7ab0e34b7b09327221cd3936c60129133aa6a20ff2b0d9438a17f965f5955677",
+      "width": 1200,
+      "height": 1593
+    },
+    {
+      "status": "updated",
+      "id": "tote-olive-green",
+      "name": "The Charmé Edit Tote - Olive Green",
+      "kind": "tote",
+      "finish": "back",
+      "fieldKey": "body_image_black",
+      "metaobjectId": "gid://shopify/Metaobject/499352961402",
+      "fileId": "gid://shopify/MediaImage/71797031076218",
+      "url": "https://cdn.shopify.com/s/files/1/0922/3857/8042/files/tote-olive-green-back-customizer-d00f90757b24.png?v=1790153139",
+      "sourceSha256": "d00f90757b2457c4b34f0a8d75b2aea220ea904b04b9fd6dddbc4494c2512e6f",
+      "width": 1200,
+      "height": 1593
+    }
+  ]
+}

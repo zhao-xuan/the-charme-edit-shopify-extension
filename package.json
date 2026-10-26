@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "node --test src/lib/*.test.js",
+    "test": "node --test src/lib/*.test.js src/studio/*.test.js",
     "preview": "vite preview",
     "assets": "node scripts/process-assets.mjs && node scripts/calibrate-charm-sizes.mjs",
     "calibrate": "node scripts/calibrate-charm-sizes.mjs",
@@ -21,7 +21,8 @@
     "@shopify/shopify_function": "~2.0.0",
     "antd": "^5.21.6",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",

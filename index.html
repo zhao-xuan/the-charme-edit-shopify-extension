@@ -12,7 +12,7 @@
       (function () {
         try {
           var qs = new URLSearchParams(location.search)
-          if (!(qs.has('host') || qs.has('shop') || qs.has('embedded'))) return
+          if (!(qs.has('host') || qs.has('embedded'))) return
           window.__charmeEmbedded = true
           document.write(
             '<meta name="shopify-api-key" content="93d071d516310e58e5eaeaf778d77e37">',

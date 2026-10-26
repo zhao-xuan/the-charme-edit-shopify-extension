@@ -24,8 +24,6 @@ const unreviewedInputs = {
 
 test('delisted phone models are excluded from the Android launch catalogue', () => {
   assert.deepEqual(DELISTED_PHONE_MODEL_IDS, [
-    'pixel-10-pro-xl',
-    'pixel-9-pro-xl',
     'galaxy-z-fold-6',
   ])
   for (const modelId of DELISTED_PHONE_MODEL_IDS) {

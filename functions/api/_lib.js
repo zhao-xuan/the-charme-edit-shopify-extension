@@ -37,6 +37,8 @@ export async function verifyShopifySessionToken(token, env) {
   const [h, p, sig] = parts
   let payload
   try {
+    const header = JSON.parse(new TextDecoder().decode(b64urlToBytes(h)))
+    if (header.alg !== 'HS256' || (header.typ && header.typ !== 'JWT')) return null
     const key = await crypto.subtle.importKey(
       'raw', new TextEncoder().encode(secret),
       { name: 'HMAC', hash: 'SHA-256' }, false, ['verify'],
@@ -50,10 +52,9 @@ export async function verifyShopifySessionToken(token, env) {
     return null
   }
   const now = Math.floor(Date.now() / 1000)
-  if (payload.exp && now >= Number(payload.exp)) return null
-  if (payload.nbf && now < Number(payload.nbf) - 5) return null
-  // aud must be this app's API key (client id) when we know it.
-  if (env.SHOPIFY_CLIENT_ID && payload.aud && payload.aud !== env.SHOPIFY_CLIENT_ID) return null
+  if (!Number.isFinite(Number(payload.exp)) || now >= Number(payload.exp)) return null
+  if (!Number.isFinite(Number(payload.nbf)) || now < Number(payload.nbf) - 5) return null
+  if (!env.SHOPIFY_CLIENT_ID || payload.aud !== env.SHOPIFY_CLIENT_ID) return null
   return payload
 }
 
@@ -67,7 +68,10 @@ export async function requireAdmin(request, env) {
   const token = auth.replace(/^Bearer\s+/i, '')
   if (!token) return false
   if (env.ADMIN_TOKEN && token === env.ADMIN_TOKEN) return true
-  if (await verifyShopifySessionToken(token, env)) return true
+  const claims = await verifyShopifySessionToken(token, env)
+  // The legacy catalogue is a single-store tool. Other installed merchants
+  // must only use the tenant-scoped Studio endpoints.
+  if (claims && env.SHOPIFY_STORE && claims.dest === `https://${env.SHOPIFY_STORE}` && claims.iss === `https://${env.SHOPIFY_STORE}/admin`) return true
   return false
 }
 
@@ -161,19 +165,43 @@ export async function getShopifyToken(env) {
 }
 
 /** Run an Admin GraphQL query. Throws on GraphQL-level errors. */
+const isThrottled = (body) =>
+  Array.isArray(body?.errors) && body.errors.some((e) => e?.extensions?.code === 'THROTTLED')
+
+// Wait long enough for the cost bucket to refill (from throttleStatus when
+// Shopify reports it), with exponential backoff + jitter as the floor.
+function throttleDelay(body, attempt) {
+  const cost = body?.extensions?.cost
+  const status = cost?.throttleStatus
+  let ms = 500 * 2 ** attempt
+  if (status && status.restoreRate > 0) {
+    const need = Math.max(0, (cost.requestedQueryCost || 0) - (status.currentlyAvailable || 0))
+    ms = Math.max(ms, (need / status.restoreRate) * 1000)
+  }
+  return Math.min(ms, 8000) + Math.random() * 250
+}
+
 export async function shopifyAdmin(env, query, variables) {
   const token = await getShopifyToken(env)
-  const res = await fetch(
-    `https://${env.SHOPIFY_STORE}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-shopify-access-token': token },
-      body: JSON.stringify({ query, variables }),
-    },
-  )
-  const body = await res.json()
-  if (body.errors) throw new Error(JSON.stringify(body.errors))
-  return body.data
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(
+      `https://${env.SHOPIFY_STORE}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-shopify-access-token': token },
+        body: JSON.stringify({ query, variables }),
+      },
+    )
+    const retryable = res.status === 429 || res.status >= 500
+    const body = await res.json().catch(() => null)
+    if (attempt < 5 && (retryable || isThrottled(body))) {
+      await new Promise((r) => setTimeout(r, throttleDelay(body, attempt)))
+      continue
+    }
+    if (!body) throw new Error(`Shopify Admin API HTTP ${res.status}`)
+    if (body.errors) throw new Error(JSON.stringify(body.errors))
+    return body.data
+  }
 }
 
 const STAGED_UPLOADS_CREATE = `
@@ -274,4 +302,3 @@ export async function fileDelete(env, ids) {
     console.warn('[Charmé] fileDelete failed', e && e.message)
   }
 }
-

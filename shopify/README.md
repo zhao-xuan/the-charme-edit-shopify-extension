@@ -34,6 +34,15 @@ shopify/
 Because every charm is a real variant, the cart total is correct automatically and
 each order tells the maker exactly which physical charms to pick.
 
+### Price confirmation
+Cart/editor prices come from Shopify's contextual variant pricing, including
+pricing-group variants and tote patches, rather than stored catalogue prices or
+rounded exchange-rate estimates. Product variant resolution matches the cart;
+quotes refresh after a minute and on focus. Missing prices or request failures
+show a browser-recovery dialog and keep unconfirmed orders blocked. Retry keeps
+the design in place. Advise customers to save their design link before clearing
+site data or changing browsers, because local drafts do not transfer.
+
 ---
 
 ## 1. Publish the widget to your Cloudflare Pages CDN
@@ -89,6 +98,12 @@ The design drops into the native Shopify **cart / cart drawer** (so the customer
 can keep shopping), then checks out through Shopify's normal cart. It's added
 with `/cart/add.js` and the drawer is re-rendered via the Section Rendering API
 (works out of the box on Dawn / OS 2.0 drawers; falls back to the cart page).
+
+Design-proof uploads have no client-side timeout for any product (phone case,
+tote or frame), including both tote sides and the standalone editor cart flow.
+The upload progress stays visible while the request is pending, and cart items
+are prepared only after the uploads are confirmed. Network errors, interrupted
+uploads and invalid server responses still surface a retry message.
 
 To price it, Shopify needs real variants — but only a handful thanks to the
 **price-point map**. Paste a **Variant map (JSON)** into the section (start from
@@ -162,6 +177,18 @@ order settings are shared per placement, so you can even mix modes per product.
 Other section settings: **After add to bag** (drawer / cart / stay), **Widget
 height**, and **Advanced → Widget CDN / API base**
 (defaults to `https://charme-customizer.pages.dev`, no trailing slash).
+
+## 4c. Customizer analytics
+
+The widget automatically uploads privacy-safe session summaries to the private
+Shopify metaobject type `charme_analytics_session`. The Admin **Analytics** tab
+reports the customizer funnel, active decoration time, product/device splits,
+popular decorations, and aggregate interaction counts. No customer identity,
+pointer coordinates, design previews, IP addresses, or full page URLs are stored.
+
+“Shopify handoff” means that the cart or draft-order handler accepted the design;
+it does not mean the order was paid. Paid-order attribution requires an order
+webhook joined to the customizer session.
 
 ## 5. (Optional) Proof image on cart-mode orders
 

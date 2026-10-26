@@ -12,6 +12,7 @@ import { DeleteOutlined } from '@ant-design/icons'
 import ProductCanvas from './ProductCanvas'
 import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
+import { productPhotoStyle } from '../lib/productPhoto'
 import { t } from '../lib/i18n'
 
 const PAD = 18
@@ -150,6 +151,7 @@ const ProductStage = forwardRef(function ProductStage(
       } catch {
         // pointer may already be gone
       }
+      document.body.classList.add('charme-no-select')
       const starts = new Map()
       for (const c of placed) if (c.groupId === groupId) starts.set(c.uid, { cx: c.cxMm, cy: c.cyMm })
       drag.current = {
@@ -176,6 +178,7 @@ const ProductStage = forwardRef(function ProductStage(
       }
       onSelect(charm.uid)
       e.currentTarget.setPointerCapture(e.pointerId)
+      document.body.classList.add('charme-no-select')
       drag.current = {
         mode: 'single',
         uid: charm.uid,
@@ -184,10 +187,11 @@ const ProductStage = forwardRef(function ProductStage(
         startY: e.clientY,
         startCx: charm.cxMm,
         startCy: charm.cyMm,
-        // footprint (mm) used to keep the whole charm inside the printable area
+        // Bounding footprint (mm) used until the charm's alpha mask is available.
         w: charm.baseWmm * (charm.scale || 1),
         h: charm.baseHmm * (charm.scale || 1),
         rot: charm.rot || 0,
+        charm,
         checkpointed: false,
       }
     },
@@ -200,7 +204,8 @@ const ProductStage = forwardRef(function ProductStage(
       if (!d || d.pointerId !== e.pointerId) return
       // Checkpoint history once, on the first real movement of the gesture, so a
       // drag can be undone without flooding the stack on a plain select-click.
-      if (!d.checkpointed && Math.hypot(e.clientX - d.startX, e.clientY - d.startY) >= 2) {
+      if (!d.checkpointed) {
+        if (Math.hypot(e.clientX - d.startX, e.clientY - d.startY) < 2) return
         onCheckpoint?.()
         d.checkpointed = true
       }
@@ -210,10 +215,12 @@ const ProductStage = forwardRef(function ProductStage(
         onMoveGroup?.(d.groupId, dxMm, dyMm, d.starts)
         return
       }
-      // Hard-clamp the charm so its full footprint stays inside the printable
-      // outer region — patterns can never be dragged off the product edge.
+      // Clamp against the visible charm shape; use the box while its mask loads.
       const box = { cx: d.startCx + dxMm, cy: d.startCy + dyMm, w: d.w, h: d.h, rot: d.rot }
-      const { cx, cy } = clampCenter(box, product.printable)
+      const { cx, cy } = clampCenter(box, product.printable, d.charm, {
+        cx: d.startCx,
+        cy: d.startCy,
+      })
       onMove(d.uid, { cxMm: cx, cyMm: cy })
     },
     [scale, product, onMove, onMoveGroup, onCheckpoint],
@@ -224,6 +231,7 @@ const ProductStage = forwardRef(function ProductStage(
       const d = drag.current
       if (!d || d.pointerId !== e.pointerId) return
       drag.current = null
+      document.body.classList.remove('charme-no-select')
       // Once a single charm has actually been moved, dismiss its rotate/remove
       // toolbar. Group drags keep the group selected so the box + Confirm button
       // stay put. A plain tap (no real drag) leaves the selection alone.
@@ -344,14 +352,21 @@ const ProductStage = forwardRef(function ProductStage(
       null,
   )
   const blankPhotoBounds = product.caseImageBounds?.[color.id]
-  const blankPhotoCropStyle = blankPhotoBounds ? {
-    width: wPx * blankPhotoBounds.sourceWidth / blankPhotoBounds.width,
-    height: hPx * blankPhotoBounds.sourceHeight / blankPhotoBounds.height,
-    left: -wPx * blankPhotoBounds.left / blankPhotoBounds.width,
-    top: -hPx * blankPhotoBounds.top / blankPhotoBounds.height,
-    right: 'auto',
-    bottom: 'auto',
-  } : null
+  const blankPhotoCropStyle = blankPhotoBounds ? productPhotoStyle(blankPhotoBounds) : null
+  const totePhotoBounds = product.kind === 'tote' ? product.toteBodyBounds?.[color.toteSide || 'front'] : null
+  const totePhotoStyle = totePhotoBounds ? (() => {
+    const body = product.printable.outer
+    const sx = body.wMm / totePhotoBounds.w
+    const sy = body.hMm / totePhotoBounds.h
+    return {
+      width: totePhotoBounds.sourceW * sx * scale,
+      height: totePhotoBounds.sourceH * sy * scale,
+      left: body.xMm * scale - totePhotoBounds.x * sx * scale,
+      top: body.yMm * scale - totePhotoBounds.y * sy * scale,
+      right: 'auto',
+      bottom: 'auto',
+    }
+  })() : null
 
   return (
     <div
@@ -382,13 +397,13 @@ const ProductStage = forwardRef(function ProductStage(
                 style={blankPhotoCropStyle}
               />
             </div>
-          ) : blankPhoto ? (
+          ) : blankPhoto && product.kind !== 'tote' ? (
             <img
               className="stage-blank"
               src={blankPhoto}
               alt={`${product.name} ${color.label}`}
               draggable={false}
-              style={{ width: wPx, height: hPx }}
+              style={totePhotoStyle || { width: wPx, height: hPx }}
             />
           ) : (
             <ProductCanvas product={product} color={color} scale={scale} />
@@ -404,60 +419,6 @@ const ProductStage = forwardRef(function ProductStage(
               draggable={false}
               style={{ width: wPx, height: hPx }}
             />
-          )}
-
-          {/* faint safe-area guide — only for the tote (its logo keep-out).
-              Phone cases use real Apple photos where the camera is already
-              visible, and the photo frame draws its own moulding, so neither
-              needs a dashed overlay. */}
-          {product.kind === 'tote' && (
-          <svg
-            width={wPx}
-            height={hPx}
-            viewBox={`0 0 ${wPx} ${hPx}`}
-            style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
-          >
-            <rect
-              x={product.printable.outer.xMm * scale}
-              y={product.printable.outer.yMm * scale}
-              width={product.printable.outer.wMm * scale}
-              height={product.printable.outer.hMm * scale}
-              rx={product.printable.outer.rMm * scale}
-              ry={product.printable.outer.rMm * scale}
-              fill="none"
-              stroke="rgba(168,82,76,0.28)"
-              strokeWidth={1}
-              strokeDasharray="5 5"
-            />
-            {(product.printable.obstacles || []).map((ob, i) =>
-              ob.type === 'circle' ? (
-                <circle
-                  key={i}
-                  cx={ob.cxMm * scale}
-                  cy={ob.cyMm * scale}
-                  r={ob.rMm * scale}
-                  fill="rgba(168,82,76,0.06)"
-                  stroke="rgba(168,82,76,0.4)"
-                  strokeWidth={1}
-                  strokeDasharray="4 4"
-                />
-              ) : (
-                <rect
-                  key={i}
-                  x={ob.xMm * scale}
-                  y={ob.yMm * scale}
-                  width={ob.wMm * scale}
-                  height={ob.hMm * scale}
-                  rx={(ob.rMm || 0) * scale}
-                  ry={(ob.rMm || 0) * scale}
-                  fill="rgba(168,82,76,0.06)"
-                  stroke="rgba(168,82,76,0.4)"
-                  strokeWidth={1}
-                  strokeDasharray="4 4"
-                />
-              ),
-            )}
-          </svg>
           )}
 
           {placed.map((charm) => {
@@ -600,6 +561,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
     }
     onCheckpoint?.()
     dragging.current = true
+    document.body.classList.add('charme-no-select')
     onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
   }
   const move = (e) => {
@@ -607,6 +569,7 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   }
   const end = () => {
     dragging.current = false
+    document.body.classList.remove('charme-no-select')
   }
 
   const ta = ((rot - 90) * Math.PI) / 180
@@ -631,9 +594,9 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         <circle className="charm-dial__track" cx={c} cy={c} r={R} />
         <circle
           className="charm-dial__hit"
-          cx={c}
-          cy={c}
-          r={R}
+          cx={tx}
+          cy={ty}
+          r={18}
           onPointerDown={start}
           onPointerMove={move}
           onPointerUp={end}
@@ -641,6 +604,11 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
         />
         <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
         <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
+        <path
+          className="charm-dial__icon"
+          d="M-4 -3 A5 5 0 1 1 -3 4 M-4 -3 L-1 -3 M-4 -3 L-4 0"
+          transform={`translate(${tx} ${ty})`}
+        />
       </svg>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>
       <button
