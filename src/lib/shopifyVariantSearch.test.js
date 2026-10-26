@@ -3,6 +3,8 @@ import test from 'node:test'
 import { onRequestGet } from '../../functions/api/admin/shopify-variants.js'
 import { searchShopifyVariants } from './adminApi.js'
 
+globalThis.localStorage = { getItem: () => '' }
+
 const env = { ADMIN_TOKEN: 'test-only', SHOPIFY_STORE: 'example.myshopify.com', SHOPIFY_ADMIN_TOKEN: 'test-only' }
 const request = (query, after) => new Request(`https://example.test/api/admin/shopify-variants?${new URLSearchParams({
   q: query, ...(after ? { after } : {}),
@@ -79,6 +81,7 @@ test('no matches, overly broad searches, invalid input and Shopify failures are 
 })
 
 test('client search encodes product names, loads later pages and surfaces API failures', async (t) => {
+  t.mock.property(globalThis, 'localStorage', { getItem: () => 'test-only' })
   const calls = []
   t.mock.method(globalThis, 'fetch', async (url) => {
     const params = new URL(url, 'https://example.test').searchParams

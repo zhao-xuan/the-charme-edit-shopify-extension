@@ -222,6 +222,12 @@ npm run build:shopify   # Shopify widget bundle into the extension
 ```
 
 ## Shopify
+Merchant Admin's **Import / sync Shopify variants** requires either a fresh
+Shopify embedded session or the existing standalone admin token. Outside Shopify,
+enter that token in the sync dialog (or Admin header); Shopify login is not
+required. If authentication is rejected, correct the token and retry. A scan is
+read-only, and retrying an interrupted save preserves already-saved items.
+
 See **[shopify/README.md](shopify/README.md)** for deployment and
 **[shopify/MERCHANT-GUIDE.md](shopify/MERCHANT-GUIDE.md)** for the merchant
 listing-and-selling flow.

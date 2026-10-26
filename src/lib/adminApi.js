@@ -23,6 +23,16 @@ export const setToken = (t) => {
 export const isShopifyEmbedded = () =>
   typeof window !== 'undefined' && window.__charmeEmbedded === true
 
+export class AdminAuthenticationError extends Error {
+  constructor() {
+    super(isShopifyEmbedded()
+      ? 'Shopify authentication expired or was rejected. Reopen this app from Shopify Admin, then retry. No items were saved by this request.'
+      : 'Admin authentication is required. Enter your existing admin token, then retry. No items were saved by this request.')
+    this.name = 'AdminAuthenticationError'
+    this.status = 401
+  }
+}
+
 /** Wait briefly for the App Bridge CDN script to define window.shopify. */
 async function waitForAppBridge(ms = 4000) {
   const start = Date.now()
@@ -44,9 +54,11 @@ async function bearer() {
     try {
       if (window.shopify?.idToken) return await window.shopify.idToken()
     } catch { /* fail closed below */ }
-    throw new Error('Shopify 身份验证不可用，请从商家后台重新打开应用。')
+    throw new AdminAuthenticationError()
   }
-  return getToken()
+  const token = getToken().trim()
+  if (!token) throw new AdminAuthenticationError()
+  return token
 }
 
 const authHeaders = async () => ({
@@ -59,6 +71,7 @@ export const adminAuthHeaders = authHeaders
 
 async function handle(res) {
   if (!res.ok) {
+    if (res.status === 401) throw new AdminAuthenticationError()
     let msg = `HTTP ${res.status}`
     try { msg = (await res.json()).error || msg } catch { /* ignore */ }
     throw new Error(msg)

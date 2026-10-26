@@ -7,6 +7,8 @@ import { onRequestGet } from '../../functions/api/catalog.js'
 import { fetchCatalog, deleteCharm } from './adminApi.js'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalogFailed } from './remoteCatalog.js'
 
+globalThis.localStorage = { getItem: () => '' }
+
 const env = {
   ADMIN_TOKEN: 'test-only',
   SHOPIFY_STORE: 'sync-test.myshopify.com',
@@ -104,6 +106,7 @@ test('Shopify refresh failure returns an error rather than stale success after d
 })
 
 test('admin reads and deletion use the shared API and bypass the browser cache', async (t) => {
+  t.mock.property(globalThis, 'localStorage', { getItem: () => 'test-only' })
   const calls = []
   t.mock.method(globalThis, 'fetch', async (url, options) => {
     calls.push({ url, options })

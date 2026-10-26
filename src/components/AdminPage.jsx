@@ -1057,7 +1057,7 @@ function CharmsTab({ draft, set, cloud }) {
 
       {/* Left column — the catalogue list to pick a charm from. */}
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
-        <DecorationSyncModal kind="charm" onSaved={() => cloud.refresh({ reportErrors: true })} />
+        <DecorationSyncModal kind="charm" embedded={cloud.embedded} token={cloud.token} onTokenChange={cloud.saveToken} onSaved={() => cloud.refresh({ reportErrors: true })} />
         <Card size="small" title={`Charms — re-price, hide or size (${baseRows.length})`}>
           <Input.Search
             allowClear
@@ -1533,7 +1533,7 @@ function PatchesTab({ cloud, onOpenUploader }) {
         style={{ width: '100%' }}
       />
       <Space direction="vertical" size={18} style={{ flex: '1 1 520px', minWidth: 0 }}>
-        <DecorationSyncModal kind="patch" onSaved={() => cloud.refresh({ reportErrors: true })} />
+        <DecorationSyncModal kind="patch" embedded={cloud.embedded} token={cloud.token} onTokenChange={cloud.saveToken} onSaved={() => cloud.refresh({ reportErrors: true })} />
         <Card
           size="small"
           title={`Patches — re-price, hide or size (${visiblePatches.length})`}

@@ -6,7 +6,7 @@ import { decorationSyncPreview, variantName } from '../lib/decorationSync.js'
 import { resolveAsset } from '../lib/assets'
 import { prepareDecorationSyncImage } from '../lib/decorationSyncImage.js'
 
-export default function DecorationSyncModal({ kind, onSaved }) {
+export default function DecorationSyncModal({ kind, onSaved, embedded, token, onTokenChange }) {
   const { message } = App.useApp()
   const [open, setOpen] = useState(false)
   const [step, setStep] = useState(0)
@@ -162,6 +162,19 @@ export default function DecorationSyncModal({ kind, onSaved }) {
         <Space direction="vertical" size={16} style={{ width: '100%' }}>
           <Steps size="small" current={step} items={[{ title: 'Naming rule' }, { title: 'Review and select' }, { title: 'Auto-remove backgrounds' }, { title: 'Save to Shopify' }]} />
           {error && <Alert type="error" showIcon message={error} />}
+          {!embedded && (
+            <Space direction="vertical" style={{ width: '100%' }}>
+              <span>Use your existing Merchant Admin token. Shopify login is not required.</span>
+              <Input.Password
+                value={token}
+                onChange={(event) => onTokenChange(event.target.value)}
+                disabled={busy}
+                placeholder="Existing admin token"
+                aria-label="Shopify sync admin token"
+                autoComplete="off"
+              />
+            </Space>
+          )}
           {progress && <Alert type="info" showIcon message={progress} />}
           {step === 0 ? (
             <>
