@@ -7,7 +7,7 @@ const surfaceZone = (surface) => ({
   y: surface.zone.y + surface.zone.height / 2,
 })
 
-export function TypographyTools({ template, document, onChange, disabled }) {
+export function TypographyTools({ template, document, onChange, disabled, surfaces = template.surfaces }) {
   const update = (surface, patch) => {
     const existing = document.elements.find((e) => e.surfaceId === surface.id)
     const value = { ...existing, ...patch }
@@ -22,7 +22,7 @@ export function TypographyTools({ template, document, onChange, disabled }) {
   }
   return <div className="studio-workflow-controls">
     <p className="studio-muted">文字会自动放入预设内容位；无需拖动。制作前仍需确认字体与工艺。</p>
-    {template.surfaces.map((surface) => {
+    {surfaces.map((surface) => {
       const element = document.elements.find((e) => e.surfaceId === surface.id)
       return <div className="studio-slot-editor" key={surface.id}>
         <strong>{surface.name}</strong>
@@ -33,7 +33,7 @@ export function TypographyTools({ template, document, onChange, disabled }) {
   </div>
 }
 
-export function ImageSwapTools({ template, document, onChange, onError, disabled }) {
+export function ImageSwapTools({ template, document, onChange, onError, disabled, surfaces = template.surfaces }) {
   const replace = async (surface, file) => {
     if (!file) return
     try {
@@ -46,7 +46,7 @@ export function ImageSwapTools({ template, document, onChange, onError, disabled
     } catch (error) { onError(error.message) }
   }
   return <div className="studio-workflow-controls"><p className="studio-muted">仅替换固定图片位。图片无法拖动；预览会从中心裁切以填满区域。</p>
-    {template.surfaces.map((surface) => {
+    {surfaces.map((surface) => {
       const image = document.elements.find((e) => e.surfaceId === surface.id)
       return <div className="studio-slot-editor" key={surface.id}><strong>{surface.name}</strong>
         <label className="studio-image-picker"><span>{image?'替换当前图片':'选择图片'}</span><input type="file" accept="image/png,image/jpeg,image/webp" disabled={disabled} onChange={async (event) => {const file=event.target.files?.[0];event.target.value='';await replace(surface,file)}}/></label>
@@ -56,11 +56,11 @@ export function ImageSwapTools({ template, document, onChange, onError, disabled
   </div>
 }
 
-export function ComponentTools({ template, document, onChange, disabled }) {
+export function ComponentTools({ template, document, onChange, disabled, slots = template.slots }) {
   const choose = (slot, material) => onChange({ ...document, elements:document.elements.map((element) => element.slotId===slot.id
     ? {...element,materialId:material.id,color:material.color} : element) })
   return <div className="studio-workflow-controls"><p className="studio-muted">每个部件都有固定安装位；选择选项即可替换，不需要拖动。</p>
-    {template.slots.map((slot) => <div className="studio-slot-editor" key={slot.id}><strong>{slot.name}</strong><div className="studio-component-choices">{slot.choices.map((id) => {
+    {slots.map((slot) => <div className="studio-slot-editor" key={slot.id}><strong>{slot.name}</strong><div className="studio-component-choices">{slot.choices.map((id) => {
       const material=MATERIALS.find((item) => item.id===id)
       const selected=document.elements.find((e) => e.slotId===slot.id)?.materialId===id
       return <button key={id} disabled={disabled} className={selected?'active':''} onClick={() => choose(slot,material)} aria-pressed={selected}><span style={{background:material.color}}/>{material.name}</button>

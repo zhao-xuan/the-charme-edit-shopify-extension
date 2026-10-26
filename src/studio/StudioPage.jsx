@@ -1,9 +1,10 @@
 import { lazy,Suspense,useEffect,useMemo,useRef,useState } from 'react'
 import { PRODUCT_TEMPLATES,PROCESSES,MATERIALS,WORKFLOWS,interactionFor } from './templates.js'
-import { blankDesign,normalizeDesign,validateDesign,billOfMaterials,beadMetrics,productionPack,pngInfo,FONT_FAMILIES } from './model.js'
-import { studioApi,designCredentials,downloadFile,readArtwork } from './api.js'
+import { blankDesign,normalizeDesign,validateDesign,billOfMaterials,beadMetrics,productionPack,FONT_FAMILIES } from './model.js'
+import { studioApi,designCredentials,downloadFile } from './api.js'
 import StudioCanvas from './StudioCanvas.jsx'
-import { TypographyTools,ImageSwapTools,ComponentTools } from './WorkflowTools.jsx'
+import StudioCatalogTools from './StudioCatalogTools.jsx'
+import { orderedCatalogItems } from './catalogLayout.js'
 import { openStudioCart } from '../lib/storefrontCart.js'
 import './studio.css'
 
@@ -32,7 +33,7 @@ export default function StudioPage() {
   const [templates,setTemplates]=useState(PRODUCT_TEMPLATES),[backend,setBackend]=useState('loading'),[apiError,setApiError]=useState('')
   const [template,setTemplate]=useState(null),[doc,setDoc]=useState(null),[record,setRecord]=useState(null),[credentials,setCredentials]=useState(null)
   const [surfaceId,setSurfaceId]=useState(''),[selected,setSelected]=useState(null),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false)
-  const [history,setHistory]=useState({past:[],future:[]}),[textValue,setTextValue]=useState('YOUR STORY'),[country,setCountry]=useState('GB'),[quote,setQuote]=useState(null),[now,setNow]=useState(Date.now())
+  const [history,setHistory]=useState({past:[],future:[]}),[country,setCountry]=useState('GB'),[quote,setQuote]=useState(null),[now,setNow]=useState(Date.now())
   const [share,setShare]=useState(''),[recovery,setRecovery]=useState(null),[localError,setLocalError]=useState('')
   const [customizerName,setCustomizerName]=useState('')
   const [customizerError,setCustomizerError]=useState('')
@@ -78,6 +79,9 @@ export default function StudioPage() {
   const frozen=record&&record.state!=='draft',element=doc?.elements.find((e) => e.id===selected)
   const surface=template?.surfaces.find((s) => s.id===surfaceId)
   const mode=interactionFor(template)
+  const visibleSurfaces=template && ['typography','imageSwap'].includes(mode)
+    ? orderedCatalogItems(template,template.catalogLayout).flatMap((category) => category.items.map((item) => template.surfaces.find((surface) => surface.id === item.id.slice(8))))
+    : template?.surfaces || []
   const change=(next,remember=true) => {
     if(frozen||busy)return
     if(remember)setHistory((h) => ({past:[...h.past,copy(documentRef.current)].slice(-40),future:[]}))
@@ -160,16 +164,10 @@ export default function StudioPage() {
       {!CUSTOMIZER&&<div className="studio-sample-note">这是模板预览入口。新商店需先发布定制器，并从其专属顾客链接进入，才能提交制作申请。</div>}
       <div className="studio-workspace">
         <aside className="studio-panel studio-tools"><h2>{mode==='placement'?'设计素材':mode==='jewelry3d'?'珠子与吊坠':'定制内容'}</h2>
-          {mode==='placement'&&<><p className="studio-muted">把装饰拖到商品的设计面上；实物与可生产性需制作方确认。</p><div className="studio-materials">{MATERIALS.filter((m) => m.processes.includes(template.process)).map((m) => <button key={m.id} disabled={!!frozen||busy} onClick={() => add('motif',m)}><span style={{background:m.color}}/><strong>{m.name}</strong><small>{m.width} × {m.height} mm</small></button>)}</div>
-          {PROCESSES[template.process].accepts.includes('text')&&<div className="studio-tool-group"><h3>添加文字</h3><input aria-label="设计文字" value={textValue} maxLength={template.maxTextLength} onChange={(e) => setTextValue(e.target.value)}/><button disabled={!!frozen||busy||!textValue.trim()} onClick={() => add('text',null,{text:textValue,font:'sans-serif'})}>＋ 添加文字</button></div>}
-          {PROCESSES[template.process].accepts.includes('image')&&<div className="studio-tool-group"><h3>上传图案</h3><input aria-label="上传图案" type="file" accept="image/png,image/jpeg,image/webp" disabled={!!frozen||busy} onChange={async (event) => {const file=event.target.files[0];event.target.value='';if(!file)return;try{const src=await readArtwork(file);add('image',null,{src,pixels:pngInfo(src)})}catch(e){setNotice(e.message)}}}/><p className="studio-muted">图片会优化为 PNG。缩放后仍需满足工艺分辨率。</p></div>}</>}
-          {mode==='typography'&&<TypographyTools template={template} document={doc} onChange={change} disabled={!!frozen||busy}/>}
-          {mode==='imageSwap'&&<ImageSwapTools template={template} document={doc} onChange={change} onError={setNotice} disabled={!!frozen||busy}/>}
-          {mode==='components'&&<ComponentTools template={template} document={doc} onChange={change} disabled={!!frozen||busy}/>}
-          {mode==='jewelry3d'&&<><p className="studio-muted">按添加顺序排列珠子；在模型上拖动可旋转查看。模型几何由设计数据生成。</p><div className="studio-materials">{MATERIALS.filter((m) => m.processes.includes('beads')).map((m) => <button key={m.id} disabled={!!frozen||busy} onClick={() => add('bead',m)}><span style={{background:m.color}}/><strong>{m.name}</strong><small>{m.width} mm</small></button>)}</div></>}
+          <StudioCatalogTools key={template.id} template={template} document={doc} mode={mode} add={add} onChange={change} onError={setNotice} disabled={!!frozen||busy}/>
           <div className="studio-tool-group"><h3>导入备份</h3><input aria-label="导入设计备份" type="file" accept="application/json,.json" disabled={busy} onChange={async (event) => {const file=event.target.files[0];event.target.value='';if(!file)return;try{if(file.size>1000000)throw new Error('备份大于 1 MB。');const saved=JSON.parse(await file.text()),t=templates.find((v) => v.id===saved.document?.templateId);if(!t)throw new Error('备份品类不存在。');install(t,normalizeDesign({...saved.document,templateVersion:t.version},t));setNotice('已导入为新设计，请检查模板更新后的边界。')}catch(e){setNotice(e.message)}}}/></div>
         </aside>
-        <section className="studio-stage-wrap"><div className="studio-stage-toolbar"><div className="studio-side-tabs">{template.surfaces.map((s) => <button key={s.id} className={s.id===surfaceId?'active':''} onClick={() => {setSurfaceId(s.id);setSelected(null)}}>{s.name}<small>{doc.elements.filter((e) => e.surfaceId===s.id).length}</small></button>)}</div><div><button aria-label="撤销" disabled={!history.past.length||!!frozen||busy} onClick={undo}>↶</button><button aria-label="重做" disabled={!history.future.length||!!frozen||busy} onClick={redo}>↷</button></div></div>
+        <section className="studio-stage-wrap"><div className="studio-stage-toolbar"><div className="studio-side-tabs">{visibleSurfaces.map((s) => <button key={s.id} className={s.id===surfaceId?'active':''} onClick={() => {setSurfaceId(s.id);setSelected(null)}}>{s.name}<small>{doc.elements.filter((e) => e.surfaceId===s.id).length}</small></button>)}</div><div><button aria-label="撤销" disabled={!history.past.length||!!frozen||busy} onClick={undo}>↶</button><button aria-label="重做" disabled={!history.future.length||!!frozen||busy} onClick={redo}>↷</button></div></div>
           <div className={`studio-stage studio-stage--${mode}`}>{mode==='jewelry3d'?<Suspense fallback={<div className="studio-3d-loading">正在准备 3D 模型…</div>}><JewelryScene template={template} document={doc}/></Suspense>:<StudioCanvas template={template} document={doc} surfaceId={surfaceId} selected={selected} onSelect={setSelected} onMove={move} onDragStart={rememberDrag} invalidIds={validation.invalidIds} readOnly={mode!=='placement'||!!frozen||busy}/>}</div>
           <div className="studio-ruler"><span>{mode==='jewelry3d'?`目标长度 ${template.circumferenceMm} mm`:`${surface.widthMm} × ${surface.heightMm} mm`}</span><span>{({placement:'拖动调整 · 方向键微调',typography:'打字与换字体 · 固定位置',jewelry3d:'拖动旋转 · 滚轮缩放',imageSwap:'只替换图片 · 固定位置',components:'选择部件 · 固定安装位'})[mode]}</span></div>
           <div className={`studio-validation ${validation.valid?'is-valid':''}`} role="status"><strong>{validation.valid?'✓ 布局检查通过':'请调整设计'}</strong>{validation.errors.map((s) => <p key={s}>{s}</p>)}{validation.warnings.map((s) => <p className="studio-warning" key={s}>{s}</p>)}</div>

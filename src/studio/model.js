@@ -1,4 +1,5 @@
 import { MATERIALS, PROCESSES, templateById, interactionFor } from './templates.js'
+import { normalizeCatalogLayout } from './catalogLayout.js'
 
 export const SCHEMA_VERSION = 1
 export const MAX_DESIGN_BYTES = 900_000
@@ -15,6 +16,7 @@ export function normalizeTemplate(raw) {
   const result = clone(base)
   result.interaction = base.interaction
   result.slots = clone(base.slots || [])
+  result.catalogLayout = normalizeCatalogLayout(base, raw.catalogLayout)
   result.name = text(raw.name || base.name, 80)
   result.description = text(raw.description || base.description, 300)
   result.enabled = raw.enabled === true

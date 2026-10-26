@@ -2,6 +2,19 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { PRODUCT_TEMPLATES, MATERIALS, WORKFLOWS, interactionFor } from './templates.js'
 import { blankDesign, normalizeDesign, normalizeTemplate, validateDesign, artworkSvg, beadMetrics, productionPack } from './model.js'
+import { catalogItems, normalizeCatalogLayout, orderedCatalogItems } from './catalogLayout.js'
+
+test('each product category keeps its own validated option categories and order', () => {
+  for (const template of PRODUCT_TEMPLATES) {
+    const items = catalogItems(template)
+    const initial = normalizeCatalogLayout(template)
+    assert.deepEqual(initial.categories.flatMap((category) => category.itemIds),items.map((item) => item.id))
+    const reversed = { categories: [{ id:'featured',name:'精选',itemIds:items.map((item) => item.id).reverse() }] }
+    const saved = normalizeTemplate({ ...template, catalogLayout:reversed })
+    assert.deepEqual(orderedCatalogItems(saved,saved.catalogLayout)[0].items.map((item) => item.id),reversed.categories[0].itemIds)
+    assert.throws(() => normalizeTemplate({ ...template, catalogLayout:{ categories:[{ id:'a',name:'A',itemIds:[items[0].id,items[0].id] }] } }), /重复/)
+  }
+})
 
 test('every product category has a valid, distinct base template and a design surface', () => {
   assert.equal(PRODUCT_TEMPLATES.length, 25)
