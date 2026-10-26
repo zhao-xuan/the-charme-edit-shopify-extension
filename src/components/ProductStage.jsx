@@ -531,11 +531,12 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
   const cy = charm.cyMm * scale
   const rot = charm.rot || 0
   const charmRadius = Math.hypot(w, h) / 2
-  const R = charmRadius + 10
-  const size = R * 2 + 24
+  const R = Math.max(44, charmRadius + 26)
+  const size = R * 2 + 48
   const c = size / 2
   const svgRef = useRef(null)
   const dragging = useRef(false)
+  const dragOffset = useRef(0)
 
   // Free-degree rotation: the angle from the ring centre to the pointer sets the
   // charm's rotation (0 = upright, i.e. the thumb straight up).
@@ -560,23 +561,32 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
       // ignore
     }
     onCheckpoint?.()
+    dragOffset.current = angleFrom(e.clientX, e.clientY) - rot
     dragging.current = true
     document.body.classList.add('charme-no-select')
-    onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
   }
   const move = (e) => {
-    if (dragging.current) onTransform(charm.uid, { rot: angleFrom(e.clientX, e.clientY) })
+    if (dragging.current) {
+      const angle = angleFrom(e.clientX, e.clientY) - dragOffset.current
+      onTransform(charm.uid, { rot: ((angle + 540) % 360) - 180 })
+    }
   }
   const end = () => {
     dragging.current = false
     document.body.classList.remove('charme-no-select')
   }
 
-  const ta = ((rot - 90) * Math.PI) / 180
-  const sx = c + (charmRadius + 3) * Math.cos(ta)
-  const sy = c + (charmRadius + 3) * Math.sin(ta)
-  const tx = c + R * Math.cos(ta)
-  const ty = c + R * Math.sin(ta)
+  const halfArc = 50 * Math.PI / 180
+  const endX = R * Math.sin(halfArc)
+  const endY = -R * Math.cos(halfArc)
+  const arc = `M ${-endX} ${endY} A ${R} ${R} 0 0 1 ${endX} ${endY}`
+  const arrowSize = 9
+  const arrowHead = (x, direction) => {
+    const tangentX = direction * Math.cos(halfArc)
+    const tangentY = Math.sin(halfArc)
+    return `M ${x - arrowSize * tangentX + arrowSize * tangentY} ${endY - arrowSize * tangentY - arrowSize * tangentX} L ${x} ${endY} L ${x - arrowSize * tangentX - arrowSize * tangentY} ${endY - arrowSize * tangentY + arrowSize * tangentX}`
+  }
+  const arrows = `${arrowHead(-endX, -1)} ${arrowHead(endX, 1)}`
   return (
     <div
       className="charm-dial"
@@ -592,23 +602,19 @@ function RotationDial({ charm, scale, onTransform, onRemove, onCheckpoint }) {
       >
         <circle className="charm-dial__contrast" cx={c} cy={c} r={R} />
         <circle className="charm-dial__track" cx={c} cy={c} r={R} />
-        <circle
-          className="charm-dial__hit"
-          cx={tx}
-          cy={ty}
-          r={18}
-          onPointerDown={start}
-          onPointerMove={move}
-          onPointerUp={end}
-          onPointerCancel={end}
-        />
-        <line className="charm-dial__spoke" x1={sx} y1={sy} x2={tx} y2={ty} />
-        <circle className="charm-dial__thumb" cx={tx} cy={ty} r={11} />
-        <path
-          className="charm-dial__icon"
-          d="M-4 -3 A5 5 0 1 1 -3 4 M-4 -3 L-1 -3 M-4 -3 L-4 0"
-          transform={`translate(${tx} ${ty})`}
-        />
+        <g transform={`translate(${c} ${c}) rotate(${rot})`}>
+          <path
+            className="charm-dial__hit"
+            d={arc}
+            onPointerDown={start}
+            onPointerMove={move}
+            onPointerUp={end}
+            onPointerCancel={end}
+            onLostPointerCapture={end}
+          />
+          <path className="charm-dial__arrow-contrast" d={`${arc} ${arrows}`} />
+          <path className="charm-dial__arrow" d={`${arc} ${arrows}`} />
+        </g>
       </svg>
       <span className="charm-dial__deg">{Math.round(rot)}°</span>
       <button

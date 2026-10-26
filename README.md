@@ -41,6 +41,9 @@ browse complete charm rows immediately. Drag the divider to adjust the preview
 and selector balance.
 Mobile totes show the patch collections directly without a redundant
 single-option "Patches" category switch.
+Selected decorations use a large curved double-ended rotation arrow along the
+dashed circle, with a 44px-wide touch target. Grabbing either end preserves the
+current angle until the pointer moves.
 
 ### Import / sync Shopify decorations
 In Merchant Admin → Decorations → Charms or Patches, use **Import / sync Shopify

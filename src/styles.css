@@ -662,35 +662,32 @@ h4,
   stroke-width: 2;
 }
 .charm-dial__hit {
-  fill: transparent;
+  fill: none;
   stroke: transparent;
-  stroke-width: 0;
-  pointer-events: all;
+  stroke-width: 44;
+  stroke-linecap: round;
+  pointer-events: stroke;
   cursor: grab;
   touch-action: none;
 }
 .charm-dial__hit:active {
   cursor: grabbing;
 }
-.charm-dial__spoke {
-  stroke: var(--rouge);
-  stroke-width: 1.5;
-  pointer-events: none;
-}
-.charm-dial__thumb {
-  fill: #d4380d;
-  stroke: #fff;
-  stroke-width: 3;
-  pointer-events: none;
-  filter: drop-shadow(0 0 2px #fff) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
-}
-.charm-dial__icon {
+.charm-dial__arrow-contrast,
+.charm-dial__arrow {
   fill: none;
-  stroke: #fff;
-  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
+}
+.charm-dial__arrow-contrast {
+  stroke: #fff;
+  stroke-width: 9;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+}
+.charm-dial__arrow {
+  stroke: #d4380d;
+  stroke-width: 4;
 }
 .charm-dial__deg {
   position: absolute;
