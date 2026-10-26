@@ -10,6 +10,7 @@ import { studioCartPermalink } from '../lib/storefrontCart.js'
 import { onRequestPost as createCustomizer, onRequestPatch as updateCustomizer, onRequestDelete as deleteCustomizer } from '../../functions/api/admin/studio/customizers.js'
 import { PRODUCT_TEMPLATES } from './templates.js'
 import { onRequestDelete as deleteDesign } from '../../functions/api/studio/designs/[id].js'
+import { onRequestPost as installSession } from '../../functions/api/shopify-app/session.js'
 
 const env = { SHOPIFY_CLIENT_ID: 'public-app', SHOPIFY_CLIENT_SECRET: 'secret', SHOPIFY_STORE: 'owner.myshopify.com' }
 const now = () => Math.floor(Date.now() / 1000)
@@ -21,6 +22,12 @@ function jwt(shop = 'other.myshopify.com', fields = {}) {
 }
 const request = (shop, token) => new Request(`https://example.com/api/admin/studio/templates?shop=${shop}`, { headers: { authorization: `Bearer ${token}` } })
 const db = { prepare: () => ({ bind: (shop) => ({ first: async () => shop === 'other.myshopify.com' ? { shop_id: shop } : null }) }) }
+
+test('installation endpoint loads and rejects a missing session before installation', async () => {
+  const response = await installSession({ request: new Request('https://example.com/api/shopify-app/session', { method: 'POST' }), env })
+  assert.equal(response.status, 401)
+  assert.ok((await response.json()).error)
+})
 
 test('Shopify session tokens require a valid signature, audience, expiry and store origin', async () => {
   const token = jwt()

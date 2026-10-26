@@ -1,4 +1,4 @@
-import { installShop } from '../../_shopify_install.js'
+import { installShop } from '../_shopify_install.js'
 
 export async function onRequestPost({ request, env }) {
   try {
