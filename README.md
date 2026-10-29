@@ -81,6 +81,24 @@ reports per-item failures so retrying does not duplicate successful imports.
 Shopify credentials must be configured; this workflow does not write to the
 legacy D1 backend.
 
+### Pending drafts and Publish
+Existing catalogue edits (including charm size) save immediately; they do not
+need **Publish**. Publish uploads new browser-local drafts only. The **Pending
+drafts** panel exposes old uploads and auto-extracted charms, including drafts
+that predate required Shopify variant bindings. Search for and link the correct
+variant there, or explicitly discard an unwanted local draft. Discarding does
+not delete any live catalogue item or Shopify product. Draft bindings and
+discards are saved in this browser.
+
+Publishing first reads a fresh catalogue and checks every new charm's binding.
+Missing bindings stop the operation before any drafts are uploaded. An exact
+catalogue ID already present online is cleared from the pending queue without
+overwriting its live dimensions, image or variant. Similar names are never
+automatically merged. Each successful upload is removed from the local queue
+immediately, so retrying after a later failure does not upload those items again.
+The charm API also validates all variant references in a batch before uploading
+any images or writing catalogue entries.
+
 ### Catalogue deletion and storefront sync
 The live theme opens the designer at `https://design.thecharmeedit.com/editor/`,
 a custom domain bound to the existing Cloudflare Pages project. Phone, tote,

@@ -59,6 +59,7 @@ import { crossSellTitle } from '../lib/crossSellTitle'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
 import { resolveAsset } from '../lib/assets'
 import { loadAdmin, saveAdmin } from '../lib/adminStore'
+import { publishPendingDrafts, removePublishedDraft } from '../lib/publishDrafts.js'
 import { extractPieces, extractTransparentPieces, loadImageData, tierFromMm } from '../lib/segment'
 import { prepareDecorationSyncImage } from '../lib/decorationSyncImage.js'
 import {
@@ -186,7 +187,7 @@ function useLinkedShopifyVariants(records) {
   return [variants, setVariants, loading]
 }
 
-function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true }) {
+function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true, disabled = false }) {
   const [search, setSearch] = useState('')
   const [remoteVariants, setRemoteVariants] = useState([])
   const [searching, setSearching] = useState(false)
@@ -245,6 +246,7 @@ function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear =
   return (
     <Select
       size="small"
+      disabled={disabled}
       value={selectedValue || undefined}
       loading={loading || searching}
       showSearch
@@ -1045,7 +1047,7 @@ function CharmsTab({ draft, set, cloud }) {
     }
     set((d) => ({ ...d, customCharms: [charm, ...(d.customCharms || [])] }))
     setForm({ name: '', category: 'gold', tier: 'midi', shopifyVariantId: '', widthMm: 16, image: null, bundle: false })
-    message.success('Charm added — Save changes to publish.')
+    message.success('Charm added to Pending drafts — review its Shopify variant, then Publish.')
   }
 
   // ONLY the merchant's Shopify-stored charms (charme_charm metaobjects) — the
@@ -1061,7 +1063,7 @@ function CharmsTab({ draft, set, cloud }) {
   // panel on the right. Resolve the chosen charm across every source.
   const [selectedCharmId, setSelectedCharmId] = useState(null)
   const selectedCharm = useMemo(() => {
-    const src = [...(draft.customCharms || []), ...(cloud?.data.charms || [])]
+    const src = [...(cloud?.data.charms || []), ...(draft.customCharms || [])]
     return src.find((c) => c.id === selectedCharmId) || null
   }, [selectedCharmId, draft.customCharms, cloud])
   const pickRow = (r) => ({ onClick: () => setSelectedCharmId(r.id) })
@@ -3998,7 +4000,7 @@ function BatchExtractTab({ draft, set, cloud }) {
       return next
     })
     message.success(
-      `Added ${decorations.length} charm${decorations.length > 1 ? 's' : ''}${addProduct ? ' + 1 product' : ''} — Save changes to publish.`,
+      `Added ${decorations.length} charm${decorations.length > 1 ? 's' : ''}${addProduct ? ' + 1 product' : ''} to Pending drafts — link each charm to its Shopify variant before Publish.`,
     )
     setPieces([])
     setResult(null)
@@ -4511,7 +4513,7 @@ function BatchExtractTab({ draft, set, cloud }) {
 // ---------------------------------------------------------------------------
 // Shared Shopify catalogue state (published products + charms) — one fetch,
 // shared by the Products and Charms tabs. Publishing pushes local drafts to
-// Shopify and always persists local overrides (price / hide / size) to storage.
+// Shopify; existing catalogue edits are saved immediately by their own controls.
 // ---------------------------------------------------------------------------
 function useCloud(draft, set) {
   const { message, modal } = App.useApp()
@@ -4521,6 +4523,16 @@ function useCloud(draft, set) {
   const [publishing, setPublishing] = useState(false)
   const [data, setData] = useState({ products: [], charms: [] })
   const refreshSequence = useRef(0)
+  const publishInFlight = useRef(false)
+  const draftRef = useRef(draft)
+  draftRef.current = draft
+
+  const updateDraft = (updater) => {
+    const next = updater(draftRef.current)
+    saveAdmin(next)
+    draftRef.current = next
+    set(next)
+  }
 
   const refresh = async (options = {}) => {
     const sequence = ++refreshSequence.current
@@ -4547,26 +4559,35 @@ function useCloud(draft, set) {
   const saveToken = (t) => { setTokenState(t); setToken(t) }
 
   const publish = async () => {
+    if (publishInFlight.current) return
     // Always persist local overrides (prices / hidden / sizes) to this browser.
-    saveAdmin(draft)
+    try { saveAdmin(draft) }
+    catch (error) {
+      message.error(`Could not save local drafts: ${error.message}. No drafts were published.`)
+      return
+    }
     const charms = draft.customCharms || []
     const products = draft.customProducts || []
     if (!charms.length && !products.length) {
-      message.success('Saved. Reload the storefront to see your changes.')
+      message.info('No pending drafts. Existing catalogue edits save automatically; Publish is only for new drafts.')
       return
     }
     if (!embedded && !getToken()) return message.warning('Enter the admin token first.')
+    publishInFlight.current = true
     setPublishing(true)
     try {
-      if (charms.length) await addCharms(charms)
-      for (const p of products) await addProduct(p)
-      set((d) => ({ ...d, customCharms: [], customProducts: [] }))
-      saveAdmin({ ...draft, customCharms: [], customProducts: [] })
-      message.success(`Published ${charms.length} charm(s) + ${products.length} product(s) to Shopify.`)
-      refresh()
+      const result = await publishPendingDrafts(draft, {
+        fetchCatalog,
+        addCharms,
+        addProduct,
+        onConfirmed: (field, id) => updateDraft((current) => removePublishedDraft(current, field, id)),
+      })
+      message.success(`Published ${result.charms} charm(s) + ${result.products} product(s). ${result.alreadyPublished} already-published draft(s) cleared without changing live items.`)
+      await refresh({ reportErrors: true })
     } catch (e) {
       message.error(`Publish failed: ${e.message}`)
     } finally {
+      publishInFlight.current = false
       setPublishing(false)
     }
   }
@@ -4621,7 +4642,60 @@ function useCloud(draft, set) {
     onOk: async () => { try { await deleteProduct(p.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
 
-  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
+  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, updateDraft, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
+}
+
+function PendingDrafts({ draft, cloud }) {
+  const { message, modal } = App.useApp()
+  const rows = [
+    ...(draft.customCharms || []).map((item) => ({ ...item, field: 'customCharms', kind: 'Charm' })),
+    ...(draft.customProducts || []).map((item) => ({ ...item, field: 'customProducts', kind: 'Product' })),
+  ]
+  const [variants, setVariants, loading] = useLinkedShopifyVariants(rows)
+  if (!rows.length) return null
+  const edit = (field, id, patch) => {
+    try {
+      cloud.updateDraft((current) => ({
+        ...current,
+        [field]: current[field].map((item) => item.id === id ? { ...item, ...patch } : item),
+      }))
+    } catch (error) { message.error(`Could not save draft: ${error.message}`) }
+  }
+  const discard = (row) => modal.confirm({
+    title: `Discard local draft "${row.name}"?`,
+    content: 'This only removes the draft in this browser. Live catalogue items and Shopify products are not deleted.',
+    okText: 'Discard draft',
+    okButtonProps: { danger: true },
+    onOk: () => cloud.updateDraft((current) => removePublishedDraft(current, row.field, row.id)),
+  })
+  return (
+    <Card title={`Pending drafts (${rows.length})`} size="small" style={{ marginBottom: 16 }}>
+      <Alert type="warning" showIcon message="These are local drafts, not unsaved size changes."
+        description="Existing catalogue edits save automatically. Old uploads and auto-extracted charms may still be here without a Shopify variant. Link each new charm before Publish, or discard unwanted drafts. Only matching catalogue IDs count as already published; similar names are not merged." />
+      <Table rowKey={(row) => `${row.field}:${row.id}`} size="small" dataSource={rows}
+        scroll={{ x: 760 }} pagination={{ pageSize: 5, hideOnSinglePage: true }}
+        columns={[
+          { title: 'Draft', render: (_, row) => <Space>{row.src && <Image width={32} height={32} src={resolveAsset(row.src)} style={{ objectFit: 'contain' }} />}<span>{row.name} <Tag>{row.kind}</Tag></span></Space> },
+          { title: 'Size', render: (_, row) => `${row.widthMm} × ${row.heightMm} mm` },
+          { title: 'Shopify variant', render: (_, row) => {
+            const live = (row.field === 'customCharms' ? cloud.data.charms : cloud.data.products).some((item) => item.id === row.id)
+            return live ? <Tag color="green">Already published — live item will not be overwritten</Tag> : (
+              <Space direction="vertical" size={2}>
+                <ShopifyVariantSelect value={row.shopifyVariantId} variants={variants} loading={loading}
+                  allowClear={false}
+                  disabled={cloud.publishing}
+                  onChange={(shopifyVariantId, variant) => {
+                    if (variant) setVariants((items) => [...items.filter((item) => item.id !== variant.id), variant])
+                    edit(row.field, row.id, { shopifyVariantId, ...(variant ? { [row.field === 'customCharms' ? 'price' : 'basePrice']: variant.price } : {}) })
+                  }} />
+                {row.field === 'customCharms' && !/^\d+$/.test(String(row.shopifyVariantId || '')) && <span style={{ color: 'var(--rose)' }}>Required before publishing</span>}
+              </Space>
+            )
+          } },
+          { title: '', render: (_, row) => <Button danger size="small" disabled={cloud.publishing} onClick={() => discard(row)}>Discard draft</Button> },
+        ]} />
+    </Card>
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -5025,6 +5099,8 @@ export default function AdminPage() {
           </Button>
         </Space>
       </div>
+
+      <PendingDrafts draft={draft} cloud={cloud} />
 
       <Tabs
         activeKey={tab}

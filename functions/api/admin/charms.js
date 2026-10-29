@@ -35,6 +35,7 @@ async function shopifyVariantPrice(env, variantId) {
   const id = String(variantId || '')
   if (!/^\d+$/.test(id)) throw new Error('shopifyVariantId must be a Shopify variant ID')
   const data = await shopifyAdmin(env, Q_VARIANT_PRICE, { id: `gid://shopify/ProductVariant/${id}` })
+  if (!data.node?.id || data.node.price == null) throw new Error('Shopify variant was not found')
   const price = Number(data.node?.price)
   if (!Number.isFinite(price)) throw new Error('Shopify variant was not found')
   return price
@@ -73,18 +74,29 @@ export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = await request.json().catch(() => null)
   const items = body?.charms || (body ? [body] : [])
-  if (!items.length) return bad('no charms')
+  if (!Array.isArray(items) || !items.length) return bad('no charms')
 
   if (shopifyConfigured(env)) {
-    const created = []
+    // Validate the entire batch before any upload/write. A late unlinked draft
+    // must not leave the earlier drafts partially published.
     for (const c of items) {
-      if (!c.src) return bad(`charm "${c.name}" has no image`)
-      let price
+      if (!c?.src) return bad(`charm "${c?.name}" has no image`)
+      if (!/^\d+$/.test(String(c.shopifyVariantId || ''))) {
+        return bad(`charm "${c.name}" must use a valid Shopify variant: shopifyVariantId must be a Shopify variant ID`)
+      }
+    }
+    const prices = new Map()
+    for (const c of items) {
       try {
-        price = await shopifyVariantPrice(env, c.shopifyVariantId)
+        const key = String(c.shopifyVariantId)
+        if (!prices.has(key)) prices.set(key, await shopifyVariantPrice(env, key))
       } catch (error) {
         return bad(`charm "${c.name}" must use a valid Shopify variant: ${error.message}`)
       }
+    }
+    const created = []
+    for (const c of items) {
+      const price = prices.get(String(c.shopifyVariantId))
       const id = c.id || makeId('charm', c.name || 'charm')
       const { url, id: imageId } = await storeImageToFiles(env, c.src, {
         filename: `${id}.png`,
