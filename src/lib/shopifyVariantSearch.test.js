@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { onRequestGet } from '../../functions/api/admin/shopify-variants.js'
-import { searchShopifyVariants } from './adminApi.js'
+import { fetchShopifyVariants, fetchShopifyVariantsByIds, resetShopifyVariantCache, searchShopifyVariants } from './adminApi.js'
 
 globalThis.localStorage = { getItem: () => '' }
 
@@ -94,4 +94,63 @@ test('client search encodes product names, loads later pages and surfaces API fa
   assert.equal(calls[1].get('after'), 'next cursor')
   t.mock.method(globalThis, 'fetch', async () => Response.json({ error: 'Shopify unavailable' }, { status: 502 }))
   await assert.rejects(() => searchShopifyVariants('test'), /Shopify unavailable/)
+})
+
+const idsRequest = (ids) => new Request(`https://example.test/api/admin/shopify-variants?ids=${ids}`, {
+  headers: { authorization: 'Bearer test-only' },
+})
+
+test('ids lookup resolves only the linked variants and validates the list', async (t) => {
+  const calls = []
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    const { query, variables } = JSON.parse(options.body)
+    calls.push(variables.ids)
+    assert.match(query, /nodes\(ids:/)
+    return Response.json({ data: { nodes: variables.ids.map((id) => ({
+      id, title: 'Gold', price: '2', availableForSale: true,
+      product: { title: 'Letter Charm', handle: 'letter-charm' },
+    })) } })
+  })
+  const response = await onRequestGet({ request: idsRequest('51,52,51'), env })
+  assert.equal(response.status, 200)
+  assert.deepEqual((await response.json()).variants.map((variant) => variant.id), ['51', '52'])
+  assert.deepEqual(calls, [['gid://shopify/ProductVariant/51', 'gid://shopify/ProductVariant/52']])
+  for (const ids of ['', 'abc', Array.from({ length: 251 }, (_, i) => i + 1).join(',')]) {
+    assert.equal((await onRequestGet({ request: idsRequest(ids), env })).status, 400)
+  }
+})
+
+test('client resolves linked variants by ID in batches and caches them', async (t) => {
+  resetShopifyVariantCache()
+  t.mock.property(globalThis, 'localStorage', { getItem: () => 'test-only' })
+  const batches = []
+  t.mock.method(globalThis, 'fetch', async (url) => {
+    const ids = new URL(url, 'https://example.test').searchParams.get('ids').split(',')
+    batches.push(ids.length)
+    return Response.json({ variants: ids.map((id) => ({ id, price: 2 })) })
+  })
+  const ids = Array.from({ length: 300 }, (_, i) => String(1000 + i))
+  const first = await fetchShopifyVariantsByIds([...ids, 'not-a-variant', ids[0]])
+  assert.equal(first.variants.length, 300)
+  assert.deepEqual(batches, [250, 50])
+  await fetchShopifyVariantsByIds(ids.slice(0, 10))
+  assert.equal(batches.length, 2)
+})
+
+test('full variant listing is shared between callers and retried after a failure', async (t) => {
+  resetShopifyVariantCache()
+  t.mock.property(globalThis, 'localStorage', { getItem: () => 'test-only' })
+  let calls = 0
+  let fail = true
+  t.mock.method(globalThis, 'fetch', async () => {
+    calls++
+    if (fail) return Response.json({ error: 'Throttled' }, { status: 502 })
+    return Response.json({ variants: [{ id: '7' }], after: null })
+  })
+  await assert.rejects(() => fetchShopifyVariants(), /Throttled/)
+  fail = false
+  const [a, b] = await Promise.all([fetchShopifyVariants(), fetchShopifyVariants()])
+  assert.equal(a, b)
+  assert.deepEqual(a.variants.map((variant) => variant.id), ['7'])
+  assert.equal(calls, 2)
 })

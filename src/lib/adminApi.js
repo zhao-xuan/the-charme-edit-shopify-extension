@@ -149,19 +149,55 @@ export const syncDiscounts = async () =>
 export const fetchShopifyProducts = async (q) =>
   handle(await fetch(url(`/api/admin/shopify-products${q ? `?q=${encodeURIComponent(q)}` : ''}`), { headers: await authHeaders() }))
 
-/** List Shopify variants that can be used as native-cart billing lines. */
-export async function fetchShopifyVariants() {
-  const variants = []
-  let after = null
-  do {
-    const page = await handle(await fetch(url(`/api/admin/shopify-variants?paged=1${after ? `&after=${encodeURIComponent(after)}` : ''}`), {
+// The store has tens of thousands of variants, so a full listing takes minutes
+// and exhausts the Admin API rate limit shared with saves. Every caller shares
+// one in-flight/cached crawl; failures are not cached so a retry starts afresh.
+let allVariantsPromise = null
+const VARIANT_ID_BATCH = 250
+const variantById = new Map()
+
+/** List every Shopify variant. Expensive: prefer fetchShopifyVariantsByIds or search. */
+export function fetchShopifyVariants({ refresh = false } = {}) {
+  if (refresh || !allVariantsPromise) {
+    const pending = (async () => {
+      const variants = []
+      let after = null
+      do {
+        const page = await handle(await fetch(url(`/api/admin/shopify-variants?paged=1${after ? `&after=${encodeURIComponent(after)}` : ''}`), {
+          headers: await authHeaders(),
+          cache: 'no-store',
+        }))
+        variants.push(...page.variants)
+        after = page.after
+      } while (after)
+      for (const variant of variants) variantById.set(String(variant.id), variant)
+      return { variants }
+    })()
+    allVariantsPromise = pending
+    pending.catch(() => { if (allVariantsPromise === pending) allVariantsPromise = null })
+  }
+  return allVariantsPromise
+}
+
+/** Resolve specific (e.g. already-linked) Shopify variants by numeric ID. */
+export async function fetchShopifyVariantsByIds(ids) {
+  const wanted = [...new Set([...ids].map((id) => String(id ?? '').trim()).filter((id) => /^\d+$/.test(id)))]
+  const missing = wanted.filter((id) => !variantById.has(id))
+  for (let index = 0; index < missing.length; index += VARIANT_ID_BATCH) {
+    const batch = missing.slice(index, index + VARIANT_ID_BATCH)
+    const page = await handle(await fetch(url(`/api/admin/shopify-variants?ids=${batch.join(',')}`), {
       headers: await authHeaders(),
       cache: 'no-store',
     }))
-    variants.push(...page.variants)
-    after = page.after
-  } while (after)
-  return { variants }
+    for (const variant of page.variants || []) variantById.set(String(variant.id), variant)
+  }
+  return { variants: wanted.map((id) => variantById.get(id)).filter(Boolean) }
+}
+
+/** Forget cached variants (e.g. after prices change in Shopify). Test hook too. */
+export function resetShopifyVariantCache() {
+  allVariantsPromise = null
+  variantById.clear()
 }
 
 export async function searchShopifyVariants(query) {

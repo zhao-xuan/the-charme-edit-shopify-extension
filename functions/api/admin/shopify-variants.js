@@ -9,6 +9,8 @@ const cors = {
 }
 export const onRequestOptions = () => new Response(null, { headers: cors })
 
+export const MAX_IDS = 250
+
 const Q = `
   query($after: String, $query: String) {
     productVariants(first: 100, after: $after, query: $query) {
@@ -107,6 +109,13 @@ export async function onRequestGet({ request, env }) {
 
   try {
     const params = new URL(request.url).searchParams
+    if (params.has('ids')) {
+      const ids = [...new Set(params.get('ids').split(',').map((id) => id.trim()).filter(Boolean))]
+      if (!ids.length || ids.length > MAX_IDS || !ids.every((id) => /^\d+$/.test(id))) {
+        return bad(`ids must list 1–${MAX_IDS} numeric Shopify variant IDs`)
+      }
+      return json({ variants: await shopifyVariantsByIds(env, ids), after: null }, { headers: cors })
+    }
     if (params.has('q')) {
       const search = params.get('q').trim()
       if (!search || search.length > 200) return bad('Search must contain 1–200 characters')

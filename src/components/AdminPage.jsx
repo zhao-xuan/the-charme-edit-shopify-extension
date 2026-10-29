@@ -82,6 +82,7 @@ import {
   syncDiscounts,
   fetchShopifyProducts,
   fetchShopifyVariants,
+  fetchShopifyVariantsByIds,
   searchShopifyVariants,
   fetchShopifyCollections,
   fetchCaseVariants,
@@ -156,6 +157,34 @@ const TIER_OPTS = [
   { value: 'midi', label: 'Feature · Midi', type: 2, price: 2 },
   { value: 'mini', label: 'Filler · Mini (scatter)', type: 3, price: 2 },
 ]
+
+/**
+ * Resolve only the Shopify variants already linked to the given records. The
+ * store has tens of thousands of variants, so the picker finds new ones via
+ * search instead of loading the whole catalogue up-front.
+ */
+function useLinkedShopifyVariants(records) {
+  const { message } = App.useApp()
+  const [variants, setVariants] = useState([])
+  const [loading, setLoading] = useState(true)
+  const idsKey = useMemo(() => [...new Set((records || [])
+    .map((record) => String(record?.shopifyVariantId ?? ''))
+    .filter((id) => /^\d+$/.test(id)))].sort().join(','), [records])
+  useEffect(() => {
+    let alive = true
+    setLoading(true)
+    fetchShopifyVariantsByIds(idsKey ? idsKey.split(',') : [])
+      .then((data) => {
+        if (!alive) return
+        setVariants((current) => [...new Map([...current, ...(data.variants || [])]
+          .map((variant) => [String(variant.id), variant])).values()])
+      })
+      .catch((error) => alive && message.error(`Could not load linked Shopify variants: ${error.message}`))
+      .finally(() => alive && setLoading(false))
+    return () => { alive = false }
+  }, [idsKey, message])
+  return [variants, setVariants, loading]
+}
 
 function ShopifyVariantSelect({ value, variants, loading, onChange, allowClear = true }) {
   const [search, setSearch] = useState('')
@@ -743,9 +772,14 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
 function CharmPricingGroupsPanel({ subcategories = [] }) {
   const { message } = App.useApp()
   const [groups, setGroups] = useState(() => DEFAULT_CHARM_PRICING_GROUPS.map((g) => ({ ...g })))
-  const [billingVariants, setBillingVariants] = useState([])
+  const [linkedVariants, , linkedLoading] = useLinkedShopifyVariants(groups)
+  const [catalogVariants, setCatalogVariants] = useState([])
+  const [catalogRequested, setCatalogRequested] = useState(false)
+  const [catalogLoading, setCatalogLoading] = useState(false)
+  const billingVariants = useMemo(() => [...new Map([...linkedVariants, ...catalogVariants]
+    .map((variant) => [String(variant.id), variant])).values()], [linkedVariants, catalogVariants])
+  const variantsLoading = linkedLoading || catalogLoading
   const [loading, setLoading] = useState(true)
-  const [variantsLoading, setVariantsLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
@@ -761,14 +795,22 @@ function CharmPricingGroupsPanel({ subcategories = [] }) {
     return () => { alive = false }
   }, [message])
 
+  // Price-matched options need the whole variant catalogue, which is slow and
+  // rate-limited, so it is only loaded once a billing dropdown is opened.
   useEffect(() => {
+    if (!catalogRequested) return
     let alive = true
+    setCatalogLoading(true)
     fetchShopifyVariants()
-      .then((data) => alive && setBillingVariants(data.variants || []))
-      .catch((err) => alive && message.error(`Could not load Shopify billing variants: ${err.message}`))
-      .finally(() => alive && setVariantsLoading(false))
+      .then((data) => alive && setCatalogVariants(data.variants || []))
+      .catch((err) => {
+        if (!alive) return
+        setCatalogRequested(false)
+        message.error(`Could not load Shopify billing variants: ${err.message}`)
+      })
+      .finally(() => alive && setCatalogLoading(false))
     return () => { alive = false }
-  }, [message])
+  }, [catalogRequested, message])
 
   const update = (id, patch) => {
     setGroups((current) => current.map((group) => {
@@ -890,6 +932,7 @@ function CharmPricingGroupsPanel({ subcategories = [] }) {
             <Select
               value={group.shopifyVariantId || undefined}
               onChange={(shopifyVariantId) => update(group.id, { shopifyVariantId })}
+              onOpenChange={(open) => { if (open) setCatalogRequested(true) }}
               loading={variantsLoading}
               showSearch
               allowClear
@@ -902,7 +945,7 @@ function CharmPricingGroupsPanel({ subcategories = [] }) {
                   label: `${variant.productTitle} · ${variant.title} · £${variant.price.toFixed(2)}${variant.available ? '' : ' · Sold out'}`,
                   disabled: !variant.available,
                 }))}
-              notFoundContent={variantsLoading ? 'Loading…' : `No Shopify variants priced at £${Number(group.price).toFixed(2)}`}
+              notFoundContent={variantsLoading ? 'Loading all Shopify variants… this can take a minute' : `No Shopify variants priced at £${Number(group.price).toFixed(2)}`}
             />
           </label>
         </div>
@@ -928,8 +971,7 @@ function CharmPricingGroupsPanel({ subcategories = [] }) {
 
 function CharmsTab({ draft, set, cloud }) {
   const { message } = App.useApp()
-  const [shopifyVariants, setShopifyVariants] = useState([])
-  const [variantsLoading, setVariantsLoading] = useState(true)
+  const [shopifyVariants, setShopifyVariants, variantsLoading] = useLinkedShopifyVariants(cloud?.data.charms)
   const [form, setForm] = useState({
     name: '',
     category: 'gold',
@@ -942,15 +984,6 @@ function CharmsTab({ draft, set, cloud }) {
   })
   const [query, setQuery] = useState('')
   const [extracting, setExtracting] = useState(false)
-
-  useEffect(() => {
-    let alive = true
-    fetchShopifyVariants()
-      .then((data) => alive && setShopifyVariants(data.variants || []))
-      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
-      .finally(() => alive && setVariantsLoading(false))
-    return () => { alive = false }
-  }, [message])
 
   const autoExtractCharm = async () => {
     if (!form.image?.src) return message.warning('Upload the charm photo first.')
@@ -1289,8 +1322,6 @@ function PatchSizeInputs({ patch, widthMm, heightMm, onSave }) {
 function PatchesTab({ cloud, onOpenUploader }) {
   const { message, modal } = App.useApp()
   const [query, setQuery] = useState('')
-  const [shopifyVariants, setShopifyVariants] = useState([])
-  const [variantsLoading, setVariantsLoading] = useState(true)
   const [localCategories, setLocalCategories] = useState([])
   const [localSubcategories, setLocalSubcategories] = useState([])
   const [categoryAdd, setCategoryAdd] = useState('')
@@ -1315,6 +1346,7 @@ function PatchesTab({ cloud, onOpenUploader }) {
         price: prices[patch.id] ?? patch.price,
       }))
   }, [cloud?.data?.patches, cloud?.data?.overrides])
+  const [shopifyVariants, setShopifyVariants, variantsLoading] = useLinkedShopifyVariants(patches)
   const visiblePatches = useMemo(() => {
     const normalized = query.trim().toLowerCase()
     return patches.filter((patch) => !normalized || `${patch.name} ${patch.collection}`.toLowerCase().includes(normalized))
@@ -1355,15 +1387,6 @@ function PatchesTab({ cloud, onOpenUploader }) {
     setPreviewOffset({ x: 0, y: 0 })
     setPatchName(selectedPatch?.name || '')
   }, [selectedPatch?.id, savedScale])
-
-  useEffect(() => {
-    let alive = true
-    fetchShopifyVariants()
-      .then((data) => alive && setShopifyVariants(data.variants || []))
-      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
-      .finally(() => alive && setVariantsLoading(false))
-    return () => { alive = false }
-  }, [message])
 
   const saveSize = async () => {
     if (!selectedPatch) return
@@ -2252,18 +2275,8 @@ function ProductsTab({ draft, set, cloud }) {
   const [caseLoading, setCaseLoading] = useState(true)
   const [busy, setBusy] = useState(false)
   const [newColour, setNewColour] = useState('')
-  const [shopifyVariants, setShopifyVariants] = useState([])
-  const [variantsLoading, setVariantsLoading] = useState(true)
+  const [shopifyVariants, setShopifyVariants, variantsLoading] = useLinkedShopifyVariants(cloud?.data.products)
   const autoBindAttempted = useRef(false)
-
-  useEffect(() => {
-    let alive = true
-    fetchShopifyVariants()
-      .then((data) => alive && setShopifyVariants(data.variants || []))
-      .catch((error) => alive && message.error(`Could not load Shopify variants: ${error.message}`))
-      .finally(() => alive && setVariantsLoading(false))
-    return () => { alive = false }
-  }, [message])
 
   const loadCase = () => {
     setCaseLoading(true)
