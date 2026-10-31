@@ -1,4 +1,5 @@
 import { resolveApiBase } from './apiBase.js'
+import { sanitizeAttribution } from './trackingContext.js'
 
 const sessionId = () =>
   (typeof globalThis.crypto?.randomUUID === 'function' && globalThis.crypto.randomUUID())
@@ -12,7 +13,10 @@ export function createCustomizerAnalytics(options = {}) {
   const doc = options.documentRef || (typeof document !== 'undefined' ? document : null)
   const fetchImpl = options.fetchImpl || globalThis.fetch
   const host = win?.location?.hostname || ''
-  const enabled = options.enabled ?? (!!win && !['localhost', '127.0.0.1'].includes(host))
+  // `consent` is the visitor's storefront decision (see trackingContext.js); a
+  // caller that supplies none keeps the previous always-on behaviour.
+  const analyticsAllowed = options.consent ? options.consent.analytics === true : true
+  const enabled = options.enabled ?? (!!win && !['localhost', '127.0.0.1'].includes(host) && analyticsAllowed)
   const endpoint = options.endpoint || `${resolveApiBase()}/api/analytics`
   const startedMs = now()
   let visible = doc?.visibilityState !== 'hidden'
@@ -40,6 +44,7 @@ export function createCustomizerAnalytics(options = {}) {
     currency: win?.CharmeConfig?.currency?.active || win?.Shopify?.currency?.active || 'GBP',
     device: deviceType(win?.innerWidth || 1280),
     entryPoint: win?.CharmeConfig ? 'shopify' : 'standalone',
+    attribution: sanitizeAttribution(options.attribution),
     productSelections: 0,
     finishChanges: 0,
     categoryChanges: 0,
@@ -169,5 +174,9 @@ export function createCustomizerAnalytics(options = {}) {
     flush(true)
   }
 
-  return { start, stop, track, updateContext, snapshot, flush }
+  // What the storefront needs to confirm this session once the cart is verified;
+  // null when nothing is being recorded, so no identifier leaves the designer.
+  const link = () => (enabled ? { sessionId: record.sessionId } : null)
+
+  return { start, stop, track, updateContext, snapshot, flush, link }
 }

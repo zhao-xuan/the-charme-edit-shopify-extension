@@ -352,11 +352,18 @@ export function createStorefrontCartHandler(cfg = {}) {
   const goToCart = () => {
     const items = pendingItems.slice()
     if (cfg.cartBridge) {
+      let analyticsLink = null
+      try {
+        analyticsLink = typeof cfg.analyticsLink === 'function' ? cfg.analyticsLink() : null
+      } catch {
+        // Tracking must never get in the way of reaching the cart.
+      }
       submitStorefrontCartBridge(
         storeUrl,
         items,
         cartUrl,
         cfg.replaceDesignToken,
+        analyticsLink,
       )
       return
     }

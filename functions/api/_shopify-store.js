@@ -134,6 +134,7 @@ const M_DEF_UPDATE = `
 const NODE_FIELDS = `fields{ key value reference{ ... on MediaImage{ image{ url } } } }`
 const Q_BY_HANDLE = `query($handle: MetaobjectHandleInput!){ metaobjectByHandle(handle:$handle){ id handle ${NODE_FIELDS} } }`
 const Q_LIST = `query($type:String!,$after:String){ metaobjects(type:$type, first:200, after:$after){ edges{ node{ id handle ${NODE_FIELDS} } } pageInfo{ hasNextPage endCursor } } }`
+const Q_LIST_RECENT = `query($type:String!,$after:String){ metaobjects(type:$type, first:250, after:$after, sortKey:"updated_at", reverse:true){ edges{ node{ id handle updatedAt ${NODE_FIELDS} } } pageInfo{ hasNextPage endCursor } } }`
 const M_CREATE = `mutation($input:MetaobjectCreateInput!){ metaobjectCreate(metaobject:$input){ metaobject{ id handle } userErrors{ field message code } } }`
 const M_UPDATE = `mutation($id:ID!,$metaobject:MetaobjectUpdateInput!){ metaobjectUpdate(id:$id, metaobject:$metaobject){ metaobject{ id } userErrors{ field message code } } }`
 const M_DELETE = `mutation($id:ID!){ metaobjectDelete(id:$id){ deletedId userErrors{ field message code } } }`
@@ -332,6 +333,54 @@ export async function listRecords(env, type) {
     after = conn.pageInfo.endCursor
   }
   return out
+}
+
+// 44 pages + the definition lookup + token exchange stay inside the 50-subrequest
+// budget of a Cloudflare Free plan request. Retries are not budgeted: a read that
+// fails part-way returns what it has instead (see below).
+const RECENT_PAGE_LIMIT = 44
+// A client clock may run up to five minutes ahead of Shopify (see
+// normalizeAnalyticsSession), so a record's updatedAt can trail its startedAt.
+const RECENT_SKEW_MS = 15 * 60_000
+
+/**
+ * Records updated since `sinceMs`, newest first. Shopify lists metaobjects
+ * oldest-first by default, so a fixed page cap silently drops the *newest* rows
+ * once a type outgrows it. Reading newest-first and stopping at the window start
+ * keeps recent reports complete and makes any overflow drop the oldest rows,
+ * reported through `truncated`.
+ *
+ * If Shopify throttles or the subrequest budget runs out after the first page,
+ * the newest records already read are returned as a truncated window rather than
+ * failing the whole report. A first-page failure still throws: there is nothing
+ * to report.
+ */
+export async function listRecordsSince(env, type, sinceMs, opts = {}) {
+  await ensureDefinition(env, type)
+  const maxPages = opts.maxPages || RECENT_PAGE_LIMIT
+  const cutoff = sinceMs - RECENT_SKEW_MS
+  const records = []
+  let after = null
+  let pages = 0
+  while (pages < maxPages) {
+    let conn
+    try {
+      conn = (await shopifyAdmin(env, Q_LIST_RECENT, { type, after })).metaobjects
+    } catch (error) {
+      if (!pages) throw error
+      console.error('[listRecordsSince]', type, 'stopped after', pages, 'pages:', error?.message)
+      return { records, truncated: true, pages }
+    }
+    pages++
+    for (const edge of conn.edges) {
+      const updatedMs = Date.parse(edge.node.updatedAt)
+      if (Number.isFinite(updatedMs) && updatedMs < cutoff) return { records, truncated: false, pages }
+      records.push(toRecord(type, edge.node))
+    }
+    if (!conn.pageInfo.hasNextPage) return { records, truncated: false, pages }
+    after = conn.pageInfo.endCursor
+  }
+  return { records, truncated: true, pages }
 }
 
 /** Locate the metaobject node for an id (by handle first, then by legacy_id). */

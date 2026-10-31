@@ -1,7 +1,11 @@
 import { SHOP_DOMAIN } from '../api/_shopify_install.js'
 import { studioDb } from '../api/_studio.js'
+import { analyticsDb, eraseAnalyticsJoins, recordOrder, redactOrders } from '../api/_analytics-store.js'
+import { extractOrderAttribution } from '../../src/lib/orderAttribution.js'
 
-const TOPICS = new Set(['customers/data_request', 'customers/redact', 'shop/redact', 'app/uninstalled'])
+// `orders/paid` only arrives once the app has the read_orders scope and a
+// subscription for it (see shopify/README.md, "Tracking & attribution").
+const TOPICS = new Set(['customers/data_request', 'customers/redact', 'shop/redact', 'app/uninstalled', 'orders/paid'])
 
 export async function verifyWebhook(body, signature, secret) {
   if (!signature || !secret) return false
@@ -38,10 +42,19 @@ export async function onRequestPost({ request, env }) {
         db.prepare('DELETE FROM studio_analytics WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM shopify_installations WHERE shop_id=?').bind(shop),
       ])
+      // The attribution tables belong to the one store this deployment serves.
+      if (shop === env.SHOPIFY_STORE) await eraseAnalyticsJoins(await analyticsDb(env))
+    } else if (topic === 'customers/redact' && shop === env.SHOPIFY_STORE) {
+      await redactOrders(await analyticsDb(env), payload.orders_to_redact)
+    } else if (topic === 'orders/paid' && shop === env.SHOPIFY_STORE) {
+      // Only designer orders are kept, reduced to non-personal attribution facts.
+      const summary = extractOrderAttribution(payload)
+      if (summary) await recordOrder(await analyticsDb(env), summary)
     }
     await db.prepare('INSERT OR IGNORE INTO shopify_webhook_events (id,topic,processed_at) VALUES (?,?,?)').bind(id, topic, new Date().toISOString()).run()
-    // Designs are anonymous and have no Shopify customer ID/email. Customer
-    // data requests/redactions therefore have no identifiable rows to export.
+    // Designs are anonymous and have no Shopify customer ID/email, and stored
+    // orders carry no customer fields, so a data request has nothing identifiable
+    // to export; a customer redaction drops the listed orders above.
     return new Response(null, { status: 200 })
   } catch (error) {
     console.error('[shopify-webhook]', error.message)

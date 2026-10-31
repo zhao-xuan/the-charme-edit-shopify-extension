@@ -1,9 +1,12 @@
+import { useEffect } from 'react'
 import CustomizerPage from './customizer/CustomizerPage'
 import MerchantStudio from './components/MerchantStudio'
 import AdminPage from './components/AdminPage'
 import CaseReviewPage from './components/CaseReviewPage'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { createStorefrontCartHandler } from '../shopify/widget/shopifyCart'
+import { getAnalyticsLink } from './lib/analyticsLink'
+import { applyReferrerPolicy } from './lib/referrerPolicy'
 import { t } from './lib/i18n'
 
 const STOREFRONT_ORIGIN = 'https://thecharmeedit.com'
@@ -125,6 +128,7 @@ const editorCart =
         cartUrl: editorCartDestination.href,
         cartBridge: new URLSearchParams(window.location.search).get('cart_bridge') === '1',
         replaceDesignToken: editorEdit.replaceDesignToken,
+        analyticsLink: getAnalyticsLink,
         uploadEndpoint: `${window.location.origin}/api/upload-proof`,
       })
 
@@ -202,6 +206,12 @@ function isAdminView() {
   )
 }
 
+/** Covers the editor routes the `_headers` rules do not match. */
+function EditorReferrerPolicy() {
+  useEffect(() => applyReferrerPolicy(), [])
+  return null
+}
+
 export default function App() {
   if (isCaseReviewView()) return <CaseReviewPage />
 
@@ -231,6 +241,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <EditorReferrerPolicy />
       <header className="topbar topbar--editor">
         <button
           type="button"

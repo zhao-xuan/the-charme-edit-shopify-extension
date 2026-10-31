@@ -2677,6 +2677,7 @@ body.charme-no-select * {
 }
 .analytics-page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 }
 .analytics-toolbar {
@@ -2710,6 +2711,19 @@ body.charme-no-select * {
   margin-top: 4px;
   color: var(--ink-soft);
   font-size: 12px;
+}
+.analytics-note {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+.analytics-source {
+  display: inline-block;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
 }
 .analytics-grid {
   display: grid;
@@ -2799,7 +2813,7 @@ body.charme-no-select * {
   .analytics-kpis,
   .analytics-grid,
   .analytics-activity {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .analytics-funnel__row {
     grid-template-columns: minmax(120px, 1fr) minmax(70px, 1fr) 34px;

@@ -64,19 +64,133 @@
     });
   }
 
+  // Designer tracking hand-off. The designer runs on its own origin, so the
+  // visitor's consent decision (ca / cm) and, only with marketing consent, a
+  // last-touch campaign summary (attr) travel in the link. Without a consent
+  // signal the links carry nothing and the designer records nothing.
+  // Keep the lists below in step with src/lib/trackingContext.js.
+  var ATTRIBUTION_KEY = 'charme_attr';
+  var CLICK_ID_PARAMS = ['gclid', 'gbraid', 'wbraid', 'fbclid', 'ttclid', 'msclkid', 'twclid', 'epik', 'li_fat_id'];
+  var INTERNAL_HOSTS = ['thecharmeedit.com', 'myshopify.com', 'charme-customizer.pages.dev', 'shopify.com', 'shop.app', 'paypal.com'];
+  var attributionChecked = false;
+
+  function readConsent() {
+    var privacy = window.Shopify && window.Shopify.customerPrivacy;
+    if (!privacy || typeof privacy.analyticsProcessingAllowed !== 'function') return null;
+    try {
+      var analytics = privacy.analyticsProcessingAllowed() === true;
+      var marketing = analytics && typeof privacy.marketingAllowed === 'function' && privacy.marketingAllowed() === true;
+      return { analytics: analytics, marketing: marketing };
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function isInternalHost(host) {
+    return INTERNAL_HOSTS.some(function (suffix) {
+      return host === suffix || host.slice(-suffix.length - 1) === '.' + suffix;
+    });
+  }
+
+  function currentTouch() {
+    var params = new URLSearchParams(window.location.search || '');
+    var referrerHost = '';
+    try { referrerHost = new URL(document.referrer).hostname.toLowerCase().replace(/^www\./, ''); } catch (error) {}
+    if (isInternalHost(referrerHost)) referrerHost = '';
+    var touch = {
+      source: String(params.get('utm_source') || '').slice(0, 60),
+      medium: String(params.get('utm_medium') || '').slice(0, 60),
+      campaign: String(params.get('utm_campaign') || '').slice(0, 100),
+      clickIds: CLICK_ID_PARAMS.filter(function (name) { return params.has(name); }),
+      referrerHost: referrerHost,
+      landingPath: String(window.location.pathname || '/').slice(0, 120)
+    };
+    return touch.source || touch.medium || touch.campaign || touch.clickIds.length || touch.referrerHost ? touch : null;
+  }
+
+  function encodeTouch(touch) {
+    var bytes = new TextEncoder().encode(JSON.stringify(touch));
+    var binary = '';
+    for (var i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+
+  // Last non-direct touch wins: internal hops (the designer, checkout, payment
+  // providers) carry no campaign signal and never replace an earlier source.
+  function captureAttribution() {
+    if (attributionChecked) return;
+    var consent = readConsent();
+    if (!consent || !consent.marketing) return;
+    attributionChecked = true;
+    var touch = currentTouch();
+    if (!touch) return;
+    try { window.sessionStorage.setItem(ATTRIBUTION_KEY, encodeTouch(touch)); } catch (error) {}
+  }
+
+  function trackingLinkState() {
+    var consent = readConsent();
+    if (!consent) return null;
+    var attr = '';
+    if (consent.marketing) {
+      try { attr = window.sessionStorage.getItem(ATTRIBUTION_KEY) || ''; } catch (error) {}
+      if (attr.length > 2000) attr = '';
+    }
+    return { analytics: consent.analytics, marketing: consent.marketing, attr: attr };
+  }
+
+  function syncEditorTracking(link, state) {
+    ['href', 'data-charme-edit-url'].forEach(function (attribute) {
+      var value = link.getAttribute(attribute);
+      if (!value || value.indexOf('/editor') === -1) return;
+      try {
+        var url = new URL(value, window.location.origin);
+        if (url.origin !== 'https://design.thecharmeedit.com' && url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
+        var before = [url.searchParams.get('ca'), url.searchParams.get('cm'), url.searchParams.get('attr')].join('|');
+        if (state) {
+          url.searchParams.set('ca', state.analytics ? '1' : '0');
+          url.searchParams.set('cm', state.marketing ? '1' : '0');
+        } else {
+          url.searchParams.delete('ca');
+          url.searchParams.delete('cm');
+        }
+        if (state && state.attr) url.searchParams.set('attr', state.attr);
+        else url.searchParams.delete('attr');
+        var after = [url.searchParams.get('ca'), url.searchParams.get('cm'), url.searchParams.get('attr')].join('|');
+        if (before !== after) link.setAttribute(attribute, url.toString());
+      } catch (error) {}
+    });
+  }
+
   function syncEditorMarkets() {
-    document.querySelectorAll('a[href], a[data-charme-edit-url]').forEach(syncEditorMarket);
+    captureAttribution();
+    var state = trackingLinkState();
+    document.querySelectorAll('a[href], a[data-charme-edit-url]').forEach(function (link) {
+      syncEditorMarket(link);
+      syncEditorTracking(link, state);
+    });
   }
 
   function syncPressedEditorMarket(event) {
     var link = event.target && event.target.closest && event.target.closest('a');
-    if (link) syncEditorMarket(link);
+    if (!link) return;
+    syncEditorMarket(link);
+    syncEditorTracking(link, trackingLinkState());
   }
 
   ['pointerdown', 'touchstart', 'click', 'auxclick', 'contextmenu'].forEach(function (type) {
     document.addEventListener(type, syncPressedEditorMarket, true);
   });
   window.addEventListener('pageshow', syncEditorMarkets);
+  window.addEventListener('load', syncEditorMarkets);
+  document.addEventListener('visitorConsentCollected', function () {
+    var consent = readConsent();
+    // Withdrawn marketing consent also discards the stored campaign summary.
+    if (consent && !consent.marketing) {
+      try { window.sessionStorage.removeItem(ATTRIBUTION_KEY); } catch (error) {}
+    }
+    attributionChecked = false;
+    syncEditorMarkets();
+  });
   var marketSyncPending = false;
   new MutationObserver(function () {
     if (marketSyncPending) return;
@@ -321,6 +435,33 @@
     } finally { clearTimeout(timeout); }
   }
 
+  // Tells the designer's analytics which design tokens are now verified in the
+  // cart, so its session can later be matched to a paid order. Best effort:
+  // nothing here may delay or fail the cart, and nothing is sent unless the
+  // designer supplied a session id and the visitor still allows analytics.
+  function confirmDesignsInCart(payload, items) {
+    try {
+      var sid = payload && payload.analytics && payload.analytics.sid;
+      if (typeof sid !== 'string' || !/^[A-Za-z0-9_-]{8,80}$/.test(sid)) return;
+      var privacy = window.Shopify && window.Shopify.customerPrivacy;
+      if (!privacy || typeof privacy.analyticsProcessingAllowed !== 'function' || privacy.analyticsProcessingAllowed() !== true) return;
+      var seen = {};
+      var tokens = [];
+      items.forEach(function (item) {
+        var token = item.properties && item.properties._design_token;
+        if (token && !seen[token] && tokens.length < 20) { seen[token] = true; tokens.push(token); }
+      });
+      if (!tokens.length) return;
+      fetch('https://design.thecharmeedit.com/api/analytics/confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify({ sessionId: sid, designTokens: tokens }),
+        keepalive: true,
+        credentials: 'omit'
+      }).catch(function () {});
+    } catch (error) {}
+  }
+
   async function applyCartBridge() {
     var encoded = bridgeEncoded();
     if (window.__charmeAdding) return true;
@@ -369,6 +510,7 @@
       stage = 'verify-cart';
       var verified = await bridgeRequest('cart.js');
       if (missingBridgeItems(items, verified).length) throw new Error('Your design is not fully in the cart yet. Please retry.');
+      confirmDesignsInCart(payload, items);
 
       var replaceToken = String(payload.replaceDesignToken || '');
       var incomingTokens = {};

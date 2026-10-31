@@ -49,17 +49,29 @@ export function openStudioCart(storeUrl, item) {
   window.location.assign(studioCartPermalink(storeUrl, item))
 }
 
+const ANALYTICS_SESSION_ID = /^[A-Za-z0-9_-]{8,80}$/
+
+// Lets the storefront confirm this designer session once the cart is verified.
+// Only a well-formed id is carried; anything else is dropped rather than sent.
+function bridgeAnalytics(link) {
+  const sid = String(link?.sessionId || '')
+  return ANALYTICS_SESSION_ID.test(sid) ? { sid } : null
+}
+
 export function storefrontCartBridgeUrl(
   storeUrl,
   items,
   cartDestination = '/cart',
   replaceDesignToken,
+  analyticsLink,
 ) {
   const cartUrl = trustedCartUrl(storeUrl, cartDestination)
+  const analytics = bridgeAnalytics(analyticsLink)
   const payload = {
     version: 1,
     items,
     ...(replaceDesignToken ? { replaceDesignToken } : {}),
+    ...(analytics ? { analytics } : {}),
   }
   cartUrl.hash = `charme-cart=${base64UrlEncode(JSON.stringify(payload))}`
   return cartUrl.href
@@ -70,11 +82,12 @@ export function submitStorefrontCartBridge(
   items,
   cartDestination = '/cart',
   replaceDesignToken,
+  analyticsLink,
 ) {
   if (typeof window === 'undefined') throw new Error('Cart navigation requires a browser.')
   const cartUrl = trustedCartUrl(storeUrl, cartDestination)
   window.location.href = items.length
-    ? storefrontCartBridgeUrl(storeUrl, items, cartUrl, replaceDesignToken)
+    ? storefrontCartBridgeUrl(storeUrl, items, cartUrl, replaceDesignToken, analyticsLink)
     : cartUrl.href
 }
 

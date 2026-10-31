@@ -187,8 +187,115 @@ popular decorations, and aggregate interaction counts. No customer identity,
 pointer coordinates, design previews, IP addresses, or full page URLs are stored.
 
 “Shopify handoff” means that the cart or draft-order handler accepted the design;
-it does not mean the order was paid. Paid-order attribution requires an order
-webhook joined to the customizer session.
+it does not mean the order was paid. Cart confirmation, paid orders and sources are
+covered in the next section.
+
+## 4d. Tracking & attribution
+
+The designer runs on its own domain (`design.thecharmeedit.com`), so a shopper who
+arrives from an ad, designs a case and buys it used to lose the ad as the sale's
+source. This section joins the two ends. It is consent-gated and stores no
+customer data (no names, addresses, e-mail, phone or customer ids).
+
+### How a sale is traced
+
+1. The `charme-cart-group` snippet decorates the product page's “Start designing”
+   link with `ca` / `cm` (the visitor's analytics / marketing consent, read from
+   Shopify's Customer Privacy API) and, only with marketing consent, `attr`: the
+   last non-direct source seen on the store (UTM source / medium / campaign, the
+   *names* of ad click-id parameters, referrer host and landing path; never click-id
+   values). The designer's own domains never overwrite it.
+2. The designer records its session with that source. Without an analytics
+   signal, or if the visitor declined, it records nothing.
+3. On “Add to bag” the shopper is sent to `/cart` with the session id. The snippet
+   checks that the designed items really are in the cart and tells the designer
+   (`POST /api/analytics/confirm`). That is the **Cart confirmed** step.
+4. The `orders/paid` webhook stores a non-personal summary of designer orders only
+   (order id, total, currency, test flag, Shopify's own source fields, the design
+   tokens). The report joins order → design token → session → source.
+
+**Admin → Analytics** adds the *Cart confirmed* and *Paid order* funnel steps, a
+*Funnel by source* table, and *Paid orders as Shopify records them*, which shows
+what Shopify itself credits so the two views can be compared.
+
+### Deploy order
+
+1. Update the theme's `snippets/charme-cart-group.liquid` from this repo. It is
+   rendered once before `</body>` in `layout/theme.liquid` (see the install note at
+   the top of the snippet).
+2. Then deploy the Pages project (see the repo root).
+
+The other way round, the new designer finds no consent signal on the old links and
+records nothing. The new snippet with the old designer is harmless.
+
+### Turning on paid orders (needs your decision)
+
+Sources and cart confirmations work without this. Paid orders need the
+`read_orders` scope and an `orders/paid` subscription. In `shopify.app.toml`:
+
+```toml
+[access_scopes]
+scopes = "read_products,read_orders"
+
+[[webhooks.subscriptions]]
+uri = "/webhooks/shopify"
+topics = ["orders/paid"]
+```
+
+Then run `shopify app deploy` and approve the new permission on the store. The app
+is public, so Shopify may review the scope and require protected-customer-data
+access first; check the Partner Dashboard before submitting a version. Until it is
+active the Analytics tab says “Paid orders are not connected yet”. Webhooks are
+verified with `SHOPIFY_CLIENT_SECRET`, as for the existing topics. Test-gateway
+orders are excluded from the report and only counted.
+
+### Storage and privacy
+
+- Two D1 tables, created on first use (no migration step): `analytics_design_links`
+  (design token → session) and `analytics_orders` (order summary), plus a one-row-
+  per-day counter, `analytics_link_budget`. Rows older than 400 days (counters: two
+  days) are purged as cart confirmations arrive.
+- `shop/redact` erases both tables; `customers/redact` removes the listed orders.
+- `POST /api/analytics/confirm` is a public write, so it is bounded: allowed
+  origins only (a script outside a browser can still fake the header), 8 KB body,
+  at most 20 design tokens per request, 30 requests per minute per IP, and a daily
+  budget of 2,000 tokens shared by every caller (`DAILY_LINK_BUDGET` in
+  `functions/api/_analytics-store.js`; a shop confirms a few dozen a day). Once the
+  budget is used the endpoint answers 429 until the next UTC day, so a flood costs
+  some attribution rather than the shared D1 write quota. It does not check that
+  the session exists.
+- Source fields are sanitised in the browser and again on the server, so a forged
+  link cannot store anything beyond the bounded fields above.
+
+### Referrer policy
+
+The designer sends `Referrer-Policy: same-origin` on `/`, `/editor`, `/studio` (via
+`public/_headers`) and adds the same `<meta name="referrer">` in the customer
+editor. The hop back to the store then no longer carries the designer's address,
+which Shopify otherwise credits as a “design.thecharmeedit.com / referral” source.
+The admin and Shopify-embedded pages keep the default policy.
+
+### Behaviour changes and limits
+
+- **Only consenting visitors are counted.** Direct designer visits, saved-design
+  links, visitors who declined, and visitors arriving through an old theme snippet
+  are not recorded, so totals will be lower than before. Analytics-only consent
+  appears as “(direct / unknown)”. To count visitors when no consent signal exists,
+  flip `DEFAULT_ANALYTICS_WITHOUT_SIGNAL` in `src/lib/trackingContext.js`.
+- A report reads about 11,000 session records (44 pages × 250). Longer periods show
+  a warning that only the newest sessions are included; choose a shorter period.
+  The same warning appears if Shopify throttles or stops answering part-way: the
+  pages already read (the newest) are kept instead of failing the report. If the
+  very first page fails the report returns an error.
+  It also reads at most 20,000 cart confirmations and 5,000 orders.
+- Revenue is the gross order total (refunds and cancellations are not netted).
+- Orders from the draft-order flow carry the design token but no cart confirmation,
+  so they appear as “not matched”.
+- Shopify's `landing_site` / `referring_site` fields in the `orders/paid` payload
+  are used when present; without them the order shows as “(direct / none)”.
+- Whether the referrer policy makes Shopify credit the ad rather than the designer
+  can only be confirmed with a real ad-click purchase after deployment.
+- Not included: GA4 / Meta Pixel / server-side event forwarding.
 
 ## 5. (Optional) Proof image on cart-mode orders
 

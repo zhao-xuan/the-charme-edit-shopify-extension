@@ -1,2 +1,16 @@
 /admin
   Content-Security-Policy: frame-ancestors https://admin.shopify.com https://*.myshopify.com
+
+# The customer editor and studio return customers to the store with a full-page
+# navigation. Withholding the referrer on that hop keeps Shopify from crediting the
+# designer domain as the order's source. Requests to this site are unaffected.
+/
+  Referrer-Policy: same-origin
+/editor
+  Referrer-Policy: same-origin
+/editor/*
+  Referrer-Policy: same-origin
+/studio
+  Referrer-Policy: same-origin
+/studio/*
+  Referrer-Policy: same-origin

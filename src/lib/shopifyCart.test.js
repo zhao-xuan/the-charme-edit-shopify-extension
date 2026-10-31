@@ -363,3 +363,32 @@ test('rejects unavailable and missing charm variants', async () => {
     'fallback',
   )
 })
+test('the cart hand-off passes the analytics link to the bridge and survives a failing link', async () => {
+  const source = readFileSync(new URL('../../shopify/widget/shopifyCart.js', import.meta.url), 'utf8')
+  const code = source
+    .slice(source.indexOf('export function createStorefrontCartHandler('), source.indexOf('// ---- cart drawer helpers'))
+    .replace('export function', 'function')
+  const bridgeCalls = []
+  const create = (cfg) => vm.runInNewContext(`${code}\ncreateStorefrontCartHandler`, {
+    URL,
+    cartVariantMap: () => ({}),
+    firstMappedVariant: () => null,
+    buildCartItems: async (_cfg, _map, payload) => ({
+      designToken: payload.designToken,
+      items: [{ id: 1, quantity: 1, properties: { _design_token: payload.designToken } }],
+    }),
+    submitStorefrontCartBridge: (...args) => bridgeCalls.push(args),
+    submitStorefrontCartForm: () => { throw new Error('the form fallback must not run for a bridge hand-off') },
+  })({ storeUrl: 'https://thecharmeedit.com', cartBridge: true, ...cfg })
+
+  await create({ replaceDesignToken: 'old', analyticsLink: () => ({ sessionId: 'session-12345678' }) }).onPlaceOrder({ designToken: 'd1' })
+  assert.equal(bridgeCalls.at(-1)[3], 'old')
+  assert.equal(bridgeCalls.at(-1)[4].sessionId, 'session-12345678')
+
+  await create({}).onPlaceOrder({ designToken: 'd2' })
+  assert.equal(bridgeCalls.at(-1)[4], null)
+
+  await create({ analyticsLink: () => { throw new Error('tracking is broken') } }).onPlaceOrder({ designToken: 'd3' })
+  assert.equal(bridgeCalls.length, 3, 'a broken tracker must not stop the shopper reaching the cart')
+  assert.equal(bridgeCalls.at(-1)[4], null)
+})

@@ -55,6 +55,8 @@ import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
 import { showToteInPicker } from '../lib/previewFlags'
 import { createCustomizerAnalytics } from '../lib/customizerAnalytics'
+import { setAnalyticsLink } from '../lib/analyticsLink'
+import { readTrackingContext } from '../lib/trackingContext'
 import BASE_PRODUCT_VARIANTS from '../../shopify/widget/variantmap-products.generated.json'
 import {
   clearRecoveryDraft,
@@ -241,7 +243,12 @@ export default function CustomizerPage({
   const { message, modal } = App.useApp()
   const isMobile = useMedia('(max-width: 760px)')
   const analyticsRef = useRef(null)
-  if (!analyticsRef.current) analyticsRef.current = createCustomizerAnalytics()
+  if (!analyticsRef.current) {
+    const tracking = typeof window === 'undefined'
+      ? null
+      : readTrackingContext(window.location.search, window.Shopify?.customerPrivacy)
+    analyticsRef.current = createCustomizerAnalytics(tracking ? { consent: tracking, attribution: tracking.attribution } : {})
+  }
   const analytics = analyticsRef.current
   const useMarketPrices = useShopifyMarketPricing()
   const [, setResolvedMarketCurrency] = useState('')
@@ -463,7 +470,11 @@ export default function CustomizerPage({
       productKind: product.kind,
       finish: [caseColourId, gelColourId].filter(Boolean).join(' / '),
     })
-    return () => analytics.stop()
+    setAnalyticsLink(analytics.link())
+    return () => {
+      setAnalyticsLink(null)
+      analytics.stop()
+    }
   }, [analytics]) // The tracker owns one session for this mounted customizer.
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { bad, json } from './_lib.js'
 import { TYPES, saveRecord, shopifyConfigured } from './_shopify-store.js'
+import { sanitizeAttribution } from '../../src/lib/trackingContext.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -13,7 +14,7 @@ const text = (value, max = 120) => String(value || '').trim().slice(0, max)
 const count = (value, max = 100000) => Math.max(0, Math.min(max, Math.round(Number(value) || 0)))
 const flag = (value) => value === true
 
-function allowedOrigin(request, env) {
+export function allowedOrigin(request, env) {
   const origin = request.headers.get('origin') || ''
   const configured = String(env.ANALYTICS_ALLOWED_ORIGINS || '')
     .split(',').map((value) => value.trim()).filter(Boolean)
@@ -71,6 +72,7 @@ export function normalizeAnalyticsSession(body, now = Date.now()) {
     currency: text(body.currency, 8).toUpperCase(),
     device: ['mobile', 'tablet', 'desktop'].includes(body.device) ? body.device : 'unknown',
     entryPoint: ['shopify', 'standalone'].includes(body.entryPoint) ? body.entryPoint : 'unknown',
+    attribution: sanitizeAttribution(body.attribution),
     productSelections: count(body.productSelections, 1000),
     finishChanges: count(body.finishChanges, 1000),
     categoryChanges: count(body.categoryChanges, 5000),

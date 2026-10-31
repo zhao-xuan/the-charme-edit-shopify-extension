@@ -83,3 +83,29 @@ test('rejects an off-store cart destination for the bridge', () => {
   assert.equal(new URL(url).pathname, '/cart')
   assert.equal(new URL(url).search, '')
 })
+test('the bridge carries the analytics session only when it is well formed', () => {
+  const items = [{ id: 101, quantity: 1, properties: { _design_token: 'design-1' } }]
+  const bridge = (link) => decodeBridgePayload(
+    storefrontCartBridgeUrl('https://thecharmeedit.com', items, '/cart', undefined, link),
+  )
+
+  assert.deepEqual(bridge({ sessionId: 'a1b2c3d4-e5f6-4789' }), {
+    version: 1,
+    items,
+    analytics: { sid: 'a1b2c3d4-e5f6-4789' },
+  })
+  for (const link of [undefined, null, {}, { sessionId: '' }, { sessionId: 'short' }, { sessionId: 'has spaces in it' }, { sessionId: 'x'.repeat(81) }, { sessionId: '<script>alert(1)</script>' }]) {
+    assert.deepEqual(bridge(link), { version: 1, items }, JSON.stringify(link))
+  }
+})
+
+test('the analytics session does not change the edit-replacement payload', () => {
+  const items = [{ id: 101, quantity: 1, properties: { _design_token: 'new-design' } }]
+  const url = storefrontCartBridgeUrl('https://thecharmeedit.com', items, '/cart', 'old-design', { sessionId: 'session-12345678' })
+  assert.deepEqual(decodeBridgePayload(url), {
+    version: 1,
+    items,
+    replaceDesignToken: 'old-design',
+    analytics: { sid: 'session-12345678' },
+  })
+})
