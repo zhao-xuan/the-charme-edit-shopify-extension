@@ -1,9 +1,55 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { AdminAuthenticationError, adminAuthHeaders, syncDecorations } from './adminApi.js'
+import { onRequestGet } from '../../functions/api/admin/auth.js'
+import { AdminAuthenticationError, adminAuthHeaders, saveSettings, syncDecorations } from './adminApi.js'
 
 globalThis.localStorage = { getItem: () => '' }
 globalThis.window = undefined
+
+test('admin access check distinguishes a valid token from a missing or invalid token', async () => {
+  const env = { ADMIN_TOKEN: 'test-admin-token' }
+  const valid = await onRequestGet({
+    request: new Request('https://example.test/api/admin/auth', {
+      headers: { authorization: 'Bearer test-admin-token' },
+    }),
+    env,
+  })
+  assert.equal(valid.status, 200)
+  assert.deepEqual(await valid.json(), { ok: true })
+
+  for (const authorization of ['', 'Bearer wrong-token']) {
+    const invalid = await onRequestGet({
+      request: new Request('https://example.test/api/admin/auth', {
+        headers: authorization ? { authorization } : {},
+      }),
+      env,
+    })
+    assert.equal(invalid.status, 401)
+    assert.deepEqual(await invalid.json(), { error: 'unauthorized' })
+  }
+})
+
+test('settings writes are serialized so overlapping order saves cannot race', async (t) => {
+  t.mock.property(globalThis, 'localStorage', { getItem: () => 'test-admin-token' })
+  const calls = []
+  let releaseFirst
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls.push(JSON.parse(options.body))
+    if (calls.length === 1) await new Promise((resolve) => { releaseFirst = resolve })
+    return Response.json({ ok: true })
+  })
+
+  const first = saveSettings({ taxonomy: { categoryOrder: ['Gold'] } })
+  const second = saveSettings({ patchTaxonomy: { categoryOrder: ['Tote'] } })
+  await new Promise((resolve) => setImmediate(resolve))
+  assert.equal(calls.length, 1)
+  releaseFirst()
+  await Promise.all([first, second])
+  assert.deepEqual(calls, [
+    { taxonomy: { categoryOrder: ['Gold'] } },
+    { patchTaxonomy: { categoryOrder: ['Tote'] } },
+  ])
+})
 
 test('standalone scan fails before fetching when the admin token is missing', async (t) => {
   t.mock.property(globalThis, 'localStorage', { getItem: () => '' })

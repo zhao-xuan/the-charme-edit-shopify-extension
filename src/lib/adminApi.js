@@ -69,6 +69,12 @@ const authHeaders = async () => ({
 // Reuse the established App Bridge / internal admin authentication for new tools.
 export const adminAuthHeaders = authHeaders
 
+export const verifyAdminAccess = async () =>
+  handle(await fetch(url('/api/admin/auth'), {
+    headers: await authHeaders(),
+    cache: 'no-store',
+  }))
+
 async function handle(res) {
   if (!res.ok) {
     if (res.status === 401) throw new AdminAuthenticationError()
@@ -119,8 +125,18 @@ export const setOverride = async (scope, refId, patch) =>
 export const fetchSettings = async () =>
   handle(await fetch(url('/api/settings'), { headers: { accept: 'application/json' }, cache: 'no-store' }))
 
-export const saveSettings = async (settings) =>
-  handle(await fetch(url('/api/settings'), { method: 'POST', headers: await authHeaders(), body: JSON.stringify(settings) }))
+let settingsSaveQueue = Promise.resolve()
+export function saveSettings(settings) {
+  const pending = settingsSaveQueue.catch(() => {}).then(async () =>
+    handle(await fetch(url('/api/settings'), {
+      method: 'POST',
+      headers: await authHeaders(),
+      body: JSON.stringify(settings),
+    })),
+  )
+  settingsSaveQueue = pending.then(() => undefined, () => undefined)
+  return pending
+}
 
 /** Aggregated customizer usage stored in private Shopify metaobjects. */
 export const fetchAnalytics = async (days = 30) =>

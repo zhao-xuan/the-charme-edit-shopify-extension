@@ -73,6 +73,7 @@ import {
   fetchSettings,
   getToken,
   isShopifyEmbedded,
+  verifyAdminAccess,
   patchCharm,
   patchPatch,
   patchProduct,
@@ -472,6 +473,12 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
     if (!charm) return
     const patch = patchFor(charm, { name, category, subCategory, scale, image, sizeBase, preparedArtwork })
     if (!patch) return
+    if (!cloud.embedded && cloud.authStatus !== 'connected') {
+      if (cloud.authStatus === 'missing' || cloud.authStatus === 'invalid') {
+        setSaveError('Connect the admin token before saving size changes.')
+      }
+      return
+    }
     const t = setTimeout(async () => {
       if (savingRef.current) return
       savingRef.current = true
@@ -491,7 +498,7 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
       }
     }, 700)
     return () => clearTimeout(t)
-  }, [charm, name, category, subCategory, scale, image, sizeBase, preparedArtwork, saveVersion]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [charm, name, category, subCategory, scale, image, sizeBase, preparedArtwork, saveVersion, cloud.embedded, cloud.authStatus]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const fit = Math.min(
     (STAGE_MAX_W - STAGE_PAD * 2) / product.widthMm,
@@ -4519,6 +4526,7 @@ function useCloud(draft, set) {
   const { message, modal } = App.useApp()
   const embedded = isShopifyEmbedded()
   const [token, setTokenState] = useState(() => getToken())
+  const [authStatus, setAuthStatus] = useState(() => (isShopifyEmbedded() ? 'checking' : getToken().trim() ? 'checking' : 'missing'))
   const [loading, setLoading] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [data, setData] = useState({ products: [], charms: [] })
@@ -4526,6 +4534,24 @@ function useCloud(draft, set) {
   const publishInFlight = useRef(false)
   const draftRef = useRef(draft)
   draftRef.current = draft
+
+  useEffect(() => {
+    if (!embedded && !token.trim()) {
+      setAuthStatus('missing')
+      return
+    }
+    let active = true
+    const timer = setTimeout(() => {
+      setAuthStatus('checking')
+      verifyAdminAccess()
+        .then(() => active && setAuthStatus('connected'))
+        .catch(() => active && setAuthStatus('invalid'))
+    }, 350)
+    return () => {
+      active = false
+      clearTimeout(timer)
+    }
+  }, [embedded, token])
 
   const updateDraft = (updater) => {
     const next = updater(draftRef.current)
@@ -4642,7 +4668,7 @@ function useCloud(draft, set) {
     onOk: async () => { try { await deleteProduct(p.id); message.success('Deleted.'); refresh() } catch (e) { message.error(e.message) } },
   })
 
-  return { embedded, token, saveToken, loading, publishing, data, refresh, publish, updateDraft, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
+  return { embedded, token, authStatus, saveToken, loading, publishing, data, refresh, publish, updateDraft, toggleHide, removeCharm, repriceCharm, resizeCharm, updateCharm, repriceProduct, updateProduct, removeProduct }
 }
 
 function PendingDrafts({ draft, cloud }) {
@@ -4812,14 +4838,16 @@ function PatchTaxonomyPanel({ patches, updatePatch }) {
   const [category, setCategory] = useState(null)
   const [subcategory, setSubcategory] = useState(null)
   const [busy, setBusy] = useState(false)
+  const taxonomyRef = useRef(taxonomy)
+  taxonomyRef.current = taxonomy
   const categoryOf = (patch) => patch.category || 'unique'
   const subcategoryOf = (patch) => patch.collection || 'Custom patches'
 
   useEffect(() => {
     fetchSettings().then((settings) => {
       if (settings?.patchTaxonomy) setTaxonomy((current) => ({ ...current, ...settings.patchTaxonomy }))
-    }).catch(() => {})
-  }, [])
+    }).catch((error) => message.error(`Could not load patch order: ${error.message}`))
+  }, [message])
 
   const categories = useMemo(() => {
     const values = [...new Set(patches.map(categoryOf))]
@@ -4838,9 +4866,18 @@ function PatchTaxonomyPanel({ patches, updatePatch }) {
   }, [patches, category, subcategory, taxonomy.patchOrder])
 
   const persist = async (next) => {
+    const previous = taxonomyRef.current
+    taxonomyRef.current = next
     setTaxonomy(next)
-    try { await saveSettings({ patchTaxonomy: next }) }
-    catch (error) { message.error(`Could not save patch order: ${error.message}`) }
+    try {
+      await saveSettings({ patchTaxonomy: next })
+    } catch (error) {
+      if (taxonomyRef.current === next) {
+        taxonomyRef.current = previous
+        setTaxonomy(previous)
+      }
+      message.error(`Could not save patch order: ${error.message}`)
+    }
   }
   const move = (items, from, to) => {
     if (from === to || from < 0 || to < 0 || from >= items.length || to >= items.length) return null
@@ -4899,6 +4936,8 @@ function TaxonomyTab({ cloud }) {
   const { message } = App.useApp()
   const charms = cloud?.data?.charms || []
   const [tax, setTax] = useState({ categoryOrder: [], subOrder: {}, charmOrder: {} })
+  const taxRef = useRef(tax)
+  taxRef.current = tax
   const [selCat, setSelCat] = useState(null)
   const [selSub, setSelSub] = useState(null)
   const [busy, setBusy] = useState(false)
@@ -4906,8 +4945,8 @@ function TaxonomyTab({ cloud }) {
   useEffect(() => {
     fetchSettings()
       .then((d) => { if (d && d.taxonomy) setTax((t) => ({ ...t, ...d.taxonomy })) })
-      .catch(() => {})
-  }, [])
+      .catch((error) => message.error(`Could not load saved order: ${error.message}`))
+  }, [message])
 
   const catOf = (c) => c.category || 'gold'
   const subOf = (c) => c.collection || 'Custom'
@@ -4941,9 +4980,18 @@ function TaxonomyTab({ cloud }) {
   const subCount = (sub) => charms.filter((c) => catOf(c) === selCat && subOf(c) === sub).length
 
   const persist = async (nextTax) => {
+    const previous = taxRef.current
+    taxRef.current = nextTax
     setTax(nextTax)
-    try { await saveSettings({ taxonomy: nextTax }) }
-    catch (e) { message.error(`Could not save order: ${e.message}`) }
+    try {
+      await saveSettings({ taxonomy: nextTax })
+    } catch (error) {
+      if (taxRef.current === nextTax) {
+        taxRef.current = previous
+        setTax(previous)
+      }
+      message.error(`Could not save order: ${error.message}`)
+    }
   }
   // Drag-to-reorder: move the item at `from` to position `to`, then persist the
   // full explicit order.
@@ -5087,8 +5135,9 @@ export default function AdminPage() {
             <Input.Password
               value={cloud.token}
               onChange={(e) => cloud.saveToken(e.target.value)}
-              placeholder="Admin token"
-              style={{ width: 200 }}
+              placeholder="Paste admin token to save"
+              aria-label="Admin token"
+              style={{ width: 240 }}
             />
           )}
           <Button icon={<ReloadOutlined />} onClick={cloud.refresh} loading={cloud.loading}>
@@ -5099,6 +5148,28 @@ export default function AdminPage() {
           </Button>
         </Space>
       </div>
+
+      {!cloud.embedded && cloud.authStatus !== 'connected' && (
+        <Alert
+          showIcon
+          type={cloud.authStatus === 'invalid' ? 'error' : cloud.authStatus === 'checking' ? 'info' : 'warning'}
+          message={
+            cloud.authStatus === 'invalid'
+              ? 'Admin token was rejected'
+              : cloud.authStatus === 'checking'
+                ? 'Checking admin access…'
+                : 'Admin token required to save changes'
+          }
+          description={
+            cloud.authStatus === 'invalid'
+              ? 'The token was not accepted. Re-enter the existing ADMIN_TOKEN in the field above; charm sizes, sorting, and other Shopify changes will not persist until connected.'
+              : cloud.authStatus === 'missing'
+                ? 'Paste the existing ADMIN_TOKEN in the field above. Charm sizes, category/order changes, and other Shopify edits require this connection.'
+                : undefined
+          }
+          style={{ marginBottom: 16 }}
+        />
+      )}
 
       <PendingDrafts draft={draft} cloud={cloud} />
 
