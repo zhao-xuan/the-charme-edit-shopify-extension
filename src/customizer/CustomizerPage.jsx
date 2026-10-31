@@ -35,7 +35,7 @@ import {
 } from '../lib/geometry'
 import { onMaskReady } from '../lib/charmMask'
 import { resolveAsset } from '../lib/assets'
-import { settings } from '../lib/settings'
+import { settings, loadSettings, onSettingsChange } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
 import { charmChargeLines } from '../lib/charmPricing'
 import { activeCurrency, designPriceEstimate, formatMoney, formatPresentmentMoney } from '../lib/money'
@@ -315,13 +315,17 @@ export default function CustomizerPage({
   const [catalogVersion, setCatalogVersion] = useState(0)
   useEffect(() => {
     const unsubscribe = onRemoteCatalogChange(() => setCatalogVersion((version) => version + 1))
+    const unsubscribeSettings = onSettingsChange(() => setCatalogVersion((version) => version + 1))
     let refreshing = false
     let stopped = false
     const refresh = async () => {
       if (stopped || refreshing || document.visibilityState === 'hidden') return
       refreshing = true
       try {
-        await loadRemoteCatalog({ fresh: false, preserveOnFailure: true })
+        await Promise.all([
+          loadRemoteCatalog({ fresh: false, preserveOnFailure: true }),
+          loadSettings(),
+        ])
       } finally {
         refreshing = false
       }
@@ -333,6 +337,7 @@ export default function CustomizerPage({
     return () => {
       stopped = true
       unsubscribe()
+      unsubscribeSettings()
       clearInterval(timer)
       window.removeEventListener('focus', refresh)
       window.removeEventListener('pageshow', refresh)

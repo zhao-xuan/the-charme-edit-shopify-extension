@@ -13,6 +13,7 @@ const SETTINGS_HANDLE = 'app-settings'
 const KV_KEY = 'settings:app'
 
 const cors = {
+  'cache-control': 'no-store',
   'access-control-allow-origin': '*',
   'access-control-allow-methods': 'GET,POST,OPTIONS',
   'access-control-allow-headers': 'authorization,content-type',
@@ -64,8 +65,9 @@ export async function onRequestGet({ env }) {
       const raw = await env.IMAGES.get(KV_KEY)
       return json(raw ? JSON.parse(raw) : {}, { headers: cors })
     }
-  } catch {
-    /* fall through to empty */
+  } catch (error) {
+    console.warn('[Charmé] settings read failed', error.message)
+    return json({ error: 'Could not load the merchant settings' }, { status: 502, headers: cors })
   }
   return json({}, { headers: cors })
 }

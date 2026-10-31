@@ -127,6 +127,20 @@ returning an old successful snapshot; checkout remains blocked until recovery.
 Deploy both the standalone and Shopify widget builds for these client-side
 refresh changes to take effect.
 
+### Decoration display order
+Admin's Charm and Patch **Categories & order** pages save immediately; no Publish
+step is required. The customer tray uses the same saved category, collection and
+item order, with unlisted entries retaining their first-seen order. Phone category
+keys accept legacy title-case names and the Natural/Unique aliases. Tote patches
+keep their single tray tab; category and collection order control the sections
+inside it.
+
+New customizers read uncached settings. Already-open visible customizers refresh
+settings every 30 seconds and on focus/return, including when only ordering changed.
+A successful admin save also updates the settings in that browser immediately.
+Failed settings reads are logged and retain the last loaded configuration rather
+than resetting the display order.
+
 ### Charm size studio
 Selecting a charm prepares a tightly cropped transparent cut-out for the live
 size preview, removing plain backgrounds and transparent padding. The size slider

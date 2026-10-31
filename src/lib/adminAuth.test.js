@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { onRequestGet } from '../../functions/api/admin/auth.js'
 import { AdminAuthenticationError, adminAuthHeaders, saveSettings, syncDecorations } from './adminApi.js'
+import { settings } from './settings.js'
 
 globalThis.localStorage = { getItem: () => '' }
 globalThis.window = undefined
@@ -36,7 +37,7 @@ test('settings writes are serialized so overlapping order saves cannot race', as
   t.mock.method(globalThis, 'fetch', async (_url, options) => {
     calls.push(JSON.parse(options.body))
     if (calls.length === 1) await new Promise((resolve) => { releaseFirst = resolve })
-    return Response.json({ ok: true })
+    return Response.json({ ok: true, settings: calls.reduce((merged, patch) => ({ ...merged, ...patch }), {}) })
   })
 
   const first = saveSettings({ taxonomy: { categoryOrder: ['Gold'] } })
@@ -49,6 +50,8 @@ test('settings writes are serialized so overlapping order saves cannot race', as
     { taxonomy: { categoryOrder: ['Gold'] } },
     { patchTaxonomy: { categoryOrder: ['Tote'] } },
   ])
+  assert.deepEqual(settings().taxonomy.categoryOrder, ['Gold'])
+  assert.deepEqual(settings().patchTaxonomy.categoryOrder, ['Tote'])
 })
 
 test('standalone scan fails before fetching when the admin token is missing', async (t) => {

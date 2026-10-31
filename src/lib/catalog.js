@@ -6,7 +6,7 @@ import { loadAdmin } from './adminStore'
 import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
 import { charmPricingTotal, toteDiscountRate } from './charmPricing'
-import { orderByTaxonomy } from './catalogOrder'
+import { orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy } from './catalogOrder'
 import { charmSizeFromArtwork } from './charmAspect.js'
 
 export { toteDiscountRate }
@@ -103,15 +103,13 @@ export function charmCategory(charm) {
 // and called the fourth finish "Natural". Keep the customer picker to its four
 // curated finish tabs regardless of that storage spelling.
 function normalizeCharmCategory(category, charm) {
-  switch (String(category || '').trim().toLowerCase()) {
+  switch (phoneCategoryKey(category)) {
     case 'gold':
       return 'gold'
     case 'silver':
       return 'silver'
     case 'colourful':
-    case 'colorful':
       return 'colourful'
-    case 'natural':
     case 'unique':
       return 'unique'
     default:
@@ -165,6 +163,7 @@ function enlargeTotePatch(patch) {
 // while the embedded storefront widget showed stale data.)
 let _catalog = null
 let _remote = null
+let _settings = null
 function buildCatalog() {
   const REMOTE = remoteCatalog() || {}
   // Published data is authoritative; browser-only drafts must not resurrect a
@@ -192,6 +191,7 @@ function buildCatalog() {
       src: resolveAsset(c.src),
       price: charmPrices[c.id] ?? c.price,
       category: normalizeCharmCategory(c.category, c),
+      collection: c.collection || 'Custom',
     }))
 
   const seenCharm = new Set()
@@ -205,6 +205,7 @@ function buildCatalog() {
         kind: 'phone',
         src: resolveAsset(c.src),
         category: normalizeCharmCategory(c.category, c),
+        collection: c.collection || 'Custom',
         charmLabel: deriveCharmLabel(c),
       }))
   const CUSTOM_CHARMS = [...mergeCustom(REMOTE.charms), ...mergeCustom(ADMIN.customCharms)]
@@ -262,8 +263,10 @@ function buildCatalog() {
 /** Memoised merged catalogue. First call builds it (after the remote load). */
 function catalog() {
   const remote = remoteCatalog()
-  if (!_catalog || remote !== _remote) {
+  const config = settings()
+  if (!_catalog || remote !== _remote || config !== _settings) {
     _remote = remote
+    _settings = config
     _catalog = buildCatalog()
   }
   return _catalog
@@ -374,30 +377,13 @@ export function trayGroups(kind) {
   // category TABS, then sub-category SECTIONS and the charms within each section.
   // Anything not listed keeps its natural (first-seen) order after the listed
   // ones (stable).
-  const tax = (settings() && settings().taxonomy) || {}
-  const catOrder = tax.categoryOrder || []
-  const subOrder = tax.subOrder || {}
-  const charmOrder = tax.charmOrder || {}
-  const rank = (arr, v) => {
-    const i = (arr || []).indexOf(v)
-    return i === -1 ? Number.POSITIVE_INFINITY : i
-  }
-  return groups
-    .map((g, i) => ({ g, i }))
-    .sort((a, b) => rank(catOrder, a.g.key) - rank(catOrder, b.g.key) || a.i - b.i)
-    .map(({ g }) => {
-      const so = subOrder[g.key] || []
-      const sorted = g.items
-        .map((c, i) => ({ c, i }))
-        .sort((a, b) => {
-          const s = rank(so, a.c.collection) - rank(so, b.c.collection)
-          if (s !== 0) return s
-          const co = charmOrder[`${g.key}::${a.c.collection}`] || []
-          return rank(co, a.c.id) - rank(co, b.c.id) || a.i - b.i
-        })
-        .map(({ c }) => c)
-      return { ...g, items: sorted }
-    })
+  const tax = phoneTaxonomy(settings().taxonomy)
+  const byKey = new Map(groups.map((group) => [group.key, group]))
+  const categoryKeys = [...new Set(CHARMS.map((charm) => charm.category))].filter((key) => byKey.has(key))
+  return orderList(categoryKeys, tax.categoryOrder).map((key) => {
+    const group = byKey.get(key)
+    return { ...group, items: orderByTaxonomy(group.items, tax) }
+  })
 }
 
 /** Human label for a phone charm category key (for the order summary). Derived

@@ -5,6 +5,7 @@
  */
 const TOKEN_KEY = 'charme.admin.token'
 import { API_BASE } from './apiBase.js'
+import { applySettings } from './settings.js'
 
 // Admin writes and storefront reads must target the same catalogue, including
 // branch previews and an explicit CharmeConfig.apiBase.
@@ -127,13 +128,15 @@ export const fetchSettings = async () =>
 
 let settingsSaveQueue = Promise.resolve()
 export function saveSettings(settings) {
-  const pending = settingsSaveQueue.catch(() => {}).then(async () =>
-    handle(await fetch(url('/api/settings'), {
+  const pending = settingsSaveQueue.catch(() => {}).then(async () => {
+    const result = await handle(await fetch(url('/api/settings'), {
       method: 'POST',
       headers: await authHeaders(),
       body: JSON.stringify(settings),
-    })),
-  )
+    }))
+    if (result.settings) applySettings(result.settings)
+    return result
+  })
   settingsSaveQueue = pending.then(() => undefined, () => undefined)
   return pending
 }

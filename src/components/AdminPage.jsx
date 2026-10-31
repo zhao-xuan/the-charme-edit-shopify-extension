@@ -54,6 +54,7 @@ import ProductCanvas from './ProductCanvas'
 import AnalyticsTab from './AnalyticsTab'
 import DecorationSyncModal from './DecorationSyncModal'
 import { charmCategory } from '../lib/catalog'
+import { orderList } from '../lib/catalogOrder.js'
 import { DEFAULT_SETTINGS } from '../lib/settings'
 import { crossSellTitle } from '../lib/crossSellTitle'
 import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from '../lib/charmPricing'
@@ -4739,15 +4740,6 @@ function PendingDrafts({ draft, cloud }) {
 // ---------------------------------------------------------------------------
 // Categories & order tab
 // ---------------------------------------------------------------------------
-/** Return `items` reordered so the ones listed in `order` come first (in that
- *  order), then any not listed keep their natural order. */
-function orderList(items, order) {
-  const set = new Set(items)
-  const head = (order || []).filter((x) => set.has(x))
-  const seen = new Set(head)
-  return [...head, ...items.filter((x) => !seen.has(x))]
-}
-
 const taxRowStyle = { display: 'flex', alignItems: 'center', gap: 6 }
 const taxNameBtn = { flex: 1, textAlign: 'left', background: 'transparent', border: 0, cursor: 'pointer', padding: '3px 6px', borderRadius: 6, fontFamily: 'inherit', fontSize: 'inherit', display: 'flex', alignItems: 'center', gap: 8 }
 const taxNameSel = { background: 'rgba(179,91,91,.12)', fontWeight: 600 }

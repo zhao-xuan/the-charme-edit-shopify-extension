@@ -1,15 +1,16 @@
 /**
  * settings.js — merchant-configurable storefront settings (cross-sell prompt,
  * discounts, grouped charm pricing and product selector), loaded once from the
- * `/api/settings` and cached globally.
+ * `/api/settings` and refreshed while the customizer is open.
  *
  * Mirrors remoteCatalog.js: main.jsx / entry.jsx awaits loadSettings() before
  * the app module graph evaluates, so the customizer sees the live config on
  * first render. Falls back to sensible defaults when the API is unreachable.
  */
-import { API_BASE } from './apiBase'
-import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from './charmPricing'
-import { crossSellTitle } from './crossSellTitle'
+import { API_BASE } from './apiBase.js'
+import { DEFAULT_CHARM_PRICING_GROUPS, normalizeCharmPricingGroups } from './charmPricing.js'
+import { crossSellTitle } from './crossSellTitle.js'
+import { fetchPriceJson } from './contextualPrice.js'
 
 export const DEFAULT_SETTINGS = {
   // Prompt shown under "Add my custom … to cart".
@@ -71,18 +72,30 @@ export const DEFAULT_SETTINGS = {
 export { crossSellTitle }
 
 let cache = null
+const listeners = new Set()
+
+export function onSettingsChange(listener) {
+  listeners.add(listener)
+  return () => listeners.delete(listener)
+}
+
+export function applySettings(data) {
+  const next = mergeDefaults(data)
+  if (cache && JSON.stringify(next) === JSON.stringify(cache)) return cache
+  cache = next
+  if (typeof globalThis !== 'undefined') globalThis.__CHARME_SETTINGS__ = cache
+  for (const listener of listeners) listener()
+  return cache
+}
 
 export async function loadSettings() {
   if (typeof fetch === 'undefined') return DEFAULT_SETTINGS
   try {
-    const res = await fetch(`${API_BASE}/api/settings`, { headers: { accept: 'application/json' } })
-    if (res.ok) {
-      const data = await res.json()
-      cache = mergeDefaults(data)
-      if (typeof globalThis !== 'undefined') globalThis.__CHARME_SETTINGS__ = cache
-    }
-  } catch {
-    /* offline / no Functions → defaults */
+    const data = await fetchPriceJson(`${API_BASE}/api/settings`, { attempts: 1 })
+    if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('settings_invalid')
+    applySettings(data)
+  } catch (error) {
+    console.warn('charme_settings_load_failed', { reason: error.message })
   }
   return cache || DEFAULT_SETTINGS
 }

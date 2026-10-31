@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { charmSizeFromArtwork } from './charmAspect.js'
+import { orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy } from './catalogOrder.js'
 import vm from 'node:vm'
 import { onRequestDelete } from '../../functions/api/admin/charms.js'
 import { onRequestGet } from '../../functions/api/catalog.js'
@@ -123,6 +124,7 @@ test('admin reads and deletion use the shared API and bypass the browser cache',
 
 function catalogHarness() {
   let remote = null
+  let config = {}
   const item = (id) => ({ id, name: id, category: 'gold', type: 2, widthMm: 10, heightMm: 10 })
   const source = readFileSync(new URL('./catalog.js', import.meta.url), 'utf8')
     .replace(/^import .*$/gm, '')
@@ -138,17 +140,73 @@ function catalogHarness() {
       charmHidden: { kept: true }, charmPrices: {}, charmSizes: {},
       customCharms: [item('deleted'), item('draft-only')],
     }),
-    settings: () => ({}),
-    orderByTaxonomy: (items) => items,
+    settings: () => config,
+    orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy,
     charmSizeFromArtwork,
   })
   vm.runInContext(source, context)
   return {
     setRemote: (value) => { remote = value },
+    setSettings: (value) => { config = value },
+    groups: (kind = 'phone') => JSON.parse(vm.runInContext(`JSON.stringify(trayGroups('${kind}'))`, context)),
     ids: (kind = 'phone') => Array.from(vm.runInContext(`itemsByType('${kind}')[2].map((item) => item.id)`, context)),
     item,
   }
 }
+
+test('published title-case charm taxonomy controls tabs, sections and cards in the customer tray', () => {
+  const catalog = catalogHarness()
+  const charm = (id, category, collection) => ({ ...catalog.item(id), category, collection })
+  catalog.setRemote({
+    charms: [
+      charm('gold-last', 'Gold', 'Zebra'),
+      charm('gold-first', 'Gold', 'Zebra'),
+      charm('flowers', 'Gold', 'Flowers'),
+      charm('silver', 'Silver', 'Hearts'),
+      charm('natural', 'Natural', 'Shells'),
+    ],
+    patches: [],
+  })
+  catalog.setSettings({ taxonomy: {
+    categoryOrder: ['Natural', 'Silver', 'Gold'],
+    subOrder: { Gold: ['Flowers', 'Zebra'] },
+    charmOrder: { 'Gold::Zebra': ['gold-first', 'gold-last'] },
+  } })
+  const groups = catalog.groups()
+  assert.deepEqual(groups.map((group) => group.key), ['unique', 'silver', 'gold'])
+  assert.deepEqual(groups[2].items.map((item) => item.id), ['flowers', 'gold-first', 'gold-last'])
+})
+
+test('charm card order works without an explicit section order, including missing collections', () => {
+  const catalog = catalogHarness()
+  catalog.setRemote({ charms: [catalog.item('last'), catalog.item('first')], patches: [] })
+  catalog.setSettings({ taxonomy: { charmOrder: { 'Gold::Custom': ['first', 'last'] } } })
+  assert.deepEqual(catalog.groups()[0].items.map((item) => item.id), ['first', 'last'])
+})
+
+test('unlisted phone tabs retain the admin catalogue first-seen order', () => {
+  const catalog = catalogHarness()
+  catalog.setRemote({ charms: [
+    { ...catalog.item('silver'), category: 'Silver' },
+    { ...catalog.item('gold'), category: 'Gold' },
+    { ...catalog.item('colourful'), category: 'Colourful' },
+  ], patches: [] })
+  assert.deepEqual(catalog.groups().map((group) => group.key), ['silver', 'gold', 'colourful'])
+  catalog.setSettings({ taxonomy: { categoryOrder: ['Colourful'] } })
+  assert.deepEqual(catalog.groups().map((group) => group.key), ['colourful', 'silver', 'gold'])
+})
+
+test('settings-only updates invalidate the patch catalogue and reorder an already-loaded tray', () => {
+  const catalog = catalogHarness()
+  catalog.setRemote({ charms: [], patches: [
+    { ...catalog.item('last'), category: 'Graphic', collection: 'Sports' },
+    { ...catalog.item('first'), category: 'Graphic', collection: 'Sports' },
+  ] })
+  assert.deepEqual(catalog.ids('tote'), ['last', 'first'])
+  catalog.setSettings({ patchTaxonomy: { patchOrder: { 'Graphic::Sports': ['first', 'last'] } } })
+  assert.deepEqual(catalog.ids('tote'), ['first', 'last'])
+  assert.deepEqual(catalog.groups('tote')[0].items.map((item) => item.id), ['first', 'last'])
+})
 
 test('live catalogue changes invalidate memoization and never resurrect local drafts or bundled decorations', () => {
   const catalog = catalogHarness()
@@ -249,13 +307,17 @@ test('open editor refreshes at 30 seconds and on mobile page return, pruning rem
   let refreshes = 0
   let interval
   let notify
+  let notifySettings
+  let settingsRefreshes = 0
   let versions = 0
   const context = {
     document: { visibilityState: 'visible', addEventListener: (name, callback) => events.set(name, callback), removeEventListener: (name) => events.delete(name) },
     window: { addEventListener: (name, callback) => events.set(name, callback), removeEventListener: (name) => events.delete(name) },
     onRemoteCatalogChange: (callback) => { notify = callback; return () => { notify = null } },
+    onSettingsChange: (callback) => { notifySettings = callback; return () => { notifySettings = null } },
     setCatalogVersion: (callback) => { versions = callback(versions) },
     loadRemoteCatalog: async (options) => { assert.equal(options.fresh, false); refreshes++ },
+    loadSettings: async () => { settingsRefreshes++ },
     setInterval: (callback, delay) => { assert.equal(delay, 30_000); interval = callback; return 1 },
     clearInterval: () => { interval = null },
   }
@@ -266,11 +328,14 @@ test('open editor refreshes at 30 seconds and on mobile page return, pruning rem
     context.document.visibilityState = 'hidden'
     await events.get('visibilitychange')()
     assert.equal(refreshes, 2)
+    assert.equal(settingsRefreshes, 2)
     notify()
-    assert.equal(versions, 1)
+    notifySettings()
+    assert.equal(versions, 2)
     cleanup()
     assert.equal(events.size, 0)
     assert.equal(notify, null)
+    assert.equal(notifySettings, null)
 
     const pruneStart = source.indexOf('    if (remoteCatalogFailed() || !remoteCatalog()) return')
     const pruneStop = source.indexOf('  }, [catalogVersion, placed, message])', pruneStart)
