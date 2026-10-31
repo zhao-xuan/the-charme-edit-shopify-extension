@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { applyDecorationSync, decorationSyncPreview, importedDecoration } from './decorationSync.js'
-import { listShopifyVariants, shopifyVariantPage, shopifyVariantBatch } from '../../functions/api/admin/shopify-variants.js'
+import { listShopifyVariants, shopifyVariantPage, shopifyVariantBatch, shopifyVariantSearchQuery } from '../../functions/api/admin/shopify-variants.js'
 import { onRequestPost } from '../../functions/api/admin/sync-decorations.js'
 
 const variant = (id, extra = {}) => ({
@@ -200,6 +200,48 @@ test('scan batches bound Shopify requests and return a resumable cursor', async 
   assert.equal(second.variants.length, 2)
   assert.equal(second.after, null)
   assert.equal(calls, 7)
+})
+
+test('keyword sync builds a bounded Shopify product and variant search, then preserves it across pages', async (t) => {
+    const calls = []
+    t.mock.method(globalThis, 'fetch', async (_url, options) => {
+      const { query, variables } = JSON.parse(options.body)
+      calls.push({ query, variables })
+      if (query.includes('products(first: 250')) {
+        return Response.json({ data: { products: {
+          nodes: [{ id: 'gid://shopify/Product/12' }],
+          pageInfo: { hasNextPage: false },
+        } } })
+      }
+      const variantCall = calls.filter((call) => call.query.includes('productVariants(first:')).length
+      return Response.json({ data: { productVariants: {
+        edges: [{ node: { id: `gid://shopify/ProductVariant/${50 + variantCall}`, title: 'Initial A', price: '2', product: { title: 'Letters', handle: 'letters' } } }],
+        pageInfo: { hasNextPage: variantCall <= 5, endCursor: `next-${variantCall}` },
+      } } })
+    })
+
+    const query = await shopifyVariantSearchQuery(
+      { SHOPIFY_STORE: 'example.myshopify.com', SHOPIFY_ADMIN_TOKEN: 'test-only' },
+      'letter a',
+    )
+    assert.equal(query, '(product_id:12) OR (title:letter* AND title:a*)')
+    const first = await shopifyVariantBatch(
+      { SHOPIFY_STORE: 'example.myshopify.com', SHOPIFY_ADMIN_TOKEN: 'test-only' },
+      null,
+      query,
+    )
+    assert.deepEqual(first.variants.map((item) => item.id), ['51', '52', '53', '54', '55'])
+    assert.equal(first.after, 'next-5')
+    assert.equal(calls[0].variables.query, '(title:letter* AND title:a*) OR handle:letter-a*')
+    assert.equal(calls[1].variables.query, query)
+    const second = await shopifyVariantBatch(
+      { SHOPIFY_STORE: 'example.myshopify.com', SHOPIFY_ADMIN_TOKEN: 'test-only' },
+      first.after,
+      query,
+    )
+    assert.equal(second.after, null)
+    assert.equal(calls[6].variables.query, query)
+    assert.equal(calls[6].variables.after, 'next-5')
 })
 
 test('Shopify scan retries throttling with bounded backoff but does not hide other errors', async (t) => {

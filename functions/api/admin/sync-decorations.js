@@ -1,6 +1,6 @@
 import { bad, json, requireAdmin } from '../_lib.js'
 import { TYPES, shopifyConfigured, listRecords, saveRecord, storeImageToFiles } from '../_shopify-store.js'
-import { shopifyVariantBatch, shopifyVariantsByIds } from './shopify-variants.js'
+import { shopifyVariantBatch, shopifyVariantSearchQuery, shopifyVariantsByIds } from './shopify-variants.js'
 import { applyDecorationSync } from '../../../src/lib/decorationSync.js'
 
 const cors = {
@@ -41,7 +41,10 @@ export async function onRequestPost({ request, env }) {
     if (body.action === 'preview') {
       const records = body.after ? null : await listRecords(env, type)
       // Bound each request's Shopify subrequests for large merchant catalogues.
-      const { variants, after } = await shopifyVariantBatch(env, body.after || null)
+      const query = body.keyword
+        ? await shopifyVariantSearchQuery(env, body.keyword)
+        : null
+      const { variants, after } = await shopifyVariantBatch(env, body.after || null, query)
       return json({
         variants,
         ...(records ? { records: records.map(({ _gid, _handle, ...record }) => record) } : {}),

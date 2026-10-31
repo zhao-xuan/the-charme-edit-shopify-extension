@@ -35,6 +35,11 @@ const Q_LINKED = `
     }
   }`
 
+const Q_SEARCH_PRODUCTS = `
+  query($query: String!) {
+    products(first: 250, query: $query) { nodes { id } pageInfo { hasNextPage } }
+  }`
+
 const asVariant = (variant, product) => ({
   id: String(variant.id || '').split('/').pop(),
   title: variant.title || 'Default title',
@@ -81,15 +86,36 @@ export async function shopifyVariantPage(env, after = null, query = null) {
   }
 }
 
-export async function shopifyVariantBatch(env, after = null) {
+export async function shopifyVariantSearchQuery(env, keyword) {
+  const terms = String(keyword || '').match(/[\p{L}\p{N}]+/gu) || []
+  if (!terms.length) throw new Error('Enter a product or variant keyword')
+
+  const productQuery = `(${terms.map((term) => `title:${term}*`).join(' AND ')}) OR handle:${terms.join('-')}*`
+  const products = await queryVariants(env, Q_SEARCH_PRODUCTS, { query: productQuery })
+  if (!Array.isArray(products.products?.nodes)) throw new Error('Shopify did not return matching products')
+  if (products.products.pageInfo?.hasNextPage) {
+    throw new Error('More than 250 products match this keyword; enter a more specific name')
+  }
+
+  const productIds = products.products.nodes
+    .map((product) => String(product.id || '').split('/').pop())
+    .filter((id) => /^\d+$/.test(id))
+  const filters = [
+    ...(productIds.length ? [productIds.map((id) => `product_id:${id}`).join(' OR ')] : []),
+    terms.map((term) => `title:${term}*`).join(' AND '),
+  ]
+  return filters.length > 1 ? `(${filters[0]}) OR (${filters[1]})` : filters[0]
+}
+
+export async function shopifyVariantBatch(env, after = null, query = null) {
   const variants = []
   for (let page = 0; page < 5; page++) {
-    const result = await shopifyVariantPage(env, after)
+    const result = await shopifyVariantPage(env, after, query)
     variants.push(...result.variants)
     after = result.after
     if (!after) break
   }
-  return { variants, after }
+  return { variants, after, query }
 }
 
 export async function listShopifyVariants(env) {
