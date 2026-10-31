@@ -7,6 +7,7 @@ import { remoteCatalog } from './remoteCatalog'
 import { settings } from './settings'
 import { charmPricingTotal, toteDiscountRate } from './charmPricing'
 import { orderByTaxonomy } from './catalogOrder'
+import { charmSizeFromArtwork } from './charmAspect.js'
 
 export { toteDiscountRate }
 
@@ -135,8 +136,8 @@ function applySizeOverride(charm, charmSizes) {
   return {
     ...charm,
     sizeScale: scale,
-    widthMm: width ? +(width * scale).toFixed(2) : charm.widthMm,
-    heightMm: height ? +(height * scale).toFixed(2) : charm.heightMm,
+    widthMm: width ? width * scale : charm.widthMm,
+    heightMm: height ? height * scale : charm.heightMm,
   }
 }
 
@@ -186,7 +187,7 @@ function buildCatalog() {
       // Restore charms that were flagged `unavailable` (unmatched to a Shopify
       // add-on variant): they still have a valid price and are billed by price
       // tier / draft order, so keep them selectable rather than greyed out.
-      ...c,
+      ...charmSizeFromArtwork(c),
       kind: 'phone',
       src: resolveAsset(c.src),
       price: charmPrices[c.id] ?? c.price,
@@ -200,7 +201,7 @@ function buildCatalog() {
       .map((c) => ({
         minScale: 1,
         maxScale: 1,
-        ...c,
+        ...charmSizeFromArtwork(c),
         kind: 'phone',
         src: resolveAsset(c.src),
         category: normalizeCharmCategory(c.category, c),

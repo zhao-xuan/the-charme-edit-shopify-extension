@@ -60,8 +60,9 @@ existing items refresh their linked Shopify price only by default, preserving
 edited names, images, dimensions and visibility. Enable **Also remove backgrounds
 from selected existing catalogue images** to repair previously imported photos;
 this replaces the current catalogue artwork with its transparent cut-out, rather
-than fetching a replacement product photo. Names, dimensions and visibility
-remain unchanged.
+than fetching a replacement product photo. Names and visibility remain unchanged.
+For phone charms, the longest millimetre edge is preserved and the other edge is
+adjusted to match the processed artwork's proportions.
 
 After confirmation, the modal shows **Auto-remove backgrounds** and **Save to
 Shopify** progress. New images are automatically processed locally in the browser
@@ -73,7 +74,8 @@ the original background. Fix failed artwork using a transparent PNG or the manua
 auto-extract tool, then retry; successful items are kept.
 
 New items use Shopify names and store-currency prices; they start at
-Midi / 16 × 16 mm and must have their physical size, category and artwork checked
+Midi with a 16 mm longest edge for charms (patches retain the 16 × 16 mm default),
+and must have their physical size, category and artwork checked
 after import. Variants without images cannot be imported; sold-out variants can.
 Items with missing/deleted variant associations remain visible but cannot be
 price-synced. Confirmation rechecks current links, uses stable import IDs and
@@ -130,7 +132,12 @@ Selecting a charm prepares a tightly cropped transparent cut-out for the live
 size preview, removing plain backgrounds and transparent padding. The size slider
 is enabled after preparation; it scales the visible artwork rather than the
 original photo's blank canvas. Size edits automatically save the same prepared
-PNG and absolute millimetre dimensions to Shopify. Preparation failures are shown
+PNG, pixel dimensions and absolute millimetre dimensions to Shopify. Charm
+proportions are locked to the prepared PNG: the longest edge keeps the selected
+size, and the other edge follows the original image ratio. The phone canvas,
+collision footprint and exported proof use these same dimensions. Restored
+phone designs keep their saved longest edge but adopt the current artwork ratio.
+Preparation failures are shown
 in the studio and block size saves until the artwork is replaced. Edits made
 while an earlier save is in flight are saved after that request completes.
 Save failures stay visible with a **Retry save** action; artwork still being

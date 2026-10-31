@@ -3,7 +3,7 @@ import test from 'node:test'
 import { pendingPublishPlan, publishPendingDrafts, removePublishedDraft } from './publishDrafts.js'
 import { onRequestPost } from '../../functions/api/admin/charms.js'
 
-const charm = (id, shopifyVariantId = '123') => ({ id, name: id, shopifyVariantId, src: 'data:image/png;base64,AA==' })
+const charm = (id, shopifyVariantId = '123') => ({ id, name: id, shopifyVariantId, src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJ' })
 const emptyCatalog = { charms: [], products: [] }
 
 test('preflight reports every unlinked legacy/extracted draft without making any writes', async () => {

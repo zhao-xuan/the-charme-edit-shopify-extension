@@ -62,6 +62,7 @@ import { loadAdmin, saveAdmin } from '../lib/adminStore'
 import { publishPendingDrafts, removePublishedDraft } from '../lib/publishDrafts.js'
 import { extractPieces, extractTransparentPieces, loadImageData, tierFromMm } from '../lib/segment'
 import { prepareDecorationSyncImage } from '../lib/decorationSyncImage.js'
+import { charmSizeFromArtwork, pngPixelSize } from '../lib/charmAspect.js'
 import {
   addCharms,
   addPatches,
@@ -414,18 +415,26 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
     if (st.category.trim() && st.category.trim() !== bCat) patch.category = st.category.trim()
     if (st.subCategory.trim() !== bSub) patch.collection = st.subCategory.trim() || 'Custom'
     if (st.sizeBase && st.sizeBase.id === base.id) {
-      const tw = +(st.sizeBase.w * st.scale).toFixed(1)
-      const th = +(st.sizeBase.h * st.scale).toFixed(1)
-      if (tw !== bw || th !== bh) {
+      const target = charmSizeFromArtwork({
+        widthMm: st.sizeBase.w * st.scale,
+        heightMm: st.sizeBase.h * st.scale,
+      }, st.preparedArtwork?.pxW, st.preparedArtwork?.pxH)
+      const tw = target.widthMm
+      const th = target.heightMm
+      if (Math.abs(tw - bw) > 0.000001 || Math.abs(th - bh) > 0.000001) {
         if (st.preparedArtwork?.source !== (st.image?.src || base.src) || !st.preparedArtwork?.src) return null
         patch.widthMm = tw
         patch.heightMm = th
         patch.src = st.preparedArtwork.src
+        patch.pxW = st.preparedArtwork.pxW
+        patch.pxH = st.preparedArtwork.pxH
       }
     }
     if (st.image?.src) {
       if (st.preparedArtwork?.source !== st.image.src || !st.preparedArtwork?.src) return null
       patch.src = st.preparedArtwork.src
+      patch.pxW = st.preparedArtwork.pxW
+      patch.pxH = st.preparedArtwork.pxH
     }
     return Object.keys(patch).length ? patch : null
   }
@@ -456,7 +465,8 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
     setPreparedArtwork(null)
     prepareDecorationSyncImage(resolveAsset(artworkSource), { trimTransparent: true })
       .then((src) => {
-        if (active) setPreparedArtwork({ source: artworkSource, src })
+        const pixels = pngPixelSize(src)
+        if (active) setPreparedArtwork({ source: artworkSource, src, ...pixels })
       })
       .catch((error) => {
         if (active) setPreparedArtwork({ source: artworkSource, error: error.message })
@@ -511,8 +521,10 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
   const ownBase = sizeBase && sizeBase.id === charm?.id ? sizeBase : null
   const baseW = ownBase ? ownBase.w : savedW
   const baseH = ownBase ? ownBase.h : savedH
-  const targetW = +(baseW * scale).toFixed(1)
-  const targetH = +(baseH * scale).toFixed(1)
+  const targetSize = charmSizeFromArtwork({ widthMm: baseW * scale, heightMm: baseH * scale },
+    preparedArtwork?.pxW, preparedArtwork?.pxH)
+  const targetW = targetSize.widthMm
+  const targetH = targetSize.heightMm
   const cw = targetW * fit
   const ch = targetH * fit
   const bg = resolveAsset(productImage(product))
@@ -635,7 +647,7 @@ function CharmStudioTab({ charm, cloud, categories = [], subcategories = [] }) {
             tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
           />
           <div className="hint" style={{ marginBottom: 14 }}>
-            Saved size: {savedW}×{savedH} mm · 100% = {baseW}×{baseH} mm.
+            Saved size: {savedW.toFixed(1)}×{savedH.toFixed(1)} mm · Original image proportions are locked; the slider scales both sides together.
           </div>
 
           {/* 2 — Preview on | Name (two columns) */}

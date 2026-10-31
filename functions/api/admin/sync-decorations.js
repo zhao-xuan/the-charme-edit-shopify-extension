@@ -2,6 +2,7 @@ import { bad, json, requireAdmin } from '../_lib.js'
 import { TYPES, shopifyConfigured, listRecords, saveRecord, storeImageToFiles } from '../_shopify-store.js'
 import { shopifyVariantBatch, shopifyVariantSearchQuery, shopifyVariantsByIds } from './shopify-variants.js'
 import { applyDecorationSync } from '../../../src/lib/decorationSync.js'
+import { pngPixelSize } from '../../../src/lib/charmAspect.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -15,9 +16,10 @@ async function importImage(env, record, src) {
   if (typeof src !== 'string' || src.length > 12 * 1024 * 1024 || !/^data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/]*={0,2}$/.test(src)) {
     throw new Error('A background-removed PNG is required; run background removal and retry')
   }
+  const pixels = pngPixelSize(src)
   const image = await storeImageToFiles(env, src, { filename: `${record.id}.png`, alt: record.name })
   if (!image.id || !image.url) throw new Error('Shopify image is still processing; retry this item shortly')
-  return image
+  return { ...image, ...pixels }
 }
 
 export async function onRequestPost({ request, env }) {

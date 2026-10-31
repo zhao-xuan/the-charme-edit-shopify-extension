@@ -22,6 +22,7 @@ import PriceBar from '../components/PriceBar'
 import SummaryModal from '../components/SummaryModal'
 import { productGroups, findProduct, hasCaseImage, productsByAvailability } from '../data/products'
 import { trayGroups, MIN_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES, itemById, isTextCollection } from '../lib/catalog'
+import { charmSizeFromArtwork } from '../lib/charmAspect.js'
 import {
   validateLayout,
   findScatterSpot,
@@ -94,6 +95,13 @@ const uid = () =>
 function reviveCharms(charms) {
   return (charms || []).map((it) => {
     const catalogCharm = itemById(it.charmId)
+    const size = {
+      widthMm: it.wMm || catalogCharm?.widthMm,
+      heightMm: it.hMm || catalogCharm?.heightMm,
+    }
+    const restoredSize = catalogCharm?.kind === 'phone'
+      ? charmSizeFromArtwork(size, catalogCharm.pxW, catalogCharm.pxH)
+      : size
     return {
       uid: uid(),
       charmId: it.charmId || 'demo',
@@ -106,8 +114,8 @@ function reviveCharms(charms) {
       price: catalogCharm?.price ?? it.price ?? 0,
       bundle: !!catalogCharm?.bundle,
       bundleMax: catalogCharm?.bundleMax,
-      baseWmm: it.wMm || catalogCharm?.widthMm,
-      baseHmm: it.hMm || catalogCharm?.heightMm,
+      baseWmm: restoredSize.widthMm,
+      baseHmm: restoredSize.heightMm,
       minScale: catalogCharm?.minScale ?? 0.05,
       maxScale: catalogCharm?.maxScale ?? 20,
       scale: it.scale || 1,

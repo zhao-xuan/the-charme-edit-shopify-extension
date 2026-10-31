@@ -57,7 +57,10 @@ export async function applyDecorationSync({ kind, variants, records, variantIds,
       const record = importedDecoration(kind, variant)
       if (byRecord.has(record.id)) throw new Error('Import ID already belongs to another record; review its variant link')
       const image = await storeImage(record, key)
-      const saved = { ...record, src: image.url, ...(kind === 'patch' ? { imageFileId: image.id } : {}) }
+      const artworkRecord = kind === 'charm'
+        ? charmSizeFromArtwork({ ...record, pxW: image.pxW, pxH: image.pxH })
+        : record
+      const saved = { ...artworkRecord, src: image.url, ...(kind === 'patch' ? { imageFileId: image.id } : {}) }
       await save(saved, kind === 'charm' ? { image: image.id } : {})
       linked.add(variantId)
       result.created.push(key)
@@ -79,7 +82,10 @@ export async function applyDecorationSync({ kind, variants, records, variantIds,
         const image = await storeImage(record, key)
         updated.src = image.url
         if (kind === 'patch') updated.imageFileId = image.id
-        else images = { image: image.id }
+        else {
+          Object.assign(updated, charmSizeFromArtwork({ ...updated, pxW: image.pxW, pxH: image.pxH }))
+          images = { image: image.id }
+        }
       }
       await save(updated, images)
       result.updated.push(key)
@@ -89,3 +95,4 @@ export async function applyDecorationSync({ kind, variants, records, variantIds,
   }
   return result
 }
+import { charmSizeFromArtwork } from './charmAspect.js'

@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
+import { charmSizeFromArtwork } from './charmAspect.js'
 import vm from 'node:vm'
 import { onRequestDelete } from '../../functions/api/admin/charms.js'
 import { onRequestGet } from '../../functions/api/catalog.js'
@@ -139,6 +140,7 @@ function catalogHarness() {
     }),
     settings: () => ({}),
     orderByTaxonomy: (items) => items,
+    charmSizeFromArtwork,
   })
   vm.runInContext(source, context)
   return {

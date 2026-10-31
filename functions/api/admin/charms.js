@@ -8,6 +8,7 @@
 // `charme_charm` METAOBJECT and the cut-out PNG in Shopify FILES. Otherwise we
 // fall back to the legacy Cloudflare D1 + KV store (local dev / un-migrated).
 import { json, bad, requireAdmin, shopifyAdmin, storeImage, makeId, rowToCharm } from '../_lib.js'
+import { charmSizeFromArtwork, charmWithPngArtwork } from '../../../src/lib/charmAspect.js'
 import {
   TYPES,
   shopifyConfigured,
@@ -73,8 +74,15 @@ function charmRecord(c, id, imageUrl, imageId) {
 export async function onRequestPost({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = await request.json().catch(() => null)
-  const items = body?.charms || (body ? [body] : [])
+  let items = body?.charms || (body ? [body] : [])
   if (!Array.isArray(items) || !items.length) return bad('no charms')
+  try {
+    items = items.map((item) => item?.src?.startsWith('data:image/png;base64,')
+      ? charmWithPngArtwork({ ...item, widthMm: item.widthMm || 16, heightMm: item.heightMm || 16 }, item.src)
+      : item)
+  } catch (error) {
+    return bad(error.message)
+  }
 
   if (shopifyConfigured(env)) {
     // Validate the entire batch before any upload/write. A late unlinked draft
@@ -137,7 +145,8 @@ export async function onRequestPost({ request, env }) {
 export async function onRequestPatch({ request, env }) {
   if (!(await requireAdmin(request, env))) return bad('unauthorized', 401)
   const body = (await request.json().catch(() => ({}))) || {}
-  const { id, price, hidden, widthMm, heightMm, name, category, collection, src, shopifyVariantId } = body
+  const { id, price, hidden, name, category, collection, src, shopifyVariantId } = body
+  let { widthMm, heightMm, pxW, pxH } = body
   if (!id) return bad('id required')
   const hasPricePatch = Object.prototype.hasOwnProperty.call(body, 'price')
   const hasVariantPatch = Object.prototype.hasOwnProperty.call(body, 'shopifyVariantId')
@@ -147,6 +156,9 @@ export async function onRequestPatch({ request, env }) {
     shopifyVariantId != null &&
     !/^\d+$/.test(String(shopifyVariantId))
   ) return bad('shopifyVariantId must be a Shopify variant ID or null')
+  if ([widthMm, heightMm, pxW, pxH].some((value) => value != null && (!Number.isFinite(value) || value <= 0))) {
+    return bad('Charm dimensions must be positive numbers')
+  }
 
   if (shopifyConfigured(env)) {
     const rec = await getRecord(env, TYPES.charm, id)
@@ -164,11 +176,23 @@ export async function onRequestPatch({ request, env }) {
     if (hidden != null) rec.hidden = !!hidden
     if (widthMm != null) rec.widthMm = widthMm
     if (heightMm != null) rec.heightMm = heightMm
+    if (pxW != null) rec.pxW = pxW
+    if (pxH != null) rec.pxH = pxH
+    if (widthMm != null || heightMm != null || pxW != null || pxH != null) {
+      Object.assign(rec, charmSizeFromArtwork(rec))
+    }
     if (name != null) rec.name = name
     if (category != null) rec.category = category
     if (collection != null) rec.collection = collection
     const imageGids = {}
     if (src && /^data:/.test(src)) {
+      if (src.startsWith('data:image/png;base64,')) {
+        try {
+          Object.assign(rec, charmWithPngArtwork(rec, src))
+        } catch (error) {
+          return bad(error.message)
+        }
+      }
       const { url, id: imageId } = await storeImageToFiles(env, src, { filename: `${id}.png`, alt: name || rec.name })
       if (!url || !imageId) return bad('Charm image is still processing; retry shortly', 502)
       rec.src = url
@@ -183,10 +207,33 @@ export async function onRequestPatch({ request, env }) {
   }
 
   if (hasPricePatch || hasVariantPatch) return bad('Shopify pricing is unavailable until Shopify is configured')
+  if (widthMm != null || heightMm != null || pxW != null || pxH != null || src?.startsWith('data:image/png;base64,')) {
+    const row = await env.DB.prepare('SELECT * FROM charms WHERE id = ?').bind(id).first()
+    if (!row) return bad('not found', 404)
+    const record = {
+      ...rowToCharm(row),
+      ...(widthMm != null ? { widthMm } : {}),
+      ...(heightMm != null ? { heightMm } : {}),
+      ...(pxW != null ? { pxW } : {}),
+      ...(pxH != null ? { pxH } : {}),
+    }
+    let sized
+    try {
+      sized = src?.startsWith('data:image/png;base64,') ? charmWithPngArtwork(record, src) : charmSizeFromArtwork(record)
+    } catch (error) {
+      return bad(error.message)
+    }
+    widthMm = sized.widthMm
+    heightMm = sized.heightMm
+    pxW = sized.pxW
+    pxH = sized.pxH
+  }
 
   if (hidden != null) await env.DB.prepare('UPDATE charms SET hidden = ? WHERE id = ?').bind(hidden ? 1 : 0, id).run()
   if (widthMm != null) await env.DB.prepare('UPDATE charms SET width_mm = ? WHERE id = ?').bind(widthMm, id).run()
   if (heightMm != null) await env.DB.prepare('UPDATE charms SET height_mm = ? WHERE id = ?').bind(heightMm, id).run()
+  if (pxW != null) await env.DB.prepare('UPDATE charms SET px_w = ? WHERE id = ?').bind(pxW, id).run()
+  if (pxH != null) await env.DB.prepare('UPDATE charms SET px_h = ? WHERE id = ?').bind(pxH, id).run()
   if (name != null) await env.DB.prepare('UPDATE charms SET name = ? WHERE id = ?').bind(name, id).run()
   if (category != null) await env.DB.prepare('UPDATE charms SET category = ? WHERE id = ?').bind(category, id).run()
   if (collection != null) await env.DB.prepare('UPDATE charms SET collection = ? WHERE id = ?').bind(collection, id).run()

@@ -72,6 +72,22 @@ test('only selected missing variants are created and selected existing items upd
   assert.deepEqual(options.saved[1].images, {})
 })
 
+test('new and reprocessed charms follow PNG proportions while preserving the selected longest edge', async () => {
+  const options = syncOptions({
+    variantIds: ['2'], existingIds: ['custom-heart'], reprocessExisting: true,
+    records: [{ ...records[0], heightMm: 31 }],
+    storeImage: async () => ({ id: 'gid://shopify/MediaImage/55', url: 'https://cdn.shopify.com/imported.png', pxW: 111, pxH: 326 }),
+  })
+  await applyDecorationSync(options)
+  for (const [index, longMm] of [16, 31].entries()) {
+    const record = options.saved[index].record
+    assert.equal(record.heightMm, longMm)
+    assert.ok(Math.abs(record.widthMm / record.heightMm - 111 / 326) < 1e-12)
+    assert.equal(record.pxW, 111)
+    assert.equal(record.pxH, 326)
+  }
+})
+
 test('confirm rechecks links and retry does not duplicate records or upload images again', async () => {
   const options = syncOptions({ variantIds: ['1', '2'] })
   await applyDecorationSync(options)
