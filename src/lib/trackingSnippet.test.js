@@ -20,7 +20,7 @@ const INSTAGRAM_LANDING = {
   referrer: 'https://l.instagram.com/',
 }
 
-function storefront({ consent, search = '', referrer = '', pathname = '/products/custom-charm-phone-case', stored = {} } = {}) {
+function storefront({ consent, search = '', referrer = '', pathname = '/products/custom-charm-phone-case', stored = {}, loadFeatures } = {}) {
   const store = new Map(Object.entries(stored))
   const state = { ...consent }
   const windowHandlers = {}
@@ -33,14 +33,17 @@ function storefront({ consent, search = '', referrer = '', pathname = '/products
     marketingAllowed: () => state.marketing === true,
   }
   const window = {
-    Shopify: { country: 'GB', locale: 'en', currency: { active: 'GBP', rate: 1 }, ...(privacy ? { customerPrivacy: privacy } : {}) },
+    Shopify: { country: 'GB', locale: 'en', currency: { active: 'GBP', rate: 1 }, loadFeatures, ...(privacy ? { customerPrivacy: privacy } : {}) },
     location: { origin: 'https://thecharmeedit.com', search, pathname },
     sessionStorage: {
       getItem: (key) => (store.has(key) ? store.get(key) : null),
       setItem: (key, value) => store.set(key, String(value)),
       removeItem: (key) => store.delete(key),
     },
-    addEventListener: (name, handler) => { windowHandlers[name] = handler },
+    addEventListener: (name, handler, capture) => {
+      windowHandlers[name] = handler
+      if (['click', 'pointerdown', 'touchstart', 'auxclick', 'contextmenu'].includes(name)) assert.equal(capture, true)
+    },
   }
   const document = {
     body: {},
@@ -50,6 +53,7 @@ function storefront({ consent, search = '', referrer = '', pathname = '/products
   }
   vm.runInNewContext(linkRegion, {
     URL, URLSearchParams, TextEncoder, btoa, window, document,
+    console,
     MutationObserver: class { constructor(callback) { observe = callback } observe() {} },
     setTimeout: (callback) => tasks.push(callback),
   })
@@ -73,7 +77,7 @@ function storefront({ consent, search = '', referrer = '', pathname = '/products
       return link
     },
     sync() { observe(); while (tasks.length) tasks.shift()() },
-    press(link, type = 'pointerdown') { documentHandlers[type]({ target: { closest: () => link } }) },
+    press(link, type = 'pointerdown') { windowHandlers[type]({ target: { closest: () => link } }) },
   }
 }
 
@@ -166,6 +170,41 @@ test('the pressed link is refreshed from the current consent before navigation',
     api.press(link, type)
     assert.equal(params(attributes.href).get('ca'), '1', type)
   }
+})
+
+test('capture-phase clicks refresh the source link before product handlers rebuild the destination', () => {
+  const api = storefront({ consent: { analytics: true, marketing: true }, ...INSTAGRAM_LANDING })
+  const target = { href: EDITOR }
+  const source = { href: EDITOR }
+  const link = api.add(target)
+  api.add(source)
+  api.sync()
+  api.state.analytics = false
+  api.press(link, 'click')
+  // The product handler copies its hidden source link and immediately navigates.
+  target.href = source.href
+  assert.equal(params(target.href).get('ca'), '0')
+  assert.equal(params(target.href).get('cm'), '0')
+  assert.equal(params(target.href).has('attr'), false)
+  api.state.analytics = true
+  api.press(link, 'click')
+  target.href = source.href
+  assert.equal(params(target.href).get('ca'), '1')
+})
+
+test('privacy API initialization refreshes links even after the page load event', () => {
+  let ready
+  const api = storefront({ loadFeatures(features, callback) {
+    assert.equal(features[0].name, 'consent-tracking-api')
+    assert.equal(features[0].version, '0.1')
+    ready = callback
+  } })
+  const attributes = { href: EDITOR }
+  api.add(attributes)
+  api.enablePrivacy({ analytics: true, marketing: false })
+  ready()
+  assert.equal(params(attributes.href).get('ca'), '1')
+  assert.equal(params(attributes.href).get('cm'), '0')
 })
 
 test('consent granted or withdrawn on the page updates links and the stored campaign', () => {

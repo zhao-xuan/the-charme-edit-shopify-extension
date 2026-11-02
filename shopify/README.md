@@ -228,6 +228,25 @@ what Shopify itself credits so the two views can be compared.
 The other way round, the new designer finds no consent signal on the old links and
 records nothing. The new snippet with the old designer is harmless.
 
+For an existing live theme with its own cart/image fixes, update only the tracking
+handoff rather than overwriting the whole snippet:
+
+```bash
+# Dry-run; explicitly select the theme currently marked main in Shopify.
+node --env-file=.env scripts/push-live-tracking-fix.mjs --theme-id=LIVE_THEME_ID
+# Publish with a backup outside the repository and verify the saved asset.
+node --env-file=.env scripts/push-live-tracking-fix.mjs --theme-id=LIVE_THEME_ID --write --backup-dir=/absolute/backup/path
+```
+
+This command preserves live-only styles, market handling and cart logic. It does
+not install cart confirmation or paid-order tracking. The handoff initializes
+Shopify's privacy API if necessary and updates both visible and hidden source
+links at window capture phase, before product buttons rebuild and open the URL.
+Validate an allowed visit (`ca=1` plus a successful `/api/analytics` POST) and a
+declined visit (`ca=0`, no session POST). Do not enable collection without a
+consent signal to compensate for a deployment gap; missing historical sessions
+cannot be reconstructed from this report.
+
 ### Turning on paid orders (needs your decision)
 
 Sources and cart confirmations work without this. Paid orders need the

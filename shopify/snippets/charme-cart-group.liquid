@@ -173,12 +173,12 @@
   function syncPressedEditorMarket(event) {
     var link = event.target && event.target.closest && event.target.closest('a');
     if (!link) return;
-    syncEditorMarket(link);
-    syncEditorTracking(link, trackingLinkState());
+    syncEditorMarkets();
   }
 
+  // Run before document-level product handlers rebuild and immediately open a link.
   ['pointerdown', 'touchstart', 'click', 'auxclick', 'contextmenu'].forEach(function (type) {
-    document.addEventListener(type, syncPressedEditorMarket, true);
+    window.addEventListener(type, syncPressedEditorMarket, true);
   });
   window.addEventListener('pageshow', syncEditorMarkets);
   window.addEventListener('load', syncEditorMarkets);
@@ -201,6 +201,15 @@
     }, 0);
   }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'data-charme-edit-url'] });
   syncEditorMarkets();
+  if (!readConsent() && window.Shopify && typeof window.Shopify.loadFeatures === 'function') {
+    window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (error) {
+      if (error) {
+        console.warn('[Charme] customer privacy API could not load', error);
+        return;
+      }
+      syncEditorMarkets();
+    });
+  }
 
   var floatingButton;
   var floatingBadge;
