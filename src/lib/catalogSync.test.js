@@ -8,6 +8,7 @@ import { onRequestDelete } from '../../functions/api/admin/charms.js'
 import { onRequestGet } from '../../functions/api/catalog.js'
 import { fetchCatalog, deleteCharm } from './adminApi.js'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalogFailed } from './remoteCatalog.js'
+import { isProductionHost } from './apiBase.js'
 
 globalThis.localStorage = { getItem: () => '' }
 
@@ -253,6 +254,7 @@ test('production refresh failure retains the last snapshot but blocks checkout u
   const snapshot = { products: [], charms: [{ id: 'kept' }], patches: [] }
   const api = vm.runInNewContext(`${source}\n({loadRemoteCatalog, remoteCatalogFailed, remoteCatalog})`, {
     API_BASE: 'https://api.example', PROD_API_BASE: 'https://api.example',
+    isProductionHost,
     fetch: () => {},
     fetchPriceJson: async () => {
       if (fail) throw new Error('Shopify unavailable')
@@ -269,6 +271,27 @@ test('production refresh failure retains the last snapshot but blocks checkout u
   fail = false
   await api.loadRemoteCatalog({ fresh: false, preserveOnFailure: true })
   assert.equal(api.remoteCatalogFailed(), false)
+})
+
+test('same-origin custom designer fails closed instead of restoring bundled charms', async () => {
+  const source = readFileSync(new URL('./remoteCatalog.js', import.meta.url), 'utf8')
+    .replace(/^import .*$/gm, '').replaceAll('export ', '')
+  const urls = []
+  const api = vm.runInNewContext(`${source}\n({loadRemoteCatalog, remoteCatalogFailed})`, {
+    API_BASE: '', PROD_API_BASE: 'https://charme-customizer.pages.dev', isProductionHost,
+    location: { hostname: 'design.thecharmeedit.com' },
+    fetch: () => {},
+    fetchPriceJson: async (url) => {
+      urls.push(url)
+      throw new Error('Catalogue unavailable')
+    },
+    setTimeout: (callback) => callback(),
+    console: { warn: () => {} },
+  })
+  const result = await api.loadRemoteCatalog()
+  assert.deepEqual([...result.charms], [])
+  assert.equal(api.remoteCatalogFailed(), true)
+  assert.deepEqual(urls, Array(3).fill('/api/catalog?fresh=1'))
 })
 
 test('admin deletion success requires a fresh catalogue without the deleted id', async () => {

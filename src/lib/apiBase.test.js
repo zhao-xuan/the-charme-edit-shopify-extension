@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { apiBaseFor, assetBaseFor, PROD_API_BASE } from './apiBase.js'
+import { apiBaseFor, assetBaseFor, isProductionHost, PROD_API_BASE } from './apiBase.js'
 
 test('canonical production and local hosts use their same-origin API', () => {
   assert.equal(apiBaseFor('charme-customizer.pages.dev'), '')
+  assert.equal(apiBaseFor('design.thecharmeedit.com'), '')
   assert.equal(apiBaseFor('localhost'), '')
   assert.equal(apiBaseFor('127.0.0.1'), '')
 })
@@ -16,6 +17,7 @@ test('Pages previews use the production Shopify-backed API', () => {
 
 test('Pages previews load bundled assets from their deployment origin', () => {
   assert.equal(assetBaseFor('charme-customizer.pages.dev'), '')
+  assert.equal(assetBaseFor('design.thecharmeedit.com'), '')
   assert.equal(assetBaseFor('4d54715d.charme-customizer.pages.dev'), '')
   assert.equal(assetBaseFor('canary-0729.charme-customizer.pages.dev'), '')
 })
@@ -27,4 +29,14 @@ test('storefronts load bundled assets from production Pages by default', () => {
 test('an explicit API base remains authoritative', () => {
   assert.equal(apiBaseFor('preview.example.com', 'https://example.test/api/'), 'https://example.test/api')
   assert.equal(assetBaseFor('preview.example.com', 'https://example.test/api/'), 'https://example.test/api')
+  assert.equal(apiBaseFor('design.thecharmeedit.com', 'https://example.test/'), 'https://example.test')
+  assert.equal(assetBaseFor('design.thecharmeedit.com', 'https://example.test/'), 'https://example.test')
+})
+
+test('only exact production hosts receive same-origin production access', () => {
+  assert.equal(isProductionHost('DESIGN.THECHARMEEDIT.COM'), true)
+  for (const host of ['design.thecharmeedit.com.evil.example', 'thecharmeedit.com', 'preview.charme-customizer.pages.dev']) {
+    assert.equal(isProductionHost(host), false)
+    assert.equal(apiBaseFor(host), PROD_API_BASE)
+  }
 })

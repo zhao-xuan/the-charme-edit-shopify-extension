@@ -4,7 +4,7 @@
  * Priority:
  *  1. An explicit `window.CharmeConfig.apiBase` set by the Shopify drop-in
  *     snippet/section (wins — lets a merchant point at a preview deploy).
- *  2. Empty string on the canonical production Pages domain or local dev, where
+ *  2. Empty string on production designer domains or local dev, where
  *     `/api` + `/assets` are correctly served from the same origin.
  *  3. Otherwise (including immutable/branch Pages previews) use the production
  *     Pages URL. Preview Functions can have stale D1 data and do not share the
@@ -13,10 +13,15 @@
  */
 export const PROD_API_BASE = 'https://charme-customizer.pages.dev'
 
+export function isProductionHost(hostname) {
+  const host = String(hostname || '').toLowerCase()
+  return host === 'charme-customizer.pages.dev' || host === 'design.thecharmeedit.com'
+}
+
 export function apiBaseFor(hostname, explicit) {
   if (explicit) return String(explicit).replace(/\/$/, '')
   const host = String(hostname || '').toLowerCase()
-  if (host === 'localhost' || host === '127.0.0.1' || host === '' || host === 'charme-customizer.pages.dev') {
+  if (host === 'localhost' || host === '127.0.0.1' || host === '' || isProductionHost(host)) {
     return ''
   }
   return PROD_API_BASE
@@ -29,7 +34,7 @@ export function assetBaseFor(hostname, explicit) {
     host === 'localhost'
     || host === '127.0.0.1'
     || host === ''
-    || host === 'charme-customizer.pages.dev'
+    || isProductionHost(host)
     || host.endsWith('.charme-customizer.pages.dev')
   ) {
     return ''

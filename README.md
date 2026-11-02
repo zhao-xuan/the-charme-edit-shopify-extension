@@ -105,9 +105,16 @@ any images or writing catalogue entries.
 The live theme opens the designer at `https://design.thecharmeedit.com/editor/`,
 a custom domain bound to the existing Cloudflare Pages project. Phone, tote,
 mobile purchase and cart-edit links must use this host rather than navigating
-to `pages.dev`, which triggers Shopify's external-site confirmation. API calls
-may still use the production Pages origin. The cart market handoff also upgrades
+to `pages.dev`, which triggers Shopify's external-site confirmation. The production
+designer uses its own origin for APIs and bundled assets, so opening it does not
+depend on cross-domain access to `pages.dev`. Previews and embedded storefront
+widgets still use the production Pages API unless explicitly configured otherwise.
+The cart market handoff also upgrades
 legacy designer links without changing their query parameters or design hash.
+
+The standalone HTML displays a loading status before application startup, including
+while the catalogue is loading. Failed entry scripts or a startup taking more than
+30 seconds expose a reload action instead of leaving an empty page.
 
 Admin and customer builds use the same API origin (including on Pages previews,
 unless `CharmeConfig.apiBase` explicitly selects another backend). Deleting a

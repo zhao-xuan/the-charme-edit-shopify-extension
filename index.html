@@ -37,7 +37,31 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main id="charme-startup" role="status" aria-live="polite" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;box-sizing:border-box;background:#f7f1e8;color:#2e2a26;font:16px/1.5 system-ui,sans-serif;text-align:center">
+        <strong>The Charmé Edit</strong>
+        <span data-startup-message>Loading your design studio...</span>
+        <button data-startup-reload type="button" hidden onclick="location.reload()" style="padding:12px 20px;border:1px solid currentColor;border-radius:8px;background:#12261d;color:#fff;font:inherit;cursor:pointer">Reload design studio</button>
+        <noscript>Please enable JavaScript to open the design studio.</noscript>
+      </main>
+    </div>
+    <script data-charme-startup>
+      (function () {
+        function startupFailed() {
+          var startup = document.getElementById('charme-startup')
+          if (!startup) return
+          console.error('[Charmé] design studio startup stalled or failed')
+          startup.setAttribute('role', 'alert')
+          startup.querySelector('[data-startup-message]').textContent = 'The design studio could not load. Check your connection and try again.'
+          startup.querySelector('[data-startup-reload]').hidden = false
+        }
+        window.addEventListener('error', function (event) {
+          if (event.target && event.target.tagName === 'SCRIPT' && event.target.type === 'module') startupFailed()
+        }, true)
+        window.addEventListener('vite:preloadError', startupFailed)
+        setTimeout(startupFailed, 30000)
+      })()
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

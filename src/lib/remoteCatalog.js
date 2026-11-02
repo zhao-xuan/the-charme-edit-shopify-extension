@@ -22,7 +22,7 @@ const EMPTY_REMOTE = {
 // Pages base URL (explicit `CharmeConfig.apiBase`, else the production Pages URL
 // as a fallback; empty when the widget is already served from Pages). The API
 // replies with `access-control-allow-origin: *` so the cross-origin fetch works.
-import { API_BASE, PROD_API_BASE } from './apiBase.js'
+import { API_BASE, PROD_API_BASE, isProductionHost } from './apiBase.js'
 import { fetchPriceJson } from './contextualPrice.js'
 
 function catalogUrls() {
@@ -38,7 +38,7 @@ function authoritativeRuntime() {
   if (API_BASE) return true
   if (typeof location === 'undefined') return false
   const host = String(location.hostname || '').toLowerCase()
-  return host === 'charme-customizer.pages.dev' || host.endsWith('.charme-customizer.pages.dev')
+  return isProductionHost(host) || host.endsWith('.charme-customizer.pages.dev')
 }
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
