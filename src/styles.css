@@ -944,6 +944,9 @@ body.charme-no-select * {
   -webkit-user-drag: none;
   filter: drop-shadow(0 4px 6px rgba(46, 42, 38, 0.22));
 }
+.charm-card .thumb img:not([src]) {
+  visibility: hidden;
+}
 .charm-card .name {
   font-size: 11.5px;
   line-height: 1.25;

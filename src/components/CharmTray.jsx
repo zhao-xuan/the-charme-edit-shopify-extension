@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Tabs, Empty } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { trayGroups, groupByCollection, isTextCollection } from '../lib/catalog'
@@ -7,6 +7,7 @@ import { settings } from '../lib/settings'
 import { formatMoney, formatPresentmentMoney } from '../lib/money'
 import { asShopifyVariantId, decorationVariantId } from '../lib/marketPrices'
 import { t } from '../lib/i18n'
+import { loadTrayImage, observeTrayImages } from '../lib/trayImages'
 
 const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
 
@@ -29,6 +30,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown, marketPrice
       tabIndex={unavailable ? -1 : 0}
       aria-disabled={unavailable || undefined}
       aria-label={[charm.name, charm.collection, `${charm.widthMm} × ${charm.heightMm} mm`, charm.id, priceLabel].filter(Boolean).join(', ')}
+      onFocus={(event) => loadTrayImage(event.currentTarget.querySelector('img[data-charm-src]'))}
       onPointerDown={unavailable ? undefined : (e) => onPointerDown?.(charm, e)}
       onClick={unavailable ? undefined : () => onActivate?.(charm)}
       onKeyDown={(e) => {
@@ -48,7 +50,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown, marketPrice
       }
     >
       <div className="thumb">
-        <img src={charm.src} alt={charm.name} draggable={false} />
+        <img data-charm-src={charm.src} alt={charm.name} decoding="async" draggable={false} />
       </div>
       {!compact && <div className="name">{charm.name}</div>}
       <div className="meta meta--price">
@@ -84,6 +86,9 @@ function GroupPanel({
   variantMap = {},
 }) {
   const charms = group.items || []
+  const panelRef = useRef(null)
+  const thumbnailKey = JSON.stringify(charms.map(({ id, src }) => [id, src]))
+  useEffect(() => observeTrayImages(panelRef.current), [thumbnailKey])
   const [wordFor, setWordFor] = useState(null)
   const [wordText, setWordText] = useState('')
   const [wordPlace, setWordPlace] = useState('middle')
@@ -110,7 +115,7 @@ function GroupPanel({
     setWordFor(null)
   }
   return (
-    <div>
+    <div ref={panelRef}>
       {group.note && <NoteBox text={group.note} />}
       {!rows && group.help && (
         <p className="hint" style={{ marginTop: 0, marginBottom: 14 }}>
@@ -233,7 +238,7 @@ function GroupPanel({
               const marketPrice = priceForCharm(charm)
               return (
                 <CharmCard
-                  key={charm.id}
+                  key={`${charm.id}:${charm.src}`}
                   charm={charm}
                   compact={compact}
                   row={rows}

@@ -39,6 +39,11 @@ npm run dev         # http://localhost:5173
 On mobile, the charm selector starts at 42% of the workspace so customers can
 browse complete charm rows immediately. Drag the divider to adjust the preview
 and selector balance.
+Charm and patch thumbnails load only when visible in the tray, including within
+each horizontally scrolling collection. Offscreen thumbnails keep their tile
+space without requesting images; scrolling, resizing or changing category loads
+the newly visible images independently. Image decoding is asynchronous and never
+gates the editor. Keyboard focus also loads the focused tile.
 Mobile totes show the patch collections directly without a redundant
 single-option "Patches" category switch.
 Selected decorations use a large curved double-ended rotation arrow along the
