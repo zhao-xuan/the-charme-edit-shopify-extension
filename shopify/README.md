@@ -234,6 +234,9 @@ handoff rather than overwriting the whole snippet:
 ```bash
 # Dry-run; explicitly select the theme currently marked main in Shopify.
 node --env-file=.env scripts/push-live-tracking-fix.mjs --theme-id=LIVE_THEME_ID
+# Read-only health check; discover the CURRENT live theme rather than an old ID.
+# Run after every theme publish/switch, even when Pages has not changed.
+node --env-file=.env scripts/push-live-tracking-fix.mjs --theme-id=live --check
 # Publish with a backup outside the repository and verify the saved asset.
 node --env-file=.env scripts/push-live-tracking-fix.mjs --theme-id=LIVE_THEME_ID --write --backup-dir=/absolute/backup/path
 ```
@@ -246,6 +249,13 @@ Validate an allowed visit (`ca=1` plus a successful `/api/analytics` POST) and a
 declined visit (`ca=0`, no session POST). Do not enable collection without a
 consent signal to compensate for a deployment gap; missing historical sessions
 cannot be reconstructed from this report.
+
+Theme assets belong to each individual theme: publishing a different theme does
+not carry a live-only patch across. The read-only check exits with an error when
+the current live theme lacks the handoff or its layout render. Apply the scoped
+patch to the new live theme before considering analytics restored. Verify a real
+browser-generated session by its ID in `charme_analytics_session` and in the admin
+report; an HTTP 200 response alone is not an end-to-end verification.
 
 ### Turning on paid orders (needs your decision)
 
