@@ -1,28 +1,24 @@
-# Public Product Studio app. Legacy single-store widget/Cart Transform code remains
-# in the repo, but is deliberately excluded from this app version.
+# This manifest mirrors the current Developer Dashboard app configuration.
+# Keep the existing permissions and subscriptions when adding new scopes.
 client_id = "93d071d516310e58e5eaeaf778d77e37"
-name = "Charmé Product Studio"
-application_url = "https://charme-customizer.pages.dev/shopify/"
-embedded = true
 extension_directories = ["extensions/charme-customizer-theme"]
-
-[access_scopes]
-# The merchant binds a Shopify variant after approving a design; the app reads
-# its live contextual price before sending the customer to the native cart.
-scopes = "read_products"
-use_legacy_install_flow = false
-
-[auth]
-# Shopify-managed installation + App Bridge token exchange needs no callback.
-redirect_urls = []
+name = "Charm customiser"
+application_url = "https://charme-customizer.pages.dev/admin"
+embedded = true
 
 [webhooks]
 api_version = "2026-07"
 
 [[webhooks.subscriptions]]
 uri = "/webhooks/shopify"
-topics = ["app/uninstalled"]
-
-[[webhooks.subscriptions]]
-uri = "/webhooks/shopify"
+topics = ["app/uninstalled", "orders/paid"]
 compliance_topics = ["customers/data_request", "customers/redact", "shop/redact"]
+
+[access_scopes]
+# Existing dashboard scopes plus read_orders for the paid-order webhook.
+scopes = "read_all_cart_transforms,read_cart_transforms,read_discounts,read_draft_orders,read_files,read_metaobject_definitions,read_metaobjects,read_orders,read_products,read_themes,write_cart_transforms,write_discounts,write_draft_orders,write_files,write_metaobject_definitions,write_metaobjects,write_products,write_themes"
+use_legacy_install_flow = false
+optional_scopes = []
+
+[auth]
+redirect_urls = []

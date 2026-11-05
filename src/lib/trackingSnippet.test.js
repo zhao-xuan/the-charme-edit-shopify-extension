@@ -33,7 +33,7 @@ function storefront({ consent, search = '', referrer = '', pathname = '/products
     marketingAllowed: () => state.marketing === true,
   }
   const window = {
-    Shopify: { country: 'GB', locale: 'en', currency: { active: 'GBP', rate: 1 }, loadFeatures, ...(privacy ? { customerPrivacy: privacy } : {}) },
+    Shopify: { country: 'GB', locale: 'en', currency: { active: 'GBP', rate: 1 }, shop: 'demo.myshopify.com', loadFeatures, ...(privacy ? { customerPrivacy: privacy } : {}) },
     location: { origin: 'https://thecharmeedit.com', search, pathname },
     sessionStorage: {
       getItem: (key) => (store.has(key) ? store.get(key) : null),
@@ -90,6 +90,8 @@ test('without a consent signal editor links carry no tracking parameters, and st
   api.add(fresh)
   api.add(stale)
   api.sync()
+  assert.equal(params(fresh.href).get('shop'), 'demo.myshopify.com')
+  assert.equal(params(stale.href).get('shop'), 'demo.myshopify.com')
   for (const key of ['ca', 'cm', 'attr']) assert.equal(params(fresh.href).has(key), false, `${key} is not added without a signal`)
   for (const key of ['ca', 'cm', 'attr']) assert.equal(params(stale.href).has(key), false, `stale ${key} is removed`)
   assert.equal(params(stale.href).get('product'), 'tote-olive-green')

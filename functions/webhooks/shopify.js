@@ -33,13 +33,17 @@ export async function onRequestPost({ request, env }) {
     await db.prepare('CREATE TABLE IF NOT EXISTS shopify_webhook_events (id TEXT PRIMARY KEY, topic TEXT NOT NULL, processed_at TEXT NOT NULL)').run()
     if (await db.prepare('SELECT id FROM shopify_webhook_events WHERE id=?').bind(id).first()) return new Response(null, { status: 200 })
     if (topic === 'app/uninstalled') {
-      await db.prepare("UPDATE shopify_installations SET access_token='',refresh_token='',token_expires_at=0,refresh_expires_at=0,uninstalled_at=? WHERE shop_id=?").bind(new Date().toISOString(), shop).run()
+      await db.batch([
+        db.prepare("UPDATE shopify_installations SET access_token='',refresh_token='',token_expires_at=0,refresh_expires_at=0,uninstalled_at=? WHERE shop_id=?").bind(new Date().toISOString(), shop),
+        db.prepare('DELETE FROM studio_tracking_settings WHERE shop_id=?').bind(shop),
+      ])
     } else if (topic === 'shop/redact') {
       await db.batch([
         db.prepare('DELETE FROM studio_designs WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM studio_templates WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM studio_customizers WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM studio_analytics WHERE shop_id=?').bind(shop),
+        db.prepare('DELETE FROM studio_tracking_settings WHERE shop_id=?').bind(shop),
         db.prepare('DELETE FROM shopify_installations WHERE shop_id=?').bind(shop),
       ])
       // The attribution tables belong to the one store this deployment serves.

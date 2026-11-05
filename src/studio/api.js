@@ -33,6 +33,8 @@ export const studioApi = {
   review:(body) => request('/api/admin/studio/requests',{method:'POST',body,admin:true}),
   variants:(q) => request(`/api/admin/studio/variants?q=${encodeURIComponent(q)}`,{admin:true}),
   analytics:(days) => request(`/api/admin/studio/analytics?days=${days}`,{admin:true}),
+  trackingSettings:() => request('/api/admin/studio/tracking-settings',{admin:true}),
+  saveTrackingSettings:(body) => request('/api/admin/studio/tracking-settings',{method:'PUT',body,admin:true}),
   subscription:() => request('/api/admin/studio/subscription',{admin:true}),
   track:(event,sessionId,templateId,device,materialIds=[]) => request('/api/studio/analytics',{method:'POST',body:{event,sessionId,templateId,device,materialIds}}),
   trackBeacon:(event,sessionId,templateId,device) => {

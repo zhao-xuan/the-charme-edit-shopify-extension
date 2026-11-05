@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { onRequestPost } from '../../functions/webhooks/shopify.js'
 import { analyticsDb, listOrders, recordDesignLinks, recordOrder, listDesignLinks } from '../../functions/api/_analytics-store.js'
+import { studioDb } from '../../functions/api/_studio.js'
 import { createSqliteD1 } from './testing/sqliteD1.js'
 
 const probe = await createSqliteD1()
@@ -99,19 +100,28 @@ sqlTest('a customer redaction with many orders stays within D1 parameter limits'
 
 sqlTest('a shop redaction erases the stored links and orders of this store only', async () => {
   const env = await environment()
+  await studioDb(env)
   const db = await analyticsDb(env)
+  await db.prepare('INSERT INTO studio_tracking_settings (shop_id, ga_measurement_id, meta_pixel_id, updated_at) VALUES (?, ?, ?, ?)')
+    .bind(SHOP, 'G-TEST123', '123456789012345', new Date().toISOString()).run()
   await recordDesignLinks(db, 'session-12345678', ['cd_one'])
   await recordOrder(db, { orderId: '1', paidAt: '2026-06-09T00:00:00.000Z', designTokens: ['cd_one'] })
 
   assert.equal((await deliver(env, 'shop/redact', { shop_domain: 'other.myshopify.com' }, { shop: 'other.myshopify.com' })).status, 200)
   assert.equal((await listDesignLinks(db, SINCE)).length, 1, 'another shop being redacted leaves this store alone')
+  assert.ok(await db.prepare('SELECT shop_id FROM studio_tracking_settings WHERE shop_id=?').bind(SHOP).first())
 
   assert.equal((await deliver(env, 'shop/redact', { shop_domain: SHOP })).status, 200)
   assert.equal((await listDesignLinks(db, SINCE)).length, 0)
   assert.equal((await listOrders(db, SINCE)).length, 0)
+  assert.equal(await db.prepare('SELECT shop_id FROM studio_tracking_settings WHERE shop_id=?').bind(SHOP).first(), null)
 })
 
 sqlTest('the existing uninstall topic still works', async () => {
   const env = await environment()
+  await studioDb(env)
+  await env.DB.prepare('INSERT INTO studio_tracking_settings (shop_id, ga_measurement_id, meta_pixel_id, updated_at) VALUES (?, ?, ?, ?)')
+    .bind(SHOP, 'G-TEST123', '123456789012345', new Date().toISOString()).run()
   assert.equal((await deliver(env, 'app/uninstalled', { shop_domain: SHOP })).status, 200)
+  assert.equal(await env.DB.prepare('SELECT shop_id FROM studio_tracking_settings WHERE shop_id=?').bind(SHOP).first(), null)
 })

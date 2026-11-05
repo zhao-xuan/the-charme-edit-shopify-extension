@@ -15,7 +15,7 @@ const encode = (value) => Buffer.from(JSON.stringify(value)).toString('base64url
 
 test('without a consent signal the designer records nothing by default', () => {
   assert.equal(DEFAULT_ANALYTICS_WITHOUT_SIGNAL, false)
-  assert.deepEqual(readTrackingContext(''), { analytics: false, marketing: false, signal: false, attribution: null })
+  assert.deepEqual(readTrackingContext(''), { analytics: false, marketing: false, signal: false, attribution: null, identifiers: { gaClientId: '', fbp: '', fbc: '' } })
   assert.equal(readTrackingContext('?ca=maybe').analytics, false)
 })
 
@@ -28,6 +28,7 @@ test('the storefront consent decision travels in the link', () => {
   assert.equal(analyticsOnly.analytics, true)
   assert.equal(analyticsOnly.marketing, false)
   assert.equal(analyticsOnly.attribution, null, 'campaign data needs marketing consent')
+  assert.deepEqual(analyticsOnly.identifiers, { gaClientId: '', fbp: '', fbc: '' })
   const declined = readTrackingContext(`?ca=0&cm=1&attr=${encode({ source: 'google' })}`)
   assert.equal(declined.analytics, false)
   assert.equal(declined.marketing, false)
@@ -36,10 +37,32 @@ test('the storefront consent decision travels in the link', () => {
 
 test('an in-page designer reads Shopify Customer Privacy when the link has no signal', () => {
   const allowed = { analyticsProcessingAllowed: () => true, marketingAllowed: () => false }
-  assert.deepEqual(readTrackingContext('', allowed), { analytics: true, marketing: false, signal: true, attribution: null })
+  assert.deepEqual(readTrackingContext('', allowed), {
+    analytics: true, marketing: false, signal: true, attribution: null,
+    identifiers: { gaClientId: '', fbp: '', fbc: '' },
+  })
   assert.equal(readTrackingContext('', { analyticsProcessingAllowed: () => false }).analytics, false)
   assert.equal(readTrackingContext('', { analyticsProcessingAllowed: () => { throw new Error('blocked') } }).analytics, false)
   assert.equal(readTrackingContext('?ca=0', allowed).analytics, false, 'an explicit link decision wins')
+})
+
+test('provider identifiers are validated and gated by their matching consent', () => {
+  const allowed = readTrackingContext('?ca=1&cm=1&ga=123456789.987654321&fbp=fb.1.1730000000000.12345&fbc=fb.1.1730000000000.click_123')
+  assert.deepEqual(allowed.identifiers, {
+    gaClientId: '123456789.987654321',
+    fbp: 'fb.1.1730000000000.12345',
+    fbc: 'fb.1.1730000000000.click_123',
+  })
+
+  const analyticsOnly = readTrackingContext('?ca=1&cm=0&ga=123456789.987654321&fbp=fb.1.1730000000000.12345')
+  assert.deepEqual(analyticsOnly.identifiers, {
+    gaClientId: '123456789.987654321', fbp: '', fbc: '',
+  })
+  const declined = readTrackingContext('?ca=0&cm=1&ga=123456789.987654321&fbp=fb.1.1730000000000.12345')
+  assert.deepEqual(declined.identifiers, { gaClientId: '', fbp: '', fbc: '' })
+
+  const invalid = readTrackingContext('?ca=1&cm=1&ga=not-a-client-id&fbp=arbitrary&fbc=fb.1.1.click')
+  assert.deepEqual(invalid.identifiers, { gaClientId: '', fbp: '', fbc: '' })
 })
 
 test('attribution is bounded, lower-cased and free of query strings or click-id values', () => {

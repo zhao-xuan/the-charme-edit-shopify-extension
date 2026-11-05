@@ -1,4 +1,5 @@
 import { resolveApiBase } from './apiBase.js'
+import { ANALYTICS_EVENTS, validGaClientId, validMetaCookie } from './analyticsEvents.js'
 import { sanitizeAttribution } from './trackingContext.js'
 
 const sessionId = () =>
@@ -13,11 +14,20 @@ export function createCustomizerAnalytics(options = {}) {
   const doc = options.documentRef || (typeof document !== 'undefined' ? document : null)
   const fetchImpl = options.fetchImpl || globalThis.fetch
   const host = win?.location?.hostname || ''
+  const shop = options.shop || ''
   // `consent` is the visitor's storefront decision (see trackingContext.js); a
   // caller that supplies none keeps the previous always-on behaviour.
   const analyticsAllowed = options.consent ? options.consent.analytics === true : true
+  const marketingAllowed = options.consent ? options.consent.marketing === true : false
+  const providerAnalyticsAllowed = options.consent?.analytics === true
   const enabled = options.enabled ?? (!!win && !['localhost', '127.0.0.1'].includes(host) && analyticsAllowed)
   const endpoint = options.endpoint || `${resolveApiBase()}/api/analytics`
+  const eventEndpoint = options.eventEndpoint || `${resolveApiBase()}/api/analytics/event`
+  const identifiers = {
+    gaClientId: analyticsAllowed && validGaClientId(options.identifiers?.gaClientId) ? options.identifiers.gaClientId : '',
+    fbp: marketingAllowed && validMetaCookie(options.identifiers?.fbp, 'fb.1.') ? options.identifiers.fbp : '',
+    fbc: marketingAllowed && validMetaCookie(options.identifiers?.fbc, 'fb.1.') ? options.identifiers.fbc : '',
+  }
   const startedMs = now()
   let visible = doc?.visibilityState !== 'hidden'
   let activeSince = visible ? startedMs : null
@@ -28,6 +38,8 @@ export function createCustomizerAnalytics(options = {}) {
   let started = false
   let interval = null
   let lastMoveAt = 0
+  let eventSequence = 0
+  const sentMilestones = new Set()
 
   const record = {
     sessionId: sessionId(),
@@ -88,9 +100,44 @@ export function createCustomizerAnalytics(options = {}) {
     dirty = true
   }
 
+  const sendProviderEvent = (event) => {
+    const mapped = ANALYTICS_EVENTS[event]
+    if (!enabled || !providerAnalyticsAllowed || !fetchImpl || !mapped) return
+    if (event === 'customizer_opened' && sentMilestones.has(event)) return
+    if (event === 'customizer_opened') sentMilestones.add(event)
+    const eventId = `${record.sessionId}.${event}.${++eventSequence}`
+    let eventSourceUrl = ''
+    try { eventSourceUrl = `${win.location.origin}${win.location.pathname}` } catch {}
+    const body = JSON.stringify({
+      sessionId: record.sessionId,
+      shop,
+      event,
+      eventId,
+      eventTime: now(),
+      startedAt: record.startedAt,
+      consent: { analytics: providerAnalyticsAllowed, marketing: marketingAllowed },
+      attribution: record.attribution,
+      identifiers,
+      eventSourceUrl,
+      productKind: record.productKind,
+    })
+    Promise.resolve(fetchImpl(eventEndpoint, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body,
+      keepalive: true,
+      credentials: 'include',
+    })).then((response) => {
+      if (!response.ok) console.warn('[analytics-event]', response.status)
+    }).catch((error) => {
+      console.warn('[analytics-event]', error?.message || error)
+    })
+  }
+
   const track = (event, detail = {}) => {
     const current = now()
     if (event === 'decoration_move' && current - lastMoveAt < 750) return
+    sendProviderEvent(event)
     if (event === 'decoration_move') lastMoveAt = current
     if (event === 'decoration_add' && record.decorationStartedAt == null) {
       syncClock()
@@ -157,6 +204,7 @@ export function createCustomizerAnalytics(options = {}) {
     updateContext(context)
     if (started) return
     started = true
+    sendProviderEvent('customizer_opened')
     doc?.addEventListener?.('visibilitychange', onVisibility)
     win?.addEventListener?.('pagehide', onPageHide)
     interval = win?.setInterval?.(() => flush(), 30_000) || null

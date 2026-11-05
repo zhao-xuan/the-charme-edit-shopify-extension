@@ -4,7 +4,9 @@
 // the storefront renders is the only channel between the two. The theme snippet
 // (shopify/snippets/charme-cart-group.liquid) reads the visitor's Shopify
 // Customer Privacy decision and a last-touch campaign summary and appends them
-// as `ca`, `cm` and `attr`. Nothing here persists an identifier across origins.
+// as `ca`, `cm` and `attr`. Provider IDs are passed separately and only when the
+// matching consent is granted; they are never included in the session summary.
+import { validGaClientId, validMetaCookie } from './analyticsEvents.js'
 
 /**
  * What the designer does when its link carries no consent signal (direct visit,
@@ -112,11 +114,15 @@ export function readTrackingContext(search = '', privacy = null) {
   const signal = analyticsSignal === '1' || analyticsSignal === '0'
   const analytics = signal ? analyticsSignal === '1' : DEFAULT_ANALYTICS_WITHOUT_SIGNAL
   const marketing = analytics && marketingSignal === '1'
+  const gaClientId = analytics && validGaClientId(params.get('ga')) ? params.get('ga') : ''
+  const fbp = marketing && validMetaCookie(params.get('fbp'), 'fb.1.') ? params.get('fbp') : ''
+  const fbc = marketing && validMetaCookie(params.get('fbc'), 'fb.1.') ? params.get('fbc') : ''
   return {
     analytics,
     marketing,
     signal,
     attribution: marketing ? decodeAttribution(params.get('attr')) : null,
+    identifiers: { gaClientId, fbp, fbc },
   }
 }
 

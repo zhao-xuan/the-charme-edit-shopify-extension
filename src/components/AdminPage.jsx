@@ -48,6 +48,7 @@ import {
   ThunderboltOutlined,
 } from '@ant-design/icons'
 const StudioAdmin = lazy(() => import('../studio/StudioAdmin.jsx'))
+const TrackingSettingsTab = lazy(() => import('../studio/TrackingSettingsTab.jsx'))
 import { allProducts, productGroups } from '../data/products'
 import patchData from '../data/patches.json'
 import ProductCanvas from './ProductCanvas'
@@ -5230,6 +5231,11 @@ export default function AdminPage() {
               </span>
             ),
             children: <AnalyticsTab />,
+          },
+          {
+            key: 'tracking',
+            label: <span><LinkOutlined /> Tracking</span>,
+            children: <Suspense fallback={<Spin />}><TrackingSettingsTab /></Suspense>,
           },
           {
             key: 'extract',

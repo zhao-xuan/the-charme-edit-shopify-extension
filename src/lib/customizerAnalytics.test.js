@@ -77,3 +77,24 @@ test('analytics stays on for callers that supply no consent, and off for localho
   const local = createCustomizerAnalytics({ windowRef: { location: { hostname: 'localhost' } }, documentRef: null })
   assert.equal(local.link(), null)
 })
+
+test('provider forwarding requires an explicit analytics consent decision', async () => {
+  const { tracker, sent } = consentHarness({})
+  tracker.start()
+  await tracker.flush(true)
+  await new Promise((resolve) => setImmediate(resolve))
+  tracker.stop()
+  assert.equal(sent.some((request) => request.url.endsWith('/api/analytics/event')), false)
+})
+
+test('provider events carry the Shopify tenant domain from the storefront handoff', async () => {
+  const { tracker, sent } = consentHarness({
+    consent: { analytics: true, marketing: false },
+    shop: 'demo.myshopify.com',
+  })
+  tracker.start()
+  await new Promise((resolve) => setImmediate(resolve))
+  const eventRequest = sent.find((request) => request.url.endsWith('/api/analytics/event'))
+  assert.equal(eventRequest?.body.shop, 'demo.myshopify.com')
+  tracker.stop()
+})

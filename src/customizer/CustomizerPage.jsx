@@ -247,9 +247,28 @@ export default function CustomizerPage({
     const tracking = typeof window === 'undefined'
       ? null
       : readTrackingContext(window.location.search, window.Shopify?.customerPrivacy)
-    analyticsRef.current = createCustomizerAnalytics(tracking ? { consent: tracking, attribution: tracking.attribution } : {})
+    const shop = typeof window === 'undefined'
+      ? ''
+      : window.Shopify?.shop || window.CharmeConfig?.shop || new URLSearchParams(window.location.search).get('shop') || ''
+    analyticsRef.current = createCustomizerAnalytics(tracking ? {
+      consent: tracking,
+      attribution: tracking.attribution,
+      identifiers: tracking.identifiers,
+      shop,
+    } : {})
   }
   const analytics = analyticsRef.current
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    let changed = false
+    for (const key of ['ga', 'fbp', 'fbc']) {
+      if (url.searchParams.has(key)) {
+        url.searchParams.delete(key)
+        changed = true
+      }
+    }
+    if (changed) window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
   const useMarketPrices = useShopifyMarketPricing()
   const [, setResolvedMarketCurrency] = useState('')
   const adoptMarketCurrency = useCallback((country, requested, actual) => {

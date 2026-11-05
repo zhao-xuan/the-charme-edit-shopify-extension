@@ -218,6 +218,43 @@ customer data (no names, addresses, e-mail, phone or customer ids).
 *Funnel by source* table, and *Paid orders as Shopify records them*, which shows
 what Shopify itself credits so the two views can be compared.
 
+### Provider forwarding (Phase 2)
+
+With analytics consent, the designer sends the allowlisted `customizer_opened`,
+`decoration_add`, `summary_viewed` and `purchase_clicked` events to
+`POST /api/analytics/event`. Cloudflare validates the event, origin, timestamp,
+consent and payload size, then forwards it server-side to GA4 Measurement
+Protocol. With marketing consent it also sends the corresponding custom events
+to Meta Conversions API. It does not send a `Purchase` event; Shopify's sales
+channels remain the source of purchase events to avoid duplicate conversions.
+
+Each merchant enters their own Measurement ID, GA4 API secret, Meta Pixel ID and
+Conversions API token in the embedded Shopify app's **Tracking** tab. The API
+authenticates the merchant's Shopify session and stores each shop's secrets
+AES-GCM encrypted in D1; GET responses reveal only configured/not-configured
+status. Blank password fields preserve saved values, and removal requires an
+explicit action.
+
+```bash
+# Create a 32-byte key locally; enter the generated value only at Wrangler's
+# hidden prompt. Never commit or share this encryption key.
+openssl rand -base64 32
+npx wrangler pages secret put TRACKING_CREDENTIALS_KEY --project-name charme-customizer
+```
+
+The GA4 API secret and Meta access token are never returned to the browser after
+save. Cloudflare needs only the dedicated `TRACKING_CREDENTIALS_KEY`; merchants
+do not need Cloudflare access. Keep the key stable: replacing it makes existing
+encrypted credentials unreadable, so merchants would need to enter them again.
+Until a merchant configures a provider, its events return an explicit
+not-configured error. The endpoint sets consent-scoped `ce_ga`,
+`ce_attr`, `ce_fbp` and `ce_fbc` cookies for
+`.thecharmeedit.com`; it uses the existing designer hostname, so no additional
+metrics subdomain or DNS record is required. Cookies extend first-party
+continuity only where the browser permits them; this does not bypass browser
+privacy controls or ad blockers. A provider failure is returned and logged
+explicitly rather than reported as a successful send.
+
 ### Deploy order
 
 1. Update the theme's `snippets/charme-cart-group.liquid` from this repo. It is
@@ -271,15 +308,25 @@ uri = "/webhooks/shopify"
 topics = ["orders/paid"]
 ```
 
-Then run `shopify app deploy` and approve the new permission on the store. The app
-is public, so Shopify may review the scope and require protected-customer-data
-access first; check the Partner Dashboard before submitting a version. Until it is
-active the Analytics tab says “Paid orders are not connected yet”. Webhooks are
-verified with `SHOPIFY_CLIENT_SECRET`, as for the existing topics. Test-gateway
-orders are excluded from the report and only counted.
+After publishing an app version that includes the scope, the store owner must
+approve the updated access in Shopify Admin; publishing alone does not grant the
+installed app the new permission. The app is public, so Shopify may review the
+scope and require protected-customer-data access first; check the Partner
+Dashboard before submitting a version. Until the store approves it, the Analytics
+tab says “Paid orders are not connected yet”. Webhooks are verified with
+`SHOPIFY_CLIENT_SECRET`, as for the existing topics. Test-gateway orders are
+excluded from the report and only counted.
+
+The embedded app also encrypts its expiring Shopify installation tokens in D1.
+Set `SHOPIFY_TOKEN_KEY` once (32 random bytes, base64 encoded) through Wrangler's
+hidden prompt if it is not already configured. Keep it separate from
+`TRACKING_CREDENTIALS_KEY` and do not rotate either key without planning for
+re-encryption or merchant credential re-entry.
 
 ### Storage and privacy
 
+- `studio_tracking_settings` stores provider IDs per shop and API secrets only
+  as AES-GCM ciphertext. It is deleted on app uninstall and `shop/redact`.
 - Two D1 tables, created on first use (no migration step): `analytics_design_links`
   (design token → session) and `analytics_orders` (order summary), plus a one-row-
   per-day counter, `analytics_link_budget`. Rows older than 400 days (counters: two

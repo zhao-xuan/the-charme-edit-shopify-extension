@@ -10,7 +10,7 @@ export const corsHeaders = (request, env) => {
   if (env.SHOPIFY_STORE) allowed.add(`https://${env.SHOPIFY_STORE}`)
   if (origin && !allowed.has(origin)) throw new StudioError('此来源尚未启用产品工作室。',403)
   return { ...(origin ? {'access-control-allow-origin':origin} : {}), vary:'Origin',
-    'access-control-allow-methods':'GET,POST,PATCH,DELETE,OPTIONS', 'access-control-allow-headers':'authorization,content-type',
+    'access-control-allow-methods':'GET,POST,PUT,PATCH,DELETE,OPTIONS', 'access-control-allow-headers':'authorization,content-type',
     'cache-control':'no-store', 'x-content-type-options':'nosniff' }
 }
 export const studioJson = (data, status=200, headers={}) => new Response(JSON.stringify(data), {status,headers:{'content-type':'application/json; charset=utf-8',...headers}})
@@ -85,6 +85,14 @@ export const STUDIO_SCHEMA = [
   'CREATE INDEX IF NOT EXISTS studio_customizers_shop ON studio_customizers(shop_id,status,updated_at)',
   'CREATE TABLE IF NOT EXISTS studio_analytics (shop_id TEXT NOT NULL,session_id TEXT NOT NULL,started_at TEXT NOT NULL,last_seen_at TEXT NOT NULL,data TEXT NOT NULL,PRIMARY KEY(shop_id,session_id))',
   'CREATE INDEX IF NOT EXISTS studio_analytics_shop_date ON studio_analytics(shop_id,started_at)',
+  `CREATE TABLE IF NOT EXISTS studio_tracking_settings (
+    shop_id TEXT PRIMARY KEY,
+    ga_measurement_id TEXT NOT NULL DEFAULT '',
+    ga_api_secret_enc TEXT,
+    meta_pixel_id TEXT NOT NULL DEFAULT '',
+    meta_access_token_enc TEXT,
+    updated_at TEXT NOT NULL
+  )`,
 ]
 export async function studioDb(env) {
   if (!env.DB) throw new StudioError('设计存储尚未配置（需要 D1 DB）。',503)

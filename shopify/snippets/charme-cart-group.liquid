@@ -115,6 +115,31 @@
     return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   }
 
+  function readCookie(name) {
+    var match = String(document.cookie || '').match(new RegExp('(?:^|;\\s*)' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)'));
+    try { return match ? decodeURIComponent(match[1]) : ''; } catch (error) { return ''; }
+  }
+
+  function currentShopDomain() {
+    var shop = String((window.Shopify || {}).shop || '').toLowerCase();
+    return /^[a-z0-9][a-z0-9-]*\.myshopify\.com$/.test(shop) ? shop : '';
+  }
+
+  function gaClientId() {
+    var parts = readCookie('_ga').split('.');
+    var value = parts.length >= 4 ? parts.slice(-2).join('.') : '';
+    return /^\d{1,20}\.\d{1,20}$/.test(value) ? value : '';
+  }
+
+  function clearTrackingCookies(consent) {
+    var names = [];
+    if (!consent.marketing) names.push('ce_attr', 'ce_fbp', 'ce_fbc');
+    if (!consent.analytics) names.push('ce_ga');
+    names.forEach(function (name) {
+      document.cookie = name + '=; Max-Age=0; Path=/; Domain=.thecharmeedit.com; SameSite=Lax; Secure';
+    });
+  }
+
   // Last non-direct touch wins: internal hops (the designer, checkout, payment
   // providers) carry no campaign signal and never replace an earlier source.
   function captureAttribution() {
@@ -123,7 +148,13 @@
     if (!consent || !consent.marketing) return;
     attributionChecked = true;
     var touch = currentTouch();
-    if (!touch) return;
+    if (!touch) {
+      var persisted = readCookie('ce_attr');
+      if (persisted && persisted.length <= 2000) {
+        try { window.sessionStorage.setItem(ATTRIBUTION_KEY, persisted); } catch (error) {}
+      }
+      return;
+    }
     try { window.sessionStorage.setItem(ATTRIBUTION_KEY, encodeTouch(touch)); } catch (error) {}
   }
 
@@ -131,11 +162,18 @@
     var consent = readConsent();
     if (!consent) return null;
     var attr = '';
+    var ga = '';
+    var fbp = '';
+    var fbc = '';
+    if (consent.analytics) ga = gaClientId() || readCookie('ce_ga');
     if (consent.marketing) {
       try { attr = window.sessionStorage.getItem(ATTRIBUTION_KEY) || ''; } catch (error) {}
+      if (!attr) attr = readCookie('ce_attr');
       if (attr.length > 2000) attr = '';
+      fbp = readCookie('_fbp') || readCookie('ce_fbp');
+      fbc = readCookie('_fbc') || readCookie('ce_fbc');
     }
-    return { analytics: consent.analytics, marketing: consent.marketing, attr: attr };
+    return { analytics: consent.analytics, marketing: consent.marketing, attr: attr, ga: ga, fbp: fbp, fbc: fbc, shop: currentShopDomain() };
   }
 
   function syncEditorTracking(link, state) {
@@ -145,7 +183,8 @@
       try {
         var url = new URL(value, window.location.origin);
         if (url.origin !== 'https://design.thecharmeedit.com' && url.origin !== 'https://charme-customizer.pages.dev' || !/^\/editor\/?$/.test(url.pathname)) return;
-        var before = [url.searchParams.get('ca'), url.searchParams.get('cm'), url.searchParams.get('attr')].join('|');
+        var before = ['ca', 'cm', 'attr', 'ga', 'fbp', 'fbc', 'shop'].map(function (key) { return url.searchParams.get(key); }).join('|');
+        var shop = currentShopDomain();
         if (state) {
           url.searchParams.set('ca', state.analytics ? '1' : '0');
           url.searchParams.set('cm', state.marketing ? '1' : '0');
@@ -155,7 +194,13 @@
         }
         if (state && state.attr) url.searchParams.set('attr', state.attr);
         else url.searchParams.delete('attr');
-        var after = [url.searchParams.get('ca'), url.searchParams.get('cm'), url.searchParams.get('attr')].join('|');
+        [['ga', state && state.analytics ? state.ga : ''], ['fbp', state && state.marketing ? state.fbp : ''], ['fbc', state && state.marketing ? state.fbc : '']].forEach(function (entry) {
+          if (entry[1]) url.searchParams.set(entry[0], entry[1]);
+          else url.searchParams.delete(entry[0]);
+        });
+        if (shop) url.searchParams.set('shop', shop);
+        else url.searchParams.delete('shop');
+        var after = ['ca', 'cm', 'attr', 'ga', 'fbp', 'fbc', 'shop'].map(function (key) { return url.searchParams.get(key); }).join('|');
         if (before !== after) link.setAttribute(attribute, url.toString());
       } catch (error) {}
     });
@@ -184,9 +229,11 @@
   window.addEventListener('load', syncEditorMarkets);
   document.addEventListener('visitorConsentCollected', function () {
     var consent = readConsent();
-    // Withdrawn marketing consent also discards the stored campaign summary.
-    if (consent && !consent.marketing) {
-      try { window.sessionStorage.removeItem(ATTRIBUTION_KEY); } catch (error) {}
+    if (consent) {
+      if (!consent.marketing) {
+        try { window.sessionStorage.removeItem(ATTRIBUTION_KEY); } catch (error) {}
+      }
+      clearTrackingCookies(consent);
     }
     attributionChecked = false;
     syncEditorMarkets();
