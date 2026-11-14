@@ -15,7 +15,7 @@ export const PROD_API_BASE = 'https://charme-customizer.pages.dev'
 
 export function isProductionHost(hostname) {
   const host = String(hostname || '').toLowerCase()
-  return host === 'charme-customizer.pages.dev' || host === 'charme-editor-staging.pages.dev' || host === 'design.thecharmeedit.com'
+  return host === 'charme-customizer.pages.dev' || host === 'charme-editor-staging.pages.dev' || host.endsWith('.charme-editor-staging.pages.dev') || host === 'design.thecharmeedit.com'
 }
 
 export function apiBaseFor(hostname, explicit) {

@@ -1,0 +1,8 @@
+api_version = "2026-07"
+
+[[extensions]]
+type = "theme"
+name = "Product Studio"
+handle = "charme-customizer-theme-staging"
+
+description = "Open the merchant's product studio from a product page app block."

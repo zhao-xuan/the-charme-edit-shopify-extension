@@ -3,6 +3,10 @@
   "name": "charme-editor-staging",
   "compatibility_date": "2025-06-01",
   "pages_build_output_dir": "dist",
+  "vars": {
+    "SHOPIFY_CLIENT_ID": "3ad0fe5a20bb05beedc5cf3945fbfccf",
+    "SHOPIFY_STORE": "charme-editor-staging.myshopify.com"
+  },
   "d1_databases": [
     {
       "binding": "DB",

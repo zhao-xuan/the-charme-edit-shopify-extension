@@ -6,10 +6,10 @@ manifest, Pages project, and production database bindings remain unchanged.
 
 ## Cloudflare resources
 
-- Pages: `charme-editor-staging` → `https://charme-editor-staging.pages.dev`
+- Pages: `charme-editor-staging` → `https://main.charme-editor-staging.pages.dev` (separate project; its `main` branch is staging)
 - D1: `charme-catalog-staging` (`89697819-e02a-41d4-868c-ed14512dc666`)
 - KV: `CHARME_IMAGES_STAGING` (`0235ef639404430082a529cf82978078`)
-- Pages branch: `staging`
+- Pages branch: `main` (the staging project's primary branch)
 
 Deploy the app with `npm run deploy:staging`. The build uses `--mode staging`
 and reads the Shopify API key from the ignored local `.env.staging` file:
@@ -23,16 +23,17 @@ environment.
 
 ## Shopify development app
 
-Create a separate app in Shopify Dev Dashboard and use
-`shopify.app.staging.toml` as its manifest. Set its app URL to
-`https://charme-editor-staging.pages.dev/admin`. Keep the production app's
-client ID and credentials out of this manifest. After creating the staging app,
-replace `REPLACE_WITH_STAGING_APP_CLIENT_ID` with its client ID and add the same
-ID to `.env.staging`.
+The dedicated Shopify app has been created as `Charm-customiser-staging` and is
+configured in `shopify.app.staging.toml`. Its isolated theme extension source
+is `extensions/charme-customizer-theme-staging` and uses a staging-only handle.
+Its client ID is also in the ignored local `.env.staging` file and the public
+staging Pages vars. The app URL is
+`https://main.charme-editor-staging.pages.dev/admin`. Keep the production app's
+client ID and credentials out of the staging config.
 
 Install this app only on a Shopify development store. In its test theme, set the
 Product Studio block's **Studio URL (advanced)** to
-`https://charme-editor-staging.pages.dev`. Leave production themes on the
+`https://main.charme-editor-staging.pages.dev`. Leave production themes on the
 default production URL.
 
 ## Staging Pages secrets
@@ -41,9 +42,7 @@ Set these secrets on the staging Pages project only. Wrangler prompts for each
 value without echoing it:
 
 ```sh
-npx wrangler pages secret put SHOPIFY_CLIENT_ID --project-name charme-editor-staging
 npx wrangler pages secret put SHOPIFY_CLIENT_SECRET --project-name charme-editor-staging
-npx wrangler pages secret put SHOPIFY_STORE --project-name charme-editor-staging
 npx wrangler pages secret put SHOPIFY_TOKEN_KEY --project-name charme-editor-staging
 npx wrangler pages secret put TRACKING_CREDENTIALS_KEY --project-name charme-editor-staging
 ```
@@ -55,8 +54,8 @@ The Partner API secrets, production `SHOPIFY_ADMIN_TOKEN`, and production
 `ADMIN_TOKEN` are not needed for the embedded staging app and should not be
 copied.
 
-Once the client ID and staging-only secrets are set, deploy with
-`npm run deploy:staging`. Verify the app session endpoint
-and `https://charme-editor-staging.pages.dev/api/studio/templates?shop=<test-shop>`
+Once the staging-only secrets are set, deploy with `npm run deploy:staging`.
+Verify the app session endpoint and
+`https://main.charme-editor-staging.pages.dev/api/studio/templates?shop=charme-editor-staging.myshopify.com`
 before installing into the development store. Do not point a live product theme
 at this staging host.

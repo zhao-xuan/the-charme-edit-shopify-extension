@@ -15,7 +15,7 @@
           if (!(qs.has('host') || qs.has('embedded'))) return
           var shopifyApiKey = '%VITE_SHOPIFY_API_KEY%'
           if (!shopifyApiKey || shopifyApiKey.charAt(0) === '%') {
-            shopifyApiKey = location.hostname === 'charme-editor-staging.pages.dev' ? '' : '93d071d516310e58e5eaeaf778d77e37'
+            shopifyApiKey = location.hostname === 'charme-editor-staging.pages.dev' || location.hostname.endsWith('.charme-editor-staging.pages.dev') ? '' : '93d071d516310e58e5eaeaf778d77e37'
           }
           if (!shopifyApiKey) return
           window.__charmeEmbedded = true

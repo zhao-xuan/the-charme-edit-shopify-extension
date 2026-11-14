@@ -1,9 +1,9 @@
-# Dedicated Shopify development app manifest. Replace client_id after creating
-# the app in Shopify Dev Dashboard. Keep this config separate from production.
-client_id = "REPLACE_WITH_STAGING_APP_CLIENT_ID"
+# Dedicated Shopify development app manifest. Keep this config separate from production.
+client_id = "3ad0fe5a20bb05beedc5cf3945fbfccf"
 name = "Charm customiser staging"
-application_url = "https://charme-editor-staging.pages.dev/admin"
+application_url = "https://main.charme-editor-staging.pages.dev/admin"
 embedded = true
+extension_directories = ["extensions/charme-customizer-theme-staging"]
 
 [webhooks]
 api_version = "2026-07"

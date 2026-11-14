@@ -15,7 +15,7 @@
     "patches": "node scripts/process-patches.mjs",
     "build:shopify": "vite build --config vite.shopify.config.js",
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name charme-customizer",
-    "deploy:staging": "npm run build -- --mode staging && npx wrangler pages deploy dist --config wrangler.staging.jsonc --project-name charme-editor-staging --branch staging"
+    "deploy:staging": "npm run build -- --mode staging && node scripts/deploy-staging.mjs"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
