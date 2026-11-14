@@ -38,7 +38,7 @@ function authoritativeRuntime() {
   if (API_BASE) return true
   if (typeof location === 'undefined') return false
   const host = String(location.hostname || '').toLowerCase()
-  return isProductionHost(host) || host.endsWith('.charme-customizer.pages.dev')
+  return isProductionHost(host) || host.endsWith('.charme-customizer.pages.dev') || host.endsWith('.charme-editor-staging.pages.dev')
 }
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))

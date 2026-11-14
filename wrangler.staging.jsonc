@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "charme-editor-staging",
+  "compatibility_date": "2025-06-01",
+  "pages_build_output_dir": "dist",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "charme-catalog-staging",
+      "database_id": "89697819-e02a-41d4-868c-ed14512dc666"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "IMAGES",
+      "id": "0235ef639404430082a529cf82978078"
+    }
+  ]
+}

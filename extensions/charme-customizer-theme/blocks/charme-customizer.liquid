@@ -1,4 +1,5 @@
-{%- assign studio_url = 'https://charme-customizer.pages.dev/studio/?shop=' | append: shop.permanent_domain -%}
+{%- assign studio_base = block.settings.studio_base | default: 'https://charme-customizer.pages.dev' | remove_last: '/' -%}
+{%- assign studio_url = studio_base | append: '/studio/?shop=' | append: shop.permanent_domain -%}
 {%- if block.settings.customizer_id != blank -%}
   {%- assign customizer_id = block.settings.customizer_id | strip | url_encode -%}
   {%- assign studio_url = studio_url | append: '&customizer=' | append: customizer_id -%}
@@ -30,6 +31,7 @@
     { "type": "text", "id": "description", "label": "Short description", "default": "Design your product in the studio. A maker will review your request before checkout." },
     { "type": "text", "id": "customizer_id", "label": "Published Customizer ID", "info": "Copy from My Customizer. Only a published customizer can accept production requests." },
     { "type": "text", "id": "template_id", "label": "Legacy template ID (optional)", "info": "For existing blocks only. New setups should use a Published Customizer ID." },
+    { "type": "url", "id": "studio_base", "label": "Studio URL (advanced)", "default": "https://charme-customizer.pages.dev", "info": "Use a separate staging URL only in a test theme. Leave the production URL for live products." },
     { "type": "select", "id": "button_align", "label": "Button alignment", "default": "center", "options": [
       { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }
     ] }
