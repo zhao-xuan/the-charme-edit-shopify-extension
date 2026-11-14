@@ -8,8 +8,25 @@ const AnalyticsTab = lazy(() => import('../components/AnalyticsTab.jsx'))
 const TrackingSettingsTab = lazy(() => import('./TrackingSettingsTab.jsx'))
 
 const TABS = [['new','New Customizer'],['mine','My Customizer'],['settings','Setting'],['subscription','Subscription'],['analytics','Analytics']]
-const initialTab = () => { const tab = new URLSearchParams(location.search).get('view'); return TABS.some(([id]) => id === tab) ? tab : 'new' }
+const TAB_PATHS = { new:'/admin', mine:'/admin/customizers', settings:'/admin/settings', subscription:'/admin/subscription', analytics:'/admin/analytics' }
+const initialTab = () => {
+  const path = location.pathname.replace(/\/$/, '') || '/'
+  const route = Object.entries(TAB_PATHS).find(([, href]) => href === path)?.[0]
+  if (route) return route
+  const legacy = new URLSearchParams(location.search).get('view')
+  return TABS.some(([id]) => id === legacy) ? legacy : 'new'
+}
 const customerUrl = (shop,id) => `${location.origin}/studio/?shop=${encodeURIComponent(shop)}&customizer=${encodeURIComponent(id)}`
+
+function ShopifyAppNav() {
+  return <s-app-nav>
+    <s-link href={TAB_PATHS.new} rel="home">New Customizer</s-link>
+    <s-link href={TAB_PATHS.mine}>My Customizer</s-link>
+    <s-link href={TAB_PATHS.settings}>Setting</s-link>
+    <s-link href={TAB_PATHS.subscription}>Subscription</s-link>
+    <s-link href={TAB_PATHS.analytics}>Analytics</s-link>
+  </s-app-nav>
+}
 
 function Subscription({ data, loading, error, reload }) {
   const current = data?.subscription
@@ -48,7 +65,7 @@ export default function ShopifyHome() {
   }
   function selectTab(next) {
     setTab(next);setNotice('')
-    const url = new URL(location.href);url.searchParams.set('view',next);history.replaceState({},'',url)
+    history.replaceState({},'',`${TAB_PATHS[next]}${location.search}`)
     if (next === 'mine') reload().catch((error) => setNotice(error.message))
     if (next === 'subscription') loadSubscription()
   }
@@ -70,7 +87,7 @@ export default function ShopifyHome() {
   if (state.loading) return <main className="studio-shell studio-gallery"><h1>正在连接 Shopify 商店…</h1></main>
   if (state.error) return <main className="studio-shell studio-app-home">
     <header className="studio-header"><span className="studio-brand">CHARMÉ <span>PRODUCT STUDIO</span></span><span>Shopify Admin</span></header>
-    <nav className="studio-app-tabs" aria-label="Shopify app navigation">{TABS.map(([id,label]) => <button type="button" key={id} className={tab === id ? 'active' : ''} aria-current={tab === id ? 'page' : undefined} onClick={() => selectTab(id)}>{label}</button>)}</nav>
+    <ShopifyAppNav />
     <section className="studio-app-section"><h1>{TABS.find(([id]) => id === tab)?.[1] || 'Product Studio'}</h1><p role="alert" className="studio-notice">{state.error}</p><p>栏目已加载；连接 Shopify 后即可使用管理功能。</p></section>
     <footer className="studio-footer"><span>CHARMÉ / PRODUCT STUDIO</span><span><a href="/privacy/" target="_blank" rel="noreferrer">Privacy Policy</a> · <a href="/terms/" target="_blank" rel="noreferrer">Terms of Service</a></span></footer>
   </main>
@@ -79,7 +96,7 @@ export default function ShopifyHome() {
   const themeEditor = `https://${state.shop}/admin/themes/current/editor?template=product&addAppBlockId=${encodeURIComponent(state.clientId || '')}/charme-customizer&target=mainSection`
   return <main className="studio-shell studio-app-home">
     <header className="studio-header"><span className="studio-brand">CHARMÉ <span>PRODUCT STUDIO</span></span><span>{state.shop}</span></header>
-    <nav className="studio-app-tabs" aria-label="Shopify app navigation">{TABS.map(([id,label]) => <button type="button" key={id} className={tab === id ? 'active' : ''} aria-current={tab === id ? 'page' : undefined} onClick={() => selectTab(id)}>{label}</button>)}</nav>
+    <ShopifyAppNav />
     {notice && <div className="studio-notice" role="status">{notice}</div>}
     {tab === 'new' && <section className="studio-app-section"><span className="studio-eyebrow">CREATE</span><h1>New Customizer</h1><p>五种编辑方式覆盖多个品类。先创建草稿，在 /studio 预览顾客体验，再发布。</p><div className="studio-panel studio-create-form"><label className="studio-field"><span>交互方式与商品模板</span><select value={chosen} onChange={(event) => {setChosen(event.target.value);setDraft(null)}}>{WORKFLOWS.map((workflow) => <optgroup key={workflow.id} label={workflow.name}>{templates.filter((t) => interactionFor(t) === workflow.id).map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}</optgroup>)}</select></label><label className="studio-field"><span>定制器名称</span><input value={name} maxLength={80} placeholder={templates.find((t) => t.id === chosen)?.name} onChange={(event) => setName(event.target.value)}/></label><div className="studio-card-actions"><button className="studio-primary" disabled={busy} onClick={create}>创建草稿</button><a className="studio-link-button" href={preview(chosen)} target="_blank" rel="noreferrer">打开 /studio 预览 ↗</a><a className="studio-link-button" href={manageUrl(chosen)}>管理分类与排序 ↗</a></div></div>{draft && <div className="studio-panel"><h2>{draft.name} · {draft.status === 'published' ? '已发布' : '草稿'}</h2><p>Customizer ID：{draft.id}</p><div className="studio-card-actions"><a className="studio-link-button" href={preview(draft.templateId)} target="_blank" rel="noreferrer">编辑预览 ↗</a><button disabled={busy || draft.status === 'published'} onClick={() => update(draft,{status:'published'})}>发布</button><button onClick={() => selectTab('settings')}>核对模板和 App Block</button></div>{draft.status === 'published' && <p>顾客链接：<a href={customerUrl(state.shop,draft.id)} target="_blank" rel="noreferrer">{customerUrl(state.shop,draft.id)}</a></p>}</div>}</section>}
     {tab === 'mine' && <section className="studio-app-section"><div className="studio-editor-head"><div><span className="studio-eyebrow">YOUR WORK</span><h1>My Customizer</h1><p>管理草稿和已发布的定制器。</p></div><button disabled={busy} onClick={() => reload().catch((error) => setNotice(error.message))}>刷新</button></div>{!rows.length ? <div className="studio-panel studio-empty">还没有定制器。先在 New Customizer 创建一个。</div> : <div className="studio-customizer-grid">{rows.map((row) => <article className="studio-panel" key={row.id}><span className="studio-eyebrow">{WORKFLOWS.find((w) => w.id === interactionFor(PRODUCT_TEMPLATES.find((t) => t.id === row.templateId)))?.name || '定制'}</span><h2>{row.name}</h2><p>{PRODUCT_TEMPLATES.find((t) => t.id === row.templateId)?.name || row.templateId} · {row.status === 'published' ? '已发布' : '草稿'}</p>{row.status === 'published' && !templates.find((t) => t.id === row.templateId)?.enabled && <p className="studio-notice">模板已停用，顾客暂不能使用。</p>}<small>更新于 {new Date(row.updatedAt).toLocaleString()}</small><div className="studio-card-actions"><a className="studio-link-button" href={preview(row.templateId)} target="_blank" rel="noreferrer">Studio 预览 ↗</a><a className="studio-link-button" href={manageUrl(row.templateId)}>Category / Order ↗</a><button disabled={busy} onClick={() => {const value=prompt('定制器名称',row.name);if(value && value.trim() !== row.name) update(row,{name:value.trim()})}}>重命名</button><button disabled={busy} onClick={() => update(row,{status:row.status === 'published' ? 'draft' : 'published'})}>{row.status === 'published' ? '下架' : '发布'}</button>{row.status === 'draft' && <button disabled={busy} onClick={() => remove(row)}>删除</button>}</div>{row.status === 'published' && <label className="studio-field"><span>顾客链接 / App Block Customizer ID</span><input readOnly value={customerUrl(state.shop,row.id)} onFocus={(event) => event.target.select()}/><small>{row.id}</small></label>}</article>)}</div>}</section>}
