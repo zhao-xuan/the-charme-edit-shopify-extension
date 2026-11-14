@@ -12,6 +12,10 @@ await mkdir(deployDir, { recursive: true })
 await writeFile(resolve(deployDir, 'wrangler.jsonc'), `${JSON.stringify(config, null, 2)}\n`)
 await rm(resolve(deployDir, 'dist'), { recursive: true, force: true })
 await cp(resolve(root, 'dist'), resolve(deployDir, 'dist'), { recursive: true })
+for (const directory of ['functions', 'src']) {
+  await rm(resolve(deployDir, directory), { recursive: true, force: true })
+  await cp(resolve(root, directory), resolve(deployDir, directory), { recursive: true })
+}
 
 const wrangler = resolve(root, 'node_modules/wrangler/bin/wrangler.js')
 const child = spawn(process.execPath, [wrangler, '--cwd', deployDir, 'pages', 'deploy', 'dist', '--branch', 'main'], {

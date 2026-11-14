@@ -17,7 +17,9 @@ async function boot() {
   if (!root) return
   try {
     const studioRoute = location.pathname.startsWith('/studio')
-    const shopifyRoute = location.pathname.startsWith('/shopify')
+    const params = new URLSearchParams(location.search)
+    const shopifyAdminRoute = /^\/admin\/?$/.test(location.pathname) && (params.has('host') || params.has('embedded'))
+    const shopifyRoute = location.pathname.startsWith('/shopify') || shopifyAdminRoute
     if (!studioRoute && !shopifyRoute) await Promise.all([loadRemoteCatalog(), loadSettings()])
     const merchantStudio = studioRoute && new URLSearchParams(location.search).get('manage') === '1'
     const { default: App } = merchantStudio
