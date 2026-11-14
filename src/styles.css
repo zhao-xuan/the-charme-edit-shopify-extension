@@ -1,6 +1,6 @@
 /* Match the storefront typography even when the widget is embedded in a theme
    that does not expose its font settings to the widget bundle. */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
   --cream: #f7f1e8;
@@ -2983,4 +2983,16 @@ body.charme-no-select * {
 .phone-tips .eyebrow {
   text-transform: none;
   letter-spacing: normal;
+}
+
+/* Fonts for the charm instructions and order action. */
+.tray-head, .tray-head *,
+.mobile-step2-bar, .mobile-step2-bar *,
+.mobile-step-overlay__body, .mobile-step-overlay__body *,
+.mockup-notice, .mockup-notice * {
+  font-family: system-ui, sans-serif !important;
+}
+.app-shell .pricebar .ant-btn,
+.mobile-shell .mobile-order-bar {
+  font-family: "Instrument Serif", Georgia, serif !important;
 }
