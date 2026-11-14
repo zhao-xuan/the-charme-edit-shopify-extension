@@ -50,7 +50,7 @@ import {
 } from '../lib/marketPrices'
 import { API_BASE } from '../lib/apiBase'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalog, remoteCatalogFailed } from '../lib/remoteCatalog'
-import { t, tn } from '../lib/i18n'
+import { currentLang, t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
 import { showToteInPicker } from '../lib/previewFlags'
@@ -2264,7 +2264,10 @@ export default function CustomizerPage({
 }
 
 function Tips({ product }) {
-  const tips = product?.kind === 'tote'
+  const concisePhoneTips = product?.kind === 'phone' && currentLang() === 'en'
+  const tips = concisePhoneTips
+    ? [t('tips.short1'), t('tips.short2'), t('tips.short3'), t('tips.short4')]
+    : product?.kind === 'tote'
     ? [
         'Choose your base tote bag colour',
         'Browse patches by different categories',
@@ -2275,10 +2278,13 @@ function Tips({ product }) {
       ]
     : [t('tips.1'), t('tips.2'), t('tips.3'), t('tips.4'), t('tips.5'), t('tips.6')]
   return (
-    <div>
+    <div className={product?.kind === 'phone' ? 'phone-tips' : undefined}>
       <p className="eyebrow">{t('tips.title')}</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
-        {tips.map((tip) => <li key={tip}>{tip}</li>)}
+        {tips.map((tip) => {
+          const split = tip.indexOf(' ')
+          return <li key={tip}>{concisePhoneTips ? <><strong>{tip.slice(0, split)}</strong>{tip.slice(split)}</> : tip}</li>
+        })}
       </ol>
     </div>
   )

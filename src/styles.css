@@ -2976,3 +2976,11 @@ body.charme-no-select * {
     grid-template-columns: 1fr;
   }
 }
+
+.phone-tips, .phone-tips .eyebrow {
+  font-family: system-ui, sans-serif;
+}
+.phone-tips .eyebrow {
+  text-transform: none;
+  letter-spacing: normal;
+}
