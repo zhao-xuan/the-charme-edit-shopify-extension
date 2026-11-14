@@ -4,5 +4,6 @@ api_version = "2026-07"
 type = "theme"
 name = "Product Studio"
 handle = "charme-customizer-theme-staging"
+uid = "4e26fd94-875c-d384-8c8a-e17ed281f7490b4b38b6"
 
 description = "Open the merchant's product studio from a product page app block."
