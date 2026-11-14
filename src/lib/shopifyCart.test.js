@@ -305,6 +305,7 @@ test('iPhone 18 Pro and Pro Max resolve every finish before default or Other var
   const expected = {
     'iphone-18-pro': { glitter: 57172232274298, white: 57172232339834, black: 57172232307066 },
     'iphone-18-pro-max': { glitter: 57172232470906, white: 57172232536442, black: 57172232503674 },
+    'iphone-duo': { glitter: 57460571996538, white: 57460572062074, black: 57460572029306 },
   }
   for (const [model, finishes] of Object.entries(expected)) {
     for (const [gelId, variantId] of Object.entries(finishes)) {

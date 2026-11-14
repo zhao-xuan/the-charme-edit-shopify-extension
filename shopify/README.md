@@ -25,16 +25,17 @@ shopify/
 
 ## The model
 
-| Storefront object | Shopify object |
-|---|---|
-| Phone case / tote base | A normal **product** (one variant per model + finish). |
-| Each charm | A real **product/variant** the brand already sells (Grande £3, Midi/Mini £2…). |
-| A finished design | One **cart line item per object**, joined by a shared `_design_token`, with the styled-preview image (`_proof`) and full layout (`_layout` JSON) as line-item properties. |
+| Storefront object      | Shopify object                                                                                                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Phone case / tote base | A normal **product** (one variant per model + finish).                                                                                                                          |
+| Each charm             | A real **product/variant** the brand already sells (Grande £3, Midi/Mini £2…).                                                                                               |
+| A finished design      | One **cart line item per object**, joined by a shared `_design_token`, with the styled-preview image (`_proof`) and full layout (`_layout` JSON) as line-item properties. |
 
 Because every charm is a real variant, the cart total is correct automatically and
 each order tells the maker exactly which physical charms to pick.
 
 ### Price confirmation
+
 Cart/editor prices come from Shopify's contextual variant pricing, including
 pricing-group variants and tote patches, rather than stored catalogue prices or
 rounded exchange-rate estimates. Product variant resolution matches the cart;
@@ -142,6 +143,7 @@ One-time setup (on the machine with your Cloudflare/Shopify access):
 2. **Configure Admin API scopes** → add **`write_draft_orders`** → Save.
 3. **Install app** → **Reveal / copy the Admin API access token** (`shpat_…`).
 4. **Set the Cloudflare Pages secrets** (from the repo root):
+
    ```bash
    npx wrangler pages secret put SHOPIFY_STORE --project-name charme-customizer
    #  → e.g. thecharmeedit.myshopify.com
@@ -149,11 +151,13 @@ One-time setup (on the machine with your Cloudflare/Shopify access):
    #  → paste the shpat_… token
    ```
 5. **Verify**:
+
    ```bash
    curl -X POST https://charme-customizer.pages.dev/api/shopify/draft-order \
      -H 'content-type: application/json' \
      -d '{"product":{"id":"iphone-17-pro","name":"iPhone 17 Pro","kind":"phone","color":"White"},"charms":[{"charmId":"2075d4e3-c7dd-4c32-bbd0-38bc5ddfcf9b-05","name":"Gold Letter A","price":3}]}'
    ```
+
    Expect `{"invoiceUrl":"https://…/invoices/…", …}`. Before the secrets are set
    it returns `503 Shopify backend not configured` — that's expected. Server-side
    base prices: phone £26, tote £16, frame £24; charm prices come from D1.
