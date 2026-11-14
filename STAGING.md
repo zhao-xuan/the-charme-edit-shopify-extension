@@ -36,6 +36,16 @@ Product Studio block's **Studio URL (advanced)** to
 `https://main.charme-editor-staging.pages.dev`. Leave production themes on the
 default production URL.
 
+Deploy the staging-only theme extension and app manifest with the Shopify CLI:
+
+```sh
+npx --yes @shopify/cli@latest app deploy --config staging --allow-updates --message "Isolated staging extension build"
+```
+
+This requires a one-time Shopify CLI login. Install the staging app only on
+`charme-editor-staging.myshopify.com`, then add the **Product Studio** block to
+a test theme. Do not install it on the live shop.
+
 ## Staging Pages secrets
 
 Set these secrets on the staging Pages project only. Wrangler prompts for each
