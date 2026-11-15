@@ -8,6 +8,7 @@ import { settings } from './settings'
 import { charmPricingTotal, toteDiscountRate } from './charmPricing'
 import { orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy } from './catalogOrder'
 import { charmSizeFromArtwork } from './charmAspect.js'
+import { letterPatchArtwork } from './letterPatchArtwork.js'
 
 export { toteDiscountRate }
 
@@ -248,15 +249,18 @@ function buildCatalog() {
   const patches = Array.isArray(REMOTE.patches) ? remotePatches : patchData.patches
   const PATCHES = orderByTaxonomy(patches
     .filter((patch) => !patch.hidden && !charmHidden[patch.id])
-    .map((patch) => applySizeOverride(enlargeTotePatch({
-      ...patch,
-      kind: 'tote',
-      src: resolveAsset(patch.src),
-      price: charmPrices[patch.id] ?? patch.price,
-      category: patch.category || patchCategories[patch.id] || 'unique',
-      collection: patch.collection || patchCollections[patch.id] || 'Custom patches',
-      shopifyVariantId: patch.shopifyVariantId || charmVariantIds[patch.id],
-    }), charmSizes)), settings().patchTaxonomy)
+    .map((patch) => {
+      const artwork = letterPatchArtwork(patch)
+      return applySizeOverride(enlargeTotePatch({
+        ...artwork,
+        kind: 'tote',
+        src: resolveAsset(artwork.src),
+        price: charmPrices[patch.id] ?? patch.price,
+        category: patch.category || patchCategories[patch.id] || 'unique',
+        collection: patch.collection || patchCollections[patch.id] || 'Custom patches',
+        shopifyVariantId: patch.shopifyVariantId || charmVariantIds[patch.id],
+      }), charmSizes)
+    }), settings().patchTaxonomy)
   return { CHARMS, PATCHES, ITEMS_BY_KIND: { phone: CHARMS, tote: PATCHES } }
 }
 

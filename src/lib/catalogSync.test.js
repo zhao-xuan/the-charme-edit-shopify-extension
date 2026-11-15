@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { charmSizeFromArtwork } from './charmAspect.js'
+import { letterPatchArtwork } from './letterPatchArtwork.js'
 import { orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy } from './catalogOrder.js'
 import vm from 'node:vm'
 import { onRequestDelete } from '../../functions/api/admin/charms.js'
@@ -143,7 +144,7 @@ function catalogHarness() {
     }),
     settings: () => config,
     orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy,
-    charmSizeFromArtwork,
+    charmSizeFromArtwork, letterPatchArtwork,
   })
   vm.runInContext(source, context)
   return {
