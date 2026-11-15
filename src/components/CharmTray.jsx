@@ -7,11 +7,11 @@ import { settings } from '../lib/settings'
 import { formatMoney, formatPresentmentMoney } from '../lib/money'
 import { asShopifyVariantId, decorationVariantId } from '../lib/marketPrices'
 import { t } from '../lib/i18n'
-import { loadTrayImage, observeTrayImages } from '../lib/trayImages'
+import { fallbackTrayImage, loadTrayImage, observeTrayImages, patchThumbnailUrl } from '../lib/trayImages'
 
 const normalizedCollection = (name) => String(name || '').trim().toLowerCase()
 
-function CharmCard({ charm, compact, row, onActivate, onPointerDown, marketPrice, marketPricingEnabled, marketPriceLoading }) {
+function CharmCard({ charm, kind, compact, row, onActivate, onPointerDown, marketPrice, marketPricingEnabled, marketPriceLoading }) {
   const unavailable = !!charm.unavailable || (marketPricingEnabled && marketPrice == null && !marketPriceLoading)
   const priceLabel = unavailable
     ? t('charm.unavailable')
@@ -50,7 +50,7 @@ function CharmCard({ charm, compact, row, onActivate, onPointerDown, marketPrice
       }
     >
       <div className="thumb">
-        <img data-charm-src={charm.src} alt={charm.name} decoding="async" draggable={false} />
+        <img data-charm-src={kind === 'tote' ? patchThumbnailUrl(charm.src) : charm.src} data-original-src={charm.src} onError={(event) => fallbackTrayImage(event.currentTarget)} alt={charm.name} decoding="async" draggable={false} />
       </div>
       {!compact && <div className="name">{charm.name}</div>}
       <div className="meta meta--price">
@@ -241,6 +241,7 @@ function GroupPanel({
                 <CharmCard
                   key={`${charm.id}:${charm.src}`}
                   charm={charm}
+                  kind={kind}
                   compact={compact}
                   row={rows}
                   onActivate={onActivate}

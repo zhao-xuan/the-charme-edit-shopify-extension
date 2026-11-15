@@ -1,7 +1,27 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { loadTrayImage, observeTrayImages } from './trayImages.js'
+import { fallbackTrayImage, loadTrayImage, observeTrayImages, patchThumbnailUrl } from './trayImages.js'
+
+test('Shopify patch thumbnails are resized without changing other artwork URLs', () => {
+  const original = 'https://cdn.shopify.com/s/files/1/2/files/patch.png?v=123'
+  const thumbnail = new URL(patchThumbnailUrl(original))
+  assert.equal(thumbnail.searchParams.get('v'), '123')
+  assert.equal(thumbnail.searchParams.get('width'), '192')
+  assert.equal(new URL(patchThumbnailUrl(`${original}&width=100`)).searchParams.get('width'), '100')
+  assert.equal(patchThumbnailUrl('/assets/patches/letters/A.png'), '/assets/patches/letters/A.png')
+  assert.equal(patchThumbnailUrl('https://example.com/patch.png'), 'https://example.com/patch.png')
+})
+
+test('a failed thumbnail falls back to the original artwork without retrying indefinitely', () => {
+  const attributes = { src: 'thumbnail', 'data-original-src': 'original' }
+  let writes = 0
+  const image = { getAttribute: (key) => attributes[key], setAttribute: (key, value) => { attributes[key] = value; writes++ } }
+  fallbackTrayImage(image)
+  fallbackTrayImage(image)
+  assert.equal(attributes.src, 'original')
+  assert.equal(writes, 1)
+})
 
 function harness(count = 30) {
   let notify
@@ -87,7 +107,7 @@ test('older browsers retain thumbnail access with an explicit compatibility warn
 
 test('React tray does not eagerly assign src and keeps fixed-size thumbnails for observation', () => {
   const source = readFileSync(new URL('../components/CharmTray.jsx', import.meta.url), 'utf8')
-  assert.match(source, /<img data-charm-src=\{charm.src\}/)
+  assert.match(source, /<img data-charm-src=\{kind === 'tote' \? patchThumbnailUrl\(charm.src\) : charm.src\}/)
   assert.doesNotMatch(source, /<img src=\{charm.src\}/)
   assert.match(source, /decoding="async"/)
   assert.match(source, /useEffect\(\(\) => observeTrayImages\(panelRef.current\), \[thumbnailKey\]\)/)
