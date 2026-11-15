@@ -272,8 +272,24 @@ export default function SummaryModal({
     onClose()
   }
 
+  const showOrderButton = !submitting && !submitError && !loading && (previewUrl || totePreviews)
+  const orderButton = (
+    <Button
+      type="primary"
+      size="large"
+      block
+      loading={submitting}
+      disabled={!canSubmit}
+      icon={<ShoppingOutlined />}
+      onClick={placeOrder}
+    >
+      <PriceText price={formatTotal(total, { whole: true })} text={t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })} />
+    </Button>
+  )
+
   return (
     <Modal
+      className="summary-modal"
       open={open}
       onCancel={submitting ? undefined : onClose}
       closable={!submitting}
@@ -283,8 +299,8 @@ export default function SummaryModal({
       centered={!isMobile}
       zIndex={2147483600}
       style={isMobile ? { top: 8, maxWidth: 'calc(100vw - 16px)', paddingBottom: 0 } : undefined}
-      styles={isMobile ? { body: { maxHeight: 'calc(100dvh - 150px)', overflowY: 'auto' } } : undefined}
-      footer={null}
+      styles={isMobile ? { body: { maxHeight: showOrderButton ? 'calc(100dvh - 210px)' : 'calc(100dvh - 150px)', overflowY: 'auto' } } : undefined}
+      footer={isMobile && showOrderButton ? orderButton : null}
       title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}{product.kind === 'tote' && !/\btote\b/i.test(product.name) ? ' Tote' : ''}</span>}
     >
       {(submitting || submitError) && (
@@ -402,18 +418,7 @@ export default function SummaryModal({
               <span style={{ fontSize: 26, fontWeight: 600 }}>{formatTotal(total)}</span>
             </div>
             {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
-            <Button
-              type="primary"
-              size="large"
-              block
-              loading={submitting}
-              disabled={!canSubmit}
-              icon={<ShoppingOutlined />}
-              style={{ marginTop: 12 }}
-              onClick={placeOrder}
-            >
-              <PriceText price={formatTotal(total, { whole: true })} text={t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })} />
-            </Button>
+            {!isMobile && <div style={{ marginTop: 12 }}>{orderButton}</div>}
           </div>
         </div>
       )}
