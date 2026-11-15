@@ -824,6 +824,9 @@ h4,
 .patch-discount-notice__list strong {
   font-weight: 600;
 }
+.tray-head > .patch-discount-notice {
+  margin: 10px 0 0;
+}
 @container (min-width: 330px) {
   .patch-discount-notice { font-size: 10px; }
 }

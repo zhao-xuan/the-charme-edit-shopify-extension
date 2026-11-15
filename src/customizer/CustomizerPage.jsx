@@ -2172,7 +2172,6 @@ export default function CustomizerPage({
                   grid and the add-to-cart button. */}
               {!trayExpanded && (
                 <>
-                  {product.kind === 'tote' && patchDiscountNotice}
                   <p className="eyebrow" style={{ margin: 0 }}>{t(product.kind === 'tote' ? 'step2.desktopTitleTote' : 'step2.desktopTitle')}</p>
                   <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
                     {product.kind === 'tote' ? t('step2.toteHint', { min: TOTE_MIN_PATCHES }) : t('step2.desktopHint', { min: REC_MIN, max: REC_MAX, min2: MIN_CHARMS })}
@@ -2225,6 +2224,7 @@ export default function CustomizerPage({
                   </button>
                 ))}
               </div>
+              {!trayExpanded && product.kind === 'tote' && patchDiscountNotice}
             </div>
             <div className="tray-scroll">{tray}</div>
             <div className="pricebox">{priceBar}</div>
