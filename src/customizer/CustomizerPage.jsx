@@ -1855,13 +1855,12 @@ export default function CustomizerPage({
       {['discount.tier5', 'discount.tier8', 'discount.tier10'].map((key) => {
         const label = t(key)
         const [quantity, saving] = label.split(/\s*—\s*/)
-        return <li key={key}>{isMobile && saving ? <><span>{quantity}</span>{' '}<strong>{saving}</strong></> : label}</li>
+        return <li key={key}>{saving ? <><span>{quantity}</span>{' '}<strong>{saving}</strong></> : label}</li>
       })}
     </ul>
   )
   const patchDiscountNotice = (
     <div className="patch-discount-notice" role="note">
-      <InfoCircleOutlined className="patch-discount-notice__icon" />
       {patchDiscountList}
     </div>
   )
