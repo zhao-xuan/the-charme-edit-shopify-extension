@@ -65,10 +65,12 @@ import {
   designSnapshot,
   listDesignDrafts,
   loadKindDesign,
+  loadPhoneModel,
   loadRecoveryDraft,
   loadToteDesign,
   saveDraft,
   saveKindDesign,
+  savePhoneModel,
   saveRecoveryDraft,
   saveToteDesign,
   serializeCharms,
@@ -1028,6 +1030,8 @@ export default function CustomizerPage({
   // silently discard it — mirrors the tote's own always-on-save slot above.
   useEffect(() => {
     if (!draftsReady || product.kind === 'tote') return
+    // Never save a transient selection under the wrong phone platform.
+    if (product.kind === 'phone' && !PRODUCT_GROUPS.find((g) => g.key === groupKey)?.products.some((p) => p.id === productId)) return
     const saved = {
       productId,
       caseColourId,
@@ -1049,11 +1053,20 @@ export default function CustomizerPage({
       ? loadKindDesign(`phone.${requestedGroup}`) || (matchingLegacy ? legacy : null)
       : legacy
     if (!saved || !Array.isArray(saved.charms)) return false
-    const charms = reviveCharms(saved.charms)
-    if (saved.productId && findProduct(saved.productId)) {
-      setProductId(saved.productId)
-      const savedGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === saved.productId))
-      if (savedGroup) setGroupKey(savedGroup.key)
+    let charms = reviveCharms(saved.charms)
+    const savedGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === saved.productId))
+    if (kind === 'phone' && requestedGroup && savedGroup?.key !== requestedGroup) return false
+    const phoneGroup = kind === 'phone' ? PRODUCT_GROUPS.find((g) => g.key === (requestedGroup || savedGroup?.key)) : null
+    const preferred = phoneGroup?.products.find((p) => p.id === loadPhoneModel(phoneGroup.key) && hasCaseImage(p))
+    const savedProduct = findProduct(saved.productId)
+    const target = preferred || savedProduct
+    if (preferred && savedProduct && preferred.id !== savedProduct.id) {
+      charms = adaptLayoutToProduct(charms, savedProduct, preferred)
+    }
+    if (target) {
+      setProductId(target.id)
+      const targetGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === target.id))
+      if (targetGroup) setGroupKey(targetGroup.key)
     }
     if (saved.caseColourId) setCaseColourId(saved.caseColourId)
     if (saved.gelColourId) setGelColourId(saved.gelColourId)
@@ -1064,6 +1077,7 @@ export default function CustomizerPage({
 
   const saveCurrentDesign = () => {
     if (!draftsReady) return
+    if (product.kind === 'phone' && !PRODUCT_GROUPS.find((g) => g.key === groupKey)?.products.some((p) => p.id === productId)) return
     if (product.kind === 'tote') {
       const front = toteSide === 'front' ? placedRef.current : (toteSideStash.current.front || [])
       const back = toteSide === 'back' ? placedRef.current : (toteSideStash.current.back || [])
@@ -1088,10 +1102,15 @@ export default function CustomizerPage({
     const group = PRODUCT_GROUPS.find((x) => x.key === g)
     // Apple defaults to the iPhone 16 Pro Max rather than the group's oldest model.
     const firstAvailable = group.products.find((item) => hasCaseImage(item)) || group.products[0]
-    const firstId =
+    const rememberedId = ['apple', 'android'].includes(g)
+      ? loadPhoneModel(g) || loadKindDesign(`phone.${g}`)?.productId
+      : null
+    const remembered = group.products.find((item) => item.id === rememberedId && hasCaseImage(item))
+    const firstId = remembered?.id || (
       g === 'apple' && hasCaseImage(findProduct('iphone-16-pro-max'))
         ? 'iphone-16-pro-max'
         : firstAvailable.id
+    )
     const to = findProduct(firstId)
     saveCurrentDesign()
     analytics.track('product_selected')
@@ -1119,6 +1138,7 @@ export default function CustomizerPage({
     const from = product
     const to = findProduct(id)
     if (!hasCaseImage(to)) return
+    if (to.kind === 'phone' && ['apple', 'android'].includes(groupKey)) savePhoneModel(groupKey, id)
     if (to?.kind !== from?.kind) saveCurrentDesign()
     analytics.track('product_selected')
     setProductId(id)

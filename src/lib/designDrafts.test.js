@@ -7,6 +7,8 @@ import {
   listDesignDrafts,
   loadRecoveryDraft,
   loadKindDesign,
+  loadPhoneModel,
+  savePhoneModel,
   saveKindDesign,
   loadToteDesign,
   saveToteDesign,
@@ -70,4 +72,17 @@ test('Apple and Android phone selections and layouts can be saved independently'
   assert.deepEqual(loadKindDesign('phone.android', storage).charms, android.charms)
   assert.equal(loadKindDesign('phone.apple', storage).productId, 'iphone-16-pro-max')
   assert.deepEqual(loadKindDesign('phone.apple', storage).charms, apple.charms)
+})
+
+
+test('explicit phone models are independent of autosaved layouts and of each other', () => {
+  const storage = memoryStorage()
+  assert.equal(savePhoneModel('android', 'galaxy-z-flip-7', storage), true)
+  assert.equal(savePhoneModel('apple', 'iphone-16-pro-max', storage), true)
+  saveKindDesign('phone.android', { productId: 'galaxy-s26-ultra', charms: [] }, storage)
+  saveKindDesign('phone.apple', { productId: 'iphone-18-pro-max', charms: [] }, storage)
+  assert.equal(loadPhoneModel('android', storage), 'galaxy-z-flip-7')
+  assert.equal(loadPhoneModel('apple', storage), 'iphone-16-pro-max')
+  assert.equal(savePhoneModel('tote', 'anything', storage), false)
+  assert.equal(loadPhoneModel('tote', storage), null)
 })

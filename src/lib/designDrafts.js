@@ -95,6 +95,29 @@ export function clearToteDesign(storage) {
 // treatment, keyed by kind so a phone design and a frame design don't clobber
 // each other.
 const KIND_KEY_PREFIX = 'charme.kindDesign.'
+const PHONE_MODEL_PREFIX = 'charme.phoneModel.'
+
+// Keep the customer's explicit selection apart from autosaved layout snapshots.
+export function savePhoneModel(group, productId, storage) {
+  if (!['apple', 'android'].includes(group) || typeof productId !== 'string' || !productId) return false
+  try {
+    const target = storageFor(storage)
+    if (!target) return false
+    target.setItem(`${PHONE_MODEL_PREFIX}${group}.v1`, productId)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function loadPhoneModel(group, storage) {
+  if (!['apple', 'android'].includes(group)) return null
+  try {
+    return storageFor(storage)?.getItem(`${PHONE_MODEL_PREFIX}${group}.v1`) || null
+  } catch {
+    return null
+  }
+}
 
 export function saveKindDesign(kind, design, storage) {
   const target = storageFor(storage)
