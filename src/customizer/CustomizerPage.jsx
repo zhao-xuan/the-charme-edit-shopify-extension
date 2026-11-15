@@ -2264,9 +2264,11 @@ export default function CustomizerPage({
 }
 
 function Tips({ product }) {
-  const conciseTips = ['phone', 'frame'].includes(product?.kind) && currentLang() === 'en'
+  const conciseTips = ['phone', 'frame', 'tote'].includes(product?.kind) && currentLang() === 'en'
   const tips = conciseTips
-    ? [t(product.kind === 'frame' ? 'tips.frameShort1' : 'tips.short1'), t('tips.short2'), t('tips.short3'), t('tips.short4')]
+    ? product.kind === 'tote'
+      ? [t('tips.toteShort1'), t('tips.toteShort2'), t('tips.toteShort3'), t('tips.short4')]
+      : [t(product.kind === 'frame' ? 'tips.frameShort1' : 'tips.short1'), t('tips.short2'), t('tips.short3'), t('tips.short4')]
     : product?.kind === 'tote'
     ? [
         'Choose your base tote bag colour',
@@ -2278,7 +2280,7 @@ function Tips({ product }) {
       ]
     : [t('tips.1'), t('tips.2'), t('tips.3'), t('tips.4'), t('tips.5'), t('tips.6')]
   return (
-    <div className={['phone', 'frame'].includes(product?.kind) ? 'product-tips' : undefined}>
+    <div className={['phone', 'frame', 'tote'].includes(product?.kind) ? 'product-tips' : undefined}>
       <p className="eyebrow">{t('tips.title')}</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
         {tips.map((tip) => {
