@@ -1446,7 +1446,7 @@ body.charme-no-select * {
   }
 
   /* split: phone preview on top, charm tray below — resizable via the splitter.
-     The tray's flex-basis is driven inline (default ~42%); drag to rebalance. */
+     The tray's flex-basis is driven inline (default ~32%); drag to rebalance. */
   .mobile-shell {
     flex: 1;
     min-height: 0;
@@ -1682,7 +1682,7 @@ body.charme-no-select * {
     50% { transform: translate(-50%, 17px); }
   }
   .mobile-tray {
-    flex: 0 1 42%;
+    flex: 0 1 32%;
     min-height: 0;
     display: flex;
     flex-direction: column;

@@ -53,6 +53,7 @@ import { API_BASE } from '../lib/apiBase'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalog, remoteCatalogFailed } from '../lib/remoteCatalog'
 import { currentLang, t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
+import { defaultPreviewZoom } from '../lib/mobilePreview'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
 import { showToteInPicker } from '../lib/previewFlags'
 import { createCustomizerAnalytics } from '../lib/customizerAnalytics'
@@ -379,7 +380,8 @@ export default function CustomizerPage({
   const [selectedGroupId, setSelectedGroupId] = useState(null)
   // Group id whose "Are you sure?" break-apart confirmation panel is showing.
   const [confirmGroupId, setConfirmGroupId] = useState(null)
-  const [zoom, setZoom] = useState(1)
+  const [zoom, setZoom] = useState(() => defaultPreviewZoom(isMobile, findProduct(resolvedProduct)?.kind))
+  const zoomAdjusted = useRef(false)
   // Desktop: enlarge the charm selector (wider tray + bigger cards) and back.
   const [trayExpanded, setTrayExpanded] = useState(false)
 
@@ -413,8 +415,8 @@ export default function CustomizerPage({
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
   // trade preview space for browsing space and back. Show complete charm rows
-  // by default rather than requiring customers to discover the splitter first.
-  const [trayPct, setTrayPct] = useState(42)
+  // by default while giving the product more space.
+  const [trayPct, setTrayPct] = useState(32)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
   const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(false)
@@ -477,6 +479,9 @@ export default function CustomizerPage({
       : catalogProduct,
     [catalogProduct, presentmentCasePrice],
   )
+  useEffect(() => {
+    if (!zoomAdjusted.current) setZoom(defaultPreviewZoom(isMobile, product.kind))
+  }, [isMobile, product.kind])
   const color = useMemo(
     () => deriveColor(product, caseColourId, gelColourId),
     [product, caseColourId, gelColourId],
@@ -1477,6 +1482,7 @@ export default function CustomizerPage({
         icon={<ZoomInOutlined />}
         onClick={() => {
           analytics.track('zoom')
+          zoomAdjusted.current = true
           setZoom((z) => clamp(+(z + 0.15).toFixed(2), 0.6, 2))
         }}
       />
@@ -1486,6 +1492,7 @@ export default function CustomizerPage({
         icon={<ZoomOutOutlined />}
         onClick={() => {
           analytics.track('zoom')
+          zoomAdjusted.current = true
           setZoom((z) => clamp(+(z - 0.15).toFixed(2), 0.6, 2))
         }}
       />
@@ -1927,7 +1934,7 @@ export default function CustomizerPage({
       onCancelBreak={() => setConfirmGroupId(null)}
       onBreakGroup={breakGroup}
       zoom={zoom}
-      onZoomChange={setZoom}
+      onZoomChange={(value) => { zoomAdjusted.current = true; setZoom(value) }}
       fitPadding={isMobile ? 34 : undefined}
       stageOverlay={isMobile && product.kind !== 'tote' ? mockupNotice : null}
     />
