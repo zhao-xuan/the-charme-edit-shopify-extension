@@ -324,10 +324,8 @@ export default function SummaryModal({
             <p className="eyebrow" style={{ marginTop: 4 }}>Your design</p>
             <div
               style={{
-                background: 'radial-gradient(120% 100% at 50% 0%, #fffdf9, #f3ead9)',
-                borderRadius: 12,
+                background: '#f7f0df',
                 padding: 12,
-                border: '1px solid var(--line)',
                 display: 'grid',
                 placeItems: 'center',
               }}
