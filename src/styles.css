@@ -1271,9 +1271,9 @@ body.charme-no-select * {
   gap: 7px;
   margin-top: 14px;
   padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #faf7f1;
+  border: 0;
+  border-radius: 0;
+  background: #f7f0df;
 }
 .summary-design-link__heading {
   color: var(--ink);
