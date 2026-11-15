@@ -58,3 +58,16 @@ test('a chosen phone model remains saved even without charms', () => {
   assert.equal(restored.gelColourId, 'black')
   assert.deepEqual(restored.charms, [])
 })
+
+test('Apple and Android phone selections and layouts can be saved independently', () => {
+  const storage = memoryStorage()
+  const android = { productId: 'galaxy-z-flip-7', charms: [{ charmId: 'star' }], gelColourId: 'white' }
+  const apple = { productId: 'iphone-16-pro-max', charms: [{ charmId: 'heart' }], gelColourId: 'black' }
+  saveKindDesign('phone.android', android, storage)
+  saveKindDesign('phone.apple', apple, storage)
+  saveKindDesign('phone', apple, storage)
+  assert.equal(loadKindDesign('phone.android', storage).productId, 'galaxy-z-flip-7')
+  assert.deepEqual(loadKindDesign('phone.android', storage).charms, android.charms)
+  assert.equal(loadKindDesign('phone.apple', storage).productId, 'iphone-16-pro-max')
+  assert.deepEqual(loadKindDesign('phone.apple', storage).charms, apple.charms)
+})

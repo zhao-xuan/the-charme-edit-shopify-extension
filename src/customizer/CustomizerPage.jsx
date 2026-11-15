@@ -1028,17 +1028,26 @@ export default function CustomizerPage({
   // silently discard it — mirrors the tote's own always-on-save slot above.
   useEffect(() => {
     if (!draftsReady || product.kind === 'tote') return
-    saveKindDesign(product.kind, {
+    const saved = {
       productId,
       caseColourId,
       gelColourId,
       charms: serializeCharms(placed),
       wordGroups,
-    })
-  }, [draftsReady, product.kind, productId, caseColourId, gelColourId, placed, wordGroups])
+    }
+    saveKindDesign(product.kind, saved)
+    if (product.kind === 'phone' && ['apple', 'android'].includes(groupKey)) {
+      saveKindDesign(`phone.${groupKey}`, saved)
+    }
+  }, [draftsReady, product.kind, groupKey, productId, caseColourId, gelColourId, placed, wordGroups])
 
-  const restoreKindDesign = (kind) => {
-    const saved = loadKindDesign(kind)
+  const restoreKindDesign = (kind, requestedGroup) => {
+    const legacy = loadKindDesign(kind)
+    const matchingLegacy = !requestedGroup || kind !== 'phone' ||
+      PRODUCT_GROUPS.find((group) => group.key === requestedGroup)?.products.some((p) => p.id === legacy?.productId)
+    const saved = kind === 'phone' && requestedGroup
+      ? loadKindDesign(`phone.${requestedGroup}`) || (matchingLegacy ? legacy : null)
+      : legacy
     if (!saved || !Array.isArray(saved.charms)) return false
     const charms = reviveCharms(saved.charms)
     if (saved.productId && findProduct(saved.productId)) {
@@ -1060,7 +1069,11 @@ export default function CustomizerPage({
       const back = toteSide === 'back' ? placedRef.current : (toteSideStash.current.back || [])
       saveToteDesign({ front: serializeCharms(front), back: serializeCharms(back) })
     } else {
-      saveKindDesign(product.kind, { productId, caseColourId, gelColourId, charms: serializeCharms(placedRef.current), wordGroups })
+      const saved = { productId, caseColourId, gelColourId, charms: serializeCharms(placedRef.current), wordGroups }
+      saveKindDesign(product.kind, saved)
+      if (product.kind === 'phone' && ['apple', 'android'].includes(groupKey)) {
+        saveKindDesign(`phone.${groupKey}`, saved)
+      }
     }
   }
 
@@ -1080,7 +1093,7 @@ export default function CustomizerPage({
         ? 'iphone-16-pro-max'
         : firstAvailable.id
     const to = findProduct(firstId)
-    if (to?.kind !== from?.kind) saveCurrentDesign()
+    saveCurrentDesign()
     analytics.track('product_selected')
     setProductId(firstId)
     // Carry a design across to the new phone (re-fitted to its footprint + camera)
@@ -1097,7 +1110,9 @@ export default function CustomizerPage({
     resetHistory()
     if (to?.kind !== from?.kind) {
       if (to?.kind === 'tote') restoreToteDesign()
-      else restoreKindDesign(to.kind)
+      else restoreKindDesign(to.kind, to.kind === 'phone' ? g : undefined)
+    } else if (to?.kind === 'phone') {
+      restoreKindDesign('phone', g)
     }
   }
   const handleProduct = (id) => {
