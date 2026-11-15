@@ -324,7 +324,7 @@ export default function SummaryModal({
             <p className="eyebrow" style={{ marginTop: 4 }}>Your design</p>
             <div
               style={{
-                background: '#f7f0df',
+                background: '#fff',
                 padding: 12,
                 display: 'grid',
                 placeItems: 'center',
