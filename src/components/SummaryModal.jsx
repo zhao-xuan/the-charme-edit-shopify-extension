@@ -345,11 +345,7 @@ export default function SummaryModal({
                 {hasUnique && ` ${UNIQUE_NOTE}`}
               </p>
             )}
-            {isMobile ? (
-              <p className="summary-mobile-save-tip" role="status" aria-live="polite">
-                Please long press the photo above to save to your photo album
-              </p>
-            ) : (
+            {!isMobile && (
               <Button
                 size="small"
                 icon={<DownloadOutlined />}
@@ -360,7 +356,14 @@ export default function SummaryModal({
               </Button>
             )}
             <div className="summary-design-link">
-              <label htmlFor="summary-design-link" className="eyebrow">{t('summary.designLink')}</label>
+              <div className="summary-design-link__heading">{t('summary.saveDesign')}</div>
+              {isMobile && (
+                <p className="summary-mobile-save-tip">
+                  <DownloadOutlined aria-hidden="true" />
+                  <span>{t('summary.savePhotoTip')}</span>
+                </p>
+              )}
+              <label htmlFor="summary-design-link" className="summary-design-link__label">{t('summary.designLink')}</label>
               <p className="summary-design-link__notice">{t('summary.saveLink')}</p>
               {designLink.error ? (
                 <p role="alert">{designLink.error}</p>
