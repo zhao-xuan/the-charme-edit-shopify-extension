@@ -1,6 +1,6 @@
 /* Match the storefront typography even when the widget is embedded in a theme
    that does not expose its font settings to the widget bundle. */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --cream: #f7f1e8;
@@ -14,9 +14,9 @@
   --blush: #e7c9c2;
   --line: #e4d8c7;
   --shadow: 0 18px 50px -28px rgba(46, 42, 38, 0.45);
-  --charme-font-body: 'Amiri', Georgia, serif;
-  --charme-font-heading: 'Amiri', Georgia, serif;
-  --charme-font-accent: 'Azeret Mono', ui-monospace, monospace;
+  --charme-font-body: system-ui, sans-serif;
+  --charme-font-heading: 'Instrument Serif', Georgia, serif;
+  --charme-font-accent: 'Space Mono', ui-monospace, monospace;
 }
 
 * {
@@ -1952,7 +1952,7 @@ body.charme-no-select * {
 .tote-side-btn {
   padding: 5px 20px;
   font-size: 13px;
-  font-family: var(--font-body);
+  font-family: var(--charme-font-body);
   letter-spacing: 0.04em;
   background: #fff;
   border: 1.5px solid var(--line);
@@ -3005,4 +3005,11 @@ body.charme-no-select * {
 
 .tote-side-confirm, .tote-side-confirm * {
   font-family: system-ui, sans-serif !important;
+}
+
+/* Modal titles are headings; body copy uses the system font. */
+.ant-modal .ant-modal-title,
+.ant-modal .ant-modal-confirm-title,
+.tote-side-confirm .ant-modal-confirm-title {
+  font-family: var(--charme-font-heading) !important;
 }
