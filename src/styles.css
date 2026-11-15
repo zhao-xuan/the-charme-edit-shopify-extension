@@ -75,12 +75,12 @@ body {
 }
 .app-shell .ant-btn-primary,
 .mobile-shell .ant-btn-primary {
-  background: var(--ink) !important;
+  background: #3d3530 !important;
   color: var(--paper) !important;
 }
 .app-shell .ant-btn-primary:hover,
 .mobile-shell .ant-btn-primary:hover {
-  background: #4a4540 !important;
+  background: #3d3530 !important;
   color: var(--paper) !important;
 }
 .app-shell .ant-btn-circle,
@@ -149,7 +149,7 @@ body {
   min-width: 48px;
   margin-left: -1px;
   padding: 0 10px;
-  background: var(--ink);
+  background: #3d3530;
   color: var(--paper);
 }
 .charm-word__cancel {
@@ -739,10 +739,10 @@ h4,
   font: 600 24px/1.2 var(--charme-font-heading);
 }
 .customizer-error button {
-  border: 1px solid #2e2a26;
+  border: 1px solid #3d3530;
   border-radius: 4px;
   padding: 10px 16px;
-  background: #2e2a26;
+  background: #3d3530;
   color: #fff;
   font: inherit;
   cursor: pointer;
@@ -1852,7 +1852,7 @@ body.charme-no-select * {
     width: 100%;
     padding: 9px 16px calc(9px + env(safe-area-inset-bottom));
     border: none;
-    background: var(--ink);
+    background: #3d3530;
     color: #fff;
     font: inherit;
     font-size: 14px;

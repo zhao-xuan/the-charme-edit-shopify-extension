@@ -33,6 +33,9 @@ export const theme = {
   },
   components: {
     Button: {
+      colorPrimary: '#3d3530',
+      colorPrimaryHover: '#3d3530',
+      colorPrimaryActive: '#3d3530',
       controlHeight: 42,
       fontWeight: 500,
       primaryShadow: 'none',
