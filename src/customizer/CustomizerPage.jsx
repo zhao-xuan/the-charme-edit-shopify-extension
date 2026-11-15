@@ -53,7 +53,7 @@ import { API_BASE } from '../lib/apiBase'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalog, remoteCatalogFailed } from '../lib/remoteCatalog'
 import { currentLang, t, tn } from '../lib/i18n'
 import { observeMediaQuery } from '../lib/mediaQuery'
-import { defaultPreviewZoom } from '../lib/mobilePreview'
+import { defaultMobileTrayPercent, defaultPreviewZoom } from '../lib/mobilePreview'
 import { fetchContextualPrice, marketEstimateContext } from '../lib/contextualPrice'
 import { showToteInPicker } from '../lib/previewFlags'
 import { createCustomizerAnalytics } from '../lib/customizerAnalytics'
@@ -416,7 +416,8 @@ export default function CustomizerPage({
   // A draggable splitter between the preview and the tray lets the customer
   // trade preview space for browsing space and back. Show complete charm rows
   // by default while giving the product more space.
-  const [trayPct, setTrayPct] = useState(32)
+  const [trayPct, setTrayPct] = useState(() => defaultMobileTrayPercent(findProduct(resolvedProduct)?.kind))
+  const trayAdjusted = useRef(false)
   const mobileShellRef = useRef(null)
   const splitDrag = useRef(null)
   const [mobileSplitterGuideOpen, setMobileSplitterGuideOpen] = useState(false)
@@ -481,6 +482,7 @@ export default function CustomizerPage({
   )
   useEffect(() => {
     if (!zoomAdjusted.current) setZoom(defaultPreviewZoom(isMobile, product.kind))
+    if (isMobile && !trayAdjusted.current) setTrayPct(defaultMobileTrayPercent(product.kind))
   }, [isMobile, product.kind])
   const color = useMemo(
     () => deriveColor(product, caseColourId, gelColourId),
@@ -1650,6 +1652,7 @@ export default function CustomizerPage({
   // ---- mobile splitter: drag to resize the preview vs. tray split ----
   const onSplitDown = useCallback((e) => {
     e.preventDefault()
+    trayAdjusted.current = true
     dismissMobileSplitterGuide()
     try {
       e.currentTarget.setPointerCapture(e.pointerId)
