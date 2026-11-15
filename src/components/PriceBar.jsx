@@ -1,3 +1,4 @@
+import PriceText from './PriceText'
 import { Button } from 'antd'
 import { CheckCircleFilled, WarningFilled } from '@ant-design/icons'
 import { MIN_CHARMS, REC_MIN, REC_MAX, TOTE_MIN_PATCHES } from '../lib/catalog'
@@ -97,9 +98,9 @@ export default function PriceBar({
       {compact && !ok && <div className="pricebar__warnings" role="status">{warnings.join(' · ')}</div>}
       {priceNotice && <p className="hint" role="status">{priceNotice}</p>}
       <Button block type="primary" size="large" disabled={!ok || !canSubmit} onClick={onSubmit}>
-        {isSecondProduct
+        <PriceText price={formatTotal(total, { whole: true })} text={isSecondProduct
           ? t('cta.addSecondProduct', { price: formatTotal(total, { whole: true }) })
-          : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
+          : t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })} />
       </Button>
     </div>
   )

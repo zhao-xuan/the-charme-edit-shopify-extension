@@ -1,3 +1,4 @@
+import PriceText from './PriceText'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Modal, Button, Input, Spin, Progress, Divider, App } from 'antd'
 import { CopyOutlined, DownloadOutlined, ShoppingOutlined, ReloadOutlined } from '@ant-design/icons'
@@ -411,7 +412,7 @@ export default function SummaryModal({
               style={{ marginTop: 12 }}
               onClick={placeOrder}
             >
-              {t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })}
+              <PriceText price={formatTotal(total, { whole: true })} text={t('cta.addToCart', { noun, price: formatTotal(total, { whole: true }) })} />
             </Button>
           </div>
         </div>

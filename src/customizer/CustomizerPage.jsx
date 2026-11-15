@@ -1,3 +1,4 @@
+import PriceText from '../components/PriceText'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Button, App, Modal, Segmented, Select, Input } from 'antd'
 import {
@@ -2077,9 +2078,9 @@ export default function CustomizerPage({
             aria-describedby={!validation.ok ? 'mobile-order-requirements' : undefined}
             onClick={attemptOrder}
           >
-            {isSecondProduct
+            <PriceText price={orderTotal} text={isSecondProduct
               ? t('cta.addSecondProduct', { price: orderTotal })
-              : t('cta.addToCart', { noun: orderNoun, price: orderTotal })}
+              : t('cta.addToCart', { noun: orderNoun, price: orderTotal })} />
           </button>
           </div>
         </div>
