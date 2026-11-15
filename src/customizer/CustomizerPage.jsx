@@ -410,7 +410,6 @@ export default function CustomizerPage({
     const timer = setTimeout(() => setStep2Open(false), 5000)
     return () => clearTimeout(timer)
   }, [])
-  const [mockupNoticeOpen, setMockupNoticeOpen] = useState(false)
 
   // Mobile only: the charm tray's share of the screen (% of the shell height).
   // A draggable splitter between the preview and the tray lets the customer
@@ -1850,25 +1849,6 @@ export default function CustomizerPage({
         </button>
       </div>
     ) : null
-  const mockupNotice = (
-    <button
-      type="button"
-      className={`mockup-notice${mockupNoticeOpen ? ' is-open' : ''}`}
-      aria-expanded={mockupNoticeOpen}
-      onClick={() => setMockupNoticeOpen((open) => !open)}
-    >
-      <InfoCircleOutlined className="mockup-notice__icon" />
-      <span className="mockup-notice__label">{t('notice.mockupShort')}</span>
-      {mockupNoticeOpen ? <UpOutlined /> : <DownOutlined />}
-      {mockupNoticeOpen && (
-        <span className="mockup-notice__details">
-          <span>{t('notice.mockup')}</span>
-          <span>{t('step2.mobileHint')}</span>
-          <span>{stepTwoHint}</span>
-        </span>
-      )}
-    </button>
-  )
 
   const patchDiscountList = (
     <ul className="patch-discount-notice__list">
@@ -1939,7 +1919,6 @@ export default function CustomizerPage({
       zoom={zoom}
       onZoomChange={(value) => { zoomAdjusted.current = true; setZoom(value) }}
       fitPadding={isMobile ? 34 : undefined}
-      stageOverlay={isMobile && product.kind !== 'tote' ? mockupNotice : null}
     />
   )
 
@@ -2167,7 +2146,6 @@ export default function CustomizerPage({
             <div style={{ marginTop: 22 }}>{picker}</div>
           </div>
           <div style={{ position: 'relative', minHeight: 0 }}>
-            {product.kind !== 'tote' && mockupNotice}
             {toteSideToggle}
             {stageNode}
             {zoomDock}
