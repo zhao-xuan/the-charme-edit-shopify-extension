@@ -1494,6 +1494,7 @@ export default function CustomizerPage({
         const otherCharms = toteSideStash.current[otherSide] || []
         if (placed.length > 0 && otherCharms.length === 0) {
           modal.confirm({
+            className: 'tote-side-confirm',
             title: 'Would you like to customise the back of the bag too?',
             content: 'You\'ve only added charms to the ' + toteSide + ' so far. You can design both sides before checking out.',
             okText: 'Yes, I\'d like to',
