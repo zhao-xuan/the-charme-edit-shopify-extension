@@ -2264,9 +2264,9 @@ export default function CustomizerPage({
 }
 
 function Tips({ product }) {
-  const concisePhoneTips = product?.kind === 'phone' && currentLang() === 'en'
-  const tips = concisePhoneTips
-    ? [t('tips.short1'), t('tips.short2'), t('tips.short3'), t('tips.short4')]
+  const conciseTips = ['phone', 'frame'].includes(product?.kind) && currentLang() === 'en'
+  const tips = conciseTips
+    ? [t(product.kind === 'frame' ? 'tips.frameShort1' : 'tips.short1'), t('tips.short2'), t('tips.short3'), t('tips.short4')]
     : product?.kind === 'tote'
     ? [
         'Choose your base tote bag colour',
@@ -2278,12 +2278,12 @@ function Tips({ product }) {
       ]
     : [t('tips.1'), t('tips.2'), t('tips.3'), t('tips.4'), t('tips.5'), t('tips.6')]
   return (
-    <div className={product?.kind === 'phone' ? 'phone-tips' : undefined}>
+    <div className={['phone', 'frame'].includes(product?.kind) ? 'product-tips' : undefined}>
       <p className="eyebrow">{t('tips.title')}</p>
       <ol className="hint" style={{ paddingLeft: 16, margin: 0, lineHeight: 1.7 }}>
         {tips.map((tip) => {
           const split = tip.indexOf(' ')
-          return <li key={tip}>{concisePhoneTips ? <><strong>{tip.slice(0, split)}</strong>{tip.slice(split)}</> : tip}</li>
+          return <li key={tip}>{conciseTips ? <><strong>{tip.slice(0, split)}</strong>{tip.slice(split)}</> : tip}</li>
         })}
       </ol>
     </div>

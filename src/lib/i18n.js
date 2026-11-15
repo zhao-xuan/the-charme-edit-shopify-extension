@@ -181,6 +181,7 @@ const DICT = {
     'crossSell.noThanks': 'No thanks — go to my cart →',
     'tips.title': 'How It Works',
     'tips.short1': 'Choose your phone model & gel.',
+    'tips.frameShort1': 'Choose your photo frame & gel.',
     'tips.short2': 'Add charms by dragging or tapping.',
     'tips.short3': 'Arrange by tapping to rotate charms.',
     'tips.short4': 'Order your design, and we’ll bring it to life.',

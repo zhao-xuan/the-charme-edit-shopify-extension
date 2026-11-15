@@ -2977,10 +2977,10 @@ body.charme-no-select * {
   }
 }
 
-.phone-tips, .phone-tips .eyebrow {
+.product-tips, .product-tips .eyebrow {
   font-family: system-ui, sans-serif;
 }
-.phone-tips .eyebrow {
+.product-tips .eyebrow {
   text-transform: none;
   letter-spacing: normal;
 }
