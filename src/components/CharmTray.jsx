@@ -71,6 +71,7 @@ function NoteBox({ text }) {
 }
 
 function GroupPanel({
+  kind,
   group,
   compact,
   rows,
@@ -115,7 +116,7 @@ function GroupPanel({
     setWordFor(null)
   }
   return (
-    <div ref={panelRef}>
+    <div ref={panelRef} className={kind === 'tote' ? 'tote-tray' : undefined}>
       {group.note && <NoteBox text={group.note} />}
       {!rows && group.help && (
         <p className="hint" style={{ marginTop: 0, marginBottom: 14 }}>
@@ -281,6 +282,7 @@ export default function CharmTray({
     const group = groups.find((g) => g.key === activeKey) || groups[0]
     return (
       <GroupPanel
+        kind={kind}
         group={group}
         compact={compact}
         rows={rows}
@@ -305,6 +307,7 @@ export default function CharmTray({
     label: kind !== 'tote' ? g.label.replace(/ charms$/i, '') : g.label,
     children: (
       <GroupPanel
+        kind={kind}
         group={g}
         compact={compact}
         onActivate={onActivate}

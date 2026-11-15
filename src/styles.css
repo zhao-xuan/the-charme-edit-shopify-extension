@@ -3026,3 +3026,7 @@ body.charme-no-select * {
 .tote-product-option__price, .price-row, .price-row .total {
   font-family: system-ui, sans-serif !important;
 }
+
+.tote-tray .charm-card .meta.meta--price {
+  font-size: 12px;
+}
