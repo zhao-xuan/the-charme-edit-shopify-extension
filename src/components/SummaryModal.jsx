@@ -284,7 +284,7 @@ export default function SummaryModal({
       style={isMobile ? { top: 8, maxWidth: 'calc(100vw - 16px)', paddingBottom: 0 } : undefined}
       styles={isMobile ? { body: { maxHeight: 'calc(100dvh - 150px)', overflowY: 'auto' } } : undefined}
       footer={null}
-      title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}</span>}
+      title={<span style={{ fontSize: isMobile ? 18 : 22 }}>Your one-of-a-kind {product.name}{product.kind === 'tote' && !/\btote\b/i.test(product.name) ? ' Tote' : ''}</span>}
     >
       {(submitting || submitError) && (
         <div className="checkout-loading" role="status" aria-live="assertive" aria-label="Preparing checkout">
