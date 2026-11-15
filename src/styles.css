@@ -1817,11 +1817,35 @@ body.charme-no-select * {
     width: min(300px, calc(100vw - 12px));
   }
   .mobile-tray-body > .patch-discount-notice {
+    display: block;
     margin: 0 -12px 10px;
-    padding: 6px 12px;
-    border-width: 0 0 1px;
+    padding: 7px 8px;
+    border: 0;
     border-radius: 0;
-    font-size: 9.5px;
+    background: #f7f0df;
+    font: 400 clamp(9px, 2.55vw, 10px)/1.25 system-ui, sans-serif;
+  }
+  .mobile-tray-body .patch-discount-notice__icon {
+    display: none;
+  }
+  .mobile-tray-body .patch-discount-notice__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    font-weight: 400;
+  }
+  .mobile-tray-body .patch-discount-notice__list li {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px;
+    min-width: 0;
+  }
+  .mobile-tray-body .patch-discount-notice__list li + li {
+    border-left: 1px solid #d9cdbd;
+  }
+  .mobile-tray-body .patch-discount-notice__list strong {
+    font-weight: 600;
   }
   .mobile-step-overlay--warn .mobile-step-overlay__body {
     background-color: rgba(255, 244, 242, 0.7);

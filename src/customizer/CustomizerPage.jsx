@@ -1852,9 +1852,11 @@ export default function CustomizerPage({
 
   const patchDiscountList = (
     <ul className="patch-discount-notice__list">
-      <li>{t('discount.tier5')}</li>
-      <li>{t('discount.tier8')}</li>
-      <li>{t('discount.tier10')}</li>
+      {['discount.tier5', 'discount.tier8', 'discount.tier10'].map((key) => {
+        const label = t(key)
+        const [quantity, saving] = label.split(/\s*—\s*/)
+        return <li key={key}>{isMobile && saving ? <><span>{quantity}</span>{' '}<strong>{saving}</strong></> : label}</li>
+      })}
     </ul>
   )
   const patchDiscountNotice = (
