@@ -3021,7 +3021,6 @@ body.charme-no-select * {
 .tote-side-confirm button, .tote-side-confirm button * {
   font-family: var(--charme-font-heading) !important;
 }
-.app-shell .price-value, .mobile-shell .price-value, .ant-modal .price-value,
 .app-shell .charm-card .meta--price, .app-shell .charm-card .meta--price *,
 .mobile-shell .charm-card .meta--price, .mobile-shell .charm-card .meta--price *,
 .tote-product-option__price, .price-row, .price-row .total {
