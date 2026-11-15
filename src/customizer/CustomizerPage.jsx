@@ -667,14 +667,17 @@ export default function CustomizerPage({
   useEffect(() => {
     const recovery = loadRecoveryDraft()
     setNamedDrafts(listDesignDrafts())
-    if (
-      recovery?.snapshot?.charms?.length &&
-      !initialLayout?.charms?.length &&
-      !hasExplicitStartSelection
-    ) {
-      applyLayout(recovery.snapshot)
-    } else if (product.kind === 'tote' && !initialLayout?.charms?.length) {
-      restoreToteDesign()
+    // A shared or preset design takes priority. Otherwise restore this product's
+    // own history even when the entry URL supplies a default model and finish.
+    const hasInitialDesign = !!(initialLayout?.charms?.length || initialLayout?.front?.length || initialLayout?.back?.length)
+    if (!hasInitialDesign) {
+      const restored = product.kind === 'tote' ? restoreToteDesign() : restoreKindDesign(product.kind)
+      if (!restored && recovery?.snapshot?.charms?.length &&
+          findProduct(recovery.snapshot.productId)?.kind === product.kind) {
+        applyLayout(recovery.snapshot)
+        const savedGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === recovery.snapshot.productId))
+        if (savedGroup) setGroupKey(savedGroup.key)
+      }
     }
     setDraftsReady(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1001,11 +1004,11 @@ export default function CustomizerPage({
   // every change, independent of the single-product recovery draft, so it
   // survives switching to a phone/frame and back (or a page reload).
   useEffect(() => {
-    if (product.kind !== 'tote') return
+    if (!draftsReady || product.kind !== 'tote') return
     const front = toteSide === 'front' ? placed : (toteSideStash.current.front || [])
     const back = toteSide === 'back' ? placed : (toteSideStash.current.back || [])
     saveToteDesign({ front: serializeCharms(front), back: serializeCharms(back) })
-  }, [product.kind, placed, toteSide])
+  }, [draftsReady, product.kind, placed, toteSide])
 
   // Restore a previously autosaved tote design (front + back) when the customer
   // (re)opens the tote after having designed one, instead of starting blank.
@@ -1024,19 +1027,20 @@ export default function CustomizerPage({
   // switching away (to a tote, or between phone<->frame) and back doesn't
   // silently discard it — mirrors the tote's own always-on-save slot above.
   useEffect(() => {
-    if (product.kind === 'tote') return
+    if (!draftsReady || product.kind === 'tote') return
     saveKindDesign(product.kind, {
       productId,
       caseColourId,
       gelColourId,
       charms: serializeCharms(placed),
+      wordGroups,
     })
-  }, [product.kind, productId, caseColourId, gelColourId, placed])
+  }, [draftsReady, product.kind, productId, caseColourId, gelColourId, placed, wordGroups])
 
   const restoreKindDesign = (kind) => {
     const saved = loadKindDesign(kind)
-    const charms = reviveCharms(saved?.charms)
-    if (!charms.length) return false
+    if (!saved || !Array.isArray(saved.charms)) return false
+    const charms = reviveCharms(saved.charms)
     if (saved.productId && findProduct(saved.productId)) {
       setProductId(saved.productId)
       const savedGroup = PRODUCT_GROUPS.find((g) => g.products.some((p) => p.id === saved.productId))
@@ -1045,7 +1049,19 @@ export default function CustomizerPage({
     if (saved.caseColourId) setCaseColourId(saved.caseColourId)
     if (saved.gelColourId) setGelColourId(saved.gelColourId)
     setPlaced(charms)
+    setWordGroups(Array.isArray(saved.wordGroups) ? saved.wordGroups : [])
     return true
+  }
+
+  const saveCurrentDesign = () => {
+    if (!draftsReady) return
+    if (product.kind === 'tote') {
+      const front = toteSide === 'front' ? placedRef.current : (toteSideStash.current.front || [])
+      const back = toteSide === 'back' ? placedRef.current : (toteSideStash.current.back || [])
+      saveToteDesign({ front: serializeCharms(front), back: serializeCharms(back) })
+    } else {
+      saveKindDesign(product.kind, { productId, caseColourId, gelColourId, charms: serializeCharms(placedRef.current), wordGroups })
+    }
   }
 
   const handleGroup = (g) => {
@@ -1064,6 +1080,7 @@ export default function CustomizerPage({
         ? 'iphone-16-pro-max'
         : firstAvailable.id
     const to = findProduct(firstId)
+    if (to?.kind !== from?.kind) saveCurrentDesign()
     analytics.track('product_selected')
     setProductId(firstId)
     // Carry a design across to the new phone (re-fitted to its footprint + camera)
@@ -1087,6 +1104,7 @@ export default function CustomizerPage({
     const from = product
     const to = findProduct(id)
     if (!hasCaseImage(to)) return
+    if (to?.kind !== from?.kind) saveCurrentDesign()
     analytics.track('product_selected')
     setProductId(id)
     setPlaced((prev) => {
