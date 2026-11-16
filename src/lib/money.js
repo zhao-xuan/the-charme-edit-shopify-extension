@@ -57,9 +57,8 @@ function currencyContext() {
 
 /** Convert a base-currency (GBP) amount into the buyer's active currency. */
 export function convert(gbp) {
-  const { base, active, rate } = currencyContext()
+  const { rate } = currencyContext()
   const raw = (Number(gbp) || 0) * rate
-  if (active === base && rate === 1) return raw
   return Math.ceil(raw - Number.EPSILON)
 }
 

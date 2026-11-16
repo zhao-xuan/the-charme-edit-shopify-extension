@@ -2,16 +2,6 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { convert, designPriceEstimate, formatMoney } from './money.js'
 
-test('preserves pence when the customer is paying in the shop base currency', () => {
-  const previousWindow = globalThis.window
-  globalThis.window = { CharmeConfig: { currency: { base: 'GBP', active: 'GBP', rate: 1 } } }
-  try {
-    assert.equal(convert(1.5), 1.5)
-    assert.equal(formatMoney(1.5), '£1.50')
-    assert.equal(designPriceEstimate({ kind: 'phone', presentmentPrice: 22.8 }, [{ price: 1.5 }, { price: 1.5 }], []).total, 25.8)
-  } finally { globalThis.window = previousWindow }
-})
-
 test('design totals round each charged unit before summing and discounting', () => {
   const previousWindow = globalThis.window
   globalThis.window = { CharmeConfig: { currency: { base: 'GBP', active: 'USD', rate: 37 / 26.99 } } }

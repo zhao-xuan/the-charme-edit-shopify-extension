@@ -15,36 +15,6 @@ import {
 
 const EMPTY_OV = { productPrices: {}, charmPrices: {}, charmHidden: {}, charmSizes: {}, charmVariantIds: {}, patchCategories: {}, patchCollections: {} }
 
-const Q_LETTER_PRICES = `
-  query LetterCharmPrices($ids: [ID!]!) {
-    nodes(ids: $ids) {
-      ... on ProductVariant { id price }
-    }
-  }`
-
-export async function syncLetterPrices(env, charms) {
-  const letters = charms.filter((charm) =>
-    /^(gold|silver)$/i.test(String(charm.category || '').trim()) &&
-    /^letters\s*&\s*initials$/i.test(String(charm.collection || '').trim()) &&
-    /^\d+$/.test(String(charm.shopifyVariantId || '')),
-  )
-  const ids = [...new Set(letters.map((charm) => String(charm.shopifyVariantId)))]
-  const prices = new Map()
-  for (let index = 0; index < ids.length; index += 100) {
-    const data = await shopifyAdmin(env, Q_LETTER_PRICES, {
-      ids: ids.slice(index, index + 100).map((id) => `gid://shopify/ProductVariant/${id}`),
-    })
-    for (const variant of data.nodes || []) {
-      const price = Number(variant?.price)
-      if (variant?.id && variant.price != null && Number.isFinite(price) && price >= 0) prices.set(variant.id.split('/').pop(), price)
-    }
-  }
-  return charms.map((charm) => {
-    const price = prices.get(String(charm.shopifyVariantId || ''))
-    return letters.includes(charm) && price != null ? { ...charm, price } : charm
-  })
-}
-
 const Q_PATCH_VARIANTS = `
   query($ids: [ID!]!) {
     nodes(ids: $ids) {
@@ -96,10 +66,9 @@ async function buildShopifyCatalog(env) {
   }
   const cleanPatches = patches.map(({ _gid, _handle, ...patch }) => patch)
   const namedPatches = await fillPatchTitles(env, cleanPatches)
-  const pricedCharms = await syncLetterPrices(env, charms.map(cleanCharm))
   return {
     products: products.filter((p) => p.active !== false).map(cleanProduct),
-    charms: pricedCharms,
+    charms: charms.map(cleanCharm),
     patches: namedPatches,
     overrides: ov,
   }
