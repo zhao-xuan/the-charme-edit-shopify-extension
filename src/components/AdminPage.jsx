@@ -47,7 +47,6 @@ import {
   TagsOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons'
-const StudioAdmin = lazy(() => import('../studio/StudioAdmin.jsx'))
 const TrackingSettingsTab = lazy(() => import('../studio/TrackingSettingsTab.jsx'))
 import { allProducts, productGroups } from '../data/products'
 import patchData from '../data/patches.json'
@@ -5113,7 +5112,12 @@ function TaxonomyTab({ cloud }) {
 
 export default function AdminPage() {
   const [draft, setDraft] = useState(() => loadAdmin())
-  const [tab, setTab] = useState(() => new URLSearchParams(location.search).get('tab') || 'products')
+  const [tab, setTab] = useState(() => {
+    const requested = new URLSearchParams(location.search).get('tab')
+    return ['products', 'charms', 'taxonomy', 'discount', 'analytics', 'tracking', 'extract'].includes(requested)
+      ? requested
+      : 'products'
+  })
   const set = (updater) => setDraft((d) => (typeof updater === 'function' ? updater(d) : updater))
   const cloud = useCloud(draft, set)
 
@@ -5182,11 +5186,6 @@ export default function AdminPage() {
         activeKey={tab}
         onChange={setTab}
         items={[
-          {
-            key: 'studio',
-            label: <span><AppstoreAddOutlined /> Multi-category studio</span>,
-            children: <Suspense fallback={<Spin />}><StudioAdmin /></Suspense>,
-          },
           {
             key: 'products',
             label: (

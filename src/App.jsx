@@ -199,7 +199,7 @@ function isAdminView() {
   const params = new URLSearchParams(search)
   return (
     /^admin\./i.test(hostname) ||
-    /^\/admin\/?$/i.test(pathname) ||
+    /^\/(?:admin|shopify)(?:\/|$)/i.test(pathname) ||
     params.has('admin') ||
     params.has('host') ||
     /admin/i.test(hash)
