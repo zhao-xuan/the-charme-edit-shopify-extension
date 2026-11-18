@@ -3,6 +3,13 @@
   "name": "charme-customizer",
   "compatibility_date": "2025-06-01",
   "pages_build_output_dir": "dist",
+  "env": {
+    "production": {
+      "vars": {
+        "SHOPIFY_CLIENT_ID": "93d071d516310e58e5eaeaf778d77e37"
+      }
+    }
+  },
   "d1_databases": [
     {
       "binding": "DB",
