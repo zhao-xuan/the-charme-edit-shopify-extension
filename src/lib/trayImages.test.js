@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { fallbackTrayImage, loadTrayImage, observeTrayImages, patchThumbnailUrl } from './trayImages.js'
+import { fallbackTrayImage, loadTrayImage, observeTrayImages, patchImageUrl, patchThumbnailUrl } from './trayImages.js'
 
 test('Shopify patch thumbnails are resized without changing other artwork URLs', () => {
   const original = 'https://cdn.shopify.com/s/files/1/2/files/patch.png?v=123'
   const thumbnail = new URL(patchThumbnailUrl(original))
   assert.equal(thumbnail.searchParams.get('v'), '123')
   assert.equal(thumbnail.searchParams.get('width'), '192')
+  assert.equal(new URL(patchImageUrl(original, 512)).searchParams.get('width'), '512')
   assert.equal(new URL(patchThumbnailUrl(`${original}&width=100`)).searchParams.get('width'), '100')
   assert.equal(patchThumbnailUrl('/assets/patches/letters/A.png'), '/assets/patches/letters/A.png')
   assert.equal(patchThumbnailUrl('https://example.com/patch.png'), 'https://example.com/patch.png')
@@ -79,6 +80,29 @@ test('vertical and horizontal scrolling loads newly visible thumbnails independe
   assert.equal(api.images[6].getAttribute('src'), '/charm-6.png')
 })
 
+test('the tote picker loads only the next two cards ahead of a visible patch', () => {
+  let notify
+  const images = Array.from({ length: 5 }, (_, index) => {
+    const attrs = { 'data-charm-src': `/patch-${index}.png` }
+    return { getAttribute: (key) => attrs[key] ?? null, setAttribute: (key, value) => { attrs[key] = value } }
+  })
+  const cards = images.map((image) => ({ querySelector: () => image }))
+  images.forEach((image, index) => {
+    image.closest = () => cards[index]
+    image.parentElement = { querySelector: () => image }
+    cards[index].nextElementSibling = cards[index + 1] || null
+  })
+  class Observer {
+    constructor(callback) { notify = callback }
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  }
+  observeTrayImages({ querySelectorAll: () => images }, Observer, true)
+  notify([{ target: images[0].parentElement, isIntersecting: true, intersectionRect: { width: 10, height: 10 } }])
+  assert.deepEqual(images.map((image) => image.getAttribute('src')), ['/patch-0.png', '/patch-1.png', '/patch-2.png', null, null])
+})
+
 test('cleanup disconnects the observer when changing category or unmounting', () => {
   const api = harness()
   api.stop()
@@ -110,6 +134,6 @@ test('React tray does not eagerly assign src and keeps fixed-size thumbnails for
   assert.match(source, /<img data-charm-src=\{kind === 'tote' \? patchThumbnailUrl\(charm.src\) : charm.src\}/)
   assert.doesNotMatch(source, /<img src=\{charm.src\}/)
   assert.match(source, /decoding="async"/)
-  assert.match(source, /useEffect\(\(\) => observeTrayImages\(panelRef.current\), \[thumbnailKey\]\)/)
+  assert.match(source, /observeTrayImages\(panelRef.current, undefined, kind === 'tote'\)/)
   assert.match(source, /key=\{`\$\{charm.id\}:\$\{charm.src\}`\}/)
 })

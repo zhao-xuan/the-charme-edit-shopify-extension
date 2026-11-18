@@ -89,7 +89,7 @@ function GroupPanel({
   const charms = group.items || []
   const panelRef = useRef(null)
   const thumbnailKey = JSON.stringify(charms.map(({ id, src }) => [id, src]))
-  useEffect(() => observeTrayImages(panelRef.current), [thumbnailKey])
+  useEffect(() => observeTrayImages(panelRef.current, undefined, kind === 'tote'), [thumbnailKey, kind])
   const [wordFor, setWordFor] = useState(null)
   const [wordText, setWordText] = useState('')
   const [wordPlace, setWordPlace] = useState('middle')

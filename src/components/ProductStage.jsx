@@ -14,6 +14,7 @@ import { resolveAsset } from '../lib/assets'
 import { clampCenter } from '../lib/geometry'
 import { productPhotoStyle } from '../lib/productPhoto'
 import { t } from '../lib/i18n'
+import { patchImageUrl, fallbackTrayImage } from '../lib/trayImages'
 
 const PAD = 18
 const MIN_ZOOM = 0.6
@@ -450,7 +451,7 @@ const ProductStage = forwardRef(function ProductStage(
                 onPointerUp={endDrag}
                 onPointerCancel={endDrag}
               >
-                <img src={charm.src} alt={charm.name} draggable={false} />
+                <img src={product.kind === 'tote' ? patchImageUrl(charm.src, 512) : charm.src} data-original-src={charm.src} onError={(event) => fallbackTrayImage(event.currentTarget)} alt={charm.name} draggable={false} />
               </div>
             )
           })}
