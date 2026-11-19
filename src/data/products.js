@@ -490,6 +490,7 @@ const SAMSUNG_SPECS = {
   'galaxy-z-flip-4': [71.9, 165.2, 'squareDual'],
   'galaxy-z-flip-5': [71.9, 165.1, 'squareDual'],
   'galaxy-z-flip-6': [71.9, 165.1, 'squareDual'],
+  'galaxy-z-flip-8': [75.2, 166.7, 'squareDual'],
   'galaxy-z-flip-7': [75.2, 166.7, 'squareDual'],
   'galaxy-z-fold-3': [128.1, 158.2, 'samsungV3'],
   'galaxy-z-fold-4': [130.1, 155.1, 'samsungV3'],

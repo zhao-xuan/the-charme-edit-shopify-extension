@@ -158,6 +158,10 @@
     "black": "/assets/cases/case-without-gel/galaxy-z-flip-6-black.png",
     "white": "/assets/cases/case-without-gel/galaxy-z-flip-6-white.png"
   },
+  "galaxy-z-flip-8": {
+    "black": "/assets/cases/case-without-gel/galaxy-z-flip-7-black.png",
+    "white": "/assets/cases/case-without-gel/galaxy-z-flip-7-white.png"
+  },
   "galaxy-z-flip-7": {
     "black": "/assets/cases/case-without-gel/galaxy-z-flip-7-black.png",
     "white": "/assets/cases/case-without-gel/galaxy-z-flip-7-white.png"

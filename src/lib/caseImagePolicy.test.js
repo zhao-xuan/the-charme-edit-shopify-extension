@@ -16,6 +16,20 @@ const generatedImages = JSON.parse(
 const officialImageBounds = JSON.parse(
   readFileSync(new URL('../data/official-phone-case-image-bounds.json', import.meta.url), 'utf8'),
 )
+const productVariants = JSON.parse(
+  readFileSync(new URL('../../shopify/widget/variantmap-products.generated.json', import.meta.url), 'utf8'),
+)
+
+test('Galaxy Z Flip 8 follows Flip 7 artwork and is ordered immediately before it', () => {
+  const flip8 = ANDROID_LAUNCH_MODEL_IDS.indexOf('galaxy-z-flip-8')
+  assert.ok(flip8 >= 0)
+  assert.equal(ANDROID_LAUNCH_MODEL_IDS[flip8 + 1], 'galaxy-z-flip-7')
+  assert.deepEqual(officialImages['galaxy-z-flip-8'], officialImages['galaxy-z-flip-7'])
+  assert.deepEqual(
+    ['white', 'glitter', 'black'].map((finish) => productVariants[`galaxy-z-flip-8:${finish}`]),
+    [57413994316154, 57413994250618, 57413994283386],
+  )
+})
 
 const unreviewedInputs = {
   remoteProduct: { src: 'remote-white.png', srcBlack: 'remote-black.png' },
