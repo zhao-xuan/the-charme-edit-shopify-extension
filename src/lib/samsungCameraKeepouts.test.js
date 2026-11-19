@@ -4,6 +4,15 @@ import {
   samsungCameraObstacles,
   samsungCameraObstaclesByCaseColour,
 } from './samsungCameraKeepouts.js'
+
+test('Galaxy Z Fold 8 keeps the camera and flash clear on the folded case', () => {
+  const [camera, flash] = samsungCameraObstacles('galaxy-z-fold-8', 81.9, 123.9)
+  assert.equal(camera.type, 'roundedRect')
+  assert.ok(camera.xMm < 8 && camera.xMm + camera.wMm > 28)
+  assert.ok(camera.yMm + camera.hMm > 45)
+  assert.equal(flash.type, 'circle')
+  assert.ok(flash.cxMm > 30 && flash.cxMm < 38)
+})
 import { samsungFoldObstacles } from './samsungFoldKeepouts.js'
 
 const MEASURED_LENSES = [

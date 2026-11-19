@@ -496,6 +496,7 @@ const SAMSUNG_SPECS = {
   'galaxy-z-fold-4': [130.1, 155.1, 'samsungV3'],
   'galaxy-z-fold-5': [129.9, 154.9, 'samsungV3'],
   'galaxy-z-fold-6': [68.1, 155.5, 'samsungV3'],
+  'galaxy-z-fold-8': [81.9, 123.9, 'samsungV3'],
   'galaxy-z-fold-7': [143.2, 158.4, 'samsungV3'],
   'galaxy-a72-4g': [77.4, 165, 'samsungV3'],
   'galaxy-s9': [68.7, 147.7, 'samsungV3'],

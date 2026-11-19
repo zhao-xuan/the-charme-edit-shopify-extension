@@ -31,6 +31,20 @@ test('Galaxy Z Flip 8 follows Flip 7 artwork and is ordered immediately before i
   )
 })
 
+test('Galaxy Z Fold 8 has both supplied finishes, correct variants and precedes Fold 7', () => {
+  const index = ANDROID_LAUNCH_MODEL_IDS.indexOf('galaxy-z-fold-8')
+  assert.ok(index >= 0)
+  assert.equal(ANDROID_LAUNCH_MODEL_IDS[index + 1], 'galaxy-z-fold-7')
+  assert.deepEqual(officialImages['galaxy-z-fold-8'], {
+    white: '/assets/cases/case-without-gel/galaxy-z-fold-8-white.png',
+    black: '/assets/cases/case-without-gel/galaxy-z-fold-8-black.png',
+  })
+  assert.deepEqual(
+    ['white', 'glitter', 'black'].map((finish) => productVariants[`galaxy-z-fold-8:${finish}`]),
+    [57584322937210, 57584322871674, 57584322904442],
+  )
+})
+
 const unreviewedInputs = {
   remoteProduct: { src: 'remote-white.png', srcBlack: 'remote-black.png' },
   generatedImages: { white: 'generated-white.png', black: 'generated-black.png' },

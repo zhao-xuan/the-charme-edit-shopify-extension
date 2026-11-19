@@ -181,6 +181,10 @@
   "galaxy-z-fold-6": {
     "white": "/assets/cases/case-without-gel/galaxy-z-fold-6-white.png"
   },
+  "galaxy-z-fold-8": {
+    "black": "/assets/cases/case-without-gel/galaxy-z-fold-8-black.png",
+    "white": "/assets/cases/case-without-gel/galaxy-z-fold-8-white.png"
+  },
   "galaxy-z-fold-7": {
     "black": "/assets/cases/case-without-gel/galaxy-z-fold-7-black.png",
     "white": "/assets/cases/case-without-gel/galaxy-z-fold-7-white.png"
