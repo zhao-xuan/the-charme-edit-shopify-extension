@@ -4,6 +4,16 @@ import { charmPricingGroupFor } from './charmPricing.js'
 const PRICE_BATCH_SIZE = 250
 const PRICE_ENDPOINT = '/api/shopify/contextual-prices'
 
+// A placed letter keeps its design coordinates, but its price must follow the
+// latest catalogue snapshot when Shopify prices change while the editor is open.
+export function refreshPlacedLetterPrice(charm, catalogCharm) {
+  const isLetter = /^(gold|silver)$/i.test(String(catalogCharm?.category || '')) &&
+    /^letters\s*&\s*initials$/i.test(String(catalogCharm?.collection || ''))
+  return isLetter && catalogCharm?.price != null
+    ? { ...charm, price: catalogCharm.price }
+    : charm
+}
+
 export function asShopifyVariantId(value) {
   if (value == null) return null
   const match = String(value).trim().match(/(\d{8,20})$/)

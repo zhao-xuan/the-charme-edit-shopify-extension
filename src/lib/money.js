@@ -13,7 +13,7 @@
  * currency using that rate, (2) rounds the converted price up to a whole
  * presentment-currency unit, matching the merchant's Shopify Markets round-up
  * policy, then (3) formats it with `Intl.NumberFormat` in the active locale +
- * currency.
+ * currency. Prices in the shop's base currency retain their pence.
  */
 import { currentLocale } from './i18n.js'
 import { charmChargeLines, toteDiscountRate } from './charmPricing.js'
@@ -57,8 +57,9 @@ function currencyContext() {
 
 /** Convert a base-currency (GBP) amount into the buyer's active currency. */
 export function convert(gbp) {
-  const { rate } = currencyContext()
+  const { base, active, rate } = currencyContext()
   const raw = (Number(gbp) || 0) * rate
+  if (active === base && rate === 1) return raw
   return Math.ceil(raw - Number.EPSILON)
 }
 

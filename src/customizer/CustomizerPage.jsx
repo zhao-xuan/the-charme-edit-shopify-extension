@@ -48,6 +48,7 @@ import {
   fetchContextualVariantPrices,
   productVariantId,
   hasUnavailablePrices,
+  refreshPlacedLetterPrice,
 } from '../lib/marketPrices'
 import { API_BASE } from '../lib/apiBase'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalog, remoteCatalogFailed } from '../lib/remoteCatalog'
@@ -1740,13 +1741,13 @@ export default function CustomizerPage({
         })),
       ]
     : placed, [product.kind, placed, toteSide])
-  const pricedSummaryPlaced = useMemo(() => useMarketPrices
-    ? summaryPlaced.map((charm) => {
+  const pricedSummaryPlaced = useMemo(() => summaryPlaced.map((charm) => {
+        const current = refreshPlacedLetterPrice(charm, itemById(charm.charmId))
+        if (!useMarketPrices) return current
         const variantId = decorationVariantId(charm, marketVariantMap)
         const presentmentPrice = variantId ? marketDecorationPrices[variantId] : undefined
-        return presentmentPrice == null ? charm : { ...charm, presentmentPrice }
-      })
-    : summaryPlaced, [useMarketPrices, summaryPlaced, marketVariantMap, marketDecorationPrices])
+        return presentmentPrice == null ? current : { ...current, presentmentPrice }
+      }), [useMarketPrices, summaryPlaced, marketVariantMap, marketDecorationPrices, catalogVersion])
   const chargeLines = charmChargeLines(summaryPlaced, appSettings.charmPricingGroups)
   const marketDecorationsReady = !useMarketPrices || (
     currentMarketPriceStatus === 'ready' &&

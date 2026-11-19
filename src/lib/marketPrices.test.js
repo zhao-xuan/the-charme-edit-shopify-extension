@@ -7,8 +7,19 @@ import {
   decorationPriceRequestKey,
   fetchContextualVariantPrices,
   hasUnavailablePrices,
+  refreshPlacedLetterPrice,
   productVariantId,
 } from './marketPrices.js'
+
+test('placed gold and silver letters follow updated catalog prices without moving the design', () => {
+  for (const category of ['gold', 'Silver']) {
+    const placed = { charmId: 'letter', price: 1, cxMm: 12, cyMm: 25 }
+    const updated = refreshPlacedLetterPrice(placed, { category, collection: 'Letters & Initials', price: 1.5 })
+    assert.deepEqual(updated, { ...placed, price: 1.5 })
+    assert.equal(placed.price, 1)
+    assert.equal(refreshPlacedLetterPrice(placed, { category, collection: 'Other', price: 3 }), placed)
+  }
+})
 import { onRequestPost } from '../../functions/api/shopify/contextual-prices.js'
 import { onRequestGet as catalogResponse } from '../../functions/api/catalog.js'
 import { readFileSync } from 'node:fs'

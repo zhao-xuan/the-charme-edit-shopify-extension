@@ -6,7 +6,7 @@ import { letterPatchArtwork } from './letterPatchArtwork.js'
 import { orderByTaxonomy, orderList, phoneCategoryKey, phoneTaxonomy } from './catalogOrder.js'
 import vm from 'node:vm'
 import { onRequestDelete } from '../../functions/api/admin/charms.js'
-import { onRequestGet } from '../../functions/api/catalog.js'
+import { onRequestGet, syncLetterPrices } from '../../functions/api/catalog.js'
 import { fetchCatalog, deleteCharm } from './adminApi.js'
 import { loadRemoteCatalog, onRemoteCatalogChange, remoteCatalogFailed } from './remoteCatalog.js'
 import { isProductionHost } from './apiBase.js'
@@ -26,6 +26,22 @@ const charmNode = {
     { key: 'price', value: '4' },
   ],
 }
+
+test('letter charms use the latest Shopify variant price for both metals', async (t) => {
+  const records = [
+    { id: 'gold', category: 'Gold', collection: 'Letters & Initials', shopifyVariantId: '123456789', price: 1 },
+    { id: 'silver', category: 'Silver', collection: 'Letters & Initials', shopifyVariantId: '987654321', price: 1 },
+    { id: 'other', category: 'Gold', collection: 'Stars', shopifyVariantId: '333333333', price: 2 },
+  ]
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    const request = JSON.parse(options.body)
+    assert.equal(request.variables.ids.length, 2)
+    return Response.json({ data: { nodes: request.variables.ids.map((id) => ({ id, price: '1.50' })) } })
+  })
+  const updated = await syncLetterPrices(env, records)
+  assert.deepEqual(updated.map((charm) => charm.price), [1.5, 1.5, 2])
+  assert.deepEqual(records.map((charm) => charm.price), [1, 1, 2])
+})
 
 function shopify(t, { confirmDelete = true, failList = false, pauseList } = {}) {
   let exists = true
